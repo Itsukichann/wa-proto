@@ -637,7 +637,7 @@ $root.UserPassword = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = reader.string();
+                            message.key = reader.stringVerify();
                             message._key = "key";
                             continue;
                         }

@@ -191,7 +191,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.revealKeyId = reader.string();
+                        message.revealKeyId = reader.stringVerify();
                         message._revealKeyId = "revealKeyId";
                         continue;
                     }
@@ -529,7 +529,7 @@ $root.Web = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.extractedText = reader.string();
+                        message.extractedText = reader.stringVerify();
                         message._extractedText = "extractedText";
                         continue;
                     }
@@ -1536,28 +1536,28 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.title = reader.string();
+                        message.title = reader.stringVerify();
                         message._title = "title";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.subtitle = reader.string();
+                        message.subtitle = reader.stringVerify();
                         message._subtitle = "subtitle";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.cmsId = reader.string();
+                        message.cmsId = reader.stringVerify();
                         message._cmsId = "cmsId";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.imageUrl = reader.string();
+                        message.imageUrl = reader.stringVerify();
                         message._imageUrl = "imageUrl";
                         continue;
                     }
@@ -3478,7 +3478,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.serverCampaignId = reader.string();
+                        message.serverCampaignId = reader.stringVerify();
                         message._serverCampaignId = "serverCampaignId";
                         continue;
                     }
@@ -4645,7 +4645,7 @@ $root.Web = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.deviceJid = reader.string();
+                        message.deviceJid = reader.stringVerify();
                         message._deviceJid = "deviceJid";
                         continue;
                     }
@@ -5899,7 +5899,7 @@ $root.Web = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.editStanzaId = reader.string();
+                            message.editStanzaId = reader.stringVerify();
                             message._editStanzaId = "editStanzaId";
                             continue;
                         }
@@ -6737,14 +6737,14 @@ $root.Web = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.text = reader.string();
+                        message.text = reader.stringVerify();
                         message._text = "text";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.groupingKey = reader.string();
+                        message.groupingKey = reader.stringVerify();
                         message._groupingKey = "groupingKey";
                         continue;
                     }
@@ -7156,7 +7156,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.userJid = reader.string();
+                        message.userJid = reader.stringVerify();
                         message._userJid = "userJid";
                         continue;
                     }
@@ -7186,7 +7186,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.pendingDeviceJid && message.pendingDeviceJid.length))
                             message.pendingDeviceJid = [];
-                        message.pendingDeviceJid.push(reader.string());
+                        message.pendingDeviceJid.push(reader.stringVerify());
                         continue;
                     }
                 case 6: {
@@ -7194,7 +7194,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.deliveredDeviceJid && message.deliveredDeviceJid.length))
                             message.deliveredDeviceJid = [];
-                        message.deliveredDeviceJid.push(reader.string());
+                        message.deliveredDeviceJid.push(reader.stringVerify());
                         continue;
                     }
                 }
@@ -8228,7 +8228,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.localPath = reader.string();
+                        message.localPath = reader.stringVerify();
                         message._localPath = "localPath";
                         continue;
                     }
@@ -11885,7 +11885,7 @@ $root.Web = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }
@@ -12819,7 +12819,7 @@ $root.Web = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.receiverJid = reader.string();
+                        message.receiverJid = reader.stringVerify();
                         message._receiverJid = "receiverJid";
                         continue;
                     }
@@ -12861,7 +12861,7 @@ $root.Web = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.currency = reader.string();
+                        message.currency = reader.stringVerify();
                         message._currency = "currency";
                         continue;
                     }
@@ -15268,7 +15268,7 @@ $root.Web = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }
@@ -15303,7 +15303,7 @@ $root.Web = (function() {
                 case 19: {
                         if (wireType !== 2)
                             break;
-                        message.pushName = reader.string();
+                        message.pushName = reader.stringVerify();
                         message._pushName = "pushName";
                         continue;
                     }
@@ -15354,7 +15354,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.messageStubParameters && message.messageStubParameters.length))
                             message.messageStubParameters = [];
-                        message.messageStubParameters.push(reader.string());
+                        message.messageStubParameters.push(reader.stringVerify());
                         continue;
                     }
                 case 27: {
@@ -15369,7 +15369,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.labels && message.labels.length))
                             message.labels = [];
-                        message.labels.push(reader.string());
+                        message.labels.push(reader.stringVerify());
                         continue;
                     }
                 case 29: {
@@ -15431,7 +15431,7 @@ $root.Web = (function() {
                 case 37: {
                         if (wireType !== 2)
                             break;
-                        message.verifiedBizName = reader.string();
+                        message.verifiedBizName = reader.stringVerify();
                         message._verifiedBizName = "verifiedBizName";
                         continue;
                     }
@@ -15504,7 +15504,7 @@ $root.Web = (function() {
                 case 47: {
                         if (wireType !== 2)
                             break;
-                        message.agentId = reader.string();
+                        message.agentId = reader.stringVerify();
                         message._agentId = "agentId";
                         continue;
                     }
@@ -15532,7 +15532,7 @@ $root.Web = (function() {
                 case 51: {
                         if (wireType !== 2)
                             break;
-                        message.originalSelfAuthorUserJidString = reader.string();
+                        message.originalSelfAuthorUserJidString = reader.stringVerify();
                         message._originalSelfAuthorUserJidString = "originalSelfAuthorUserJidString";
                         continue;
                     }
@@ -15574,7 +15574,7 @@ $root.Web = (function() {
                 case 58: {
                         if (wireType !== 2)
                             break;
-                        message.botMessageInvokerJid = reader.string();
+                        message.botMessageInvokerJid = reader.stringVerify();
                         message._botMessageInvokerJid = "botMessageInvokerJid";
                         continue;
                     }
@@ -15626,7 +15626,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.statusMentions && message.statusMentions.length))
                             message.statusMentions = [];
-                        message.statusMentions.push(reader.string());
+                        message.statusMentions.push(reader.stringVerify());
                         continue;
                     }
                 case 67: {
@@ -15663,7 +15663,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.statusMentionSources && message.statusMentionSources.length))
                             message.statusMentionSources = [];
-                        message.statusMentionSources.push(reader.string());
+                        message.statusMentionSources.push(reader.stringVerify());
                         continue;
                     }
                 case 72: {
@@ -15677,7 +15677,7 @@ $root.Web = (function() {
                 case 73: {
                         if (wireType !== 2)
                             break;
-                        message.botTargetId = reader.string();
+                        message.botTargetId = reader.stringVerify();
                         message._botTargetId = "botTargetId";
                         continue;
                     }
@@ -15719,7 +15719,7 @@ $root.Web = (function() {
                 case 79: {
                         if (wireType !== 2)
                             break;
-                        message.hsmTag = reader.string();
+                        message.hsmTag = reader.stringVerify();
                         message._hsmTag = "hsmTag";
                         continue;
                     }
@@ -15740,7 +15740,7 @@ $root.Web = (function() {
                 case 82: {
                         if (wireType !== 2)
                             break;
-                        message.decisionId = reader.string();
+                        message.decisionId = reader.stringVerify();
                         message._decisionId = "decisionId";
                         continue;
                     }
@@ -15749,7 +15749,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.decisionSources && message.decisionSources.length))
                             message.decisionSources = [];
-                        message.decisionSources.push(reader.string());
+                        message.decisionSources.push(reader.stringVerify());
                         continue;
                     }
                 }
@@ -18805,7 +18805,7 @@ $root.E2E = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = reader.string();
+                        message.keyId = reader.stringVerify();
                         message._keyId = "keyId";
                         continue;
                     }
@@ -20213,7 +20213,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.label = reader.string();
+                        message.label = reader.stringVerify();
                         message._label = "label";
                         continue;
                     }
@@ -20833,21 +20833,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.originalUrl = reader.string();
+                            message.originalUrl = reader.stringVerify();
                             message._originalUrl = "originalUrl";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.unconsentedUsersUrl = reader.string();
+                            message.unconsentedUsersUrl = reader.stringVerify();
                             message._unconsentedUsersUrl = "unconsentedUsersUrl";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.consentedUsersUrl = reader.string();
+                            message.consentedUsersUrl = reader.stringVerify();
                             message._consentedUsersUrl = "consentedUsersUrl";
                             continue;
                         }
@@ -21266,7 +21266,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.directPath = reader.string();
+                        message.directPath = reader.stringVerify();
                         message._directPath = "directPath";
                         continue;
                     }
@@ -21317,7 +21317,7 @@ $root.E2E = (function() {
                             break;
                         if (!(message.capabilities && message.capabilities.length))
                             message.capabilities = [];
-                        message.capabilities.push(reader.string());
+                        message.capabilities.push(reader.stringVerify());
                         continue;
                     }
                 }
@@ -22024,7 +22024,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.expressPathUrl = reader.string();
+                        message.expressPathUrl = reader.stringVerify();
                         message._expressPathUrl = "expressPathUrl";
                         continue;
                     }
@@ -22694,14 +22694,14 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.groupJid = reader.string();
+                        message.groupJid = reader.stringVerify();
                         message._groupJid = "groupJid";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.groupSubject = reader.string();
+                        message.groupSubject = reader.stringVerify();
                         message._groupSubject = "groupSubject";
                         continue;
                     }
@@ -22994,14 +22994,14 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.url = reader.string();
+                        message.url = reader.stringVerify();
                         message._url = "url";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.buttonTitle = reader.string();
+                        message.buttonTitle = reader.stringVerify();
                         message._buttonTitle = "buttonTitle";
                         continue;
                     }
@@ -23342,7 +23342,7 @@ $root.E2E = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.initiatorDeviceJid = reader.string();
+                        message.initiatorDeviceJid = reader.stringVerify();
                         message._initiatorDeviceJid = "initiatorDeviceJid";
                         continue;
                     }
@@ -23904,7 +23904,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.id = reader.string();
+                        message.id = reader.stringVerify();
                         message._id = "id";
                         continue;
                     }
@@ -23932,7 +23932,7 @@ $root.E2E = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.mimetype = reader.string();
+                        message.mimetype = reader.stringVerify();
                         message._mimetype = "mimetype";
                         continue;
                     }
@@ -24445,7 +24445,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -24834,7 +24834,7 @@ $root.E2E = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.currencyCode = reader.string();
+                        message.currencyCode = reader.stringVerify();
                         message._currencyCode = "currencyCode";
                         continue;
                     }
@@ -25544,14 +25544,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayText = reader.string();
+                            message.displayText = reader.stringVerify();
                             message._displayText = "displayText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.phoneNumber = reader.string();
+                            message.phoneNumber = reader.stringVerify();
                             message._phoneNumber = "phoneNumber";
                             continue;
                         }
@@ -25844,14 +25844,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayText = reader.string();
+                            message.displayText = reader.stringVerify();
                             message._displayText = "displayText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.id = reader.string();
+                            message.id = reader.stringVerify();
                             message._id = "id";
                             continue;
                         }
@@ -26178,21 +26178,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayText = reader.string();
+                            message.displayText = reader.stringVerify();
                             message._displayText = "displayText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.consentedUsersUrl = reader.string();
+                            message.consentedUsersUrl = reader.stringVerify();
                             message._consentedUsersUrl = "consentedUsersUrl";
                             continue;
                         }
@@ -27276,7 +27276,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.id = reader.string();
+                            message.id = reader.stringVerify();
                             message._id = "id";
                             continue;
                         }
@@ -27925,7 +27925,7 @@ $root.E2E = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.name = reader.string();
+                        message.name = reader.stringVerify();
                         message._name = "name";
                         continue;
                     }
@@ -29187,14 +29187,14 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.title = reader.string();
+                        message.title = reader.stringVerify();
                         message._title = "title";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.tapUrl = reader.string();
+                        message.tapUrl = reader.stringVerify();
                         message._tapUrl = "tapUrl";
                         continue;
                     }
@@ -30017,35 +30017,35 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.musicContentMediaId = reader.string();
+                        message.musicContentMediaId = reader.stringVerify();
                         message._musicContentMediaId = "musicContentMediaId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.songId = reader.string();
+                        message.songId = reader.stringVerify();
                         message._songId = "songId";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.author = reader.string();
+                        message.author = reader.stringVerify();
                         message._author = "author";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.title = reader.string();
+                        message.title = reader.stringVerify();
                         message._title = "title";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.artworkDirectPath = reader.string();
+                        message.artworkDirectPath = reader.stringVerify();
                         message._artworkDirectPath = "artworkDirectPath";
                         continue;
                     }
@@ -30066,7 +30066,7 @@ $root.E2E = (function() {
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.artistAttribution = reader.string();
+                        message.artistAttribution = reader.stringVerify();
                         message._artistAttribution = "artistAttribution";
                         continue;
                     }
@@ -30561,7 +30561,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.stanzaId = reader.string();
+                        message.stanzaId = reader.stringVerify();
                         message._stanzaId = "stanzaId";
                         continue;
                     }
@@ -31811,7 +31811,7 @@ $root.E2E = (function() {
                 case 12: {
                         if (wireType !== 2)
                             break;
-                        message.supportPayload = reader.string();
+                        message.supportPayload = reader.stringVerify();
                         message._supportPayload = "supportPayload";
                         continue;
                     }
@@ -34309,14 +34309,14 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.stanzaId = reader.string();
+                        message.stanzaId = reader.stringVerify();
                         message._stanzaId = "stanzaId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }
@@ -34330,7 +34330,7 @@ $root.E2E = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.remoteJid = reader.string();
+                        message.remoteJid = reader.stringVerify();
                         message._remoteJid = "remoteJid";
                         continue;
                     }
@@ -34339,13 +34339,13 @@ $root.E2E = (function() {
                             break;
                         if (!(message.mentionedJid && message.mentionedJid.length))
                             message.mentionedJid = [];
-                        message.mentionedJid.push(reader.string());
+                        message.mentionedJid.push(reader.stringVerify());
                         continue;
                     }
                 case 18: {
                         if (wireType !== 2)
                             break;
-                        message.conversionSource = reader.string();
+                        message.conversionSource = reader.stringVerify();
                         message._conversionSource = "conversionSource";
                         continue;
                     }
@@ -34422,14 +34422,14 @@ $root.E2E = (function() {
                 case 29: {
                         if (wireType !== 2)
                             break;
-                        message.entryPointConversionSource = reader.string();
+                        message.entryPointConversionSource = reader.stringVerify();
                         message._entryPointConversionSource = "entryPointConversionSource";
                         continue;
                     }
                 case 30: {
                         if (wireType !== 2)
                             break;
-                        message.entryPointConversionApp = reader.string();
+                        message.entryPointConversionApp = reader.stringVerify();
                         message._entryPointConversionApp = "entryPointConversionApp";
                         continue;
                     }
@@ -34457,21 +34457,21 @@ $root.E2E = (function() {
                 case 34: {
                         if (wireType !== 2)
                             break;
-                        message.groupSubject = reader.string();
+                        message.groupSubject = reader.stringVerify();
                         message._groupSubject = "groupSubject";
                         continue;
                     }
                 case 35: {
                         if (wireType !== 2)
                             break;
-                        message.parentGroupJid = reader.string();
+                        message.parentGroupJid = reader.stringVerify();
                         message._parentGroupJid = "parentGroupJid";
                         continue;
                     }
                 case 37: {
                         if (wireType !== 2)
                             break;
-                        message.trustBannerType = reader.string();
+                        message.trustBannerType = reader.stringVerify();
                         message._trustBannerType = "trustBannerType";
                         continue;
                     }
@@ -34521,14 +34521,14 @@ $root.E2E = (function() {
                 case 45: {
                         if (wireType !== 2)
                             break;
-                        message.smbClientCampaignId = reader.string();
+                        message.smbClientCampaignId = reader.stringVerify();
                         message._smbClientCampaignId = "smbClientCampaignId";
                         continue;
                     }
                 case 46: {
                         if (wireType !== 2)
                             break;
-                        message.smbServerCampaignId = reader.string();
+                        message.smbServerCampaignId = reader.stringVerify();
                         message._smbServerCampaignId = "smbServerCampaignId";
                         continue;
                     }
@@ -34556,21 +34556,21 @@ $root.E2E = (function() {
                 case 50: {
                         if (wireType !== 2)
                             break;
-                        message.entryPointConversionExternalSource = reader.string();
+                        message.entryPointConversionExternalSource = reader.stringVerify();
                         message._entryPointConversionExternalSource = "entryPointConversionExternalSource";
                         continue;
                     }
                 case 51: {
                         if (wireType !== 2)
                             break;
-                        message.entryPointConversionExternalMedium = reader.string();
+                        message.entryPointConversionExternalMedium = reader.stringVerify();
                         message._entryPointConversionExternalMedium = "entryPointConversionExternalMedium";
                         continue;
                     }
                 case 54: {
                         if (wireType !== 2)
                             break;
-                        message.ctwaSignals = reader.string();
+                        message.ctwaSignals = reader.stringVerify();
                         message._ctwaSignals = "ctwaSignals";
                         continue;
                     }
@@ -34739,7 +34739,7 @@ $root.E2E = (function() {
                 case 79: {
                         if (wireType !== 2)
                             break;
-                        message.posterStatusId = reader.string();
+                        message.posterStatusId = reader.stringVerify();
                         message._posterStatusId = "posterStatusId";
                         continue;
                     }
@@ -35998,7 +35998,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.advertiserName = reader.string();
+                            message.advertiserName = reader.stringVerify();
                             message._advertiserName = "advertiserName";
                             continue;
                         }
@@ -36019,7 +36019,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -36420,7 +36420,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.businessJid = reader.string();
+                            message.businessJid = reader.stringVerify();
                             message._businessJid = "businessJid";
                             continue;
                         }
@@ -36860,7 +36860,7 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.actionUrl = reader.string();
+                                message.actionUrl = reader.stringVerify();
                                 message._actionUrl = "actionUrl";
                                 continue;
                             }
@@ -37259,7 +37259,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.verifiedName = reader.string();
+                                message.verifiedName = reader.stringVerify();
                                 message._verifiedName = "verifiedName";
                                 continue;
                             }
@@ -37563,7 +37563,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.businessOwnerJid = reader.string();
+                            message.businessOwnerJid = reader.stringVerify();
                             message._businessOwnerJid = "businessOwnerJid";
                             continue;
                         }
@@ -37900,7 +37900,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.encryptedSignalTokenConsented = reader.string();
+                            message.encryptedSignalTokenConsented = reader.stringVerify();
                             message._encryptedSignalTokenConsented = "encryptedSignalTokenConsented";
                             continue;
                         }
@@ -38305,14 +38305,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.key = reader.string();
+                                message.key = reader.stringVerify();
                                 message._key = "key";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.stringData = reader.string();
+                                message.stringData = reader.stringVerify();
                                 message._stringData = "stringData";
                                 continue;
                             }
@@ -39184,14 +39184,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.body = reader.string();
+                            message.body = reader.stringVerify();
                             message._body = "body";
                             continue;
                         }
@@ -39205,14 +39205,14 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailUrl = reader.string();
+                            message.thumbnailUrl = reader.stringVerify();
                             message._thumbnailUrl = "thumbnailUrl";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.mediaUrl = reader.string();
+                            message.mediaUrl = reader.stringVerify();
                             message._mediaUrl = "mediaUrl";
                             continue;
                         }
@@ -39226,21 +39226,21 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceType = reader.string();
+                            message.sourceType = reader.stringVerify();
                             message._sourceType = "sourceType";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceId = reader.string();
+                            message.sourceId = reader.stringVerify();
                             message._sourceId = "sourceId";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceUrl = reader.string();
+                            message.sourceUrl = reader.stringVerify();
                             message._sourceUrl = "sourceUrl";
                             continue;
                         }
@@ -39268,14 +39268,14 @@ $root.E2E = (function() {
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.ctwaClid = reader.string();
+                            message.ctwaClid = reader.stringVerify();
                             message._ctwaClid = "ctwaClid";
                             continue;
                         }
                     case 14: {
                             if (wireType !== 2)
                                 break;
-                            message.ref = reader.string();
+                            message.ref = reader.stringVerify();
                             message._ref = "ref";
                             continue;
                         }
@@ -39296,7 +39296,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceApp = reader.string();
+                            message.sourceApp = reader.stringVerify();
                             message._sourceApp = "sourceApp";
                             continue;
                         }
@@ -39310,14 +39310,14 @@ $root.E2E = (function() {
                     case 19: {
                             if (wireType !== 2)
                                 break;
-                            message.greetingMessageBody = reader.string();
+                            message.greetingMessageBody = reader.stringVerify();
                             message._greetingMessageBody = "greetingMessageBody";
                             continue;
                         }
                     case 20: {
                             if (wireType !== 2)
                                 break;
-                            message.ctaPayload = reader.string();
+                            message.ctaPayload = reader.stringVerify();
                             message._ctaPayload = "ctaPayload";
                             continue;
                         }
@@ -39331,14 +39331,14 @@ $root.E2E = (function() {
                     case 22: {
                             if (wireType !== 2)
                                 break;
-                            message.originalImageUrl = reader.string();
+                            message.originalImageUrl = reader.stringVerify();
                             message._originalImageUrl = "originalImageUrl";
                             continue;
                         }
                     case 23: {
                             if (wireType !== 2)
                                 break;
-                            message.automatedGreetingMessageCtaType = reader.string();
+                            message.automatedGreetingMessageCtaType = reader.stringVerify();
                             message._automatedGreetingMessageCtaType = "automatedGreetingMessageCtaType";
                             continue;
                         }
@@ -39359,14 +39359,14 @@ $root.E2E = (function() {
                     case 26: {
                             if (wireType !== 2)
                                 break;
-                            message.wtwaWebsiteUrl = reader.string();
+                            message.wtwaWebsiteUrl = reader.stringVerify();
                             message._wtwaWebsiteUrl = "wtwaWebsiteUrl";
                             continue;
                         }
                     case 27: {
                             if (wireType !== 2)
                                 break;
-                            message.adPreviewUrl = reader.string();
+                            message.adPreviewUrl = reader.stringVerify();
                             message._adPreviewUrl = "adPreviewUrl";
                             continue;
                         }
@@ -40529,7 +40529,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterJid = reader.string();
+                            message.newsletterJid = reader.stringVerify();
                             message._newsletterJid = "newsletterJid";
                             continue;
                         }
@@ -40543,7 +40543,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterName = reader.string();
+                            message.newsletterName = reader.stringVerify();
                             message._newsletterName = "newsletterName";
                             continue;
                         }
@@ -40557,14 +40557,14 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.accessibilityText = reader.string();
+                            message.accessibilityText = reader.stringVerify();
                             message._accessibilityText = "accessibilityText";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.profileName = reader.string();
+                            message.profileName = reader.stringVerify();
                             message._profileName = "profileName";
                             continue;
                         }
@@ -40944,7 +40944,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
@@ -41636,14 +41636,14 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.listName = reader.string();
+                            message.listName = reader.stringVerify();
                             message._listName = "listName";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.listEmoji = reader.string();
+                            message.listEmoji = reader.stringVerify();
                             message._listEmoji = "listEmoji";
                             continue;
                         }
@@ -42000,14 +42000,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.utmSource = reader.string();
+                            message.utmSource = reader.stringVerify();
                             message._utmSource = "utmSource";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.utmCampaign = reader.string();
+                            message.utmCampaign = reader.stringVerify();
                             message._utmCampaign = "utmCampaign";
                             continue;
                         }
@@ -44524,7 +44524,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.conversation = reader.string();
+                        message.conversation = reader.stringVerify();
                         message._conversation = "conversation";
                         continue;
                     }
@@ -47479,7 +47479,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.collectionNames && message.collectionNames.length))
                                 message.collectionNames = [];
-                            message.collectionNames.push(reader.string());
+                            message.collectionNames.push(reader.stringVerify());
                             continue;
                         }
                     case 2: {
@@ -49901,14 +49901,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
@@ -49957,7 +49957,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -50006,7 +50006,7 @@ $root.E2E = (function() {
                     case 22: {
                             if (wireType !== 2)
                                 break;
-                            message.accessibilityLabel = reader.string();
+                            message.accessibilityLabel = reader.stringVerify();
                             message._accessibilityLabel = "accessibilityLabel";
                             continue;
                         }
@@ -50504,7 +50504,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.sessionId = reader.string();
+                            message.sessionId = reader.stringVerify();
                             message._sessionId = "sessionId";
                             continue;
                         }
@@ -50525,7 +50525,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -51007,14 +51007,14 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.contentText = reader.string();
+                            message.contentText = reader.stringVerify();
                             message._contentText = "contentText";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.footerText = reader.string();
+                            message.footerText = reader.stringVerify();
                             message._footerText = "footerText";
                             continue;
                         }
@@ -51043,7 +51043,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message.header = "text";
                             continue;
                         }
@@ -51581,7 +51581,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.buttonId = reader.string();
+                                message.buttonId = reader.stringVerify();
                                 message._buttonId = "buttonId";
                                 continue;
                             }
@@ -51929,7 +51929,7 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.displayText = reader.string();
+                                    message.displayText = reader.stringVerify();
                                     message._displayText = "displayText";
                                     continue;
                                 }
@@ -52213,14 +52213,14 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.name = reader.string();
+                                    message.name = reader.stringVerify();
                                     message._name = "name";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.paramsJson = reader.string();
+                                    message.paramsJson = reader.stringVerify();
                                     message._paramsJson = "paramsJson";
                                     continue;
                                 }
@@ -52607,7 +52607,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.selectedButtonId = reader.string();
+                            message.selectedButtonId = reader.stringVerify();
                             message._selectedButtonId = "selectedButtonId";
                             continue;
                         }
@@ -52628,7 +52628,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.selectedDisplayText = reader.string();
+                            message.selectedDisplayText = reader.stringVerify();
                             message.response = "selectedDisplayText";
                             continue;
                         }
@@ -53154,7 +53154,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.conversionSource = reader.string();
+                            message.conversionSource = reader.stringVerify();
                             message._conversionSource = "conversionSource";
                             continue;
                         }
@@ -53175,7 +53175,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.ctwaSignals = reader.string();
+                            message.ctwaSignals = reader.stringVerify();
                             message._ctwaSignals = "ctwaSignals";
                             continue;
                         }
@@ -53196,14 +53196,14 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.nativeFlowCallButtonPayload = reader.string();
+                            message.nativeFlowCallButtonPayload = reader.stringVerify();
                             message._nativeFlowCallButtonPayload = "nativeFlowCallButtonPayload";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.deeplinkPayload = reader.string();
+                            message.deeplinkPayload = reader.stringVerify();
                             message._deeplinkPayload = "deeplinkPayload";
                             continue;
                         }
@@ -54133,7 +54133,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.jid = reader.string();
+                                message.jid = reader.stringVerify();
                                 message._jid = "jid";
                                 continue;
                             }
@@ -54774,14 +54774,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayName = reader.string();
+                            message.displayName = reader.stringVerify();
                             message._displayName = "displayName";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.id = reader.string();
+                            message.id = reader.stringVerify();
                             message._id = "id";
                             continue;
                         }
@@ -55125,7 +55125,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -55766,14 +55766,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.colorLight = reader.string();
+                            message.colorLight = reader.stringVerify();
                             message._colorLight = "colorLight";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.colorDark = reader.string();
+                            message.colorDark = reader.stringVerify();
                             message._colorDark = "colorDark";
                             continue;
                         }
@@ -56082,7 +56082,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.stockImageId = reader.string();
+                            message.stockImageId = reader.stringVerify();
                             message._stockImageId = "stockImageId";
                             continue;
                         }
@@ -56480,7 +56480,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.colorSchemeId = reader.string();
+                            message.colorSchemeId = reader.stringVerify();
                             message._colorSchemeId = "colorSchemeId";
                             continue;
                         }
@@ -56982,14 +56982,14 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.consumerLid = reader.string();
+                            message.consumerLid = reader.stringVerify();
                             message._consumerLid = "consumerLid";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.consumerPhoneNumber = reader.string();
+                            message.consumerPhoneNumber = reader.stringVerify();
                             message._consumerPhoneNumber = "consumerPhoneNumber";
                             continue;
                         }
@@ -57394,14 +57394,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.handoffNotificationText = reader.string();
+                                message.handoffNotificationText = reader.stringVerify();
                                 message._handoffNotificationText = "handoffNotificationText";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.extraJson = reader.string();
+                                message.extraJson = reader.stringVerify();
                                 message._extraJson = "extraJson";
                                 continue;
                             }
@@ -58068,7 +58068,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.revealKeyId = reader.string();
+                            message.revealKeyId = reader.stringVerify();
                             message._revealKeyId = "revealKeyId";
                             continue;
                         }
@@ -58458,14 +58458,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayName = reader.string();
+                            message.displayName = reader.stringVerify();
                             message._displayName = "displayName";
                             continue;
                         }
                     case 16: {
                             if (wireType !== 2)
                                 break;
-                            message.vcard = reader.string();
+                            message.vcard = reader.stringVerify();
                             message._vcard = "vcard";
                             continue;
                         }
@@ -58814,7 +58814,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayName = reader.string();
+                            message.displayName = reader.stringVerify();
                             message._displayName = "displayName";
                             continue;
                         }
@@ -59449,7 +59449,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.destinationJid = reader.string();
+                            message.destinationJid = reader.stringVerify();
                             message._destinationJid = "destinationJid";
                             continue;
                         }
@@ -59463,7 +59463,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.phash = reader.string();
+                            message.phash = reader.stringVerify();
                             message._phash = "phash";
                             continue;
                         }
@@ -60117,21 +60117,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
@@ -60166,7 +60166,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.fileName = reader.string();
+                            message.fileName = reader.stringVerify();
                             message._fileName = "fileName";
                             continue;
                         }
@@ -60180,7 +60180,7 @@ $root.E2E = (function() {
                     case 10: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -60201,7 +60201,7 @@ $root.E2E = (function() {
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailDirectPath = reader.string();
+                            message.thumbnailDirectPath = reader.stringVerify();
                             message._thumbnailDirectPath = "thumbnailDirectPath";
                             continue;
                         }
@@ -60250,14 +60250,14 @@ $root.E2E = (function() {
                     case 20: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
                     case 21: {
                             if (wireType !== 2)
                                 break;
-                            message.accessibilityLabel = reader.string();
+                            message.accessibilityLabel = reader.stringVerify();
                             message._accessibilityLabel = "accessibilityLabel";
                             continue;
                         }
@@ -61941,14 +61941,14 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.eventId = reader.string();
+                            message.eventId = reader.stringVerify();
                             message._eventId = "eventId";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.eventTitle = reader.string();
+                            message.eventTitle = reader.stringVerify();
                             message._eventTitle = "eventTitle";
                             continue;
                         }
@@ -61969,7 +61969,7 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -61990,7 +61990,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.callLink = reader.string();
+                            message.callLink = reader.stringVerify();
                             message._callLink = "callLink";
                             continue;
                         }
@@ -62577,14 +62577,14 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.description = reader.string();
+                            message.description = reader.stringVerify();
                             message._description = "description";
                             continue;
                         }
@@ -62598,7 +62598,7 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.joinLink = reader.string();
+                            message.joinLink = reader.stringVerify();
                             message._joinLink = "joinLink";
                             continue;
                         }
@@ -64003,28 +64003,28 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.matchedText = reader.string();
+                            message.matchedText = reader.stringVerify();
                             message._matchedText = "matchedText";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.description = reader.string();
+                            message.description = reader.stringVerify();
                             message._description = "description";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
@@ -64080,7 +64080,7 @@ $root.E2E = (function() {
                     case 19: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailDirectPath = reader.string();
+                            message.thumbnailDirectPath = reader.stringVerify();
                             message._thumbnailDirectPath = "thumbnailDirectPath";
                             continue;
                         }
@@ -64136,7 +64136,7 @@ $root.E2E = (function() {
                     case 27: {
                             if (wireType !== 2)
                                 break;
-                            message.inviteLinkParentGroupSubjectV2 = reader.string();
+                            message.inviteLinkParentGroupSubjectV2 = reader.stringVerify();
                             message._inviteLinkParentGroupSubjectV2 = "inviteLinkParentGroupSubjectV2";
                             continue;
                         }
@@ -64207,7 +64207,7 @@ $root.E2E = (function() {
                     case 37: {
                             if (wireType !== 2)
                                 break;
-                            message.videoContentUrl = reader.string();
+                            message.videoContentUrl = reader.stringVerify();
                             message._videoContentUrl = "videoContentUrl";
                             continue;
                         }
@@ -65405,14 +65405,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.requestId = reader.string();
+                            message.requestId = reader.stringVerify();
                             message._requestId = "requestId";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.businessProduct = reader.string();
+                            message.businessProduct = reader.stringVerify();
                             message._businessProduct = "businessProduct";
                             continue;
                         }
@@ -66112,14 +66112,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.groupJid = reader.string();
+                            message.groupJid = reader.stringVerify();
                             message._groupJid = "groupJid";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.inviteCode = reader.string();
+                            message.inviteCode = reader.stringVerify();
                             message._inviteCode = "inviteCode";
                             continue;
                         }
@@ -66133,7 +66133,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.groupName = reader.string();
+                            message.groupName = reader.stringVerify();
                             message._groupName = "groupName";
                             continue;
                         }
@@ -66147,7 +66147,7 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -66684,14 +66684,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.namespace = reader.string();
+                            message.namespace = reader.stringVerify();
                             message._namespace = "namespace";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.elementName = reader.string();
+                            message.elementName = reader.stringVerify();
                             message._elementName = "elementName";
                             continue;
                         }
@@ -66700,20 +66700,20 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.params && message.params.length))
                                 message.params = [];
-                            message.params.push(reader.string());
+                            message.params.push(reader.stringVerify());
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.fallbackLg = reader.string();
+                            message.fallbackLg = reader.stringVerify();
                             message._fallbackLg = "fallbackLg";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.fallbackLc = reader.string();
+                            message.fallbackLc = reader.stringVerify();
                             message._fallbackLc = "fallbackLc";
                             continue;
                         }
@@ -66728,14 +66728,14 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.deterministicLg = reader.string();
+                            message.deterministicLg = reader.stringVerify();
                             message._deterministicLg = "deterministicLg";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.deterministicLc = reader.string();
+                            message.deterministicLc = reader.stringVerify();
                             message._deterministicLc = "deterministicLc";
                             continue;
                         }
@@ -67154,7 +67154,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message["default"] = reader.string();
+                                message["default"] = reader.stringVerify();
                                 message._default = "default";
                                 continue;
                             }
@@ -67487,7 +67487,7 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.currencyCode = reader.string();
+                                    message.currencyCode = reader.stringVerify();
                                     message._currencyCode = "currencyCode";
                                     continue;
                                 }
@@ -69492,7 +69492,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -69513,7 +69513,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.originalMessageId = reader.string();
+                            message.originalMessageId = reader.stringVerify();
                             message._originalMessageId = "originalMessageId";
                             continue;
                         }
@@ -69541,7 +69541,7 @@ $root.E2E = (function() {
                     case 12: {
                             if (wireType !== 2)
                                 break;
-                            message.peerDataRequestSessionId = reader.string();
+                            message.peerDataRequestSessionId = reader.stringVerify();
                             message._peerDataRequestSessionId = "peerDataRequestSessionId";
                             continue;
                         }
@@ -69555,7 +69555,7 @@ $root.E2E = (function() {
                     case 14: {
                             if (wireType !== 2)
                                 break;
-                            message.encHandle = reader.string();
+                            message.encHandle = reader.stringVerify();
                             message._encHandle = "encHandle";
                             continue;
                         }
@@ -70601,21 +70601,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -70672,7 +70672,7 @@ $root.E2E = (function() {
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -70765,7 +70765,7 @@ $root.E2E = (function() {
                     case 26: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailDirectPath = reader.string();
+                            message.thumbnailDirectPath = reader.stringVerify();
                             message._thumbnailDirectPath = "thumbnailDirectPath";
                             continue;
                         }
@@ -70786,7 +70786,7 @@ $root.E2E = (function() {
                     case 29: {
                             if (wireType !== 2)
                                 break;
-                            message.staticUrl = reader.string();
+                            message.staticUrl = reader.stringVerify();
                             message._staticUrl = "staticUrl";
                             continue;
                         }
@@ -70808,14 +70808,14 @@ $root.E2E = (function() {
                     case 32: {
                             if (wireType !== 2)
                                 break;
-                            message.accessibilityLabel = reader.string();
+                            message.accessibilityLabel = reader.stringVerify();
                             message._accessibilityLabel = "accessibilityLabel";
                             continue;
                         }
                     case 34: {
                             if (wireType !== 2)
                                 break;
-                            message.qrUrl = reader.string();
+                            message.qrUrl = reader.stringVerify();
                             message._qrUrl = "qrUrl";
                             continue;
                         }
@@ -72474,28 +72474,28 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.uuid = reader.string();
+                                message.uuid = reader.stringVerify();
                                 message._uuid = "uuid";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.data = reader.string();
+                                message.data = reader.stringVerify();
                                 message._data = "data";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.type = reader.string();
+                                message.type = reader.stringVerify();
                                 message._type = "type";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.fallback = reader.string();
+                                message.fallback = reader.stringVerify();
                                 message._fallback = "fallback";
                                 continue;
                             }
@@ -72789,7 +72789,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.text = reader.string();
+                                message.text = reader.stringVerify();
                                 message._text = "text";
                                 continue;
                             }
@@ -73482,14 +73482,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.bizJid = reader.string();
+                                message.bizJid = reader.stringVerify();
                                 message._bizJid = "bizJid";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.id = reader.string();
+                                message.id = reader.stringVerify();
                                 message._id = "id";
                                 continue;
                             }
@@ -73828,7 +73828,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.text = reader.string();
+                                message.text = reader.stringVerify();
                                 message._text = "text";
                                 continue;
                             }
@@ -74279,14 +74279,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.subtitle = reader.string();
+                                message.subtitle = reader.stringVerify();
                                 message._subtitle = "subtitle";
                                 continue;
                             }
@@ -74795,7 +74795,7 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.messageParamsJson = reader.string();
+                                message.messageParamsJson = reader.stringVerify();
                                 message._messageParamsJson = "messageParamsJson";
                                 continue;
                             }
@@ -75118,14 +75118,14 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.name = reader.string();
+                                    message.name = reader.stringVerify();
                                     message._name = "name";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.buttonParamsJson = reader.string();
+                                    message.buttonParamsJson = reader.stringVerify();
                                     message._buttonParamsJson = "buttonParamsJson";
                                     continue;
                                 }
@@ -75438,7 +75438,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.id = reader.string();
+                                message.id = reader.stringVerify();
                                 message._id = "id";
                                 continue;
                             }
@@ -76168,7 +76168,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.text = reader.string();
+                                message.text = reader.stringVerify();
                                 message._text = "text";
                                 continue;
                             }
@@ -76518,14 +76518,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.name = reader.string();
+                                message.name = reader.stringVerify();
                                 message._name = "name";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.paramsJson = reader.string();
+                                message.paramsJson = reader.stringVerify();
                                 message._paramsJson = "paramsJson";
                                 continue;
                             }
@@ -76973,14 +76973,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.note = reader.string();
+                            message.note = reader.stringVerify();
                             message._note = "note";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.token = reader.string();
+                            message.token = reader.stringVerify();
                             message._token = "token";
                             continue;
                         }
@@ -76994,7 +76994,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.attachmentMimetype = reader.string();
+                            message.attachmentMimetype = reader.stringVerify();
                             message._attachmentMimetype = "attachmentMimetype";
                             continue;
                         }
@@ -77029,7 +77029,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.attachmentDirectPath = reader.string();
+                            message.attachmentDirectPath = reader.stringVerify();
                             message._attachmentDirectPath = "attachmentDirectPath";
                             continue;
                         }
@@ -77994,7 +77994,7 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.videoContentUrl = reader.string();
+                            message.videoContentUrl = reader.stringVerify();
                             message._videoContentUrl = "videoContentUrl";
                             continue;
                         }
@@ -78008,7 +78008,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.videoContentCaption = reader.string();
+                            message.videoContentCaption = reader.stringVerify();
                             message._videoContentCaption = "videoContentCaption";
                             continue;
                         }
@@ -78551,21 +78551,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.description = reader.string();
+                            message.description = reader.stringVerify();
                             message._description = "description";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.buttonText = reader.string();
+                            message.buttonText = reader.stringVerify();
                             message._buttonText = "buttonText";
                             continue;
                         }
@@ -78594,7 +78594,7 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.footerText = reader.string();
+                            message.footerText = reader.stringVerify();
                             message._footerText = "footerText";
                             continue;
                         }
@@ -78997,7 +78997,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.productId = reader.string();
+                                message.productId = reader.stringVerify();
                                 message._productId = "productId";
                                 continue;
                             }
@@ -79281,7 +79281,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.productId = reader.string();
+                                message.productId = reader.stringVerify();
                                 message._productId = "productId";
                                 continue;
                             }
@@ -79612,7 +79612,7 @@ $root.E2E = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.businessOwnerJid = reader.string();
+                                message.businessOwnerJid = reader.stringVerify();
                                 message._businessOwnerJid = "businessOwnerJid";
                                 continue;
                             }
@@ -79933,7 +79933,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
@@ -80268,21 +80268,21 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.description = reader.string();
+                                message.description = reader.stringVerify();
                                 message._description = "description";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.rowId = reader.string();
+                                message.rowId = reader.stringVerify();
                                 message._rowId = "rowId";
                                 continue;
                             }
@@ -80580,7 +80580,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
@@ -80959,7 +80959,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
@@ -80987,7 +80987,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.description = reader.string();
+                            message.description = reader.stringVerify();
                             message._description = "description";
                             continue;
                         }
@@ -81332,7 +81332,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.selectedRowId = reader.string();
+                                message.selectedRowId = reader.stringVerify();
                                 message._selectedRowId = "selectedRowId";
                                 continue;
                             }
@@ -81802,7 +81802,7 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -82414,21 +82414,21 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.address = reader.string();
+                            message.address = reader.stringVerify();
                             message._address = "address";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
@@ -82463,7 +82463,7 @@ $root.E2E = (function() {
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.comment = reader.string();
+                            message.comment = reader.stringVerify();
                             message._comment = "comment";
                             continue;
                         }
@@ -82954,7 +82954,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailDirectPath = reader.string();
+                            message.thumbnailDirectPath = reader.stringVerify();
                             message._thumbnailDirectPath = "thumbnailDirectPath";
                             continue;
                         }
@@ -83467,7 +83467,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
@@ -83495,7 +83495,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -83941,7 +83941,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.historyReceivers && message.historyReceivers.length))
                                 message.historyReceivers = [];
-                            message.historyReceivers.push(reader.string());
+                            message.historyReceivers.push(reader.stringVerify());
                             continue;
                         }
                     case 2: {
@@ -83963,7 +83963,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.nonHistoryReceivers && message.nonHistoryReceivers.length))
                                 message.nonHistoryReceivers = [];
-                            message.nonHistoryReceivers.push(reader.string());
+                            message.nonHistoryReceivers.push(reader.stringVerify());
                             continue;
                         }
                     case 5: {
@@ -84741,14 +84741,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterJid = reader.string();
+                            message.newsletterJid = reader.stringVerify();
                             message._newsletterJid = "newsletterJid";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterName = reader.string();
+                            message.newsletterName = reader.stringVerify();
                             message._newsletterName = "newsletterName";
                             continue;
                         }
@@ -84762,7 +84762,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -85184,14 +85184,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterJid = reader.string();
+                            message.newsletterJid = reader.stringVerify();
                             message._newsletterJid = "newsletterJid";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterName = reader.string();
+                            message.newsletterName = reader.stringVerify();
                             message._newsletterName = "newsletterName";
                             continue;
                         }
@@ -85205,7 +85205,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -85779,7 +85779,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.orderId = reader.string();
+                            message.orderId = reader.stringVerify();
                             message._orderId = "orderId";
                             continue;
                         }
@@ -85814,28 +85814,28 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.message = reader.string();
+                            message.message = reader.stringVerify();
                             message._message = "message";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.orderTitle = reader.string();
+                            message.orderTitle = reader.stringVerify();
                             message._orderTitle = "orderTitle";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.sellerJid = reader.string();
+                            message.sellerJid = reader.stringVerify();
                             message._sellerJid = "sellerJid";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.token = reader.string();
+                            message.token = reader.stringVerify();
                             message._token = "token";
                             continue;
                         }
@@ -85849,7 +85849,7 @@ $root.E2E = (function() {
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.totalCurrencyCode = reader.string();
+                            message.totalCurrencyCode = reader.stringVerify();
                             message._totalCurrencyCode = "totalCurrencyCode";
                             continue;
                         }
@@ -85877,7 +85877,7 @@ $root.E2E = (function() {
                     case 15: {
                             if (wireType !== 2)
                                 break;
-                            message.catalogType = reader.string();
+                            message.catalogType = reader.stringVerify();
                             message._catalogType = "catalogType";
                             continue;
                         }
@@ -86387,7 +86387,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.platform = reader.string();
+                            message.platform = reader.stringVerify();
                             message._platform = "platform";
                             continue;
                         }
@@ -86752,7 +86752,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.referralId = reader.string();
+                            message.referralId = reader.stringVerify();
                             message._referralId = "referralId";
                             continue;
                         }
@@ -87502,7 +87502,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.displayText = reader.string();
+                                message.displayText = reader.stringVerify();
                                 message._displayText = "displayText";
                                 continue;
                             }
@@ -88069,7 +88069,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.paramsJson = reader.string();
+                                message.paramsJson = reader.stringVerify();
                                 message._paramsJson = "paramsJson";
                                 continue;
                             }
@@ -88475,21 +88475,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.reminderId = reader.string();
+                            message.reminderId = reader.stringVerify();
                             message._reminderId = "reminderId";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.instanceId = reader.string();
+                            message.instanceId = reader.stringVerify();
                             message._instanceId = "instanceId";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.description = reader.string();
+                            message.description = reader.stringVerify();
                             message._description = "description";
                             continue;
                         }
@@ -88510,21 +88510,21 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.payeeVpa = reader.string();
+                            message.payeeVpa = reader.stringVerify();
                             message._payeeVpa = "payeeVpa";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.payeeJid = reader.string();
+                            message.payeeJid = reader.stringVerify();
                             message._payeeJid = "payeeJid";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.payerJid = reader.string();
+                            message.payerJid = reader.stringVerify();
                             message._payerJid = "payerJid";
                             continue;
                         }
@@ -89786,7 +89786,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.campaignId = reader.string();
+                                message.campaignId = reader.stringVerify();
                                 message._campaignId = "campaignId";
                                 continue;
                             }
@@ -90053,7 +90053,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.campaignId = reader.string();
+                                message.campaignId = reader.stringVerify();
                                 message._campaignId = "campaignId";
                                 continue;
                             }
@@ -90320,7 +90320,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.registrationTraceId = reader.string();
+                                message.registrationTraceId = reader.stringVerify();
                                 message._registrationTraceId = "registrationTraceId";
                                 continue;
                             }
@@ -91013,28 +91013,28 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.flowId = reader.string();
+                                message.flowId = reader.stringVerify();
                                 message._flowId = "flowId";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.stanzaId = reader.string();
+                                message.stanzaId = reader.stringVerify();
                                 message._stanzaId = "stanzaId";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.galaxyFlowDownloadRequestId = reader.string();
+                                message.galaxyFlowDownloadRequestId = reader.stringVerify();
                                 message._galaxyFlowDownloadRequestId = "galaxyFlowDownloadRequestId";
                                 continue;
                             }
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.agmId = reader.string();
+                                message.agmId = reader.stringVerify();
                                 message._agmId = "agmId";
                                 continue;
                             }
@@ -91435,7 +91435,7 @@ $root.E2E = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.chunkNotificationId = reader.string();
+                                message.chunkNotificationId = reader.stringVerify();
                                 message._chunkNotificationId = "chunkNotificationId";
                                 continue;
                             }
@@ -91892,14 +91892,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.chatJid = reader.string();
+                                message.chatJid = reader.stringVerify();
                                 message._chatJid = "chatJid";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.oldestMsgId = reader.string();
+                                message.oldestMsgId = reader.stringVerify();
                                 message._oldestMsgId = "oldestMsgId";
                                 continue;
                             }
@@ -91927,7 +91927,7 @@ $root.E2E = (function() {
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.accountLid = reader.string();
+                                message.accountLid = reader.stringVerify();
                                 message._accountLid = "accountLid";
                                 continue;
                             }
@@ -92540,7 +92540,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.fileSha256 = reader.string();
+                                message.fileSha256 = reader.stringVerify();
                                 message._fileSha256 = "fileSha256";
                                 continue;
                             }
@@ -92824,7 +92824,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.url = reader.string();
+                                message.url = reader.stringVerify();
                                 message._url = "url";
                                 continue;
                             }
@@ -93124,7 +93124,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.collectionName = reader.string();
+                                message.collectionName = reader.stringVerify();
                                 message._collectionName = "collectionName";
                                 continue;
                             }
@@ -93464,7 +93464,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.stanzaId = reader.string();
+                            message.stanzaId = reader.stringVerify();
                             message._stanzaId = "stanzaId";
                             continue;
                         }
@@ -94616,7 +94616,7 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.campaignId = reader.string();
+                                    message.campaignId = reader.stringVerify();
                                     message._campaignId = "campaignId";
                                     continue;
                                 }
@@ -94962,7 +94962,7 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.contactJid = reader.string();
+                                    message.contactJid = reader.stringVerify();
                                     message._contactJid = "contactJid";
                                     continue;
                                 }
@@ -95313,14 +95313,14 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.nonce = reader.string();
+                                    message.nonce = reader.stringVerify();
                                     message._nonce = "nonce";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.waFbid = reader.string();
+                                    message.waFbid = reader.stringVerify();
                                     message._waFbid = "waFbid";
                                     continue;
                                 }
@@ -95612,7 +95612,7 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.nonce = reader.string();
+                                    message.nonce = reader.stringVerify();
                                     message._nonce = "nonce";
                                     continue;
                                 }
@@ -96032,28 +96032,28 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.flowId = reader.string();
+                                    message.flowId = reader.stringVerify();
                                     message._flowId = "flowId";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.galaxyFlowDownloadRequestId = reader.string();
+                                    message.galaxyFlowDownloadRequestId = reader.stringVerify();
                                     message._galaxyFlowDownloadRequestId = "galaxyFlowDownloadRequestId";
                                     continue;
                                 }
                             case 3: {
                                     if (wireType !== 2)
                                         break;
-                                    message.fileName = reader.string();
+                                    message.fileName = reader.stringVerify();
                                     message._fileName = "fileName";
                                     continue;
                                 }
                             case 4: {
                                     if (wireType !== 2)
                                         break;
-                                    message.mimetype = reader.string();
+                                    message.mimetype = reader.stringVerify();
                                     message._mimetype = "mimetype";
                                     continue;
                                 }
@@ -96081,7 +96081,7 @@ $root.E2E = (function() {
                             case 8: {
                                     if (wireType !== 2)
                                         break;
-                                    message.directPath = reader.string();
+                                    message.directPath = reader.stringVerify();
                                     message._directPath = "directPath";
                                     continue;
                                 }
@@ -96939,7 +96939,7 @@ $root.E2E = (function() {
                             case 3: {
                                     if (wireType !== 2)
                                         break;
-                                    message.requestId = reader.string();
+                                    message.requestId = reader.stringVerify();
                                     message._requestId = "requestId";
                                     continue;
                                 }
@@ -97490,21 +97490,21 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.url = reader.string();
+                                    message.url = reader.stringVerify();
                                     message._url = "url";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.title = reader.string();
+                                    message.title = reader.stringVerify();
                                     message._title = "title";
                                     continue;
                                 }
                             case 3: {
                                     if (wireType !== 2)
                                         break;
-                                    message.description = reader.string();
+                                    message.description = reader.stringVerify();
                                     message._description = "description";
                                     continue;
                                 }
@@ -97518,14 +97518,14 @@ $root.E2E = (function() {
                             case 6: {
                                     if (wireType !== 2)
                                         break;
-                                    message.matchText = reader.string();
+                                    message.matchText = reader.stringVerify();
                                     message._matchText = "matchText";
                                     continue;
                                 }
                             case 7: {
                                     if (wireType !== 2)
                                         break;
-                                    message.previewType = reader.string();
+                                    message.previewType = reader.stringVerify();
                                     message._previewType = "previewType";
                                     continue;
                                 }
@@ -97983,21 +97983,21 @@ $root.E2E = (function() {
                                 case 1: {
                                         if (wireType !== 2)
                                             break;
-                                        message.directPath = reader.string();
+                                        message.directPath = reader.stringVerify();
                                         message._directPath = "directPath";
                                         continue;
                                     }
                                 case 2: {
                                         if (wireType !== 2)
                                             break;
-                                        message.thumbHash = reader.string();
+                                        message.thumbHash = reader.stringVerify();
                                         message._thumbHash = "thumbHash";
                                         continue;
                                     }
                                 case 3: {
                                         if (wireType !== 2)
                                             break;
-                                        message.encThumbHash = reader.string();
+                                        message.encThumbHash = reader.stringVerify();
                                         message._encThumbHash = "encThumbHash";
                                         continue;
                                     }
@@ -98436,28 +98436,28 @@ $root.E2E = (function() {
                                 case 2: {
                                         if (wireType !== 2)
                                             break;
-                                        message.providerName = reader.string();
+                                        message.providerName = reader.stringVerify();
                                         message._providerName = "providerName";
                                         continue;
                                     }
                                 case 3: {
                                         if (wireType !== 2)
                                             break;
-                                        message.amount = reader.string();
+                                        message.amount = reader.stringVerify();
                                         message._amount = "amount";
                                         continue;
                                     }
                                 case 4: {
                                         if (wireType !== 2)
                                             break;
-                                        message.offset = reader.string();
+                                        message.offset = reader.stringVerify();
                                         message._offset = "offset";
                                         continue;
                                     }
                                 case 5: {
                                         if (wireType !== 2)
                                             break;
-                                        message.currency = reader.string();
+                                        message.currency = reader.stringVerify();
                                         message._currency = "currency";
                                         continue;
                                     }
@@ -99353,14 +99353,14 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.nonce = reader.string();
+                                    message.nonce = reader.stringVerify();
                                     message._nonce = "nonce";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.waEntFbid = reader.string();
+                                    message.waEntFbid = reader.stringVerify();
                                     message._waEntFbid = "waEntFbid";
                                     continue;
                                 }
@@ -100917,7 +100917,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
@@ -101439,14 +101439,14 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.optionName = reader.string();
+                                message.optionName = reader.stringVerify();
                                 message._optionName = "optionName";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.optionHash = reader.string();
+                                message.optionHash = reader.stringVerify();
                                 message._optionHash = "optionHash";
                                 continue;
                             }
@@ -102084,7 +102084,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
@@ -102456,7 +102456,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.optionName = reader.string();
+                                message.optionName = reader.stringVerify();
                                 message._optionName = "optionName";
                                 continue;
                             }
@@ -103188,7 +103188,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.lastEditStanzaId = reader.string();
+                            message.lastEditStanzaId = reader.stringVerify();
                             message._lastEditStanzaId = "lastEditStanzaId";
                             continue;
                         }
@@ -103842,7 +103842,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.businessOwnerJid = reader.string();
+                            message.businessOwnerJid = reader.stringVerify();
                             message._businessOwnerJid = "businessOwnerJid";
                             continue;
                         }
@@ -103856,14 +103856,14 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.body = reader.string();
+                            message.body = reader.stringVerify();
                             message._body = "body";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.footer = reader.string();
+                            message.footer = reader.stringVerify();
                             message._footer = "footer";
                             continue;
                         }
@@ -104243,14 +104243,14 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.description = reader.string();
+                                message.description = reader.stringVerify();
                                 message._description = "description";
                                 continue;
                             }
@@ -104749,28 +104749,28 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.productId = reader.string();
+                                message.productId = reader.stringVerify();
                                 message._productId = "productId";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.description = reader.string();
+                                message.description = reader.stringVerify();
                                 message._description = "description";
                                 continue;
                             }
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.currencyCode = reader.string();
+                                message.currencyCode = reader.stringVerify();
                                 message._currencyCode = "currencyCode";
                                 continue;
                             }
@@ -104784,14 +104784,14 @@ $root.E2E = (function() {
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.retailerId = reader.string();
+                                message.retailerId = reader.stringVerify();
                                 message._retailerId = "retailerId";
                                 continue;
                             }
                         case 8: {
                                 if (wireType !== 2)
                                     break;
-                                message.url = reader.string();
+                                message.url = reader.stringVerify();
                                 message._url = "url";
                                 continue;
                             }
@@ -104805,7 +104805,7 @@ $root.E2E = (function() {
                         case 11: {
                                 if (wireType !== 2)
                                     break;
-                                message.firstImageId = reader.string();
+                                message.firstImageId = reader.stringVerify();
                                 message._firstImageId = "firstImageId";
                                 continue;
                             }
@@ -104819,7 +104819,7 @@ $root.E2E = (function() {
                         case 13: {
                                 if (wireType !== 2)
                                     break;
-                                message.signedUrl = reader.string();
+                                message.signedUrl = reader.stringVerify();
                                 message._signedUrl = "signedUrl";
                                 continue;
                             }
@@ -105812,7 +105812,7 @@ $root.E2E = (function() {
                     case 19: {
                             if (wireType !== 2)
                                 break;
-                            message.invokerJid = reader.string();
+                            message.invokerJid = reader.stringVerify();
                             message._invokerJid = "invokerJid";
                             continue;
                         }
@@ -106812,7 +106812,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
@@ -107152,14 +107152,14 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.groupingKey = reader.string();
+                            message.groupingKey = reader.stringVerify();
                             message._groupingKey = "groupingKey";
                             continue;
                         }
@@ -107596,7 +107596,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.currencyCodeIso4217 = reader.string();
+                            message.currencyCodeIso4217 = reader.stringVerify();
                             message._currencyCodeIso4217 = "currencyCodeIso4217";
                             continue;
                         }
@@ -107610,7 +107610,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.requestFrom = reader.string();
+                            message.requestFrom = reader.stringVerify();
                             message._requestFrom = "requestFrom";
                             continue;
                         }
@@ -108675,7 +108675,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.chatJid = reader.string();
+                            message.chatJid = reader.stringVerify();
                             message._chatJid = "chatJid";
                             continue;
                         }
@@ -108990,7 +108990,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
@@ -109762,7 +109762,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.remoteKeyId = reader.string();
+                            message.remoteKeyId = reader.stringVerify();
                             message._remoteKeyId = "remoteKeyId";
                             continue;
                         }
@@ -110216,7 +110216,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.transactionData = reader.string();
+                            message.transactionData = reader.stringVerify();
                             message._transactionData = "transactionData";
                             continue;
                         }
@@ -110545,7 +110545,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.groupId = reader.string();
+                            message.groupId = reader.stringVerify();
                             message._groupId = "groupId";
                             continue;
                         }
@@ -110938,7 +110938,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.splitId = reader.string();
+                            message.splitId = reader.stringVerify();
                             message._splitId = "splitId";
                             continue;
                         }
@@ -110952,14 +110952,14 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.description = reader.string();
+                            message.description = reader.stringVerify();
                             message._description = "description";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.requesterJid = reader.string();
+                            message.requesterJid = reader.stringVerify();
                             message._requesterJid = "requesterJid";
                             continue;
                         }
@@ -111377,7 +111377,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.jid = reader.string();
+                            message.jid = reader.stringVerify();
                             message._jid = "jid";
                             continue;
                         }
@@ -112131,7 +112131,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
@@ -112471,7 +112471,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
@@ -112855,7 +112855,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.stickerKey = reader.string();
+                            message.stickerKey = reader.stringVerify();
                             message._stickerKey = "stickerKey";
                             continue;
                         }
@@ -113567,7 +113567,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
@@ -113595,7 +113595,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
@@ -113616,7 +113616,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -113700,7 +113700,7 @@ $root.E2E = (function() {
                     case 22: {
                             if (wireType !== 2)
                                 break;
-                            message.accessibilityLabel = reader.string();
+                            message.accessibilityLabel = reader.stringVerify();
                             message._accessibilityLabel = "accessibilityLabel";
                             continue;
                         }
@@ -113714,7 +113714,7 @@ $root.E2E = (function() {
                     case 25: {
                             if (wireType !== 2)
                                 break;
-                            message.emojis = reader.string();
+                            message.emojis = reader.stringVerify();
                             message._emojis = "emojis";
                             continue;
                         }
@@ -114604,21 +114604,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.stickerPackId = reader.string();
+                            message.stickerPackId = reader.stringVerify();
                             message._stickerPackId = "stickerPackId";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.publisher = reader.string();
+                            message.publisher = reader.stringVerify();
                             message._publisher = "publisher";
                             continue;
                         }
@@ -114661,14 +114661,14 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
                     case 10: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -114682,7 +114682,7 @@ $root.E2E = (function() {
                     case 12: {
                             if (wireType !== 2)
                                 break;
-                            message.packDescription = reader.string();
+                            message.packDescription = reader.stringVerify();
                             message._packDescription = "packDescription";
                             continue;
                         }
@@ -114696,14 +114696,14 @@ $root.E2E = (function() {
                     case 14: {
                             if (wireType !== 2)
                                 break;
-                            message.trayIconFileName = reader.string();
+                            message.trayIconFileName = reader.stringVerify();
                             message._trayIconFileName = "trayIconFileName";
                             continue;
                         }
                     case 15: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailDirectPath = reader.string();
+                            message.thumbnailDirectPath = reader.stringVerify();
                             message._thumbnailDirectPath = "thumbnailDirectPath";
                             continue;
                         }
@@ -114738,7 +114738,7 @@ $root.E2E = (function() {
                     case 20: {
                             if (wireType !== 2)
                                 break;
-                            message.imageDataHash = reader.string();
+                            message.imageDataHash = reader.stringVerify();
                             message._imageDataHash = "imageDataHash";
                             continue;
                         }
@@ -115401,7 +115401,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.fileName = reader.string();
+                                message.fileName = reader.stringVerify();
                                 message._fileName = "fileName";
                                 continue;
                             }
@@ -115417,13 +115417,13 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.emojis && message.emojis.length))
                                     message.emojis = [];
-                                message.emojis.push(reader.string());
+                                message.emojis.push(reader.stringVerify());
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.accessibilityLabel = reader.string();
+                                message.accessibilityLabel = reader.stringVerify();
                                 message._accessibilityLabel = "accessibilityLabel";
                                 continue;
                             }
@@ -115437,7 +115437,7 @@ $root.E2E = (function() {
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.mimetype = reader.string();
+                                message.mimetype = reader.stringVerify();
                                 message._mimetype = "mimetype";
                                 continue;
                             }
@@ -115828,13 +115828,13 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.filehash && message.filehash.length))
                                 message.filehash = [];
-                            message.filehash.push(reader.string());
+                            message.filehash.push(reader.stringVerify());
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.rmrSource = reader.string();
+                            message.rmrSource = reader.stringVerify();
                             message._rmrSource = "rmrSource";
                             continue;
                         }
@@ -116225,14 +116225,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.selectedId = reader.string();
+                            message.selectedId = reader.stringVerify();
                             message._selectedId = "selectedId";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.selectedDisplayText = reader.string();
+                            message.selectedDisplayText = reader.stringVerify();
                             message._selectedDisplayText = "selectedDisplayText";
                             continue;
                         }
@@ -116665,7 +116665,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.templateId = reader.string();
+                            message.templateId = reader.stringVerify();
                             message._templateId = "templateId";
                             continue;
                         }
@@ -117754,14 +117754,14 @@ $root.E2E = (function() {
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.hydratedContentText = reader.string();
+                                message.hydratedContentText = reader.stringVerify();
                                 message._hydratedContentText = "hydratedContentText";
                                 continue;
                             }
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.hydratedFooterText = reader.string();
+                                message.hydratedFooterText = reader.stringVerify();
                                 message._hydratedFooterText = "hydratedFooterText";
                                 continue;
                             }
@@ -117776,7 +117776,7 @@ $root.E2E = (function() {
                         case 9: {
                                 if (wireType !== 2)
                                     break;
-                                message.templateId = reader.string();
+                                message.templateId = reader.stringVerify();
                                 message._templateId = "templateId";
                                 continue;
                             }
@@ -117797,7 +117797,7 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.hydratedTitleText = reader.string();
+                                message.hydratedTitleText = reader.stringVerify();
                                 message.title = "hydratedTitleText";
                                 continue;
                             }
@@ -118551,28 +118551,28 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.username = reader.string();
+                            message.username = reader.stringVerify();
                             message._username = "username";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailImageUrl = reader.string();
+                            message.thumbnailImageUrl = reader.stringVerify();
                             message._thumbnailImageUrl = "thumbnailImageUrl";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.profilePictureUrl = reader.string();
+                            message.profilePictureUrl = reader.stringVerify();
                             message._profilePictureUrl = "profilePictureUrl";
                             continue;
                         }
@@ -119379,14 +119379,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
@@ -119421,7 +119421,7 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.caption = reader.string();
+                            message.caption = reader.stringVerify();
                             message._caption = "caption";
                             continue;
                         }
@@ -119464,7 +119464,7 @@ $root.E2E = (function() {
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -119513,7 +119513,7 @@ $root.E2E = (function() {
                     case 21: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailDirectPath = reader.string();
+                            message.thumbnailDirectPath = reader.stringVerify();
                             message._thumbnailDirectPath = "thumbnailDirectPath";
                             continue;
                         }
@@ -119534,7 +119534,7 @@ $root.E2E = (function() {
                     case 24: {
                             if (wireType !== 2)
                                 break;
-                            message.staticUrl = reader.string();
+                            message.staticUrl = reader.stringVerify();
                             message._staticUrl = "staticUrl";
                             continue;
                         }
@@ -119549,7 +119549,7 @@ $root.E2E = (function() {
                     case 26: {
                             if (wireType !== 2)
                                 break;
-                            message.accessibilityLabel = reader.string();
+                            message.accessibilityLabel = reader.stringVerify();
                             message._accessibilityLabel = "accessibilityLabel";
                             continue;
                         }
@@ -119578,7 +119578,7 @@ $root.E2E = (function() {
                     case 30: {
                             if (wireType !== 2)
                                 break;
-                            message.metadataUrl = reader.string();
+                            message.metadataUrl = reader.stringVerify();
                             message._metadataUrl = "metadataUrl";
                             continue;
                         }
@@ -120843,7 +120843,7 @@ $root.Protocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.remoteJid = reader.string();
+                        message.remoteJid = reader.stringVerify();
                         message._remoteJid = "remoteJid";
                         continue;
                     }
@@ -120857,14 +120857,14 @@ $root.Protocol = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.id = reader.string();
+                        message.id = reader.stringVerify();
                         message._id = "id";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }
@@ -121349,7 +121349,7 @@ $root.AICommonDeprecated = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.messageText = reader.string();
+                        message.messageText = reader.stringVerify();
                         message._messageText = "messageText";
                         continue;
                     }
@@ -122525,28 +122525,28 @@ $root.AICommonDeprecated = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.profileIconUrl = reader.string();
+                            message.profileIconUrl = reader.stringVerify();
                             message._profileIconUrl = "profileIconUrl";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailUrl = reader.string();
+                            message.thumbnailUrl = reader.stringVerify();
                             message._thumbnailUrl = "thumbnailUrl";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.videoUrl = reader.string();
+                            message.videoUrl = reader.stringVerify();
                             message._videoUrl = "videoUrl";
                             continue;
                         }
@@ -123389,14 +123389,14 @@ $root.AICommonDeprecated = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.body = reader.string();
+                            message.body = reader.stringVerify();
                             message._body = "body";
                             continue;
                         }
@@ -123715,7 +123715,7 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.text = reader.string();
+                        message.text = reader.stringVerify();
                         message._text = "text";
                         continue;
                     }
@@ -124149,14 +124149,14 @@ $root.AICommonDeprecated = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.latexExpression = reader.string();
+                            message.latexExpression = reader.stringVerify();
                             message._latexExpression = "latexExpression";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
@@ -124612,7 +124612,7 @@ $root.AICommonDeprecated = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.url = reader.string();
+                        message.url = reader.stringVerify();
                         message._url = "url";
                         continue;
                     }
@@ -124986,7 +124986,7 @@ $root.AICommonDeprecated = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.title = reader.string();
+                        message.title = reader.stringVerify();
                         message._title = "title";
                         continue;
                     }
@@ -125291,7 +125291,7 @@ $root.AICommonDeprecated = (function() {
                                 break;
                             if (!(message.items && message.items.length))
                                 message.items = [];
-                            message.items.push(reader.string());
+                            message.items.push(reader.stringVerify());
                             continue;
                         }
                     case 2: {
@@ -125601,7 +125601,7 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.codeLanguage = reader.string();
+                        message.codeLanguage = reader.stringVerify();
                         message._codeLanguage = "codeLanguage";
                         continue;
                     }
@@ -125923,7 +125923,7 @@ $root.AICommonDeprecated = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.codeContent = reader.string();
+                            message.codeContent = reader.stringVerify();
                             message._codeContent = "codeContent";
                             continue;
                         }
@@ -126321,7 +126321,7 @@ $root.AICommonDeprecated = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.imageText = reader.string();
+                        message.imageText = reader.stringVerify();
                         message._imageText = "imageText";
                         continue;
                     }
@@ -126335,7 +126335,7 @@ $root.AICommonDeprecated = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.tapLinkUrl = reader.string();
+                        message.tapLinkUrl = reader.stringVerify();
                         message._tapLinkUrl = "tapLinkUrl";
                         continue;
                     }
@@ -127029,21 +127029,21 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.imagePreviewUrl = reader.string();
+                        message.imagePreviewUrl = reader.stringVerify();
                         message._imagePreviewUrl = "imagePreviewUrl";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.imageHighResUrl = reader.string();
+                        message.imageHighResUrl = reader.stringVerify();
                         message._imageHighResUrl = "imageHighResUrl";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.sourceUrl = reader.string();
+                        message.sourceUrl = reader.stringVerify();
                         message._sourceUrl = "sourceUrl";
                         continue;
                     }
@@ -127498,7 +127498,7 @@ $root.StatusAttributions = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.actionUrl = reader.string();
+                        message.actionUrl = reader.stringVerify();
                         message._actionUrl = "actionUrl";
                         continue;
                     }
@@ -128351,7 +128351,7 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.actionUrl = reader.string();
+                            message.actionUrl = reader.stringVerify();
                             message._actionUrl = "actionUrl";
                             continue;
                         }
@@ -128372,7 +128372,7 @@ $root.StatusAttributions = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.actionFallbackUrl = reader.string();
+                            message.actionFallbackUrl = reader.stringVerify();
                             message._actionFallbackUrl = "actionFallbackUrl";
                             continue;
                         }
@@ -128776,7 +128776,7 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.authorJid = reader.string();
+                            message.authorJid = reader.stringVerify();
                             message._authorJid = "authorJid";
                             continue;
                         }
@@ -129128,35 +129128,35 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.authorName = reader.string();
+                            message.authorName = reader.stringVerify();
                             message._authorName = "authorName";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.songId = reader.string();
+                            message.songId = reader.stringVerify();
                             message._songId = "songId";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.author = reader.string();
+                            message.author = reader.stringVerify();
                             message._author = "author";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.artistAttribution = reader.string();
+                            message.artistAttribution = reader.stringVerify();
                             message._artistAttribution = "artistAttribution";
                             continue;
                         }
@@ -130184,7 +130184,7 @@ $root.StatusAttributions = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.channelJid = reader.string();
+                                message.channelJid = reader.stringVerify();
                                 message._channelJid = "channelJid";
                                 continue;
                             }
@@ -130564,7 +130564,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.token = reader.string();
+                        message.token = reader.stringVerify();
                         message._token = "token";
                         continue;
                     }
@@ -131143,7 +131143,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.toolsUsed && message.toolsUsed.length))
                             message.toolsUsed = [];
-                        message.toolsUsed.push(reader.string());
+                        message.toolsUsed.push(reader.stringVerify());
                         continue;
                     }
                 case 3: {
@@ -131975,49 +131975,49 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.promptText = reader.string();
+                            message.promptText = reader.stringVerify();
                             message._promptText = "promptText";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.sessionId = reader.string();
+                            message.sessionId = reader.stringVerify();
                             message._sessionId = "sessionId";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.imageWdsIdentifier = reader.string();
+                            message.imageWdsIdentifier = reader.stringVerify();
                             message._imageWdsIdentifier = "imageWdsIdentifier";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.imageTintColor = reader.string();
+                            message.imageTintColor = reader.stringVerify();
                             message._imageTintColor = "imageTintColor";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.imageBackgroundColor = reader.string();
+                            message.imageBackgroundColor = reader.stringVerify();
                             message._imageBackgroundColor = "imageBackgroundColor";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.cardTypeId = reader.string();
+                            message.cardTypeId = reader.stringVerify();
                             message._cardTypeId = "cardTypeId";
                             continue;
                         }
@@ -132745,14 +132745,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.disclaimerText = reader.string();
+                        message.disclaimerText = reader.stringVerify();
                         message._disclaimerText = "disclaimerText";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.hcaId = reader.string();
+                        message.hcaId = reader.stringVerify();
                         message._hcaId = "hcaId";
                         continue;
                     }
@@ -134234,21 +134234,21 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.botName = reader.string();
+                        message.botName = reader.stringVerify();
                         message._botName = "botName";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.botJid = reader.string();
+                        message.botJid = reader.stringVerify();
                         message._botJid = "botJid";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.creatorName = reader.string();
+                        message.creatorName = reader.stringVerify();
                         message._creatorName = "creatorName";
                         continue;
                     }
@@ -134649,7 +134649,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.text = reader.string();
+                        message.text = reader.stringVerify();
                         message._text = "text";
                         continue;
                     }
@@ -135364,7 +135364,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.selectedRequestId = reader.string();
+                            message.selectedRequestId = reader.stringVerify();
                             message._selectedRequestId = "selectedRequestId";
                             continue;
                         }
@@ -135378,21 +135378,21 @@ $root.AICommon = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.simonSessionFbid = reader.string();
+                            message.simonSessionFbid = reader.stringVerify();
                             message._simonSessionFbid = "simonSessionFbid";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.responseOtid = reader.string();
+                            message.responseOtid = reader.stringVerify();
                             message._responseOtid = "responseOtid";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.responseTimestampMsString = reader.string();
+                            message.responseTimestampMsString = reader.stringVerify();
                             message._responseTimestampMsString = "responseTimestampMsString";
                             continue;
                         }
@@ -135406,7 +135406,7 @@ $root.AICommon = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.messageIdToEdit = reader.string();
+                            message.messageIdToEdit = reader.stringVerify();
                             message._messageIdToEdit = "messageIdToEdit";
                             continue;
                         }
@@ -135802,21 +135802,21 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.tessaEvent = reader.string();
+                                message.tessaEvent = reader.stringVerify();
                                 message._tessaEvent = "tessaEvent";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.tessaSessionFbid = reader.string();
+                                message.tessaSessionFbid = reader.stringVerify();
                                 message._tessaSessionFbid = "tessaSessionFbid";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.simonSessionFbid = reader.string();
+                                message.simonSessionFbid = reader.stringVerify();
                                 message._simonSessionFbid = "simonSessionFbid";
                                 continue;
                             }
@@ -136244,21 +136244,21 @@ $root.AICommon = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.primaryResponseId = reader.string();
+                                message.primaryResponseId = reader.stringVerify();
                                 message._primaryResponseId = "primaryResponseId";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.testArmName = reader.string();
+                                message.testArmName = reader.stringVerify();
                                 message._testArmName = "testArmName";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.timestampMsString = reader.string();
+                                message.timestampMsString = reader.stringVerify();
                                 message._timestampMsString = "timestampMsString";
                                 continue;
                             }
@@ -136659,7 +136659,7 @@ $root.AICommon = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.abandonDwellTimeMsString = reader.string();
+                                    message.abandonDwellTimeMsString = reader.stringVerify();
                                     message._abandonDwellTimeMsString = "abandonDwellTimeMsString";
                                     continue;
                                 }
@@ -136950,7 +136950,7 @@ $root.AICommon = (function() {
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.clickDwellTimeMsString = reader.string();
+                                    message.clickDwellTimeMsString = reader.stringVerify();
                                     message._clickDwellTimeMsString = "clickDwellTimeMsString";
                                     continue;
                                 }
@@ -137729,14 +137729,14 @@ $root.AICommon = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.responseDwellTimeMsString = reader.string();
+                                    message.responseDwellTimeMsString = reader.stringVerify();
                                     message._responseDwellTimeMsString = "responseDwellTimeMsString";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.selectedResponseId = reader.string();
+                                    message.selectedResponseId = reader.stringVerify();
                                     message._selectedResponseId = "selectedResponseId";
                                     continue;
                                 }
@@ -138021,7 +138021,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.botFbid = reader.string();
+                        message.botFbid = reader.stringVerify();
                         message._botFbid = "botFbid";
                         continue;
                     }
@@ -138305,7 +138305,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.bloksVersioningId = reader.string();
+                        message.bloksVersioningId = reader.stringVerify();
                         message._bloksVersioningId = "bloksVersioningId";
                         continue;
                     }
@@ -139858,7 +139858,7 @@ $root.AICommon = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.personaId = reader.string();
+                        message.personaId = reader.stringVerify();
                         message._personaId = "personaId";
                         continue;
                     }
@@ -139879,7 +139879,7 @@ $root.AICommon = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.invokerJid = reader.string();
+                        message.invokerJid = reader.stringVerify();
                         message._invokerJid = "invokerJid";
                         continue;
                     }
@@ -139900,7 +139900,7 @@ $root.AICommon = (function() {
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.timezone = reader.string();
+                        message.timezone = reader.stringVerify();
                         message._timezone = "timezone";
                         continue;
                     }
@@ -139921,7 +139921,7 @@ $root.AICommon = (function() {
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.messageDisclaimerText = reader.string();
+                        message.messageDisclaimerText = reader.stringVerify();
                         message._messageDisclaimerText = "messageDisclaimerText";
                         continue;
                     }
@@ -140019,14 +140019,14 @@ $root.AICommon = (function() {
                 case 25: {
                         if (wireType !== 2)
                             break;
-                        message.conversationStarterPromptId = reader.string();
+                        message.conversationStarterPromptId = reader.stringVerify();
                         message._conversationStarterPromptId = "conversationStarterPromptId";
                         continue;
                     }
                 case 26: {
                         if (wireType !== 2)
                             break;
-                        message.botResponseId = reader.string();
+                        message.botResponseId = reader.stringVerify();
                         message._botResponseId = "botResponseId";
                         continue;
                     }
@@ -140991,7 +140991,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.transcript = reader.string();
+                        message.transcript = reader.stringVerify();
                         message._transcript = "transcript";
                         continue;
                     }
@@ -141275,14 +141275,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.toolCallId = reader.string();
+                        message.toolCallId = reader.stringVerify();
                         message._toolCallId = "toolCallId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.resolutionDataSerialized = reader.string();
+                        message.resolutionDataSerialized = reader.stringVerify();
                         message._resolutionDataSerialized = "resolutionDataSerialized";
                         continue;
                     }
@@ -141592,21 +141592,21 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.commandName = reader.string();
+                        message.commandName = reader.stringVerify();
                         message._commandName = "commandName";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.commandDescription = reader.string();
+                        message.commandDescription = reader.stringVerify();
                         message._commandDescription = "commandDescription";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.commandPrompt = reader.string();
+                        message.commandPrompt = reader.stringVerify();
                         message._commandPrompt = "commandPrompt";
                         continue;
                     }
@@ -142212,7 +142212,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.requestId = reader.string();
+                        message.requestId = reader.stringVerify();
                         message._requestId = "requestId";
                         continue;
                     }
@@ -142546,7 +142546,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.collectionId = reader.string();
+                        message.collectionId = reader.stringVerify();
                         message._collectionId = "collectionId";
                         continue;
                     }
@@ -142862,7 +142862,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.collectionId = reader.string();
+                        message.collectionId = reader.stringVerify();
                         message._collectionId = "collectionId";
                         continue;
                     }
@@ -143478,7 +143478,7 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceChatJid = reader.string();
+                            message.sourceChatJid = reader.stringVerify();
                             message._sourceChatJid = "sourceChatJid";
                             continue;
                         }
@@ -143801,7 +143801,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
@@ -144422,7 +144422,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.id = reader.string();
+                            message.id = reader.stringVerify();
                             message._id = "id";
                             continue;
                         }
@@ -144750,7 +144750,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.primaryResponseId = reader.string();
+                            message.primaryResponseId = reader.stringVerify();
                             message._primaryResponseId = "primaryResponseId";
                             continue;
                         }
@@ -145887,77 +145887,77 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.tessaSessionId = reader.string();
+                        message.tessaSessionId = reader.stringVerify();
                         message._tessaSessionId = "tessaSessionId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.simonSessionId = reader.string();
+                        message.simonSessionId = reader.stringVerify();
                         message._simonSessionId = "simonSessionId";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.simonSurveyId = reader.string();
+                        message.simonSurveyId = reader.stringVerify();
                         message._simonSurveyId = "simonSurveyId";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.tessaRootId = reader.string();
+                        message.tessaRootId = reader.stringVerify();
                         message._tessaRootId = "tessaRootId";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.requestId = reader.string();
+                        message.requestId = reader.stringVerify();
                         message._requestId = "requestId";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.tessaEvent = reader.string();
+                        message.tessaEvent = reader.stringVerify();
                         message._tessaEvent = "tessaEvent";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.invitationHeaderText = reader.string();
+                        message.invitationHeaderText = reader.stringVerify();
                         message._invitationHeaderText = "invitationHeaderText";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.invitationBodyText = reader.string();
+                        message.invitationBodyText = reader.stringVerify();
                         message._invitationBodyText = "invitationBodyText";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.invitationCtaText = reader.string();
+                        message.invitationCtaText = reader.stringVerify();
                         message._invitationCtaText = "invitationCtaText";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.invitationCtaUrl = reader.string();
+                        message.invitationCtaUrl = reader.stringVerify();
                         message._invitationCtaUrl = "invitationCtaUrl";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.surveyTitle = reader.string();
+                        message.surveyTitle = reader.stringVerify();
                         message._surveyTitle = "surveyTitle";
                         continue;
                     }
@@ -145972,21 +145972,21 @@ $root.AICommon = (function() {
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.surveyContinueButtonText = reader.string();
+                        message.surveyContinueButtonText = reader.stringVerify();
                         message._surveyContinueButtonText = "surveyContinueButtonText";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.surveySubmitButtonText = reader.string();
+                        message.surveySubmitButtonText = reader.stringVerify();
                         message._surveySubmitButtonText = "surveySubmitButtonText";
                         continue;
                     }
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.privacyStatementFull = reader.string();
+                        message.privacyStatementFull = reader.stringVerify();
                         message._privacyStatementFull = "privacyStatementFull";
                         continue;
                     }
@@ -146001,7 +146001,7 @@ $root.AICommon = (function() {
                 case 17: {
                         if (wireType !== 2)
                             break;
-                        message.feedbackToastText = reader.string();
+                        message.feedbackToastText = reader.stringVerify();
                         message._feedbackToastText = "feedbackToastText";
                         continue;
                     }
@@ -146493,7 +146493,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.stringValue = reader.string();
+                            message.stringValue = reader.stringVerify();
                             message._stringValue = "stringValue";
                             continue;
                         }
@@ -146507,7 +146507,7 @@ $root.AICommon = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.textTranslated = reader.string();
+                            message.textTranslated = reader.stringVerify();
                             message._textTranslated = "textTranslated";
                             continue;
                         }
@@ -146809,14 +146809,14 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
@@ -147122,14 +147122,14 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.questionText = reader.string();
+                            message.questionText = reader.stringVerify();
                             message._questionText = "questionText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.questionId = reader.string();
+                            message.questionId = reader.stringVerify();
                             message._questionId = "questionId";
                             continue;
                         }
@@ -147825,28 +147825,28 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailCdnUrl = reader.string();
+                            message.thumbnailCdnUrl = reader.stringVerify();
                             message._thumbnailCdnUrl = "thumbnailCdnUrl";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceProviderUrl = reader.string();
+                            message.sourceProviderUrl = reader.stringVerify();
                             message._sourceProviderUrl = "sourceProviderUrl";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceQuery = reader.string();
+                            message.sourceQuery = reader.stringVerify();
                             message._sourceQuery = "sourceQuery";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.faviconCdnUrl = reader.string();
+                            message.faviconCdnUrl = reader.stringVerify();
                             message._faviconCdnUrl = "faviconCdnUrl";
                             continue;
                         }
@@ -147860,7 +147860,7 @@ $root.AICommon = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceTitle = reader.string();
+                            message.sourceTitle = reader.stringVerify();
                             message._sourceTitle = "sourceTitle";
                             continue;
                         }
@@ -148628,7 +148628,7 @@ $root.AICommon = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.shortPrompt = reader.string();
+                        message.shortPrompt = reader.stringVerify();
                         message._shortPrompt = "shortPrompt";
                         continue;
                     }
@@ -150776,7 +150776,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.progressDescription = reader.string();
+                        message.progressDescription = reader.stringVerify();
                         message._progressDescription = "progressDescription";
                         continue;
                     }
@@ -151196,14 +151196,14 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.statusTitle = reader.string();
+                            message.statusTitle = reader.stringVerify();
                             message._statusTitle = "statusTitle";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.statusBody = reader.string();
+                            message.statusBody = reader.stringVerify();
                             message._statusBody = "statusBody";
                             continue;
                         }
@@ -151672,7 +151672,7 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
@@ -151686,14 +151686,14 @@ $root.AICommon = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceUrl = reader.string();
+                                message.sourceUrl = reader.stringVerify();
                                 message._sourceUrl = "sourceUrl";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.favIconUrl = reader.string();
+                                message.favIconUrl = reader.stringVerify();
                                 message._favIconUrl = "favIconUrl";
                                 continue;
                             }
@@ -152050,7 +152050,7 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceTitle = reader.string();
+                                message.sourceTitle = reader.stringVerify();
                                 message._sourceTitle = "sourceTitle";
                                 continue;
                             }
@@ -152064,7 +152064,7 @@ $root.AICommon = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceUrl = reader.string();
+                                message.sourceUrl = reader.stringVerify();
                                 message._sourceUrl = "sourceUrl";
                                 continue;
                             }
@@ -152426,14 +152426,14 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.sectionTitle = reader.string();
+                                message.sectionTitle = reader.stringVerify();
                                 message._sectionTitle = "sectionTitle";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.sectionBody = reader.string();
+                                message.sectionBody = reader.stringVerify();
                                 message._sectionBody = "sectionBody";
                                 continue;
                             }
@@ -152833,7 +152833,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.modelNameOverride = reader.string();
+                        message.modelNameOverride = reader.stringVerify();
                         message._modelNameOverride = "modelNameOverride";
                         continue;
                     }
@@ -153280,7 +153280,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.name = reader.string();
+                        message.name = reader.stringVerify();
                         message._name = "name";
                         continue;
                     }
@@ -154095,28 +154095,28 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.fileSha256 = reader.string();
+                        message.fileSha256 = reader.stringVerify();
                         message._fileSha256 = "fileSha256";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.mediaKey = reader.string();
+                        message.mediaKey = reader.stringVerify();
                         message._mediaKey = "mediaKey";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.fileEncSha256 = reader.string();
+                        message.fileEncSha256 = reader.stringVerify();
                         message._fileEncSha256 = "fileEncSha256";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.directPath = reader.string();
+                        message.directPath = reader.stringVerify();
                         message._directPath = "directPath";
                         continue;
                     }
@@ -154130,7 +154130,7 @@ $root.AICommon = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.mimetype = reader.string();
+                        message.mimetype = reader.stringVerify();
                         message._mimetype = "mimetype";
                         continue;
                     }
@@ -154527,7 +154527,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.sessionId = reader.string();
+                        message.sessionId = reader.stringVerify();
                         message._sessionId = "sessionId";
                         continue;
                     }
@@ -154893,7 +154893,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.destinationId = reader.string();
+                        message.destinationId = reader.stringVerify();
                         message._destinationId = "destinationId";
                         continue;
                     }
@@ -155762,7 +155762,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.value = reader.string();
+                            message.value = reader.stringVerify();
                             message._value = "value";
                             continue;
                         }
@@ -155771,7 +155771,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.associatedPrompts && message.associatedPrompts.length))
                                 message.associatedPrompts = [];
-                            message.associatedPrompts.push(reader.string());
+                            message.associatedPrompts.push(reader.stringVerify());
                             continue;
                         }
                     }
@@ -156085,7 +156085,7 @@ $root.AICommon = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.buttonTitle = reader.string();
+                        message.buttonTitle = reader.stringVerify();
                         message._buttonTitle = "buttonTitle";
                         continue;
                     }
@@ -157123,14 +157123,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.fact = reader.string();
+                        message.fact = reader.stringVerify();
                         message._fact = "fact";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.factId = reader.string();
+                        message.factId = reader.stringVerify();
                         message._factId = "factId";
                         continue;
                     }
@@ -157448,7 +157448,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.disclaimer = reader.string();
+                        message.disclaimer = reader.stringVerify();
                         message._disclaimer = "disclaimer";
                         continue;
                     }
@@ -158427,14 +158427,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.prompt = reader.string();
+                        message.prompt = reader.stringVerify();
                         message._prompt = "prompt";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.promptId = reader.string();
+                        message.promptId = reader.stringVerify();
                         message._promptId = "promptId";
                         continue;
                     }
@@ -159036,7 +159036,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.suggestedPrompts && message.suggestedPrompts.length))
                             message.suggestedPrompts = [];
-                        message.suggestedPrompts.push(reader.string());
+                        message.suggestedPrompts.push(reader.stringVerify());
                         continue;
                     }
                 case 2: {
@@ -159056,7 +159056,7 @@ $root.AICommon = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.selectedPromptId = reader.string();
+                        message.selectedPromptId = reader.stringVerify();
                         message._selectedPromptId = "selectedPromptId";
                         continue;
                     }
@@ -159569,21 +159569,21 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.thumbnailCdnUrl = reader.string();
+                        message.thumbnailCdnUrl = reader.stringVerify();
                         message._thumbnailCdnUrl = "thumbnailCdnUrl";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.profilePhotoCdnUrl = reader.string();
+                        message.profilePhotoCdnUrl = reader.stringVerify();
                         message._profilePhotoCdnUrl = "profilePhotoCdnUrl";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.searchProviderUrl = reader.string();
+                        message.searchProviderUrl = reader.stringVerify();
                         message._searchProviderUrl = "searchProviderUrl";
                         continue;
                     }
@@ -159604,7 +159604,7 @@ $root.AICommon = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.searchQuery = reader.string();
+                        message.searchQuery = reader.stringVerify();
                         message._searchQuery = "searchQuery";
                         continue;
                     }
@@ -159632,7 +159632,7 @@ $root.AICommon = (function() {
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.faviconCdnUrl = reader.string();
+                        message.faviconCdnUrl = reader.stringVerify();
                         message._faviconCdnUrl = "faviconCdnUrl";
                         continue;
                     }
@@ -164343,7 +164343,7 @@ $root.CompanionReg = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.ref = reader.string();
+                        message.ref = reader.stringVerify();
                         message._ref = "ref";
                         continue;
                     }
@@ -164833,7 +164833,7 @@ $root.CompanionReg = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.os = reader.string();
+                        message.os = reader.stringVerify();
                         message._os = "os";
                         continue;
                     }
@@ -166249,7 +166249,7 @@ $root.CompanionReg = (function() {
                                 break;
                             if (!(message.supportedBotChannelFbids && message.supportedBotChannelFbids.length))
                                 message.supportedBotChannelFbids = [];
-                            message.supportedBotChannelFbids.push(reader.string());
+                            message.supportedBotChannelFbids.push(reader.stringVerify());
                             continue;
                         }
                     case 24: {
@@ -166816,7 +166816,7 @@ $root.MmsRetry = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.stanzaId = reader.string();
+                        message.stanzaId = reader.stringVerify();
                         message._stanzaId = "stanzaId";
                         continue;
                     }
@@ -167134,14 +167134,14 @@ $root.MmsRetry = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.stanzaId = reader.string();
+                        message.stanzaId = reader.stringVerify();
                         message._stanzaId = "stanzaId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.directPath = reader.string();
+                        message.directPath = reader.stringVerify();
                         message._directPath = "directPath";
                         continue;
                     }

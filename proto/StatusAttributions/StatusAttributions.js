@@ -271,7 +271,7 @@ $root.StatusAttributions = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.actionUrl = reader.string();
+                        message.actionUrl = reader.stringVerify();
                         message._actionUrl = "actionUrl";
                         continue;
                     }
@@ -1124,7 +1124,7 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.actionUrl = reader.string();
+                            message.actionUrl = reader.stringVerify();
                             message._actionUrl = "actionUrl";
                             continue;
                         }
@@ -1145,7 +1145,7 @@ $root.StatusAttributions = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.actionFallbackUrl = reader.string();
+                            message.actionFallbackUrl = reader.stringVerify();
                             message._actionFallbackUrl = "actionFallbackUrl";
                             continue;
                         }
@@ -1549,7 +1549,7 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.authorJid = reader.string();
+                            message.authorJid = reader.stringVerify();
                             message._authorJid = "authorJid";
                             continue;
                         }
@@ -1901,35 +1901,35 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.authorName = reader.string();
+                            message.authorName = reader.stringVerify();
                             message._authorName = "authorName";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.songId = reader.string();
+                            message.songId = reader.stringVerify();
                             message._songId = "songId";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.author = reader.string();
+                            message.author = reader.stringVerify();
                             message._author = "author";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.artistAttribution = reader.string();
+                            message.artistAttribution = reader.stringVerify();
                             message._artistAttribution = "artistAttribution";
                             continue;
                         }
@@ -2957,7 +2957,7 @@ $root.StatusAttributions = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.channelJid = reader.string();
+                                message.channelJid = reader.stringVerify();
                                 message._channelJid = "channelJid";
                                 continue;
                             }

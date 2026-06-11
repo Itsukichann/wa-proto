@@ -495,14 +495,14 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.omittedUrl = reader.string();
+                            message.omittedUrl = reader.stringVerify();
                             message._omittedUrl = "omittedUrl";
                             continue;
                         }
@@ -1034,7 +1034,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.conversionSource = reader.string();
+                                message.conversionSource = reader.stringVerify();
                                 message._conversionSource = "conversionSource";
                                 continue;
                             }
@@ -1048,49 +1048,49 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceUrl = reader.string();
+                                message.sourceUrl = reader.stringVerify();
                                 message._sourceUrl = "sourceUrl";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceId = reader.string();
+                                message.sourceId = reader.stringVerify();
                                 message._sourceId = "sourceId";
                                 continue;
                             }
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceType = reader.string();
+                                message.sourceType = reader.stringVerify();
                                 message._sourceType = "sourceType";
                                 continue;
                             }
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.description = reader.string();
+                                message.description = reader.stringVerify();
                                 message._description = "description";
                                 continue;
                             }
                         case 8: {
                                 if (wireType !== 2)
                                     break;
-                                message.thumbnail = reader.string();
+                                message.thumbnail = reader.stringVerify();
                                 message._thumbnail = "thumbnail";
                                 continue;
                             }
                         case 9: {
                                 if (wireType !== 2)
                                     break;
-                                message.thumbnailUrl = reader.string();
+                                message.thumbnailUrl = reader.stringVerify();
                                 message._thumbnailUrl = "thumbnailUrl";
                                 continue;
                             }
@@ -1104,7 +1104,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         case 11: {
                                 if (wireType !== 2)
                                     break;
-                                message.mediaUrl = reader.string();
+                                message.mediaUrl = reader.stringVerify();
                                 message._mediaUrl = "mediaUrl";
                                 continue;
                             }
@@ -1571,28 +1571,28 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.context = reader.string();
+                                message.context = reader.stringVerify();
                                 message._context = "context";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceUrl = reader.string();
+                                message.sourceUrl = reader.stringVerify();
                                 message._sourceUrl = "sourceUrl";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.icebreaker = reader.string();
+                                message.icebreaker = reader.stringVerify();
                                 message._icebreaker = "icebreaker";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.phone = reader.string();
+                                message.phone = reader.stringVerify();
                                 message._phone = "phone";
                                 continue;
                             }

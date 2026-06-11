@@ -157,7 +157,7 @@ $root.MmsRetry = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.stanzaId = reader.string();
+                        message.stanzaId = reader.stringVerify();
                         message._stanzaId = "stanzaId";
                         continue;
                     }
@@ -475,14 +475,14 @@ $root.MmsRetry = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.stanzaId = reader.string();
+                        message.stanzaId = reader.stringVerify();
                         message._stanzaId = "stanzaId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.directPath = reader.string();
+                        message.directPath = reader.stringVerify();
                         message._directPath = "directPath";
                         continue;
                     }

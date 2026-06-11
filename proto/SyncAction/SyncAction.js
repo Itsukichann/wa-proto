@@ -4652,7 +4652,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
@@ -4951,7 +4951,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.newTitle = reader.string();
+                            message.newTitle = reader.stringVerify();
                             message._newTitle = "newTitle";
                             continue;
                         }
@@ -7114,14 +7114,14 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.lidJid = reader.string();
+                            message.lidJid = reader.stringVerify();
                             message._lidJid = "lidJid";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.pnJid = reader.string();
+                            message.pnJid = reader.stringVerify();
                             message._pnJid = "pnJid";
                             continue;
                         }
@@ -7807,28 +7807,28 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.adId = reader.string();
+                            message.adId = reader.stringVerify();
                             message._adId = "adId";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.msgId = reader.string();
+                            message.msgId = reader.stringVerify();
                             message._msgId = "msgId";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.broadcastJid = reader.string();
+                            message.broadcastJid = reader.stringVerify();
                             message._broadcastJid = "broadcastJid";
                             continue;
                         }
@@ -8747,7 +8747,7 @@ $root.SyncAction = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.listName = reader.string();
+                            message.listName = reader.stringVerify();
                             message._listName = "listName";
                             continue;
                         }
@@ -8756,13 +8756,13 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.labelIds && message.labelIds.length))
                                 message.labelIds = [];
-                            message.labelIds.push(reader.string());
+                            message.labelIds.push(reader.stringVerify());
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.audienceExpression = reader.string();
+                            message.audienceExpression = reader.stringVerify();
                             message._audienceExpression = "audienceExpression";
                             continue;
                         }
@@ -9367,7 +9367,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.deviceAgentID = reader.string();
+                            message.deviceAgentID = reader.stringVerify();
                             message._deviceAgentID = "deviceAgentID";
                             continue;
                         }
@@ -10259,21 +10259,21 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.fullName = reader.string();
+                            message.fullName = reader.stringVerify();
                             message._fullName = "fullName";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.firstName = reader.string();
+                            message.firstName = reader.stringVerify();
                             message._firstName = "firstName";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.lidJid = reader.string();
+                            message.lidJid = reader.stringVerify();
                             message._lidJid = "lidJid";
                             continue;
                         }
@@ -10287,14 +10287,14 @@ $root.SyncAction = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.pnJid = reader.string();
+                            message.pnJid = reader.stringVerify();
                             message._pnJid = "pnJid";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.username = reader.string();
+                            message.username = reader.stringVerify();
                             message._username = "username";
                             continue;
                         }
@@ -10920,21 +10920,21 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.credentialId = reader.string();
+                            message.credentialId = reader.stringVerify();
                             message._credentialId = "credentialId";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.country = reader.string();
+                            message.country = reader.stringVerify();
                             message._country = "country";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.type = reader.string();
+                            message.type = reader.stringVerify();
                             message._type = "type";
                             continue;
                         }
@@ -11270,14 +11270,14 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = reader.string();
+                            message.key = reader.stringVerify();
                             message._key = "key";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.value = reader.string();
+                            message.value = reader.stringVerify();
                             message._value = "value";
                             continue;
                         }
@@ -12000,7 +12000,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.chatJid = reader.string();
+                            message.chatJid = reader.stringVerify();
                             message._chatJid = "chatJid";
                             continue;
                         }
@@ -12014,14 +12014,14 @@ $root.SyncAction = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.email = reader.string();
+                            message.email = reader.stringVerify();
                             message._email = "email";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.altPhoneNumbers = reader.string();
+                            message.altPhoneNumbers = reader.stringVerify();
                             message._altPhoneNumbers = "altPhoneNumbers";
                             continue;
                         }
@@ -12035,7 +12035,7 @@ $root.SyncAction = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.address = reader.string();
+                            message.address = reader.stringVerify();
                             message._address = "address";
                             continue;
                         }
@@ -12765,7 +12765,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.peerJid = reader.string();
+                            message.peerJid = reader.stringVerify();
                             message._peerJid = "peerJid";
                             continue;
                         }
@@ -14168,7 +14168,7 @@ $root.SyncAction = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.id = reader.string();
+                                message.id = reader.stringVerify();
                                 message._id = "id";
                                 continue;
                             }
@@ -14462,7 +14462,7 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.agmId = reader.string();
+                            message.agmId = reader.stringVerify();
                             message._agmId = "agmId";
                             continue;
                         }
@@ -15055,7 +15055,7 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.modelMetaData = reader.string();
+                            message.modelMetaData = reader.stringVerify();
                             message._modelMetaData = "modelMetaData";
                             continue;
                         }
@@ -15467,7 +15467,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
@@ -16322,21 +16322,21 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.fullName = reader.string();
+                            message.fullName = reader.stringVerify();
                             message._fullName = "fullName";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.firstName = reader.string();
+                            message.firstName = reader.stringVerify();
                             message._firstName = "firstName";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.username = reader.string();
+                            message.username = reader.stringVerify();
                             message._username = "username";
                             continue;
                         }
@@ -16621,7 +16621,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.locale = reader.string();
+                            message.locale = reader.stringVerify();
                             message._locale = "locale";
                             continue;
                         }
@@ -17943,14 +17943,14 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.message = reader.string();
+                            message.message = reader.stringVerify();
                             message._message = "message";
                             continue;
                         }
@@ -17985,7 +17985,7 @@ $root.SyncAction = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.mediaId = reader.string();
+                            message.mediaId = reader.stringVerify();
                             message._mediaId = "mediaId";
                             continue;
                         }
@@ -18681,21 +18681,21 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.country = reader.string();
+                            message.country = reader.stringVerify();
                             message._country = "country";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.gatewayName = reader.string();
+                            message.gatewayName = reader.stringVerify();
                             message._gatewayName = "gatewayName";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.credentialId = reader.string();
+                            message.credentialId = reader.stringVerify();
                             message._credentialId = "credentialId";
                             continue;
                         }
@@ -19035,7 +19035,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.musicUserId = reader.string();
+                            message.musicUserId = reader.stringVerify();
                             message._musicUserId = "musicUserId";
                             continue;
                         }
@@ -19054,12 +19054,12 @@ $root.SyncAction = (function() {
                                 case 1:
                                     if (wireType !== 2)
                                         break;
-                                    key = reader.string();
+                                    key = reader.stringVerify();
                                     continue;
                                 case 2:
                                     if (wireType !== 2)
                                         break;
-                                    value = reader.string();
+                                    value = reader.stringVerify();
                                     continue;
                                 }
                                 reader.skipType(wireType, _depth, tag2);
@@ -20021,7 +20021,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.newsletterSavedInterests = reader.string();
+                            message.newsletterSavedInterests = reader.stringVerify();
                             message._newsletterSavedInterests = "newsletterSavedInterests";
                             continue;
                         }
@@ -20363,7 +20363,7 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.chatJid = reader.string();
+                            message.chatJid = reader.stringVerify();
                             message._chatJid = "chatJid";
                             continue;
                         }
@@ -20384,7 +20384,7 @@ $root.SyncAction = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.unstructuredContent = reader.string();
+                            message.unstructuredContent = reader.stringVerify();
                             message._unstructuredContent = "unstructuredContent";
                             continue;
                         }
@@ -21330,14 +21330,14 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.fullName = reader.string();
+                            message.fullName = reader.stringVerify();
                             message._fullName = "fullName";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.firstName = reader.string();
+                            message.firstName = reader.stringVerify();
                             message._firstName = "firstName";
                             continue;
                         }
@@ -21613,7 +21613,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.cpi = reader.string();
+                            message.cpi = reader.stringVerify();
                             message._cpi = "cpi";
                             continue;
                         }
@@ -22473,7 +22473,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.pnJid = reader.string();
+                            message.pnJid = reader.stringVerify();
                             message._pnJid = "pnJid";
                             continue;
                         }
@@ -22735,7 +22735,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.flags && message.flags.length))
                                 message.flags = [];
-                            message.flags.push(reader.string());
+                            message.flags.push(reader.stringVerify());
                             continue;
                         }
                     }
@@ -23012,7 +23012,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.version = reader.string();
+                            message.version = reader.stringVerify();
                             message._version = "version";
                             continue;
                         }
@@ -24387,7 +24387,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.name = reader.string();
+                            message.name = reader.stringVerify();
                             message._name = "name";
                             continue;
                         }
@@ -24731,14 +24731,14 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.shortcut = reader.string();
+                            message.shortcut = reader.stringVerify();
                             message._shortcut = "shortcut";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.message = reader.string();
+                            message.message = reader.stringVerify();
                             message._message = "message";
                             continue;
                         }
@@ -24747,7 +24747,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.keywords && message.keywords.length))
                                 message.keywords = [];
-                            message.keywords.push(reader.string());
+                            message.keywords.push(reader.stringVerify());
                             continue;
                         }
                     case 4: {
@@ -24769,7 +24769,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.associatedLabelIds && message.associatedLabelIds.length))
                                 message.associatedLabelIds = [];
-                            message.associatedLabelIds.push(reader.string());
+                            message.associatedLabelIds.push(reader.stringVerify());
                             continue;
                         }
                     }
@@ -26218,7 +26218,7 @@ $root.SyncAction = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.language = reader.string();
+                            message.language = reader.stringVerify();
                             message._language = "language";
                             continue;
                         }
@@ -26421,14 +26421,14 @@ $root.SyncAction = (function() {
                     case 32: {
                             if (wireType !== 2)
                                 break;
-                            message.chatThemeId = reader.string();
+                            message.chatThemeId = reader.stringVerify();
                             message._chatThemeId = "chatThemeId";
                             continue;
                         }
                     case 33: {
                             if (wireType !== 2)
                                 break;
-                            message.colorSchemeId = reader.string();
+                            message.colorSchemeId = reader.stringVerify();
                             message._colorSchemeId = "colorSchemeId";
                             continue;
                         }
@@ -27816,7 +27816,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.userJid && message.userJid.length))
                                 message.userJid = [];
-                            message.userJid.push(reader.string());
+                            message.userJid.push(reader.stringVerify());
                             continue;
                         }
                     case 3: {
@@ -28334,21 +28334,21 @@ $root.SyncAction = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.listId = reader.string();
+                                message.listId = reader.stringVerify();
                                 message._listId = "listId";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.name = reader.string();
+                                message.name = reader.stringVerify();
                                 message._name = "name";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.emoji = reader.string();
+                                message.emoji = reader.stringVerify();
                                 message._emoji = "emoji";
                                 continue;
                             }
@@ -28364,7 +28364,7 @@ $root.SyncAction = (function() {
                                     break;
                                 if (!(message.userJid && message.userJid.length))
                                     message.userJid = [];
-                                message.userJid.push(reader.string());
+                                message.userJid.push(reader.stringVerify());
                                 continue;
                             }
                         }
@@ -28905,7 +28905,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
@@ -28926,7 +28926,7 @@ $root.SyncAction = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.mimetype = reader.string();
+                            message.mimetype = reader.stringVerify();
                             message._mimetype = "mimetype";
                             continue;
                         }
@@ -28947,7 +28947,7 @@ $root.SyncAction = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.directPath = reader.string();
+                            message.directPath = reader.stringVerify();
                             message._directPath = "directPath";
                             continue;
                         }
@@ -28982,7 +28982,7 @@ $root.SyncAction = (function() {
                     case 12: {
                             if (wireType !== 2)
                                 break;
-                            message.imageHash = reader.string();
+                            message.imageHash = reader.stringVerify();
                             message._imageHash = "imageHash";
                             continue;
                         }
@@ -30099,7 +30099,7 @@ $root.SyncAction = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.name = reader.string();
+                                message.name = reader.stringVerify();
                                 message._name = "name";
                                 continue;
                             }
@@ -30545,7 +30545,7 @@ $root.SyncAction = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.id = reader.string();
+                                message.id = reader.stringVerify();
                                 message._id = "id";
                                 continue;
                             }
@@ -30559,7 +30559,7 @@ $root.SyncAction = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.status = reader.string();
+                                message.status = reader.stringVerify();
                                 message._status = "status";
                                 continue;
                             }
@@ -30587,7 +30587,7 @@ $root.SyncAction = (function() {
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.source = reader.string();
+                                message.source = reader.stringVerify();
                                 message._source = "source";
                                 continue;
                             }
@@ -33597,7 +33597,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.identifier = reader.string();
+                            message.identifier = reader.stringVerify();
                             message._identifier = "identifier";
                             continue;
                         }
@@ -34157,35 +34157,35 @@ $root.SyncAction = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.callLinkToken = reader.string();
+                        message.callLinkToken = reader.stringVerify();
                         message._callLinkToken = "callLinkToken";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.scheduledCallId = reader.string();
+                        message.scheduledCallId = reader.stringVerify();
                         message._scheduledCallId = "scheduledCallId";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.callId = reader.string();
+                        message.callId = reader.stringVerify();
                         message._callId = "callId";
                         continue;
                     }
                 case 12: {
                         if (wireType !== 2)
                             break;
-                        message.callCreatorJid = reader.string();
+                        message.callCreatorJid = reader.stringVerify();
                         message._callCreatorJid = "callCreatorJid";
                         continue;
                     }
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.groupJid = reader.string();
+                        message.groupJid = reader.stringVerify();
                         message._groupJid = "groupJid";
                         continue;
                     }
@@ -34813,7 +34813,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.userJid = reader.string();
+                            message.userJid = reader.stringVerify();
                             message._userJid = "userJid";
                             continue;
                         }
@@ -35198,7 +35198,7 @@ $root.SyncAction = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.emoji = reader.string();
+                        message.emoji = reader.stringVerify();
                         message._emoji = "emoji";
                         continue;
                     }
@@ -36495,7 +36495,7 @@ $root.UserPassword = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = reader.string();
+                            message.key = reader.stringVerify();
                             message._key = "key";
                             continue;
                         }
@@ -39392,7 +39392,7 @@ $root.Protocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.remoteJid = reader.string();
+                        message.remoteJid = reader.stringVerify();
                         message._remoteJid = "remoteJid";
                         continue;
                     }
@@ -39406,14 +39406,14 @@ $root.Protocol = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.id = reader.string();
+                        message.id = reader.stringVerify();
                         message._id = "id";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }

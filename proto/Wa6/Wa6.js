@@ -775,7 +775,7 @@ $root.Wa6 = (function() {
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.pushName = reader.string();
+                        message.pushName = reader.stringVerify();
                         message._pushName = "pushName";
                         continue;
                     }
@@ -996,7 +996,7 @@ $root.Wa6 = (function() {
                             break;
                         if (!(message.pairedPeripherals && message.pairedPeripherals.length))
                             message.pairedPeripherals = [];
-                        message.pairedPeripherals.push(reader.string());
+                        message.pairedPeripherals.push(reader.stringVerify());
                         continue;
                     }
                 case 48: {
@@ -3557,49 +3557,49 @@ $root.Wa6 = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.mcc = reader.string();
+                            message.mcc = reader.stringVerify();
                             message._mcc = "mcc";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.mnc = reader.string();
+                            message.mnc = reader.stringVerify();
                             message._mnc = "mnc";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.osVersion = reader.string();
+                            message.osVersion = reader.stringVerify();
                             message._osVersion = "osVersion";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.manufacturer = reader.string();
+                            message.manufacturer = reader.stringVerify();
                             message._manufacturer = "manufacturer";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.device = reader.string();
+                            message.device = reader.stringVerify();
                             message._device = "device";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.osBuildNumber = reader.string();
+                            message.osBuildNumber = reader.stringVerify();
                             message._osBuildNumber = "osBuildNumber";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.phoneId = reader.string();
+                            message.phoneId = reader.stringVerify();
                             message._phoneId = "phoneId";
                             continue;
                         }
@@ -3613,28 +3613,28 @@ $root.Wa6 = (function() {
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.localeLanguageIso6391 = reader.string();
+                            message.localeLanguageIso6391 = reader.stringVerify();
                             message._localeLanguageIso6391 = "localeLanguageIso6391";
                             continue;
                         }
                     case 12: {
                             if (wireType !== 2)
                                 break;
-                            message.localeCountryIso31661Alpha2 = reader.string();
+                            message.localeCountryIso31661Alpha2 = reader.stringVerify();
                             message._localeCountryIso31661Alpha2 = "localeCountryIso31661Alpha2";
                             continue;
                         }
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.deviceBoard = reader.string();
+                            message.deviceBoard = reader.stringVerify();
                             message._deviceBoard = "deviceBoard";
                             continue;
                         }
                     case 14: {
                             if (wireType !== 2)
                                 break;
-                            message.deviceExpId = reader.string();
+                            message.deviceExpId = reader.stringVerify();
                             message._deviceExpId = "deviceExpId";
                             continue;
                         }
@@ -3648,7 +3648,7 @@ $root.Wa6 = (function() {
                     case 16: {
                             if (wireType !== 2)
                                 break;
-                            message.deviceModelType = reader.string();
+                            message.deviceModelType = reader.stringVerify();
                             message._deviceModelType = "deviceModelType";
                             continue;
                         }
@@ -4989,14 +4989,14 @@ $root.Wa6 = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.refToken = reader.string();
+                            message.refToken = reader.stringVerify();
                             message._refToken = "refToken";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.version = reader.string();
+                            message.version = reader.stringVerify();
                             message._version = "version";
                             continue;
                         }
@@ -5017,14 +5017,14 @@ $root.Wa6 = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.browser = reader.string();
+                            message.browser = reader.stringVerify();
                             message._browser = "browser";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.browserVersion = reader.string();
+                            message.browserVersion = reader.stringVerify();
                             message._browserVersion = "browserVersion";
                             continue;
                         }
@@ -5633,7 +5633,7 @@ $root.Wa6 = (function() {
                         case 10: {
                                 if (wireType !== 2)
                                     break;
-                                message.documentTypes = reader.string();
+                                message.documentTypes = reader.stringVerify();
                                 message._documentTypes = "documentTypes";
                                 continue;
                             }

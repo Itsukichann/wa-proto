@@ -866,7 +866,7 @@ $root.VnameCert = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.whatsappAcctNumber = reader.string();
+                        message.whatsappAcctNumber = reader.stringVerify();
                         message._whatsappAcctNumber = "whatsappAcctNumber";
                         continue;
                     }
@@ -1992,14 +1992,14 @@ $root.VnameCert = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.issuer = reader.string();
+                            message.issuer = reader.stringVerify();
                             message._issuer = "issuer";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.verifiedName = reader.string();
+                            message.verifiedName = reader.stringVerify();
                             message._verifiedName = "verifiedName";
                             continue;
                         }
@@ -2395,21 +2395,21 @@ $root.VnameCert = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.lg = reader.string();
+                        message.lg = reader.stringVerify();
                         message._lg = "lg";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.lc = reader.string();
+                        message.lc = reader.stringVerify();
                         message._lc = "lc";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.verifiedName = reader.string();
+                        message.verifiedName = reader.stringVerify();
                         message._verifiedName = "verifiedName";
                         continue;
                     }

@@ -2140,7 +2140,7 @@ $root.CompanionReg = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.ref = reader.string();
+                        message.ref = reader.stringVerify();
                         message._ref = "ref";
                         continue;
                     }
@@ -2630,7 +2630,7 @@ $root.CompanionReg = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.os = reader.string();
+                        message.os = reader.stringVerify();
                         message._os = "os";
                         continue;
                     }
@@ -4046,7 +4046,7 @@ $root.CompanionReg = (function() {
                                 break;
                             if (!(message.supportedBotChannelFbids && message.supportedBotChannelFbids.length))
                                 message.supportedBotChannelFbids = [];
-                            message.supportedBotChannelFbids.push(reader.string());
+                            message.supportedBotChannelFbids.push(reader.stringVerify());
                             continue;
                         }
                     case 24: {

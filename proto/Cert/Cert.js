@@ -1579,7 +1579,7 @@ $root.Cert = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.issuer = reader.string();
+                            message.issuer = reader.stringVerify();
                             message._issuer = "issuer";
                             continue;
                         }
@@ -1593,7 +1593,7 @@ $root.Cert = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.subject = reader.string();
+                            message.subject = reader.stringVerify();
                             message._subject = "subject";
                             continue;
                         }

@@ -157,7 +157,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.token = reader.string();
+                        message.token = reader.stringVerify();
                         message._token = "token";
                         continue;
                     }
@@ -736,7 +736,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.toolsUsed && message.toolsUsed.length))
                             message.toolsUsed = [];
-                        message.toolsUsed.push(reader.string());
+                        message.toolsUsed.push(reader.stringVerify());
                         continue;
                     }
                 case 3: {
@@ -1568,49 +1568,49 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.promptText = reader.string();
+                            message.promptText = reader.stringVerify();
                             message._promptText = "promptText";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.sessionId = reader.string();
+                            message.sessionId = reader.stringVerify();
                             message._sessionId = "sessionId";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.imageWdsIdentifier = reader.string();
+                            message.imageWdsIdentifier = reader.stringVerify();
                             message._imageWdsIdentifier = "imageWdsIdentifier";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.imageTintColor = reader.string();
+                            message.imageTintColor = reader.stringVerify();
                             message._imageTintColor = "imageTintColor";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.imageBackgroundColor = reader.string();
+                            message.imageBackgroundColor = reader.stringVerify();
                             message._imageBackgroundColor = "imageBackgroundColor";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.cardTypeId = reader.string();
+                            message.cardTypeId = reader.stringVerify();
                             message._cardTypeId = "cardTypeId";
                             continue;
                         }
@@ -2338,14 +2338,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.disclaimerText = reader.string();
+                        message.disclaimerText = reader.stringVerify();
                         message._disclaimerText = "disclaimerText";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.hcaId = reader.string();
+                        message.hcaId = reader.stringVerify();
                         message._hcaId = "hcaId";
                         continue;
                     }
@@ -3827,21 +3827,21 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.botName = reader.string();
+                        message.botName = reader.stringVerify();
                         message._botName = "botName";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.botJid = reader.string();
+                        message.botJid = reader.stringVerify();
                         message._botJid = "botJid";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.creatorName = reader.string();
+                        message.creatorName = reader.stringVerify();
                         message._creatorName = "creatorName";
                         continue;
                     }
@@ -4242,7 +4242,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.text = reader.string();
+                        message.text = reader.stringVerify();
                         message._text = "text";
                         continue;
                     }
@@ -4957,7 +4957,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.selectedRequestId = reader.string();
+                            message.selectedRequestId = reader.stringVerify();
                             message._selectedRequestId = "selectedRequestId";
                             continue;
                         }
@@ -4971,21 +4971,21 @@ $root.AICommon = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.simonSessionFbid = reader.string();
+                            message.simonSessionFbid = reader.stringVerify();
                             message._simonSessionFbid = "simonSessionFbid";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.responseOtid = reader.string();
+                            message.responseOtid = reader.stringVerify();
                             message._responseOtid = "responseOtid";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.responseTimestampMsString = reader.string();
+                            message.responseTimestampMsString = reader.stringVerify();
                             message._responseTimestampMsString = "responseTimestampMsString";
                             continue;
                         }
@@ -4999,7 +4999,7 @@ $root.AICommon = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.messageIdToEdit = reader.string();
+                            message.messageIdToEdit = reader.stringVerify();
                             message._messageIdToEdit = "messageIdToEdit";
                             continue;
                         }
@@ -5395,21 +5395,21 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.tessaEvent = reader.string();
+                                message.tessaEvent = reader.stringVerify();
                                 message._tessaEvent = "tessaEvent";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.tessaSessionFbid = reader.string();
+                                message.tessaSessionFbid = reader.stringVerify();
                                 message._tessaSessionFbid = "tessaSessionFbid";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.simonSessionFbid = reader.string();
+                                message.simonSessionFbid = reader.stringVerify();
                                 message._simonSessionFbid = "simonSessionFbid";
                                 continue;
                             }
@@ -5837,21 +5837,21 @@ $root.AICommon = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.primaryResponseId = reader.string();
+                                message.primaryResponseId = reader.stringVerify();
                                 message._primaryResponseId = "primaryResponseId";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.testArmName = reader.string();
+                                message.testArmName = reader.stringVerify();
                                 message._testArmName = "testArmName";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.timestampMsString = reader.string();
+                                message.timestampMsString = reader.stringVerify();
                                 message._timestampMsString = "timestampMsString";
                                 continue;
                             }
@@ -6252,7 +6252,7 @@ $root.AICommon = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.abandonDwellTimeMsString = reader.string();
+                                    message.abandonDwellTimeMsString = reader.stringVerify();
                                     message._abandonDwellTimeMsString = "abandonDwellTimeMsString";
                                     continue;
                                 }
@@ -6543,7 +6543,7 @@ $root.AICommon = (function() {
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.clickDwellTimeMsString = reader.string();
+                                    message.clickDwellTimeMsString = reader.stringVerify();
                                     message._clickDwellTimeMsString = "clickDwellTimeMsString";
                                     continue;
                                 }
@@ -7322,14 +7322,14 @@ $root.AICommon = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.responseDwellTimeMsString = reader.string();
+                                    message.responseDwellTimeMsString = reader.stringVerify();
                                     message._responseDwellTimeMsString = "responseDwellTimeMsString";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.selectedResponseId = reader.string();
+                                    message.selectedResponseId = reader.stringVerify();
                                     message._selectedResponseId = "selectedResponseId";
                                     continue;
                                 }
@@ -7614,7 +7614,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.botFbid = reader.string();
+                        message.botFbid = reader.stringVerify();
                         message._botFbid = "botFbid";
                         continue;
                     }
@@ -7898,7 +7898,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.bloksVersioningId = reader.string();
+                        message.bloksVersioningId = reader.stringVerify();
                         message._bloksVersioningId = "bloksVersioningId";
                         continue;
                     }
@@ -9451,7 +9451,7 @@ $root.AICommon = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.personaId = reader.string();
+                        message.personaId = reader.stringVerify();
                         message._personaId = "personaId";
                         continue;
                     }
@@ -9472,7 +9472,7 @@ $root.AICommon = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.invokerJid = reader.string();
+                        message.invokerJid = reader.stringVerify();
                         message._invokerJid = "invokerJid";
                         continue;
                     }
@@ -9493,7 +9493,7 @@ $root.AICommon = (function() {
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.timezone = reader.string();
+                        message.timezone = reader.stringVerify();
                         message._timezone = "timezone";
                         continue;
                     }
@@ -9514,7 +9514,7 @@ $root.AICommon = (function() {
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.messageDisclaimerText = reader.string();
+                        message.messageDisclaimerText = reader.stringVerify();
                         message._messageDisclaimerText = "messageDisclaimerText";
                         continue;
                     }
@@ -9612,14 +9612,14 @@ $root.AICommon = (function() {
                 case 25: {
                         if (wireType !== 2)
                             break;
-                        message.conversationStarterPromptId = reader.string();
+                        message.conversationStarterPromptId = reader.stringVerify();
                         message._conversationStarterPromptId = "conversationStarterPromptId";
                         continue;
                     }
                 case 26: {
                         if (wireType !== 2)
                             break;
-                        message.botResponseId = reader.string();
+                        message.botResponseId = reader.stringVerify();
                         message._botResponseId = "botResponseId";
                         continue;
                     }
@@ -10584,7 +10584,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.transcript = reader.string();
+                        message.transcript = reader.stringVerify();
                         message._transcript = "transcript";
                         continue;
                     }
@@ -10868,14 +10868,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.toolCallId = reader.string();
+                        message.toolCallId = reader.stringVerify();
                         message._toolCallId = "toolCallId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.resolutionDataSerialized = reader.string();
+                        message.resolutionDataSerialized = reader.stringVerify();
                         message._resolutionDataSerialized = "resolutionDataSerialized";
                         continue;
                     }
@@ -11185,21 +11185,21 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.commandName = reader.string();
+                        message.commandName = reader.stringVerify();
                         message._commandName = "commandName";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.commandDescription = reader.string();
+                        message.commandDescription = reader.stringVerify();
                         message._commandDescription = "commandDescription";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.commandPrompt = reader.string();
+                        message.commandPrompt = reader.stringVerify();
                         message._commandPrompt = "commandPrompt";
                         continue;
                     }
@@ -11805,7 +11805,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.requestId = reader.string();
+                        message.requestId = reader.stringVerify();
                         message._requestId = "requestId";
                         continue;
                     }
@@ -12139,7 +12139,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.collectionId = reader.string();
+                        message.collectionId = reader.stringVerify();
                         message._collectionId = "collectionId";
                         continue;
                     }
@@ -12455,7 +12455,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.collectionId = reader.string();
+                        message.collectionId = reader.stringVerify();
                         message._collectionId = "collectionId";
                         continue;
                     }
@@ -13071,7 +13071,7 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceChatJid = reader.string();
+                            message.sourceChatJid = reader.stringVerify();
                             message._sourceChatJid = "sourceChatJid";
                             continue;
                         }
@@ -13394,7 +13394,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.title = reader.string();
+                            message.title = reader.stringVerify();
                             message._title = "title";
                             continue;
                         }
@@ -14015,7 +14015,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.id = reader.string();
+                            message.id = reader.stringVerify();
                             message._id = "id";
                             continue;
                         }
@@ -14343,7 +14343,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.primaryResponseId = reader.string();
+                            message.primaryResponseId = reader.stringVerify();
                             message._primaryResponseId = "primaryResponseId";
                             continue;
                         }
@@ -15480,77 +15480,77 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.tessaSessionId = reader.string();
+                        message.tessaSessionId = reader.stringVerify();
                         message._tessaSessionId = "tessaSessionId";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.simonSessionId = reader.string();
+                        message.simonSessionId = reader.stringVerify();
                         message._simonSessionId = "simonSessionId";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.simonSurveyId = reader.string();
+                        message.simonSurveyId = reader.stringVerify();
                         message._simonSurveyId = "simonSurveyId";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.tessaRootId = reader.string();
+                        message.tessaRootId = reader.stringVerify();
                         message._tessaRootId = "tessaRootId";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.requestId = reader.string();
+                        message.requestId = reader.stringVerify();
                         message._requestId = "requestId";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.tessaEvent = reader.string();
+                        message.tessaEvent = reader.stringVerify();
                         message._tessaEvent = "tessaEvent";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.invitationHeaderText = reader.string();
+                        message.invitationHeaderText = reader.stringVerify();
                         message._invitationHeaderText = "invitationHeaderText";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.invitationBodyText = reader.string();
+                        message.invitationBodyText = reader.stringVerify();
                         message._invitationBodyText = "invitationBodyText";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.invitationCtaText = reader.string();
+                        message.invitationCtaText = reader.stringVerify();
                         message._invitationCtaText = "invitationCtaText";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.invitationCtaUrl = reader.string();
+                        message.invitationCtaUrl = reader.stringVerify();
                         message._invitationCtaUrl = "invitationCtaUrl";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.surveyTitle = reader.string();
+                        message.surveyTitle = reader.stringVerify();
                         message._surveyTitle = "surveyTitle";
                         continue;
                     }
@@ -15565,21 +15565,21 @@ $root.AICommon = (function() {
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.surveyContinueButtonText = reader.string();
+                        message.surveyContinueButtonText = reader.stringVerify();
                         message._surveyContinueButtonText = "surveyContinueButtonText";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.surveySubmitButtonText = reader.string();
+                        message.surveySubmitButtonText = reader.stringVerify();
                         message._surveySubmitButtonText = "surveySubmitButtonText";
                         continue;
                     }
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.privacyStatementFull = reader.string();
+                        message.privacyStatementFull = reader.stringVerify();
                         message._privacyStatementFull = "privacyStatementFull";
                         continue;
                     }
@@ -15594,7 +15594,7 @@ $root.AICommon = (function() {
                 case 17: {
                         if (wireType !== 2)
                             break;
-                        message.feedbackToastText = reader.string();
+                        message.feedbackToastText = reader.stringVerify();
                         message._feedbackToastText = "feedbackToastText";
                         continue;
                     }
@@ -16086,7 +16086,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.stringValue = reader.string();
+                            message.stringValue = reader.stringVerify();
                             message._stringValue = "stringValue";
                             continue;
                         }
@@ -16100,7 +16100,7 @@ $root.AICommon = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.textTranslated = reader.string();
+                            message.textTranslated = reader.stringVerify();
                             message._textTranslated = "textTranslated";
                             continue;
                         }
@@ -16402,14 +16402,14 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.text = reader.string();
+                            message.text = reader.stringVerify();
                             message._text = "text";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.url = reader.string();
+                            message.url = reader.stringVerify();
                             message._url = "url";
                             continue;
                         }
@@ -16715,14 +16715,14 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.questionText = reader.string();
+                            message.questionText = reader.stringVerify();
                             message._questionText = "questionText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.questionId = reader.string();
+                            message.questionId = reader.stringVerify();
                             message._questionId = "questionId";
                             continue;
                         }
@@ -17418,28 +17418,28 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.thumbnailCdnUrl = reader.string();
+                            message.thumbnailCdnUrl = reader.stringVerify();
                             message._thumbnailCdnUrl = "thumbnailCdnUrl";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceProviderUrl = reader.string();
+                            message.sourceProviderUrl = reader.stringVerify();
                             message._sourceProviderUrl = "sourceProviderUrl";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceQuery = reader.string();
+                            message.sourceQuery = reader.stringVerify();
                             message._sourceQuery = "sourceQuery";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.faviconCdnUrl = reader.string();
+                            message.faviconCdnUrl = reader.stringVerify();
                             message._faviconCdnUrl = "faviconCdnUrl";
                             continue;
                         }
@@ -17453,7 +17453,7 @@ $root.AICommon = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.sourceTitle = reader.string();
+                            message.sourceTitle = reader.stringVerify();
                             message._sourceTitle = "sourceTitle";
                             continue;
                         }
@@ -18221,7 +18221,7 @@ $root.AICommon = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.shortPrompt = reader.string();
+                        message.shortPrompt = reader.stringVerify();
                         message._shortPrompt = "shortPrompt";
                         continue;
                     }
@@ -20369,7 +20369,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.progressDescription = reader.string();
+                        message.progressDescription = reader.stringVerify();
                         message._progressDescription = "progressDescription";
                         continue;
                     }
@@ -20789,14 +20789,14 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.statusTitle = reader.string();
+                            message.statusTitle = reader.stringVerify();
                             message._statusTitle = "statusTitle";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.statusBody = reader.string();
+                            message.statusBody = reader.stringVerify();
                             message._statusBody = "statusBody";
                             continue;
                         }
@@ -21265,7 +21265,7 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.title = reader.string();
+                                message.title = reader.stringVerify();
                                 message._title = "title";
                                 continue;
                             }
@@ -21279,14 +21279,14 @@ $root.AICommon = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceUrl = reader.string();
+                                message.sourceUrl = reader.stringVerify();
                                 message._sourceUrl = "sourceUrl";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.favIconUrl = reader.string();
+                                message.favIconUrl = reader.stringVerify();
                                 message._favIconUrl = "favIconUrl";
                                 continue;
                             }
@@ -21643,7 +21643,7 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceTitle = reader.string();
+                                message.sourceTitle = reader.stringVerify();
                                 message._sourceTitle = "sourceTitle";
                                 continue;
                             }
@@ -21657,7 +21657,7 @@ $root.AICommon = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.sourceUrl = reader.string();
+                                message.sourceUrl = reader.stringVerify();
                                 message._sourceUrl = "sourceUrl";
                                 continue;
                             }
@@ -22019,14 +22019,14 @@ $root.AICommon = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.sectionTitle = reader.string();
+                                message.sectionTitle = reader.stringVerify();
                                 message._sectionTitle = "sectionTitle";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.sectionBody = reader.string();
+                                message.sectionBody = reader.stringVerify();
                                 message._sectionBody = "sectionBody";
                                 continue;
                             }
@@ -22426,7 +22426,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.modelNameOverride = reader.string();
+                        message.modelNameOverride = reader.stringVerify();
                         message._modelNameOverride = "modelNameOverride";
                         continue;
                     }
@@ -22873,7 +22873,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.name = reader.string();
+                        message.name = reader.stringVerify();
                         message._name = "name";
                         continue;
                     }
@@ -23688,28 +23688,28 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.fileSha256 = reader.string();
+                        message.fileSha256 = reader.stringVerify();
                         message._fileSha256 = "fileSha256";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.mediaKey = reader.string();
+                        message.mediaKey = reader.stringVerify();
                         message._mediaKey = "mediaKey";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.fileEncSha256 = reader.string();
+                        message.fileEncSha256 = reader.stringVerify();
                         message._fileEncSha256 = "fileEncSha256";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.directPath = reader.string();
+                        message.directPath = reader.stringVerify();
                         message._directPath = "directPath";
                         continue;
                     }
@@ -23723,7 +23723,7 @@ $root.AICommon = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.mimetype = reader.string();
+                        message.mimetype = reader.stringVerify();
                         message._mimetype = "mimetype";
                         continue;
                     }
@@ -24120,7 +24120,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.sessionId = reader.string();
+                        message.sessionId = reader.stringVerify();
                         message._sessionId = "sessionId";
                         continue;
                     }
@@ -24486,7 +24486,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.destinationId = reader.string();
+                        message.destinationId = reader.stringVerify();
                         message._destinationId = "destinationId";
                         continue;
                     }
@@ -25355,7 +25355,7 @@ $root.AICommon = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.value = reader.string();
+                            message.value = reader.stringVerify();
                             message._value = "value";
                             continue;
                         }
@@ -25364,7 +25364,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.associatedPrompts && message.associatedPrompts.length))
                                 message.associatedPrompts = [];
-                            message.associatedPrompts.push(reader.string());
+                            message.associatedPrompts.push(reader.stringVerify());
                             continue;
                         }
                     }
@@ -25678,7 +25678,7 @@ $root.AICommon = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.buttonTitle = reader.string();
+                        message.buttonTitle = reader.stringVerify();
                         message._buttonTitle = "buttonTitle";
                         continue;
                     }
@@ -26716,14 +26716,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.fact = reader.string();
+                        message.fact = reader.stringVerify();
                         message._fact = "fact";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.factId = reader.string();
+                        message.factId = reader.stringVerify();
                         message._factId = "factId";
                         continue;
                     }
@@ -27041,7 +27041,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.disclaimer = reader.string();
+                        message.disclaimer = reader.stringVerify();
                         message._disclaimer = "disclaimer";
                         continue;
                     }
@@ -28020,14 +28020,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.prompt = reader.string();
+                        message.prompt = reader.stringVerify();
                         message._prompt = "prompt";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.promptId = reader.string();
+                        message.promptId = reader.stringVerify();
                         message._promptId = "promptId";
                         continue;
                     }
@@ -28629,7 +28629,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.suggestedPrompts && message.suggestedPrompts.length))
                             message.suggestedPrompts = [];
-                        message.suggestedPrompts.push(reader.string());
+                        message.suggestedPrompts.push(reader.stringVerify());
                         continue;
                     }
                 case 2: {
@@ -28649,7 +28649,7 @@ $root.AICommon = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.selectedPromptId = reader.string();
+                        message.selectedPromptId = reader.stringVerify();
                         message._selectedPromptId = "selectedPromptId";
                         continue;
                     }
@@ -29162,21 +29162,21 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.thumbnailCdnUrl = reader.string();
+                        message.thumbnailCdnUrl = reader.stringVerify();
                         message._thumbnailCdnUrl = "thumbnailCdnUrl";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.profilePhotoCdnUrl = reader.string();
+                        message.profilePhotoCdnUrl = reader.stringVerify();
                         message._profilePhotoCdnUrl = "profilePhotoCdnUrl";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.searchProviderUrl = reader.string();
+                        message.searchProviderUrl = reader.stringVerify();
                         message._searchProviderUrl = "searchProviderUrl";
                         continue;
                     }
@@ -29197,7 +29197,7 @@ $root.AICommon = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.searchQuery = reader.string();
+                        message.searchQuery = reader.stringVerify();
                         message._searchQuery = "searchQuery";
                         continue;
                     }
@@ -29225,7 +29225,7 @@ $root.AICommon = (function() {
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.faviconCdnUrl = reader.string();
+                        message.faviconCdnUrl = reader.stringVerify();
                         message._faviconCdnUrl = "faviconCdnUrl";
                         continue;
                     }
@@ -30404,7 +30404,7 @@ $root.Protocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.remoteJid = reader.string();
+                        message.remoteJid = reader.stringVerify();
                         message._remoteJid = "remoteJid";
                         continue;
                     }
@@ -30418,14 +30418,14 @@ $root.Protocol = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.id = reader.string();
+                        message.id = reader.stringVerify();
                         message._id = "id";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }

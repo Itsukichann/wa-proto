@@ -1838,14 +1838,14 @@ $root.ServerSync = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.directPath = reader.string();
+                        message.directPath = reader.stringVerify();
                         message._directPath = "directPath";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.handle = reader.string();
+                        message.handle = reader.stringVerify();
                         message._handle = "handle";
                         continue;
                     }
@@ -3384,7 +3384,7 @@ $root.ServerSync = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.text = reader.string();
+                        message.text = reader.stringVerify();
                         message._text = "text";
                         continue;
                     }

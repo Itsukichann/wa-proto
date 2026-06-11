@@ -633,7 +633,7 @@ $root.Protocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.remoteJid = reader.string();
+                        message.remoteJid = reader.stringVerify();
                         message._remoteJid = "remoteJid";
                         continue;
                     }
@@ -647,14 +647,14 @@ $root.Protocol = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.id = reader.string();
+                        message.id = reader.stringVerify();
                         message._id = "id";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.participant = reader.string();
+                        message.participant = reader.stringVerify();
                         message._participant = "participant";
                         continue;
                     }
