@@ -1204,6 +1204,8 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.ThreadPinAction.$Properties|null} [threadPinAction] SyncActionValue threadPinAction
          * @property {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties|null} [autoOrganizeBusinessChatSetting] SyncActionValue autoOrganizeBusinessChatSetting
          * @property {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties|null} [bizAiSettingsNudgeAction] SyncActionValue bizAiSettingsNudgeAction
+         * @property {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties|null} [coexV2VersionAction] SyncActionValue coexV2VersionAction
+         * @property {SyncAction.SyncActionValue.WASARootSecretAction.$Properties|null} [wasaRootSecretAction] SyncActionValue wasaRootSecretAction
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1296,6 +1298,8 @@ $root.SyncAction = (function() {
          *   threadPinAction?: SyncAction.SyncActionValue.ThreadPinAction.$Shape|null;
          *   autoOrganizeBusinessChatSetting?: SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape|null;
          *   bizAiSettingsNudgeAction?: SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape|null;
+         *   coexV2VersionAction?: SyncAction.SyncActionValue.CoexV2VersionAction.$Shape|null;
+         *   wasaRootSecretAction?: SyncAction.SyncActionValue.WASARootSecretAction.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -1939,6 +1943,22 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.bizAiSettingsNudgeAction = null;
 
+        /**
+         * SyncActionValue coexV2VersionAction.
+         * @member {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties|null|undefined} coexV2VersionAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.coexV2VersionAction = null;
+
+        /**
+         * SyncActionValue wasaRootSecretAction.
+         * @member {SyncAction.SyncActionValue.WASARootSecretAction.$Properties|null|undefined} wasaRootSecretAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.wasaRootSecretAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2410,6 +2430,18 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_coexV2VersionAction", {
+            get: $util.oneOfGetter($oneOfFields = ["coexV2VersionAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_wasaRootSecretAction", {
+            get: $util.oneOfGetter($oneOfFields = ["wasaRootSecretAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2598,6 +2630,10 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.encode(message.autoOrganizeBusinessChatSetting, writer.uint32(/* id 86, wireType 2 =*/690).fork(), _depth + 1).ldelim();
             if (message.bizAiSettingsNudgeAction != null && $Object.hasOwnProperty.call(message, "bizAiSettingsNudgeAction"))
                 $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.encode(message.bizAiSettingsNudgeAction, writer.uint32(/* id 87, wireType 2 =*/698).fork(), _depth + 1).ldelim();
+            if (message.coexV2VersionAction != null && $Object.hasOwnProperty.call(message, "coexV2VersionAction"))
+                $root.SyncAction.SyncActionValue.CoexV2VersionAction.encode(message.coexV2VersionAction, writer.uint32(/* id 88, wireType 2 =*/706).fork(), _depth + 1).ldelim();
+            if (message.wasaRootSecretAction != null && $Object.hasOwnProperty.call(message, "wasaRootSecretAction"))
+                $root.SyncAction.SyncActionValue.WASARootSecretAction.encode(message.wasaRootSecretAction, writer.uint32(/* id 89, wireType 2 =*/714).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3189,6 +3225,20 @@ $root.SyncAction = (function() {
                             break;
                         message.bizAiSettingsNudgeAction = $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiSettingsNudgeAction);
                         message._bizAiSettingsNudgeAction = "bizAiSettingsNudgeAction";
+                        continue;
+                    }
+                case 88: {
+                        if (wireType !== 2)
+                            break;
+                        message.coexV2VersionAction = $root.SyncAction.SyncActionValue.CoexV2VersionAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.coexV2VersionAction);
+                        message._coexV2VersionAction = "coexV2VersionAction";
+                        continue;
+                    }
+                case 89: {
+                        if (wireType !== 2)
+                            break;
+                        message.wasaRootSecretAction = $root.SyncAction.SyncActionValue.WASARootSecretAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.wasaRootSecretAction);
+                        message._wasaRootSecretAction = "wasaRootSecretAction";
                         continue;
                     }
                 }
@@ -3856,6 +3906,22 @@ $root.SyncAction = (function() {
                         return "bizAiSettingsNudgeAction." + error;
                 }
             }
+            if (message.coexV2VersionAction != null && $Object.hasOwnProperty.call(message, "coexV2VersionAction")) {
+                properties._coexV2VersionAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.CoexV2VersionAction.verify(message.coexV2VersionAction, _depth + 1);
+                    if (error)
+                        return "coexV2VersionAction." + error;
+                }
+            }
+            if (message.wasaRootSecretAction != null && $Object.hasOwnProperty.call(message, "wasaRootSecretAction")) {
+                properties._wasaRootSecretAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.WASARootSecretAction.verify(message.wasaRootSecretAction, _depth + 1);
+                    if (error)
+                        return "wasaRootSecretAction." + error;
+                }
+            }
             return null;
         };
 
@@ -4271,6 +4337,16 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.bizAiSettingsNudgeAction: object expected");
                 message.bizAiSettingsNudgeAction = $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.fromObject(object.bizAiSettingsNudgeAction, _depth + 1);
             }
+            if (object.coexV2VersionAction != null) {
+                if (!$util.isObject(object.coexV2VersionAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.coexV2VersionAction: object expected");
+                message.coexV2VersionAction = $root.SyncAction.SyncActionValue.CoexV2VersionAction.fromObject(object.coexV2VersionAction, _depth + 1);
+            }
+            if (object.wasaRootSecretAction != null) {
+                if (!$util.isObject(object.wasaRootSecretAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.wasaRootSecretAction: object expected");
+                message.wasaRootSecretAction = $root.SyncAction.SyncActionValue.WASARootSecretAction.fromObject(object.wasaRootSecretAction, _depth + 1);
+            }
             return message;
         };
 
@@ -4452,6 +4528,10 @@ $root.SyncAction = (function() {
                 object.autoOrganizeBusinessChatSetting = $root.SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.toObject(message.autoOrganizeBusinessChatSetting, options, _depth + 1);
             if (message.bizAiSettingsNudgeAction != null && $Object.hasOwnProperty.call(message, "bizAiSettingsNudgeAction"))
                 object.bizAiSettingsNudgeAction = $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.toObject(message.bizAiSettingsNudgeAction, options, _depth + 1);
+            if (message.coexV2VersionAction != null && $Object.hasOwnProperty.call(message, "coexV2VersionAction"))
+                object.coexV2VersionAction = $root.SyncAction.SyncActionValue.CoexV2VersionAction.toObject(message.coexV2VersionAction, options, _depth + 1);
+            if (message.wasaRootSecretAction != null && $Object.hasOwnProperty.call(message, "wasaRootSecretAction"))
+                object.wasaRootSecretAction = $root.SyncAction.SyncActionValue.WASARootSecretAction.toObject(message.wasaRootSecretAction, options, _depth + 1);
             return object;
         };
 
@@ -4486,7 +4566,7 @@ $root.SyncAction = (function() {
              * Properties of an AgentAction.
              * @typedef {Object} SyncAction.SyncActionValue.AgentAction.$Properties
              * @property {string|null} [name] AgentAction name
-             * @property {number|null} [deviceID] AgentAction deviceID
+             * @property {number|null} [deviceId] AgentAction deviceId
              * @property {boolean|null} [isDeleted] AgentAction isDeleted
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
@@ -4528,12 +4608,12 @@ $root.SyncAction = (function() {
             AgentAction.prototype.name = null;
 
             /**
-             * AgentAction deviceID.
-             * @member {number|null|undefined} deviceID
+             * AgentAction deviceId.
+             * @member {number|null|undefined} deviceId
              * @memberof SyncAction.SyncActionValue.AgentAction
              * @instance
              */
-            AgentAction.prototype.deviceID = null;
+            AgentAction.prototype.deviceId = null;
 
             /**
              * AgentAction isDeleted.
@@ -4553,8 +4633,8 @@ $root.SyncAction = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(AgentAction.prototype, "_deviceID", {
-                get: $util.oneOfGetter($oneOfFields = ["deviceID"]),
+            $Object.defineProperty(AgentAction.prototype, "_deviceId", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -4598,8 +4678,8 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 if (message.name != null && $Object.hasOwnProperty.call(message, "name"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                if (message.deviceID != null && $Object.hasOwnProperty.call(message, "deviceID"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.deviceID);
+                if (message.deviceId != null && $Object.hasOwnProperty.call(message, "deviceId"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.deviceId);
                 if (message.isDeleted != null && $Object.hasOwnProperty.call(message, "isDeleted"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isDeleted);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -4659,8 +4739,8 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 0)
                                 break;
-                            message.deviceID = reader.int32();
-                            message._deviceID = "deviceID";
+                            message.deviceId = reader.int32();
+                            message._deviceId = "deviceId";
                             continue;
                         }
                     case 3: {
@@ -4719,10 +4799,10 @@ $root.SyncAction = (function() {
                     if (!$util.isString(message.name))
                         return "name: string expected";
                 }
-                if (message.deviceID != null && $Object.hasOwnProperty.call(message, "deviceID")) {
-                    properties._deviceID = 1;
-                    if (!$util.isInteger(message.deviceID))
-                        return "deviceID: integer expected";
+                if (message.deviceId != null && $Object.hasOwnProperty.call(message, "deviceId")) {
+                    properties._deviceId = 1;
+                    if (!$util.isInteger(message.deviceId))
+                        return "deviceId: integer expected";
                 }
                 if (message.isDeleted != null && $Object.hasOwnProperty.call(message, "isDeleted")) {
                     properties._isDeleted = 1;
@@ -4752,8 +4832,8 @@ $root.SyncAction = (function() {
                 var message = new $root.SyncAction.SyncActionValue.AgentAction();
                 if (object.name != null)
                     message.name = $String(object.name);
-                if (object.deviceID != null)
-                    message.deviceID = object.deviceID | 0;
+                if (object.deviceId != null)
+                    message.deviceId = object.deviceId | 0;
                 if (object.isDeleted != null)
                     message.isDeleted = $Boolean(object.isDeleted);
                 return message;
@@ -4778,8 +4858,8 @@ $root.SyncAction = (function() {
                 var object = {};
                 if (message.name != null && $Object.hasOwnProperty.call(message, "name"))
                     object.name = message.name;
-                if (message.deviceID != null && $Object.hasOwnProperty.call(message, "deviceID"))
-                    object.deviceID = message.deviceID;
+                if (message.deviceId != null && $Object.hasOwnProperty.call(message, "deviceId"))
+                    object.deviceId = message.deviceId;
                 if (message.isDeleted != null && $Object.hasOwnProperty.call(message, "isDeleted"))
                     object.isDeleted = message.isDeleted;
                 return object;
@@ -9234,7 +9314,7 @@ $root.SyncAction = (function() {
             /**
              * Properties of a ChatAssignmentAction.
              * @typedef {Object} SyncAction.SyncActionValue.ChatAssignmentAction.$Properties
-             * @property {string|null} [deviceAgentID] ChatAssignmentAction deviceAgentID
+             * @property {string|null} [deviceAgentId] ChatAssignmentAction deviceAgentId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -9267,19 +9347,19 @@ $root.SyncAction = (function() {
             };
 
             /**
-             * ChatAssignmentAction deviceAgentID.
-             * @member {string|null|undefined} deviceAgentID
+             * ChatAssignmentAction deviceAgentId.
+             * @member {string|null|undefined} deviceAgentId
              * @memberof SyncAction.SyncActionValue.ChatAssignmentAction
              * @instance
              */
-            ChatAssignmentAction.prototype.deviceAgentID = null;
+            ChatAssignmentAction.prototype.deviceAgentId = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ChatAssignmentAction.prototype, "_deviceAgentID", {
-                get: $util.oneOfGetter($oneOfFields = ["deviceAgentID"]),
+            $Object.defineProperty(ChatAssignmentAction.prototype, "_deviceAgentId", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceAgentId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -9315,8 +9395,8 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.deviceAgentID != null && $Object.hasOwnProperty.call(message, "deviceAgentID"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.deviceAgentID);
+                if (message.deviceAgentId != null && $Object.hasOwnProperty.call(message, "deviceAgentId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.deviceAgentId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -9367,8 +9447,8 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.deviceAgentID = reader.stringVerify();
-                            message._deviceAgentID = "deviceAgentID";
+                            message.deviceAgentId = reader.stringVerify();
+                            message._deviceAgentId = "deviceAgentId";
                             continue;
                         }
                     }
@@ -9415,10 +9495,10 @@ $root.SyncAction = (function() {
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.deviceAgentID != null && $Object.hasOwnProperty.call(message, "deviceAgentID")) {
-                    properties._deviceAgentID = 1;
-                    if (!$util.isString(message.deviceAgentID))
-                        return "deviceAgentID: string expected";
+                if (message.deviceAgentId != null && $Object.hasOwnProperty.call(message, "deviceAgentId")) {
+                    properties._deviceAgentId = 1;
+                    if (!$util.isString(message.deviceAgentId))
+                        return "deviceAgentId: string expected";
                 }
                 return null;
             };
@@ -9441,8 +9521,8 @@ $root.SyncAction = (function() {
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.ChatAssignmentAction();
-                if (object.deviceAgentID != null)
-                    message.deviceAgentID = $String(object.deviceAgentID);
+                if (object.deviceAgentId != null)
+                    message.deviceAgentId = $String(object.deviceAgentId);
                 return message;
             };
 
@@ -9463,8 +9543,8 @@ $root.SyncAction = (function() {
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
                 var object = {};
-                if (message.deviceAgentID != null && $Object.hasOwnProperty.call(message, "deviceAgentID"))
-                    object.deviceAgentID = message.deviceAgentID;
+                if (message.deviceAgentId != null && $Object.hasOwnProperty.call(message, "deviceAgentId"))
+                    object.deviceAgentId = message.deviceAgentId;
                 return object;
             };
 
@@ -10034,6 +10114,285 @@ $root.SyncAction = (function() {
             };
 
             return ClearChatAction;
+        })();
+
+        SyncActionValue.CoexV2VersionAction = (function() {
+
+            /**
+             * Properties of a CoexV2VersionAction.
+             * @typedef {Object} SyncAction.SyncActionValue.CoexV2VersionAction.$Properties
+             * @property {number|Long|null} [version] CoexV2VersionAction version
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a CoexV2VersionAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ICoexV2VersionAction
+             * @augments SyncAction.SyncActionValue.CoexV2VersionAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CoexV2VersionAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a CoexV2VersionAction.
+             * @typedef {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties} SyncAction.SyncActionValue.CoexV2VersionAction.$Shape
+             */
+
+            /**
+             * Constructs a new CoexV2VersionAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a CoexV2VersionAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var CoexV2VersionAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * CoexV2VersionAction version.
+             * @member {number|Long|null|undefined} version
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @instance
+             */
+            CoexV2VersionAction.prototype.version = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(CoexV2VersionAction.prototype, "_version", {
+                get: $util.oneOfGetter($oneOfFields = ["version"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new CoexV2VersionAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.CoexV2VersionAction} CoexV2VersionAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CoexV2VersionAction.$Shape): SyncAction.SyncActionValue.CoexV2VersionAction & SyncAction.SyncActionValue.CoexV2VersionAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CoexV2VersionAction.$Properties): SyncAction.SyncActionValue.CoexV2VersionAction;
+             * }}
+             */
+            CoexV2VersionAction.create = function(properties) {
+                return new CoexV2VersionAction(properties);
+            };
+
+            /**
+             * Encodes the specified CoexV2VersionAction message. Does not implicitly {@link SyncAction.SyncActionValue.CoexV2VersionAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties} message CoexV2VersionAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CoexV2VersionAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.version);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CoexV2VersionAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.CoexV2VersionAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties} message CoexV2VersionAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CoexV2VersionAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            };
+
+            /**
+             * Decodes a CoexV2VersionAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.CoexV2VersionAction & SyncAction.SyncActionValue.CoexV2VersionAction.$Shape} CoexV2VersionAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CoexV2VersionAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.CoexV2VersionAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.version = reader.uint64();
+                            message._version = "version";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a CoexV2VersionAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.CoexV2VersionAction & SyncAction.SyncActionValue.CoexV2VersionAction.$Shape} CoexV2VersionAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CoexV2VersionAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CoexV2VersionAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CoexV2VersionAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
+                    properties._version = 1;
+                    if (!$util.isInteger(message.version) && !(message.version && $util.isInteger(message.version.low) && $util.isInteger(message.version.high)))
+                        return "version: integer|Long expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a CoexV2VersionAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.CoexV2VersionAction} CoexV2VersionAction
+             */
+            CoexV2VersionAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.CoexV2VersionAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.CoexV2VersionAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.CoexV2VersionAction();
+                if (object.version != null)
+                    if ($util.Long)
+                        message.version = $util.Long.fromValue(object.version, true);
+                    else if (typeof object.version === "string")
+                        message.version = $parseInt(object.version, 10);
+                    else if (typeof object.version === "number")
+                        message.version = object.version;
+                    else if (typeof object.version === "object")
+                        message.version = new $util.LongBits(object.version.low >>> 0, object.version.high >>> 0).toNumber(true);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CoexV2VersionAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CoexV2VersionAction} message CoexV2VersionAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CoexV2VersionAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.version = typeof message.version === "number" ? $BigInt(message.version) : $util.Long.fromBits(message.version.low >>> 0, message.version.high >>> 0, true).toBigInt();
+                    else if (typeof message.version === "number")
+                        object.version = options.longs === $String ? $String(message.version) : message.version;
+                    else
+                        object.version = options.longs === $String ? $util.Long.prototype.toString.call(message.version) : options.longs === $Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber(true) : message.version;
+                return object;
+            };
+
+            /**
+             * Converts this CoexV2VersionAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CoexV2VersionAction.prototype.toJSON = function() {
+                return CoexV2VersionAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for CoexV2VersionAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.CoexV2VersionAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            CoexV2VersionAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.CoexV2VersionAction";
+            };
+
+            return CoexV2VersionAction;
         })();
 
         SyncActionValue.ContactAction = (function() {
@@ -27600,8 +27959,8 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.StatusPrivacyAction.$Properties
              * @property {SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode|null} [mode] StatusPrivacyAction mode
              * @property {Array.<string>|null} [userJid] StatusPrivacyAction userJid
-             * @property {boolean|null} [shareToFB] StatusPrivacyAction shareToFB
-             * @property {boolean|null} [shareToIG] StatusPrivacyAction shareToIG
+             * @property {boolean|null} [shareToFb] StatusPrivacyAction shareToFb
+             * @property {boolean|null} [shareToIg] StatusPrivacyAction shareToIg
              * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties>|null} [customLists] StatusPrivacyAction customLists
              * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode>|null} [modes] StatusPrivacyAction modes
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
@@ -27655,20 +28014,20 @@ $root.SyncAction = (function() {
             StatusPrivacyAction.prototype.userJid = $util.emptyArray;
 
             /**
-             * StatusPrivacyAction shareToFB.
-             * @member {boolean|null|undefined} shareToFB
+             * StatusPrivacyAction shareToFb.
+             * @member {boolean|null|undefined} shareToFb
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @instance
              */
-            StatusPrivacyAction.prototype.shareToFB = null;
+            StatusPrivacyAction.prototype.shareToFb = null;
 
             /**
-             * StatusPrivacyAction shareToIG.
-             * @member {boolean|null|undefined} shareToIG
+             * StatusPrivacyAction shareToIg.
+             * @member {boolean|null|undefined} shareToIg
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @instance
              */
-            StatusPrivacyAction.prototype.shareToIG = null;
+            StatusPrivacyAction.prototype.shareToIg = null;
 
             /**
              * StatusPrivacyAction customLists.
@@ -27696,14 +28055,14 @@ $root.SyncAction = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(StatusPrivacyAction.prototype, "_shareToFB", {
-                get: $util.oneOfGetter($oneOfFields = ["shareToFB"]),
+            $Object.defineProperty(StatusPrivacyAction.prototype, "_shareToFb", {
+                get: $util.oneOfGetter($oneOfFields = ["shareToFb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(StatusPrivacyAction.prototype, "_shareToIG", {
-                get: $util.oneOfGetter($oneOfFields = ["shareToIG"]),
+            $Object.defineProperty(StatusPrivacyAction.prototype, "_shareToIg", {
+                get: $util.oneOfGetter($oneOfFields = ["shareToIg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -27744,10 +28103,10 @@ $root.SyncAction = (function() {
                 if (message.userJid != null && message.userJid.length)
                     for (var i = 0; i < message.userJid.length; ++i)
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.userJid[i]);
-                if (message.shareToFB != null && $Object.hasOwnProperty.call(message, "shareToFB"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.shareToFB);
-                if (message.shareToIG != null && $Object.hasOwnProperty.call(message, "shareToIG"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.shareToIG);
+                if (message.shareToFb != null && $Object.hasOwnProperty.call(message, "shareToFb"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.shareToFb);
+                if (message.shareToIg != null && $Object.hasOwnProperty.call(message, "shareToIg"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.shareToIg);
                 if (message.customLists != null && message.customLists.length)
                     for (var i = 0; i < message.customLists.length; ++i)
                         $root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.encode(message.customLists[i], writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
@@ -27822,15 +28181,15 @@ $root.SyncAction = (function() {
                     case 3: {
                             if (wireType !== 0)
                                 break;
-                            message.shareToFB = reader.bool();
-                            message._shareToFB = "shareToFB";
+                            message.shareToFb = reader.bool();
+                            message._shareToFb = "shareToFb";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 0)
                                 break;
-                            message.shareToIG = reader.bool();
-                            message._shareToIG = "shareToIG";
+                            message.shareToIg = reader.bool();
+                            message._shareToIg = "shareToIg";
                             continue;
                         }
                     case 5: {
@@ -27921,15 +28280,15 @@ $root.SyncAction = (function() {
                         if (!$util.isString(message.userJid[i]))
                             return "userJid: string[] expected";
                 }
-                if (message.shareToFB != null && $Object.hasOwnProperty.call(message, "shareToFB")) {
-                    properties._shareToFB = 1;
-                    if (typeof message.shareToFB !== "boolean")
-                        return "shareToFB: boolean expected";
+                if (message.shareToFb != null && $Object.hasOwnProperty.call(message, "shareToFb")) {
+                    properties._shareToFb = 1;
+                    if (typeof message.shareToFb !== "boolean")
+                        return "shareToFb: boolean expected";
                 }
-                if (message.shareToIG != null && $Object.hasOwnProperty.call(message, "shareToIG")) {
-                    properties._shareToIG = 1;
-                    if (typeof message.shareToIG !== "boolean")
-                        return "shareToIG: boolean expected";
+                if (message.shareToIg != null && $Object.hasOwnProperty.call(message, "shareToIg")) {
+                    properties._shareToIg = 1;
+                    if (typeof message.shareToIg !== "boolean")
+                        return "shareToIg: boolean expected";
                 }
                 if (message.customLists != null && $Object.hasOwnProperty.call(message, "customLists")) {
                     if (!$Array.isArray(message.customLists))
@@ -28011,10 +28370,10 @@ $root.SyncAction = (function() {
                     for (var i = 0; i < object.userJid.length; ++i)
                         message.userJid[i] = $String(object.userJid[i]);
                 }
-                if (object.shareToFB != null)
-                    message.shareToFB = $Boolean(object.shareToFB);
-                if (object.shareToIG != null)
-                    message.shareToIG = $Boolean(object.shareToIG);
+                if (object.shareToFb != null)
+                    message.shareToFb = $Boolean(object.shareToFb);
+                if (object.shareToIg != null)
+                    message.shareToIg = $Boolean(object.shareToIg);
                 if (object.customLists) {
                     if (!$Array.isArray(object.customLists))
                         throw $TypeError(".SyncAction.SyncActionValue.StatusPrivacyAction.customLists: array expected");
@@ -28090,10 +28449,10 @@ $root.SyncAction = (function() {
                     for (var j = 0; j < message.userJid.length; ++j)
                         object.userJid[j] = message.userJid[j];
                 }
-                if (message.shareToFB != null && $Object.hasOwnProperty.call(message, "shareToFB"))
-                    object.shareToFB = message.shareToFB;
-                if (message.shareToIG != null && $Object.hasOwnProperty.call(message, "shareToIG"))
-                    object.shareToIG = message.shareToIG;
+                if (message.shareToFb != null && $Object.hasOwnProperty.call(message, "shareToFb"))
+                    object.shareToFb = message.shareToFb;
+                if (message.shareToIg != null && $Object.hasOwnProperty.call(message, "shareToIg"))
+                    object.shareToIg = message.shareToIg;
                 if (message.customLists && message.customLists.length) {
                     object.customLists = $Array(message.customLists.length);
                     for (var j = 0; j < message.customLists.length; ++j)
@@ -33152,6 +33511,631 @@ $root.SyncAction = (function() {
             return UsernameChatStartModeAction;
         })();
 
+        SyncActionValue.WASARootSecretAction = (function() {
+
+            /**
+             * Properties of a WASARootSecretAction.
+             * @typedef {Object} SyncAction.SyncActionValue.WASARootSecretAction.$Properties
+             * @property {Array.<SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties>|null} [secrets] WASARootSecretAction secrets
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a WASARootSecretAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IWASARootSecretAction
+             * @augments SyncAction.SyncActionValue.WASARootSecretAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.WASARootSecretAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a WASARootSecretAction.
+             * @typedef {SyncAction.SyncActionValue.WASARootSecretAction.$Properties} SyncAction.SyncActionValue.WASARootSecretAction.$Shape
+             */
+
+            /**
+             * Constructs a new WASARootSecretAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a WASARootSecretAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.WASARootSecretAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var WASARootSecretAction = function (properties) {
+                this.secrets = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * WASARootSecretAction secrets.
+             * @member {Array.<SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties>} secrets
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @instance
+             */
+            WASARootSecretAction.prototype.secrets = $util.emptyArray;
+
+            /**
+             * Creates a new WASARootSecretAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {SyncAction.SyncActionValue.WASARootSecretAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.WASARootSecretAction} WASARootSecretAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.WASARootSecretAction.$Shape): SyncAction.SyncActionValue.WASARootSecretAction & SyncAction.SyncActionValue.WASARootSecretAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.WASARootSecretAction.$Properties): SyncAction.SyncActionValue.WASARootSecretAction;
+             * }}
+             */
+            WASARootSecretAction.create = function(properties) {
+                return new WASARootSecretAction(properties);
+            };
+
+            /**
+             * Encodes the specified WASARootSecretAction message. Does not implicitly {@link SyncAction.SyncActionValue.WASARootSecretAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {SyncAction.SyncActionValue.WASARootSecretAction.$Properties} message WASARootSecretAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WASARootSecretAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.secrets != null && message.secrets.length)
+                    for (var i = 0; i < message.secrets.length; ++i)
+                        $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.encode(message.secrets[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WASARootSecretAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.WASARootSecretAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {SyncAction.SyncActionValue.WASARootSecretAction.$Properties} message WASARootSecretAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WASARootSecretAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            };
+
+            /**
+             * Decodes a WASARootSecretAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.WASARootSecretAction & SyncAction.SyncActionValue.WASARootSecretAction.$Shape} WASARootSecretAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WASARootSecretAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.WASARootSecretAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.secrets && message.secrets.length))
+                                message.secrets = [];
+                            message.secrets.push($root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a WASARootSecretAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.WASARootSecretAction & SyncAction.SyncActionValue.WASARootSecretAction.$Shape} WASARootSecretAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WASARootSecretAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WASARootSecretAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WASARootSecretAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                if (message.secrets != null && $Object.hasOwnProperty.call(message, "secrets")) {
+                    if (!$Array.isArray(message.secrets))
+                        return "secrets: array expected";
+                    for (var i = 0; i < message.secrets.length; ++i) {
+                        var error = $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify(message.secrets[i], _depth + 1);
+                        if (error)
+                            return "secrets." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WASARootSecretAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.WASARootSecretAction} WASARootSecretAction
+             */
+            WASARootSecretAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.WASARootSecretAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.WASARootSecretAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.WASARootSecretAction();
+                if (object.secrets) {
+                    if (!$Array.isArray(object.secrets))
+                        throw $TypeError(".SyncAction.SyncActionValue.WASARootSecretAction.secrets: array expected");
+                    message.secrets = $Array(object.secrets.length);
+                    for (var i = 0; i < object.secrets.length; ++i) {
+                        if (!$util.isObject(object.secrets[i]))
+                            throw $TypeError(".SyncAction.SyncActionValue.WASARootSecretAction.secrets: object expected");
+                        message.secrets[i] = $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.fromObject(object.secrets[i], _depth + 1);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WASARootSecretAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {SyncAction.SyncActionValue.WASARootSecretAction} message WASARootSecretAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WASARootSecretAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.secrets = [];
+                if (message.secrets && message.secrets.length) {
+                    object.secrets = $Array(message.secrets.length);
+                    for (var j = 0; j < message.secrets.length; ++j)
+                        object.secrets[j] = $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.toObject(message.secrets[j], options, _depth + 1);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this WASARootSecretAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WASARootSecretAction.prototype.toJSON = function() {
+                return WASARootSecretAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for WASARootSecretAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            WASARootSecretAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.WASARootSecretAction";
+            };
+
+            WASARootSecretAction.RootSecretEntry = (function() {
+
+                /**
+                 * Properties of a RootSecretEntry.
+                 * @typedef {Object} SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties
+                 * @property {string|null} [id] RootSecretEntry id
+                 * @property {Uint8Array|null} [rootSecret] RootSecretEntry rootSecret
+                 * @property {number|Long|null} [epoch] RootSecretEntry epoch
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+
+                /**
+                 * Properties of a RootSecretEntry.
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+                 * @interface IRootSecretEntry
+                 * @augments SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties
+                 * @deprecated Use SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a RootSecretEntry.
+                 * @typedef {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties} SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Shape
+                 */
+
+                /**
+                 * Constructs a new RootSecretEntry.
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction
+                 * @classdesc Represents a RootSecretEntry.
+                 * @constructor
+                 * @param {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+                var RootSecretEntry = function (properties) {
+                    if (properties)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                this[keys[i]] = properties[keys[i]];
+                };
+
+                /**
+                 * RootSecretEntry id.
+                 * @member {string|null|undefined} id
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @instance
+                 */
+                RootSecretEntry.prototype.id = null;
+
+                /**
+                 * RootSecretEntry rootSecret.
+                 * @member {Uint8Array|null|undefined} rootSecret
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @instance
+                 */
+                RootSecretEntry.prototype.rootSecret = null;
+
+                /**
+                 * RootSecretEntry epoch.
+                 * @member {number|Long|null|undefined} epoch
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @instance
+                 */
+                RootSecretEntry.prototype.epoch = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(RootSecretEntry.prototype, "_id", {
+                    get: $util.oneOfGetter($oneOfFields = ["id"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(RootSecretEntry.prototype, "_rootSecret", {
+                    get: $util.oneOfGetter($oneOfFields = ["rootSecret"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(RootSecretEntry.prototype, "_epoch", {
+                    get: $util.oneOfGetter($oneOfFields = ["epoch"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Creates a new RootSecretEntry instance using the specified properties.
+                 * @function create
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties=} [properties] Properties to set
+                 * @returns {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry} RootSecretEntry instance
+                 * @type {{
+                 *   (properties: SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Shape): SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry & SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Shape;
+                 *   (properties?: SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties): SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry;
+                 * }}
+                 */
+                RootSecretEntry.create = function(properties) {
+                    return new RootSecretEntry(properties);
+                };
+
+                /**
+                 * Encodes the specified RootSecretEntry message. Does not implicitly {@link SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify|verify} messages.
+                 * @function encode
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties} message RootSecretEntry message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                RootSecretEntry.encode = function (message, writer, _depth) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                    if (message.rootSecret != null && $Object.hasOwnProperty.call(message, "rootSecret"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.rootSecret);
+                    if (message.epoch != null && $Object.hasOwnProperty.call(message, "epoch"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).int64(message.epoch);
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified RootSecretEntry message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Properties} message RootSecretEntry message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                RootSecretEntry.encodeDelimited = function(message, writer) {
+                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                };
+
+                /**
+                 * Decodes a RootSecretEntry message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry & SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Shape} RootSecretEntry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                RootSecretEntry.decode = function (reader, length, _end, _depth, _target) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry();
+                    while (reader.pos < end) {
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = $undefined;
+                            break;
+                        }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.id = reader.stringVerify();
+                                message._id = "id";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.rootSecret = reader.bytes();
+                                message._rootSecret = "rootSecret";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.epoch = reader.int64();
+                                message._epoch = "epoch";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
+                    }
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
+                    return message;
+                };
+
+                /**
+                 * Decodes a RootSecretEntry message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry & SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.$Shape} RootSecretEntry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                RootSecretEntry.decodeDelimited = function(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a RootSecretEntry message.
+                 * @function verify
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                RootSecretEntry.verify = function (message, _depth) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
+                    var properties = {};
+                    if (message.id != null && $Object.hasOwnProperty.call(message, "id")) {
+                        properties._id = 1;
+                        if (!$util.isString(message.id))
+                            return "id: string expected";
+                    }
+                    if (message.rootSecret != null && $Object.hasOwnProperty.call(message, "rootSecret")) {
+                        properties._rootSecret = 1;
+                        if (!(message.rootSecret && typeof message.rootSecret.length === "number" || $util.isString(message.rootSecret)))
+                            return "rootSecret: buffer expected";
+                    }
+                    if (message.epoch != null && $Object.hasOwnProperty.call(message, "epoch")) {
+                        properties._epoch = 1;
+                        if (!$util.isInteger(message.epoch) && !(message.epoch && $util.isInteger(message.epoch.low) && $util.isInteger(message.epoch.high)))
+                            return "epoch: integer|Long expected";
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a RootSecretEntry message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry} RootSecretEntry
+                 */
+                RootSecretEntry.fromObject = function (object, _depth) {
+                    if (object instanceof $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry)
+                        return object;
+                    if (!$util.isObject(object))
+                        throw $TypeError(".SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry: object expected");
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var message = new $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry();
+                    if (object.id != null)
+                        message.id = $String(object.id);
+                    if (object.rootSecret != null)
+                        if (typeof object.rootSecret === "string")
+                            $util.base64.decode(object.rootSecret, message.rootSecret = $util.newBuffer($util.base64.length(object.rootSecret)), 0);
+                        else if (object.rootSecret.length >= 0)
+                            message.rootSecret = object.rootSecret;
+                    if (object.epoch != null)
+                        if ($util.Long)
+                            message.epoch = $util.Long.fromValue(object.epoch, false);
+                        else if (typeof object.epoch === "string")
+                            message.epoch = $parseInt(object.epoch, 10);
+                        else if (typeof object.epoch === "number")
+                            message.epoch = object.epoch;
+                        else if (typeof object.epoch === "object")
+                            message.epoch = new $util.LongBits(object.epoch.low >>> 0, object.epoch.high >>> 0).toNumber();
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a RootSecretEntry message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry} message RootSecretEntry
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                RootSecretEntry.toObject = function (message, options, _depth) {
+                    if (!options)
+                        options = {};
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var object = {};
+                    if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
+                        object.id = message.id;
+                    if (message.rootSecret != null && $Object.hasOwnProperty.call(message, "rootSecret"))
+                        object.rootSecret = options.bytes === $String ? $util.base64.encode(message.rootSecret, 0, message.rootSecret.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.rootSecret) : message.rootSecret;
+                    if (message.epoch != null && $Object.hasOwnProperty.call(message, "epoch"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.epoch = typeof message.epoch === "number" ? $BigInt(message.epoch) : $util.Long.fromBits(message.epoch.low >>> 0, message.epoch.high >>> 0, false).toBigInt();
+                        else if (typeof message.epoch === "number")
+                            object.epoch = options.longs === $String ? $String(message.epoch) : message.epoch;
+                        else
+                            object.epoch = options.longs === $String ? $util.Long.prototype.toString.call(message.epoch) : options.longs === $Number ? new $util.LongBits(message.epoch.low >>> 0, message.epoch.high >>> 0).toNumber() : message.epoch;
+                    return object;
+                };
+
+                /**
+                 * Converts this RootSecretEntry to JSON.
+                 * @function toJSON
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                RootSecretEntry.prototype.toJSON = function() {
+                    return RootSecretEntry.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the type url for RootSecretEntry
+                 * @function getTypeUrl
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @static
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
+                 */
+                RootSecretEntry.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry";
+                };
+
+                return RootSecretEntry;
+            })();
+
+            return WASARootSecretAction;
+        })();
+
         SyncActionValue.WaffleAccountLinkStateAction = (function() {
 
             /**
@@ -35428,6 +36412,8 @@ $root.SyncAction = (function() {
      * @property {number} THREAD_PIN_ACTION=85 THREAD_PIN_ACTION value
      * @property {number} AUTO_ORGANIZE_BUSINESS_CHAT_SETTING=86 AUTO_ORGANIZE_BUSINESS_CHAT_SETTING value
      * @property {number} BIZ_AI_SETTINGS_NUDGE_ACTION=87 BIZ_AI_SETTINGS_NUDGE_ACTION value
+     * @property {number} COEX_V2_VERSION_ACTION=88 COEX_V2_VERSION_ACTION value
+     * @property {number} WASA_ROOT_SECRET_ACTION=89 WASA_ROOT_SECRET_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -35515,6 +36501,8 @@ $root.SyncAction = (function() {
         values[valuesById[85] = "THREAD_PIN_ACTION"] = 85;
         values[valuesById[86] = "AUTO_ORGANIZE_BUSINESS_CHAT_SETTING"] = 86;
         values[valuesById[87] = "BIZ_AI_SETTINGS_NUDGE_ACTION"] = 87;
+        values[valuesById[88] = "COEX_V2_VERSION_ACTION"] = 88;
+        values[valuesById[89] = "WASA_ROOT_SECRET_ACTION"] = 89;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
