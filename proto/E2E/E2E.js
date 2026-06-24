@@ -1229,7 +1229,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.AIRichResponseMessage();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.AIRichResponseMessage(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -1314,13 +1314,8 @@ $root.E2E = (function() {
             var properties = {};
             if (message.messageType != null && $Object.hasOwnProperty.call(message, "messageType")) {
                 properties._messageType = 1;
-                switch (message.messageType) {
-                default:
+                if (typeof message.messageType !== "number" || (message.messageType | 0) !== message.messageType)
                     return "messageType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.submessages != null && $Object.hasOwnProperty.call(message, "submessages")) {
                 if (!$Array.isArray(message.submessages))
@@ -1369,12 +1364,6 @@ $root.E2E = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.E2E.AIRichResponseMessage();
             switch (object.messageType) {
-            default:
-                if (typeof object.messageType === "number") {
-                    message.messageType = object.messageType;
-                    break;
-                }
-                break;
             case "AI_RICH_RESPONSE_TYPE_UNKNOWN":
             case 0:
                 message.messageType = 0;
@@ -1383,6 +1372,9 @@ $root.E2E = (function() {
             case 1:
                 message.messageType = 1;
                 break;
+            default:
+                if (typeof object.messageType === "number" && (object.messageType | 0) === object.messageType)
+                    message.messageType = object.messageType;
             }
             if (object.submessages) {
                 if (!$Array.isArray(object.submessages))
@@ -2663,7 +2655,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ProcessedVideo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ProcessedVideo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -2806,15 +2798,8 @@ $root.E2E = (function() {
             }
             if (message.quality != null && $Object.hasOwnProperty.call(message, "quality")) {
                 properties._quality = 1;
-                switch (message.quality) {
-                default:
+                if (typeof message.quality !== "number" || (message.quality | 0) !== message.quality)
                     return "quality: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.capabilities != null && $Object.hasOwnProperty.call(message, "capabilities")) {
                 if (!$Array.isArray(message.capabilities))
@@ -2867,12 +2852,6 @@ $root.E2E = (function() {
             if (object.bitrate != null)
                 message.bitrate = object.bitrate >>> 0;
             switch (object.quality) {
-            default:
-                if (typeof object.quality === "number") {
-                    message.quality = object.quality;
-                    break;
-                }
-                break;
             case "UNDEFINED":
             case 0:
                 message.quality = 0;
@@ -2889,6 +2868,9 @@ $root.E2E = (function() {
             case 3:
                 message.quality = 3;
                 break;
+            default:
+                if (typeof object.quality === "number" && (object.quality | 0) === object.quality)
+                    message.quality = object.quality;
             }
             if (object.capabilities) {
                 if (!$Array.isArray(object.capabilities))
@@ -2981,7 +2963,7 @@ $root.E2E = (function() {
          * @property {number} HIGH=3 HIGH value
          */
         ProcessedVideo.VideoQuality = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNDEFINED"] = 0;
             values[valuesById[1] = "LOW"] = 1;
             values[valuesById[2] = "MID"] = 2;
@@ -4725,7 +4707,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.DisappearingMode();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.DisappearingMode(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -4809,29 +4791,13 @@ $root.E2E = (function() {
             var properties = {};
             if (message.initiator != null && $Object.hasOwnProperty.call(message, "initiator")) {
                 properties._initiator = 1;
-                switch (message.initiator) {
-                default:
+                if (typeof message.initiator !== "number" || (message.initiator | 0) !== message.initiator)
                     return "initiator: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger")) {
                 properties._trigger = 1;
-                switch (message.trigger) {
-                default:
+                if (typeof message.trigger !== "number" || (message.trigger | 0) !== message.trigger)
                     return "trigger: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             if (message.initiatorDeviceJid != null && $Object.hasOwnProperty.call(message, "initiatorDeviceJid")) {
                 properties._initiatorDeviceJid = 1;
@@ -4865,12 +4831,6 @@ $root.E2E = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.E2E.DisappearingMode();
             switch (object.initiator) {
-            default:
-                if (typeof object.initiator === "number") {
-                    message.initiator = object.initiator;
-                    break;
-                }
-                break;
             case "CHANGED_IN_CHAT":
             case 0:
                 message.initiator = 0;
@@ -4887,14 +4847,11 @@ $root.E2E = (function() {
             case 3:
                 message.initiator = 3;
                 break;
+            default:
+                if (typeof object.initiator === "number" && (object.initiator | 0) === object.initiator)
+                    message.initiator = object.initiator;
             }
             switch (object.trigger) {
-            default:
-                if (typeof object.trigger === "number") {
-                    message.trigger = object.trigger;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.trigger = 0;
@@ -4919,6 +4876,9 @@ $root.E2E = (function() {
             case 5:
                 message.trigger = 5;
                 break;
+            default:
+                if (typeof object.trigger === "number" && (object.trigger | 0) === object.trigger)
+                    message.trigger = object.trigger;
             }
             if (object.initiatorDeviceJid != null)
                 message.initiatorDeviceJid = $String(object.initiatorDeviceJid);
@@ -4990,7 +4950,7 @@ $root.E2E = (function() {
          * @property {number} BIZ_UPGRADE_FB_HOSTING=3 BIZ_UPGRADE_FB_HOSTING value
          */
         DisappearingMode.Initiator = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "CHANGED_IN_CHAT"] = 0;
             values[valuesById[1] = "INITIATED_BY_ME"] = 1;
             values[valuesById[2] = "INITIATED_BY_OTHER"] = 2;
@@ -5010,7 +4970,7 @@ $root.E2E = (function() {
          * @property {number} UNKNOWN_GROUPS=5 UNKNOWN_GROUPS value
          */
         DisappearingMode.Trigger = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "ACCOUNT_SETTING"] = 2;
@@ -5301,7 +5261,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.PaymentBackground();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.PaymentBackground(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -5475,13 +5435,8 @@ $root.E2E = (function() {
             }
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -5533,12 +5488,6 @@ $root.E2E = (function() {
                 message.mediaData = $root.E2E.PaymentBackground.MediaData.fromObject(object.mediaData, _depth + 1);
             }
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.type = 0;
@@ -5547,6 +5496,9 @@ $root.E2E = (function() {
             case 1:
                 message.type = 1;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             return message;
         };
@@ -6049,7 +6001,7 @@ $root.E2E = (function() {
          * @property {number} DEFAULT=1 DEFAULT value
          */
         PaymentBackground.Type = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "DEFAULT"] = 1;
             return values;
@@ -7575,7 +7527,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.HydratedTemplateButton.HydratedURLButton();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.HydratedTemplateButton.HydratedURLButton(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -7674,14 +7626,8 @@ $root.E2E = (function() {
                 }
                 if (message.webviewPresentation != null && $Object.hasOwnProperty.call(message, "webviewPresentation")) {
                     properties._webviewPresentation = 1;
-                    switch (message.webviewPresentation) {
-                    default:
+                    if (typeof message.webviewPresentation !== "number" || (message.webviewPresentation | 0) !== message.webviewPresentation)
                         return "webviewPresentation: enum value expected";
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -7711,12 +7657,6 @@ $root.E2E = (function() {
                 if (object.consentedUsersUrl != null)
                     message.consentedUsersUrl = $String(object.consentedUsersUrl);
                 switch (object.webviewPresentation) {
-                default:
-                    if (typeof object.webviewPresentation === "number") {
-                        message.webviewPresentation = object.webviewPresentation;
-                        break;
-                    }
-                    break;
                 case "FULL":
                 case 1:
                     message.webviewPresentation = 1;
@@ -7729,6 +7669,9 @@ $root.E2E = (function() {
                 case 3:
                     message.webviewPresentation = 3;
                     break;
+                default:
+                    if (typeof object.webviewPresentation === "number" && (object.webviewPresentation | 0) === object.webviewPresentation)
+                        message.webviewPresentation = object.webviewPresentation;
                 }
                 return message;
             };
@@ -7795,7 +7738,7 @@ $root.E2E = (function() {
              * @property {number} COMPACT=3 COMPACT value
              */
             HydratedURLButton.WebviewPresentationType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "FULL"] = 1;
                 values[valuesById[2] = "TALL"] = 2;
                 values[valuesById[3] = "COMPACT"] = 3;
@@ -10088,7 +10031,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.InteractiveAnnotation();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.InteractiveAnnotation(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -10223,14 +10166,8 @@ $root.E2E = (function() {
             }
             if (message.statusLinkType != null && $Object.hasOwnProperty.call(message, "statusLinkType")) {
                 properties._statusLinkType = 1;
-                switch (message.statusLinkType) {
-                default:
+                if (typeof message.statusLinkType !== "number" || (message.statusLinkType | 0) !== message.statusLinkType)
                     return "statusLinkType: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.location != null && $Object.hasOwnProperty.call(message, "location")) {
                 properties.action = 1;
@@ -10306,12 +10243,6 @@ $root.E2E = (function() {
                 message.embeddedContent = $root.E2E.EmbeddedContent.fromObject(object.embeddedContent, _depth + 1);
             }
             switch (object.statusLinkType) {
-            default:
-                if (typeof object.statusLinkType === "number") {
-                    message.statusLinkType = object.statusLinkType;
-                    break;
-                }
-                break;
             case "RASTERIZED_LINK_PREVIEW":
             case 1:
                 message.statusLinkType = 1;
@@ -10324,6 +10255,9 @@ $root.E2E = (function() {
             case 3:
                 message.statusLinkType = 3;
                 break;
+            default:
+                if (typeof object.statusLinkType === "number" && (object.statusLinkType | 0) === object.statusLinkType)
+                    message.statusLinkType = object.statusLinkType;
             }
             if (object.location != null) {
                 if (!$util.isObject(object.location))
@@ -10432,7 +10366,7 @@ $root.E2E = (function() {
          * @property {number} RASTERIZED_LINK_FULL_URL=3 RASTERIZED_LINK_FULL_URL value
          */
         InteractiveAnnotation.StatusLinkType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "RASTERIZED_LINK_PREVIEW"] = 1;
             values[valuesById[2] = "RASTERIZED_LINK_TRUNCATED"] = 2;
             values[valuesById[3] = "RASTERIZED_LINK_FULL_URL"] = 3;
@@ -12364,7 +12298,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.DeviceListMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.DeviceListMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -12511,25 +12445,13 @@ $root.E2E = (function() {
             }
             if (message.senderAccountType != null && $Object.hasOwnProperty.call(message, "senderAccountType")) {
                 properties._senderAccountType = 1;
-                switch (message.senderAccountType) {
-                default:
+                if (typeof message.senderAccountType !== "number" || (message.senderAccountType | 0) !== message.senderAccountType)
                     return "senderAccountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.receiverAccountType != null && $Object.hasOwnProperty.call(message, "receiverAccountType")) {
                 properties._receiverAccountType = 1;
-                switch (message.receiverAccountType) {
-                default:
+                if (typeof message.receiverAccountType !== "number" || (message.receiverAccountType | 0) !== message.receiverAccountType)
                     return "receiverAccountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.recipientKeyHash != null && $Object.hasOwnProperty.call(message, "recipientKeyHash")) {
                 properties._recipientKeyHash = 1;
@@ -12591,12 +12513,6 @@ $root.E2E = (function() {
                     message.senderKeyIndexes[i] = object.senderKeyIndexes[i] >>> 0;
             }
             switch (object.senderAccountType) {
-            default:
-                if (typeof object.senderAccountType === "number") {
-                    message.senderAccountType = object.senderAccountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.senderAccountType = 0;
@@ -12609,14 +12525,11 @@ $root.E2E = (function() {
             case 2:
                 message.senderAccountType = 2;
                 break;
+            default:
+                if (typeof object.senderAccountType === "number" && (object.senderAccountType | 0) === object.senderAccountType)
+                    message.senderAccountType = object.senderAccountType;
             }
             switch (object.receiverAccountType) {
-            default:
-                if (typeof object.receiverAccountType === "number") {
-                    message.receiverAccountType = object.receiverAccountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.receiverAccountType = 0;
@@ -12629,6 +12542,9 @@ $root.E2E = (function() {
             case 2:
                 message.receiverAccountType = 2;
                 break;
+            default:
+                if (typeof object.receiverAccountType === "number" && (object.receiverAccountType | 0) === object.receiverAccountType)
+                    message.receiverAccountType = object.receiverAccountType;
             }
             if (object.recipientKeyHash != null)
                 if (typeof object.recipientKeyHash === "string")
@@ -13131,7 +13047,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.MessageContextInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.MessageContextInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -13353,13 +13269,8 @@ $root.E2E = (function() {
             }
             if (message.messageAddOnExpiryType != null && $Object.hasOwnProperty.call(message, "messageAddOnExpiryType")) {
                 properties._messageAddOnExpiryType = 1;
-                switch (message.messageAddOnExpiryType) {
-                default:
+                if (typeof message.messageAddOnExpiryType !== "number" || (message.messageAddOnExpiryType | 0) !== message.messageAddOnExpiryType)
                     return "messageAddOnExpiryType: enum value expected";
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.messageAssociation != null && $Object.hasOwnProperty.call(message, "messageAssociation")) {
                 properties._messageAssociation = 1;
@@ -13406,13 +13317,8 @@ $root.E2E = (function() {
             }
             if (message.weblinkRenderConfig != null && $Object.hasOwnProperty.call(message, "weblinkRenderConfig")) {
                 properties._weblinkRenderConfig = 1;
-                switch (message.weblinkRenderConfig) {
-                default:
+                if (typeof message.weblinkRenderConfig !== "number" || (message.weblinkRenderConfig | 0) !== message.weblinkRenderConfig)
                     return "weblinkRenderConfig: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.teeBotMetadata != null && $Object.hasOwnProperty.call(message, "teeBotMetadata")) {
                 properties._teeBotMetadata = 1;
@@ -13472,12 +13378,6 @@ $root.E2E = (function() {
             if (object.reportingTokenVersion != null)
                 message.reportingTokenVersion = object.reportingTokenVersion | 0;
             switch (object.messageAddOnExpiryType) {
-            default:
-                if (typeof object.messageAddOnExpiryType === "number") {
-                    message.messageAddOnExpiryType = object.messageAddOnExpiryType;
-                    break;
-                }
-                break;
             case "STATIC":
             case 1:
                 message.messageAddOnExpiryType = 1;
@@ -13486,6 +13386,9 @@ $root.E2E = (function() {
             case 2:
                 message.messageAddOnExpiryType = 2;
                 break;
+            default:
+                if (typeof object.messageAddOnExpiryType === "number" && (object.messageAddOnExpiryType | 0) === object.messageAddOnExpiryType)
+                    message.messageAddOnExpiryType = object.messageAddOnExpiryType;
             }
             if (object.messageAssociation != null) {
                 if (!$util.isObject(object.messageAssociation))
@@ -13517,12 +13420,6 @@ $root.E2E = (function() {
                 }
             }
             switch (object.weblinkRenderConfig) {
-            default:
-                if (typeof object.weblinkRenderConfig === "number") {
-                    message.weblinkRenderConfig = object.weblinkRenderConfig;
-                    break;
-                }
-                break;
             case "WEBVIEW":
             case 0:
                 message.weblinkRenderConfig = 0;
@@ -13531,6 +13428,9 @@ $root.E2E = (function() {
             case 1:
                 message.weblinkRenderConfig = 1;
                 break;
+            default:
+                if (typeof object.weblinkRenderConfig === "number" && (object.weblinkRenderConfig | 0) === object.weblinkRenderConfig)
+                    message.weblinkRenderConfig = object.weblinkRenderConfig;
             }
             if (object.teeBotMetadata != null)
                 if (typeof object.teeBotMetadata === "string")
@@ -13632,7 +13532,7 @@ $root.E2E = (function() {
          * @property {number} DEPENDENT_ON_PARENT=2 DEPENDENT_ON_PARENT value
          */
         MessageContextInfo.MessageAddonExpiryType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "STATIC"] = 1;
             values[valuesById[2] = "DEPENDENT_ON_PARENT"] = 2;
             return values;
@@ -13783,7 +13683,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ThreadID();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ThreadID(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -13853,14 +13753,8 @@ $root.E2E = (function() {
             var properties = {};
             if (message.threadType != null && $Object.hasOwnProperty.call(message, "threadType")) {
                 properties._threadType = 1;
-                switch (message.threadType) {
-                default:
+                if (typeof message.threadType !== "number" || (message.threadType | 0) !== message.threadType)
                     return "threadType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.threadKey != null && $Object.hasOwnProperty.call(message, "threadKey")) {
                 properties._threadKey = 1;
@@ -13892,12 +13786,6 @@ $root.E2E = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.E2E.ThreadID();
             switch (object.threadType) {
-            default:
-                if (typeof object.threadType === "number") {
-                    message.threadType = object.threadType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.threadType = 0;
@@ -13910,6 +13798,9 @@ $root.E2E = (function() {
             case 2:
                 message.threadType = 2;
                 break;
+            default:
+                if (typeof object.threadType === "number" && (object.threadType | 0) === object.threadType)
+                    message.threadType = object.threadType;
             }
             if (object.threadKey != null) {
                 if (!$util.isObject(object.threadKey))
@@ -13977,7 +13868,7 @@ $root.E2E = (function() {
          * @property {number} AI_THREAD=2 AI_THREAD value
          */
         ThreadID.ThreadType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "VIEW_REPLIES"] = 1;
             values[valuesById[2] = "AI_THREAD"] = 2;
@@ -14146,7 +14037,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.MessageAssociation();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.MessageAssociation(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -14223,32 +14114,8 @@ $root.E2E = (function() {
             var properties = {};
             if (message.associationType != null && $Object.hasOwnProperty.call(message, "associationType")) {
                 properties._associationType = 1;
-                switch (message.associationType) {
-                default:
+                if (typeof message.associationType !== "number" || (message.associationType | 0) !== message.associationType)
                     return "associationType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                    break;
-                }
             }
             if (message.parentMessageKey != null && $Object.hasOwnProperty.call(message, "parentMessageKey")) {
                 properties._parentMessageKey = 1;
@@ -14285,12 +14152,6 @@ $root.E2E = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.E2E.MessageAssociation();
             switch (object.associationType) {
-            default:
-                if (typeof object.associationType === "number") {
-                    message.associationType = object.associationType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.associationType = 0;
@@ -14375,6 +14236,9 @@ $root.E2E = (function() {
             case 20:
                 message.associationType = 20;
                 break;
+            default:
+                if (typeof object.associationType === "number" && (object.associationType | 0) === object.associationType)
+                    message.associationType = object.associationType;
             }
             if (object.parentMessageKey != null) {
                 if (!$util.isObject(object.parentMessageKey))
@@ -14464,7 +14328,7 @@ $root.E2E = (function() {
          * @property {number} POLL_ADD_OPTION=20 POLL_ADD_OPTION value
          */
         MessageAssociation.AssociationType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "MEDIA_ALBUM"] = 1;
             values[valuesById[2] = "BOT_PLUGIN"] = 2;
@@ -15706,7 +15570,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -16441,16 +16305,8 @@ $root.E2E = (function() {
             }
             if (message.statusAttributionType != null && $Object.hasOwnProperty.call(message, "statusAttributionType")) {
                 properties._statusAttributionType = 1;
-                switch (message.statusAttributionType) {
-                default:
+                if (typeof message.statusAttributionType !== "number" || (message.statusAttributionType | 0) !== message.statusAttributionType)
                     return "statusAttributionType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    break;
-                }
             }
             if (message.urlTrackingMap != null && $Object.hasOwnProperty.call(message, "urlTrackingMap")) {
                 properties._urlTrackingMap = 1;
@@ -16462,20 +16318,8 @@ $root.E2E = (function() {
             }
             if (message.pairedMediaType != null && $Object.hasOwnProperty.call(message, "pairedMediaType")) {
                 properties._pairedMediaType = 1;
-                switch (message.pairedMediaType) {
-                default:
+                if (typeof message.pairedMediaType !== "number" || (message.pairedMediaType | 0) !== message.pairedMediaType)
                     return "pairedMediaType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                    break;
-                }
             }
             if (message.rankingVersion != null && $Object.hasOwnProperty.call(message, "rankingVersion")) {
                 properties._rankingVersion = 1;
@@ -16497,17 +16341,8 @@ $root.E2E = (function() {
             }
             if (message.statusSourceType != null && $Object.hasOwnProperty.call(message, "statusSourceType")) {
                 properties._statusSourceType = 1;
-                switch (message.statusSourceType) {
-                default:
+                if (typeof message.statusSourceType !== "number" || (message.statusSourceType | 0) !== message.statusSourceType)
                     return "statusSourceType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             if (message.statusAttributions != null && $Object.hasOwnProperty.call(message, "statusAttributions")) {
                 if (!$Array.isArray(message.statusAttributions))
@@ -16525,17 +16360,8 @@ $root.E2E = (function() {
             }
             if (message.forwardOrigin != null && $Object.hasOwnProperty.call(message, "forwardOrigin")) {
                 properties._forwardOrigin = 1;
-                switch (message.forwardOrigin) {
-                default:
+                if (typeof message.forwardOrigin !== "number" || (message.forwardOrigin | 0) !== message.forwardOrigin)
                     return "forwardOrigin: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             if (message.questionReplyQuotedMessage != null && $Object.hasOwnProperty.call(message, "questionReplyQuotedMessage")) {
                 properties._questionReplyQuotedMessage = 1;
@@ -16560,13 +16386,8 @@ $root.E2E = (function() {
             }
             if (message.quotedType != null && $Object.hasOwnProperty.call(message, "quotedType")) {
                 properties._quotedType = 1;
-                switch (message.quotedType) {
-                default:
+                if (typeof message.quotedType !== "number" || (message.quotedType | 0) !== message.quotedType)
                     return "quotedType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.botMessageSharingInfo != null && $Object.hasOwnProperty.call(message, "botMessageSharingInfo")) {
                 properties._botMessageSharingInfo = 1;
@@ -16604,14 +16425,8 @@ $root.E2E = (function() {
             }
             if (message.crossAppSource != null && $Object.hasOwnProperty.call(message, "crossAppSource")) {
                 properties._crossAppSource = 1;
-                switch (message.crossAppSource) {
-                default:
+                if (typeof message.crossAppSource !== "number" || (message.crossAppSource | 0) !== message.crossAppSource)
                     return "crossAppSource: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.businessInteractionPills != null && $Object.hasOwnProperty.call(message, "businessInteractionPills")) {
                 properties._businessInteractionPills = 1;
@@ -16793,12 +16608,6 @@ $root.E2E = (function() {
                 message.forwardedAiBotMessageInfo = $root.AICommon.ForwardedAIBotMessageInfo.fromObject(object.forwardedAiBotMessageInfo, _depth + 1);
             }
             switch (object.statusAttributionType) {
-            default:
-                if (typeof object.statusAttributionType === "number") {
-                    message.statusAttributionType = object.statusAttributionType;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.statusAttributionType = 0;
@@ -16819,6 +16628,9 @@ $root.E2E = (function() {
             case 4:
                 message.statusAttributionType = 4;
                 break;
+            default:
+                if (typeof object.statusAttributionType === "number" && (object.statusAttributionType | 0) === object.statusAttributionType)
+                    message.statusAttributionType = object.statusAttributionType;
             }
             if (object.urlTrackingMap != null) {
                 if (!$util.isObject(object.urlTrackingMap))
@@ -16826,12 +16638,6 @@ $root.E2E = (function() {
                 message.urlTrackingMap = $root.E2E.UrlTrackingMap.fromObject(object.urlTrackingMap, _depth + 1);
             }
             switch (object.pairedMediaType) {
-            default:
-                if (typeof object.pairedMediaType === "number") {
-                    message.pairedMediaType = object.pairedMediaType;
-                    break;
-                }
-                break;
             case "NOT_PAIRED_MEDIA":
             case 0:
                 message.pairedMediaType = 0;
@@ -16868,6 +16674,9 @@ $root.E2E = (function() {
             case 8:
                 message.pairedMediaType = 8;
                 break;
+            default:
+                if (typeof object.pairedMediaType === "number" && (object.pairedMediaType | 0) === object.pairedMediaType)
+                    message.pairedMediaType = object.pairedMediaType;
             }
             if (object.rankingVersion != null)
                 message.rankingVersion = object.rankingVersion >>> 0;
@@ -16879,12 +16688,6 @@ $root.E2E = (function() {
             if (object.isQuestion != null)
                 message.isQuestion = $Boolean(object.isQuestion);
             switch (object.statusSourceType) {
-            default:
-                if (typeof object.statusSourceType === "number") {
-                    message.statusSourceType = object.statusSourceType;
-                    break;
-                }
-                break;
             case "IMAGE":
             case 0:
                 message.statusSourceType = 0;
@@ -16909,6 +16712,9 @@ $root.E2E = (function() {
             case 5:
                 message.statusSourceType = 5;
                 break;
+            default:
+                if (typeof object.statusSourceType === "number" && (object.statusSourceType | 0) === object.statusSourceType)
+                    message.statusSourceType = object.statusSourceType;
             }
             if (object.statusAttributions) {
                 if (!$Array.isArray(object.statusAttributions))
@@ -16923,12 +16729,6 @@ $root.E2E = (function() {
             if (object.isGroupStatus != null)
                 message.isGroupStatus = $Boolean(object.isGroupStatus);
             switch (object.forwardOrigin) {
-            default:
-                if (typeof object.forwardOrigin === "number") {
-                    message.forwardOrigin = object.forwardOrigin;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.forwardOrigin = 0;
@@ -16953,6 +16753,9 @@ $root.E2E = (function() {
             case 5:
                 message.forwardOrigin = 5;
                 break;
+            default:
+                if (typeof object.forwardOrigin === "number" && (object.forwardOrigin | 0) === object.forwardOrigin)
+                    message.forwardOrigin = object.forwardOrigin;
             }
             if (object.questionReplyQuotedMessage != null) {
                 if (!$util.isObject(object.questionReplyQuotedMessage))
@@ -16967,12 +16770,6 @@ $root.E2E = (function() {
             if (object.nonJidMentions != null)
                 message.nonJidMentions = object.nonJidMentions >>> 0;
             switch (object.quotedType) {
-            default:
-                if (typeof object.quotedType === "number") {
-                    message.quotedType = object.quotedType;
-                    break;
-                }
-                break;
             case "EXPLICIT":
             case 0:
                 message.quotedType = 0;
@@ -16981,6 +16778,9 @@ $root.E2E = (function() {
             case 1:
                 message.quotedType = 1;
                 break;
+            default:
+                if (typeof object.quotedType === "number" && (object.quotedType | 0) === object.quotedType)
+                    message.quotedType = object.quotedType;
             }
             if (object.botMessageSharingInfo != null) {
                 if (!$util.isObject(object.botMessageSharingInfo))
@@ -17002,12 +16802,6 @@ $root.E2E = (function() {
             if (object.afterReadDuration != null)
                 message.afterReadDuration = object.afterReadDuration >>> 0;
             switch (object.crossAppSource) {
-            default:
-                if (typeof object.crossAppSource === "number") {
-                    message.crossAppSource = object.crossAppSource;
-                    break;
-                }
-                break;
             case "CROSS_APP_SOURCE_UNKNOWN":
             case 0:
                 message.crossAppSource = 0;
@@ -17020,6 +16814,9 @@ $root.E2E = (function() {
             case 2:
                 message.crossAppSource = 2;
                 break;
+            default:
+                if (typeof object.crossAppSource === "number" && (object.crossAppSource | 0) === object.crossAppSource)
+                    message.crossAppSource = object.crossAppSource;
             }
             if (object.businessInteractionPills != null) {
                 if (!$util.isObject(object.businessInteractionPills))
@@ -17395,7 +17192,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.AdReplyInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.AdReplyInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17484,14 +17281,8 @@ $root.E2E = (function() {
                 }
                 if (message.mediaType != null && $Object.hasOwnProperty.call(message, "mediaType")) {
                     properties._mediaType = 1;
-                    switch (message.mediaType) {
-                    default:
+                    if (typeof message.mediaType !== "number" || (message.mediaType | 0) !== message.mediaType)
                         return "mediaType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.jpegThumbnail != null && $Object.hasOwnProperty.call(message, "jpegThumbnail")) {
                     properties._jpegThumbnail = 1;
@@ -17527,12 +17318,6 @@ $root.E2E = (function() {
                 if (object.advertiserName != null)
                     message.advertiserName = $String(object.advertiserName);
                 switch (object.mediaType) {
-                default:
-                    if (typeof object.mediaType === "number") {
-                        message.mediaType = object.mediaType;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.mediaType = 0;
@@ -17545,6 +17330,9 @@ $root.E2E = (function() {
                 case 2:
                     message.mediaType = 2;
                     break;
+                default:
+                    if (typeof object.mediaType === "number" && (object.mediaType | 0) === object.mediaType)
+                        message.mediaType = object.mediaType;
                 }
                 if (object.jpegThumbnail != null)
                     if (typeof object.jpegThumbnail === "string")
@@ -17618,7 +17406,7 @@ $root.E2E = (function() {
              * @property {number} VIDEO=2 VIDEO value
              */
             AdReplyInfo.MediaType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "IMAGE"] = 1;
                 values[valuesById[2] = "VIDEO"] = 2;
@@ -17817,7 +17605,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.BusinessInteractionPills();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.BusinessInteractionPills(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17923,17 +17711,8 @@ $root.E2E = (function() {
                 }
                 if (message.entryPoint != null && $Object.hasOwnProperty.call(message, "entryPoint")) {
                     properties._entryPoint = 1;
-                    switch (message.entryPoint) {
-                    default:
+                    if (typeof message.entryPoint !== "number" || (message.entryPoint | 0) !== message.entryPoint)
                         return "entryPoint: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.signedPayload != null && $Object.hasOwnProperty.call(message, "signedPayload")) {
                     properties._signedPayload = 1;
@@ -17982,12 +17761,6 @@ $root.E2E = (function() {
                     }
                 }
                 switch (object.entryPoint) {
-                default:
-                    if (typeof object.entryPoint === "number") {
-                        message.entryPoint = object.entryPoint;
-                        break;
-                    }
-                    break;
                 case "ENTRY_POINT_UNKNOWN":
                 case 0:
                     message.entryPoint = 0;
@@ -18012,6 +17785,9 @@ $root.E2E = (function() {
                 case 5:
                     message.entryPoint = 5;
                     break;
+                default:
+                    if (typeof object.entryPoint === "number" && (object.entryPoint | 0) === object.entryPoint)
+                        message.entryPoint = object.entryPoint;
                 }
                 if (object.signedPayload != null)
                     if (typeof object.signedPayload === "string")
@@ -18098,7 +17874,7 @@ $root.E2E = (function() {
              * @property {number} IN_THREAD_CONTEXT_CARD=5 IN_THREAD_CONTEXT_CARD value
              */
             BusinessInteractionPills.EntryPoint = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "ENTRY_POINT_UNKNOWN"] = 0;
                 values[valuesById[1] = "P2P_LINK_SHARE"] = 1;
                 values[valuesById[2] = "CONTACT_CARD_SHARING"] = 2;
@@ -18250,7 +18026,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.BusinessInteractionPills.Pill();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.BusinessInteractionPills.Pill(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -18320,24 +18096,8 @@ $root.E2E = (function() {
                     var properties = {};
                     if (message.pillType != null && $Object.hasOwnProperty.call(message, "pillType")) {
                         properties._pillType = 1;
-                        switch (message.pillType) {
-                        default:
+                        if (typeof message.pillType !== "number" || (message.pillType | 0) !== message.pillType)
                             return "pillType: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 11:
-                        case 12:
-                            break;
-                        }
                     }
                     if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
                         properties._actionUrl = 1;
@@ -18366,12 +18126,6 @@ $root.E2E = (function() {
                         throw $Error("max depth exceeded");
                     var message = new $root.E2E.ContextInfo.BusinessInteractionPills.Pill();
                     switch (object.pillType) {
-                    default:
-                        if (typeof object.pillType === "number") {
-                            message.pillType = object.pillType;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN":
                     case 0:
                         message.pillType = 0;
@@ -18424,6 +18178,9 @@ $root.E2E = (function() {
                     case 12:
                         message.pillType = 12;
                         break;
+                    default:
+                        if (typeof object.pillType === "number" && (object.pillType | 0) === object.pillType)
+                            message.pillType = object.pillType;
                     }
                     if (object.actionUrl != null)
                         message.actionUrl = $String(object.actionUrl);
@@ -18501,7 +18258,7 @@ $root.E2E = (function() {
              * @property {number} ORDER=12 ORDER value
              */
             BusinessInteractionPills.PillType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "VIEW_BUSINESS"] = 1;
                 values[valuesById[2] = "CHAT"] = 2;
@@ -19111,7 +18868,7 @@ $root.E2E = (function() {
          * @property {number} CROSS_APP_SOURCE_FACEBOOK=2 CROSS_APP_SOURCE_FACEBOOK value
          */
         ContextInfo.CrossAppSource = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "CROSS_APP_SOURCE_UNKNOWN"] = 0;
             values[valuesById[1] = "CROSS_APP_SOURCE_INSTAGRAM"] = 1;
             values[valuesById[2] = "CROSS_APP_SOURCE_FACEBOOK"] = 2;
@@ -19503,7 +19260,7 @@ $root.E2E = (function() {
              * @property {number} SHOW_MM_DISCLOSURE_ON_READ=2 SHOW_MM_DISCLOSURE_ON_READ value
              */
             DataSharingContext.DataSharingFlags = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "SHOW_MM_DISCLOSURE_ON_CLICK"] = 1;
                 values[valuesById[2] = "SHOW_MM_DISCLOSURE_ON_READ"] = 2;
                 return values;
@@ -20581,7 +20338,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.ExternalAdReplyInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.ExternalAdReplyInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -20871,14 +20628,8 @@ $root.E2E = (function() {
                 }
                 if (message.mediaType != null && $Object.hasOwnProperty.call(message, "mediaType")) {
                     properties._mediaType = 1;
-                    switch (message.mediaType) {
-                    default:
+                    if (typeof message.mediaType !== "number" || (message.mediaType | 0) !== message.mediaType)
                         return "mediaType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.thumbnailUrl != null && $Object.hasOwnProperty.call(message, "thumbnailUrl")) {
                     properties._thumbnailUrl = 1;
@@ -20987,13 +20738,8 @@ $root.E2E = (function() {
                 }
                 if (message.adType != null && $Object.hasOwnProperty.call(message, "adType")) {
                     properties._adType = 1;
-                    switch (message.adType) {
-                    default:
+                    if (typeof message.adType !== "number" || (message.adType | 0) !== message.adType)
                         return "adType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.wtwaWebsiteUrl != null && $Object.hasOwnProperty.call(message, "wtwaWebsiteUrl")) {
                     properties._wtwaWebsiteUrl = 1;
@@ -21056,12 +20802,6 @@ $root.E2E = (function() {
                 if (object.body != null)
                     message.body = $String(object.body);
                 switch (object.mediaType) {
-                default:
-                    if (typeof object.mediaType === "number") {
-                        message.mediaType = object.mediaType;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.mediaType = 0;
@@ -21074,6 +20814,9 @@ $root.E2E = (function() {
                 case 2:
                     message.mediaType = 2;
                     break;
+                default:
+                    if (typeof object.mediaType === "number" && (object.mediaType | 0) === object.mediaType)
+                        message.mediaType = object.mediaType;
                 }
                 if (object.thumbnailUrl != null)
                     message.thumbnailUrl = $String(object.thumbnailUrl);
@@ -21121,12 +20864,6 @@ $root.E2E = (function() {
                 if (object.wtwaAdFormat != null)
                     message.wtwaAdFormat = $Boolean(object.wtwaAdFormat);
                 switch (object.adType) {
-                default:
-                    if (typeof object.adType === "number") {
-                        message.adType = object.adType;
-                        break;
-                    }
-                    break;
                 case "CTWA":
                 case 0:
                     message.adType = 0;
@@ -21135,6 +20872,9 @@ $root.E2E = (function() {
                 case 1:
                     message.adType = 1;
                     break;
+                default:
+                    if (typeof object.adType === "number" && (object.adType | 0) === object.adType)
+                        message.adType = object.adType;
                 }
                 if (object.wtwaWebsiteUrl != null)
                     message.wtwaWebsiteUrl = $String(object.wtwaWebsiteUrl);
@@ -21270,7 +21010,7 @@ $root.E2E = (function() {
              * @property {number} CAWC=1 CAWC value
              */
             ExternalAdReplyInfo.AdType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "CTWA"] = 0;
                 values[valuesById[1] = "CAWC"] = 1;
                 return values;
@@ -21285,7 +21025,7 @@ $root.E2E = (function() {
              * @property {number} VIDEO=2 VIDEO value
              */
             ExternalAdReplyInfo.MediaType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "IMAGE"] = 1;
                 values[valuesById[2] = "VIDEO"] = 2;
@@ -21706,7 +21446,7 @@ $root.E2E = (function() {
          * @property {number} UGC=5 UGC value
          */
         ContextInfo.ForwardOrigin = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT"] = 1;
             values[valuesById[2] = "STATUS"] = 2;
@@ -21926,7 +21666,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.ForwardedNewsletterMessageInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.ForwardedNewsletterMessageInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -22039,14 +21779,8 @@ $root.E2E = (function() {
                 }
                 if (message.contentType != null && $Object.hasOwnProperty.call(message, "contentType")) {
                     properties._contentType = 1;
-                    switch (message.contentType) {
-                    default:
+                    if (typeof message.contentType !== "number" || (message.contentType | 0) !== message.contentType)
                         return "contentType: enum value expected";
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.accessibilityText != null && $Object.hasOwnProperty.call(message, "accessibilityText")) {
                     properties._accessibilityText = 1;
@@ -22086,12 +21820,6 @@ $root.E2E = (function() {
                 if (object.newsletterName != null)
                     message.newsletterName = $String(object.newsletterName);
                 switch (object.contentType) {
-                default:
-                    if (typeof object.contentType === "number") {
-                        message.contentType = object.contentType;
-                        break;
-                    }
-                    break;
                 case "UPDATE":
                 case 1:
                     message.contentType = 1;
@@ -22104,6 +21832,9 @@ $root.E2E = (function() {
                 case 3:
                     message.contentType = 3;
                     break;
+                default:
+                    if (typeof object.contentType === "number" && (object.contentType | 0) === object.contentType)
+                        message.contentType = object.contentType;
                 }
                 if (object.accessibilityText != null)
                     message.accessibilityText = $String(object.accessibilityText);
@@ -22178,7 +21909,7 @@ $root.E2E = (function() {
              * @property {number} LINK_CARD=3 LINK_CARD value
              */
             ForwardedNewsletterMessageInfo.ContentType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "UPDATE"] = 1;
                 values[valuesById[2] = "UPDATE_CARD"] = 2;
                 values[valuesById[3] = "LINK_CARD"] = 3;
@@ -22203,7 +21934,7 @@ $root.E2E = (function() {
          * @property {number} HEVC_VIDEO_CHILD=8 HEVC_VIDEO_CHILD value
          */
         ContextInfo.PairedMediaType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NOT_PAIRED_MEDIA"] = 0;
             values[valuesById[1] = "SD_VIDEO_PARENT"] = 1;
             values[valuesById[2] = "HD_VIDEO_CHILD"] = 2;
@@ -22841,7 +22572,7 @@ $root.E2E = (function() {
          * @property {number} AUTO=1 AUTO value
          */
         ContextInfo.QuotedType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "EXPLICIT"] = 0;
             values[valuesById[1] = "AUTO"] = 1;
             return values;
@@ -22858,7 +22589,7 @@ $root.E2E = (function() {
          * @property {number} FORWARDED_FROM_STATUS=4 FORWARDED_FROM_STATUS value
          */
         ContextInfo.StatusAttributionType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "RESHARED_FROM_MENTION"] = 1;
             values[valuesById[2] = "RESHARED_FROM_POST"] = 2;
@@ -23026,7 +22757,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.StatusAudienceMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.StatusAudienceMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -23103,13 +22834,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.audienceType != null && $Object.hasOwnProperty.call(message, "audienceType")) {
                     properties._audienceType = 1;
-                    switch (message.audienceType) {
-                    default:
+                    if (typeof message.audienceType !== "number" || (message.audienceType | 0) !== message.audienceType)
                         return "audienceType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.listName != null && $Object.hasOwnProperty.call(message, "listName")) {
                     properties._listName = 1;
@@ -23143,12 +22869,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.ContextInfo.StatusAudienceMetadata();
                 switch (object.audienceType) {
-                default:
-                    if (typeof object.audienceType === "number") {
-                        message.audienceType = object.audienceType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.audienceType = 0;
@@ -23157,6 +22877,9 @@ $root.E2E = (function() {
                 case 1:
                     message.audienceType = 1;
                     break;
+                default:
+                    if (typeof object.audienceType === "number" && (object.audienceType | 0) === object.audienceType)
+                        message.audienceType = object.audienceType;
                 }
                 if (object.listName != null)
                     message.listName = $String(object.listName);
@@ -23224,7 +22947,7 @@ $root.E2E = (function() {
              * @property {number} CLOSE_FRIENDS=1 CLOSE_FRIENDS value
              */
             StatusAudienceMetadata.AudienceType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "CLOSE_FRIENDS"] = 1;
                 return values;
@@ -23245,7 +22968,7 @@ $root.E2E = (function() {
          * @property {number} MUSIC_STANDALONE=5 MUSIC_STANDALONE value
          */
         ContextInfo.StatusSourceType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "IMAGE"] = 0;
             values[valuesById[1] = "VIDEO"] = 1;
             values[valuesById[2] = "GIF"] = 2;
@@ -23700,7 +23423,7 @@ $root.E2E = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.MediaDomainInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.MediaDomainInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -23770,14 +23493,8 @@ $root.E2E = (function() {
             var properties = {};
             if (message.mediaKeyDomain != null && $Object.hasOwnProperty.call(message, "mediaKeyDomain")) {
                 properties._mediaKeyDomain = 1;
-                switch (message.mediaKeyDomain) {
-                default:
+                if (typeof message.mediaKeyDomain !== "number" || (message.mediaKeyDomain | 0) !== message.mediaKeyDomain)
                     return "mediaKeyDomain: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.e2EeMediaKey != null && $Object.hasOwnProperty.call(message, "e2EeMediaKey")) {
                 properties._e2EeMediaKey = 1;
@@ -23806,12 +23523,6 @@ $root.E2E = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.E2E.MediaDomainInfo();
             switch (object.mediaKeyDomain) {
-            default:
-                if (typeof object.mediaKeyDomain === "number") {
-                    message.mediaKeyDomain = object.mediaKeyDomain;
-                    break;
-                }
-                break;
             case "MEDIA_KEY_DOMAIN_UNKNOWN":
             case 0:
                 message.mediaKeyDomain = 0;
@@ -23824,6 +23535,9 @@ $root.E2E = (function() {
             case 2:
                 message.mediaKeyDomain = 2;
                 break;
+            default:
+                if (typeof object.mediaKeyDomain === "number" && (object.mediaKeyDomain | 0) === object.mediaKeyDomain)
+                    message.mediaKeyDomain = object.mediaKeyDomain;
             }
             if (object.e2EeMediaKey != null)
                 if (typeof object.e2EeMediaKey === "string")
@@ -31901,7 +31615,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.BCallMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.BCallMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -31990,14 +31704,8 @@ $root.E2E = (function() {
                 }
                 if (message.mediaType != null && $Object.hasOwnProperty.call(message, "mediaType")) {
                     properties._mediaType = 1;
-                    switch (message.mediaType) {
-                    default:
+                    if (typeof message.mediaType !== "number" || (message.mediaType | 0) !== message.mediaType)
                         return "mediaType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.masterKey != null && $Object.hasOwnProperty.call(message, "masterKey")) {
                     properties._masterKey = 1;
@@ -32033,12 +31741,6 @@ $root.E2E = (function() {
                 if (object.sessionId != null)
                     message.sessionId = $String(object.sessionId);
                 switch (object.mediaType) {
-                default:
-                    if (typeof object.mediaType === "number") {
-                        message.mediaType = object.mediaType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.mediaType = 0;
@@ -32051,6 +31753,9 @@ $root.E2E = (function() {
                 case 2:
                     message.mediaType = 2;
                     break;
+                default:
+                    if (typeof object.mediaType === "number" && (object.mediaType | 0) === object.mediaType)
+                        message.mediaType = object.mediaType;
                 }
                 if (object.masterKey != null)
                     if (typeof object.masterKey === "string")
@@ -32124,7 +31829,7 @@ $root.E2E = (function() {
              * @property {number} VIDEO=2 VIDEO value
              */
             BCallMessage.MediaType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "AUDIO"] = 1;
                 values[valuesById[2] = "VIDEO"] = 2;
@@ -32404,7 +32109,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ButtonsMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ButtonsMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -32558,18 +32263,8 @@ $root.E2E = (function() {
                 }
                 if (message.headerType != null && $Object.hasOwnProperty.call(message, "headerType")) {
                     properties._headerType = 1;
-                    switch (message.headerType) {
-                    default:
+                    if (typeof message.headerType !== "number" || (message.headerType | 0) !== message.headerType)
                         return "headerType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        break;
-                    }
                 }
                 if (message.text != null && $Object.hasOwnProperty.call(message, "text")) {
                     properties.header = 1;
@@ -32657,12 +32352,6 @@ $root.E2E = (function() {
                     }
                 }
                 switch (object.headerType) {
-                default:
-                    if (typeof object.headerType === "number") {
-                        message.headerType = object.headerType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.headerType = 0;
@@ -32691,6 +32380,9 @@ $root.E2E = (function() {
                 case 6:
                     message.headerType = 6;
                     break;
+                default:
+                    if (typeof object.headerType === "number" && (object.headerType | 0) === object.headerType)
+                        message.headerType = object.headerType;
                 }
                 if (object.text != null)
                     message.text = $String(object.text);
@@ -32978,7 +32670,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ButtonsMessage.Button();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ButtonsMessage.Button(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -33075,14 +32767,8 @@ $root.E2E = (function() {
                     }
                     if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                         properties._type = 1;
-                        switch (message.type) {
-                        default:
+                        if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                             return "type: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                            break;
-                        }
                     }
                     if (message.nativeFlowInfo != null && $Object.hasOwnProperty.call(message, "nativeFlowInfo")) {
                         properties._nativeFlowInfo = 1;
@@ -33121,12 +32807,6 @@ $root.E2E = (function() {
                         message.buttonText = $root.E2E.Message.ButtonsMessage.Button.ButtonText.fromObject(object.buttonText, _depth + 1);
                     }
                     switch (object.type) {
-                    default:
-                        if (typeof object.type === "number") {
-                            message.type = object.type;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN":
                     case 0:
                         message.type = 0;
@@ -33139,6 +32819,9 @@ $root.E2E = (function() {
                     case 2:
                         message.type = 2;
                         break;
+                    default:
+                        if (typeof object.type === "number" && (object.type | 0) === object.type)
+                            message.type = object.type;
                     }
                     if (object.nativeFlowInfo != null) {
                         if (!$util.isObject(object.nativeFlowInfo))
@@ -33777,7 +33460,7 @@ $root.E2E = (function() {
                  * @property {number} NATIVE_FLOW=2 NATIVE_FLOW value
                  */
                 Button.Type = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "RESPONSE"] = 1;
                     values[valuesById[2] = "NATIVE_FLOW"] = 2;
@@ -33800,7 +33483,7 @@ $root.E2E = (function() {
              * @property {number} LOCATION=6 LOCATION value
              */
             ButtonsMessage.HeaderType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "EMPTY"] = 1;
                 values[valuesById[2] = "TEXT"] = 2;
@@ -34004,7 +33687,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ButtonsResponseMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ButtonsResponseMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -34101,13 +33784,8 @@ $root.E2E = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.selectedDisplayText != null && $Object.hasOwnProperty.call(message, "selectedDisplayText")) {
                     properties.response = 1;
@@ -34143,12 +33821,6 @@ $root.E2E = (function() {
                     message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo, _depth + 1);
                 }
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.type = 0;
@@ -34157,6 +33829,9 @@ $root.E2E = (function() {
                 case 1:
                     message.type = 1;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.selectedDisplayText != null)
                     message.selectedDisplayText = $String(object.selectedDisplayText);
@@ -34227,7 +33902,7 @@ $root.E2E = (function() {
              * @property {number} DISPLAY_TEXT=1 DISPLAY_TEXT value
              */
             ButtonsResponseMessage.Type = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "DISPLAY_TEXT"] = 1;
                 return values;
@@ -35056,7 +34731,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.CallLogMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.CallLogMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -35153,19 +34828,8 @@ $root.E2E = (function() {
                 }
                 if (message.callOutcome != null && $Object.hasOwnProperty.call(message, "callOutcome")) {
                     properties._callOutcome = 1;
-                    switch (message.callOutcome) {
-                    default:
+                    if (typeof message.callOutcome !== "number" || (message.callOutcome | 0) !== message.callOutcome)
                         return "callOutcome: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                        break;
-                    }
                 }
                 if (message.durationSecs != null && $Object.hasOwnProperty.call(message, "durationSecs")) {
                     properties._durationSecs = 1;
@@ -35174,14 +34838,8 @@ $root.E2E = (function() {
                 }
                 if (message.callType != null && $Object.hasOwnProperty.call(message, "callType")) {
                     properties._callType = 1;
-                    switch (message.callType) {
-                    default:
+                    if (typeof message.callType !== "number" || (message.callType | 0) !== message.callType)
                         return "callType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.participants != null && $Object.hasOwnProperty.call(message, "participants")) {
                     if (!$Array.isArray(message.participants))
@@ -35216,12 +34874,6 @@ $root.E2E = (function() {
                 if (object.isVideo != null)
                     message.isVideo = $Boolean(object.isVideo);
                 switch (object.callOutcome) {
-                default:
-                    if (typeof object.callOutcome === "number") {
-                        message.callOutcome = object.callOutcome;
-                        break;
-                    }
-                    break;
                 case "CONNECTED":
                 case 0:
                     message.callOutcome = 0;
@@ -35254,6 +34906,9 @@ $root.E2E = (function() {
                 case 7:
                     message.callOutcome = 7;
                     break;
+                default:
+                    if (typeof object.callOutcome === "number" && (object.callOutcome | 0) === object.callOutcome)
+                        message.callOutcome = object.callOutcome;
                 }
                 if (object.durationSecs != null)
                     if ($util.Long)
@@ -35265,12 +34920,6 @@ $root.E2E = (function() {
                     else if (typeof object.durationSecs === "object")
                         message.durationSecs = new $util.LongBits(object.durationSecs.low >>> 0, object.durationSecs.high >>> 0).toNumber();
                 switch (object.callType) {
-                default:
-                    if (typeof object.callType === "number") {
-                        message.callType = object.callType;
-                        break;
-                    }
-                    break;
                 case "REGULAR":
                 case 0:
                     message.callType = 0;
@@ -35283,6 +34932,9 @@ $root.E2E = (function() {
                 case 2:
                     message.callType = 2;
                     break;
+                default:
+                    if (typeof object.callType === "number" && (object.callType | 0) === object.callType)
+                        message.callType = object.callType;
                 }
                 if (object.participants) {
                     if (!$Array.isArray(object.participants))
@@ -35376,7 +35028,7 @@ $root.E2E = (function() {
              * @property {number} SILENCED_UNKNOWN_CALLER=7 SILENCED_UNKNOWN_CALLER value
              */
             CallLogMessage.CallOutcome = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "CONNECTED"] = 0;
                 values[valuesById[1] = "MISSED"] = 1;
                 values[valuesById[2] = "FAILED"] = 2;
@@ -35530,7 +35182,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.CallLogMessage.CallParticipant();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.CallLogMessage.CallParticipant(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -35605,19 +35257,8 @@ $root.E2E = (function() {
                     }
                     if (message.callOutcome != null && $Object.hasOwnProperty.call(message, "callOutcome")) {
                         properties._callOutcome = 1;
-                        switch (message.callOutcome) {
-                        default:
+                        if (typeof message.callOutcome !== "number" || (message.callOutcome | 0) !== message.callOutcome)
                             return "callOutcome: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                            break;
-                        }
                     }
                     return null;
                 };
@@ -35643,12 +35284,6 @@ $root.E2E = (function() {
                     if (object.jid != null)
                         message.jid = $String(object.jid);
                     switch (object.callOutcome) {
-                    default:
-                        if (typeof object.callOutcome === "number") {
-                            message.callOutcome = object.callOutcome;
-                            break;
-                        }
-                        break;
                     case "CONNECTED":
                     case 0:
                         message.callOutcome = 0;
@@ -35681,6 +35316,9 @@ $root.E2E = (function() {
                     case 7:
                         message.callOutcome = 7;
                         break;
+                    default:
+                        if (typeof object.callOutcome === "number" && (object.callOutcome | 0) === object.callOutcome)
+                            message.callOutcome = object.callOutcome;
                     }
                     return message;
                 };
@@ -35746,7 +35384,7 @@ $root.E2E = (function() {
              * @property {number} VOICE_CHAT=2 VOICE_CHAT value
              */
             CallLogMessage.CallType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "REGULAR"] = 0;
                 values[valuesById[1] = "SCHEDULED_CALL"] = 1;
                 values[valuesById[2] = "VOICE_CHAT"] = 2;
@@ -38365,7 +38003,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.CloudAPIThreadControlNotification();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.CloudAPIThreadControlNotification(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -38463,15 +38101,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.senderNotificationTimestampMs != null && $Object.hasOwnProperty.call(message, "senderNotificationTimestampMs")) {
                     properties._senderNotificationTimestampMs = 1;
@@ -38523,12 +38154,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.CloudAPIThreadControlNotification();
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.status = 0;
@@ -38545,6 +38170,9 @@ $root.E2E = (function() {
                 case 3:
                     message.status = 3;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 if (object.senderNotificationTimestampMs != null)
                     if ($util.Long)
@@ -38641,7 +38269,7 @@ $root.E2E = (function() {
              * @property {number} INFO=3 INFO value
              */
             CloudAPIThreadControlNotification.CloudAPIThreadControl = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "CONTROL_PASSED"] = 1;
                 values[valuesById[2] = "CONTROL_TAKEN"] = 2;
@@ -39444,7 +39072,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ConditionalRevealMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ConditionalRevealMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -39538,13 +39166,8 @@ $root.E2E = (function() {
                 }
                 if (message.conditionalRevealMessageType != null && $Object.hasOwnProperty.call(message, "conditionalRevealMessageType")) {
                     properties._conditionalRevealMessageType = 1;
-                    switch (message.conditionalRevealMessageType) {
-                    default:
+                    if (typeof message.conditionalRevealMessageType !== "number" || (message.conditionalRevealMessageType | 0) !== message.conditionalRevealMessageType)
                         return "conditionalRevealMessageType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.revealKeyId != null && $Object.hasOwnProperty.call(message, "revealKeyId")) {
                     properties._revealKeyId = 1;
@@ -39583,12 +39206,6 @@ $root.E2E = (function() {
                     else if (object.encIv.length >= 0)
                         message.encIv = object.encIv;
                 switch (object.conditionalRevealMessageType) {
-                default:
-                    if (typeof object.conditionalRevealMessageType === "number") {
-                        message.conditionalRevealMessageType = object.conditionalRevealMessageType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.conditionalRevealMessageType = 0;
@@ -39597,6 +39214,9 @@ $root.E2E = (function() {
                 case 1:
                     message.conditionalRevealMessageType = 1;
                     break;
+                default:
+                    if (typeof object.conditionalRevealMessageType === "number" && (object.conditionalRevealMessageType | 0) === object.conditionalRevealMessageType)
+                        message.conditionalRevealMessageType = object.conditionalRevealMessageType;
                 }
                 if (object.revealKeyId != null)
                     message.revealKeyId = $String(object.revealKeyId);
@@ -39664,7 +39284,7 @@ $root.E2E = (function() {
              * @property {number} SCHEDULED_MESSAGE=1 SCHEDULED_MESSAGE value
              */
             ConditionalRevealMessage.ConditionalRevealMessageType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "SCHEDULED_MESSAGE"] = 1;
                 return values;
@@ -44485,7 +44105,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.EventResponseMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.EventResponseMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -44562,15 +44182,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.response != null && $Object.hasOwnProperty.call(message, "response")) {
                     properties._response = 1;
-                    switch (message.response) {
-                    default:
+                    if (typeof message.response !== "number" || (message.response | 0) !== message.response)
                         return "response: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.timestampMs != null && $Object.hasOwnProperty.call(message, "timestampMs")) {
                     properties._timestampMs = 1;
@@ -44604,12 +44217,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.EventResponseMessage();
                 switch (object.response) {
-                default:
-                    if (typeof object.response === "number") {
-                        message.response = object.response;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.response = 0;
@@ -44626,6 +44233,9 @@ $root.E2E = (function() {
                 case 3:
                     message.response = 3;
                     break;
+                default:
+                    if (typeof object.response === "number" && (object.response | 0) === object.response)
+                        message.response = object.response;
                 }
                 if (object.timestampMs != null)
                     if ($util.Long)
@@ -44707,7 +44317,7 @@ $root.E2E = (function() {
              * @property {number} MAYBE=3 MAYBE value
              */
             EventResponseMessage.EventResponseType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "GOING"] = 1;
                 values[valuesById[2] = "NOT_GOING"] = 2;
@@ -45400,7 +45010,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ExtendedTextMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ExtendedTextMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -45711,33 +45321,13 @@ $root.E2E = (function() {
                 }
                 if (message.font != null && $Object.hasOwnProperty.call(message, "font")) {
                     properties._font = 1;
-                    switch (message.font) {
-                    default:
+                    if (typeof message.font !== "number" || (message.font | 0) !== message.font)
                         return "font: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        break;
-                    }
                 }
                 if (message.previewType != null && $Object.hasOwnProperty.call(message, "previewType")) {
                     properties._previewType = 1;
-                    switch (message.previewType) {
-                    default:
+                    if (typeof message.previewType !== "number" || (message.previewType | 0) !== message.previewType)
                         return "previewType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                        break;
-                    }
                 }
                 if (message.jpegThumbnail != null && $Object.hasOwnProperty.call(message, "jpegThumbnail")) {
                     properties._jpegThumbnail = 1;
@@ -45794,15 +45384,8 @@ $root.E2E = (function() {
                 }
                 if (message.inviteLinkGroupType != null && $Object.hasOwnProperty.call(message, "inviteLinkGroupType")) {
                     properties._inviteLinkGroupType = 1;
-                    switch (message.inviteLinkGroupType) {
-                    default:
+                    if (typeof message.inviteLinkGroupType !== "number" || (message.inviteLinkGroupType | 0) !== message.inviteLinkGroupType)
                         return "inviteLinkGroupType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.inviteLinkParentGroupSubjectV2 != null && $Object.hasOwnProperty.call(message, "inviteLinkParentGroupSubjectV2")) {
                     properties._inviteLinkParentGroupSubjectV2 = 1;
@@ -45816,15 +45399,8 @@ $root.E2E = (function() {
                 }
                 if (message.inviteLinkGroupTypeV2 != null && $Object.hasOwnProperty.call(message, "inviteLinkGroupTypeV2")) {
                     properties._inviteLinkGroupTypeV2 = 1;
-                    switch (message.inviteLinkGroupTypeV2) {
-                    default:
+                    if (typeof message.inviteLinkGroupTypeV2 !== "number" || (message.inviteLinkGroupTypeV2 | 0) !== message.inviteLinkGroupTypeV2)
                         return "inviteLinkGroupTypeV2: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.viewOnce != null && $Object.hasOwnProperty.call(message, "viewOnce")) {
                     properties._viewOnce = 1;
@@ -45929,12 +45505,6 @@ $root.E2E = (function() {
                 if (object.backgroundArgb != null)
                     message.backgroundArgb = object.backgroundArgb >>> 0;
                 switch (object.font) {
-                default:
-                    if (typeof object.font === "number") {
-                        message.font = object.font;
-                        break;
-                    }
-                    break;
                 case "SYSTEM":
                 case 0:
                     message.font = 0;
@@ -45967,14 +45537,11 @@ $root.E2E = (function() {
                 case 10:
                     message.font = 10;
                     break;
+                default:
+                    if (typeof object.font === "number" && (object.font | 0) === object.font)
+                        message.font = object.font;
                 }
                 switch (object.previewType) {
-                default:
-                    if (typeof object.previewType === "number") {
-                        message.previewType = object.previewType;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.previewType = 0;
@@ -45999,6 +45566,9 @@ $root.E2E = (function() {
                 case 7:
                     message.previewType = 7;
                     break;
+                default:
+                    if (typeof object.previewType === "number" && (object.previewType | 0) === object.previewType)
+                        message.previewType = object.previewType;
                 }
                 if (object.jpegThumbnail != null)
                     if (typeof object.jpegThumbnail === "string")
@@ -46043,12 +45613,6 @@ $root.E2E = (function() {
                 if (object.thumbnailWidth != null)
                     message.thumbnailWidth = object.thumbnailWidth >>> 0;
                 switch (object.inviteLinkGroupType) {
-                default:
-                    if (typeof object.inviteLinkGroupType === "number") {
-                        message.inviteLinkGroupType = object.inviteLinkGroupType;
-                        break;
-                    }
-                    break;
                 case "DEFAULT":
                 case 0:
                     message.inviteLinkGroupType = 0;
@@ -46065,6 +45629,9 @@ $root.E2E = (function() {
                 case 3:
                     message.inviteLinkGroupType = 3;
                     break;
+                default:
+                    if (typeof object.inviteLinkGroupType === "number" && (object.inviteLinkGroupType | 0) === object.inviteLinkGroupType)
+                        message.inviteLinkGroupType = object.inviteLinkGroupType;
                 }
                 if (object.inviteLinkParentGroupSubjectV2 != null)
                     message.inviteLinkParentGroupSubjectV2 = $String(object.inviteLinkParentGroupSubjectV2);
@@ -46074,12 +45641,6 @@ $root.E2E = (function() {
                     else if (object.inviteLinkParentGroupThumbnailV2.length >= 0)
                         message.inviteLinkParentGroupThumbnailV2 = object.inviteLinkParentGroupThumbnailV2;
                 switch (object.inviteLinkGroupTypeV2) {
-                default:
-                    if (typeof object.inviteLinkGroupTypeV2 === "number") {
-                        message.inviteLinkGroupTypeV2 = object.inviteLinkGroupTypeV2;
-                        break;
-                    }
-                    break;
                 case "DEFAULT":
                 case 0:
                     message.inviteLinkGroupTypeV2 = 0;
@@ -46096,6 +45657,9 @@ $root.E2E = (function() {
                 case 3:
                     message.inviteLinkGroupTypeV2 = 3;
                     break;
+                default:
+                    if (typeof object.inviteLinkGroupTypeV2 === "number" && (object.inviteLinkGroupTypeV2 | 0) === object.inviteLinkGroupTypeV2)
+                        message.inviteLinkGroupTypeV2 = object.inviteLinkGroupTypeV2;
                 }
                 if (object.viewOnce != null)
                     message.viewOnce = $Boolean(object.viewOnce);
@@ -46276,7 +45840,7 @@ $root.E2E = (function() {
              * @property {number} COURIERPRIME_BOLD=10 COURIERPRIME_BOLD value
              */
             ExtendedTextMessage.FontType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "SYSTEM"] = 0;
                 values[valuesById[1] = "SYSTEM_TEXT"] = 1;
                 values[valuesById[2] = "FB_SCRIPT"] = 2;
@@ -46298,7 +45862,7 @@ $root.E2E = (function() {
              * @property {number} DEFAULT_SUB=3 DEFAULT_SUB value
              */
             ExtendedTextMessage.InviteLinkGroupType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "DEFAULT"] = 0;
                 values[valuesById[1] = "PARENT"] = 1;
                 values[valuesById[2] = "SUB"] = 2;
@@ -46318,7 +45882,7 @@ $root.E2E = (function() {
              * @property {number} PROFILE=7 PROFILE value
              */
             ExtendedTextMessage.PreviewType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "VIDEO"] = 1;
                 values[valuesById[4] = "PLACEHOLDER"] = 4;
@@ -47509,7 +47073,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.GroupInviteMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.GroupInviteMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -47659,13 +47223,8 @@ $root.E2E = (function() {
                 }
                 if (message.groupType != null && $Object.hasOwnProperty.call(message, "groupType")) {
                     properties._groupType = 1;
-                    switch (message.groupType) {
-                    default:
+                    if (typeof message.groupType !== "number" || (message.groupType | 0) !== message.groupType)
                         return "groupType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -47716,12 +47275,6 @@ $root.E2E = (function() {
                     message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo, _depth + 1);
                 }
                 switch (object.groupType) {
-                default:
-                    if (typeof object.groupType === "number") {
-                        message.groupType = object.groupType;
-                        break;
-                    }
-                    break;
                 case "DEFAULT":
                 case 0:
                     message.groupType = 0;
@@ -47730,6 +47283,9 @@ $root.E2E = (function() {
                 case 1:
                     message.groupType = 1;
                     break;
+                default:
+                    if (typeof object.groupType === "number" && (object.groupType | 0) === object.groupType)
+                        message.groupType = object.groupType;
                 }
                 return message;
             };
@@ -47808,7 +47364,7 @@ $root.E2E = (function() {
              * @property {number} PARENT=1 PARENT value
              */
             GroupInviteMessage.GroupType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "DEFAULT"] = 0;
                 values[valuesById[1] = "PARENT"] = 1;
                 return values;
@@ -49604,7 +49160,7 @@ $root.E2E = (function() {
                                 _depth = 0;
                             if (_depth > $Reader.recursionLimit)
                                 throw $Error("max depth exceeded");
-                            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent();
+                            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent(), value;
                             while (reader.pos < end) {
                                 var start = reader.pos;
                                 var tag = reader.tag();
@@ -49709,18 +49265,8 @@ $root.E2E = (function() {
                             var properties = {};
                             if (message.dayOfWeek != null && $Object.hasOwnProperty.call(message, "dayOfWeek")) {
                                 properties._dayOfWeek = 1;
-                                switch (message.dayOfWeek) {
-                                default:
+                                if (typeof message.dayOfWeek !== "number" || (message.dayOfWeek | 0) !== message.dayOfWeek)
                                     return "dayOfWeek: enum value expected";
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 5:
-                                case 6:
-                                case 7:
-                                    break;
-                                }
                             }
                             if (message.year != null && $Object.hasOwnProperty.call(message, "year")) {
                                 properties._year = 1;
@@ -49749,13 +49295,8 @@ $root.E2E = (function() {
                             }
                             if (message.calendar != null && $Object.hasOwnProperty.call(message, "calendar")) {
                                 properties._calendar = 1;
-                                switch (message.calendar) {
-                                default:
+                                if (typeof message.calendar !== "number" || (message.calendar | 0) !== message.calendar)
                                     return "calendar: enum value expected";
-                                case 1:
-                                case 2:
-                                    break;
-                                }
                             }
                             return null;
                         };
@@ -49779,12 +49320,6 @@ $root.E2E = (function() {
                                 throw $Error("max depth exceeded");
                             var message = new $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent();
                             switch (object.dayOfWeek) {
-                            default:
-                                if (typeof object.dayOfWeek === "number") {
-                                    message.dayOfWeek = object.dayOfWeek;
-                                    break;
-                                }
-                                break;
                             case "MONDAY":
                             case 1:
                                 message.dayOfWeek = 1;
@@ -49813,6 +49348,9 @@ $root.E2E = (function() {
                             case 7:
                                 message.dayOfWeek = 7;
                                 break;
+                            default:
+                                if (typeof object.dayOfWeek === "number" && (object.dayOfWeek | 0) === object.dayOfWeek)
+                                    message.dayOfWeek = object.dayOfWeek;
                             }
                             if (object.year != null)
                                 message.year = object.year >>> 0;
@@ -49825,12 +49363,6 @@ $root.E2E = (function() {
                             if (object.minute != null)
                                 message.minute = object.minute >>> 0;
                             switch (object.calendar) {
-                            default:
-                                if (typeof object.calendar === "number") {
-                                    message.calendar = object.calendar;
-                                    break;
-                                }
-                                break;
                             case "GREGORIAN":
                             case 1:
                                 message.calendar = 1;
@@ -49839,6 +49371,9 @@ $root.E2E = (function() {
                             case 2:
                                 message.calendar = 2;
                                 break;
+                            default:
+                                if (typeof object.calendar === "number" && (object.calendar | 0) === object.calendar)
+                                    message.calendar = object.calendar;
                             }
                             return message;
                         };
@@ -49910,7 +49445,7 @@ $root.E2E = (function() {
                          * @property {number} SOLAR_HIJRI=2 SOLAR_HIJRI value
                          */
                         HSMDateTimeComponent.CalendarType = (function() {
-                            var valuesById = {}, values = $Object.create(valuesById);
+                            var valuesById = $Object.create(null), values = $Object.create(valuesById);
                             values[valuesById[1] = "GREGORIAN"] = 1;
                             values[valuesById[2] = "SOLAR_HIJRI"] = 2;
                             return values;
@@ -49929,7 +49464,7 @@ $root.E2E = (function() {
                          * @property {number} SUNDAY=7 SUNDAY value
                          */
                         HSMDateTimeComponent.DayOfWeekType = (function() {
-                            var valuesById = {}, values = $Object.create(valuesById);
+                            var valuesById = $Object.create(null), values = $Object.create(valuesById);
                             values[valuesById[1] = "MONDAY"] = 1;
                             values[valuesById[2] = "TUESDAY"] = 2;
                             values[valuesById[3] = "WEDNESDAY"] = 3;
@@ -50861,7 +50396,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.HistorySyncNotification();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.HistorySyncNotification(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -51047,20 +50582,8 @@ $root.E2E = (function() {
                 }
                 if (message.syncType != null && $Object.hasOwnProperty.call(message, "syncType")) {
                     properties._syncType = 1;
-                    switch (message.syncType) {
-                    default:
+                    if (typeof message.syncType !== "number" || (message.syncType | 0) !== message.syncType)
                         return "syncType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                        break;
-                    }
                 }
                 if (message.chunkOrder != null && $Object.hasOwnProperty.call(message, "chunkOrder")) {
                     properties._chunkOrder = 1;
@@ -51161,12 +50684,6 @@ $root.E2E = (function() {
                 if (object.directPath != null)
                     message.directPath = $String(object.directPath);
                 switch (object.syncType) {
-                default:
-                    if (typeof object.syncType === "number") {
-                        message.syncType = object.syncType;
-                        break;
-                    }
-                    break;
                 case "INITIAL_BOOTSTRAP":
                 case 0:
                     message.syncType = 0;
@@ -51203,6 +50720,9 @@ $root.E2E = (function() {
                 case 8:
                     message.syncType = 8;
                     break;
+                default:
+                    if (typeof object.syncType === "number" && (object.syncType | 0) === object.syncType)
+                        message.syncType = object.syncType;
                 }
                 if (object.chunkOrder != null)
                     message.chunkOrder = object.chunkOrder >>> 0;
@@ -51344,7 +50864,7 @@ $root.E2E = (function() {
          * @property {number} MESSAGE_ACCESS_STATUS=8 MESSAGE_ACCESS_STATUS value
          */
         Message.HistorySyncType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "INITIAL_BOOTSTRAP"] = 0;
             values[valuesById[1] = "INITIAL_STATUS_V3"] = 1;
             values[valuesById[2] = "FULL"] = 2;
@@ -51998,7 +51518,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ImageMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ImageMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -52423,15 +51943,8 @@ $root.E2E = (function() {
                 }
                 if (message.imageSourceType != null && $Object.hasOwnProperty.call(message, "imageSourceType")) {
                     properties._imageSourceType = 1;
-                    switch (message.imageSourceType) {
-                    default:
+                    if (typeof message.imageSourceType !== "number" || (message.imageSourceType | 0) !== message.imageSourceType)
                         return "imageSourceType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.accessibilityLabel != null && $Object.hasOwnProperty.call(message, "accessibilityLabel")) {
                     properties._accessibilityLabel = 1;
@@ -52587,12 +52100,6 @@ $root.E2E = (function() {
                     }
                 }
                 switch (object.imageSourceType) {
-                default:
-                    if (typeof object.imageSourceType === "number") {
-                        message.imageSourceType = object.imageSourceType;
-                        break;
-                    }
-                    break;
                 case "USER_IMAGE":
                 case 0:
                     message.imageSourceType = 0;
@@ -52609,6 +52116,9 @@ $root.E2E = (function() {
                 case 3:
                     message.imageSourceType = 3;
                     break;
+                default:
+                    if (typeof object.imageSourceType === "number" && (object.imageSourceType | 0) === object.imageSourceType)
+                        message.imageSourceType = object.imageSourceType;
                 }
                 if (object.accessibilityLabel != null)
                     message.accessibilityLabel = $String(object.accessibilityLabel);
@@ -52756,7 +52266,7 @@ $root.E2E = (function() {
              * @property {number} RASTERIZED_TEXT_STATUS=3 RASTERIZED_TEXT_STATUS value
              */
             ImageMessage.ImageSourceType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "USER_IMAGE"] = 0;
                 values[valuesById[1] = "AI_GENERATED"] = 1;
                 values[valuesById[2] = "AI_MODIFIED"] = 2;
@@ -53045,7 +52555,7 @@ $root.E2E = (function() {
          * @property {number} QUICK_REPLIED=4 QUICK_REPLIED value
          */
         Message.InsightDeliveryState = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "SENT"] = 0;
             values[valuesById[1] = "DELIVERED"] = 1;
             values[valuesById[2] = "READ"] = 2;
@@ -54488,7 +53998,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InteractiveMessage.CarouselMessage();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InteractiveMessage.CarouselMessage(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -54580,14 +54090,8 @@ $root.E2E = (function() {
                     }
                     if (message.carouselCardType != null && $Object.hasOwnProperty.call(message, "carouselCardType")) {
                         properties._carouselCardType = 1;
-                        switch (message.carouselCardType) {
-                        default:
+                        if (typeof message.carouselCardType !== "number" || (message.carouselCardType | 0) !== message.carouselCardType)
                             return "carouselCardType: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                            break;
-                        }
                     }
                     return null;
                 };
@@ -54623,12 +54127,6 @@ $root.E2E = (function() {
                     if (object.messageVersion != null)
                         message.messageVersion = object.messageVersion | 0;
                     switch (object.carouselCardType) {
-                    default:
-                        if (typeof object.carouselCardType === "number") {
-                            message.carouselCardType = object.carouselCardType;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN":
                     case 0:
                         message.carouselCardType = 0;
@@ -54641,6 +54139,9 @@ $root.E2E = (function() {
                     case 2:
                         message.carouselCardType = 2;
                         break;
+                    default:
+                        if (typeof object.carouselCardType === "number" && (object.carouselCardType | 0) === object.carouselCardType)
+                            message.carouselCardType = object.carouselCardType;
                     }
                     return message;
                 };
@@ -54710,7 +54211,7 @@ $root.E2E = (function() {
                  * @property {number} ALBUM_IMAGE=2 ALBUM_IMAGE value
                  */
                 CarouselMessage.CarouselCardType = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "HSCROLL_CARDS"] = 1;
                     values[valuesById[2] = "ALBUM_IMAGE"] = 2;
@@ -56835,7 +56336,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InteractiveMessage.ShopMessage();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InteractiveMessage.ShopMessage(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -56917,15 +56418,8 @@ $root.E2E = (function() {
                     }
                     if (message.surface != null && $Object.hasOwnProperty.call(message, "surface")) {
                         properties._surface = 1;
-                        switch (message.surface) {
-                        default:
+                        if (typeof message.surface !== "number" || (message.surface | 0) !== message.surface)
                             return "surface: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                            break;
-                        }
                     }
                     if (message.messageVersion != null && $Object.hasOwnProperty.call(message, "messageVersion")) {
                         properties._messageVersion = 1;
@@ -56956,12 +56450,6 @@ $root.E2E = (function() {
                     if (object.id != null)
                         message.id = $String(object.id);
                     switch (object.surface) {
-                    default:
-                        if (typeof object.surface === "number") {
-                            message.surface = object.surface;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN_SURFACE":
                     case 0:
                         message.surface = 0;
@@ -56978,6 +56466,9 @@ $root.E2E = (function() {
                     case 3:
                         message.surface = 3;
                         break;
+                    default:
+                        if (typeof object.surface === "number" && (object.surface | 0) === object.surface)
+                            message.surface = object.surface;
                     }
                     if (object.messageVersion != null)
                         message.messageVersion = object.messageVersion | 0;
@@ -57045,7 +56536,7 @@ $root.E2E = (function() {
                  * @property {number} WA=3 WA value
                  */
                 ShopMessage.Surface = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "UNKNOWN_SURFACE"] = 0;
                     values[valuesById[1] = "FB"] = 1;
                     values[valuesById[2] = "IG"] = 2;
@@ -57565,7 +57056,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InteractiveResponseMessage.Body();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InteractiveResponseMessage.Body(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -57640,13 +57131,8 @@ $root.E2E = (function() {
                     }
                     if (message.format != null && $Object.hasOwnProperty.call(message, "format")) {
                         properties._format = 1;
-                        switch (message.format) {
-                        default:
+                        if (typeof message.format !== "number" || (message.format | 0) !== message.format)
                             return "format: enum value expected";
-                        case 0:
-                        case 1:
-                            break;
-                        }
                     }
                     return null;
                 };
@@ -57672,12 +57158,6 @@ $root.E2E = (function() {
                     if (object.text != null)
                         message.text = $String(object.text);
                     switch (object.format) {
-                    default:
-                        if (typeof object.format === "number") {
-                            message.format = object.format;
-                            break;
-                        }
-                        break;
                     case "DEFAULT":
                     case 0:
                         message.format = 0;
@@ -57686,6 +57166,9 @@ $root.E2E = (function() {
                     case 1:
                         message.format = 1;
                         break;
+                    default:
+                        if (typeof object.format === "number" && (object.format | 0) === object.format)
+                            message.format = object.format;
                     }
                     return message;
                 };
@@ -57747,7 +57230,7 @@ $root.E2E = (function() {
                  * @property {number} EXTENSIONS_1=1 EXTENSIONS_1 value
                  */
                 Body.Format = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "DEFAULT"] = 0;
                     values[valuesById[1] = "EXTENSIONS_1"] = 1;
                     return values;
@@ -58370,7 +57853,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InvoiceMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.InvoiceMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -58506,13 +57989,8 @@ $root.E2E = (function() {
                 }
                 if (message.attachmentType != null && $Object.hasOwnProperty.call(message, "attachmentType")) {
                     properties._attachmentType = 1;
-                    switch (message.attachmentType) {
-                    default:
+                    if (typeof message.attachmentType !== "number" || (message.attachmentType | 0) !== message.attachmentType)
                         return "attachmentType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.attachmentMimetype != null && $Object.hasOwnProperty.call(message, "attachmentMimetype")) {
                     properties._attachmentMimetype = 1;
@@ -58575,12 +58053,6 @@ $root.E2E = (function() {
                 if (object.token != null)
                     message.token = $String(object.token);
                 switch (object.attachmentType) {
-                default:
-                    if (typeof object.attachmentType === "number") {
-                        message.attachmentType = object.attachmentType;
-                        break;
-                    }
-                    break;
                 case "IMAGE":
                 case 0:
                     message.attachmentType = 0;
@@ -58589,6 +58061,9 @@ $root.E2E = (function() {
                 case 1:
                     message.attachmentType = 1;
                     break;
+                default:
+                    if (typeof object.attachmentType === "number" && (object.attachmentType | 0) === object.attachmentType)
+                        message.attachmentType = object.attachmentType;
                 }
                 if (object.attachmentMimetype != null)
                     message.attachmentMimetype = $String(object.attachmentMimetype);
@@ -58704,7 +58179,7 @@ $root.E2E = (function() {
              * @property {number} PDF=1 PDF value
              */
             InvoiceMessage.AttachmentType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "IMAGE"] = 0;
                 values[valuesById[1] = "PDF"] = 1;
                 return values;
@@ -58872,7 +58347,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.KeepInChatMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.KeepInChatMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -58957,14 +58432,8 @@ $root.E2E = (function() {
                 }
                 if (message.keepType != null && $Object.hasOwnProperty.call(message, "keepType")) {
                     properties._keepType = 1;
-                    switch (message.keepType) {
-                    default:
+                    if (typeof message.keepType !== "number" || (message.keepType | 0) !== message.keepType)
                         return "keepType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.timestampMs != null && $Object.hasOwnProperty.call(message, "timestampMs")) {
                     properties._timestampMs = 1;
@@ -58998,12 +58467,6 @@ $root.E2E = (function() {
                     message.key = $root.Protocol.MessageKey.fromObject(object.key, _depth + 1);
                 }
                 switch (object.keepType) {
-                default:
-                    if (typeof object.keepType === "number") {
-                        message.keepType = object.keepType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.keepType = 0;
@@ -59016,6 +58479,9 @@ $root.E2E = (function() {
                 case 2:
                     message.keepType = 2;
                     break;
+                default:
+                    if (typeof object.keepType === "number" && (object.keepType | 0) === object.keepType)
+                        message.keepType = object.keepType;
                 }
                 if (object.timestampMs != null)
                     if ($util.Long)
@@ -59349,7 +58815,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.LinkPreviewMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.LinkPreviewMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -59494,17 +58960,8 @@ $root.E2E = (function() {
                 }
                 if (message.socialMediaPostType != null && $Object.hasOwnProperty.call(message, "socialMediaPostType")) {
                     properties._socialMediaPostType = 1;
-                    switch (message.socialMediaPostType) {
-                    default:
+                    if (typeof message.socialMediaPostType !== "number" || (message.socialMediaPostType | 0) !== message.socialMediaPostType)
                         return "socialMediaPostType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.linkInlineVideoMuted != null && $Object.hasOwnProperty.call(message, "linkInlineVideoMuted")) {
                     properties._linkInlineVideoMuted = 1;
@@ -59565,12 +59022,6 @@ $root.E2E = (function() {
                 if (object.linkMediaDuration != null)
                     message.linkMediaDuration = object.linkMediaDuration >>> 0;
                 switch (object.socialMediaPostType) {
-                default:
-                    if (typeof object.socialMediaPostType === "number") {
-                        message.socialMediaPostType = object.socialMediaPostType;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.socialMediaPostType = 0;
@@ -59595,6 +59046,9 @@ $root.E2E = (function() {
                 case 5:
                     message.socialMediaPostType = 5;
                     break;
+                default:
+                    if (typeof object.socialMediaPostType === "number" && (object.socialMediaPostType | 0) === object.socialMediaPostType)
+                        message.socialMediaPostType = object.socialMediaPostType;
                 }
                 if (object.linkInlineVideoMuted != null)
                     message.linkInlineVideoMuted = $Boolean(object.linkInlineVideoMuted);
@@ -59685,7 +59139,7 @@ $root.E2E = (function() {
              * @property {number} CAROUSEL=5 CAROUSEL value
              */
             LinkPreviewMetadata.SocialMediaPostType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "REEL"] = 1;
                 values[valuesById[2] = "LIVE_VIDEO"] = 2;
@@ -59948,7 +59402,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ListMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ListMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -60076,14 +59530,8 @@ $root.E2E = (function() {
                 }
                 if (message.listType != null && $Object.hasOwnProperty.call(message, "listType")) {
                     properties._listType = 1;
-                    switch (message.listType) {
-                    default:
+                    if (typeof message.listType !== "number" || (message.listType | 0) !== message.listType)
                         return "listType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.sections != null && $Object.hasOwnProperty.call(message, "sections")) {
                     if (!$Array.isArray(message.sections))
@@ -60143,12 +59591,6 @@ $root.E2E = (function() {
                 if (object.buttonText != null)
                     message.buttonText = $String(object.buttonText);
                 switch (object.listType) {
-                default:
-                    if (typeof object.listType === "number") {
-                        message.listType = object.listType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.listType = 0;
@@ -60161,6 +59603,9 @@ $root.E2E = (function() {
                 case 2:
                     message.listType = 2;
                     break;
+                default:
+                    if (typeof object.listType === "number" && (object.listType | 0) === object.listType)
+                        message.listType = object.listType;
                 }
                 if (object.sections) {
                     if (!$Array.isArray(object.sections))
@@ -60262,7 +59707,7 @@ $root.E2E = (function() {
              * @property {number} PRODUCT_LIST=2 PRODUCT_LIST value
              */
             ListMessage.ListType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "SINGLE_SELECT"] = 1;
                 values[valuesById[2] = "PRODUCT_LIST"] = 2;
@@ -62356,7 +61801,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ListResponseMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ListResponseMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -62452,13 +61897,8 @@ $root.E2E = (function() {
                 }
                 if (message.listType != null && $Object.hasOwnProperty.call(message, "listType")) {
                     properties._listType = 1;
-                    switch (message.listType) {
-                    default:
+                    if (typeof message.listType !== "number" || (message.listType | 0) !== message.listType)
                         return "listType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.singleSelectReply != null && $Object.hasOwnProperty.call(message, "singleSelectReply")) {
                     properties._singleSelectReply = 1;
@@ -62505,12 +61945,6 @@ $root.E2E = (function() {
                 if (object.title != null)
                     message.title = $String(object.title);
                 switch (object.listType) {
-                default:
-                    if (typeof object.listType === "number") {
-                        message.listType = object.listType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.listType = 0;
@@ -62519,6 +61953,9 @@ $root.E2E = (function() {
                 case 1:
                     message.listType = 1;
                     break;
+                default:
+                    if (typeof object.listType === "number" && (object.listType | 0) === object.listType)
+                        message.listType = object.listType;
                 }
                 if (object.singleSelectReply != null) {
                     if (!$util.isObject(object.singleSelectReply))
@@ -62598,7 +62035,7 @@ $root.E2E = (function() {
              * @property {number} SINGLE_SELECT=1 SINGLE_SELECT value
              */
             ListResponseMessage.ListType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "SINGLE_SELECT"] = 1;
                 return values;
@@ -67176,7 +66613,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.OrderMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.OrderMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -67352,23 +66789,13 @@ $root.E2E = (function() {
                 }
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.surface != null && $Object.hasOwnProperty.call(message, "surface")) {
                     properties._surface = 1;
-                    switch (message.surface) {
-                    default:
+                    if (typeof message.surface !== "number" || (message.surface | 0) !== message.surface)
                         return "surface: enum value expected";
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.message != null && $Object.hasOwnProperty.call(message, "message")) {
                     properties._message = 1;
@@ -67457,12 +66884,6 @@ $root.E2E = (function() {
                 if (object.itemCount != null)
                     message.itemCount = object.itemCount | 0;
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "INQUIRY":
                 case 1:
                     message.status = 1;
@@ -67475,18 +66896,18 @@ $root.E2E = (function() {
                 case 3:
                     message.status = 3;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 switch (object.surface) {
-                default:
-                    if (typeof object.surface === "number") {
-                        message.surface = object.surface;
-                        break;
-                    }
-                    break;
                 case "CATALOG":
                 case 1:
                     message.surface = 1;
                     break;
+                default:
+                    if (typeof object.surface === "number" && (object.surface | 0) === object.surface)
+                        message.surface = object.surface;
                 }
                 if (object.message != null)
                     message.message = $String(object.message);
@@ -67613,7 +67034,7 @@ $root.E2E = (function() {
              * @property {number} DECLINED=3 DECLINED value
              */
             OrderMessage.OrderStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "INQUIRY"] = 1;
                 values[valuesById[2] = "ACCEPTED"] = 2;
                 values[valuesById[3] = "DECLINED"] = 3;
@@ -67627,7 +67048,7 @@ $root.E2E = (function() {
              * @property {number} CATALOG=1 CATALOG value
              */
             OrderMessage.OrderSurface = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "CATALOG"] = 1;
                 return values;
             })();
@@ -68128,7 +67549,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentInviteMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentInviteMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -68219,15 +67640,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.serviceType != null && $Object.hasOwnProperty.call(message, "serviceType")) {
                     properties._serviceType = 1;
-                    switch (message.serviceType) {
-                    default:
+                    if (typeof message.serviceType !== "number" || (message.serviceType | 0) !== message.serviceType)
                         return "serviceType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.expiryTimestamp != null && $Object.hasOwnProperty.call(message, "expiryTimestamp")) {
                     properties._expiryTimestamp = 1;
@@ -68246,13 +67660,8 @@ $root.E2E = (function() {
                 }
                 if (message.inviteType != null && $Object.hasOwnProperty.call(message, "inviteType")) {
                     properties._inviteType = 1;
-                    switch (message.inviteType) {
-                    default:
+                    if (typeof message.inviteType !== "number" || (message.inviteType | 0) !== message.inviteType)
                         return "inviteType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -68276,12 +67685,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.PaymentInviteMessage();
                 switch (object.serviceType) {
-                default:
-                    if (typeof object.serviceType === "number") {
-                        message.serviceType = object.serviceType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.serviceType = 0;
@@ -68298,6 +67701,9 @@ $root.E2E = (function() {
                 case 3:
                     message.serviceType = 3;
                     break;
+                default:
+                    if (typeof object.serviceType === "number" && (object.serviceType | 0) === object.serviceType)
+                        message.serviceType = object.serviceType;
                 }
                 if (object.expiryTimestamp != null)
                     if ($util.Long)
@@ -68313,12 +67719,6 @@ $root.E2E = (function() {
                 if (object.referralId != null)
                     message.referralId = $String(object.referralId);
                 switch (object.inviteType) {
-                default:
-                    if (typeof object.inviteType === "number") {
-                        message.inviteType = object.inviteType;
-                        break;
-                    }
-                    break;
                 case "DEFAULT":
                 case 0:
                     message.inviteType = 0;
@@ -68327,6 +67727,9 @@ $root.E2E = (function() {
                 case 1:
                     message.inviteType = 1;
                     break;
+                default:
+                    if (typeof object.inviteType === "number" && (object.inviteType | 0) === object.inviteType)
+                        message.inviteType = object.inviteType;
                 }
                 return message;
             };
@@ -68399,7 +67802,7 @@ $root.E2E = (function() {
              * @property {number} MAPPER=1 MAPPER value
              */
             PaymentInviteMessage.InviteType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "DEFAULT"] = 0;
                 values[valuesById[1] = "MAPPER"] = 1;
                 return values;
@@ -68415,7 +67818,7 @@ $root.E2E = (function() {
              * @property {number} UPI=3 UPI value
              */
             PaymentInviteMessage.ServiceType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "FBPAY"] = 1;
                 values[valuesById[2] = "NOVI"] = 2;
@@ -69166,7 +68569,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentLinkMetadata.PaymentLinkHeader();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentLinkMetadata.PaymentLinkHeader(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -69229,13 +68632,8 @@ $root.E2E = (function() {
                     var properties = {};
                     if (message.headerType != null && $Object.hasOwnProperty.call(message, "headerType")) {
                         properties._headerType = 1;
-                        switch (message.headerType) {
-                        default:
+                        if (typeof message.headerType !== "number" || (message.headerType | 0) !== message.headerType)
                             return "headerType: enum value expected";
-                        case 0:
-                        case 1:
-                            break;
-                        }
                     }
                     return null;
                 };
@@ -69259,12 +68657,6 @@ $root.E2E = (function() {
                         throw $Error("max depth exceeded");
                     var message = new $root.E2E.Message.PaymentLinkMetadata.PaymentLinkHeader();
                     switch (object.headerType) {
-                    default:
-                        if (typeof object.headerType === "number") {
-                            message.headerType = object.headerType;
-                            break;
-                        }
-                        break;
                     case "LINK_PREVIEW":
                     case 0:
                         message.headerType = 0;
@@ -69273,6 +68665,9 @@ $root.E2E = (function() {
                     case 1:
                         message.headerType = 1;
                         break;
+                    default:
+                        if (typeof object.headerType === "number" && (object.headerType | 0) === object.headerType)
+                            message.headerType = object.headerType;
                     }
                     return message;
                 };
@@ -69332,7 +68727,7 @@ $root.E2E = (function() {
                  * @property {number} ORDER=1 ORDER value
                  */
                 PaymentLinkHeader.PaymentLinkHeaderType = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "LINK_PREVIEW"] = 0;
                     values[valuesById[1] = "ORDER"] = 1;
                     return values;
@@ -69872,7 +69267,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentReminderMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentReminderMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -70006,30 +69401,13 @@ $root.E2E = (function() {
                 }
                 if (message.frequency != null && $Object.hasOwnProperty.call(message, "frequency")) {
                     properties._frequency = 1;
-                    switch (message.frequency) {
-                    default:
+                    if (typeof message.frequency !== "number" || (message.frequency | 0) !== message.frequency)
                         return "frequency: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
                 }
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.payeeVpa != null && $Object.hasOwnProperty.call(message, "payeeVpa")) {
                     properties._payeeVpa = 1;
@@ -70082,12 +69460,6 @@ $root.E2E = (function() {
                 if (object.description != null)
                     message.description = $String(object.description);
                 switch (object.frequency) {
-                default:
-                    if (typeof object.frequency === "number") {
-                        message.frequency = object.frequency;
-                        break;
-                    }
-                    break;
                 case "REMINDER_FREQUENCY_UNKNOWN":
                 case 0:
                     message.frequency = 0;
@@ -70108,14 +69480,11 @@ $root.E2E = (function() {
                 case 4:
                     message.frequency = 4;
                     break;
+                default:
+                    if (typeof object.frequency === "number" && (object.frequency | 0) === object.frequency)
+                        message.frequency = object.frequency;
                 }
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "REMINDER_STATUS_UNKNOWN":
                 case 0:
                     message.status = 0;
@@ -70140,6 +69509,9 @@ $root.E2E = (function() {
                 case 5:
                     message.status = 5;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 if (object.payeeVpa != null)
                     message.payeeVpa = $String(object.payeeVpa);
@@ -70229,7 +69601,7 @@ $root.E2E = (function() {
              * @property {number} QUARTERLY=4 QUARTERLY value
              */
             PaymentReminderMessage.ReminderFrequency = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "REMINDER_FREQUENCY_UNKNOWN"] = 0;
                 values[valuesById[1] = "WEEKLY"] = 1;
                 values[valuesById[2] = "BI_WEEKLY"] = 2;
@@ -70250,7 +69622,7 @@ $root.E2E = (function() {
              * @property {number} PAID=5 PAID value
              */
             PaymentReminderMessage.ReminderStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "REMINDER_STATUS_UNKNOWN"] = 0;
                 values[valuesById[1] = "ACTIVE"] = 1;
                 values[valuesById[2] = "CANCELLED_BY_CREATOR"] = 2;
@@ -70563,7 +69935,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -70706,25 +70078,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.peerDataOperationRequestType != null && $Object.hasOwnProperty.call(message, "peerDataOperationRequestType")) {
                     properties._peerDataOperationRequestType = 1;
-                    switch (message.peerDataOperationRequestType) {
-                    default:
+                    if (typeof message.peerDataOperationRequestType !== "number" || (message.peerDataOperationRequestType | 0) !== message.peerDataOperationRequestType)
                         return "peerDataOperationRequestType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                        break;
-                    }
                 }
                 if (message.requestStickerReupload != null && $Object.hasOwnProperty.call(message, "requestStickerReupload")) {
                     if (!$Array.isArray(message.requestStickerReupload))
@@ -70839,12 +70194,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.PeerDataOperationRequestMessage();
                 switch (object.peerDataOperationRequestType) {
-                default:
-                    if (typeof object.peerDataOperationRequestType === "number") {
-                        message.peerDataOperationRequestType = object.peerDataOperationRequestType;
-                        break;
-                    }
-                    break;
                 case "UPLOAD_STICKER":
                 case 0:
                     message.peerDataOperationRequestType = 0;
@@ -70901,6 +70250,9 @@ $root.E2E = (function() {
                 case 13:
                     message.peerDataOperationRequestType = 13;
                     break;
+                default:
+                    if (typeof object.peerDataOperationRequestType === "number" && (object.peerDataOperationRequestType | 0) === object.peerDataOperationRequestType)
+                        message.peerDataOperationRequestType = object.peerDataOperationRequestType;
                 }
                 if (object.requestStickerReupload) {
                     if (!$Array.isArray(object.requestStickerReupload))
@@ -72403,7 +71755,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -72494,13 +71846,8 @@ $root.E2E = (function() {
                     var properties = {};
                     if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                         properties._type = 1;
-                        switch (message.type) {
-                        default:
+                        if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                             return "type: enum value expected";
-                        case 1:
-                        case 2:
-                            break;
-                        }
                     }
                     if (message.flowId != null && $Object.hasOwnProperty.call(message, "flowId")) {
                         properties._flowId = 1;
@@ -72544,12 +71891,6 @@ $root.E2E = (function() {
                         throw $Error("max depth exceeded");
                     var message = new $root.E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction();
                     switch (object.type) {
-                    default:
-                        if (typeof object.type === "number") {
-                            message.type = object.type;
-                            break;
-                        }
-                        break;
                     case "NOTIFY_LAUNCH":
                     case 1:
                         message.type = 1;
@@ -72558,6 +71899,9 @@ $root.E2E = (function() {
                     case 2:
                         message.type = 2;
                         break;
+                    default:
+                        if (typeof object.type === "number" && (object.type | 0) === object.type)
+                            message.type = object.type;
                     }
                     if (object.flowId != null)
                         message.flowId = $String(object.flowId);
@@ -72633,7 +71977,7 @@ $root.E2E = (function() {
                  * @property {number} DOWNLOAD_RESPONSES=2 DOWNLOAD_RESPONSES value
                  */
                 GalaxyFlowAction.GalaxyFlowActionType = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[1] = "NOTIFY_LAUNCH"] = 1;
                     values[valuesById[2] = "DOWNLOAD_RESPONSES"] = 2;
                     return values;
@@ -72818,7 +72162,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -72902,20 +72246,8 @@ $root.E2E = (function() {
                     var properties = {};
                     if (message.syncType != null && $Object.hasOwnProperty.call(message, "syncType")) {
                         properties._syncType = 1;
-                        switch (message.syncType) {
-                        default:
+                        if (typeof message.syncType !== "number" || (message.syncType | 0) !== message.syncType)
                             return "syncType: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                        case 8:
-                            break;
-                        }
                     }
                     if (message.chunkOrder != null && $Object.hasOwnProperty.call(message, "chunkOrder")) {
                         properties._chunkOrder = 1;
@@ -72954,12 +72286,6 @@ $root.E2E = (function() {
                         throw $Error("max depth exceeded");
                     var message = new $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest();
                     switch (object.syncType) {
-                    default:
-                        if (typeof object.syncType === "number") {
-                            message.syncType = object.syncType;
-                            break;
-                        }
-                        break;
                     case "INITIAL_BOOTSTRAP":
                     case 0:
                         message.syncType = 0;
@@ -72996,6 +72322,9 @@ $root.E2E = (function() {
                     case 8:
                         message.syncType = 8;
                         break;
+                    default:
+                        if (typeof object.syncType === "number" && (object.syncType | 0) === object.syncType)
+                            message.syncType = object.syncType;
                     }
                     if (object.chunkOrder != null)
                         message.chunkOrder = object.chunkOrder >>> 0;
@@ -74854,7 +74183,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -74932,25 +74261,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.peerDataOperationRequestType != null && $Object.hasOwnProperty.call(message, "peerDataOperationRequestType")) {
                     properties._peerDataOperationRequestType = 1;
-                    switch (message.peerDataOperationRequestType) {
-                    default:
+                    if (typeof message.peerDataOperationRequestType !== "number" || (message.peerDataOperationRequestType | 0) !== message.peerDataOperationRequestType)
                         return "peerDataOperationRequestType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                        break;
-                    }
                 }
                 if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId")) {
                     properties._stanzaId = 1;
@@ -74988,12 +74300,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.PeerDataOperationRequestResponseMessage();
                 switch (object.peerDataOperationRequestType) {
-                default:
-                    if (typeof object.peerDataOperationRequestType === "number") {
-                        message.peerDataOperationRequestType = object.peerDataOperationRequestType;
-                        break;
-                    }
-                    break;
                 case "UPLOAD_STICKER":
                 case 0:
                     message.peerDataOperationRequestType = 0;
@@ -75050,6 +74356,9 @@ $root.E2E = (function() {
                 case 13:
                     message.peerDataOperationRequestType = 13;
                     break;
+                default:
+                    if (typeof object.peerDataOperationRequestType === "number" && (object.peerDataOperationRequestType | 0) === object.peerDataOperationRequestType)
+                        message.peerDataOperationRequestType = object.peerDataOperationRequestType;
                 }
                 if (object.stanzaId != null)
                     message.stanzaId = $String(object.stanzaId);
@@ -75448,7 +74757,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -75588,15 +74897,8 @@ $root.E2E = (function() {
                     var properties = {};
                     if (message.mediaUploadResult != null && $Object.hasOwnProperty.call(message, "mediaUploadResult")) {
                         properties._mediaUploadResult = 1;
-                        switch (message.mediaUploadResult) {
-                        default:
+                        if (typeof message.mediaUploadResult !== "number" || (message.mediaUploadResult | 0) !== message.mediaUploadResult)
                             return "mediaUploadResult: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                            break;
-                        }
                     }
                     if (message.stickerMessage != null && $Object.hasOwnProperty.call(message, "stickerMessage")) {
                         properties._stickerMessage = 1;
@@ -75708,12 +75010,6 @@ $root.E2E = (function() {
                         throw $Error("max depth exceeded");
                     var message = new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult();
                     switch (object.mediaUploadResult) {
-                    default:
-                        if (typeof object.mediaUploadResult === "number") {
-                            message.mediaUploadResult = object.mediaUploadResult;
-                            break;
-                        }
-                        break;
                     case "GENERAL_ERROR":
                     case 0:
                         message.mediaUploadResult = 0;
@@ -75730,6 +75026,9 @@ $root.E2E = (function() {
                     case 3:
                         message.mediaUploadResult = 3;
                         break;
+                    default:
+                        if (typeof object.mediaUploadResult === "number" && (object.mediaUploadResult | 0) === object.mediaUploadResult)
+                            message.mediaUploadResult = object.mediaUploadResult;
                     }
                     if (object.stickerMessage != null) {
                         if (!$util.isObject(object.stickerMessage))
@@ -76359,7 +75658,7 @@ $root.E2E = (function() {
                             _depth = 0;
                         if (_depth > $Reader.recursionLimit)
                             throw $Error("max depth exceeded");
-                        var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState();
+                        var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState(), value;
                         while (reader.pos < end) {
                             var start = reader.pos;
                             var tag = reader.tag();
@@ -76434,16 +75733,8 @@ $root.E2E = (function() {
                         }
                         if (message.state != null && $Object.hasOwnProperty.call(message, "state")) {
                             properties._state = 1;
-                            switch (message.state) {
-                            default:
+                            if (typeof message.state !== "number" || (message.state | 0) !== message.state)
                                 return "state: enum value expected";
-                            case 0:
-                            case 1:
-                            case 2:
-                            case 3:
-                            case 4:
-                                break;
-                            }
                         }
                         return null;
                     };
@@ -76469,12 +75760,6 @@ $root.E2E = (function() {
                         if (object.contactJid != null)
                             message.contactJid = $String(object.contactJid);
                         switch (object.state) {
-                        default:
-                            if (typeof object.state === "number") {
-                                message.state = object.state;
-                                break;
-                            }
-                            break;
                         case "SENT":
                         case 0:
                             message.state = 0;
@@ -76495,6 +75780,9 @@ $root.E2E = (function() {
                         case 4:
                             message.state = 4;
                             break;
+                        default:
+                            if (typeof object.state === "number" && (object.state | 0) === object.state)
+                                message.state = object.state;
                         }
                         return message;
                     };
@@ -77890,7 +77178,7 @@ $root.E2E = (function() {
                             _depth = 0;
                         if (_depth > $Reader.recursionLimit)
                             throw $Error("max depth exceeded");
-                        var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse();
+                        var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse(), value;
                         while (reader.pos < end) {
                             var start = reader.pos;
                             var tag = reader.tag();
@@ -77968,19 +77256,8 @@ $root.E2E = (function() {
                         }
                         if (message.responseCode != null && $Object.hasOwnProperty.call(message, "responseCode")) {
                             properties._responseCode = 1;
-                            switch (message.responseCode) {
-                            default:
+                            if (typeof message.responseCode !== "number" || (message.responseCode | 0) !== message.responseCode)
                                 return "responseCode: enum value expected";
-                            case 0:
-                            case 1:
-                            case 2:
-                            case 3:
-                            case 4:
-                            case 5:
-                            case 6:
-                            case 7:
-                                break;
-                            }
                         }
                         return null;
                     };
@@ -78009,12 +77286,6 @@ $root.E2E = (function() {
                             message.requestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.fromObject(object.requestMetadata, _depth + 1);
                         }
                         switch (object.responseCode) {
-                        default:
-                            if (typeof object.responseCode === "number") {
-                                message.responseCode = object.responseCode;
-                                break;
-                            }
-                            break;
                         case "REQUEST_SUCCESS":
                         case 0:
                             message.responseCode = 0;
@@ -78047,6 +77318,9 @@ $root.E2E = (function() {
                         case 7:
                             message.responseCode = 7;
                             break;
+                        default:
+                            if (typeof object.responseCode === "number" && (object.responseCode | 0) === object.responseCode)
+                                message.responseCode = object.responseCode;
                         }
                         return message;
                     };
@@ -78117,7 +77391,7 @@ $root.E2E = (function() {
                  * @property {number} ERROR_MULTI_PROVIDER_NOT_CONFIGURED=7 ERROR_MULTI_PROVIDER_NOT_CONFIGURED value
                  */
                 PeerDataOperationResult.FullHistorySyncOnDemandResponseCode = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "REQUEST_SUCCESS"] = 0;
                     values[valuesById[1] = "REQUEST_TIME_EXPIRED"] = 1;
                     values[valuesById[2] = "DECLINED_SHARING_HISTORY"] = 2;
@@ -78322,7 +77596,7 @@ $root.E2E = (function() {
                             _depth = 0;
                         if (_depth > $Reader.recursionLimit)
                             throw $Error("max depth exceeded");
-                        var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse();
+                        var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse(), value;
                         while (reader.pos < end) {
                             var start = reader.pos;
                             var tag = reader.tag();
@@ -78413,20 +77687,8 @@ $root.E2E = (function() {
                         var properties = {};
                         if (message.syncType != null && $Object.hasOwnProperty.call(message, "syncType")) {
                             properties._syncType = 1;
-                            switch (message.syncType) {
-                            default:
+                            if (typeof message.syncType !== "number" || (message.syncType | 0) !== message.syncType)
                                 return "syncType: enum value expected";
-                            case 0:
-                            case 1:
-                            case 2:
-                            case 3:
-                            case 4:
-                            case 5:
-                            case 6:
-                            case 7:
-                            case 8:
-                                break;
-                            }
                         }
                         if (message.chunkOrder != null && $Object.hasOwnProperty.call(message, "chunkOrder")) {
                             properties._chunkOrder = 1;
@@ -78440,17 +77702,8 @@ $root.E2E = (function() {
                         }
                         if (message.responseCode != null && $Object.hasOwnProperty.call(message, "responseCode")) {
                             properties._responseCode = 1;
-                            switch (message.responseCode) {
-                            default:
+                            if (typeof message.responseCode !== "number" || (message.responseCode | 0) !== message.responseCode)
                                 return "responseCode: enum value expected";
-                            case 1:
-                            case 2:
-                            case 3:
-                            case 4:
-                            case 5:
-                            case 6:
-                                break;
-                            }
                         }
                         if (message.canRecover != null && $Object.hasOwnProperty.call(message, "canRecover")) {
                             properties._canRecover = 1;
@@ -78479,12 +77732,6 @@ $root.E2E = (function() {
                             throw $Error("max depth exceeded");
                         var message = new $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse();
                         switch (object.syncType) {
-                        default:
-                            if (typeof object.syncType === "number") {
-                                message.syncType = object.syncType;
-                                break;
-                            }
-                            break;
                         case "INITIAL_BOOTSTRAP":
                         case 0:
                             message.syncType = 0;
@@ -78521,18 +77768,15 @@ $root.E2E = (function() {
                         case 8:
                             message.syncType = 8;
                             break;
+                        default:
+                            if (typeof object.syncType === "number" && (object.syncType | 0) === object.syncType)
+                                message.syncType = object.syncType;
                         }
                         if (object.chunkOrder != null)
                             message.chunkOrder = object.chunkOrder >>> 0;
                         if (object.requestId != null)
                             message.requestId = $String(object.requestId);
                         switch (object.responseCode) {
-                        default:
-                            if (typeof object.responseCode === "number") {
-                                message.responseCode = object.responseCode;
-                                break;
-                            }
-                            break;
                         case "GENERATION_ERROR":
                         case 1:
                             message.responseCode = 1;
@@ -78557,6 +77801,9 @@ $root.E2E = (function() {
                         case 6:
                             message.responseCode = 6;
                             break;
+                        default:
+                            if (typeof object.responseCode === "number" && (object.responseCode | 0) === object.responseCode)
+                                message.responseCode = object.responseCode;
                         }
                         if (object.canRecover != null)
                             message.canRecover = $Boolean(object.canRecover);
@@ -78633,7 +77880,7 @@ $root.E2E = (function() {
                  * @property {number} DUPLICATED_REQUEST=6 DUPLICATED_REQUEST value
                  */
                 PeerDataOperationResult.HistorySyncChunkRetryResponseCode = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[1] = "GENERATION_ERROR"] = 1;
                     values[valuesById[2] = "CHUNK_CONSUMED"] = 2;
                     values[valuesById[3] = "TIMEOUT"] = 3;
@@ -80934,7 +80181,7 @@ $root.E2E = (function() {
          * @property {number} BUSINESS_BROADCAST_INSIGHTS_REFRESH=13 BUSINESS_BROADCAST_INSIGHTS_REFRESH value
          */
         Message.PeerDataOperationRequestType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UPLOAD_STICKER"] = 0;
             values[valuesById[1] = "SEND_RECENT_STICKER_BOOTSTRAP"] = 1;
             values[valuesById[2] = "GENERATE_LINK_PREVIEW"] = 2;
@@ -81111,7 +80358,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PinInChatMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PinInChatMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -81196,14 +80443,8 @@ $root.E2E = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.senderTimestampMs != null && $Object.hasOwnProperty.call(message, "senderTimestampMs")) {
                     properties._senderTimestampMs = 1;
@@ -81237,12 +80478,6 @@ $root.E2E = (function() {
                     message.key = $root.Protocol.MessageKey.fromObject(object.key, _depth + 1);
                 }
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN_TYPE":
                 case 0:
                     message.type = 0;
@@ -81255,6 +80490,9 @@ $root.E2E = (function() {
                 case 2:
                     message.type = 2;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.senderTimestampMs != null)
                     if ($util.Long)
@@ -81333,7 +80571,7 @@ $root.E2E = (function() {
              * @property {number} UNPIN_FOR_ALL=2 UNPIN_FOR_ALL value
              */
             PinInChatMessage.Type = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
                 values[valuesById[1] = "PIN_FOR_ALL"] = 1;
                 values[valuesById[2] = "UNPIN_FOR_ALL"] = 2;
@@ -81468,7 +80706,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PlaceholderMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PlaceholderMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -81531,12 +80769,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -81560,16 +80794,13 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.PlaceholderMessage();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "MASK_LINKED_DEVICES":
                 case 0:
                     message.type = 0;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 return message;
             };
@@ -81628,7 +80859,7 @@ $root.E2E = (function() {
              * @property {number} MASK_LINKED_DEVICES=0 MASK_LINKED_DEVICES value
              */
             PlaceholderMessage.PlaceholderType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "MASK_LINKED_DEVICES"] = 0;
                 return values;
             })();
@@ -81996,7 +81227,7 @@ $root.E2E = (function() {
          * @property {number} IMAGE=2 IMAGE value
          */
         Message.PollContentType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "TEXT"] = 1;
             values[valuesById[2] = "IMAGE"] = 2;
@@ -82307,7 +81538,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PollCreationMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PollCreationMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -82473,24 +81704,13 @@ $root.E2E = (function() {
                 }
                 if (message.pollContentType != null && $Object.hasOwnProperty.call(message, "pollContentType")) {
                     properties._pollContentType = 1;
-                    switch (message.pollContentType) {
-                    default:
+                    if (typeof message.pollContentType !== "number" || (message.pollContentType | 0) !== message.pollContentType)
                         return "pollContentType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.pollType != null && $Object.hasOwnProperty.call(message, "pollType")) {
                     properties._pollType = 1;
-                    switch (message.pollType) {
-                    default:
+                    if (typeof message.pollType !== "number" || (message.pollType | 0) !== message.pollType)
                         return "pollType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.correctAnswer != null && $Object.hasOwnProperty.call(message, "correctAnswer")) {
                     properties._correctAnswer = 1;
@@ -82561,12 +81781,6 @@ $root.E2E = (function() {
                     message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo, _depth + 1);
                 }
                 switch (object.pollContentType) {
-                default:
-                    if (typeof object.pollContentType === "number") {
-                        message.pollContentType = object.pollContentType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.pollContentType = 0;
@@ -82579,14 +81793,11 @@ $root.E2E = (function() {
                 case 2:
                     message.pollContentType = 2;
                     break;
+                default:
+                    if (typeof object.pollContentType === "number" && (object.pollContentType | 0) === object.pollContentType)
+                        message.pollContentType = object.pollContentType;
                 }
                 switch (object.pollType) {
-                default:
-                    if (typeof object.pollType === "number") {
-                        message.pollType = object.pollType;
-                        break;
-                    }
-                    break;
                 case "POLL":
                 case 0:
                     message.pollType = 0;
@@ -82595,6 +81806,9 @@ $root.E2E = (function() {
                 case 1:
                     message.pollType = 1;
                     break;
+                default:
+                    if (typeof object.pollType === "number" && (object.pollType | 0) === object.pollType)
+                        message.pollType = object.pollType;
                 }
                 if (object.correctAnswer != null) {
                     if (!$util.isObject(object.correctAnswer))
@@ -83481,7 +82695,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PollResultSnapshotMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PollResultSnapshotMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -83588,13 +82802,8 @@ $root.E2E = (function() {
                 }
                 if (message.pollType != null && $Object.hasOwnProperty.call(message, "pollType")) {
                     properties._pollType = 1;
-                    switch (message.pollType) {
-                    default:
+                    if (typeof message.pollType !== "number" || (message.pollType | 0) !== message.pollType)
                         return "pollType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -83635,12 +82844,6 @@ $root.E2E = (function() {
                     message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo, _depth + 1);
                 }
                 switch (object.pollType) {
-                default:
-                    if (typeof object.pollType === "number") {
-                        message.pollType = object.pollType;
-                        break;
-                    }
-                    break;
                 case "POLL":
                 case 0:
                     message.pollType = 0;
@@ -83649,6 +82852,9 @@ $root.E2E = (function() {
                 case 1:
                     message.pollType = 1;
                     break;
+                default:
+                    if (typeof object.pollType === "number" && (object.pollType | 0) === object.pollType)
+                        message.pollType = object.pollType;
                 }
                 return message;
             };
@@ -84034,7 +83240,7 @@ $root.E2E = (function() {
          * @property {number} QUIZ=1 QUIZ value
          */
         Message.PollType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "POLL"] = 0;
             values[valuesById[1] = "QUIZ"] = 1;
             return values;
@@ -87104,7 +86310,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ProtocolMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ProtocolMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -87364,41 +86570,8 @@ $root.E2E = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 14:
-                    case 16:
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                    case 25:
-                    case 26:
-                    case 27:
-                    case 28:
-                    case 29:
-                    case 30:
-                    case 31:
-                    case 32:
-                    case 34:
-                    case 35:
-                        break;
-                    }
                 }
                 if (message.ephemeralExpiration != null && $Object.hasOwnProperty.call(message, "ephemeralExpiration")) {
                     properties._ephemeralExpiration = 1;
@@ -87617,12 +86790,6 @@ $root.E2E = (function() {
                     message.key = $root.Protocol.MessageKey.fromObject(object.key, _depth + 1);
                 }
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "REVOKE":
                 case 0:
                     message.type = 0;
@@ -87743,6 +86910,9 @@ $root.E2E = (function() {
                 case 35:
                     message.type = 35;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.ephemeralExpiration != null)
                     message.ephemeralExpiration = object.ephemeralExpiration >>> 0;
@@ -88023,7 +87193,7 @@ $root.E2E = (function() {
              * @property {number} AI_METADATA_OPERATION=35 AI_METADATA_OPERATION value
              */
             ProtocolMessage.Type = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "REVOKE"] = 0;
                 values[valuesById[3] = "EPHEMERAL_SETTING"] = 3;
                 values[valuesById[4] = "EPHEMERAL_SYNC_RESPONSE"] = 4;
@@ -89701,7 +88871,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.RequestWelcomeMessageMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.RequestWelcomeMessageMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -89778,23 +88948,13 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.localChatState != null && $Object.hasOwnProperty.call(message, "localChatState")) {
                     properties._localChatState = 1;
-                    switch (message.localChatState) {
-                    default:
+                    if (typeof message.localChatState !== "number" || (message.localChatState | 0) !== message.localChatState)
                         return "localChatState: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.welcomeTrigger != null && $Object.hasOwnProperty.call(message, "welcomeTrigger")) {
                     properties._welcomeTrigger = 1;
-                    switch (message.welcomeTrigger) {
-                    default:
+                    if (typeof message.welcomeTrigger !== "number" || (message.welcomeTrigger | 0) !== message.welcomeTrigger)
                         return "welcomeTrigger: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.botAgentMetadata != null && $Object.hasOwnProperty.call(message, "botAgentMetadata")) {
                     properties._botAgentMetadata = 1;
@@ -89826,12 +88986,6 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.RequestWelcomeMessageMetadata();
                 switch (object.localChatState) {
-                default:
-                    if (typeof object.localChatState === "number") {
-                        message.localChatState = object.localChatState;
-                        break;
-                    }
-                    break;
                 case "EMPTY":
                 case 0:
                     message.localChatState = 0;
@@ -89840,14 +88994,11 @@ $root.E2E = (function() {
                 case 1:
                     message.localChatState = 1;
                     break;
+                default:
+                    if (typeof object.localChatState === "number" && (object.localChatState | 0) === object.localChatState)
+                        message.localChatState = object.localChatState;
                 }
                 switch (object.welcomeTrigger) {
-                default:
-                    if (typeof object.welcomeTrigger === "number") {
-                        message.welcomeTrigger = object.welcomeTrigger;
-                        break;
-                    }
-                    break;
                 case "CHAT_OPEN":
                 case 0:
                     message.welcomeTrigger = 0;
@@ -89856,6 +89007,9 @@ $root.E2E = (function() {
                 case 1:
                     message.welcomeTrigger = 1;
                     break;
+                default:
+                    if (typeof object.welcomeTrigger === "number" && (object.welcomeTrigger | 0) === object.welcomeTrigger)
+                        message.welcomeTrigger = object.welcomeTrigger;
                 }
                 if (object.botAgentMetadata != null) {
                     if (!$util.isObject(object.botAgentMetadata))
@@ -89924,7 +89078,7 @@ $root.E2E = (function() {
              * @property {number} NON_EMPTY=1 NON_EMPTY value
              */
             RequestWelcomeMessageMetadata.LocalChatState = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "EMPTY"] = 0;
                 values[valuesById[1] = "NON_EMPTY"] = 1;
                 return values;
@@ -89938,7 +89092,7 @@ $root.E2E = (function() {
              * @property {number} COMPANION_PAIRING=1 COMPANION_PAIRING value
              */
             RequestWelcomeMessageMetadata.WelcomeTrigger = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "CHAT_OPEN"] = 0;
                 values[valuesById[1] = "COMPANION_PAIRING"] = 1;
                 return values;
@@ -90373,7 +89527,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ScheduledCallCreationMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ScheduledCallCreationMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -90455,14 +89609,8 @@ $root.E2E = (function() {
                 }
                 if (message.callType != null && $Object.hasOwnProperty.call(message, "callType")) {
                     properties._callType = 1;
-                    switch (message.callType) {
-                    default:
+                    if (typeof message.callType !== "number" || (message.callType | 0) !== message.callType)
                         return "callType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.title != null && $Object.hasOwnProperty.call(message, "title")) {
                     properties._title = 1;
@@ -90500,12 +89648,6 @@ $root.E2E = (function() {
                     else if (typeof object.scheduledTimestampMs === "object")
                         message.scheduledTimestampMs = new $util.LongBits(object.scheduledTimestampMs.low >>> 0, object.scheduledTimestampMs.high >>> 0).toNumber();
                 switch (object.callType) {
-                default:
-                    if (typeof object.callType === "number") {
-                        message.callType = object.callType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.callType = 0;
@@ -90518,6 +89660,9 @@ $root.E2E = (function() {
                 case 2:
                     message.callType = 2;
                     break;
+                default:
+                    if (typeof object.callType === "number" && (object.callType | 0) === object.callType)
+                        message.callType = object.callType;
                 }
                 if (object.title != null)
                     message.title = $String(object.title);
@@ -90589,7 +89734,7 @@ $root.E2E = (function() {
              * @property {number} VIDEO=2 VIDEO value
              */
             ScheduledCallCreationMessage.CallType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "VOICE"] = 1;
                 values[valuesById[2] = "VIDEO"] = 2;
@@ -90741,7 +89886,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ScheduledCallEditMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.ScheduledCallEditMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -90819,13 +89964,8 @@ $root.E2E = (function() {
                 }
                 if (message.editType != null && $Object.hasOwnProperty.call(message, "editType")) {
                     properties._editType = 1;
-                    switch (message.editType) {
-                    default:
+                    if (typeof message.editType !== "number" || (message.editType | 0) !== message.editType)
                         return "editType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -90854,12 +89994,6 @@ $root.E2E = (function() {
                     message.key = $root.Protocol.MessageKey.fromObject(object.key, _depth + 1);
                 }
                 switch (object.editType) {
-                default:
-                    if (typeof object.editType === "number") {
-                        message.editType = object.editType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.editType = 0;
@@ -90868,6 +90002,9 @@ $root.E2E = (function() {
                 case 1:
                     message.editType = 1;
                     break;
+                default:
+                    if (typeof object.editType === "number" && (object.editType | 0) === object.editType)
+                        message.editType = object.editType;
                 }
                 return message;
             };
@@ -90929,7 +90066,7 @@ $root.E2E = (function() {
              * @property {number} CANCEL=1 CANCEL value
              */
             ScheduledCallEditMessage.EditType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "CANCEL"] = 1;
                 return values;
@@ -91131,7 +90268,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SecretEncryptedMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SecretEncryptedMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -91240,17 +90377,8 @@ $root.E2E = (function() {
                 }
                 if (message.secretEncType != null && $Object.hasOwnProperty.call(message, "secretEncType")) {
                     properties._secretEncType = 1;
-                    switch (message.secretEncType) {
-                    default:
+                    if (typeof message.secretEncType !== "number" || (message.secretEncType | 0) !== message.secretEncType)
                         return "secretEncType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.remoteKeyId != null && $Object.hasOwnProperty.call(message, "remoteKeyId")) {
                     properties._remoteKeyId = 1;
@@ -91294,12 +90422,6 @@ $root.E2E = (function() {
                     else if (object.encIv.length >= 0)
                         message.encIv = object.encIv;
                 switch (object.secretEncType) {
-                default:
-                    if (typeof object.secretEncType === "number") {
-                        message.secretEncType = object.secretEncType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.secretEncType = 0;
@@ -91324,6 +90446,9 @@ $root.E2E = (function() {
                 case 5:
                     message.secretEncType = 5;
                     break;
+                default:
+                    if (typeof object.secretEncType === "number" && (object.secretEncType | 0) === object.secretEncType)
+                        message.secretEncType = object.secretEncType;
                 }
                 if (object.remoteKeyId != null)
                     message.remoteKeyId = $String(object.remoteKeyId);
@@ -91397,7 +90522,7 @@ $root.E2E = (function() {
              * @property {number} POLL_ADD_OPTION=5 POLL_ADD_OPTION value
              */
             SecretEncryptedMessage.SecretEncType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "EVENT_EDIT"] = 1;
                 values[valuesById[2] = "MESSAGE_EDIT"] = 2;
@@ -92774,7 +91899,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SplitPaymentParticipant();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SplitPaymentParticipant(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -92864,13 +91989,8 @@ $root.E2E = (function() {
                 }
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -92901,12 +92021,6 @@ $root.E2E = (function() {
                     message.amount = $root.E2E.Money.fromObject(object.amount, _depth + 1);
                 }
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "PENDING":
                 case 0:
                     message.status = 0;
@@ -92915,6 +92029,9 @@ $root.E2E = (function() {
                 case 1:
                     message.status = 1;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 return message;
             };
@@ -92978,7 +92095,7 @@ $root.E2E = (function() {
              * @property {number} PAID=1 PAID value
              */
             SplitPaymentParticipant.SplitPaymentStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "PENDING"] = 0;
                 values[valuesById[1] = "PAID"] = 1;
                 return values;
@@ -93146,7 +92263,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StatusNotificationMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StatusNotificationMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -93239,15 +92356,8 @@ $root.E2E = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -93281,12 +92391,6 @@ $root.E2E = (function() {
                     message.originalMessageKey = $root.Protocol.MessageKey.fromObject(object.originalMessageKey, _depth + 1);
                 }
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.type = 0;
@@ -93303,6 +92407,9 @@ $root.E2E = (function() {
                 case 3:
                     message.type = 3;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 return message;
             };
@@ -93368,7 +92475,7 @@ $root.E2E = (function() {
              * @property {number} STATUS_QUESTION_ANSWER_RESHARE=3 STATUS_QUESTION_ANSWER_RESHARE value
              */
             StatusNotificationMessage.StatusNotificationType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "STATUS_ADD_YOURS"] = 1;
                 values[valuesById[2] = "STATUS_RESHARE"] = 2;
@@ -93861,7 +92968,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StatusQuotedMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StatusQuotedMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -93945,12 +93052,8 @@ $root.E2E = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.text != null && $Object.hasOwnProperty.call(message, "text")) {
                     properties._text = 1;
@@ -93992,16 +93095,13 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.StatusQuotedMessage();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "QUESTION_ANSWER":
                 case 1:
                     message.type = 1;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.text != null)
                     message.text = $String(object.text);
@@ -94078,7 +93178,7 @@ $root.E2E = (function() {
              * @property {number} QUESTION_ANSWER=1 QUESTION_ANSWER value
              */
             StatusQuotedMessage.StatusQuotedMessageType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "QUESTION_ANSWER"] = 1;
                 return values;
             })();
@@ -94245,7 +93345,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StatusStickerInteractionMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StatusStickerInteractionMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -94335,13 +93435,8 @@ $root.E2E = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -94372,12 +93467,6 @@ $root.E2E = (function() {
                 if (object.stickerKey != null)
                     message.stickerKey = $String(object.stickerKey);
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.type = 0;
@@ -94386,6 +93475,9 @@ $root.E2E = (function() {
                 case 1:
                     message.type = 1;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 return message;
             };
@@ -94449,7 +93541,7 @@ $root.E2E = (function() {
              * @property {number} REACTION=1 REACTION value
              */
             StatusStickerInteractionMessage.StatusStickerType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "REACTION"] = 1;
                 return values;
@@ -96001,7 +95093,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StickerPackMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.StickerPackMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -96324,14 +95416,8 @@ $root.E2E = (function() {
                 }
                 if (message.stickerPackOrigin != null && $Object.hasOwnProperty.call(message, "stickerPackOrigin")) {
                     properties._stickerPackOrigin = 1;
-                    switch (message.stickerPackOrigin) {
-                    default:
+                    if (typeof message.stickerPackOrigin !== "number" || (message.stickerPackOrigin | 0) !== message.stickerPackOrigin)
                         return "stickerPackOrigin: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -96444,12 +95530,6 @@ $root.E2E = (function() {
                     else if (typeof object.stickerPackSize === "object")
                         message.stickerPackSize = new $util.LongBits(object.stickerPackSize.low >>> 0, object.stickerPackSize.high >>> 0).toNumber(true);
                 switch (object.stickerPackOrigin) {
-                default:
-                    if (typeof object.stickerPackOrigin === "number") {
-                        message.stickerPackOrigin = object.stickerPackOrigin;
-                        break;
-                    }
-                    break;
                 case "FIRST_PARTY":
                 case 0:
                     message.stickerPackOrigin = 0;
@@ -96462,6 +95542,9 @@ $root.E2E = (function() {
                 case 2:
                     message.stickerPackOrigin = 2;
                     break;
+                default:
+                    if (typeof object.stickerPackOrigin === "number" && (object.stickerPackOrigin | 0) === object.stickerPackOrigin)
+                        message.stickerPackOrigin = object.stickerPackOrigin;
                 }
                 return message;
             };
@@ -97058,7 +96141,7 @@ $root.E2E = (function() {
              * @property {number} USER_CREATED=2 USER_CREATED value
              */
             StickerPackMessage.StickerPackOrigin = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "FIRST_PARTY"] = 0;
                 values[valuesById[1] = "THIRD_PARTY"] = 1;
                 values[valuesById[2] = "USER_CREATED"] = 2;
@@ -100776,7 +99859,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.VideoMessage();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.VideoMessage(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -101137,15 +100220,8 @@ $root.E2E = (function() {
                 }
                 if (message.gifAttribution != null && $Object.hasOwnProperty.call(message, "gifAttribution")) {
                     properties._gifAttribution = 1;
-                    switch (message.gifAttribution) {
-                    default:
+                    if (typeof message.gifAttribution !== "number" || (message.gifAttribution | 0) !== message.gifAttribution)
                         return "gifAttribution: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.viewOnce != null && $Object.hasOwnProperty.call(message, "viewOnce")) {
                     properties._viewOnce = 1;
@@ -101212,13 +100288,8 @@ $root.E2E = (function() {
                 }
                 if (message.videoSourceType != null && $Object.hasOwnProperty.call(message, "videoSourceType")) {
                     properties._videoSourceType = 1;
-                    switch (message.videoSourceType) {
-                    default:
+                    if (typeof message.videoSourceType !== "number" || (message.videoSourceType | 0) !== message.videoSourceType)
                         return "videoSourceType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -101316,12 +100387,6 @@ $root.E2E = (function() {
                     else if (object.streamingSidecar.length >= 0)
                         message.streamingSidecar = object.streamingSidecar;
                 switch (object.gifAttribution) {
-                default:
-                    if (typeof object.gifAttribution === "number") {
-                        message.gifAttribution = object.gifAttribution;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.gifAttribution = 0;
@@ -101338,6 +100403,9 @@ $root.E2E = (function() {
                 case 3:
                     message.gifAttribution = 3;
                     break;
+                default:
+                    if (typeof object.gifAttribution === "number" && (object.gifAttribution | 0) === object.gifAttribution)
+                        message.gifAttribution = object.gifAttribution;
                 }
                 if (object.viewOnce != null)
                     message.viewOnce = $Boolean(object.viewOnce);
@@ -101391,12 +100459,6 @@ $root.E2E = (function() {
                 if (object.metadataUrl != null)
                     message.metadataUrl = $String(object.metadataUrl);
                 switch (object.videoSourceType) {
-                default:
-                    if (typeof object.videoSourceType === "number") {
-                        message.videoSourceType = object.videoSourceType;
-                        break;
-                    }
-                    break;
                 case "USER_VIDEO":
                 case 0:
                     message.videoSourceType = 0;
@@ -101405,6 +100467,9 @@ $root.E2E = (function() {
                 case 1:
                     message.videoSourceType = 1;
                     break;
+                default:
+                    if (typeof object.videoSourceType === "number" && (object.videoSourceType | 0) === object.videoSourceType)
+                        message.videoSourceType = object.videoSourceType;
                 }
                 return message;
             };
@@ -101553,7 +100618,7 @@ $root.E2E = (function() {
              * @property {number} KLIPY=3 KLIPY value
              */
             VideoMessage.Attribution = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "GIPHY"] = 1;
                 values[valuesById[2] = "TENOR"] = 2;
@@ -101569,7 +100634,7 @@ $root.E2E = (function() {
              * @property {number} AI_GENERATED=1 AI_GENERATED value
              */
             VideoMessage.VideoSourceType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "USER_VIDEO"] = 0;
                 values[valuesById[1] = "AI_GENERATED"] = 1;
                 return values;
@@ -101590,7 +100655,7 @@ $root.E2E = (function() {
      * @property {number} UNDO_KEEP_FOR_ALL=2 UNDO_KEEP_FOR_ALL value
      */
     E2E.KeepType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNKNOWN"] = 0;
         values[valuesById[1] = "KEEP_FOR_ALL"] = 1;
         values[valuesById[2] = "UNDO_KEEP_FOR_ALL"] = 2;
@@ -101605,7 +100670,7 @@ $root.E2E = (function() {
      * @property {number} SYSTEM=1 SYSTEM value
      */
     E2E.WebLinkRenderConfig = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "WEBVIEW"] = 0;
         values[valuesById[1] = "SYSTEM"] = 1;
         return values;
@@ -101620,7 +100685,7 @@ $root.E2E = (function() {
      * @property {number} MEDIA_KEY_DOMAIN_NON_E2EE=2 MEDIA_KEY_DOMAIN_NON_E2EE value
      */
     E2E.MediaKeyDomain = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "MEDIA_KEY_DOMAIN_UNKNOWN"] = 0;
         values[valuesById[1] = "MEDIA_KEY_DOMAIN_E2EE"] = 1;
         values[valuesById[2] = "MEDIA_KEY_DOMAIN_NON_E2EE"] = 2;
@@ -101815,7 +100880,7 @@ $root.Protocol = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -101904,15 +100969,8 @@ $root.Protocol = (function() {
             }
             if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger")) {
                 properties._trigger = 1;
-                switch (message.trigger) {
-                default:
+                if (typeof message.trigger !== "number" || (message.trigger | 0) !== message.trigger)
                     return "trigger: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp")) {
                 properties._limitSharingSettingTimestamp = 1;
@@ -101948,12 +101006,6 @@ $root.Protocol = (function() {
             if (object.sharingLimited != null)
                 message.sharingLimited = $Boolean(object.sharingLimited);
             switch (object.trigger) {
-            default:
-                if (typeof object.trigger === "number") {
-                    message.trigger = object.trigger;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.trigger = 0;
@@ -101970,6 +101022,9 @@ $root.Protocol = (function() {
             case 3:
                 message.trigger = 3;
                 break;
+            default:
+                if (typeof object.trigger === "number" && (object.trigger | 0) === object.trigger)
+                    message.trigger = object.trigger;
             }
             if (object.limitSharingSettingTimestamp != null)
                 if ($util.Long)
@@ -102053,7 +101108,7 @@ $root.Protocol = (function() {
          * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
          */
         LimitSharing.TriggerType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;
@@ -102732,7 +101787,7 @@ $root.AICommonDeprecated = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseSubMessage();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseSubMessage(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -102858,21 +101913,8 @@ $root.AICommonDeprecated = (function() {
             var properties = {};
             if (message.messageType != null && $Object.hasOwnProperty.call(message, "messageType")) {
                 properties._messageType = 1;
-                switch (message.messageType) {
-                default:
+                if (typeof message.messageType !== "number" || (message.messageType | 0) !== message.messageType)
                     return "messageType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    break;
-                }
             }
             if (message.gridImageMetadata != null && $Object.hasOwnProperty.call(message, "gridImageMetadata")) {
                 properties._gridImageMetadata = 1;
@@ -102965,12 +102007,6 @@ $root.AICommonDeprecated = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseSubMessage();
             switch (object.messageType) {
-            default:
-                if (typeof object.messageType === "number") {
-                    message.messageType = object.messageType;
-                    break;
-                }
-                break;
             case "AI_RICH_RESPONSE_UNKNOWN":
             case 0:
                 message.messageType = 0;
@@ -103011,6 +102047,9 @@ $root.AICommonDeprecated = (function() {
             case 9:
                 message.messageType = 9;
                 break;
+            default:
+                if (typeof object.messageType === "number" && (object.messageType | 0) === object.messageType)
+                    message.messageType = object.messageType;
             }
             if (object.gridImageMetadata != null) {
                 if (!$util.isObject(object.gridImageMetadata))
@@ -103267,7 +102306,7 @@ $root.AICommonDeprecated = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -103347,13 +102386,8 @@ $root.AICommonDeprecated = (function() {
             }
             if (message.contentType != null && $Object.hasOwnProperty.call(message, "contentType")) {
                 properties._contentType = 1;
-                switch (message.contentType) {
-                default:
+                if (typeof message.contentType !== "number" || (message.contentType | 0) !== message.contentType)
                     return "contentType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -103387,12 +102421,6 @@ $root.AICommonDeprecated = (function() {
                 }
             }
             switch (object.contentType) {
-            default:
-                if (typeof object.contentType === "number") {
-                    message.contentType = object.contentType;
-                    break;
-                }
-                break;
             case "DEFAULT":
             case 0:
                 message.contentType = 0;
@@ -103401,6 +102429,9 @@ $root.AICommonDeprecated = (function() {
             case 1:
                 message.contentType = 1;
                 break;
+            default:
+                if (typeof object.contentType === "number" && (object.contentType | 0) === object.contentType)
+                    message.contentType = object.contentType;
             }
             return message;
         };
@@ -104120,7 +103151,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number} CAROUSEL=1 CAROUSEL value
          */
         AIRichResponseContentItemsMetadata.ContentType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "DEFAULT"] = 0;
             values[valuesById[1] = "CAROUSEL"] = 1;
             return values;
@@ -105995,7 +105026,7 @@ $root.AICommonDeprecated = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseDynamicMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseDynamicMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -106079,14 +105110,8 @@ $root.AICommonDeprecated = (function() {
             var properties = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
                 properties._version = 1;
@@ -106125,12 +105150,6 @@ $root.AICommonDeprecated = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseDynamicMetadata();
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_UNKNOWN":
             case 0:
                 message.type = 0;
@@ -106143,6 +105162,9 @@ $root.AICommonDeprecated = (function() {
             case 2:
                 message.type = 2;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             if (object.version != null)
                 if ($util.Long)
@@ -106227,7 +105249,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number} AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_GIF=2 AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_GIF value
          */
         AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_UNKNOWN"] = 0;
             values[valuesById[1] = "AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_IMAGE"] = 1;
             values[valuesById[2] = "AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_GIF"] = 2;
@@ -107313,7 +106335,7 @@ $root.AICommonDeprecated = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -107383,17 +106405,8 @@ $root.AICommonDeprecated = (function() {
                 var properties = {};
                 if (message.highlightType != null && $Object.hasOwnProperty.call(message, "highlightType")) {
                     properties._highlightType = 1;
-                    switch (message.highlightType) {
-                    default:
+                    if (typeof message.highlightType !== "number" || (message.highlightType | 0) !== message.highlightType)
                         return "highlightType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.codeContent != null && $Object.hasOwnProperty.call(message, "codeContent")) {
                     properties._codeContent = 1;
@@ -107422,12 +106435,6 @@ $root.AICommonDeprecated = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock();
                 switch (object.highlightType) {
-                default:
-                    if (typeof object.highlightType === "number") {
-                        message.highlightType = object.highlightType;
-                        break;
-                    }
-                    break;
                 case "AI_RICH_RESPONSE_CODE_HIGHLIGHT_DEFAULT":
                 case 0:
                     message.highlightType = 0;
@@ -107452,6 +106459,9 @@ $root.AICommonDeprecated = (function() {
                 case 5:
                     message.highlightType = 5;
                     break;
+                default:
+                    if (typeof object.highlightType === "number" && (object.highlightType | 0) === object.highlightType)
+                        message.highlightType = object.highlightType;
                 }
                 if (object.codeContent != null)
                     message.codeContent = $String(object.codeContent);
@@ -107522,7 +106532,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number} AI_RICH_RESPONSE_CODE_HIGHLIGHT_COMMENT=5 AI_RICH_RESPONSE_CODE_HIGHLIGHT_COMMENT value
          */
         AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "AI_RICH_RESPONSE_CODE_HIGHLIGHT_DEFAULT"] = 0;
             values[valuesById[1] = "AI_RICH_RESPONSE_CODE_HIGHLIGHT_KEYWORD"] = 1;
             values[valuesById[2] = "AI_RICH_RESPONSE_CODE_HIGHLIGHT_METHOD"] = 2;
@@ -107711,7 +106721,7 @@ $root.AICommonDeprecated = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseInlineImageMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseInlineImageMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -107808,14 +106818,8 @@ $root.AICommonDeprecated = (function() {
             }
             if (message.alignment != null && $Object.hasOwnProperty.call(message, "alignment")) {
                 properties._alignment = 1;
-                switch (message.alignment) {
-                default:
+                if (typeof message.alignment !== "number" || (message.alignment | 0) !== message.alignment)
                     return "alignment: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.tapLinkUrl != null && $Object.hasOwnProperty.call(message, "tapLinkUrl")) {
                 properties._tapLinkUrl = 1;
@@ -107851,12 +106855,6 @@ $root.AICommonDeprecated = (function() {
             if (object.imageText != null)
                 message.imageText = $String(object.imageText);
             switch (object.alignment) {
-            default:
-                if (typeof object.alignment === "number") {
-                    message.alignment = object.alignment;
-                    break;
-                }
-                break;
             case "AI_RICH_RESPONSE_IMAGE_LAYOUT_LEADING_ALIGNED":
             case 0:
                 message.alignment = 0;
@@ -107869,6 +106867,9 @@ $root.AICommonDeprecated = (function() {
             case 2:
                 message.alignment = 2;
                 break;
+            default:
+                if (typeof object.alignment === "number" && (object.alignment | 0) === object.alignment)
+                    message.alignment = object.alignment;
             }
             if (object.tapLinkUrl != null)
                 message.tapLinkUrl = $String(object.tapLinkUrl);
@@ -107937,7 +106938,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number} AI_RICH_RESPONSE_IMAGE_LAYOUT_CENTER_ALIGNED=2 AI_RICH_RESPONSE_IMAGE_LAYOUT_CENTER_ALIGNED value
          */
         AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "AI_RICH_RESPONSE_IMAGE_LAYOUT_LEADING_ALIGNED"] = 0;
             values[valuesById[1] = "AI_RICH_RESPONSE_IMAGE_LAYOUT_TRAILING_ALIGNED"] = 1;
             values[valuesById[2] = "AI_RICH_RESPONSE_IMAGE_LAYOUT_CENTER_ALIGNED"] = 2;
@@ -108616,7 +107617,7 @@ $root.AICommonDeprecated = (function() {
      * @property {number} AI_RICH_RESPONSE_CONTENT_ITEMS=9 AI_RICH_RESPONSE_CONTENT_ITEMS value
      */
     AICommonDeprecated.AIRichResponseSubMessageType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "AI_RICH_RESPONSE_UNKNOWN"] = 0;
         values[valuesById[1] = "AI_RICH_RESPONSE_GRID_IMAGE"] = 1;
         values[valuesById[2] = "AI_RICH_RESPONSE_TEXT"] = 2;
@@ -108638,7 +107639,7 @@ $root.AICommonDeprecated = (function() {
      * @property {number} AI_RICH_RESPONSE_TYPE_STANDARD=1 AI_RICH_RESPONSE_TYPE_STANDARD value
      */
     AICommonDeprecated.AIRichResponseMessageType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "AI_RICH_RESPONSE_TYPE_UNKNOWN"] = 0;
         values[valuesById[1] = "AI_RICH_RESPONSE_TYPE_STANDARD"] = 1;
         return values;
@@ -108888,7 +107889,7 @@ $root.StatusAttributions = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -109000,23 +108001,8 @@ $root.StatusAttributions = (function() {
             var properties = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                    break;
-                }
             }
             if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
                 properties._actionUrl = 1;
@@ -109103,12 +108089,6 @@ $root.StatusAttributions = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.StatusAttributions.StatusAttribution();
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.type = 0;
@@ -109157,6 +108137,9 @@ $root.StatusAttributions = (function() {
             case 11:
                 message.type = 11;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             if (object.actionUrl != null)
                 message.actionUrl = $String(object.actionUrl);
@@ -109397,7 +108380,7 @@ $root.StatusAttributions = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -109460,13 +108443,8 @@ $root.StatusAttributions = (function() {
                 var properties = {};
                 if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
-                    switch (message.source) {
-                    default:
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
                         return "source: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -109490,12 +108468,6 @@ $root.StatusAttributions = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
                 switch (object.source) {
-                default:
-                    if (typeof object.source === "number") {
-                        message.source = object.source;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.source = 0;
@@ -109504,6 +108476,9 @@ $root.StatusAttributions = (function() {
                 case 1:
                     message.source = 1;
                     break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
                 }
                 return message;
             };
@@ -109563,7 +108538,7 @@ $root.StatusAttributions = (function() {
              * @property {number} STATUS_MIMICRY=1 STATUS_MIMICRY value
              */
             AiCreatedAttribution.Source = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "STATUS_MIMICRY"] = 1;
                 return values;
@@ -109748,7 +108723,7 @@ $root.StatusAttributions = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -109837,24 +108812,8 @@ $root.StatusAttributions = (function() {
                 }
                 if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
-                    switch (message.source) {
-                    default:
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
                         return "source: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                        break;
-                    }
                 }
                 if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
                     properties._duration = 1;
@@ -109890,12 +108849,6 @@ $root.StatusAttributions = (function() {
                 if (object.actionUrl != null)
                     message.actionUrl = $String(object.actionUrl);
                 switch (object.source) {
-                default:
-                    if (typeof object.source === "number") {
-                        message.source = object.source;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.source = 0;
@@ -109948,6 +108901,9 @@ $root.StatusAttributions = (function() {
                 case 12:
                     message.source = 12;
                     break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
                 }
                 if (object.duration != null)
                     message.duration = object.duration | 0;
@@ -110028,7 +108984,7 @@ $root.StatusAttributions = (function() {
              * @property {number} SHAZAM=12 SHAZAM value
              */
             ExternalShare.Source = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "INSTAGRAM"] = 1;
                 values[valuesById[2] = "FACEBOOK"] = 2;
@@ -110872,7 +109828,7 @@ $root.StatusAttributions = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -110935,15 +109891,8 @@ $root.StatusAttributions = (function() {
                 var properties = {};
                 if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
-                    switch (message.source) {
-                    default:
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
                         return "source: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -110967,12 +109916,6 @@ $root.StatusAttributions = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.RLAttribution();
                 switch (object.source) {
-                default:
-                    if (typeof object.source === "number") {
-                        message.source = object.source;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.source = 0;
@@ -110989,6 +109932,9 @@ $root.StatusAttributions = (function() {
                 case 3:
                     message.source = 3;
                     break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
                 }
                 return message;
             };
@@ -111050,7 +109996,7 @@ $root.StatusAttributions = (function() {
              * @property {number} HYPERNOVA_GLASSES=3 HYPERNOVA_GLASSES value
              */
             RLAttribution.Source = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "RAY_BAN_META_GLASSES"] = 1;
                 values[valuesById[2] = "OAKLEY_META_GLASSES"] = 2;
@@ -111203,7 +110149,7 @@ $root.StatusAttributions = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -111273,16 +110219,8 @@ $root.StatusAttributions = (function() {
                 var properties = {};
                 if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
-                    switch (message.source) {
-                    default:
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
                         return "source: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
                 }
                 if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata")) {
                     properties._metadata = 1;
@@ -111314,12 +110252,6 @@ $root.StatusAttributions = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.StatusReshare();
                 switch (object.source) {
-                default:
-                    if (typeof object.source === "number") {
-                        message.source = object.source;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.source = 0;
@@ -111340,6 +110272,9 @@ $root.StatusAttributions = (function() {
                 case 4:
                     message.source = 4;
                     break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
                 }
                 if (object.metadata != null) {
                     if (!$util.isObject(object.metadata))
@@ -111775,7 +110710,7 @@ $root.StatusAttributions = (function() {
              * @property {number} FORWARD=4 FORWARD value
              */
             StatusReshare.Source = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "INTERNAL_RESHARE"] = 1;
                 values[valuesById[2] = "MENTION_RESHARE"] = 2;
@@ -111805,7 +110740,7 @@ $root.StatusAttributions = (function() {
          * @property {number} PAID_PARTNERSHIP=11 PAID_PARTNERSHIP value
          */
         StatusAttribution.Type = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "RESHARE"] = 1;
             values[valuesById[2] = "EXTERNAL_SHARE"] = 2;
@@ -112531,7 +111466,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotInfrastructureDiagnostics();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotInfrastructureDiagnostics(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -112609,13 +111544,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.botBackend != null && $Object.hasOwnProperty.call(message, "botBackend")) {
                 properties._botBackend = 1;
-                switch (message.botBackend) {
-                default:
+                if (typeof message.botBackend !== "number" || (message.botBackend | 0) !== message.botBackend)
                     return "botBackend: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.toolsUsed != null && $Object.hasOwnProperty.call(message, "toolsUsed")) {
                 if (!$Array.isArray(message.toolsUsed))
@@ -112651,12 +111581,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotInfrastructureDiagnostics();
             switch (object.botBackend) {
-            default:
-                if (typeof object.botBackend === "number") {
-                    message.botBackend = object.botBackend;
-                    break;
-                }
-                break;
             case "AAPI":
             case 0:
                 message.botBackend = 0;
@@ -112665,6 +111589,9 @@ $root.AICommon = (function() {
             case 1:
                 message.botBackend = 1;
                 break;
+            default:
+                if (typeof object.botBackend === "number" && (object.botBackend | 0) === object.botBackend)
+                    message.botBackend = object.botBackend;
             }
             if (object.toolsUsed) {
                 if (!$Array.isArray(object.toolsUsed))
@@ -112742,7 +111669,7 @@ $root.AICommon = (function() {
          * @property {number} CLIPPY=1 CLIPPY value
          */
         BotInfrastructureDiagnostics.BotBackend = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "AAPI"] = 0;
             values[valuesById[1] = "CLIPPY"] = 1;
             return values;
@@ -113365,7 +112292,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIHomeState.AIHomeOption();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIHomeState.AIHomeOption(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -113477,17 +112404,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.title != null && $Object.hasOwnProperty.call(message, "title")) {
                     properties._title = 1;
@@ -113546,12 +112464,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.AIHomeState.AIHomeOption();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "PROMPT":
                 case 0:
                     message.type = 0;
@@ -113576,6 +112488,9 @@ $root.AICommon = (function() {
                 case 5:
                     message.type = 5;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.title != null)
                     message.title = $String(object.title);
@@ -113667,7 +112582,7 @@ $root.AICommon = (function() {
              * @property {number} OPEN_GREETING_CARD=5 OPEN_GREETING_CARD value
              */
             AIHomeOption.AIHomeActionType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "PROMPT"] = 0;
                 values[valuesById[1] = "CREATE_IMAGE"] = 1;
                 values[valuesById[2] = "ANIMATE_PHOTO"] = 2;
@@ -113808,7 +112723,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotDocumentMessageMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotDocumentMessageMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -113871,13 +112786,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.pluginType != null && $Object.hasOwnProperty.call(message, "pluginType")) {
                 properties._pluginType = 1;
-                switch (message.pluginType) {
-                default:
+                if (typeof message.pluginType !== "number" || (message.pluginType | 0) !== message.pluginType)
                     return "pluginType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -113901,12 +112811,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotDocumentMessageMetadata();
             switch (object.pluginType) {
-            default:
-                if (typeof object.pluginType === "number") {
-                    message.pluginType = object.pluginType;
-                    break;
-                }
-                break;
             case "TEXT_EXTRACTION":
             case 0:
                 message.pluginType = 0;
@@ -113915,6 +112819,9 @@ $root.AICommon = (function() {
             case 1:
                 message.pluginType = 1;
                 break;
+            default:
+                if (typeof object.pluginType === "number" && (object.pluginType | 0) === object.pluginType)
+                    message.pluginType = object.pluginType;
             }
             return message;
         };
@@ -113974,7 +112881,7 @@ $root.AICommon = (function() {
          * @property {number} OCR_AND_IMAGES=1 OCR_AND_IMAGES value
          */
         BotDocumentMessageMetadata.DocumentPluginType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "TEXT_EXTRACTION"] = 0;
             values[valuesById[1] = "OCR_AND_IMAGES"] = 1;
             return values;
@@ -114142,7 +113049,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.SessionTransparencyMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.SessionTransparencyMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -114229,13 +113136,8 @@ $root.AICommon = (function() {
             }
             if (message.sessionTransparencyType != null && $Object.hasOwnProperty.call(message, "sessionTransparencyType")) {
                 properties._sessionTransparencyType = 1;
-                switch (message.sessionTransparencyType) {
-                default:
+                if (typeof message.sessionTransparencyType !== "number" || (message.sessionTransparencyType | 0) !== message.sessionTransparencyType)
                     return "sessionTransparencyType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -114263,12 +113165,6 @@ $root.AICommon = (function() {
             if (object.hcaId != null)
                 message.hcaId = $String(object.hcaId);
             switch (object.sessionTransparencyType) {
-            default:
-                if (typeof object.sessionTransparencyType === "number") {
-                    message.sessionTransparencyType = object.sessionTransparencyType;
-                    break;
-                }
-                break;
             case "UNKNOWN_TYPE":
             case 0:
                 message.sessionTransparencyType = 0;
@@ -114277,6 +113173,9 @@ $root.AICommon = (function() {
             case 1:
                 message.sessionTransparencyType = 1;
                 break;
+            default:
+                if (typeof object.sessionTransparencyType === "number" && (object.sessionTransparencyType | 0) === object.sessionTransparencyType)
+                    message.sessionTransparencyType = object.sessionTransparencyType;
             }
             return message;
         };
@@ -115065,7 +113964,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageSharingInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageSharingInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -115135,59 +114034,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.botEntryPointOrigin != null && $Object.hasOwnProperty.call(message, "botEntryPointOrigin")) {
                 properties._botEntryPointOrigin = 1;
-                switch (message.botEntryPointOrigin) {
-                default:
+                if (typeof message.botEntryPointOrigin !== "number" || (message.botEntryPointOrigin | 0) !== message.botEntryPointOrigin)
                     return "botEntryPointOrigin: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                case 25:
-                case 26:
-                case 27:
-                case 28:
-                case 29:
-                case 30:
-                case 31:
-                case 32:
-                case 33:
-                case 34:
-                case 35:
-                case 36:
-                case 37:
-                case 38:
-                case 39:
-                case 40:
-                case 41:
-                case 45:
-                case 46:
-                case 47:
-                case 54:
-                case 55:
-                case 56:
-                    break;
-                }
             }
             if (message.forwardScore != null && $Object.hasOwnProperty.call(message, "forwardScore")) {
                 properties._forwardScore = 1;
@@ -115216,12 +114064,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageSharingInfo();
             switch (object.botEntryPointOrigin) {
-            default:
-                if (typeof object.botEntryPointOrigin === "number") {
-                    message.botEntryPointOrigin = object.botEntryPointOrigin;
-                    break;
-                }
-                break;
             case "UNDEFINED_ENTRY_POINT":
             case 0:
                 message.botEntryPointOrigin = 0;
@@ -115414,6 +114256,9 @@ $root.AICommon = (function() {
             case 56:
                 message.botEntryPointOrigin = 56;
                 break;
+            default:
+                if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
+                    message.botEntryPointOrigin = object.botEntryPointOrigin;
             }
             if (object.forwardScore != null)
                 message.forwardScore = object.forwardScore >>> 0;
@@ -116032,7 +114877,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -116145,26 +114990,8 @@ $root.AICommon = (function() {
             }
             if (message.kind != null && $Object.hasOwnProperty.call(message, "kind")) {
                 properties._kind = 1;
-                switch (message.kind) {
-                default:
+                if (typeof message.kind !== "number" || (message.kind | 0) !== message.kind)
                     return "kind: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                    break;
-                }
             }
             if (message.text != null && $Object.hasOwnProperty.call(message, "text")) {
                 properties._text = 1;
@@ -116183,13 +115010,8 @@ $root.AICommon = (function() {
             }
             if (message.kindReport != null && $Object.hasOwnProperty.call(message, "kindReport")) {
                 properties._kindReport = 1;
-                switch (message.kindReport) {
-                default:
+                if (typeof message.kindReport !== "number" || (message.kindReport | 0) !== message.kindReport)
                     return "kindReport: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.sideBySideSurveyMetadata != null && $Object.hasOwnProperty.call(message, "sideBySideSurveyMetadata")) {
                 properties._sideBySideSurveyMetadata = 1;
@@ -116226,12 +115048,6 @@ $root.AICommon = (function() {
                 message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey, _depth + 1);
             }
             switch (object.kind) {
-            default:
-                if (typeof object.kind === "number") {
-                    message.kind = object.kind;
-                    break;
-                }
-                break;
             case "BOT_FEEDBACK_POSITIVE":
             case 0:
                 message.kind = 0;
@@ -116292,6 +115108,9 @@ $root.AICommon = (function() {
             case 14:
                 message.kind = 14;
                 break;
+            default:
+                if (typeof object.kind === "number" && (object.kind | 0) === object.kind)
+                    message.kind = object.kind;
             }
             if (object.text != null)
                 message.text = $String(object.text);
@@ -116314,12 +115133,6 @@ $root.AICommon = (function() {
                 else if (typeof object.kindPositive === "object")
                     message.kindPositive = new $util.LongBits(object.kindPositive.low >>> 0, object.kindPositive.high >>> 0).toNumber(true);
             switch (object.kindReport) {
-            default:
-                if (typeof object.kindReport === "number") {
-                    message.kindReport = object.kindReport;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.kindReport = 0;
@@ -116328,6 +115141,9 @@ $root.AICommon = (function() {
             case 1:
                 message.kindReport = 1;
                 break;
+            default:
+                if (typeof object.kindReport === "number" && (object.kindReport | 0) === object.kindReport)
+                    message.kindReport = object.kindReport;
             }
             if (object.sideBySideSurveyMetadata != null) {
                 if (!$util.isObject(object.sideBySideSurveyMetadata))
@@ -116427,7 +115243,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_FEEDBACK_NEGATIVE=14 BOT_FEEDBACK_NEGATIVE value
          */
         BotFeedbackMessage.BotFeedbackKind = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "BOT_FEEDBACK_POSITIVE"] = 0;
             values[valuesById[1] = "BOT_FEEDBACK_NEGATIVE_GENERIC"] = 1;
             values[valuesById[2] = "BOT_FEEDBACK_NEGATIVE_HELPFUL"] = 2;
@@ -116461,7 +115277,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_RELEVANT_TO_TEXT=256 BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_RELEVANT_TO_TEXT value
          */
         BotFeedbackMessage.BotFeedbackKindMultipleNegative = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC"] = 1;
             values[valuesById[2] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL"] = 2;
             values[valuesById[4] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING"] = 4;
@@ -116481,7 +115297,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC=1 BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC value
          */
         BotFeedbackMessage.BotFeedbackKindMultiplePositive = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC"] = 1;
             return values;
         })();
@@ -116494,7 +115310,7 @@ $root.AICommon = (function() {
          * @property {number} GENERIC=1 GENERIC value
          */
         BotFeedbackMessage.ReportKind = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "GENERIC"] = 1;
             return values;
@@ -120262,7 +119078,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AISubscriptionUpsellMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AISubscriptionUpsellMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -120325,15 +119141,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.requestType != null && $Object.hasOwnProperty.call(message, "requestType")) {
                 properties._requestType = 1;
-                switch (message.requestType) {
-                default:
+                if (typeof message.requestType !== "number" || (message.requestType | 0) !== message.requestType)
                     return "requestType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             return null;
         };
@@ -120357,12 +119166,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.AISubscriptionUpsellMetadata();
             switch (object.requestType) {
-            default:
-                if (typeof object.requestType === "number") {
-                    message.requestType = object.requestType;
-                    break;
-                }
-                break;
             case "UNSPECIFIED":
             case 0:
                 message.requestType = 0;
@@ -120379,6 +119182,9 @@ $root.AICommon = (function() {
             case 3:
                 message.requestType = 3;
                 break;
+            default:
+                if (typeof object.requestType === "number" && (object.requestType | 0) === object.requestType)
+                    message.requestType = object.requestType;
             }
             return message;
         };
@@ -124868,7 +123674,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo.AIThreadClientInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -124938,15 +123744,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.sourceChatJid != null && $Object.hasOwnProperty.call(message, "sourceChatJid")) {
                     properties._sourceChatJid = 1;
@@ -124975,12 +123774,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.type = 0;
@@ -124997,6 +123790,9 @@ $root.AICommon = (function() {
                 case 3:
                     message.type = 3;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.sourceChatJid != null)
                     message.sourceChatJid = $String(object.sourceChatJid);
@@ -125062,7 +123858,7 @@ $root.AICommon = (function() {
              * @property {number} SIDE_CHAT=3 SIDE_CHAT value
              */
             AIThreadClientInfo.AIThreadType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "DEFAULT"] = 1;
                 values[valuesById[2] = "INCOGNITO"] = 2;
@@ -126433,7 +125229,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageOrigin();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageOrigin(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -126496,12 +125292,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                    break;
-                }
             }
             return null;
         };
@@ -126525,16 +125317,13 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageOrigin();
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED":
             case 0:
                 message.type = 0;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             return message;
         };
@@ -126593,7 +125382,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED=0 BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED value
          */
         BotMessageOrigin.BotMessageOriginType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED"] = 0;
             return values;
         })();
@@ -129215,7 +128004,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSourcesMetadata.BotSourceItem();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSourcesMetadata.BotSourceItem(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -129320,16 +128109,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                     properties._provider = 1;
-                    switch (message.provider) {
-                    default:
+                    if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                         return "provider: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
                 }
                 if (message.thumbnailCdnUrl != null && $Object.hasOwnProperty.call(message, "thumbnailCdnUrl")) {
                     properties._thumbnailCdnUrl = 1;
@@ -129383,12 +128164,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.BotSourcesMetadata.BotSourceItem();
                 switch (object.provider) {
-                default:
-                    if (typeof object.provider === "number") {
-                        message.provider = object.provider;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.provider = 0;
@@ -129409,6 +128184,9 @@ $root.AICommon = (function() {
                 case 4:
                     message.provider = 4;
                     break;
+                default:
+                    if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                        message.provider = object.provider;
                 }
                 if (object.thumbnailCdnUrl != null)
                     message.thumbnailCdnUrl = $String(object.thumbnailCdnUrl);
@@ -129495,7 +128273,7 @@ $root.AICommon = (function() {
              * @property {number} OTHER=4 OTHER value
              */
             BotSourceItem.SourceProvider = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "BING"] = 1;
                 values[valuesById[2] = "GOOGLE"] = 2;
@@ -129669,7 +128447,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgeCollectionMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgeCollectionMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -129756,13 +128534,8 @@ $root.AICommon = (function() {
             }
             if (message.ageCollectionType != null && $Object.hasOwnProperty.call(message, "ageCollectionType")) {
                 properties._ageCollectionType = 1;
-                switch (message.ageCollectionType) {
-                default:
+                if (typeof message.ageCollectionType !== "number" || (message.ageCollectionType | 0) !== message.ageCollectionType)
                     return "ageCollectionType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -129790,12 +128563,6 @@ $root.AICommon = (function() {
             if (object.shouldTriggerAgeCollectionOnClient != null)
                 message.shouldTriggerAgeCollectionOnClient = $Boolean(object.shouldTriggerAgeCollectionOnClient);
             switch (object.ageCollectionType) {
-            default:
-                if (typeof object.ageCollectionType === "number") {
-                    message.ageCollectionType = object.ageCollectionType;
-                    break;
-                }
-                break;
             case "O18_BINARY":
             case 0:
                 message.ageCollectionType = 0;
@@ -129804,6 +128571,9 @@ $root.AICommon = (function() {
             case 1:
                 message.ageCollectionType = 1;
                 break;
+            default:
+                if (typeof object.ageCollectionType === "number" && (object.ageCollectionType | 0) === object.ageCollectionType)
+                    message.ageCollectionType = object.ageCollectionType;
             }
             return message;
         };
@@ -129867,7 +128637,7 @@ $root.AICommon = (function() {
          * @property {number} WAFFLE=1 WAFFLE value
          */
         BotAgeCollectionMetadata.AgeCollectionType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "O18_BINARY"] = 0;
             values[valuesById[1] = "WAFFLE"] = 1;
             return values;
@@ -130018,7 +128788,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotImagineMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotImagineMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -130088,16 +128858,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.imagineType != null && $Object.hasOwnProperty.call(message, "imagineType")) {
                 properties._imagineType = 1;
-                switch (message.imagineType) {
-                default:
+                if (typeof message.imagineType !== "number" || (message.imagineType | 0) !== message.imagineType)
                     return "imagineType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    break;
-                }
             }
             if (message.shortPrompt != null && $Object.hasOwnProperty.call(message, "shortPrompt")) {
                 properties._shortPrompt = 1;
@@ -130126,12 +128888,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotImagineMetadata();
             switch (object.imagineType) {
-            default:
-                if (typeof object.imagineType === "number") {
-                    message.imagineType = object.imagineType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.imagineType = 0;
@@ -130152,6 +128908,9 @@ $root.AICommon = (function() {
             case 4:
                 message.imagineType = 4;
                 break;
+            default:
+                if (typeof object.imagineType === "number" && (object.imagineType | 0) === object.imagineType)
+                    message.imagineType = object.imagineType;
             }
             if (object.shortPrompt != null)
                 message.shortPrompt = $String(object.shortPrompt);
@@ -130218,7 +128977,7 @@ $root.AICommon = (function() {
          * @property {number} EDIT=4 EDIT value
          */
         BotImagineMetadata.ImagineType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "IMAGINE"] = 1;
             values[valuesById[2] = "MEMU"] = 2;
@@ -130663,7 +129422,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -130740,13 +129499,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.featureType != null && $Object.hasOwnProperty.call(message, "featureType")) {
                     properties._featureType = 1;
-                    switch (message.featureType) {
-                    default:
+                    if (typeof message.featureType !== "number" || (message.featureType | 0) !== message.featureType)
                         return "featureType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.remainingQuota != null && $Object.hasOwnProperty.call(message, "remainingQuota")) {
                     properties._remainingQuota = 1;
@@ -130780,12 +129534,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
                 switch (object.featureType) {
-                default:
-                    if (typeof object.featureType === "number") {
-                        message.featureType = object.featureType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN_FEATURE":
                 case 0:
                     message.featureType = 0;
@@ -130794,6 +129542,9 @@ $root.AICommon = (function() {
                 case 1:
                     message.featureType = 1;
                     break;
+                default:
+                    if (typeof object.featureType === "number" && (object.featureType | 0) === object.featureType)
+                        message.featureType = object.featureType;
                 }
                 if (object.remainingQuota != null)
                     message.remainingQuota = object.remainingQuota >>> 0;
@@ -130873,7 +129624,7 @@ $root.AICommon = (function() {
              * @property {number} REASONING_FEATURE=1 REASONING_FEATURE value
              */
             BotFeatureQuotaMetadata.BotFeatureType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN_FEATURE"] = 0;
                 values[valuesById[1] = "REASONING_FEATURE"] = 1;
                 return values;
@@ -131022,7 +129773,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModeSelectionMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModeSelectionMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -131111,13 +129862,8 @@ $root.AICommon = (function() {
                 if (!$Array.isArray(message.mode))
                     return "mode: array expected";
                 for (var i = 0; i < message.mode.length; ++i)
-                    switch (message.mode[i]) {
-                    default:
+                    if (typeof message.mode[i] !== "number" || (message.mode[i] | 0) !== message.mode[i])
                         return "mode: enum value[] expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
             }
             if (message.overrideMode != null && $Object.hasOwnProperty.call(message, "overrideMode")) {
                 if (!$Array.isArray(message.overrideMode))
@@ -131150,22 +129896,20 @@ $root.AICommon = (function() {
             if (object.mode) {
                 if (!$Array.isArray(object.mode))
                     throw $TypeError(".AICommon.BotModeSelectionMetadata.mode: array expected");
-                message.mode = $Array(object.mode.length);
+                message.mode = [];
                 for (var i = 0; i < object.mode.length; ++i)
                     switch (object.mode[i]) {
-                    default:
-                        if (typeof object.mode[i] === "number") {
-                            message.mode[i] = object.mode[i];
-                            break;
-                        }
                     case "DEFAULT_MODE":
                     case 0:
-                        message.mode[i] = 0;
+                        message.mode[message.mode.length] = 0;
                         break;
                     case "THINK_HARD_MODE":
                     case 1:
-                        message.mode[i] = 1;
+                        message.mode[message.mode.length] = 1;
                         break;
+                    default:
+                        if (typeof object.mode[i] === "number" && (object.mode[i] | 0) === object.mode[i])
+                            message.mode[message.mode.length] = object.mode[i];
                     }
             }
             if (object.overrideMode) {
@@ -131245,7 +129989,7 @@ $root.AICommon = (function() {
          * @property {number} THINK_HARD_MODE=1 THINK_HARD_MODE value
          */
         BotModeSelectionMetadata.BotUserSelectionMode = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "DEFAULT_MODE"] = 0;
             values[valuesById[1] = "THINK_HARD_MODE"] = 1;
             return values;
@@ -131375,7 +130119,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotCapabilityMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotCapabilityMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -131448,77 +130192,8 @@ $root.AICommon = (function() {
                 if (!$Array.isArray(message.capabilities))
                     return "capabilities: array expected";
                 for (var i = 0; i < message.capabilities.length; ++i)
-                    switch (message.capabilities[i]) {
-                    default:
+                    if (typeof message.capabilities[i] !== "number" || (message.capabilities[i] | 0) !== message.capabilities[i])
                         return "capabilities: enum value[] expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                    case 15:
-                    case 16:
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                    case 25:
-                    case 26:
-                    case 27:
-                    case 28:
-                    case 29:
-                    case 30:
-                    case 31:
-                    case 32:
-                    case 33:
-                    case 34:
-                    case 35:
-                    case 36:
-                    case 37:
-                    case 38:
-                    case 39:
-                    case 40:
-                    case 41:
-                    case 42:
-                    case 43:
-                    case 44:
-                    case 45:
-                    case 46:
-                    case 47:
-                    case 48:
-                    case 49:
-                    case 50:
-                    case 51:
-                    case 52:
-                    case 53:
-                    case 54:
-                    case 55:
-                    case 56:
-                    case 57:
-                    case 58:
-                    case 59:
-                    case 60:
-                    case 61:
-                    case 62:
-                    case 63:
-                    case 64:
-                    case 65:
-                        break;
-                    }
             }
             return null;
         };
@@ -131544,278 +130219,276 @@ $root.AICommon = (function() {
             if (object.capabilities) {
                 if (!$Array.isArray(object.capabilities))
                     throw $TypeError(".AICommon.BotCapabilityMetadata.capabilities: array expected");
-                message.capabilities = $Array(object.capabilities.length);
+                message.capabilities = [];
                 for (var i = 0; i < object.capabilities.length; ++i)
                     switch (object.capabilities[i]) {
-                    default:
-                        if (typeof object.capabilities[i] === "number") {
-                            message.capabilities[i] = object.capabilities[i];
-                            break;
-                        }
                     case "UNKNOWN":
                     case 0:
-                        message.capabilities[i] = 0;
+                        message.capabilities[message.capabilities.length] = 0;
                         break;
                     case "PROGRESS_INDICATOR":
                     case 1:
-                        message.capabilities[i] = 1;
+                        message.capabilities[message.capabilities.length] = 1;
                         break;
                     case "RICH_RESPONSE_HEADING":
                     case 2:
-                        message.capabilities[i] = 2;
+                        message.capabilities[message.capabilities.length] = 2;
                         break;
                     case "RICH_RESPONSE_NESTED_LIST":
                     case 3:
-                        message.capabilities[i] = 3;
+                        message.capabilities[message.capabilities.length] = 3;
                         break;
                     case "AI_MEMORY":
                     case 4:
-                        message.capabilities[i] = 4;
+                        message.capabilities[message.capabilities.length] = 4;
                         break;
                     case "RICH_RESPONSE_THREAD_SURFING":
                     case 5:
-                        message.capabilities[i] = 5;
+                        message.capabilities[message.capabilities.length] = 5;
                         break;
                     case "RICH_RESPONSE_TABLE":
                     case 6:
-                        message.capabilities[i] = 6;
+                        message.capabilities[message.capabilities.length] = 6;
                         break;
                     case "RICH_RESPONSE_CODE":
                     case 7:
-                        message.capabilities[i] = 7;
+                        message.capabilities[message.capabilities.length] = 7;
                         break;
                     case "RICH_RESPONSE_STRUCTURED_RESPONSE":
                     case 8:
-                        message.capabilities[i] = 8;
+                        message.capabilities[message.capabilities.length] = 8;
                         break;
                     case "RICH_RESPONSE_INLINE_IMAGE":
                     case 9:
-                        message.capabilities[i] = 9;
+                        message.capabilities[message.capabilities.length] = 9;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_CONTROL":
                     case 10:
-                        message.capabilities[i] = 10;
+                        message.capabilities[message.capabilities.length] = 10;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_1":
                     case 11:
-                        message.capabilities[i] = 11;
+                        message.capabilities[message.capabilities.length] = 11;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_2":
                     case 12:
-                        message.capabilities[i] = 12;
+                        message.capabilities[message.capabilities.length] = 12;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_3":
                     case 13:
-                        message.capabilities[i] = 13;
+                        message.capabilities[message.capabilities.length] = 13;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_4":
                     case 14:
-                        message.capabilities[i] = 14;
+                        message.capabilities[message.capabilities.length] = 14;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_5":
                     case 15:
-                        message.capabilities[i] = 15;
+                        message.capabilities[message.capabilities.length] = 15;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_6":
                     case 16:
-                        message.capabilities[i] = 16;
+                        message.capabilities[message.capabilities.length] = 16;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_7":
                     case 17:
-                        message.capabilities[i] = 17;
+                        message.capabilities[message.capabilities.length] = 17;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_8":
                     case 18:
-                        message.capabilities[i] = 18;
+                        message.capabilities[message.capabilities.length] = 18;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_9":
                     case 19:
-                        message.capabilities[i] = 19;
+                        message.capabilities[message.capabilities.length] = 19;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_10":
                     case 20:
-                        message.capabilities[i] = 20;
+                        message.capabilities[message.capabilities.length] = 20;
                         break;
                     case "RICH_RESPONSE_SUB_HEADING":
                     case 21:
-                        message.capabilities[i] = 21;
+                        message.capabilities[message.capabilities.length] = 21;
                         break;
                     case "RICH_RESPONSE_GRID_IMAGE":
                     case 22:
-                        message.capabilities[i] = 22;
+                        message.capabilities[message.capabilities.length] = 22;
                         break;
                     case "AI_STUDIO_UGC_MEMORY":
                     case 23:
-                        message.capabilities[i] = 23;
+                        message.capabilities[message.capabilities.length] = 23;
                         break;
                     case "RICH_RESPONSE_LATEX":
                     case 24:
-                        message.capabilities[i] = 24;
+                        message.capabilities[message.capabilities.length] = 24;
                         break;
                     case "RICH_RESPONSE_MAPS":
                     case 25:
-                        message.capabilities[i] = 25;
+                        message.capabilities[message.capabilities.length] = 25;
                         break;
                     case "RICH_RESPONSE_INLINE_REELS":
                     case 26:
-                        message.capabilities[i] = 26;
+                        message.capabilities[message.capabilities.length] = 26;
                         break;
                     case "AGENTIC_PLANNING":
                     case 27:
-                        message.capabilities[i] = 27;
+                        message.capabilities[message.capabilities.length] = 27;
                         break;
                     case "ACCOUNT_LINKING":
                     case 28:
-                        message.capabilities[i] = 28;
+                        message.capabilities[message.capabilities.length] = 28;
                         break;
                     case "STREAMING_DISAGGREGATION":
                     case 29:
-                        message.capabilities[i] = 29;
+                        message.capabilities[message.capabilities.length] = 29;
                         break;
                     case "RICH_RESPONSE_GRID_IMAGE_3P":
                     case 30:
-                        message.capabilities[i] = 30;
+                        message.capabilities[message.capabilities.length] = 30;
                         break;
                     case "RICH_RESPONSE_LATEX_INLINE":
                     case 31:
-                        message.capabilities[i] = 31;
+                        message.capabilities[message.capabilities.length] = 31;
                         break;
                     case "QUERY_PLAN":
                     case 32:
-                        message.capabilities[i] = 32;
+                        message.capabilities[message.capabilities.length] = 32;
                         break;
                     case "PROACTIVE_MESSAGE":
                     case 33:
-                        message.capabilities[i] = 33;
+                        message.capabilities[message.capabilities.length] = 33;
                         break;
                     case "RICH_RESPONSE_UNIFIED_RESPONSE":
                     case 34:
-                        message.capabilities[i] = 34;
+                        message.capabilities[message.capabilities.length] = 34;
                         break;
                     case "PROMOTION_MESSAGE":
                     case 35:
-                        message.capabilities[i] = 35;
+                        message.capabilities[message.capabilities.length] = 35;
                         break;
                     case "SIMPLIFIED_PROFILE_PAGE":
                     case 36:
-                        message.capabilities[i] = 36;
+                        message.capabilities[message.capabilities.length] = 36;
                         break;
                     case "RICH_RESPONSE_SOURCES_IN_MESSAGE":
                     case 37:
-                        message.capabilities[i] = 37;
+                        message.capabilities[message.capabilities.length] = 37;
                         break;
                     case "RICH_RESPONSE_SIDE_BY_SIDE_SURVEY":
                     case 38:
-                        message.capabilities[i] = 38;
+                        message.capabilities[message.capabilities.length] = 38;
                         break;
                     case "RICH_RESPONSE_UNIFIED_TEXT_COMPONENT":
                     case 39:
-                        message.capabilities[i] = 39;
+                        message.capabilities[message.capabilities.length] = 39;
                         break;
                     case "AI_SHARED_MEMORY":
                     case 40:
-                        message.capabilities[i] = 40;
+                        message.capabilities[message.capabilities.length] = 40;
                         break;
                     case "RICH_RESPONSE_UNIFIED_SOURCES":
                     case 41:
-                        message.capabilities[i] = 41;
+                        message.capabilities[message.capabilities.length] = 41;
                         break;
                     case "RICH_RESPONSE_UNIFIED_DOMAIN_CITATIONS":
                     case 42:
-                        message.capabilities[i] = 42;
+                        message.capabilities[message.capabilities.length] = 42;
                         break;
                     case "RICH_RESPONSE_UR_INLINE_REELS_ENABLED":
                     case 43:
-                        message.capabilities[i] = 43;
+                        message.capabilities[message.capabilities.length] = 43;
                         break;
                     case "RICH_RESPONSE_UR_MEDIA_GRID_ENABLED":
                     case 44:
-                        message.capabilities[i] = 44;
+                        message.capabilities[message.capabilities.length] = 44;
                         break;
                     case "RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER":
                     case 45:
-                        message.capabilities[i] = 45;
+                        message.capabilities[message.capabilities.length] = 45;
                         break;
                     case "RICH_RESPONSE_IN_APP_SURVEY":
                     case 46:
-                        message.capabilities[i] = 46;
+                        message.capabilities[message.capabilities.length] = 46;
                         break;
                     case "AI_RESPONSE_MODEL_BRANDING":
                     case 47:
-                        message.capabilities[i] = 47;
+                        message.capabilities[message.capabilities.length] = 47;
                         break;
                     case "SESSION_TRANSPARENCY_SYSTEM_MESSAGE":
                     case 48:
-                        message.capabilities[i] = 48;
+                        message.capabilities[message.capabilities.length] = 48;
                         break;
                     case "RICH_RESPONSE_UR_REASONING":
                     case 49:
-                        message.capabilities[i] = 49;
+                        message.capabilities[message.capabilities.length] = 49;
                         break;
                     case "RICH_RESPONSE_UR_ZEITGEIST_CITATIONS":
                     case 50:
-                        message.capabilities[i] = 50;
+                        message.capabilities[message.capabilities.length] = 50;
                         break;
                     case "RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL":
                     case 51:
-                        message.capabilities[i] = 51;
+                        message.capabilities[message.capabilities.length] = 51;
                         break;
                     case "AI_IMAGINE_LOADING_INDICATOR":
                     case 52:
-                        message.capabilities[i] = 52;
+                        message.capabilities[message.capabilities.length] = 52;
                         break;
                     case "RICH_RESPONSE_UR_IMAGINE":
                     case 53:
-                        message.capabilities[i] = 53;
+                        message.capabilities[message.capabilities.length] = 53;
                         break;
                     case "AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR":
                     case 54:
-                        message.capabilities[i] = 54;
+                        message.capabilities[message.capabilities.length] = 54;
                         break;
                     case "RICH_RESPONSE_UR_BLOKS_ENABLED":
                     case 55:
-                        message.capabilities[i] = 55;
+                        message.capabilities[message.capabilities.length] = 55;
                         break;
                     case "RICH_RESPONSE_INLINE_LINKS_ENABLED":
                     case 56:
-                        message.capabilities[i] = 56;
+                        message.capabilities[message.capabilities.length] = 56;
                         break;
                     case "RICH_RESPONSE_UR_IMAGINE_VIDEO":
                     case 57:
-                        message.capabilities[i] = 57;
+                        message.capabilities[message.capabilities.length] = 57;
                         break;
                     case "JSON_PATCH_STREAMING":
                     case 58:
-                        message.capabilities[i] = 58;
+                        message.capabilities[message.capabilities.length] = 58;
                         break;
                     case "AI_TAB_FORCE_CLIPPY":
                     case 59:
-                        message.capabilities[i] = 59;
+                        message.capabilities[message.capabilities.length] = 59;
                         break;
                     case "UNIFIED_RESPONSE_EMBEDDED_SCREENS":
                     case 60:
-                        message.capabilities[i] = 60;
+                        message.capabilities[message.capabilities.length] = 60;
                         break;
                     case "AI_SUBSCRIPTION_ENABLED":
                     case 61:
-                        message.capabilities[i] = 61;
+                        message.capabilities[message.capabilities.length] = 61;
                         break;
                     case "UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED":
                     case 62:
-                        message.capabilities[i] = 62;
+                        message.capabilities[message.capabilities.length] = 62;
                         break;
                     case "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED":
                     case 63:
-                        message.capabilities[i] = 63;
+                        message.capabilities[message.capabilities.length] = 63;
                         break;
                     case "AI_RICH_RESPONSE_MAPS_V2_ENABLED":
                     case 64:
-                        message.capabilities[i] = 64;
+                        message.capabilities[message.capabilities.length] = 64;
                         break;
                     case "AI_SUBSCRIPTION_METERING_ENABLED":
                     case 65:
-                        message.capabilities[i] = 65;
+                        message.capabilities[message.capabilities.length] = 65;
                         break;
+                    default:
+                        if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
+                            message.capabilities[message.capabilities.length] = object.capabilities[i];
                     }
             }
             return message;
@@ -131945,7 +130618,7 @@ $root.AICommon = (function() {
          * @property {number} AI_SUBSCRIPTION_METERING_ENABLED=65 AI_SUBSCRIPTION_METERING_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "PROGRESS_INDICATOR"] = 1;
             values[valuesById[2] = "RICH_RESPONSE_HEADING"] = 2;
@@ -132593,7 +131266,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -132719,15 +131392,8 @@ $root.AICommon = (function() {
                 }
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.isReasoning != null && $Object.hasOwnProperty.call(message, "isReasoning")) {
                     properties._isReasoning = 1;
@@ -132784,12 +131450,6 @@ $root.AICommon = (function() {
                     }
                 }
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.status = 0;
@@ -132806,6 +131466,9 @@ $root.AICommon = (function() {
                 case 3:
                     message.status = 3;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 if (object.isReasoning != null)
                     message.isReasoning = $Boolean(object.isReasoning);
@@ -133069,7 +131732,7 @@ $root.AICommon = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -133158,15 +131821,8 @@ $root.AICommon = (function() {
                     }
                     if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                         properties._provider = 1;
-                        switch (message.provider) {
-                        default:
+                        if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                             return "provider: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                            break;
-                        }
                     }
                     if (message.sourceUrl != null && $Object.hasOwnProperty.call(message, "sourceUrl")) {
                         properties._sourceUrl = 1;
@@ -133202,12 +131858,6 @@ $root.AICommon = (function() {
                     if (object.title != null)
                         message.title = $String(object.title);
                     switch (object.provider) {
-                    default:
-                        if (typeof object.provider === "number") {
-                            message.provider = object.provider;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN_PROVIDER":
                     case 0:
                         message.provider = 0;
@@ -133224,6 +131874,9 @@ $root.AICommon = (function() {
                     case 3:
                         message.provider = 3;
                         break;
+                    default:
+                        if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                            message.provider = object.provider;
                     }
                     if (object.sourceUrl != null)
                         message.sourceUrl = $String(object.sourceUrl);
@@ -133447,7 +132100,7 @@ $root.AICommon = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -133529,15 +132182,8 @@ $root.AICommon = (function() {
                     }
                     if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                         properties._provider = 1;
-                        switch (message.provider) {
-                        default:
+                        if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                             return "provider: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                            break;
-                        }
                     }
                     if (message.sourceUrl != null && $Object.hasOwnProperty.call(message, "sourceUrl")) {
                         properties._sourceUrl = 1;
@@ -133568,12 +132214,6 @@ $root.AICommon = (function() {
                     if (object.sourceTitle != null)
                         message.sourceTitle = $String(object.sourceTitle);
                     switch (object.provider) {
-                    default:
-                        if (typeof object.provider === "number") {
-                            message.provider = object.provider;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN":
                     case 0:
                         message.provider = 0;
@@ -133590,6 +132230,9 @@ $root.AICommon = (function() {
                     case 3:
                         message.provider = 3;
                         break;
+                    default:
+                        if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                            message.provider = object.provider;
                     }
                     if (object.sourceUrl != null)
                         message.sourceUrl = $String(object.sourceUrl);
@@ -133657,7 +132300,7 @@ $root.AICommon = (function() {
                  * @property {number} BING=3 BING value
                  */
                 BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "OTHER"] = 1;
                     values[valuesById[2] = "GOOGLE"] = 2;
@@ -134025,7 +132668,7 @@ $root.AICommon = (function() {
              * @property {number} BING=3 BING value
              */
             BotPlanningStepMetadata.BotSearchSourceProvider = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN_PROVIDER"] = 0;
                 values[valuesById[1] = "OTHER"] = 1;
                 values[valuesById[2] = "GOOGLE"] = 2;
@@ -134043,7 +132686,7 @@ $root.AICommon = (function() {
              * @property {number} FINISHED=3 FINISHED value
              */
             BotPlanningStepMetadata.PlanningStepStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "PLANNED"] = 1;
                 values[valuesById[2] = "EXECUTING"] = 2;
@@ -134216,7 +132859,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModelMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModelMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -134293,25 +132936,13 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.modelType != null && $Object.hasOwnProperty.call(message, "modelType")) {
                 properties._modelType = 1;
-                switch (message.modelType) {
-                default:
+                if (typeof message.modelType !== "number" || (message.modelType | 0) !== message.modelType)
                     return "modelType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.premiumModelStatus != null && $Object.hasOwnProperty.call(message, "premiumModelStatus")) {
                 properties._premiumModelStatus = 1;
-                switch (message.premiumModelStatus) {
-                default:
+                if (typeof message.premiumModelStatus !== "number" || (message.premiumModelStatus | 0) !== message.premiumModelStatus)
                     return "premiumModelStatus: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.modelNameOverride != null && $Object.hasOwnProperty.call(message, "modelNameOverride")) {
                 properties._modelNameOverride = 1;
@@ -134340,12 +132971,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotModelMetadata();
             switch (object.modelType) {
-            default:
-                if (typeof object.modelType === "number") {
-                    message.modelType = object.modelType;
-                    break;
-                }
-                break;
             case "UNKNOWN_TYPE":
             case 0:
                 message.modelType = 0;
@@ -134358,14 +132983,11 @@ $root.AICommon = (function() {
             case 2:
                 message.modelType = 2;
                 break;
+            default:
+                if (typeof object.modelType === "number" && (object.modelType | 0) === object.modelType)
+                    message.modelType = object.modelType;
             }
             switch (object.premiumModelStatus) {
-            default:
-                if (typeof object.premiumModelStatus === "number") {
-                    message.premiumModelStatus = object.premiumModelStatus;
-                    break;
-                }
-                break;
             case "UNKNOWN_STATUS":
             case 0:
                 message.premiumModelStatus = 0;
@@ -134378,6 +133000,9 @@ $root.AICommon = (function() {
             case 2:
                 message.premiumModelStatus = 2;
                 break;
+            default:
+                if (typeof object.premiumModelStatus === "number" && (object.premiumModelStatus | 0) === object.premiumModelStatus)
+                    message.premiumModelStatus = object.premiumModelStatus;
             }
             if (object.modelNameOverride != null)
                 message.modelNameOverride = $String(object.modelNameOverride);
@@ -134444,7 +133069,7 @@ $root.AICommon = (function() {
          * @property {number} LLAMA_PROD_PREMIUM=2 LLAMA_PROD_PREMIUM value
          */
         BotModelMetadata.ModelType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
             values[valuesById[1] = "LLAMA_PROD"] = 1;
             values[valuesById[2] = "LLAMA_PROD_PREMIUM"] = 2;
@@ -134460,7 +133085,7 @@ $root.AICommon = (function() {
          * @property {number} QUOTA_EXCEED_LIMIT=2 QUOTA_EXCEED_LIMIT value
          */
         BotModelMetadata.PremiumModelStatus = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_STATUS"] = 0;
             values[valuesById[1] = "AVAILABLE"] = 1;
             values[valuesById[2] = "QUOTA_EXCEED_LIMIT"] = 2;
@@ -134663,7 +133288,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotReminderMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotReminderMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -134762,15 +133387,8 @@ $root.AICommon = (function() {
             }
             if (message.action != null && $Object.hasOwnProperty.call(message, "action")) {
                 properties._action = 1;
-                switch (message.action) {
-                default:
+                if (typeof message.action !== "number" || (message.action | 0) !== message.action)
                     return "action: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    break;
-                }
             }
             if (message.name != null && $Object.hasOwnProperty.call(message, "name")) {
                 properties._name = 1;
@@ -134784,16 +133402,8 @@ $root.AICommon = (function() {
             }
             if (message.frequency != null && $Object.hasOwnProperty.call(message, "frequency")) {
                 properties._frequency = 1;
-                switch (message.frequency) {
-                default:
+                if (typeof message.frequency !== "number" || (message.frequency | 0) !== message.frequency)
                     return "frequency: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             return null;
         };
@@ -134822,12 +133432,6 @@ $root.AICommon = (function() {
                 message.requestMessageKey = $root.Protocol.MessageKey.fromObject(object.requestMessageKey, _depth + 1);
             }
             switch (object.action) {
-            default:
-                if (typeof object.action === "number") {
-                    message.action = object.action;
-                    break;
-                }
-                break;
             case "NOTIFY":
             case 1:
                 message.action = 1;
@@ -134844,6 +133448,9 @@ $root.AICommon = (function() {
             case 4:
                 message.action = 4;
                 break;
+            default:
+                if (typeof object.action === "number" && (object.action | 0) === object.action)
+                    message.action = object.action;
             }
             if (object.name != null)
                 message.name = $String(object.name);
@@ -134857,12 +133464,6 @@ $root.AICommon = (function() {
                 else if (typeof object.nextTriggerTimestamp === "object")
                     message.nextTriggerTimestamp = new $util.LongBits(object.nextTriggerTimestamp.low >>> 0, object.nextTriggerTimestamp.high >>> 0).toNumber(true);
             switch (object.frequency) {
-            default:
-                if (typeof object.frequency === "number") {
-                    message.frequency = object.frequency;
-                    break;
-                }
-                break;
             case "ONCE":
             case 1:
                 message.frequency = 1;
@@ -134883,6 +133484,9 @@ $root.AICommon = (function() {
             case 5:
                 message.frequency = 5;
                 break;
+            default:
+                if (typeof object.frequency === "number" && (object.frequency | 0) === object.frequency)
+                    message.frequency = object.frequency;
             }
             return message;
         };
@@ -134957,7 +133561,7 @@ $root.AICommon = (function() {
          * @property {number} UPDATE=4 UPDATE value
          */
         BotReminderMetadata.ReminderAction = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "NOTIFY"] = 1;
             values[valuesById[2] = "CREATE"] = 2;
             values[valuesById[3] = "DELETE"] = 3;
@@ -134976,7 +133580,7 @@ $root.AICommon = (function() {
          * @property {number} MONTHLY=5 MONTHLY value
          */
         BotReminderMetadata.ReminderFrequency = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "ONCE"] = 1;
             values[valuesById[2] = "DAILY"] = 2;
             values[valuesById[3] = "WEEKLY"] = 3;
@@ -135492,7 +134096,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMediaMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMediaMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -135627,14 +134231,8 @@ $root.AICommon = (function() {
             }
             if (message.orientationType != null && $Object.hasOwnProperty.call(message, "orientationType")) {
                 properties._orientationType = 1;
-                switch (message.orientationType) {
-                default:
+                if (typeof message.orientationType !== "number" || (message.orientationType | 0) !== message.orientationType)
                     return "orientationType: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             return null;
         };
@@ -135677,12 +134275,6 @@ $root.AICommon = (function() {
             if (object.mimetype != null)
                 message.mimetype = $String(object.mimetype);
             switch (object.orientationType) {
-            default:
-                if (typeof object.orientationType === "number") {
-                    message.orientationType = object.orientationType;
-                    break;
-                }
-                break;
             case "CENTER":
             case 1:
                 message.orientationType = 1;
@@ -135695,6 +134287,9 @@ $root.AICommon = (function() {
             case 3:
                 message.orientationType = 3;
                 break;
+            default:
+                if (typeof object.orientationType === "number" && (object.orientationType | 0) === object.orientationType)
+                    message.orientationType = object.orientationType;
             }
             return message;
         };
@@ -135772,7 +134367,7 @@ $root.AICommon = (function() {
          * @property {number} RIGHT=3 RIGHT value
          */
         BotMediaMetadata.OrientationType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "CENTER"] = 1;
             values[valuesById[2] = "LEFT"] = 2;
             values[valuesById[3] = "RIGHT"] = 3;
@@ -135924,7 +134519,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSessionMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSessionMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -135999,19 +134594,8 @@ $root.AICommon = (function() {
             }
             if (message.sessionSource != null && $Object.hasOwnProperty.call(message, "sessionSource")) {
                 properties._sessionSource = 1;
-                switch (message.sessionSource) {
-                default:
+                if (typeof message.sessionSource !== "number" || (message.sessionSource | 0) !== message.sessionSource)
                     return "sessionSource: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                    break;
-                }
             }
             return null;
         };
@@ -136037,12 +134621,6 @@ $root.AICommon = (function() {
             if (object.sessionId != null)
                 message.sessionId = $String(object.sessionId);
             switch (object.sessionSource) {
-            default:
-                if (typeof object.sessionSource === "number") {
-                    message.sessionSource = object.sessionSource;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.sessionSource = 0;
@@ -136075,6 +134653,9 @@ $root.AICommon = (function() {
             case 7:
                 message.sessionSource = 7;
                 break;
+            default:
+                if (typeof object.sessionSource === "number" && (object.sessionSource | 0) === object.sessionSource)
+                    message.sessionSource = object.sessionSource;
             }
             return message;
         };
@@ -136290,7 +134871,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMetricsMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMetricsMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -136372,72 +134953,13 @@ $root.AICommon = (function() {
             }
             if (message.destinationEntryPoint != null && $Object.hasOwnProperty.call(message, "destinationEntryPoint")) {
                 properties._destinationEntryPoint = 1;
-                switch (message.destinationEntryPoint) {
-                default:
+                if (typeof message.destinationEntryPoint !== "number" || (message.destinationEntryPoint | 0) !== message.destinationEntryPoint)
                     return "destinationEntryPoint: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                case 25:
-                case 26:
-                case 27:
-                case 28:
-                case 29:
-                case 30:
-                case 31:
-                case 32:
-                case 33:
-                case 34:
-                case 35:
-                case 36:
-                case 37:
-                case 38:
-                case 39:
-                case 40:
-                case 41:
-                case 45:
-                case 46:
-                case 47:
-                case 54:
-                case 55:
-                case 56:
-                    break;
-                }
             }
             if (message.threadOrigin != null && $Object.hasOwnProperty.call(message, "threadOrigin")) {
                 properties._threadOrigin = 1;
-                switch (message.threadOrigin) {
-                default:
+                if (typeof message.threadOrigin !== "number" || (message.threadOrigin | 0) !== message.threadOrigin)
                     return "threadOrigin: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             return null;
         };
@@ -136463,12 +134985,6 @@ $root.AICommon = (function() {
             if (object.destinationId != null)
                 message.destinationId = $String(object.destinationId);
             switch (object.destinationEntryPoint) {
-            default:
-                if (typeof object.destinationEntryPoint === "number") {
-                    message.destinationEntryPoint = object.destinationEntryPoint;
-                    break;
-                }
-                break;
             case "UNDEFINED_ENTRY_POINT":
             case 0:
                 message.destinationEntryPoint = 0;
@@ -136661,14 +135177,11 @@ $root.AICommon = (function() {
             case 56:
                 message.destinationEntryPoint = 56;
                 break;
+            default:
+                if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
+                    message.destinationEntryPoint = object.destinationEntryPoint;
             }
             switch (object.threadOrigin) {
-            default:
-                if (typeof object.threadOrigin === "number") {
-                    message.threadOrigin = object.threadOrigin;
-                    break;
-                }
-                break;
             case "AI_TAB_THREAD":
             case 1:
                 message.threadOrigin = 1;
@@ -136689,6 +135202,9 @@ $root.AICommon = (function() {
             case 5:
                 message.threadOrigin = 5;
                 break;
+            default:
+                if (typeof object.threadOrigin === "number" && (object.threadOrigin | 0) === object.threadOrigin)
+                    message.threadOrigin = object.threadOrigin;
             }
             return message;
         };
@@ -137475,7 +135991,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromotionMessageMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromotionMessageMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -137545,14 +136061,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.promotionType != null && $Object.hasOwnProperty.call(message, "promotionType")) {
                 properties._promotionType = 1;
-                switch (message.promotionType) {
-                default:
+                if (typeof message.promotionType !== "number" || (message.promotionType | 0) !== message.promotionType)
                     return "promotionType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.buttonTitle != null && $Object.hasOwnProperty.call(message, "buttonTitle")) {
                 properties._buttonTitle = 1;
@@ -137581,12 +136091,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotPromotionMessageMetadata();
             switch (object.promotionType) {
-            default:
-                if (typeof object.promotionType === "number") {
-                    message.promotionType = object.promotionType;
-                    break;
-                }
-                break;
             case "UNKNOWN_TYPE":
             case 0:
                 message.promotionType = 0;
@@ -137599,6 +136103,9 @@ $root.AICommon = (function() {
             case 2:
                 message.promotionType = 2;
                 break;
+            default:
+                if (typeof object.promotionType === "number" && (object.promotionType | 0) === object.promotionType)
+                    message.promotionType = object.promotionType;
             }
             if (object.buttonTitle != null)
                 message.buttonTitle = $String(object.buttonTitle);
@@ -137663,7 +136170,7 @@ $root.AICommon = (function() {
          * @property {number} SURVEY_PLATFORM=2 SURVEY_PLATFORM value
          */
         BotPromotionMessageMetadata.BotPromotionType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
             values[valuesById[1] = "C50"] = 1;
             values[valuesById[2] = "SURVEY_PLATFORM"] = 2;
@@ -137845,7 +136352,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSignatureVerificationUseCaseProof();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSignatureVerificationUseCaseProof(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -137935,15 +136442,8 @@ $root.AICommon = (function() {
             }
             if (message.useCase != null && $Object.hasOwnProperty.call(message, "useCase")) {
                 properties._useCase = 1;
-                switch (message.useCase) {
-                default:
+                if (typeof message.useCase !== "number" || (message.useCase | 0) !== message.useCase)
                     return "useCase: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.signature != null && $Object.hasOwnProperty.call(message, "signature")) {
                 properties._signature = 1;
@@ -137981,12 +136481,6 @@ $root.AICommon = (function() {
             if (object.version != null)
                 message.version = object.version | 0;
             switch (object.useCase) {
-            default:
-                if (typeof object.useCase === "number") {
-                    message.useCase = object.useCase;
-                    break;
-                }
-                break;
             case "UNSPECIFIED":
             case 0:
                 message.useCase = 0;
@@ -138003,6 +136497,9 @@ $root.AICommon = (function() {
             case 3:
                 message.useCase = 3;
                 break;
+            default:
+                if (typeof object.useCase === "number" && (object.useCase | 0) === object.useCase)
+                    message.useCase = object.useCase;
             }
             if (object.signature != null)
                 if (typeof object.signature === "string")
@@ -138090,7 +136587,7 @@ $root.AICommon = (function() {
          * @property {number} P2P_PILLS=3 P2P_PILLS value
          */
         BotSignatureVerificationUseCaseProof.BotSignatureUseCase = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNSPECIFIED"] = 0;
             values[valuesById[1] = "WA_BOT_MSG"] = 1;
             values[valuesById[2] = "WA_TEE_BOT_MSG"] = 2;
@@ -139164,7 +137661,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotLinkedAccount();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotLinkedAccount(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -139227,12 +137724,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                    break;
-                }
             }
             return null;
         };
@@ -139256,16 +137749,13 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotLinkedAccount();
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "BOT_LINKED_ACCOUNT_TYPE_1P":
             case 0:
                 message.type = 0;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             return message;
         };
@@ -139324,7 +137814,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_LINKED_ACCOUNT_TYPE_1P=0 BOT_LINKED_ACCOUNT_TYPE_1P value
          */
         BotLinkedAccount.BotLinkedAccountType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "BOT_LINKED_ACCOUNT_TYPE_1P"] = 0;
             return values;
         })();
@@ -140952,7 +139442,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPluginMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPluginMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -141092,26 +139582,13 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                 properties._provider = 1;
-                switch (message.provider) {
-                default:
+                if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                     return "provider: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.pluginType != null && $Object.hasOwnProperty.call(message, "pluginType")) {
                 properties._pluginType = 1;
-                switch (message.pluginType) {
-                default:
+                if (typeof message.pluginType !== "number" || (message.pluginType | 0) !== message.pluginType)
                     return "pluginType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.thumbnailCdnUrl != null && $Object.hasOwnProperty.call(message, "thumbnailCdnUrl")) {
                 properties._thumbnailCdnUrl = 1;
@@ -141153,25 +139630,13 @@ $root.AICommon = (function() {
             }
             if (message.deprecatedField != null && $Object.hasOwnProperty.call(message, "deprecatedField")) {
                 properties._deprecatedField = 1;
-                switch (message.deprecatedField) {
-                default:
+                if (typeof message.deprecatedField !== "number" || (message.deprecatedField | 0) !== message.deprecatedField)
                     return "deprecatedField: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.parentPluginType != null && $Object.hasOwnProperty.call(message, "parentPluginType")) {
                 properties._parentPluginType = 1;
-                switch (message.parentPluginType) {
-                default:
+                if (typeof message.parentPluginType !== "number" || (message.parentPluginType | 0) !== message.parentPluginType)
                     return "parentPluginType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.faviconCdnUrl != null && $Object.hasOwnProperty.call(message, "faviconCdnUrl")) {
                 properties._faviconCdnUrl = 1;
@@ -141200,12 +139665,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotPluginMetadata();
             switch (object.provider) {
-            default:
-                if (typeof object.provider === "number") {
-                    message.provider = object.provider;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.provider = 0;
@@ -141222,14 +139681,11 @@ $root.AICommon = (function() {
             case 3:
                 message.provider = 3;
                 break;
+            default:
+                if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                    message.provider = object.provider;
             }
             switch (object.pluginType) {
-            default:
-                if (typeof object.pluginType === "number") {
-                    message.pluginType = object.pluginType;
-                    break;
-                }
-                break;
             case "UNKNOWN_PLUGIN":
             case 0:
                 message.pluginType = 0;
@@ -141242,6 +139698,9 @@ $root.AICommon = (function() {
             case 2:
                 message.pluginType = 2;
                 break;
+            default:
+                if (typeof object.pluginType === "number" && (object.pluginType | 0) === object.pluginType)
+                    message.pluginType = object.pluginType;
             }
             if (object.thumbnailCdnUrl != null)
                 message.thumbnailCdnUrl = $String(object.thumbnailCdnUrl);
@@ -141261,12 +139720,6 @@ $root.AICommon = (function() {
                 message.parentPluginMessageKey = $root.Protocol.MessageKey.fromObject(object.parentPluginMessageKey, _depth + 1);
             }
             switch (object.deprecatedField) {
-            default:
-                if (typeof object.deprecatedField === "number") {
-                    message.deprecatedField = object.deprecatedField;
-                    break;
-                }
-                break;
             case "UNKNOWN_PLUGIN":
             case 0:
                 message.deprecatedField = 0;
@@ -141279,14 +139732,11 @@ $root.AICommon = (function() {
             case 2:
                 message.deprecatedField = 2;
                 break;
+            default:
+                if (typeof object.deprecatedField === "number" && (object.deprecatedField | 0) === object.deprecatedField)
+                    message.deprecatedField = object.deprecatedField;
             }
             switch (object.parentPluginType) {
-            default:
-                if (typeof object.parentPluginType === "number") {
-                    message.parentPluginType = object.parentPluginType;
-                    break;
-                }
-                break;
             case "UNKNOWN_PLUGIN":
             case 0:
                 message.parentPluginType = 0;
@@ -141299,6 +139749,9 @@ $root.AICommon = (function() {
             case 2:
                 message.parentPluginType = 2;
                 break;
+            default:
+                if (typeof object.parentPluginType === "number" && (object.parentPluginType | 0) === object.parentPluginType)
+                    message.parentPluginType = object.parentPluginType;
             }
             if (object.faviconCdnUrl != null)
                 message.faviconCdnUrl = $String(object.faviconCdnUrl);
@@ -141383,7 +139836,7 @@ $root.AICommon = (function() {
          * @property {number} SEARCH=2 SEARCH value
          */
         BotPluginMetadata.PluginType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_PLUGIN"] = 0;
             values[valuesById[1] = "REELS"] = 1;
             values[valuesById[2] = "SEARCH"] = 2;
@@ -141400,7 +139853,7 @@ $root.AICommon = (function() {
          * @property {number} SUPPORT=3 SUPPORT value
          */
         BotPluginMetadata.SearchProvider = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "BING"] = 1;
             values[valuesById[2] = "GOOGLE"] = 2;
@@ -141419,7 +139872,7 @@ $root.AICommon = (function() {
      * @property {number} NY_AI_SAFETY_DISCLAIMER=1 NY_AI_SAFETY_DISCLAIMER value
      */
     AICommon.SessionTransparencyType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
         values[valuesById[1] = "NY_AI_SAFETY_DISCLAIMER"] = 1;
         return values;
@@ -141435,7 +139888,7 @@ $root.AICommon = (function() {
      * @property {number} VIDEO_GEN=3 VIDEO_GEN value
      */
     AICommon.AISubscriptionRequestType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNSPECIFIED"] = 0;
         values[valuesById[1] = "THINK_HARD"] = 1;
         values[valuesById[2] = "IMAGE_GEN"] = 2;
@@ -141457,7 +139910,7 @@ $root.AICommon = (function() {
      * @property {number} AI_HOME_SESSION=7 AI_HOME_SESSION value
      */
     AICommon.BotSessionSource = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "NONE"] = 0;
         values[valuesById[1] = "NULL_STATE"] = 1;
         values[valuesById[2] = "TYPEAHEAD"] = 2;
@@ -141480,7 +139933,7 @@ $root.AICommon = (function() {
      * @property {number} ASK_META_AI_CONTEXT_MENU_THREAD=5 ASK_META_AI_CONTEXT_MENU_THREAD value
      */
     AICommon.BotMetricsThreadEntryPoint = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[1] = "AI_TAB_THREAD"] = 1;
         values[valuesById[2] = "AI_HOME_THREAD"] = 2;
         values[valuesById[3] = "AI_DEEPLINK_IMMERSIVE_THREAD"] = 3;
@@ -141543,7 +139996,7 @@ $root.AICommon = (function() {
      * @property {number} NEW_CHAT_LIST=56 NEW_CHAT_LIST value
      */
     AICommon.BotMetricsEntryPoint = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNDEFINED_ENTRY_POINT"] = 0;
         values[valuesById[1] = "FAVICON"] = 1;
         values[valuesById[2] = "CHATLIST"] = 2;
@@ -141766,7 +140219,7 @@ $root.Adv = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -141853,14 +140306,8 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -141894,12 +140341,6 @@ $root.Adv = (function() {
                 else if (object.hmac.length >= 0)
                     message.hmac = object.hmac;
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.accountType = 0;
@@ -141912,6 +140353,9 @@ $root.Adv = (function() {
             case 2:
                 message.accountType = 2;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             return message;
         };
@@ -142541,7 +140985,7 @@ $root.Adv = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -142647,25 +141091,13 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType")) {
                 properties._deviceType = 1;
-                switch (message.deviceType) {
-                default:
+                if (typeof message.deviceType !== "number" || (message.deviceType | 0) !== message.deviceType)
                     return "deviceType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -142702,12 +141134,6 @@ $root.Adv = (function() {
             if (object.keyIndex != null)
                 message.keyIndex = object.keyIndex >>> 0;
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.accountType = 0;
@@ -142720,14 +141146,11 @@ $root.Adv = (function() {
             case 2:
                 message.accountType = 2;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             switch (object.deviceType) {
-            default:
-                if (typeof object.deviceType === "number") {
-                    message.deviceType = object.deviceType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.deviceType = 0;
@@ -142740,6 +141163,9 @@ $root.Adv = (function() {
             case 2:
                 message.deviceType = 2;
                 break;
+            default:
+                if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
+                    message.deviceType = object.deviceType;
             }
             return message;
         };
@@ -143341,7 +141767,7 @@ $root.Adv = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -143463,14 +141889,8 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -143514,12 +141934,6 @@ $root.Adv = (function() {
                     message.validIndexes[i] = object.validIndexes[i] >>> 0;
             }
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.accountType = 0;
@@ -143532,6 +141946,9 @@ $root.Adv = (function() {
             case 2:
                 message.accountType = 2;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             return message;
         };
@@ -143613,7 +142030,7 @@ $root.Adv = (function() {
      * @property {number} NON_E2EE=2 NON_E2EE value
      */
     Adv.ADVEncryptionType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "E2EE"] = 0;
         values[valuesById[1] = "HOSTED"] = 1;
         values[valuesById[2] = "NON_E2EE"] = 2;
@@ -145726,7 +144143,7 @@ $root.CompanionReg = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.CompanionEphemeralIdentity();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.CompanionEphemeralIdentity(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -145808,36 +144225,8 @@ $root.CompanionReg = (function() {
             }
             if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType")) {
                 properties._deviceType = 1;
-                switch (message.deviceType) {
-                default:
+                if (typeof message.deviceType !== "number" || (message.deviceType | 0) !== message.deviceType)
                     return "deviceType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                    break;
-                }
             }
             if (message.ref != null && $Object.hasOwnProperty.call(message, "ref")) {
                 properties._ref = 1;
@@ -145871,12 +144260,6 @@ $root.CompanionReg = (function() {
                 else if (object.publicKey.length >= 0)
                     message.publicKey = object.publicKey;
             switch (object.deviceType) {
-            default:
-                if (typeof object.deviceType === "number") {
-                    message.deviceType = object.deviceType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.deviceType = 0;
@@ -145977,6 +144360,9 @@ $root.CompanionReg = (function() {
             case 24:
                 message.deviceType = 24;
                 break;
+            default:
+                if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
+                    message.deviceType = object.deviceType;
             }
             if (object.ref != null)
                 message.ref = $String(object.ref);
@@ -146230,7 +144616,7 @@ $root.CompanionReg = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -146334,36 +144720,8 @@ $root.CompanionReg = (function() {
             }
             if (message.platformType != null && $Object.hasOwnProperty.call(message, "platformType")) {
                 properties._platformType = 1;
-                switch (message.platformType) {
-                default:
+                if (typeof message.platformType !== "number" || (message.platformType | 0) !== message.platformType)
                     return "platformType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                    break;
-                }
             }
             if (message.requireFullSync != null && $Object.hasOwnProperty.call(message, "requireFullSync")) {
                 properties._requireFullSync = 1;
@@ -146407,12 +144765,6 @@ $root.CompanionReg = (function() {
                 message.version = $root.CompanionReg.DeviceProps.AppVersion.fromObject(object.version, _depth + 1);
             }
             switch (object.platformType) {
-            default:
-                if (typeof object.platformType === "number") {
-                    message.platformType = object.platformType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.platformType = 0;
@@ -146513,6 +144865,9 @@ $root.CompanionReg = (function() {
             case 24:
                 message.platformType = 24;
                 break;
+            default:
+                if (typeof object.platformType === "number" && (object.platformType | 0) === object.platformType)
+                    message.platformType = object.platformType;
             }
             if (object.requireFullSync != null)
                 message.requireFullSync = $Boolean(object.requireFullSync);
@@ -148044,7 +146399,7 @@ $root.CompanionReg = (function() {
          * @property {number} SMARTGLASSES=24 SMARTGLASSES value
          */
         DeviceProps.PlatformType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHROME"] = 1;
             values[valuesById[2] = "FIREFOX"] = 2;
@@ -148531,7 +146886,7 @@ $root.MmsRetry = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -148625,15 +146980,8 @@ $root.MmsRetry = (function() {
             }
             if (message.result != null && $Object.hasOwnProperty.call(message, "result")) {
                 properties._result = 1;
-                switch (message.result) {
-                default:
+                if (typeof message.result !== "number" || (message.result | 0) !== message.result)
                     return "result: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.messageSecret != null && $Object.hasOwnProperty.call(message, "messageSecret")) {
                 properties._messageSecret = 1;
@@ -148666,12 +147014,6 @@ $root.MmsRetry = (function() {
             if (object.directPath != null)
                 message.directPath = $String(object.directPath);
             switch (object.result) {
-            default:
-                if (typeof object.result === "number") {
-                    message.result = object.result;
-                    break;
-                }
-                break;
             case "GENERAL_ERROR":
             case 0:
                 message.result = 0;
@@ -148688,6 +147030,9 @@ $root.MmsRetry = (function() {
             case 3:
                 message.result = 3;
                 break;
+            default:
+                if (typeof object.result === "number" && (object.result | 0) === object.result)
+                    message.result = object.result;
             }
             if (object.messageSecret != null)
                 if (typeof object.messageSecret === "string")
@@ -148760,7 +147105,7 @@ $root.MmsRetry = (function() {
          * @property {number} DECRYPTION_ERROR=3 DECRYPTION_ERROR value
          */
         MediaRetryNotification.ResultType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "GENERAL_ERROR"] = 0;
             values[valuesById[1] = "SUCCESS"] = 1;
             values[valuesById[2] = "NOT_FOUND"] = 2;

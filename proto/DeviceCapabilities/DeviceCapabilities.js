@@ -229,7 +229,7 @@ $root.DeviceCapabilities = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -327,14 +327,8 @@ $root.DeviceCapabilities = (function() {
             var properties = {};
             if (message.chatLockSupportLevel != null && $Object.hasOwnProperty.call(message, "chatLockSupportLevel")) {
                 properties._chatLockSupportLevel = 1;
-                switch (message.chatLockSupportLevel) {
-                default:
+                if (typeof message.chatLockSupportLevel !== "number" || (message.chatLockSupportLevel | 0) !== message.chatLockSupportLevel)
                     return "chatLockSupportLevel: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.lidMigration != null && $Object.hasOwnProperty.call(message, "lidMigration")) {
                 properties._lidMigration = 1;
@@ -362,14 +356,8 @@ $root.DeviceCapabilities = (function() {
             }
             if (message.memberNameTagPrimarySupport != null && $Object.hasOwnProperty.call(message, "memberNameTagPrimarySupport")) {
                 properties._memberNameTagPrimarySupport = 1;
-                switch (message.memberNameTagPrimarySupport) {
-                default:
+                if (typeof message.memberNameTagPrimarySupport !== "number" || (message.memberNameTagPrimarySupport | 0) !== message.memberNameTagPrimarySupport)
                     return "memberNameTagPrimarySupport: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.aiThread != null && $Object.hasOwnProperty.call(message, "aiThread")) {
                 properties._aiThread = 1;
@@ -401,12 +389,6 @@ $root.DeviceCapabilities = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.DeviceCapabilities.DeviceCapabilities();
             switch (object.chatLockSupportLevel) {
-            default:
-                if (typeof object.chatLockSupportLevel === "number") {
-                    message.chatLockSupportLevel = object.chatLockSupportLevel;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.chatLockSupportLevel = 0;
@@ -419,6 +401,9 @@ $root.DeviceCapabilities = (function() {
             case 2:
                 message.chatLockSupportLevel = 2;
                 break;
+            default:
+                if (typeof object.chatLockSupportLevel === "number" && (object.chatLockSupportLevel | 0) === object.chatLockSupportLevel)
+                    message.chatLockSupportLevel = object.chatLockSupportLevel;
             }
             if (object.lidMigration != null) {
                 if (!$util.isObject(object.lidMigration))
@@ -436,12 +421,6 @@ $root.DeviceCapabilities = (function() {
                 message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar, _depth + 1);
             }
             switch (object.memberNameTagPrimarySupport) {
-            default:
-                if (typeof object.memberNameTagPrimarySupport === "number") {
-                    message.memberNameTagPrimarySupport = object.memberNameTagPrimarySupport;
-                    break;
-                }
-                break;
             case "DISABLED":
             case 0:
                 message.memberNameTagPrimarySupport = 0;
@@ -454,6 +433,9 @@ $root.DeviceCapabilities = (function() {
             case 2:
                 message.memberNameTagPrimarySupport = 2;
                 break;
+            default:
+                if (typeof object.memberNameTagPrimarySupport === "number" && (object.memberNameTagPrimarySupport | 0) === object.memberNameTagPrimarySupport)
+                    message.memberNameTagPrimarySupport = object.memberNameTagPrimarySupport;
             }
             if (object.aiThread != null) {
                 if (!$util.isObject(object.aiThread))
@@ -645,7 +627,7 @@ $root.DeviceCapabilities = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiThread(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -708,14 +690,8 @@ $root.DeviceCapabilities = (function() {
                 var properties = {};
                 if (message.supportLevel != null && $Object.hasOwnProperty.call(message, "supportLevel")) {
                     properties._supportLevel = 1;
-                    switch (message.supportLevel) {
-                    default:
+                    if (typeof message.supportLevel !== "number" || (message.supportLevel | 0) !== message.supportLevel)
                         return "supportLevel: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -739,12 +715,6 @@ $root.DeviceCapabilities = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
                 switch (object.supportLevel) {
-                default:
-                    if (typeof object.supportLevel === "number") {
-                        message.supportLevel = object.supportLevel;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.supportLevel = 0;
@@ -757,6 +727,9 @@ $root.DeviceCapabilities = (function() {
                 case 2:
                     message.supportLevel = 2;
                     break;
+                default:
+                    if (typeof object.supportLevel === "number" && (object.supportLevel | 0) === object.supportLevel)
+                        message.supportLevel = object.supportLevel;
                 }
                 return message;
             };
@@ -817,7 +790,7 @@ $root.DeviceCapabilities = (function() {
              * @property {number} FULL=2 FULL value
              */
             AiThread.SupportLevel = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "INFRA"] = 1;
                 values[valuesById[2] = "FULL"] = 2;
@@ -1235,7 +1208,7 @@ $root.DeviceCapabilities = (function() {
          * @property {number} FULL=2 FULL value
          */
         DeviceCapabilities.ChatLockSupportLevel = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "MINIMAL"] = 1;
             values[valuesById[2] = "FULL"] = 2;
@@ -1530,7 +1503,7 @@ $root.DeviceCapabilities = (function() {
          * @property {number} SENDER_ENABLED=2 SENDER_ENABLED value
          */
         DeviceCapabilities.MemberNameTagPrimarySupport = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "DISABLED"] = 0;
             values[valuesById[1] = "RECEIVER_ENABLED"] = 1;
             values[valuesById[2] = "SENDER_ENABLED"] = 2;

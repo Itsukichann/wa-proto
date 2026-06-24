@@ -178,7 +178,7 @@ $root.Adv = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -265,14 +265,8 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -306,12 +300,6 @@ $root.Adv = (function() {
                 else if (object.hmac.length >= 0)
                     message.hmac = object.hmac;
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.accountType = 0;
@@ -324,6 +312,9 @@ $root.Adv = (function() {
             case 2:
                 message.accountType = 2;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             return message;
         };
@@ -953,7 +944,7 @@ $root.Adv = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -1059,25 +1050,13 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType")) {
                 properties._deviceType = 1;
-                switch (message.deviceType) {
-                default:
+                if (typeof message.deviceType !== "number" || (message.deviceType | 0) !== message.deviceType)
                     return "deviceType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -1114,12 +1093,6 @@ $root.Adv = (function() {
             if (object.keyIndex != null)
                 message.keyIndex = object.keyIndex >>> 0;
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.accountType = 0;
@@ -1132,14 +1105,11 @@ $root.Adv = (function() {
             case 2:
                 message.accountType = 2;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             switch (object.deviceType) {
-            default:
-                if (typeof object.deviceType === "number") {
-                    message.deviceType = object.deviceType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.deviceType = 0;
@@ -1152,6 +1122,9 @@ $root.Adv = (function() {
             case 2:
                 message.deviceType = 2;
                 break;
+            default:
+                if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
+                    message.deviceType = object.deviceType;
             }
             return message;
         };
@@ -1753,7 +1726,7 @@ $root.Adv = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -1875,14 +1848,8 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -1926,12 +1893,6 @@ $root.Adv = (function() {
                     message.validIndexes[i] = object.validIndexes[i] >>> 0;
             }
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "E2EE":
             case 0:
                 message.accountType = 0;
@@ -1944,6 +1905,9 @@ $root.Adv = (function() {
             case 2:
                 message.accountType = 2;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             return message;
         };
@@ -2025,7 +1989,7 @@ $root.Adv = (function() {
      * @property {number} NON_E2EE=2 NON_E2EE value
      */
     Adv.ADVEncryptionType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "E2EE"] = 0;
         values[valuesById[1] = "HOSTED"] = 1;
         values[valuesById[2] = "NON_E2EE"] = 2;

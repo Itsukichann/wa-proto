@@ -734,7 +734,7 @@ $root.Wa6 = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -1093,41 +1093,13 @@ $root.Wa6 = (function() {
             }
             if (message.connectType != null && $Object.hasOwnProperty.call(message, "connectType")) {
                 properties._connectType = 1;
-                switch (message.connectType) {
-                default:
+                if (typeof message.connectType !== "number" || (message.connectType | 0) !== message.connectType)
                     return "connectType: enum value expected";
-                case 0:
-                case 1:
-                case 100:
-                case 101:
-                case 102:
-                case 103:
-                case 104:
-                case 105:
-                case 106:
-                case 107:
-                case 108:
-                case 109:
-                case 110:
-                case 111:
-                case 112:
-                    break;
-                }
             }
             if (message.connectReason != null && $Object.hasOwnProperty.call(message, "connectReason")) {
                 properties._connectReason = 1;
-                switch (message.connectReason) {
-                default:
+                if (typeof message.connectReason !== "number" || (message.connectReason | 0) !== message.connectReason)
                     return "connectReason: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    break;
-                }
             }
             if (message.shards != null && $Object.hasOwnProperty.call(message, "shards")) {
                 if (!$Array.isArray(message.shards))
@@ -1164,16 +1136,8 @@ $root.Wa6 = (function() {
             }
             if (message.product != null && $Object.hasOwnProperty.call(message, "product")) {
                 properties._product = 1;
-                switch (message.product) {
-                default:
+                if (typeof message.product !== "number" || (message.product | 0) !== message.product)
                     return "product: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    break;
-                }
             }
             if (message.fbCat != null && $Object.hasOwnProperty.call(message, "fbCat")) {
                 properties._fbCat = 1;
@@ -1197,14 +1161,8 @@ $root.Wa6 = (function() {
             }
             if (message.iosAppExtension != null && $Object.hasOwnProperty.call(message, "iosAppExtension")) {
                 properties._iosAppExtension = 1;
-                switch (message.iosAppExtension) {
-                default:
+                if (typeof message.iosAppExtension !== "number" || (message.iosAppExtension | 0) !== message.iosAppExtension)
                     return "iosAppExtension: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.fbAppId != null && $Object.hasOwnProperty.call(message, "fbAppId")) {
                 properties._fbAppId = 1;
@@ -1246,13 +1204,8 @@ $root.Wa6 = (function() {
             }
             if (message.trafficAnonymization != null && $Object.hasOwnProperty.call(message, "trafficAnonymization")) {
                 properties._trafficAnonymization = 1;
-                switch (message.trafficAnonymization) {
-                default:
+                if (typeof message.trafficAnonymization !== "number" || (message.trafficAnonymization | 0) !== message.trafficAnonymization)
                     return "trafficAnonymization: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.lidDbMigrated != null && $Object.hasOwnProperty.call(message, "lidDbMigrated")) {
                 properties._lidDbMigrated = 1;
@@ -1261,13 +1214,8 @@ $root.Wa6 = (function() {
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.connectionSequenceInfo != null && $Object.hasOwnProperty.call(message, "connectionSequenceInfo")) {
                 properties._connectionSequenceInfo = 1;
@@ -1350,12 +1298,6 @@ $root.Wa6 = (function() {
             if (object.shortConnect != null)
                 message.shortConnect = $Boolean(object.shortConnect);
             switch (object.connectType) {
-            default:
-                if (typeof object.connectType === "number") {
-                    message.connectType = object.connectType;
-                    break;
-                }
-                break;
             case "CELLULAR_UNKNOWN":
             case 0:
                 message.connectType = 0;
@@ -1416,14 +1358,11 @@ $root.Wa6 = (function() {
             case 112:
                 message.connectType = 112;
                 break;
+            default:
+                if (typeof object.connectType === "number" && (object.connectType | 0) === object.connectType)
+                    message.connectType = object.connectType;
             }
             switch (object.connectReason) {
-            default:
-                if (typeof object.connectReason === "number") {
-                    message.connectReason = object.connectReason;
-                    break;
-                }
-                break;
             case "PUSH":
             case 0:
                 message.connectReason = 0;
@@ -1452,6 +1391,9 @@ $root.Wa6 = (function() {
             case 6:
                 message.connectReason = 6;
                 break;
+            default:
+                if (typeof object.connectReason === "number" && (object.connectReason | 0) === object.connectReason)
+                    message.connectReason = object.connectReason;
             }
             if (object.shards) {
                 if (!$Array.isArray(object.shards))
@@ -1475,12 +1417,6 @@ $root.Wa6 = (function() {
                 message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.fromObject(object.devicePairingData, _depth + 1);
             }
             switch (object.product) {
-            default:
-                if (typeof object.product === "number") {
-                    message.product = object.product;
-                    break;
-                }
-                break;
             case "WHATSAPP":
             case 0:
                 message.product = 0;
@@ -1501,6 +1437,9 @@ $root.Wa6 = (function() {
             case 4:
                 message.product = 4;
                 break;
+            default:
+                if (typeof object.product === "number" && (object.product | 0) === object.product)
+                    message.product = object.product;
             }
             if (object.fbCat != null)
                 if (typeof object.fbCat === "string")
@@ -1517,12 +1456,6 @@ $root.Wa6 = (function() {
             if (object.lc != null)
                 message.lc = object.lc | 0;
             switch (object.iosAppExtension) {
-            default:
-                if (typeof object.iosAppExtension === "number") {
-                    message.iosAppExtension = object.iosAppExtension;
-                    break;
-                }
-                break;
             case "SHARE_EXTENSION":
             case 0:
                 message.iosAppExtension = 0;
@@ -1535,6 +1468,9 @@ $root.Wa6 = (function() {
             case 2:
                 message.iosAppExtension = 2;
                 break;
+            default:
+                if (typeof object.iosAppExtension === "number" && (object.iosAppExtension | 0) === object.iosAppExtension)
+                    message.iosAppExtension = object.iosAppExtension;
             }
             if (object.fbAppId != null)
                 if ($util.Long)
@@ -1567,12 +1503,6 @@ $root.Wa6 = (function() {
                 message.interopData = $root.Wa6.ClientPayload.InteropData.fromObject(object.interopData, _depth + 1);
             }
             switch (object.trafficAnonymization) {
-            default:
-                if (typeof object.trafficAnonymization === "number") {
-                    message.trafficAnonymization = object.trafficAnonymization;
-                    break;
-                }
-                break;
             case "OFF":
             case 0:
                 message.trafficAnonymization = 0;
@@ -1581,16 +1511,13 @@ $root.Wa6 = (function() {
             case 1:
                 message.trafficAnonymization = 1;
                 break;
+            default:
+                if (typeof object.trafficAnonymization === "number" && (object.trafficAnonymization | 0) === object.trafficAnonymization)
+                    message.trafficAnonymization = object.trafficAnonymization;
             }
             if (object.lidDbMigrated != null)
                 message.lidDbMigrated = $Boolean(object.lidDbMigrated);
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "DEFAULT":
             case 0:
                 message.accountType = 0;
@@ -1599,6 +1526,9 @@ $root.Wa6 = (function() {
             case 1:
                 message.accountType = 1;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             if (object.connectionSequenceInfo != null)
                 message.connectionSequenceInfo = object.connectionSequenceInfo | 0;
@@ -1768,7 +1698,7 @@ $root.Wa6 = (function() {
          * @property {number} GUEST=1 GUEST value
          */
         ClientPayload.AccountType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "DEFAULT"] = 0;
             values[valuesById[1] = "GUEST"] = 1;
             return values;
@@ -1787,7 +1717,7 @@ $root.Wa6 = (function() {
          * @property {number} UNKNOWN=6 UNKNOWN value
          */
         ClientPayload.ConnectReason = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "PUSH"] = 0;
             values[valuesById[1] = "USER_ACTIVATED"] = 1;
             values[valuesById[2] = "SCHEDULED"] = 2;
@@ -1819,7 +1749,7 @@ $root.Wa6 = (function() {
          * @property {number} CELLULAR_HSPAP=112 CELLULAR_HSPAP value
          */
         ClientPayload.ConnectType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "CELLULAR_UNKNOWN"] = 0;
             values[valuesById[1] = "WIFI_UNKNOWN"] = 1;
             values[valuesById[100] = "CELLULAR_EDGE"] = 100;
@@ -1980,7 +1910,7 @@ $root.Wa6 = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.DNSSource();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.DNSSource(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -2050,19 +1980,8 @@ $root.Wa6 = (function() {
                 var properties = {};
                 if (message.dnsMethod != null && $Object.hasOwnProperty.call(message, "dnsMethod")) {
                     properties._dnsMethod = 1;
-                    switch (message.dnsMethod) {
-                    default:
+                    if (typeof message.dnsMethod !== "number" || (message.dnsMethod | 0) !== message.dnsMethod)
                         return "dnsMethod: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                        break;
-                    }
                 }
                 if (message.appCached != null && $Object.hasOwnProperty.call(message, "appCached")) {
                     properties._appCached = 1;
@@ -2091,12 +2010,6 @@ $root.Wa6 = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.DNSSource();
                 switch (object.dnsMethod) {
-                default:
-                    if (typeof object.dnsMethod === "number") {
-                        message.dnsMethod = object.dnsMethod;
-                        break;
-                    }
-                    break;
                 case "SYSTEM":
                 case 0:
                     message.dnsMethod = 0;
@@ -2129,6 +2042,9 @@ $root.Wa6 = (function() {
                 case 7:
                     message.dnsMethod = 7;
                     break;
+                default:
+                    if (typeof object.dnsMethod === "number" && (object.dnsMethod | 0) === object.dnsMethod)
+                        message.dnsMethod = object.dnsMethod;
                 }
                 if (object.appCached != null)
                     message.appCached = $Boolean(object.appCached);
@@ -2198,7 +2114,7 @@ $root.Wa6 = (function() {
              * @property {number} SOCKS_PROXY=7 SOCKS_PROXY value
              */
             DNSSource.DNSResolutionMethod = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "SYSTEM"] = 0;
                 values[valuesById[1] = "GOOGLE"] = 1;
                 values[valuesById[2] = "HARDCODED"] = 2;
@@ -2744,7 +2660,7 @@ $root.Wa6 = (function() {
          * @property {number} INTENTS_EXTENSION=2 INTENTS_EXTENSION value
          */
         ClientPayload.IOSAppExtension = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "SHARE_EXTENSION"] = 0;
             values[valuesById[1] = "SERVICE_EXTENSION"] = 1;
             values[valuesById[2] = "INTENTS_EXTENSION"] = 2;
@@ -3110,7 +3026,7 @@ $root.Wa6 = (function() {
          * @property {number} WHATSAPP_LID=4 WHATSAPP_LID value
          */
         ClientPayload.Product = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "WHATSAPP"] = 0;
             values[valuesById[1] = "MESSENGER"] = 1;
             values[valuesById[2] = "INTEROP"] = 2;
@@ -3127,7 +3043,7 @@ $root.Wa6 = (function() {
          * @property {number} STANDARD=1 STANDARD value
          */
         ClientPayload.TrafficAnonymization = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "OFF"] = 0;
             values[valuesById[1] = "STANDARD"] = 1;
             return values;
@@ -3530,7 +3446,7 @@ $root.Wa6 = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.UserAgent();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.UserAgent(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -3705,49 +3621,8 @@ $root.Wa6 = (function() {
                 var properties = {};
                 if (message.platform != null && $Object.hasOwnProperty.call(message, "platform")) {
                     properties._platform = 1;
-                    switch (message.platform) {
-                    default:
+                    if (typeof message.platform !== "number" || (message.platform | 0) !== message.platform)
                         return "platform: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                    case 15:
-                    case 16:
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                    case 25:
-                    case 26:
-                    case 27:
-                    case 28:
-                    case 29:
-                    case 30:
-                    case 31:
-                    case 32:
-                    case 33:
-                    case 34:
-                    case 35:
-                    case 36:
-                    case 37:
-                        break;
-                    }
                 }
                 if (message.appVersion != null && $Object.hasOwnProperty.call(message, "appVersion")) {
                     properties._appVersion = 1;
@@ -3794,15 +3669,8 @@ $root.Wa6 = (function() {
                 }
                 if (message.releaseChannel != null && $Object.hasOwnProperty.call(message, "releaseChannel")) {
                     properties._releaseChannel = 1;
-                    switch (message.releaseChannel) {
-                    default:
+                    if (typeof message.releaseChannel !== "number" || (message.releaseChannel | 0) !== message.releaseChannel)
                         return "releaseChannel: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.localeLanguageIso6391 != null && $Object.hasOwnProperty.call(message, "localeLanguageIso6391")) {
                     properties._localeLanguageIso6391 = 1;
@@ -3826,16 +3694,8 @@ $root.Wa6 = (function() {
                 }
                 if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType")) {
                     properties._deviceType = 1;
-                    switch (message.deviceType) {
-                    default:
+                    if (typeof message.deviceType !== "number" || (message.deviceType | 0) !== message.deviceType)
                         return "deviceType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
                 }
                 if (message.deviceModelType != null && $Object.hasOwnProperty.call(message, "deviceModelType")) {
                     properties._deviceModelType = 1;
@@ -3844,15 +3704,8 @@ $root.Wa6 = (function() {
                 }
                 if (message.distributionChannel != null && $Object.hasOwnProperty.call(message, "distributionChannel")) {
                     properties._distributionChannel = 1;
-                    switch (message.distributionChannel) {
-                    default:
+                    if (typeof message.distributionChannel !== "number" || (message.distributionChannel | 0) !== message.distributionChannel)
                         return "distributionChannel: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -3876,12 +3729,6 @@ $root.Wa6 = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.UserAgent();
                 switch (object.platform) {
-                default:
-                    if (typeof object.platform === "number") {
-                        message.platform = object.platform;
-                        break;
-                    }
-                    break;
                 case "ANDROID":
                 case 0:
                     message.platform = 0;
@@ -4034,6 +3881,9 @@ $root.Wa6 = (function() {
                 case 37:
                     message.platform = 37;
                     break;
+                default:
+                    if (typeof object.platform === "number" && (object.platform | 0) === object.platform)
+                        message.platform = object.platform;
                 }
                 if (object.appVersion != null) {
                     if (!$util.isObject(object.appVersion))
@@ -4055,12 +3905,6 @@ $root.Wa6 = (function() {
                 if (object.phoneId != null)
                     message.phoneId = $String(object.phoneId);
                 switch (object.releaseChannel) {
-                default:
-                    if (typeof object.releaseChannel === "number") {
-                        message.releaseChannel = object.releaseChannel;
-                        break;
-                    }
-                    break;
                 case "RELEASE":
                 case 0:
                     message.releaseChannel = 0;
@@ -4077,6 +3921,9 @@ $root.Wa6 = (function() {
                 case 3:
                     message.releaseChannel = 3;
                     break;
+                default:
+                    if (typeof object.releaseChannel === "number" && (object.releaseChannel | 0) === object.releaseChannel)
+                        message.releaseChannel = object.releaseChannel;
                 }
                 if (object.localeLanguageIso6391 != null)
                     message.localeLanguageIso6391 = $String(object.localeLanguageIso6391);
@@ -4087,12 +3934,6 @@ $root.Wa6 = (function() {
                 if (object.deviceExpId != null)
                     message.deviceExpId = $String(object.deviceExpId);
                 switch (object.deviceType) {
-                default:
-                    if (typeof object.deviceType === "number") {
-                        message.deviceType = object.deviceType;
-                        break;
-                    }
-                    break;
                 case "PHONE":
                 case 0:
                     message.deviceType = 0;
@@ -4113,16 +3954,13 @@ $root.Wa6 = (function() {
                 case 4:
                     message.deviceType = 4;
                     break;
+                default:
+                    if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
+                        message.deviceType = object.deviceType;
                 }
                 if (object.deviceModelType != null)
                     message.deviceModelType = $String(object.deviceModelType);
                 switch (object.distributionChannel) {
-                default:
-                    if (typeof object.distributionChannel === "number") {
-                        message.distributionChannel = object.distributionChannel;
-                        break;
-                    }
-                    break;
                 case "APPSTORE":
                 case 0:
                     message.distributionChannel = 0;
@@ -4139,6 +3977,9 @@ $root.Wa6 = (function() {
                 case 3:
                     message.distributionChannel = 3;
                     break;
+                default:
+                    if (typeof object.distributionChannel === "number" && (object.distributionChannel | 0) === object.distributionChannel)
+                        message.distributionChannel = object.distributionChannel;
                 }
                 return message;
             };
@@ -4632,7 +4473,7 @@ $root.Wa6 = (function() {
              * @property {number} VR=4 VR value
              */
             UserAgent.DeviceType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "PHONE"] = 0;
                 values[valuesById[1] = "TABLET"] = 1;
                 values[valuesById[2] = "DESKTOP"] = 2;
@@ -4651,7 +4492,7 @@ $root.Wa6 = (function() {
              * @property {number} INTERNAL=3 INTERNAL value
              */
             UserAgent.DistributionChannel = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "APPSTORE"] = 0;
                 values[valuesById[1] = "WEBSITE"] = 1;
                 values[valuesById[2] = "TESTFLIGHT"] = 2;
@@ -4703,7 +4544,7 @@ $root.Wa6 = (function() {
              * @property {number} AR_WRIST=37 AR_WRIST value
              */
             UserAgent.Platform = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "ANDROID"] = 0;
                 values[valuesById[1] = "IOS"] = 1;
                 values[valuesById[2] = "WINDOWS_PHONE"] = 2;
@@ -4755,7 +4596,7 @@ $root.Wa6 = (function() {
              * @property {number} DEBUG=3 DEBUG value
              */
             UserAgent.ReleaseChannel = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "RELEASE"] = 0;
                 values[valuesById[1] = "BETA"] = 1;
                 values[valuesById[2] = "ALPHA"] = 2;
@@ -4976,7 +4817,7 @@ $root.Wa6 = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.WebInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.WebInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -5092,17 +4933,8 @@ $root.Wa6 = (function() {
                 }
                 if (message.webSubPlatform != null && $Object.hasOwnProperty.call(message, "webSubPlatform")) {
                     properties._webSubPlatform = 1;
-                    switch (message.webSubPlatform) {
-                    default:
+                    if (typeof message.webSubPlatform !== "number" || (message.webSubPlatform | 0) !== message.webSubPlatform)
                         return "webSubPlatform: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.browser != null && $Object.hasOwnProperty.call(message, "browser")) {
                     properties._browser = 1;
@@ -5145,12 +4977,6 @@ $root.Wa6 = (function() {
                     message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.fromObject(object.webdPayload, _depth + 1);
                 }
                 switch (object.webSubPlatform) {
-                default:
-                    if (typeof object.webSubPlatform === "number") {
-                        message.webSubPlatform = object.webSubPlatform;
-                        break;
-                    }
-                    break;
                 case "WEB_BROWSER":
                 case 0:
                     message.webSubPlatform = 0;
@@ -5175,6 +5001,9 @@ $root.Wa6 = (function() {
                 case 5:
                     message.webSubPlatform = 5;
                     break;
+                default:
+                    if (typeof object.webSubPlatform === "number" && (object.webSubPlatform | 0) === object.webSubPlatform)
+                        message.webSubPlatform = object.webSubPlatform;
                 }
                 if (object.browser != null)
                     message.browser = $String(object.browser);
@@ -5252,7 +5081,7 @@ $root.Wa6 = (function() {
              * @property {number} WIN_HYBRID=5 WIN_HYBRID value
              */
             WebInfo.WebSubPlatform = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "WEB_BROWSER"] = 0;
                 values[valuesById[1] = "APP_STORE"] = 1;
                 values[valuesById[2] = "WIN_STORE"] = 2;
@@ -6905,7 +6734,7 @@ $root.Wa6 = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.HandshakeMessage.ClientHello();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.HandshakeMessage.ClientHello(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -7071,20 +6900,8 @@ $root.Wa6 = (function() {
                 }
                 if (message.pqMode != null && $Object.hasOwnProperty.call(message, "pqMode")) {
                     properties._pqMode = 1;
-                    switch (message.pqMode) {
-                    default:
+                    if (typeof message.pqMode !== "number" || (message.pqMode | 0) !== message.pqMode)
                         return "pqMode: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                        break;
-                    }
                 }
                 if (message.extendedEphemeral != null && $Object.hasOwnProperty.call(message, "extendedEphemeral")) {
                     properties._extendedEphemeral = 1;
@@ -7144,12 +6961,6 @@ $root.Wa6 = (function() {
                 if (object.simulateXxkemFs != null)
                     message.simulateXxkemFs = $Boolean(object.simulateXxkemFs);
                 switch (object.pqMode) {
-                default:
-                    if (typeof object.pqMode === "number") {
-                        message.pqMode = object.pqMode;
-                        break;
-                    }
-                    break;
                 case "HANDSHAKE_PQ_MODE_UNKNOWN":
                 case 0:
                     message.pqMode = 0;
@@ -7186,6 +6997,9 @@ $root.Wa6 = (function() {
                 case 8:
                     message.pqMode = 8;
                     break;
+                default:
+                    if (typeof object.pqMode === "number" && (object.pqMode | 0) === object.pqMode)
+                        message.pqMode = object.pqMode;
                 }
                 if (object.extendedEphemeral != null)
                     if (typeof object.extendedEphemeral === "string")
@@ -7278,7 +7092,7 @@ $root.Wa6 = (function() {
          * @property {number} IKKEM_2=8 IKKEM_2 value
          */
         HandshakeMessage.HandshakePqMode = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "HANDSHAKE_PQ_MODE_UNKNOWN"] = 0;
             values[valuesById[1] = "XXKEM"] = 1;
             values[valuesById[2] = "XXKEM_FS"] = 2;

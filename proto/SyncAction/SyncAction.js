@@ -314,7 +314,7 @@ $root.SyncAction = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.PatchDebugData();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.PatchDebugData(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -492,23 +492,8 @@ $root.SyncAction = (function() {
             }
             if (message.senderPlatform != null && $Object.hasOwnProperty.call(message, "senderPlatform")) {
                 properties._senderPlatform = 1;
-                switch (message.senderPlatform) {
-                default:
+                if (typeof message.senderPlatform !== "number" || (message.senderPlatform | 0) !== message.senderPlatform)
                     return "senderPlatform: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                    break;
-                }
             }
             if (message.isSenderPrimary != null && $Object.hasOwnProperty.call(message, "isSenderPrimary")) {
                 properties._isSenderPrimary = 1;
@@ -573,12 +558,6 @@ $root.SyncAction = (function() {
             if (object.numberOverride != null)
                 message.numberOverride = object.numberOverride | 0;
             switch (object.senderPlatform) {
-            default:
-                if (typeof object.senderPlatform === "number") {
-                    message.senderPlatform = object.senderPlatform;
-                    break;
-                }
-                break;
             case "ANDROID":
             case 0:
                 message.senderPlatform = 0;
@@ -627,6 +606,9 @@ $root.SyncAction = (function() {
             case 11:
                 message.senderPlatform = 11;
                 break;
+            default:
+                if (typeof object.senderPlatform === "number" && (object.senderPlatform | 0) === object.senderPlatform)
+                    message.senderPlatform = object.senderPlatform;
             }
             if (object.isSenderPrimary != null)
                 message.isSenderPrimary = $Boolean(object.isSenderPrimary);
@@ -718,7 +700,7 @@ $root.SyncAction = (function() {
          * @property {number} CAPI=11 CAPI value
          */
         PatchDebugData.Platform = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "ANDROID"] = 0;
             values[valuesById[1] = "SMBA"] = 1;
             values[valuesById[2] = "IPHONE"] = 2;
@@ -6138,7 +6120,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.AvatarUpdatedAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.AvatarUpdatedAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -6209,14 +6191,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.eventType != null && $Object.hasOwnProperty.call(message, "eventType")) {
                     properties._eventType = 1;
-                    switch (message.eventType) {
-                    default:
+                    if (typeof message.eventType !== "number" || (message.eventType | 0) !== message.eventType)
                         return "eventType: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.recentAvatarStickers != null && $Object.hasOwnProperty.call(message, "recentAvatarStickers")) {
                     if (!$Array.isArray(message.recentAvatarStickers))
@@ -6249,12 +6225,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.AvatarUpdatedAction();
                 switch (object.eventType) {
-                default:
-                    if (typeof object.eventType === "number") {
-                        message.eventType = object.eventType;
-                        break;
-                    }
-                    break;
                 case "UPDATED":
                 case 0:
                     message.eventType = 0;
@@ -6267,6 +6237,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.eventType = 2;
                     break;
+                default:
+                    if (typeof object.eventType === "number" && (object.eventType | 0) === object.eventType)
+                        message.eventType = object.eventType;
                 }
                 if (object.recentAvatarStickers) {
                     if (!$Array.isArray(object.recentAvatarStickers))
@@ -6344,7 +6317,7 @@ $root.SyncAction = (function() {
              * @property {number} DELETED=2 DELETED value
              */
             AvatarUpdatedAction.AvatarEventType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UPDATED"] = 0;
                 values[valuesById[1] = "CREATED"] = 1;
                 values[valuesById[2] = "DELETED"] = 2;
@@ -6513,7 +6486,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -6590,17 +6563,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.category != null && $Object.hasOwnProperty.call(message, "category")) {
                     properties._category = 1;
-                    switch (message.category) {
-                    default:
+                    if (typeof message.category !== "number" || (message.category | 0) !== message.category)
                         return "category: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
                     properties._version = 1;
@@ -6634,12 +6598,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction();
                 switch (object.category) {
-                default:
-                    if (typeof object.category === "number") {
-                        message.category = object.category;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.category = 0;
@@ -6664,6 +6622,9 @@ $root.SyncAction = (function() {
                 case 5:
                     message.category = 5;
                     break;
+                default:
+                    if (typeof object.category === "number" && (object.category | 0) === object.category)
+                        message.category = object.category;
                 }
                 if (object.version != null)
                     if ($util.Long)
@@ -6759,7 +6720,7 @@ $root.SyncAction = (function() {
              * @property {number} LEAD_GEN=5 LEAD_GEN value
              */
             BizAISettingsNudgeAction.BizAISettingsCategory = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "INSTRUCTIONS"] = 1;
                 values[valuesById[2] = "RESPONSE_SETTINGS"] = 2;
@@ -7867,7 +7828,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -8026,16 +7987,8 @@ $root.SyncAction = (function() {
                 }
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -8089,12 +8042,6 @@ $root.SyncAction = (function() {
                     else if (typeof object.createTimestamp === "object")
                         message.createTimestamp = new $util.LongBits(object.createTimestamp.low >>> 0, object.createTimestamp.high >>> 0).toNumber();
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "DRAFT":
                 case 1:
                     message.status = 1;
@@ -8115,6 +8062,9 @@ $root.SyncAction = (function() {
                 case 5:
                     message.status = 5;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 return message;
             };
@@ -8206,7 +8156,7 @@ $root.SyncAction = (function() {
          * @property {number} SENT=5 SENT value
          */
         SyncActionValue.BusinessBroadcastCampaignStatus = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "DRAFT"] = 1;
             values[valuesById[2] = "SCHEDULED"] = 2;
             values[valuesById[3] = "PROCESSING"] = 3;
@@ -14801,7 +14751,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.InteractiveMessageAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.InteractiveMessageAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -14871,12 +14821,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.agmId != null && $Object.hasOwnProperty.call(message, "agmId")) {
                     properties._agmId = 1;
@@ -14905,16 +14851,13 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.InteractiveMessageAction();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "DISABLE_CTA":
                 case 1:
                     message.type = 1;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.agmId != null)
                     message.agmId = $String(object.agmId);
@@ -14977,7 +14920,7 @@ $root.SyncAction = (function() {
              * @property {number} DISABLE_CTA=1 DISABLE_CTA value
              */
             InteractiveMessageAction.InteractiveMessageActionMode = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "DISABLE_CTA"] = 1;
                 return values;
             })();
@@ -15813,7 +15756,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.LabelEditAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.LabelEditAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -15962,27 +15905,8 @@ $root.SyncAction = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                    case 15:
-                        break;
-                    }
                 }
                 if (message.isImmutable != null && $Object.hasOwnProperty.call(message, "isImmutable")) {
                     properties._isImmutable = 1;
@@ -16028,12 +15952,6 @@ $root.SyncAction = (function() {
                 if (object.isActive != null)
                     message.isActive = $Boolean(object.isActive);
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.type = 0;
@@ -16098,6 +16016,9 @@ $root.SyncAction = (function() {
                 case 15:
                     message.type = 15;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.isImmutable != null)
                     message.isImmutable = $Boolean(object.isImmutable);
@@ -16203,7 +16124,7 @@ $root.SyncAction = (function() {
              * @property {number} THIRD_PARTY=15 THIRD_PARTY value
              */
             LabelEditAction.ListType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "UNREAD"] = 1;
                 values[valuesById[2] = "GROUPS"] = 2;
@@ -17518,7 +17439,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17588,25 +17509,13 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.aiFeatureStatus != null && $Object.hasOwnProperty.call(message, "aiFeatureStatus")) {
                     properties._aiFeatureStatus = 1;
-                    switch (message.aiFeatureStatus) {
-                    default:
+                    if (typeof message.aiFeatureStatus !== "number" || (message.aiFeatureStatus | 0) !== message.aiFeatureStatus)
                         return "aiFeatureStatus: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.aiReplyMode != null && $Object.hasOwnProperty.call(message, "aiReplyMode")) {
                     properties._aiReplyMode = 1;
-                    switch (message.aiReplyMode) {
-                    default:
+                    if (typeof message.aiReplyMode !== "number" || (message.aiReplyMode | 0) !== message.aiReplyMode)
                         return "aiReplyMode: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -17630,12 +17539,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction();
                 switch (object.aiFeatureStatus) {
-                default:
-                    if (typeof object.aiFeatureStatus === "number") {
-                        message.aiFeatureStatus = object.aiFeatureStatus;
-                        break;
-                    }
-                    break;
                 case "ENABLED":
                 case 0:
                     message.aiFeatureStatus = 0;
@@ -17648,14 +17551,11 @@ $root.SyncAction = (function() {
                 case 2:
                     message.aiFeatureStatus = 2;
                     break;
+                default:
+                    if (typeof object.aiFeatureStatus === "number" && (object.aiFeatureStatus | 0) === object.aiFeatureStatus)
+                        message.aiFeatureStatus = object.aiFeatureStatus;
                 }
                 switch (object.aiReplyMode) {
-                default:
-                    if (typeof object.aiReplyMode === "number") {
-                        message.aiReplyMode = object.aiReplyMode;
-                        break;
-                    }
-                    break;
                 case "MUTED":
                 case 0:
                     message.aiReplyMode = 0;
@@ -17668,6 +17568,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.aiReplyMode = 2;
                     break;
+                default:
+                    if (typeof object.aiReplyMode === "number" && (object.aiReplyMode | 0) === object.aiReplyMode)
+                        message.aiReplyMode = object.aiReplyMode;
                 }
                 return message;
             };
@@ -17730,7 +17633,7 @@ $root.SyncAction = (function() {
              * @property {number} DISABLED=2 DISABLED value
              */
             MaibaAIFeaturesControlAction.MaibaAIFeatureStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "ENABLED"] = 0;
                 values[valuesById[1] = "ENABLED_HAS_LEARNING"] = 1;
                 values[valuesById[2] = "DISABLED"] = 2;
@@ -17746,7 +17649,7 @@ $root.SyncAction = (function() {
              * @property {number} SUGGESTIONS=2 SUGGESTIONS value
              */
             MaibaAIFeaturesControlAction.MaibaAIReplyMode = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "MUTED"] = 0;
                 values[valuesById[1] = "AI_AGENT"] = 1;
                 values[valuesById[2] = "SUGGESTIONS"] = 2;
@@ -18289,7 +18192,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.MarketingMessageAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.MarketingMessageAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -18404,12 +18307,8 @@ $root.SyncAction = (function() {
                 }
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                        break;
-                    }
                 }
                 if (message.createdAt != null && $Object.hasOwnProperty.call(message, "createdAt")) {
                     properties._createdAt = 1;
@@ -18457,16 +18356,13 @@ $root.SyncAction = (function() {
                 if (object.message != null)
                     message.message = $String(object.message);
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "PERSONALIZED":
                 case 0:
                     message.type = 0;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.createdAt != null)
                     if ($util.Long)
@@ -18569,7 +18465,7 @@ $root.SyncAction = (function() {
              * @property {number} PERSONALIZED=0 PERSONALIZED value
              */
             MarketingMessageAction.MarketingMessagePrototypeType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "PERSONALIZED"] = 0;
                 return values;
             })();
@@ -19020,7 +18916,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -19104,13 +19000,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.country != null && $Object.hasOwnProperty.call(message, "country")) {
                     properties._country = 1;
@@ -19149,12 +19040,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction();
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "ACTIVE":
                 case 0:
                     message.status = 0;
@@ -19163,6 +19048,9 @@ $root.SyncAction = (function() {
                 case 1:
                     message.status = 1;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 if (object.country != null)
                     message.country = $String(object.country);
@@ -19234,7 +19122,7 @@ $root.SyncAction = (function() {
              * @property {number} INACTIVE=1 INACTIVE value
              */
             MerchantPaymentPartnerAction.Status = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "ACTIVE"] = 0;
                 values[valuesById[1] = "INACTIVE"] = 1;
                 return values;
@@ -20702,7 +20590,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.NoteEditAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.NoteEditAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -20793,13 +20681,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.chatJid != null && $Object.hasOwnProperty.call(message, "chatJid")) {
                     properties._chatJid = 1;
@@ -20843,12 +20726,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.NoteEditAction();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNSTRUCTURED":
                 case 1:
                     message.type = 1;
@@ -20857,6 +20734,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.type = 2;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.chatJid != null)
                     message.chatJid = $String(object.chatJid);
@@ -20944,7 +20824,7 @@ $root.SyncAction = (function() {
              * @property {number} STRUCTURED=2 STRUCTURED value
              */
             NoteEditAction.NoteType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "UNSTRUCTURED"] = 1;
                 values[valuesById[2] = "STRUCTURED"] = 2;
                 return values;
@@ -21078,7 +20958,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.NotificationActivitySettingAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.NotificationActivitySettingAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -21141,15 +21021,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.notificationActivitySetting != null && $Object.hasOwnProperty.call(message, "notificationActivitySetting")) {
                     properties._notificationActivitySetting = 1;
-                    switch (message.notificationActivitySetting) {
-                    default:
+                    if (typeof message.notificationActivitySetting !== "number" || (message.notificationActivitySetting | 0) !== message.notificationActivitySetting)
                         return "notificationActivitySetting: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -21173,12 +21046,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.NotificationActivitySettingAction();
                 switch (object.notificationActivitySetting) {
-                default:
-                    if (typeof object.notificationActivitySetting === "number") {
-                        message.notificationActivitySetting = object.notificationActivitySetting;
-                        break;
-                    }
-                    break;
                 case "DEFAULT_ALL_MESSAGES":
                 case 0:
                     message.notificationActivitySetting = 0;
@@ -21195,6 +21062,9 @@ $root.SyncAction = (function() {
                 case 3:
                     message.notificationActivitySetting = 3;
                     break;
+                default:
+                    if (typeof object.notificationActivitySetting === "number" && (object.notificationActivitySetting | 0) === object.notificationActivitySetting)
+                        message.notificationActivitySetting = object.notificationActivitySetting;
                 }
                 return message;
             };
@@ -21256,7 +21126,7 @@ $root.SyncAction = (function() {
              * @property {number} DEFAULT_HIGHLIGHTS=3 DEFAULT_HIGHLIGHTS value
              */
             NotificationActivitySettingAction.NotificationActivitySetting = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "DEFAULT_ALL_MESSAGES"] = 0;
                 values[valuesById[1] = "ALL_MESSAGES"] = 1;
                 values[valuesById[2] = "HIGHLIGHTS"] = 2;
@@ -22243,7 +22113,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.PaymentTosAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.PaymentTosAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -22313,12 +22183,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.paymentNotice != null && $Object.hasOwnProperty.call(message, "paymentNotice")) {
                     properties._paymentNotice = 1;
-                    switch (message.paymentNotice) {
-                    default:
+                    if (typeof message.paymentNotice !== "number" || (message.paymentNotice | 0) !== message.paymentNotice)
                         return "paymentNotice: enum value expected";
-                    case 0:
-                        break;
-                    }
                 }
                 if (message.accepted != null && $Object.hasOwnProperty.call(message, "accepted")) {
                     properties._accepted = 1;
@@ -22347,16 +22213,13 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.PaymentTosAction();
                 switch (object.paymentNotice) {
-                default:
-                    if (typeof object.paymentNotice === "number") {
-                        message.paymentNotice = object.paymentNotice;
-                        break;
-                    }
-                    break;
                 case "BR_PAY_PRIVACY_POLICY":
                 case 0:
                     message.paymentNotice = 0;
                     break;
+                default:
+                    if (typeof object.paymentNotice === "number" && (object.paymentNotice | 0) === object.paymentNotice)
+                        message.paymentNotice = object.paymentNotice;
                 }
                 if (object.accepted != null)
                     message.accepted = $Boolean(object.accepted);
@@ -22419,7 +22282,7 @@ $root.SyncAction = (function() {
              * @property {number} BR_PAY_PRIVACY_POLICY=0 BR_PAY_PRIVACY_POLICY value
              */
             PaymentTosAction.PaymentNotice = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "BR_PAY_PRIVACY_POLICY"] = 0;
                 return values;
             })();
@@ -24426,7 +24289,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -24489,14 +24352,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.privateProcessingStatus != null && $Object.hasOwnProperty.call(message, "privateProcessingStatus")) {
                     properties._privateProcessingStatus = 1;
-                    switch (message.privateProcessingStatus) {
-                    default:
+                    if (typeof message.privateProcessingStatus !== "number" || (message.privateProcessingStatus | 0) !== message.privateProcessingStatus)
                         return "privateProcessingStatus: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -24520,12 +24377,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction();
                 switch (object.privateProcessingStatus) {
-                default:
-                    if (typeof object.privateProcessingStatus === "number") {
-                        message.privateProcessingStatus = object.privateProcessingStatus;
-                        break;
-                    }
-                    break;
                 case "UNDEFINED":
                 case 0:
                     message.privateProcessingStatus = 0;
@@ -24538,6 +24389,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.privateProcessingStatus = 2;
                     break;
+                default:
+                    if (typeof object.privateProcessingStatus === "number" && (object.privateProcessingStatus | 0) === object.privateProcessingStatus)
+                        message.privateProcessingStatus = object.privateProcessingStatus;
                 }
                 return message;
             };
@@ -24598,7 +24452,7 @@ $root.SyncAction = (function() {
              * @property {number} DISABLED=2 DISABLED value
              */
             PrivateProcessingSettingAction.PrivateProcessingStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNDEFINED"] = 0;
                 values[valuesById[1] = "ENABLED"] = 1;
                 values[valuesById[2] = "DISABLED"] = 2;
@@ -26550,7 +26404,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.SettingsSyncAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.SettingsSyncAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -26857,27 +26711,13 @@ $root.SyncAction = (function() {
                 }
                 if (message.bannerNotificationDisplayMode != null && $Object.hasOwnProperty.call(message, "bannerNotificationDisplayMode")) {
                     properties._bannerNotificationDisplayMode = 1;
-                    switch (message.bannerNotificationDisplayMode) {
-                    default:
+                    if (typeof message.bannerNotificationDisplayMode !== "number" || (message.bannerNotificationDisplayMode | 0) !== message.bannerNotificationDisplayMode)
                         return "bannerNotificationDisplayMode: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.unreadCounterBadgeDisplayMode != null && $Object.hasOwnProperty.call(message, "unreadCounterBadgeDisplayMode")) {
                     properties._unreadCounterBadgeDisplayMode = 1;
-                    switch (message.unreadCounterBadgeDisplayMode) {
-                    default:
+                    if (typeof message.unreadCounterBadgeDisplayMode !== "number" || (message.unreadCounterBadgeDisplayMode | 0) !== message.unreadCounterBadgeDisplayMode)
                         return "unreadCounterBadgeDisplayMode: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.isMessagesNotificationEnabled != null && $Object.hasOwnProperty.call(message, "isMessagesNotificationEnabled")) {
                     properties._isMessagesNotificationEnabled = 1;
@@ -26966,14 +26806,8 @@ $root.SyncAction = (function() {
                 }
                 if (message.mediaUploadQuality != null && $Object.hasOwnProperty.call(message, "mediaUploadQuality")) {
                     properties._mediaUploadQuality = 1;
-                    switch (message.mediaUploadQuality) {
-                    default:
+                    if (typeof message.mediaUploadQuality !== "number" || (message.mediaUploadQuality | 0) !== message.mediaUploadQuality)
                         return "mediaUploadQuality: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 if (message.isSpellCheckEnabled != null && $Object.hasOwnProperty.call(message, "isSpellCheckEnabled")) {
                     properties._isSpellCheckEnabled = 1;
@@ -27050,12 +26884,6 @@ $root.SyncAction = (function() {
                 if (object.replaceTextWithEmoji != null)
                     message.replaceTextWithEmoji = $Boolean(object.replaceTextWithEmoji);
                 switch (object.bannerNotificationDisplayMode) {
-                default:
-                    if (typeof object.bannerNotificationDisplayMode === "number") {
-                        message.bannerNotificationDisplayMode = object.bannerNotificationDisplayMode;
-                        break;
-                    }
-                    break;
                 case "DISPLAY_MODE_UNKNOWN":
                 case 0:
                     message.bannerNotificationDisplayMode = 0;
@@ -27072,14 +26900,11 @@ $root.SyncAction = (function() {
                 case 3:
                     message.bannerNotificationDisplayMode = 3;
                     break;
+                default:
+                    if (typeof object.bannerNotificationDisplayMode === "number" && (object.bannerNotificationDisplayMode | 0) === object.bannerNotificationDisplayMode)
+                        message.bannerNotificationDisplayMode = object.bannerNotificationDisplayMode;
                 }
                 switch (object.unreadCounterBadgeDisplayMode) {
-                default:
-                    if (typeof object.unreadCounterBadgeDisplayMode === "number") {
-                        message.unreadCounterBadgeDisplayMode = object.unreadCounterBadgeDisplayMode;
-                        break;
-                    }
-                    break;
                 case "DISPLAY_MODE_UNKNOWN":
                 case 0:
                     message.unreadCounterBadgeDisplayMode = 0;
@@ -27096,6 +26921,9 @@ $root.SyncAction = (function() {
                 case 3:
                     message.unreadCounterBadgeDisplayMode = 3;
                     break;
+                default:
+                    if (typeof object.unreadCounterBadgeDisplayMode === "number" && (object.unreadCounterBadgeDisplayMode | 0) === object.unreadCounterBadgeDisplayMode)
+                        message.unreadCounterBadgeDisplayMode = object.unreadCounterBadgeDisplayMode;
                 }
                 if (object.isMessagesNotificationEnabled != null)
                     message.isMessagesNotificationEnabled = $Boolean(object.isMessagesNotificationEnabled);
@@ -27132,12 +26960,6 @@ $root.SyncAction = (function() {
                 if (object.notificationToneId != null)
                     message.notificationToneId = object.notificationToneId | 0;
                 switch (object.mediaUploadQuality) {
-                default:
-                    if (typeof object.mediaUploadQuality === "number") {
-                        message.mediaUploadQuality = object.mediaUploadQuality;
-                        break;
-                    }
-                    break;
                 case "MEDIA_QUALITY_UNKNOWN":
                 case 0:
                     message.mediaUploadQuality = 0;
@@ -27150,6 +26972,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.mediaUploadQuality = 2;
                     break;
+                default:
+                    if (typeof object.mediaUploadQuality === "number" && (object.mediaUploadQuality | 0) === object.mediaUploadQuality)
+                        message.mediaUploadQuality = object.mediaUploadQuality;
                 }
                 if (object.isSpellCheckEnabled != null)
                     message.isSpellCheckEnabled = $Boolean(object.isSpellCheckEnabled);
@@ -27293,7 +27118,7 @@ $root.SyncAction = (function() {
              * @property {number} ONLY_WHEN_APP_IS_OPEN=3 ONLY_WHEN_APP_IS_OPEN value
              */
             SettingsSyncAction.DisplayMode = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "DISPLAY_MODE_UNKNOWN"] = 0;
                 values[valuesById[1] = "ALWAYS"] = 1;
                 values[valuesById[2] = "NEVER"] = 2;
@@ -27310,7 +27135,7 @@ $root.SyncAction = (function() {
              * @property {number} HD=2 HD value
              */
             SettingsSyncAction.MediaQualitySetting = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "MEDIA_QUALITY_UNKNOWN"] = 0;
                 values[valuesById[1] = "STANDARD"] = 1;
                 values[valuesById[2] = "HD"] = 2;
@@ -27357,7 +27182,7 @@ $root.SyncAction = (function() {
              * @property {number} COLOR_SCHEME_ID=33 COLOR_SCHEME_ID value
              */
             SettingsSyncAction.SettingKey = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "SETTING_KEY_UNKNOWN"] = 0;
                 values[valuesById[1] = "START_AT_LOGIN"] = 1;
                 values[valuesById[2] = "MINIMIZE_TO_TRAY"] = 2;
@@ -27406,7 +27231,7 @@ $root.SyncAction = (function() {
              * @property {number} MAC=4 MAC value
              */
             SettingsSyncAction.SettingPlatform = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "PLATFORM_UNKNOWN"] = 0;
                 values[valuesById[1] = "WEB"] = 1;
                 values[valuesById[2] = "HYBRID"] = 2;
@@ -28153,7 +27978,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.StatusPrivacyAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.StatusPrivacyAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -28262,16 +28087,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.mode != null && $Object.hasOwnProperty.call(message, "mode")) {
                     properties._mode = 1;
-                    switch (message.mode) {
-                    default:
+                    if (typeof message.mode !== "number" || (message.mode | 0) !== message.mode)
                         return "mode: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
                 }
                 if (message.userJid != null && $Object.hasOwnProperty.call(message, "userJid")) {
                     if (!$Array.isArray(message.userJid))
@@ -28303,16 +28120,8 @@ $root.SyncAction = (function() {
                     if (!$Array.isArray(message.modes))
                         return "modes: array expected";
                     for (var i = 0; i < message.modes.length; ++i)
-                        switch (message.modes[i]) {
-                        default:
+                        if (typeof message.modes[i] !== "number" || (message.modes[i] | 0) !== message.modes[i])
                             return "modes: enum value[] expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                            break;
-                        }
                 }
                 return null;
             };
@@ -28336,12 +28145,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.StatusPrivacyAction();
                 switch (object.mode) {
-                default:
-                    if (typeof object.mode === "number") {
-                        message.mode = object.mode;
-                        break;
-                    }
-                    break;
                 case "ALLOW_LIST":
                 case 0:
                     message.mode = 0;
@@ -28362,6 +28165,9 @@ $root.SyncAction = (function() {
                 case 4:
                     message.mode = 4;
                     break;
+                default:
+                    if (typeof object.mode === "number" && (object.mode | 0) === object.mode)
+                        message.mode = object.mode;
                 }
                 if (object.userJid) {
                     if (!$Array.isArray(object.userJid))
@@ -28387,34 +28193,32 @@ $root.SyncAction = (function() {
                 if (object.modes) {
                     if (!$Array.isArray(object.modes))
                         throw $TypeError(".SyncAction.SyncActionValue.StatusPrivacyAction.modes: array expected");
-                    message.modes = $Array(object.modes.length);
+                    message.modes = [];
                     for (var i = 0; i < object.modes.length; ++i)
                         switch (object.modes[i]) {
-                        default:
-                            if (typeof object.modes[i] === "number") {
-                                message.modes[i] = object.modes[i];
-                                break;
-                            }
                         case "ALLOW_LIST":
                         case 0:
-                            message.modes[i] = 0;
+                            message.modes[message.modes.length] = 0;
                             break;
                         case "DENY_LIST":
                         case 1:
-                            message.modes[i] = 1;
+                            message.modes[message.modes.length] = 1;
                             break;
                         case "CONTACTS":
                         case 2:
-                            message.modes[i] = 2;
+                            message.modes[message.modes.length] = 2;
                             break;
                         case "CLOSE_FRIENDS":
                         case 3:
-                            message.modes[i] = 3;
+                            message.modes[message.modes.length] = 3;
                             break;
                         case "CUSTOM_LIST":
                         case 4:
-                            message.modes[i] = 4;
+                            message.modes[message.modes.length] = 4;
                             break;
+                        default:
+                            if (typeof object.modes[i] === "number" && (object.modes[i] | 0) === object.modes[i])
+                                message.modes[message.modes.length] = object.modes[i];
                         }
                 }
                 return message;
@@ -28910,7 +28714,7 @@ $root.SyncAction = (function() {
              * @property {number} CUSTOM_LIST=4 CUSTOM_LIST value
              */
             StatusPrivacyAction.StatusDistributionMode = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "ALLOW_LIST"] = 0;
                 values[valuesById[1] = "DENY_LIST"] = 1;
                 values[valuesById[2] = "CONTACTS"] = 2;
@@ -33336,7 +33140,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.UsernameChatStartModeAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.UsernameChatStartModeAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -33399,13 +33203,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.chatStartMode != null && $Object.hasOwnProperty.call(message, "chatStartMode")) {
                     properties._chatStartMode = 1;
-                    switch (message.chatStartMode) {
-                    default:
+                    if (typeof message.chatStartMode !== "number" || (message.chatStartMode | 0) !== message.chatStartMode)
                         return "chatStartMode: enum value expected";
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -33429,12 +33228,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.UsernameChatStartModeAction();
                 switch (object.chatStartMode) {
-                default:
-                    if (typeof object.chatStartMode === "number") {
-                        message.chatStartMode = object.chatStartMode;
-                        break;
-                    }
-                    break;
                 case "LID":
                 case 1:
                     message.chatStartMode = 1;
@@ -33443,6 +33236,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.chatStartMode = 2;
                     break;
+                default:
+                    if (typeof object.chatStartMode === "number" && (object.chatStartMode | 0) === object.chatStartMode)
+                        message.chatStartMode = object.chatStartMode;
                 }
                 return message;
             };
@@ -33502,7 +33298,7 @@ $root.SyncAction = (function() {
              * @property {number} PN=2 PN value
              */
             UsernameChatStartModeAction.ChatStartMode = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[1] = "LID"] = 1;
                 values[valuesById[2] = "PN"] = 2;
                 return values;
@@ -34261,7 +34057,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -34324,14 +34120,8 @@ $root.SyncAction = (function() {
                 var properties = {};
                 if (message.linkState != null && $Object.hasOwnProperty.call(message, "linkState")) {
                     properties._linkState = 1;
-                    switch (message.linkState) {
-                    default:
+                    if (typeof message.linkState !== "number" || (message.linkState | 0) !== message.linkState)
                         return "linkState: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -34355,12 +34145,6 @@ $root.SyncAction = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction();
                 switch (object.linkState) {
-                default:
-                    if (typeof object.linkState === "number") {
-                        message.linkState = object.linkState;
-                        break;
-                    }
-                    break;
                 case "ACTIVE":
                 case 0:
                     message.linkState = 0;
@@ -34373,6 +34157,9 @@ $root.SyncAction = (function() {
                 case 2:
                     message.linkState = 2;
                     break;
+                default:
+                    if (typeof object.linkState === "number" && (object.linkState | 0) === object.linkState)
+                        message.linkState = object.linkState;
                 }
                 return message;
             };
@@ -34433,7 +34220,7 @@ $root.SyncAction = (function() {
              * @property {number} UNLINKED=2 UNLINKED value
              */
             WaffleAccountLinkStateAction.AccountLinkState = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "ACTIVE"] = 0;
                 values[valuesById[1] = "PAUSED"] = 1;
                 values[valuesById[2] = "UNLINKED"] = 2;
@@ -35072,7 +34859,7 @@ $root.SyncAction = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.CallLogRecord();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.CallLogRecord(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -35234,22 +35021,8 @@ $root.SyncAction = (function() {
             var properties = {};
             if (message.callResult != null && $Object.hasOwnProperty.call(message, "callResult")) {
                 properties._callResult = 1;
-                switch (message.callResult) {
-                default:
+                if (typeof message.callResult !== "number" || (message.callResult | 0) !== message.callResult)
                     return "callResult: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                    break;
-                }
             }
             if (message.isDndMode != null && $Object.hasOwnProperty.call(message, "isDndMode")) {
                 properties._isDndMode = 1;
@@ -35258,15 +35031,8 @@ $root.SyncAction = (function() {
             }
             if (message.silenceReason != null && $Object.hasOwnProperty.call(message, "silenceReason")) {
                 properties._silenceReason = 1;
-                switch (message.silenceReason) {
-                default:
+                if (typeof message.silenceReason !== "number" || (message.silenceReason | 0) !== message.silenceReason)
                     return "silenceReason: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
                 properties._duration = 1;
@@ -35329,14 +35095,8 @@ $root.SyncAction = (function() {
             }
             if (message.callType != null && $Object.hasOwnProperty.call(message, "callType")) {
                 properties._callType = 1;
-                switch (message.callType) {
-                default:
+                if (typeof message.callType !== "number" || (message.callType | 0) !== message.callType)
                     return "callType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             return null;
         };
@@ -35360,12 +35120,6 @@ $root.SyncAction = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.SyncAction.CallLogRecord();
             switch (object.callResult) {
-            default:
-                if (typeof object.callResult === "number") {
-                    message.callResult = object.callResult;
-                    break;
-                }
-                break;
             case "CONNECTED":
             case 0:
                 message.callResult = 0;
@@ -35410,16 +35164,13 @@ $root.SyncAction = (function() {
             case 10:
                 message.callResult = 10;
                 break;
+            default:
+                if (typeof object.callResult === "number" && (object.callResult | 0) === object.callResult)
+                    message.callResult = object.callResult;
             }
             if (object.isDndMode != null)
                 message.isDndMode = $Boolean(object.isDndMode);
             switch (object.silenceReason) {
-            default:
-                if (typeof object.silenceReason === "number") {
-                    message.silenceReason = object.silenceReason;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.silenceReason = 0;
@@ -35436,6 +35187,9 @@ $root.SyncAction = (function() {
             case 3:
                 message.silenceReason = 3;
                 break;
+            default:
+                if (typeof object.silenceReason === "number" && (object.silenceReason | 0) === object.silenceReason)
+                    message.silenceReason = object.silenceReason;
             }
             if (object.duration != null)
                 if ($util.Long)
@@ -35482,12 +35236,6 @@ $root.SyncAction = (function() {
                 }
             }
             switch (object.callType) {
-            default:
-                if (typeof object.callType === "number") {
-                    message.callType = object.callType;
-                    break;
-                }
-                break;
             case "REGULAR":
             case 0:
                 message.callType = 0;
@@ -35500,6 +35248,9 @@ $root.SyncAction = (function() {
             case 2:
                 message.callType = 2;
                 break;
+            default:
+                if (typeof object.callType === "number" && (object.callType | 0) === object.callType)
+                    message.callType = object.callType;
             }
             return message;
         };
@@ -35611,7 +35362,7 @@ $root.SyncAction = (function() {
          * @property {number} ONGOING=10 ONGOING value
          */
         CallLogRecord.CallResult = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "CONNECTED"] = 0;
             values[valuesById[1] = "REJECTED"] = 1;
             values[valuesById[2] = "CANCELLED"] = 2;
@@ -35635,7 +35386,7 @@ $root.SyncAction = (function() {
          * @property {number} VOICE_CHAT=2 VOICE_CHAT value
          */
         CallLogRecord.CallType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "REGULAR"] = 0;
             values[valuesById[1] = "SCHEDULED_CALL"] = 1;
             values[valuesById[2] = "VOICE_CHAT"] = 2;
@@ -35784,7 +35535,7 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.CallLogRecord.ParticipantInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.CallLogRecord.ParticipantInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -35859,22 +35610,8 @@ $root.SyncAction = (function() {
                 }
                 if (message.callResult != null && $Object.hasOwnProperty.call(message, "callResult")) {
                     properties._callResult = 1;
-                    switch (message.callResult) {
-                    default:
+                    if (typeof message.callResult !== "number" || (message.callResult | 0) !== message.callResult)
                         return "callResult: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -35900,12 +35637,6 @@ $root.SyncAction = (function() {
                 if (object.userJid != null)
                     message.userJid = $String(object.userJid);
                 switch (object.callResult) {
-                default:
-                    if (typeof object.callResult === "number") {
-                        message.callResult = object.callResult;
-                        break;
-                    }
-                    break;
                 case "CONNECTED":
                 case 0:
                     message.callResult = 0;
@@ -35950,6 +35681,9 @@ $root.SyncAction = (function() {
                 case 10:
                     message.callResult = 10;
                     break;
+                default:
+                    if (typeof object.callResult === "number" && (object.callResult | 0) === object.callResult)
+                        message.callResult = object.callResult;
                 }
                 return message;
             };
@@ -36016,7 +35750,7 @@ $root.SyncAction = (function() {
          * @property {number} LIGHTWEIGHT=3 LIGHTWEIGHT value
          */
         CallLogRecord.SilenceReason = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "SCHEDULED"] = 1;
             values[valuesById[2] = "PRIVACY"] = 2;
@@ -36419,7 +36153,7 @@ $root.SyncAction = (function() {
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
      */
     SyncAction.MutationProps = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[2] = "STAR_ACTION"] = 2;
         values[valuesById[3] = "CONTACT_ACTION"] = 3;
         values[valuesById[4] = "MUTE_ACTION"] = 4;
@@ -36521,7 +36255,7 @@ $root.SyncAction = (function() {
      * @property {number} CRITICAL_UNBLOCK_LOW=5 CRITICAL_UNBLOCK_LOW value
      */
     SyncAction.CollectionName = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "COLLECTION_NAME_UNKNOWN"] = 0;
         values[valuesById[1] = "REGULAR"] = 1;
         values[valuesById[2] = "REGULAR_LOW"] = 2;
@@ -37043,7 +36777,7 @@ $root.UserPassword = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -37128,24 +36862,13 @@ $root.UserPassword = (function() {
             var properties = {};
             if (message.encoding != null && $Object.hasOwnProperty.call(message, "encoding")) {
                 properties._encoding = 1;
-                switch (message.encoding) {
-                default:
+                if (typeof message.encoding !== "number" || (message.encoding | 0) !== message.encoding)
                     return "encoding: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.transformer != null && $Object.hasOwnProperty.call(message, "transformer")) {
                 properties._transformer = 1;
-                switch (message.transformer) {
-                default:
+                if (typeof message.transformer !== "number" || (message.transformer | 0) !== message.transformer)
                     return "transformer: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.transformerArg != null && $Object.hasOwnProperty.call(message, "transformerArg")) {
                 if (!$Array.isArray(message.transformerArg))
@@ -37183,12 +36906,6 @@ $root.UserPassword = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.UserPassword.UserPassword();
             switch (object.encoding) {
-            default:
-                if (typeof object.encoding === "number") {
-                    message.encoding = object.encoding;
-                    break;
-                }
-                break;
             case "UTF8":
             case 0:
                 message.encoding = 0;
@@ -37197,14 +36914,11 @@ $root.UserPassword = (function() {
             case 1:
                 message.encoding = 1;
                 break;
+            default:
+                if (typeof object.encoding === "number" && (object.encoding | 0) === object.encoding)
+                    message.encoding = object.encoding;
             }
             switch (object.transformer) {
-            default:
-                if (typeof object.transformer === "number") {
-                    message.transformer = object.transformer;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.transformer = 0;
@@ -37217,6 +36931,9 @@ $root.UserPassword = (function() {
             case 2:
                 message.transformer = 2;
                 break;
+            default:
+                if (typeof object.transformer === "number" && (object.transformer | 0) === object.transformer)
+                    message.transformer = object.transformer;
             }
             if (object.transformerArg) {
                 if (!$Array.isArray(object.transformerArg))
@@ -37302,7 +37019,7 @@ $root.UserPassword = (function() {
          * @property {number} UTF8_BROKEN=1 UTF8_BROKEN value
          */
         UserPassword.Encoding = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UTF8"] = 0;
             values[valuesById[1] = "UTF8_BROKEN"] = 1;
             return values;
@@ -37317,7 +37034,7 @@ $root.UserPassword = (function() {
          * @property {number} PBKDF2_HMAC_SHA384=2 PBKDF2_HMAC_SHA384 value
          */
         UserPassword.Transformer = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "PBKDF2_HMAC_SHA512"] = 1;
             values[valuesById[2] = "PBKDF2_HMAC_SHA384"] = 2;
@@ -38176,7 +37893,7 @@ $root.DeviceCapabilities = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -38274,14 +37991,8 @@ $root.DeviceCapabilities = (function() {
             var properties = {};
             if (message.chatLockSupportLevel != null && $Object.hasOwnProperty.call(message, "chatLockSupportLevel")) {
                 properties._chatLockSupportLevel = 1;
-                switch (message.chatLockSupportLevel) {
-                default:
+                if (typeof message.chatLockSupportLevel !== "number" || (message.chatLockSupportLevel | 0) !== message.chatLockSupportLevel)
                     return "chatLockSupportLevel: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.lidMigration != null && $Object.hasOwnProperty.call(message, "lidMigration")) {
                 properties._lidMigration = 1;
@@ -38309,14 +38020,8 @@ $root.DeviceCapabilities = (function() {
             }
             if (message.memberNameTagPrimarySupport != null && $Object.hasOwnProperty.call(message, "memberNameTagPrimarySupport")) {
                 properties._memberNameTagPrimarySupport = 1;
-                switch (message.memberNameTagPrimarySupport) {
-                default:
+                if (typeof message.memberNameTagPrimarySupport !== "number" || (message.memberNameTagPrimarySupport | 0) !== message.memberNameTagPrimarySupport)
                     return "memberNameTagPrimarySupport: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.aiThread != null && $Object.hasOwnProperty.call(message, "aiThread")) {
                 properties._aiThread = 1;
@@ -38348,12 +38053,6 @@ $root.DeviceCapabilities = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.DeviceCapabilities.DeviceCapabilities();
             switch (object.chatLockSupportLevel) {
-            default:
-                if (typeof object.chatLockSupportLevel === "number") {
-                    message.chatLockSupportLevel = object.chatLockSupportLevel;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.chatLockSupportLevel = 0;
@@ -38366,6 +38065,9 @@ $root.DeviceCapabilities = (function() {
             case 2:
                 message.chatLockSupportLevel = 2;
                 break;
+            default:
+                if (typeof object.chatLockSupportLevel === "number" && (object.chatLockSupportLevel | 0) === object.chatLockSupportLevel)
+                    message.chatLockSupportLevel = object.chatLockSupportLevel;
             }
             if (object.lidMigration != null) {
                 if (!$util.isObject(object.lidMigration))
@@ -38383,12 +38085,6 @@ $root.DeviceCapabilities = (function() {
                 message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar, _depth + 1);
             }
             switch (object.memberNameTagPrimarySupport) {
-            default:
-                if (typeof object.memberNameTagPrimarySupport === "number") {
-                    message.memberNameTagPrimarySupport = object.memberNameTagPrimarySupport;
-                    break;
-                }
-                break;
             case "DISABLED":
             case 0:
                 message.memberNameTagPrimarySupport = 0;
@@ -38401,6 +38097,9 @@ $root.DeviceCapabilities = (function() {
             case 2:
                 message.memberNameTagPrimarySupport = 2;
                 break;
+            default:
+                if (typeof object.memberNameTagPrimarySupport === "number" && (object.memberNameTagPrimarySupport | 0) === object.memberNameTagPrimarySupport)
+                    message.memberNameTagPrimarySupport = object.memberNameTagPrimarySupport;
             }
             if (object.aiThread != null) {
                 if (!$util.isObject(object.aiThread))
@@ -38592,7 +38291,7 @@ $root.DeviceCapabilities = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiThread(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -38655,14 +38354,8 @@ $root.DeviceCapabilities = (function() {
                 var properties = {};
                 if (message.supportLevel != null && $Object.hasOwnProperty.call(message, "supportLevel")) {
                     properties._supportLevel = 1;
-                    switch (message.supportLevel) {
-                    default:
+                    if (typeof message.supportLevel !== "number" || (message.supportLevel | 0) !== message.supportLevel)
                         return "supportLevel: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                        break;
-                    }
                 }
                 return null;
             };
@@ -38686,12 +38379,6 @@ $root.DeviceCapabilities = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
                 switch (object.supportLevel) {
-                default:
-                    if (typeof object.supportLevel === "number") {
-                        message.supportLevel = object.supportLevel;
-                        break;
-                    }
-                    break;
                 case "NONE":
                 case 0:
                     message.supportLevel = 0;
@@ -38704,6 +38391,9 @@ $root.DeviceCapabilities = (function() {
                 case 2:
                     message.supportLevel = 2;
                     break;
+                default:
+                    if (typeof object.supportLevel === "number" && (object.supportLevel | 0) === object.supportLevel)
+                        message.supportLevel = object.supportLevel;
                 }
                 return message;
             };
@@ -38764,7 +38454,7 @@ $root.DeviceCapabilities = (function() {
              * @property {number} FULL=2 FULL value
              */
             AiThread.SupportLevel = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "NONE"] = 0;
                 values[valuesById[1] = "INFRA"] = 1;
                 values[valuesById[2] = "FULL"] = 2;
@@ -39182,7 +38872,7 @@ $root.DeviceCapabilities = (function() {
          * @property {number} FULL=2 FULL value
          */
         DeviceCapabilities.ChatLockSupportLevel = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "MINIMAL"] = 1;
             values[valuesById[2] = "FULL"] = 2;
@@ -39477,7 +39167,7 @@ $root.DeviceCapabilities = (function() {
          * @property {number} SENDER_ENABLED=2 SENDER_ENABLED value
          */
         DeviceCapabilities.MemberNameTagPrimarySupport = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "DISABLED"] = 0;
             values[valuesById[1] = "RECEIVER_ENABLED"] = 1;
             values[valuesById[2] = "SENDER_ENABLED"] = 2;
@@ -39942,7 +39632,7 @@ $root.Protocol = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -40031,15 +39721,8 @@ $root.Protocol = (function() {
             }
             if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger")) {
                 properties._trigger = 1;
-                switch (message.trigger) {
-                default:
+                if (typeof message.trigger !== "number" || (message.trigger | 0) !== message.trigger)
                     return "trigger: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp")) {
                 properties._limitSharingSettingTimestamp = 1;
@@ -40075,12 +39758,6 @@ $root.Protocol = (function() {
             if (object.sharingLimited != null)
                 message.sharingLimited = $Boolean(object.sharingLimited);
             switch (object.trigger) {
-            default:
-                if (typeof object.trigger === "number") {
-                    message.trigger = object.trigger;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.trigger = 0;
@@ -40097,6 +39774,9 @@ $root.Protocol = (function() {
             case 3:
                 message.trigger = 3;
                 break;
+            default:
+                if (typeof object.trigger === "number" && (object.trigger | 0) === object.trigger)
+                    message.trigger = object.trigger;
             }
             if (object.limitSharingSettingTimestamp != null)
                 if ($util.Long)
@@ -40180,7 +39860,7 @@ $root.Protocol = (function() {
          * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
          */
         LimitSharing.TriggerType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;

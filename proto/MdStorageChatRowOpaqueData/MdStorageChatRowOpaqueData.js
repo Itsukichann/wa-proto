@@ -1021,7 +1021,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -1206,14 +1206,8 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     }
                     if (message.mediaType != null && $Object.hasOwnProperty.call(message, "mediaType")) {
                         properties._mediaType = 1;
-                        switch (message.mediaType) {
-                        default:
+                        if (typeof message.mediaType !== "number" || (message.mediaType | 0) !== message.mediaType)
                             return "mediaType: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                            break;
-                        }
                     }
                     if (message.mediaUrl != null && $Object.hasOwnProperty.call(message, "mediaUrl")) {
                         properties._mediaUrl = 1;
@@ -1268,12 +1262,6 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     if (object.thumbnailUrl != null)
                         message.thumbnailUrl = $String(object.thumbnailUrl);
                     switch (object.mediaType) {
-                    default:
-                        if (typeof object.mediaType === "number") {
-                            message.mediaType = object.mediaType;
-                            break;
-                        }
-                        break;
                     case "NONE":
                     case 0:
                         message.mediaType = 0;
@@ -1286,6 +1274,9 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     case 2:
                         message.mediaType = 2;
                         break;
+                    default:
+                        if (typeof object.mediaType === "number" && (object.mediaType | 0) === object.mediaType)
+                            message.mediaType = object.mediaType;
                     }
                     if (object.mediaUrl != null)
                         message.mediaUrl = $String(object.mediaUrl);
@@ -1372,7 +1363,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @property {number} VIDEO=2 VIDEO value
                  */
                 CtwaContextData.ContextInfoExternalAdReplyInfoMediaType = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "NONE"] = 0;
                     values[valuesById[1] = "IMAGE"] = 1;
                     values[valuesById[2] = "VIDEO"] = 2;

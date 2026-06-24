@@ -2113,7 +2113,7 @@ $root.CompanionReg = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.CompanionEphemeralIdentity();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.CompanionEphemeralIdentity(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -2195,36 +2195,8 @@ $root.CompanionReg = (function() {
             }
             if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType")) {
                 properties._deviceType = 1;
-                switch (message.deviceType) {
-                default:
+                if (typeof message.deviceType !== "number" || (message.deviceType | 0) !== message.deviceType)
                     return "deviceType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                    break;
-                }
             }
             if (message.ref != null && $Object.hasOwnProperty.call(message, "ref")) {
                 properties._ref = 1;
@@ -2258,12 +2230,6 @@ $root.CompanionReg = (function() {
                 else if (object.publicKey.length >= 0)
                     message.publicKey = object.publicKey;
             switch (object.deviceType) {
-            default:
-                if (typeof object.deviceType === "number") {
-                    message.deviceType = object.deviceType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.deviceType = 0;
@@ -2364,6 +2330,9 @@ $root.CompanionReg = (function() {
             case 24:
                 message.deviceType = 24;
                 break;
+            default:
+                if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
+                    message.deviceType = object.deviceType;
             }
             if (object.ref != null)
                 message.ref = $String(object.ref);
@@ -2617,7 +2586,7 @@ $root.CompanionReg = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -2721,36 +2690,8 @@ $root.CompanionReg = (function() {
             }
             if (message.platformType != null && $Object.hasOwnProperty.call(message, "platformType")) {
                 properties._platformType = 1;
-                switch (message.platformType) {
-                default:
+                if (typeof message.platformType !== "number" || (message.platformType | 0) !== message.platformType)
                     return "platformType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                    break;
-                }
             }
             if (message.requireFullSync != null && $Object.hasOwnProperty.call(message, "requireFullSync")) {
                 properties._requireFullSync = 1;
@@ -2794,12 +2735,6 @@ $root.CompanionReg = (function() {
                 message.version = $root.CompanionReg.DeviceProps.AppVersion.fromObject(object.version, _depth + 1);
             }
             switch (object.platformType) {
-            default:
-                if (typeof object.platformType === "number") {
-                    message.platformType = object.platformType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.platformType = 0;
@@ -2900,6 +2835,9 @@ $root.CompanionReg = (function() {
             case 24:
                 message.platformType = 24;
                 break;
+            default:
+                if (typeof object.platformType === "number" && (object.platformType | 0) === object.platformType)
+                    message.platformType = object.platformType;
             }
             if (object.requireFullSync != null)
                 message.requireFullSync = $Boolean(object.requireFullSync);
@@ -4431,7 +4369,7 @@ $root.CompanionReg = (function() {
          * @property {number} SMARTGLASSES=24 SMARTGLASSES value
          */
         DeviceProps.PlatformType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHROME"] = 1;
             values[valuesById[2] = "FIREFOX"] = 2;

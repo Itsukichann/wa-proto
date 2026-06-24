@@ -462,7 +462,7 @@ $root.MmsRetry = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -556,15 +556,8 @@ $root.MmsRetry = (function() {
             }
             if (message.result != null && $Object.hasOwnProperty.call(message, "result")) {
                 properties._result = 1;
-                switch (message.result) {
-                default:
+                if (typeof message.result !== "number" || (message.result | 0) !== message.result)
                     return "result: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.messageSecret != null && $Object.hasOwnProperty.call(message, "messageSecret")) {
                 properties._messageSecret = 1;
@@ -597,12 +590,6 @@ $root.MmsRetry = (function() {
             if (object.directPath != null)
                 message.directPath = $String(object.directPath);
             switch (object.result) {
-            default:
-                if (typeof object.result === "number") {
-                    message.result = object.result;
-                    break;
-                }
-                break;
             case "GENERAL_ERROR":
             case 0:
                 message.result = 0;
@@ -619,6 +606,9 @@ $root.MmsRetry = (function() {
             case 3:
                 message.result = 3;
                 break;
+            default:
+                if (typeof object.result === "number" && (object.result | 0) === object.result)
+                    message.result = object.result;
             }
             if (object.messageSecret != null)
                 if (typeof object.messageSecret === "string")
@@ -691,7 +681,7 @@ $root.MmsRetry = (function() {
          * @property {number} DECRYPTION_ERROR=3 DECRYPTION_ERROR value
          */
         MediaRetryNotification.ResultType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "GENERAL_ERROR"] = 0;
             values[valuesById[1] = "SUCCESS"] = 1;
             values[valuesById[2] = "NOT_FOUND"] = 2;

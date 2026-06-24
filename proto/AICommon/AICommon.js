@@ -714,7 +714,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotInfrastructureDiagnostics();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotInfrastructureDiagnostics(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -792,13 +792,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.botBackend != null && $Object.hasOwnProperty.call(message, "botBackend")) {
                 properties._botBackend = 1;
-                switch (message.botBackend) {
-                default:
+                if (typeof message.botBackend !== "number" || (message.botBackend | 0) !== message.botBackend)
                     return "botBackend: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.toolsUsed != null && $Object.hasOwnProperty.call(message, "toolsUsed")) {
                 if (!$Array.isArray(message.toolsUsed))
@@ -834,12 +829,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotInfrastructureDiagnostics();
             switch (object.botBackend) {
-            default:
-                if (typeof object.botBackend === "number") {
-                    message.botBackend = object.botBackend;
-                    break;
-                }
-                break;
             case "AAPI":
             case 0:
                 message.botBackend = 0;
@@ -848,6 +837,9 @@ $root.AICommon = (function() {
             case 1:
                 message.botBackend = 1;
                 break;
+            default:
+                if (typeof object.botBackend === "number" && (object.botBackend | 0) === object.botBackend)
+                    message.botBackend = object.botBackend;
             }
             if (object.toolsUsed) {
                 if (!$Array.isArray(object.toolsUsed))
@@ -925,7 +917,7 @@ $root.AICommon = (function() {
          * @property {number} CLIPPY=1 CLIPPY value
          */
         BotInfrastructureDiagnostics.BotBackend = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "AAPI"] = 0;
             values[valuesById[1] = "CLIPPY"] = 1;
             return values;
@@ -1548,7 +1540,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIHomeState.AIHomeOption();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIHomeState.AIHomeOption(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -1660,17 +1652,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
                 }
                 if (message.title != null && $Object.hasOwnProperty.call(message, "title")) {
                     properties._title = 1;
@@ -1729,12 +1712,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.AIHomeState.AIHomeOption();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "PROMPT":
                 case 0:
                     message.type = 0;
@@ -1759,6 +1736,9 @@ $root.AICommon = (function() {
                 case 5:
                     message.type = 5;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.title != null)
                     message.title = $String(object.title);
@@ -1850,7 +1830,7 @@ $root.AICommon = (function() {
              * @property {number} OPEN_GREETING_CARD=5 OPEN_GREETING_CARD value
              */
             AIHomeOption.AIHomeActionType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "PROMPT"] = 0;
                 values[valuesById[1] = "CREATE_IMAGE"] = 1;
                 values[valuesById[2] = "ANIMATE_PHOTO"] = 2;
@@ -1991,7 +1971,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotDocumentMessageMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotDocumentMessageMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -2054,13 +2034,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.pluginType != null && $Object.hasOwnProperty.call(message, "pluginType")) {
                 properties._pluginType = 1;
-                switch (message.pluginType) {
-                default:
+                if (typeof message.pluginType !== "number" || (message.pluginType | 0) !== message.pluginType)
                     return "pluginType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -2084,12 +2059,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotDocumentMessageMetadata();
             switch (object.pluginType) {
-            default:
-                if (typeof object.pluginType === "number") {
-                    message.pluginType = object.pluginType;
-                    break;
-                }
-                break;
             case "TEXT_EXTRACTION":
             case 0:
                 message.pluginType = 0;
@@ -2098,6 +2067,9 @@ $root.AICommon = (function() {
             case 1:
                 message.pluginType = 1;
                 break;
+            default:
+                if (typeof object.pluginType === "number" && (object.pluginType | 0) === object.pluginType)
+                    message.pluginType = object.pluginType;
             }
             return message;
         };
@@ -2157,7 +2129,7 @@ $root.AICommon = (function() {
          * @property {number} OCR_AND_IMAGES=1 OCR_AND_IMAGES value
          */
         BotDocumentMessageMetadata.DocumentPluginType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "TEXT_EXTRACTION"] = 0;
             values[valuesById[1] = "OCR_AND_IMAGES"] = 1;
             return values;
@@ -2325,7 +2297,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.SessionTransparencyMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.SessionTransparencyMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -2412,13 +2384,8 @@ $root.AICommon = (function() {
             }
             if (message.sessionTransparencyType != null && $Object.hasOwnProperty.call(message, "sessionTransparencyType")) {
                 properties._sessionTransparencyType = 1;
-                switch (message.sessionTransparencyType) {
-                default:
+                if (typeof message.sessionTransparencyType !== "number" || (message.sessionTransparencyType | 0) !== message.sessionTransparencyType)
                     return "sessionTransparencyType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -2446,12 +2413,6 @@ $root.AICommon = (function() {
             if (object.hcaId != null)
                 message.hcaId = $String(object.hcaId);
             switch (object.sessionTransparencyType) {
-            default:
-                if (typeof object.sessionTransparencyType === "number") {
-                    message.sessionTransparencyType = object.sessionTransparencyType;
-                    break;
-                }
-                break;
             case "UNKNOWN_TYPE":
             case 0:
                 message.sessionTransparencyType = 0;
@@ -2460,6 +2421,9 @@ $root.AICommon = (function() {
             case 1:
                 message.sessionTransparencyType = 1;
                 break;
+            default:
+                if (typeof object.sessionTransparencyType === "number" && (object.sessionTransparencyType | 0) === object.sessionTransparencyType)
+                    message.sessionTransparencyType = object.sessionTransparencyType;
             }
             return message;
         };
@@ -3248,7 +3212,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageSharingInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageSharingInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -3318,59 +3282,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.botEntryPointOrigin != null && $Object.hasOwnProperty.call(message, "botEntryPointOrigin")) {
                 properties._botEntryPointOrigin = 1;
-                switch (message.botEntryPointOrigin) {
-                default:
+                if (typeof message.botEntryPointOrigin !== "number" || (message.botEntryPointOrigin | 0) !== message.botEntryPointOrigin)
                     return "botEntryPointOrigin: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                case 25:
-                case 26:
-                case 27:
-                case 28:
-                case 29:
-                case 30:
-                case 31:
-                case 32:
-                case 33:
-                case 34:
-                case 35:
-                case 36:
-                case 37:
-                case 38:
-                case 39:
-                case 40:
-                case 41:
-                case 45:
-                case 46:
-                case 47:
-                case 54:
-                case 55:
-                case 56:
-                    break;
-                }
             }
             if (message.forwardScore != null && $Object.hasOwnProperty.call(message, "forwardScore")) {
                 properties._forwardScore = 1;
@@ -3399,12 +3312,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageSharingInfo();
             switch (object.botEntryPointOrigin) {
-            default:
-                if (typeof object.botEntryPointOrigin === "number") {
-                    message.botEntryPointOrigin = object.botEntryPointOrigin;
-                    break;
-                }
-                break;
             case "UNDEFINED_ENTRY_POINT":
             case 0:
                 message.botEntryPointOrigin = 0;
@@ -3597,6 +3504,9 @@ $root.AICommon = (function() {
             case 56:
                 message.botEntryPointOrigin = 56;
                 break;
+            default:
+                if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
+                    message.botEntryPointOrigin = object.botEntryPointOrigin;
             }
             if (object.forwardScore != null)
                 message.forwardScore = object.forwardScore >>> 0;
@@ -4215,7 +4125,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -4328,26 +4238,8 @@ $root.AICommon = (function() {
             }
             if (message.kind != null && $Object.hasOwnProperty.call(message, "kind")) {
                 properties._kind = 1;
-                switch (message.kind) {
-                default:
+                if (typeof message.kind !== "number" || (message.kind | 0) !== message.kind)
                     return "kind: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                    break;
-                }
             }
             if (message.text != null && $Object.hasOwnProperty.call(message, "text")) {
                 properties._text = 1;
@@ -4366,13 +4258,8 @@ $root.AICommon = (function() {
             }
             if (message.kindReport != null && $Object.hasOwnProperty.call(message, "kindReport")) {
                 properties._kindReport = 1;
-                switch (message.kindReport) {
-                default:
+                if (typeof message.kindReport !== "number" || (message.kindReport | 0) !== message.kindReport)
                     return "kindReport: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.sideBySideSurveyMetadata != null && $Object.hasOwnProperty.call(message, "sideBySideSurveyMetadata")) {
                 properties._sideBySideSurveyMetadata = 1;
@@ -4409,12 +4296,6 @@ $root.AICommon = (function() {
                 message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey, _depth + 1);
             }
             switch (object.kind) {
-            default:
-                if (typeof object.kind === "number") {
-                    message.kind = object.kind;
-                    break;
-                }
-                break;
             case "BOT_FEEDBACK_POSITIVE":
             case 0:
                 message.kind = 0;
@@ -4475,6 +4356,9 @@ $root.AICommon = (function() {
             case 14:
                 message.kind = 14;
                 break;
+            default:
+                if (typeof object.kind === "number" && (object.kind | 0) === object.kind)
+                    message.kind = object.kind;
             }
             if (object.text != null)
                 message.text = $String(object.text);
@@ -4497,12 +4381,6 @@ $root.AICommon = (function() {
                 else if (typeof object.kindPositive === "object")
                     message.kindPositive = new $util.LongBits(object.kindPositive.low >>> 0, object.kindPositive.high >>> 0).toNumber(true);
             switch (object.kindReport) {
-            default:
-                if (typeof object.kindReport === "number") {
-                    message.kindReport = object.kindReport;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.kindReport = 0;
@@ -4511,6 +4389,9 @@ $root.AICommon = (function() {
             case 1:
                 message.kindReport = 1;
                 break;
+            default:
+                if (typeof object.kindReport === "number" && (object.kindReport | 0) === object.kindReport)
+                    message.kindReport = object.kindReport;
             }
             if (object.sideBySideSurveyMetadata != null) {
                 if (!$util.isObject(object.sideBySideSurveyMetadata))
@@ -4610,7 +4491,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_FEEDBACK_NEGATIVE=14 BOT_FEEDBACK_NEGATIVE value
          */
         BotFeedbackMessage.BotFeedbackKind = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "BOT_FEEDBACK_POSITIVE"] = 0;
             values[valuesById[1] = "BOT_FEEDBACK_NEGATIVE_GENERIC"] = 1;
             values[valuesById[2] = "BOT_FEEDBACK_NEGATIVE_HELPFUL"] = 2;
@@ -4644,7 +4525,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_RELEVANT_TO_TEXT=256 BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_RELEVANT_TO_TEXT value
          */
         BotFeedbackMessage.BotFeedbackKindMultipleNegative = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC"] = 1;
             values[valuesById[2] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL"] = 2;
             values[valuesById[4] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING"] = 4;
@@ -4664,7 +4545,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC=1 BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC value
          */
         BotFeedbackMessage.BotFeedbackKindMultiplePositive = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC"] = 1;
             return values;
         })();
@@ -4677,7 +4558,7 @@ $root.AICommon = (function() {
          * @property {number} GENERIC=1 GENERIC value
          */
         BotFeedbackMessage.ReportKind = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "GENERIC"] = 1;
             return values;
@@ -8445,7 +8326,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AISubscriptionUpsellMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AISubscriptionUpsellMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -8508,15 +8389,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.requestType != null && $Object.hasOwnProperty.call(message, "requestType")) {
                 properties._requestType = 1;
-                switch (message.requestType) {
-                default:
+                if (typeof message.requestType !== "number" || (message.requestType | 0) !== message.requestType)
                     return "requestType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             return null;
         };
@@ -8540,12 +8414,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.AISubscriptionUpsellMetadata();
             switch (object.requestType) {
-            default:
-                if (typeof object.requestType === "number") {
-                    message.requestType = object.requestType;
-                    break;
-                }
-                break;
             case "UNSPECIFIED":
             case 0:
                 message.requestType = 0;
@@ -8562,6 +8430,9 @@ $root.AICommon = (function() {
             case 3:
                 message.requestType = 3;
                 break;
+            default:
+                if (typeof object.requestType === "number" && (object.requestType | 0) === object.requestType)
+                    message.requestType = object.requestType;
             }
             return message;
         };
@@ -13051,7 +12922,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo.AIThreadClientInfo(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -13121,15 +12992,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                     properties._type = 1;
-                    switch (message.type) {
-                    default:
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                         return "type: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.sourceChatJid != null && $Object.hasOwnProperty.call(message, "sourceChatJid")) {
                     properties._sourceChatJid = 1;
@@ -13158,12 +13022,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
                 switch (object.type) {
-                default:
-                    if (typeof object.type === "number") {
-                        message.type = object.type;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.type = 0;
@@ -13180,6 +13038,9 @@ $root.AICommon = (function() {
                 case 3:
                     message.type = 3;
                     break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
                 }
                 if (object.sourceChatJid != null)
                     message.sourceChatJid = $String(object.sourceChatJid);
@@ -13245,7 +13106,7 @@ $root.AICommon = (function() {
              * @property {number} SIDE_CHAT=3 SIDE_CHAT value
              */
             AIThreadClientInfo.AIThreadType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "DEFAULT"] = 1;
                 values[valuesById[2] = "INCOGNITO"] = 2;
@@ -14616,7 +14477,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageOrigin();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageOrigin(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -14679,12 +14540,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                    break;
-                }
             }
             return null;
         };
@@ -14708,16 +14565,13 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageOrigin();
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED":
             case 0:
                 message.type = 0;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             return message;
         };
@@ -14776,7 +14630,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED=0 BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED value
          */
         BotMessageOrigin.BotMessageOriginType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED"] = 0;
             return values;
         })();
@@ -17398,7 +17252,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSourcesMetadata.BotSourceItem();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSourcesMetadata.BotSourceItem(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17503,16 +17357,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                     properties._provider = 1;
-                    switch (message.provider) {
-                    default:
+                    if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                         return "provider: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
                 }
                 if (message.thumbnailCdnUrl != null && $Object.hasOwnProperty.call(message, "thumbnailCdnUrl")) {
                     properties._thumbnailCdnUrl = 1;
@@ -17566,12 +17412,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.BotSourcesMetadata.BotSourceItem();
                 switch (object.provider) {
-                default:
-                    if (typeof object.provider === "number") {
-                        message.provider = object.provider;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.provider = 0;
@@ -17592,6 +17432,9 @@ $root.AICommon = (function() {
                 case 4:
                     message.provider = 4;
                     break;
+                default:
+                    if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                        message.provider = object.provider;
                 }
                 if (object.thumbnailCdnUrl != null)
                     message.thumbnailCdnUrl = $String(object.thumbnailCdnUrl);
@@ -17678,7 +17521,7 @@ $root.AICommon = (function() {
              * @property {number} OTHER=4 OTHER value
              */
             BotSourceItem.SourceProvider = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "BING"] = 1;
                 values[valuesById[2] = "GOOGLE"] = 2;
@@ -17852,7 +17695,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgeCollectionMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgeCollectionMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -17939,13 +17782,8 @@ $root.AICommon = (function() {
             }
             if (message.ageCollectionType != null && $Object.hasOwnProperty.call(message, "ageCollectionType")) {
                 properties._ageCollectionType = 1;
-                switch (message.ageCollectionType) {
-                default:
+                if (typeof message.ageCollectionType !== "number" || (message.ageCollectionType | 0) !== message.ageCollectionType)
                     return "ageCollectionType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             return null;
         };
@@ -17973,12 +17811,6 @@ $root.AICommon = (function() {
             if (object.shouldTriggerAgeCollectionOnClient != null)
                 message.shouldTriggerAgeCollectionOnClient = $Boolean(object.shouldTriggerAgeCollectionOnClient);
             switch (object.ageCollectionType) {
-            default:
-                if (typeof object.ageCollectionType === "number") {
-                    message.ageCollectionType = object.ageCollectionType;
-                    break;
-                }
-                break;
             case "O18_BINARY":
             case 0:
                 message.ageCollectionType = 0;
@@ -17987,6 +17819,9 @@ $root.AICommon = (function() {
             case 1:
                 message.ageCollectionType = 1;
                 break;
+            default:
+                if (typeof object.ageCollectionType === "number" && (object.ageCollectionType | 0) === object.ageCollectionType)
+                    message.ageCollectionType = object.ageCollectionType;
             }
             return message;
         };
@@ -18050,7 +17885,7 @@ $root.AICommon = (function() {
          * @property {number} WAFFLE=1 WAFFLE value
          */
         BotAgeCollectionMetadata.AgeCollectionType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "O18_BINARY"] = 0;
             values[valuesById[1] = "WAFFLE"] = 1;
             return values;
@@ -18201,7 +18036,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotImagineMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotImagineMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -18271,16 +18106,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.imagineType != null && $Object.hasOwnProperty.call(message, "imagineType")) {
                 properties._imagineType = 1;
-                switch (message.imagineType) {
-                default:
+                if (typeof message.imagineType !== "number" || (message.imagineType | 0) !== message.imagineType)
                     return "imagineType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    break;
-                }
             }
             if (message.shortPrompt != null && $Object.hasOwnProperty.call(message, "shortPrompt")) {
                 properties._shortPrompt = 1;
@@ -18309,12 +18136,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotImagineMetadata();
             switch (object.imagineType) {
-            default:
-                if (typeof object.imagineType === "number") {
-                    message.imagineType = object.imagineType;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.imagineType = 0;
@@ -18335,6 +18156,9 @@ $root.AICommon = (function() {
             case 4:
                 message.imagineType = 4;
                 break;
+            default:
+                if (typeof object.imagineType === "number" && (object.imagineType | 0) === object.imagineType)
+                    message.imagineType = object.imagineType;
             }
             if (object.shortPrompt != null)
                 message.shortPrompt = $String(object.shortPrompt);
@@ -18401,7 +18225,7 @@ $root.AICommon = (function() {
          * @property {number} EDIT=4 EDIT value
          */
         BotImagineMetadata.ImagineType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "IMAGINE"] = 1;
             values[valuesById[2] = "MEMU"] = 2;
@@ -18846,7 +18670,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -18923,13 +18747,8 @@ $root.AICommon = (function() {
                 var properties = {};
                 if (message.featureType != null && $Object.hasOwnProperty.call(message, "featureType")) {
                     properties._featureType = 1;
-                    switch (message.featureType) {
-                    default:
+                    if (typeof message.featureType !== "number" || (message.featureType | 0) !== message.featureType)
                         return "featureType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
                 }
                 if (message.remainingQuota != null && $Object.hasOwnProperty.call(message, "remainingQuota")) {
                     properties._remainingQuota = 1;
@@ -18963,12 +18782,6 @@ $root.AICommon = (function() {
                     throw $Error("max depth exceeded");
                 var message = new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
                 switch (object.featureType) {
-                default:
-                    if (typeof object.featureType === "number") {
-                        message.featureType = object.featureType;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN_FEATURE":
                 case 0:
                     message.featureType = 0;
@@ -18977,6 +18790,9 @@ $root.AICommon = (function() {
                 case 1:
                     message.featureType = 1;
                     break;
+                default:
+                    if (typeof object.featureType === "number" && (object.featureType | 0) === object.featureType)
+                        message.featureType = object.featureType;
                 }
                 if (object.remainingQuota != null)
                     message.remainingQuota = object.remainingQuota >>> 0;
@@ -19056,7 +18872,7 @@ $root.AICommon = (function() {
              * @property {number} REASONING_FEATURE=1 REASONING_FEATURE value
              */
             BotFeatureQuotaMetadata.BotFeatureType = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN_FEATURE"] = 0;
                 values[valuesById[1] = "REASONING_FEATURE"] = 1;
                 return values;
@@ -19205,7 +19021,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModeSelectionMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModeSelectionMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -19294,13 +19110,8 @@ $root.AICommon = (function() {
                 if (!$Array.isArray(message.mode))
                     return "mode: array expected";
                 for (var i = 0; i < message.mode.length; ++i)
-                    switch (message.mode[i]) {
-                    default:
+                    if (typeof message.mode[i] !== "number" || (message.mode[i] | 0) !== message.mode[i])
                         return "mode: enum value[] expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
             }
             if (message.overrideMode != null && $Object.hasOwnProperty.call(message, "overrideMode")) {
                 if (!$Array.isArray(message.overrideMode))
@@ -19333,22 +19144,20 @@ $root.AICommon = (function() {
             if (object.mode) {
                 if (!$Array.isArray(object.mode))
                     throw $TypeError(".AICommon.BotModeSelectionMetadata.mode: array expected");
-                message.mode = $Array(object.mode.length);
+                message.mode = [];
                 for (var i = 0; i < object.mode.length; ++i)
                     switch (object.mode[i]) {
-                    default:
-                        if (typeof object.mode[i] === "number") {
-                            message.mode[i] = object.mode[i];
-                            break;
-                        }
                     case "DEFAULT_MODE":
                     case 0:
-                        message.mode[i] = 0;
+                        message.mode[message.mode.length] = 0;
                         break;
                     case "THINK_HARD_MODE":
                     case 1:
-                        message.mode[i] = 1;
+                        message.mode[message.mode.length] = 1;
                         break;
+                    default:
+                        if (typeof object.mode[i] === "number" && (object.mode[i] | 0) === object.mode[i])
+                            message.mode[message.mode.length] = object.mode[i];
                     }
             }
             if (object.overrideMode) {
@@ -19428,7 +19237,7 @@ $root.AICommon = (function() {
          * @property {number} THINK_HARD_MODE=1 THINK_HARD_MODE value
          */
         BotModeSelectionMetadata.BotUserSelectionMode = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "DEFAULT_MODE"] = 0;
             values[valuesById[1] = "THINK_HARD_MODE"] = 1;
             return values;
@@ -19558,7 +19367,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotCapabilityMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotCapabilityMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -19631,77 +19440,8 @@ $root.AICommon = (function() {
                 if (!$Array.isArray(message.capabilities))
                     return "capabilities: array expected";
                 for (var i = 0; i < message.capabilities.length; ++i)
-                    switch (message.capabilities[i]) {
-                    default:
+                    if (typeof message.capabilities[i] !== "number" || (message.capabilities[i] | 0) !== message.capabilities[i])
                         return "capabilities: enum value[] expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                    case 15:
-                    case 16:
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                    case 25:
-                    case 26:
-                    case 27:
-                    case 28:
-                    case 29:
-                    case 30:
-                    case 31:
-                    case 32:
-                    case 33:
-                    case 34:
-                    case 35:
-                    case 36:
-                    case 37:
-                    case 38:
-                    case 39:
-                    case 40:
-                    case 41:
-                    case 42:
-                    case 43:
-                    case 44:
-                    case 45:
-                    case 46:
-                    case 47:
-                    case 48:
-                    case 49:
-                    case 50:
-                    case 51:
-                    case 52:
-                    case 53:
-                    case 54:
-                    case 55:
-                    case 56:
-                    case 57:
-                    case 58:
-                    case 59:
-                    case 60:
-                    case 61:
-                    case 62:
-                    case 63:
-                    case 64:
-                    case 65:
-                        break;
-                    }
             }
             return null;
         };
@@ -19727,278 +19467,276 @@ $root.AICommon = (function() {
             if (object.capabilities) {
                 if (!$Array.isArray(object.capabilities))
                     throw $TypeError(".AICommon.BotCapabilityMetadata.capabilities: array expected");
-                message.capabilities = $Array(object.capabilities.length);
+                message.capabilities = [];
                 for (var i = 0; i < object.capabilities.length; ++i)
                     switch (object.capabilities[i]) {
-                    default:
-                        if (typeof object.capabilities[i] === "number") {
-                            message.capabilities[i] = object.capabilities[i];
-                            break;
-                        }
                     case "UNKNOWN":
                     case 0:
-                        message.capabilities[i] = 0;
+                        message.capabilities[message.capabilities.length] = 0;
                         break;
                     case "PROGRESS_INDICATOR":
                     case 1:
-                        message.capabilities[i] = 1;
+                        message.capabilities[message.capabilities.length] = 1;
                         break;
                     case "RICH_RESPONSE_HEADING":
                     case 2:
-                        message.capabilities[i] = 2;
+                        message.capabilities[message.capabilities.length] = 2;
                         break;
                     case "RICH_RESPONSE_NESTED_LIST":
                     case 3:
-                        message.capabilities[i] = 3;
+                        message.capabilities[message.capabilities.length] = 3;
                         break;
                     case "AI_MEMORY":
                     case 4:
-                        message.capabilities[i] = 4;
+                        message.capabilities[message.capabilities.length] = 4;
                         break;
                     case "RICH_RESPONSE_THREAD_SURFING":
                     case 5:
-                        message.capabilities[i] = 5;
+                        message.capabilities[message.capabilities.length] = 5;
                         break;
                     case "RICH_RESPONSE_TABLE":
                     case 6:
-                        message.capabilities[i] = 6;
+                        message.capabilities[message.capabilities.length] = 6;
                         break;
                     case "RICH_RESPONSE_CODE":
                     case 7:
-                        message.capabilities[i] = 7;
+                        message.capabilities[message.capabilities.length] = 7;
                         break;
                     case "RICH_RESPONSE_STRUCTURED_RESPONSE":
                     case 8:
-                        message.capabilities[i] = 8;
+                        message.capabilities[message.capabilities.length] = 8;
                         break;
                     case "RICH_RESPONSE_INLINE_IMAGE":
                     case 9:
-                        message.capabilities[i] = 9;
+                        message.capabilities[message.capabilities.length] = 9;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_CONTROL":
                     case 10:
-                        message.capabilities[i] = 10;
+                        message.capabilities[message.capabilities.length] = 10;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_1":
                     case 11:
-                        message.capabilities[i] = 11;
+                        message.capabilities[message.capabilities.length] = 11;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_2":
                     case 12:
-                        message.capabilities[i] = 12;
+                        message.capabilities[message.capabilities.length] = 12;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_3":
                     case 13:
-                        message.capabilities[i] = 13;
+                        message.capabilities[message.capabilities.length] = 13;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_4":
                     case 14:
-                        message.capabilities[i] = 14;
+                        message.capabilities[message.capabilities.length] = 14;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_5":
                     case 15:
-                        message.capabilities[i] = 15;
+                        message.capabilities[message.capabilities.length] = 15;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_6":
                     case 16:
-                        message.capabilities[i] = 16;
+                        message.capabilities[message.capabilities.length] = 16;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_7":
                     case 17:
-                        message.capabilities[i] = 17;
+                        message.capabilities[message.capabilities.length] = 17;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_8":
                     case 18:
-                        message.capabilities[i] = 18;
+                        message.capabilities[message.capabilities.length] = 18;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_9":
                     case 19:
-                        message.capabilities[i] = 19;
+                        message.capabilities[message.capabilities.length] = 19;
                         break;
                     case "WA_IG_1P_PLUGIN_RANKING_UPDATE_10":
                     case 20:
-                        message.capabilities[i] = 20;
+                        message.capabilities[message.capabilities.length] = 20;
                         break;
                     case "RICH_RESPONSE_SUB_HEADING":
                     case 21:
-                        message.capabilities[i] = 21;
+                        message.capabilities[message.capabilities.length] = 21;
                         break;
                     case "RICH_RESPONSE_GRID_IMAGE":
                     case 22:
-                        message.capabilities[i] = 22;
+                        message.capabilities[message.capabilities.length] = 22;
                         break;
                     case "AI_STUDIO_UGC_MEMORY":
                     case 23:
-                        message.capabilities[i] = 23;
+                        message.capabilities[message.capabilities.length] = 23;
                         break;
                     case "RICH_RESPONSE_LATEX":
                     case 24:
-                        message.capabilities[i] = 24;
+                        message.capabilities[message.capabilities.length] = 24;
                         break;
                     case "RICH_RESPONSE_MAPS":
                     case 25:
-                        message.capabilities[i] = 25;
+                        message.capabilities[message.capabilities.length] = 25;
                         break;
                     case "RICH_RESPONSE_INLINE_REELS":
                     case 26:
-                        message.capabilities[i] = 26;
+                        message.capabilities[message.capabilities.length] = 26;
                         break;
                     case "AGENTIC_PLANNING":
                     case 27:
-                        message.capabilities[i] = 27;
+                        message.capabilities[message.capabilities.length] = 27;
                         break;
                     case "ACCOUNT_LINKING":
                     case 28:
-                        message.capabilities[i] = 28;
+                        message.capabilities[message.capabilities.length] = 28;
                         break;
                     case "STREAMING_DISAGGREGATION":
                     case 29:
-                        message.capabilities[i] = 29;
+                        message.capabilities[message.capabilities.length] = 29;
                         break;
                     case "RICH_RESPONSE_GRID_IMAGE_3P":
                     case 30:
-                        message.capabilities[i] = 30;
+                        message.capabilities[message.capabilities.length] = 30;
                         break;
                     case "RICH_RESPONSE_LATEX_INLINE":
                     case 31:
-                        message.capabilities[i] = 31;
+                        message.capabilities[message.capabilities.length] = 31;
                         break;
                     case "QUERY_PLAN":
                     case 32:
-                        message.capabilities[i] = 32;
+                        message.capabilities[message.capabilities.length] = 32;
                         break;
                     case "PROACTIVE_MESSAGE":
                     case 33:
-                        message.capabilities[i] = 33;
+                        message.capabilities[message.capabilities.length] = 33;
                         break;
                     case "RICH_RESPONSE_UNIFIED_RESPONSE":
                     case 34:
-                        message.capabilities[i] = 34;
+                        message.capabilities[message.capabilities.length] = 34;
                         break;
                     case "PROMOTION_MESSAGE":
                     case 35:
-                        message.capabilities[i] = 35;
+                        message.capabilities[message.capabilities.length] = 35;
                         break;
                     case "SIMPLIFIED_PROFILE_PAGE":
                     case 36:
-                        message.capabilities[i] = 36;
+                        message.capabilities[message.capabilities.length] = 36;
                         break;
                     case "RICH_RESPONSE_SOURCES_IN_MESSAGE":
                     case 37:
-                        message.capabilities[i] = 37;
+                        message.capabilities[message.capabilities.length] = 37;
                         break;
                     case "RICH_RESPONSE_SIDE_BY_SIDE_SURVEY":
                     case 38:
-                        message.capabilities[i] = 38;
+                        message.capabilities[message.capabilities.length] = 38;
                         break;
                     case "RICH_RESPONSE_UNIFIED_TEXT_COMPONENT":
                     case 39:
-                        message.capabilities[i] = 39;
+                        message.capabilities[message.capabilities.length] = 39;
                         break;
                     case "AI_SHARED_MEMORY":
                     case 40:
-                        message.capabilities[i] = 40;
+                        message.capabilities[message.capabilities.length] = 40;
                         break;
                     case "RICH_RESPONSE_UNIFIED_SOURCES":
                     case 41:
-                        message.capabilities[i] = 41;
+                        message.capabilities[message.capabilities.length] = 41;
                         break;
                     case "RICH_RESPONSE_UNIFIED_DOMAIN_CITATIONS":
                     case 42:
-                        message.capabilities[i] = 42;
+                        message.capabilities[message.capabilities.length] = 42;
                         break;
                     case "RICH_RESPONSE_UR_INLINE_REELS_ENABLED":
                     case 43:
-                        message.capabilities[i] = 43;
+                        message.capabilities[message.capabilities.length] = 43;
                         break;
                     case "RICH_RESPONSE_UR_MEDIA_GRID_ENABLED":
                     case 44:
-                        message.capabilities[i] = 44;
+                        message.capabilities[message.capabilities.length] = 44;
                         break;
                     case "RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER":
                     case 45:
-                        message.capabilities[i] = 45;
+                        message.capabilities[message.capabilities.length] = 45;
                         break;
                     case "RICH_RESPONSE_IN_APP_SURVEY":
                     case 46:
-                        message.capabilities[i] = 46;
+                        message.capabilities[message.capabilities.length] = 46;
                         break;
                     case "AI_RESPONSE_MODEL_BRANDING":
                     case 47:
-                        message.capabilities[i] = 47;
+                        message.capabilities[message.capabilities.length] = 47;
                         break;
                     case "SESSION_TRANSPARENCY_SYSTEM_MESSAGE":
                     case 48:
-                        message.capabilities[i] = 48;
+                        message.capabilities[message.capabilities.length] = 48;
                         break;
                     case "RICH_RESPONSE_UR_REASONING":
                     case 49:
-                        message.capabilities[i] = 49;
+                        message.capabilities[message.capabilities.length] = 49;
                         break;
                     case "RICH_RESPONSE_UR_ZEITGEIST_CITATIONS":
                     case 50:
-                        message.capabilities[i] = 50;
+                        message.capabilities[message.capabilities.length] = 50;
                         break;
                     case "RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL":
                     case 51:
-                        message.capabilities[i] = 51;
+                        message.capabilities[message.capabilities.length] = 51;
                         break;
                     case "AI_IMAGINE_LOADING_INDICATOR":
                     case 52:
-                        message.capabilities[i] = 52;
+                        message.capabilities[message.capabilities.length] = 52;
                         break;
                     case "RICH_RESPONSE_UR_IMAGINE":
                     case 53:
-                        message.capabilities[i] = 53;
+                        message.capabilities[message.capabilities.length] = 53;
                         break;
                     case "AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR":
                     case 54:
-                        message.capabilities[i] = 54;
+                        message.capabilities[message.capabilities.length] = 54;
                         break;
                     case "RICH_RESPONSE_UR_BLOKS_ENABLED":
                     case 55:
-                        message.capabilities[i] = 55;
+                        message.capabilities[message.capabilities.length] = 55;
                         break;
                     case "RICH_RESPONSE_INLINE_LINKS_ENABLED":
                     case 56:
-                        message.capabilities[i] = 56;
+                        message.capabilities[message.capabilities.length] = 56;
                         break;
                     case "RICH_RESPONSE_UR_IMAGINE_VIDEO":
                     case 57:
-                        message.capabilities[i] = 57;
+                        message.capabilities[message.capabilities.length] = 57;
                         break;
                     case "JSON_PATCH_STREAMING":
                     case 58:
-                        message.capabilities[i] = 58;
+                        message.capabilities[message.capabilities.length] = 58;
                         break;
                     case "AI_TAB_FORCE_CLIPPY":
                     case 59:
-                        message.capabilities[i] = 59;
+                        message.capabilities[message.capabilities.length] = 59;
                         break;
                     case "UNIFIED_RESPONSE_EMBEDDED_SCREENS":
                     case 60:
-                        message.capabilities[i] = 60;
+                        message.capabilities[message.capabilities.length] = 60;
                         break;
                     case "AI_SUBSCRIPTION_ENABLED":
                     case 61:
-                        message.capabilities[i] = 61;
+                        message.capabilities[message.capabilities.length] = 61;
                         break;
                     case "UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED":
                     case 62:
-                        message.capabilities[i] = 62;
+                        message.capabilities[message.capabilities.length] = 62;
                         break;
                     case "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED":
                     case 63:
-                        message.capabilities[i] = 63;
+                        message.capabilities[message.capabilities.length] = 63;
                         break;
                     case "AI_RICH_RESPONSE_MAPS_V2_ENABLED":
                     case 64:
-                        message.capabilities[i] = 64;
+                        message.capabilities[message.capabilities.length] = 64;
                         break;
                     case "AI_SUBSCRIPTION_METERING_ENABLED":
                     case 65:
-                        message.capabilities[i] = 65;
+                        message.capabilities[message.capabilities.length] = 65;
                         break;
+                    default:
+                        if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
+                            message.capabilities[message.capabilities.length] = object.capabilities[i];
                     }
             }
             return message;
@@ -20128,7 +19866,7 @@ $root.AICommon = (function() {
          * @property {number} AI_SUBSCRIPTION_METERING_ENABLED=65 AI_SUBSCRIPTION_METERING_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "PROGRESS_INDICATOR"] = 1;
             values[valuesById[2] = "RICH_RESPONSE_HEADING"] = 2;
@@ -20776,7 +20514,7 @@ $root.AICommon = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata();
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata(), value;
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -20902,15 +20640,8 @@ $root.AICommon = (function() {
                 }
                 if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
                     properties._status = 1;
-                    switch (message.status) {
-                    default:
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
                         return "status: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        break;
-                    }
                 }
                 if (message.isReasoning != null && $Object.hasOwnProperty.call(message, "isReasoning")) {
                     properties._isReasoning = 1;
@@ -20967,12 +20698,6 @@ $root.AICommon = (function() {
                     }
                 }
                 switch (object.status) {
-                default:
-                    if (typeof object.status === "number") {
-                        message.status = object.status;
-                        break;
-                    }
-                    break;
                 case "UNKNOWN":
                 case 0:
                     message.status = 0;
@@ -20989,6 +20714,9 @@ $root.AICommon = (function() {
                 case 3:
                     message.status = 3;
                     break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
                 }
                 if (object.isReasoning != null)
                     message.isReasoning = $Boolean(object.isReasoning);
@@ -21252,7 +20980,7 @@ $root.AICommon = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -21341,15 +21069,8 @@ $root.AICommon = (function() {
                     }
                     if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                         properties._provider = 1;
-                        switch (message.provider) {
-                        default:
+                        if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                             return "provider: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                            break;
-                        }
                     }
                     if (message.sourceUrl != null && $Object.hasOwnProperty.call(message, "sourceUrl")) {
                         properties._sourceUrl = 1;
@@ -21385,12 +21106,6 @@ $root.AICommon = (function() {
                     if (object.title != null)
                         message.title = $String(object.title);
                     switch (object.provider) {
-                    default:
-                        if (typeof object.provider === "number") {
-                            message.provider = object.provider;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN_PROVIDER":
                     case 0:
                         message.provider = 0;
@@ -21407,6 +21122,9 @@ $root.AICommon = (function() {
                     case 3:
                         message.provider = 3;
                         break;
+                    default:
+                        if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                            message.provider = object.provider;
                     }
                     if (object.sourceUrl != null)
                         message.sourceUrl = $String(object.sourceUrl);
@@ -21630,7 +21348,7 @@ $root.AICommon = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -21712,15 +21430,8 @@ $root.AICommon = (function() {
                     }
                     if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                         properties._provider = 1;
-                        switch (message.provider) {
-                        default:
+                        if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                             return "provider: enum value expected";
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                            break;
-                        }
                     }
                     if (message.sourceUrl != null && $Object.hasOwnProperty.call(message, "sourceUrl")) {
                         properties._sourceUrl = 1;
@@ -21751,12 +21462,6 @@ $root.AICommon = (function() {
                     if (object.sourceTitle != null)
                         message.sourceTitle = $String(object.sourceTitle);
                     switch (object.provider) {
-                    default:
-                        if (typeof object.provider === "number") {
-                            message.provider = object.provider;
-                            break;
-                        }
-                        break;
                     case "UNKNOWN":
                     case 0:
                         message.provider = 0;
@@ -21773,6 +21478,9 @@ $root.AICommon = (function() {
                     case 3:
                         message.provider = 3;
                         break;
+                    default:
+                        if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                            message.provider = object.provider;
                     }
                     if (object.sourceUrl != null)
                         message.sourceUrl = $String(object.sourceUrl);
@@ -21840,7 +21548,7 @@ $root.AICommon = (function() {
                  * @property {number} BING=3 BING value
                  */
                 BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider = (function() {
-                    var valuesById = {}, values = $Object.create(valuesById);
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
                     values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "OTHER"] = 1;
                     values[valuesById[2] = "GOOGLE"] = 2;
@@ -22208,7 +21916,7 @@ $root.AICommon = (function() {
              * @property {number} BING=3 BING value
              */
             BotPlanningStepMetadata.BotSearchSourceProvider = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN_PROVIDER"] = 0;
                 values[valuesById[1] = "OTHER"] = 1;
                 values[valuesById[2] = "GOOGLE"] = 2;
@@ -22226,7 +21934,7 @@ $root.AICommon = (function() {
              * @property {number} FINISHED=3 FINISHED value
              */
             BotPlanningStepMetadata.PlanningStepStatus = (function() {
-                var valuesById = {}, values = $Object.create(valuesById);
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "PLANNED"] = 1;
                 values[valuesById[2] = "EXECUTING"] = 2;
@@ -22399,7 +22107,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModelMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModelMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -22476,25 +22184,13 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.modelType != null && $Object.hasOwnProperty.call(message, "modelType")) {
                 properties._modelType = 1;
-                switch (message.modelType) {
-                default:
+                if (typeof message.modelType !== "number" || (message.modelType | 0) !== message.modelType)
                     return "modelType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.premiumModelStatus != null && $Object.hasOwnProperty.call(message, "premiumModelStatus")) {
                 properties._premiumModelStatus = 1;
-                switch (message.premiumModelStatus) {
-                default:
+                if (typeof message.premiumModelStatus !== "number" || (message.premiumModelStatus | 0) !== message.premiumModelStatus)
                     return "premiumModelStatus: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.modelNameOverride != null && $Object.hasOwnProperty.call(message, "modelNameOverride")) {
                 properties._modelNameOverride = 1;
@@ -22523,12 +22219,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotModelMetadata();
             switch (object.modelType) {
-            default:
-                if (typeof object.modelType === "number") {
-                    message.modelType = object.modelType;
-                    break;
-                }
-                break;
             case "UNKNOWN_TYPE":
             case 0:
                 message.modelType = 0;
@@ -22541,14 +22231,11 @@ $root.AICommon = (function() {
             case 2:
                 message.modelType = 2;
                 break;
+            default:
+                if (typeof object.modelType === "number" && (object.modelType | 0) === object.modelType)
+                    message.modelType = object.modelType;
             }
             switch (object.premiumModelStatus) {
-            default:
-                if (typeof object.premiumModelStatus === "number") {
-                    message.premiumModelStatus = object.premiumModelStatus;
-                    break;
-                }
-                break;
             case "UNKNOWN_STATUS":
             case 0:
                 message.premiumModelStatus = 0;
@@ -22561,6 +22248,9 @@ $root.AICommon = (function() {
             case 2:
                 message.premiumModelStatus = 2;
                 break;
+            default:
+                if (typeof object.premiumModelStatus === "number" && (object.premiumModelStatus | 0) === object.premiumModelStatus)
+                    message.premiumModelStatus = object.premiumModelStatus;
             }
             if (object.modelNameOverride != null)
                 message.modelNameOverride = $String(object.modelNameOverride);
@@ -22627,7 +22317,7 @@ $root.AICommon = (function() {
          * @property {number} LLAMA_PROD_PREMIUM=2 LLAMA_PROD_PREMIUM value
          */
         BotModelMetadata.ModelType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
             values[valuesById[1] = "LLAMA_PROD"] = 1;
             values[valuesById[2] = "LLAMA_PROD_PREMIUM"] = 2;
@@ -22643,7 +22333,7 @@ $root.AICommon = (function() {
          * @property {number} QUOTA_EXCEED_LIMIT=2 QUOTA_EXCEED_LIMIT value
          */
         BotModelMetadata.PremiumModelStatus = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_STATUS"] = 0;
             values[valuesById[1] = "AVAILABLE"] = 1;
             values[valuesById[2] = "QUOTA_EXCEED_LIMIT"] = 2;
@@ -22846,7 +22536,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotReminderMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotReminderMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -22945,15 +22635,8 @@ $root.AICommon = (function() {
             }
             if (message.action != null && $Object.hasOwnProperty.call(message, "action")) {
                 properties._action = 1;
-                switch (message.action) {
-                default:
+                if (typeof message.action !== "number" || (message.action | 0) !== message.action)
                     return "action: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    break;
-                }
             }
             if (message.name != null && $Object.hasOwnProperty.call(message, "name")) {
                 properties._name = 1;
@@ -22967,16 +22650,8 @@ $root.AICommon = (function() {
             }
             if (message.frequency != null && $Object.hasOwnProperty.call(message, "frequency")) {
                 properties._frequency = 1;
-                switch (message.frequency) {
-                default:
+                if (typeof message.frequency !== "number" || (message.frequency | 0) !== message.frequency)
                     return "frequency: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             return null;
         };
@@ -23005,12 +22680,6 @@ $root.AICommon = (function() {
                 message.requestMessageKey = $root.Protocol.MessageKey.fromObject(object.requestMessageKey, _depth + 1);
             }
             switch (object.action) {
-            default:
-                if (typeof object.action === "number") {
-                    message.action = object.action;
-                    break;
-                }
-                break;
             case "NOTIFY":
             case 1:
                 message.action = 1;
@@ -23027,6 +22696,9 @@ $root.AICommon = (function() {
             case 4:
                 message.action = 4;
                 break;
+            default:
+                if (typeof object.action === "number" && (object.action | 0) === object.action)
+                    message.action = object.action;
             }
             if (object.name != null)
                 message.name = $String(object.name);
@@ -23040,12 +22712,6 @@ $root.AICommon = (function() {
                 else if (typeof object.nextTriggerTimestamp === "object")
                     message.nextTriggerTimestamp = new $util.LongBits(object.nextTriggerTimestamp.low >>> 0, object.nextTriggerTimestamp.high >>> 0).toNumber(true);
             switch (object.frequency) {
-            default:
-                if (typeof object.frequency === "number") {
-                    message.frequency = object.frequency;
-                    break;
-                }
-                break;
             case "ONCE":
             case 1:
                 message.frequency = 1;
@@ -23066,6 +22732,9 @@ $root.AICommon = (function() {
             case 5:
                 message.frequency = 5;
                 break;
+            default:
+                if (typeof object.frequency === "number" && (object.frequency | 0) === object.frequency)
+                    message.frequency = object.frequency;
             }
             return message;
         };
@@ -23140,7 +22809,7 @@ $root.AICommon = (function() {
          * @property {number} UPDATE=4 UPDATE value
          */
         BotReminderMetadata.ReminderAction = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "NOTIFY"] = 1;
             values[valuesById[2] = "CREATE"] = 2;
             values[valuesById[3] = "DELETE"] = 3;
@@ -23159,7 +22828,7 @@ $root.AICommon = (function() {
          * @property {number} MONTHLY=5 MONTHLY value
          */
         BotReminderMetadata.ReminderFrequency = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "ONCE"] = 1;
             values[valuesById[2] = "DAILY"] = 2;
             values[valuesById[3] = "WEEKLY"] = 3;
@@ -23675,7 +23344,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMediaMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMediaMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -23810,14 +23479,8 @@ $root.AICommon = (function() {
             }
             if (message.orientationType != null && $Object.hasOwnProperty.call(message, "orientationType")) {
                 properties._orientationType = 1;
-                switch (message.orientationType) {
-                default:
+                if (typeof message.orientationType !== "number" || (message.orientationType | 0) !== message.orientationType)
                     return "orientationType: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             return null;
         };
@@ -23860,12 +23523,6 @@ $root.AICommon = (function() {
             if (object.mimetype != null)
                 message.mimetype = $String(object.mimetype);
             switch (object.orientationType) {
-            default:
-                if (typeof object.orientationType === "number") {
-                    message.orientationType = object.orientationType;
-                    break;
-                }
-                break;
             case "CENTER":
             case 1:
                 message.orientationType = 1;
@@ -23878,6 +23535,9 @@ $root.AICommon = (function() {
             case 3:
                 message.orientationType = 3;
                 break;
+            default:
+                if (typeof object.orientationType === "number" && (object.orientationType | 0) === object.orientationType)
+                    message.orientationType = object.orientationType;
             }
             return message;
         };
@@ -23955,7 +23615,7 @@ $root.AICommon = (function() {
          * @property {number} RIGHT=3 RIGHT value
          */
         BotMediaMetadata.OrientationType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[1] = "CENTER"] = 1;
             values[valuesById[2] = "LEFT"] = 2;
             values[valuesById[3] = "RIGHT"] = 3;
@@ -24107,7 +23767,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSessionMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSessionMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -24182,19 +23842,8 @@ $root.AICommon = (function() {
             }
             if (message.sessionSource != null && $Object.hasOwnProperty.call(message, "sessionSource")) {
                 properties._sessionSource = 1;
-                switch (message.sessionSource) {
-                default:
+                if (typeof message.sessionSource !== "number" || (message.sessionSource | 0) !== message.sessionSource)
                     return "sessionSource: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                    break;
-                }
             }
             return null;
         };
@@ -24220,12 +23869,6 @@ $root.AICommon = (function() {
             if (object.sessionId != null)
                 message.sessionId = $String(object.sessionId);
             switch (object.sessionSource) {
-            default:
-                if (typeof object.sessionSource === "number") {
-                    message.sessionSource = object.sessionSource;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.sessionSource = 0;
@@ -24258,6 +23901,9 @@ $root.AICommon = (function() {
             case 7:
                 message.sessionSource = 7;
                 break;
+            default:
+                if (typeof object.sessionSource === "number" && (object.sessionSource | 0) === object.sessionSource)
+                    message.sessionSource = object.sessionSource;
             }
             return message;
         };
@@ -24473,7 +24119,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMetricsMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMetricsMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -24555,72 +24201,13 @@ $root.AICommon = (function() {
             }
             if (message.destinationEntryPoint != null && $Object.hasOwnProperty.call(message, "destinationEntryPoint")) {
                 properties._destinationEntryPoint = 1;
-                switch (message.destinationEntryPoint) {
-                default:
+                if (typeof message.destinationEntryPoint !== "number" || (message.destinationEntryPoint | 0) !== message.destinationEntryPoint)
                     return "destinationEntryPoint: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                case 25:
-                case 26:
-                case 27:
-                case 28:
-                case 29:
-                case 30:
-                case 31:
-                case 32:
-                case 33:
-                case 34:
-                case 35:
-                case 36:
-                case 37:
-                case 38:
-                case 39:
-                case 40:
-                case 41:
-                case 45:
-                case 46:
-                case 47:
-                case 54:
-                case 55:
-                case 56:
-                    break;
-                }
             }
             if (message.threadOrigin != null && $Object.hasOwnProperty.call(message, "threadOrigin")) {
                 properties._threadOrigin = 1;
-                switch (message.threadOrigin) {
-                default:
+                if (typeof message.threadOrigin !== "number" || (message.threadOrigin | 0) !== message.threadOrigin)
                     return "threadOrigin: enum value expected";
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    break;
-                }
             }
             return null;
         };
@@ -24646,12 +24233,6 @@ $root.AICommon = (function() {
             if (object.destinationId != null)
                 message.destinationId = $String(object.destinationId);
             switch (object.destinationEntryPoint) {
-            default:
-                if (typeof object.destinationEntryPoint === "number") {
-                    message.destinationEntryPoint = object.destinationEntryPoint;
-                    break;
-                }
-                break;
             case "UNDEFINED_ENTRY_POINT":
             case 0:
                 message.destinationEntryPoint = 0;
@@ -24844,14 +24425,11 @@ $root.AICommon = (function() {
             case 56:
                 message.destinationEntryPoint = 56;
                 break;
+            default:
+                if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
+                    message.destinationEntryPoint = object.destinationEntryPoint;
             }
             switch (object.threadOrigin) {
-            default:
-                if (typeof object.threadOrigin === "number") {
-                    message.threadOrigin = object.threadOrigin;
-                    break;
-                }
-                break;
             case "AI_TAB_THREAD":
             case 1:
                 message.threadOrigin = 1;
@@ -24872,6 +24450,9 @@ $root.AICommon = (function() {
             case 5:
                 message.threadOrigin = 5;
                 break;
+            default:
+                if (typeof object.threadOrigin === "number" && (object.threadOrigin | 0) === object.threadOrigin)
+                    message.threadOrigin = object.threadOrigin;
             }
             return message;
         };
@@ -25658,7 +25239,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromotionMessageMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromotionMessageMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -25728,14 +25309,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.promotionType != null && $Object.hasOwnProperty.call(message, "promotionType")) {
                 properties._promotionType = 1;
-                switch (message.promotionType) {
-                default:
+                if (typeof message.promotionType !== "number" || (message.promotionType | 0) !== message.promotionType)
                     return "promotionType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.buttonTitle != null && $Object.hasOwnProperty.call(message, "buttonTitle")) {
                 properties._buttonTitle = 1;
@@ -25764,12 +25339,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotPromotionMessageMetadata();
             switch (object.promotionType) {
-            default:
-                if (typeof object.promotionType === "number") {
-                    message.promotionType = object.promotionType;
-                    break;
-                }
-                break;
             case "UNKNOWN_TYPE":
             case 0:
                 message.promotionType = 0;
@@ -25782,6 +25351,9 @@ $root.AICommon = (function() {
             case 2:
                 message.promotionType = 2;
                 break;
+            default:
+                if (typeof object.promotionType === "number" && (object.promotionType | 0) === object.promotionType)
+                    message.promotionType = object.promotionType;
             }
             if (object.buttonTitle != null)
                 message.buttonTitle = $String(object.buttonTitle);
@@ -25846,7 +25418,7 @@ $root.AICommon = (function() {
          * @property {number} SURVEY_PLATFORM=2 SURVEY_PLATFORM value
          */
         BotPromotionMessageMetadata.BotPromotionType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
             values[valuesById[1] = "C50"] = 1;
             values[valuesById[2] = "SURVEY_PLATFORM"] = 2;
@@ -26028,7 +25600,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSignatureVerificationUseCaseProof();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSignatureVerificationUseCaseProof(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -26118,15 +25690,8 @@ $root.AICommon = (function() {
             }
             if (message.useCase != null && $Object.hasOwnProperty.call(message, "useCase")) {
                 properties._useCase = 1;
-                switch (message.useCase) {
-                default:
+                if (typeof message.useCase !== "number" || (message.useCase | 0) !== message.useCase)
                     return "useCase: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.signature != null && $Object.hasOwnProperty.call(message, "signature")) {
                 properties._signature = 1;
@@ -26164,12 +25729,6 @@ $root.AICommon = (function() {
             if (object.version != null)
                 message.version = object.version | 0;
             switch (object.useCase) {
-            default:
-                if (typeof object.useCase === "number") {
-                    message.useCase = object.useCase;
-                    break;
-                }
-                break;
             case "UNSPECIFIED":
             case 0:
                 message.useCase = 0;
@@ -26186,6 +25745,9 @@ $root.AICommon = (function() {
             case 3:
                 message.useCase = 3;
                 break;
+            default:
+                if (typeof object.useCase === "number" && (object.useCase | 0) === object.useCase)
+                    message.useCase = object.useCase;
             }
             if (object.signature != null)
                 if (typeof object.signature === "string")
@@ -26273,7 +25835,7 @@ $root.AICommon = (function() {
          * @property {number} P2P_PILLS=3 P2P_PILLS value
          */
         BotSignatureVerificationUseCaseProof.BotSignatureUseCase = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNSPECIFIED"] = 0;
             values[valuesById[1] = "WA_BOT_MSG"] = 1;
             values[valuesById[2] = "WA_TEE_BOT_MSG"] = 2;
@@ -27347,7 +26909,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotLinkedAccount();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotLinkedAccount(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -27410,12 +26972,8 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
-                switch (message.type) {
-                default:
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
-                case 0:
-                    break;
-                }
             }
             return null;
         };
@@ -27439,16 +26997,13 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotLinkedAccount();
             switch (object.type) {
-            default:
-                if (typeof object.type === "number") {
-                    message.type = object.type;
-                    break;
-                }
-                break;
             case "BOT_LINKED_ACCOUNT_TYPE_1P":
             case 0:
                 message.type = 0;
                 break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
             }
             return message;
         };
@@ -27507,7 +27062,7 @@ $root.AICommon = (function() {
          * @property {number} BOT_LINKED_ACCOUNT_TYPE_1P=0 BOT_LINKED_ACCOUNT_TYPE_1P value
          */
         BotLinkedAccount.BotLinkedAccountType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "BOT_LINKED_ACCOUNT_TYPE_1P"] = 0;
             return values;
         })();
@@ -29135,7 +28690,7 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPluginMetadata();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPluginMetadata(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -29275,26 +28830,13 @@ $root.AICommon = (function() {
             var properties = {};
             if (message.provider != null && $Object.hasOwnProperty.call(message, "provider")) {
                 properties._provider = 1;
-                switch (message.provider) {
-                default:
+                if (typeof message.provider !== "number" || (message.provider | 0) !== message.provider)
                     return "provider: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.pluginType != null && $Object.hasOwnProperty.call(message, "pluginType")) {
                 properties._pluginType = 1;
-                switch (message.pluginType) {
-                default:
+                if (typeof message.pluginType !== "number" || (message.pluginType | 0) !== message.pluginType)
                     return "pluginType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.thumbnailCdnUrl != null && $Object.hasOwnProperty.call(message, "thumbnailCdnUrl")) {
                 properties._thumbnailCdnUrl = 1;
@@ -29336,25 +28878,13 @@ $root.AICommon = (function() {
             }
             if (message.deprecatedField != null && $Object.hasOwnProperty.call(message, "deprecatedField")) {
                 properties._deprecatedField = 1;
-                switch (message.deprecatedField) {
-                default:
+                if (typeof message.deprecatedField !== "number" || (message.deprecatedField | 0) !== message.deprecatedField)
                     return "deprecatedField: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.parentPluginType != null && $Object.hasOwnProperty.call(message, "parentPluginType")) {
                 properties._parentPluginType = 1;
-                switch (message.parentPluginType) {
-                default:
+                if (typeof message.parentPluginType !== "number" || (message.parentPluginType | 0) !== message.parentPluginType)
                     return "parentPluginType: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.faviconCdnUrl != null && $Object.hasOwnProperty.call(message, "faviconCdnUrl")) {
                 properties._faviconCdnUrl = 1;
@@ -29383,12 +28913,6 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.AICommon.BotPluginMetadata();
             switch (object.provider) {
-            default:
-                if (typeof object.provider === "number") {
-                    message.provider = object.provider;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.provider = 0;
@@ -29405,14 +28929,11 @@ $root.AICommon = (function() {
             case 3:
                 message.provider = 3;
                 break;
+            default:
+                if (typeof object.provider === "number" && (object.provider | 0) === object.provider)
+                    message.provider = object.provider;
             }
             switch (object.pluginType) {
-            default:
-                if (typeof object.pluginType === "number") {
-                    message.pluginType = object.pluginType;
-                    break;
-                }
-                break;
             case "UNKNOWN_PLUGIN":
             case 0:
                 message.pluginType = 0;
@@ -29425,6 +28946,9 @@ $root.AICommon = (function() {
             case 2:
                 message.pluginType = 2;
                 break;
+            default:
+                if (typeof object.pluginType === "number" && (object.pluginType | 0) === object.pluginType)
+                    message.pluginType = object.pluginType;
             }
             if (object.thumbnailCdnUrl != null)
                 message.thumbnailCdnUrl = $String(object.thumbnailCdnUrl);
@@ -29444,12 +28968,6 @@ $root.AICommon = (function() {
                 message.parentPluginMessageKey = $root.Protocol.MessageKey.fromObject(object.parentPluginMessageKey, _depth + 1);
             }
             switch (object.deprecatedField) {
-            default:
-                if (typeof object.deprecatedField === "number") {
-                    message.deprecatedField = object.deprecatedField;
-                    break;
-                }
-                break;
             case "UNKNOWN_PLUGIN":
             case 0:
                 message.deprecatedField = 0;
@@ -29462,14 +28980,11 @@ $root.AICommon = (function() {
             case 2:
                 message.deprecatedField = 2;
                 break;
+            default:
+                if (typeof object.deprecatedField === "number" && (object.deprecatedField | 0) === object.deprecatedField)
+                    message.deprecatedField = object.deprecatedField;
             }
             switch (object.parentPluginType) {
-            default:
-                if (typeof object.parentPluginType === "number") {
-                    message.parentPluginType = object.parentPluginType;
-                    break;
-                }
-                break;
             case "UNKNOWN_PLUGIN":
             case 0:
                 message.parentPluginType = 0;
@@ -29482,6 +28997,9 @@ $root.AICommon = (function() {
             case 2:
                 message.parentPluginType = 2;
                 break;
+            default:
+                if (typeof object.parentPluginType === "number" && (object.parentPluginType | 0) === object.parentPluginType)
+                    message.parentPluginType = object.parentPluginType;
             }
             if (object.faviconCdnUrl != null)
                 message.faviconCdnUrl = $String(object.faviconCdnUrl);
@@ -29566,7 +29084,7 @@ $root.AICommon = (function() {
          * @property {number} SEARCH=2 SEARCH value
          */
         BotPluginMetadata.PluginType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_PLUGIN"] = 0;
             values[valuesById[1] = "REELS"] = 1;
             values[valuesById[2] = "SEARCH"] = 2;
@@ -29583,7 +29101,7 @@ $root.AICommon = (function() {
          * @property {number} SUPPORT=3 SUPPORT value
          */
         BotPluginMetadata.SearchProvider = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "BING"] = 1;
             values[valuesById[2] = "GOOGLE"] = 2;
@@ -29602,7 +29120,7 @@ $root.AICommon = (function() {
      * @property {number} NY_AI_SAFETY_DISCLAIMER=1 NY_AI_SAFETY_DISCLAIMER value
      */
     AICommon.SessionTransparencyType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
         values[valuesById[1] = "NY_AI_SAFETY_DISCLAIMER"] = 1;
         return values;
@@ -29618,7 +29136,7 @@ $root.AICommon = (function() {
      * @property {number} VIDEO_GEN=3 VIDEO_GEN value
      */
     AICommon.AISubscriptionRequestType = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNSPECIFIED"] = 0;
         values[valuesById[1] = "THINK_HARD"] = 1;
         values[valuesById[2] = "IMAGE_GEN"] = 2;
@@ -29640,7 +29158,7 @@ $root.AICommon = (function() {
      * @property {number} AI_HOME_SESSION=7 AI_HOME_SESSION value
      */
     AICommon.BotSessionSource = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "NONE"] = 0;
         values[valuesById[1] = "NULL_STATE"] = 1;
         values[valuesById[2] = "TYPEAHEAD"] = 2;
@@ -29663,7 +29181,7 @@ $root.AICommon = (function() {
      * @property {number} ASK_META_AI_CONTEXT_MENU_THREAD=5 ASK_META_AI_CONTEXT_MENU_THREAD value
      */
     AICommon.BotMetricsThreadEntryPoint = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[1] = "AI_TAB_THREAD"] = 1;
         values[valuesById[2] = "AI_HOME_THREAD"] = 2;
         values[valuesById[3] = "AI_DEEPLINK_IMMERSIVE_THREAD"] = 3;
@@ -29726,7 +29244,7 @@ $root.AICommon = (function() {
      * @property {number} NEW_CHAT_LIST=56 NEW_CHAT_LIST value
      */
     AICommon.BotMetricsEntryPoint = (function() {
-        var valuesById = {}, values = $Object.create(valuesById);
+        var valuesById = $Object.create(null), values = $Object.create(valuesById);
         values[valuesById[0] = "UNDEFINED_ENTRY_POINT"] = 0;
         values[valuesById[1] = "FAVICON"] = 1;
         values[valuesById[2] = "CHATLIST"] = 2;
@@ -29966,7 +29484,7 @@ $root.Protocol = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -30055,15 +29573,8 @@ $root.Protocol = (function() {
             }
             if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger")) {
                 properties._trigger = 1;
-                switch (message.trigger) {
-                default:
+                if (typeof message.trigger !== "number" || (message.trigger | 0) !== message.trigger)
                     return "trigger: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp")) {
                 properties._limitSharingSettingTimestamp = 1;
@@ -30099,12 +29610,6 @@ $root.Protocol = (function() {
             if (object.sharingLimited != null)
                 message.sharingLimited = $Boolean(object.sharingLimited);
             switch (object.trigger) {
-            default:
-                if (typeof object.trigger === "number") {
-                    message.trigger = object.trigger;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.trigger = 0;
@@ -30121,6 +29626,9 @@ $root.Protocol = (function() {
             case 3:
                 message.trigger = 3;
                 break;
+            default:
+                if (typeof object.trigger === "number" && (object.trigger | 0) === object.trigger)
+                    message.trigger = object.trigger;
             }
             if (object.limitSharingSettingTimestamp != null)
                 if ($util.Long)
@@ -30204,7 +29712,7 @@ $root.Protocol = (function() {
          * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
          */
         LimitSharing.TriggerType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;

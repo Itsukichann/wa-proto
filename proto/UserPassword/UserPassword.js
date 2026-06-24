@@ -197,7 +197,7 @@ $root.UserPassword = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -282,24 +282,13 @@ $root.UserPassword = (function() {
             var properties = {};
             if (message.encoding != null && $Object.hasOwnProperty.call(message, "encoding")) {
                 properties._encoding = 1;
-                switch (message.encoding) {
-                default:
+                if (typeof message.encoding !== "number" || (message.encoding | 0) !== message.encoding)
                     return "encoding: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.transformer != null && $Object.hasOwnProperty.call(message, "transformer")) {
                 properties._transformer = 1;
-                switch (message.transformer) {
-                default:
+                if (typeof message.transformer !== "number" || (message.transformer | 0) !== message.transformer)
                     return "transformer: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.transformerArg != null && $Object.hasOwnProperty.call(message, "transformerArg")) {
                 if (!$Array.isArray(message.transformerArg))
@@ -337,12 +326,6 @@ $root.UserPassword = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.UserPassword.UserPassword();
             switch (object.encoding) {
-            default:
-                if (typeof object.encoding === "number") {
-                    message.encoding = object.encoding;
-                    break;
-                }
-                break;
             case "UTF8":
             case 0:
                 message.encoding = 0;
@@ -351,14 +334,11 @@ $root.UserPassword = (function() {
             case 1:
                 message.encoding = 1;
                 break;
+            default:
+                if (typeof object.encoding === "number" && (object.encoding | 0) === object.encoding)
+                    message.encoding = object.encoding;
             }
             switch (object.transformer) {
-            default:
-                if (typeof object.transformer === "number") {
-                    message.transformer = object.transformer;
-                    break;
-                }
-                break;
             case "NONE":
             case 0:
                 message.transformer = 0;
@@ -371,6 +351,9 @@ $root.UserPassword = (function() {
             case 2:
                 message.transformer = 2;
                 break;
+            default:
+                if (typeof object.transformer === "number" && (object.transformer | 0) === object.transformer)
+                    message.transformer = object.transformer;
             }
             if (object.transformerArg) {
                 if (!$Array.isArray(object.transformerArg))
@@ -456,7 +439,7 @@ $root.UserPassword = (function() {
          * @property {number} UTF8_BROKEN=1 UTF8_BROKEN value
          */
         UserPassword.Encoding = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UTF8"] = 0;
             values[valuesById[1] = "UTF8_BROKEN"] = 1;
             return values;
@@ -471,7 +454,7 @@ $root.UserPassword = (function() {
          * @property {number} PBKDF2_HMAC_SHA384=2 PBKDF2_HMAC_SHA384 value
          */
         UserPassword.Transformer = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "NONE"] = 0;
             values[valuesById[1] = "PBKDF2_HMAC_SHA512"] = 1;
             values[valuesById[2] = "PBKDF2_HMAC_SHA384"] = 2;

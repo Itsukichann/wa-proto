@@ -739,7 +739,7 @@ $root.ServerSync = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdMutation();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdMutation(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -809,13 +809,8 @@ $root.ServerSync = (function() {
             var properties = {};
             if (message.operation != null && $Object.hasOwnProperty.call(message, "operation")) {
                 properties._operation = 1;
-                switch (message.operation) {
-                default:
+                if (typeof message.operation !== "number" || (message.operation | 0) !== message.operation)
                     return "operation: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.record != null && $Object.hasOwnProperty.call(message, "record")) {
                 properties._record = 1;
@@ -847,12 +842,6 @@ $root.ServerSync = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdMutation();
             switch (object.operation) {
-            default:
-                if (typeof object.operation === "number") {
-                    message.operation = object.operation;
-                    break;
-                }
-                break;
             case "SET":
             case 0:
                 message.operation = 0;
@@ -861,6 +850,9 @@ $root.ServerSync = (function() {
             case 1:
                 message.operation = 1;
                 break;
+            default:
+                if (typeof object.operation === "number" && (object.operation | 0) === object.operation)
+                    message.operation = object.operation;
             }
             if (object.record != null) {
                 if (!$util.isObject(object.record))
@@ -927,7 +919,7 @@ $root.ServerSync = (function() {
          * @property {number} REMOVE=1 REMOVE value
          */
         SyncdMutation.SyncdOperation = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "SET"] = 0;
             values[valuesById[1] = "REMOVE"] = 1;
             return values;

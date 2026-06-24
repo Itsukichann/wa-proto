@@ -195,7 +195,7 @@ $root.Protocol = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -284,15 +284,8 @@ $root.Protocol = (function() {
             }
             if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger")) {
                 properties._trigger = 1;
-                switch (message.trigger) {
-                default:
+                if (typeof message.trigger !== "number" || (message.trigger | 0) !== message.trigger)
                     return "trigger: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
             }
             if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp")) {
                 properties._limitSharingSettingTimestamp = 1;
@@ -328,12 +321,6 @@ $root.Protocol = (function() {
             if (object.sharingLimited != null)
                 message.sharingLimited = $Boolean(object.sharingLimited);
             switch (object.trigger) {
-            default:
-                if (typeof object.trigger === "number") {
-                    message.trigger = object.trigger;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.trigger = 0;
@@ -350,6 +337,9 @@ $root.Protocol = (function() {
             case 3:
                 message.trigger = 3;
                 break;
+            default:
+                if (typeof object.trigger === "number" && (object.trigger | 0) === object.trigger)
+                    message.trigger = object.trigger;
             }
             if (object.limitSharingSettingTimestamp != null)
                 if ($util.Long)
@@ -433,7 +423,7 @@ $root.Protocol = (function() {
          * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
          */
         LimitSharing.TriggerType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;

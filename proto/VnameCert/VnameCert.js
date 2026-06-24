@@ -263,7 +263,7 @@ $root.VnameCert = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizIdentityInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizIdentityInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -375,14 +375,8 @@ $root.VnameCert = (function() {
             var properties = {};
             if (message.vlevel != null && $Object.hasOwnProperty.call(message, "vlevel")) {
                 properties._vlevel = 1;
-                switch (message.vlevel) {
-                default:
+                if (typeof message.vlevel !== "number" || (message.vlevel | 0) !== message.vlevel)
                     return "vlevel: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
             }
             if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert")) {
                 properties._vnameCert = 1;
@@ -404,23 +398,13 @@ $root.VnameCert = (function() {
             }
             if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage")) {
                 properties._hostStorage = 1;
-                switch (message.hostStorage) {
-                default:
+                if (typeof message.hostStorage !== "number" || (message.hostStorage | 0) !== message.hostStorage)
                     return "hostStorage: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.actualActors != null && $Object.hasOwnProperty.call(message, "actualActors")) {
                 properties._actualActors = 1;
-                switch (message.actualActors) {
-                default:
+                if (typeof message.actualActors !== "number" || (message.actualActors | 0) !== message.actualActors)
                     return "actualActors: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.privacyModeTs != null && $Object.hasOwnProperty.call(message, "privacyModeTs")) {
                 properties._privacyModeTs = 1;
@@ -454,12 +438,6 @@ $root.VnameCert = (function() {
                 throw $Error("max depth exceeded");
             var message = new $root.VnameCert.BizIdentityInfo();
             switch (object.vlevel) {
-            default:
-                if (typeof object.vlevel === "number") {
-                    message.vlevel = object.vlevel;
-                    break;
-                }
-                break;
             case "UNKNOWN":
             case 0:
                 message.vlevel = 0;
@@ -472,6 +450,9 @@ $root.VnameCert = (function() {
             case 2:
                 message.vlevel = 2;
                 break;
+            default:
+                if (typeof object.vlevel === "number" && (object.vlevel | 0) === object.vlevel)
+                    message.vlevel = object.vlevel;
             }
             if (object.vnameCert != null) {
                 if (!$util.isObject(object.vnameCert))
@@ -483,12 +464,6 @@ $root.VnameCert = (function() {
             if (object.revoked != null)
                 message.revoked = $Boolean(object.revoked);
             switch (object.hostStorage) {
-            default:
-                if (typeof object.hostStorage === "number") {
-                    message.hostStorage = object.hostStorage;
-                    break;
-                }
-                break;
             case "ON_PREMISE":
             case 0:
                 message.hostStorage = 0;
@@ -497,14 +472,11 @@ $root.VnameCert = (function() {
             case 1:
                 message.hostStorage = 1;
                 break;
+            default:
+                if (typeof object.hostStorage === "number" && (object.hostStorage | 0) === object.hostStorage)
+                    message.hostStorage = object.hostStorage;
             }
             switch (object.actualActors) {
-            default:
-                if (typeof object.actualActors === "number") {
-                    message.actualActors = object.actualActors;
-                    break;
-                }
-                break;
             case "SELF":
             case 0:
                 message.actualActors = 0;
@@ -513,6 +485,9 @@ $root.VnameCert = (function() {
             case 1:
                 message.actualActors = 1;
                 break;
+            default:
+                if (typeof object.actualActors === "number" && (object.actualActors | 0) === object.actualActors)
+                    message.actualActors = object.actualActors;
             }
             if (object.privacyModeTs != null)
                 if ($util.Long)
@@ -614,7 +589,7 @@ $root.VnameCert = (function() {
          * @property {number} BSP=1 BSP value
          */
         BizIdentityInfo.ActualActorsType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "SELF"] = 0;
             values[valuesById[1] = "BSP"] = 1;
             return values;
@@ -628,7 +603,7 @@ $root.VnameCert = (function() {
          * @property {number} FACEBOOK=1 FACEBOOK value
          */
         BizIdentityInfo.HostStorageType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "ON_PREMISE"] = 0;
             values[valuesById[1] = "FACEBOOK"] = 1;
             return values;
@@ -643,7 +618,7 @@ $root.VnameCert = (function() {
          * @property {number} HIGH=2 HIGH value
          */
         BizIdentityInfo.VerifiedLevelValue = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "LOW"] = 1;
             values[valuesById[2] = "HIGH"] = 2;
@@ -846,7 +821,7 @@ $root.VnameCert = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountLinkInfo();
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountLinkInfo(), value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -952,22 +927,13 @@ $root.VnameCert = (function() {
             }
             if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage")) {
                 properties._hostStorage = 1;
-                switch (message.hostStorage) {
-                default:
+                if (typeof message.hostStorage !== "number" || (message.hostStorage | 0) !== message.hostStorage)
                     return "hostStorage: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
             }
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
-                switch (message.accountType) {
-                default:
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
-                case 0:
-                    break;
-                }
             }
             return null;
         };
@@ -1011,12 +977,6 @@ $root.VnameCert = (function() {
                 else if (typeof object.issueTime === "object")
                     message.issueTime = new $util.LongBits(object.issueTime.low >>> 0, object.issueTime.high >>> 0).toNumber(true);
             switch (object.hostStorage) {
-            default:
-                if (typeof object.hostStorage === "number") {
-                    message.hostStorage = object.hostStorage;
-                    break;
-                }
-                break;
             case "ON_PREMISE":
             case 0:
                 message.hostStorage = 0;
@@ -1025,18 +985,18 @@ $root.VnameCert = (function() {
             case 1:
                 message.hostStorage = 1;
                 break;
+            default:
+                if (typeof object.hostStorage === "number" && (object.hostStorage | 0) === object.hostStorage)
+                    message.hostStorage = object.hostStorage;
             }
             switch (object.accountType) {
-            default:
-                if (typeof object.accountType === "number") {
-                    message.accountType = object.accountType;
-                    break;
-                }
-                break;
             case "ENTERPRISE":
             case 0:
                 message.accountType = 0;
                 break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
             }
             return message;
         };
@@ -1113,7 +1073,7 @@ $root.VnameCert = (function() {
          * @property {number} ENTERPRISE=0 ENTERPRISE value
          */
         BizAccountLinkInfo.AccountType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "ENTERPRISE"] = 0;
             return values;
         })();
@@ -1126,7 +1086,7 @@ $root.VnameCert = (function() {
          * @property {number} FACEBOOK=1 FACEBOOK value
          */
         BizAccountLinkInfo.HostStorageType = (function() {
-            var valuesById = {}, values = $Object.create(valuesById);
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
             values[valuesById[0] = "ON_PREMISE"] = 0;
             values[valuesById[1] = "FACEBOOK"] = 1;
             return values;
