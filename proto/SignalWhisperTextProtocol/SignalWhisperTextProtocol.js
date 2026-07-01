@@ -1452,6 +1452,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {Uint8Array|null} [baseKey] PreKeySignalMessage baseKey
          * @property {Uint8Array|null} [identityKey] PreKeySignalMessage identityKey
          * @property {Uint8Array|null} [message] PreKeySignalMessage message
+         * @property {number|null} [kyberPreKeyId] PreKeySignalMessage kyberPreKeyId
+         * @property {Uint8Array|null} [kyberCiphertext] PreKeySignalMessage kyberCiphertext
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1531,6 +1533,22 @@ $root.SignalWhisperTextProtocol = (function() {
          */
         PreKeySignalMessage.prototype.message = null;
 
+        /**
+         * PreKeySignalMessage kyberPreKeyId.
+         * @member {number|null|undefined} kyberPreKeyId
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
+        PreKeySignalMessage.prototype.kyberPreKeyId = null;
+
+        /**
+         * PreKeySignalMessage kyberCiphertext.
+         * @member {Uint8Array|null|undefined} kyberCiphertext
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
+        PreKeySignalMessage.prototype.kyberCiphertext = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1567,6 +1585,18 @@ $root.SignalWhisperTextProtocol = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(PreKeySignalMessage.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_kyberPreKeyId", {
+            get: $util.oneOfGetter($oneOfFields = ["kyberPreKeyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_kyberCiphertext", {
+            get: $util.oneOfGetter($oneOfFields = ["kyberCiphertext"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -1614,6 +1644,10 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.registrationId);
             if (message.signedPreKeyId != null && $Object.hasOwnProperty.call(message, "signedPreKeyId"))
                 writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.signedPreKeyId);
+            if (message.kyberPreKeyId != null && $Object.hasOwnProperty.call(message, "kyberPreKeyId"))
+                writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.kyberPreKeyId);
+            if (message.kyberCiphertext != null && $Object.hasOwnProperty.call(message, "kyberCiphertext"))
+                writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.kyberCiphertext);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -1703,6 +1737,20 @@ $root.SignalWhisperTextProtocol = (function() {
                         message._message = "message";
                         continue;
                     }
+                case 7: {
+                        if (wireType !== 0)
+                            break;
+                        message.kyberPreKeyId = reader.uint32();
+                        message._kyberPreKeyId = "kyberPreKeyId";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.kyberCiphertext = reader.bytes();
+                        message._kyberCiphertext = "kyberCiphertext";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -1777,6 +1825,16 @@ $root.SignalWhisperTextProtocol = (function() {
                 if (!(message.message && typeof message.message.length === "number" || $util.isString(message.message)))
                     return "message: buffer expected";
             }
+            if (message.kyberPreKeyId != null && $Object.hasOwnProperty.call(message, "kyberPreKeyId")) {
+                properties._kyberPreKeyId = 1;
+                if (!$util.isInteger(message.kyberPreKeyId))
+                    return "kyberPreKeyId: integer expected";
+            }
+            if (message.kyberCiphertext != null && $Object.hasOwnProperty.call(message, "kyberCiphertext")) {
+                properties._kyberCiphertext = 1;
+                if (!(message.kyberCiphertext && typeof message.kyberCiphertext.length === "number" || $util.isString(message.kyberCiphertext)))
+                    return "kyberCiphertext: buffer expected";
+            }
             return null;
         };
 
@@ -1819,6 +1877,13 @@ $root.SignalWhisperTextProtocol = (function() {
                     $util.base64.decode(object.message, message.message = $util.newBuffer($util.base64.length(object.message)), 0);
                 else if (object.message.length >= 0)
                     message.message = object.message;
+            if (object.kyberPreKeyId != null)
+                message.kyberPreKeyId = object.kyberPreKeyId >>> 0;
+            if (object.kyberCiphertext != null)
+                if (typeof object.kyberCiphertext === "string")
+                    $util.base64.decode(object.kyberCiphertext, message.kyberCiphertext = $util.newBuffer($util.base64.length(object.kyberCiphertext)), 0);
+                else if (object.kyberCiphertext.length >= 0)
+                    message.kyberCiphertext = object.kyberCiphertext;
             return message;
         };
 
@@ -1851,6 +1916,10 @@ $root.SignalWhisperTextProtocol = (function() {
                 object.registrationId = message.registrationId;
             if (message.signedPreKeyId != null && $Object.hasOwnProperty.call(message, "signedPreKeyId"))
                 object.signedPreKeyId = message.signedPreKeyId;
+            if (message.kyberPreKeyId != null && $Object.hasOwnProperty.call(message, "kyberPreKeyId"))
+                object.kyberPreKeyId = message.kyberPreKeyId;
+            if (message.kyberCiphertext != null && $Object.hasOwnProperty.call(message, "kyberCiphertext"))
+                object.kyberCiphertext = options.bytes === $String ? $util.base64.encode(message.kyberCiphertext, 0, message.kyberCiphertext.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.kyberCiphertext) : message.kyberCiphertext;
             return object;
         };
 
