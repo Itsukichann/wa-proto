@@ -157,7 +157,7 @@ $root.Adv = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ADVSignedDeviceIdentityHMAC.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -528,7 +528,7 @@ $root.Adv = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ADVSignedDeviceIdentity.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -923,7 +923,7 @@ $root.Adv = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ADVDeviceIdentity.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1330,7 +1330,7 @@ $root.Adv = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ADVSignedKeyIndexList.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1681,12 +1681,8 @@ $root.Adv = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.timestamp);
             if (message.currentIndex != null && $Object.hasOwnProperty.call(message, "currentIndex"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.currentIndex);
-            if (message.validIndexes != null && message.validIndexes.length) {
-                writer.uint32(/* id 4, wireType 2 =*/34).fork();
-                for (var i = 0; i < message.validIndexes.length; ++i)
-                    writer.uint32(message.validIndexes[i]);
-                writer.ldelim();
-            }
+            if (message.validIndexes != null && message.validIndexes.length)
+                writer.uint32(/* id 4, wireType 2 =*/34).uint32s(message.validIndexes);
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.accountType);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -1705,7 +1701,7 @@ $root.Adv = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ADVKeyIndexList.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1761,9 +1757,7 @@ $root.Adv = (function() {
                         if (wireType === 2) {
                             if (!(message.validIndexes && message.validIndexes.length))
                                 message.validIndexes = [];
-                            var end2 = reader.uint32() + reader.pos;
-                            while (reader.pos < end2)
-                                message.validIndexes.push(reader.uint32());
+                            reader.uint32s(message.validIndexes);
                             continue;
                         }
                         if (wireType !== 0)

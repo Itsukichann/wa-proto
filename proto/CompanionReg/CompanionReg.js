@@ -191,7 +191,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ClientPairingProps.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -542,7 +542,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         EncryptedPairingRequest.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -865,7 +865,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PairingRequest.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1190,7 +1190,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PrimaryEphemeralIdentity.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1496,7 +1496,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ProloguePayload.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1788,7 +1788,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         CompanionCommitment.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2092,7 +2092,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         CompanionEphemeralIdentity.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2565,7 +2565,7 @@ $root.CompanionReg = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         DeviceProps.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3076,7 +3076,7 @@ $root.CompanionReg = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AppVersion.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -3794,7 +3794,7 @@ $root.CompanionReg = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             HistorySyncConfig.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

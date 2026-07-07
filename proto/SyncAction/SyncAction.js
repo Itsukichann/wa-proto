@@ -293,7 +293,7 @@ $root.SyncAction = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PatchDebugData.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -880,7 +880,7 @@ $root.SyncAction = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncActionData.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2632,7 +2632,7 @@ $root.SyncAction = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncActionValue.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -4680,7 +4680,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AgentAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -4979,7 +4979,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AiThreadRenameAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5246,7 +5246,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AndroidUnsupportedActions.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5530,7 +5530,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ArchiveChatAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5819,7 +5819,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AutoOrganizeBusinessChatSetting.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6099,7 +6099,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AvatarUpdatedAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6465,7 +6465,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BizAISettingsNudgeAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6837,7 +6837,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BotWelcomeRequestAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7121,7 +7121,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BroadcastListParticipant.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7404,7 +7404,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BusinessBroadcastAssociationAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7807,7 +7807,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BusinessBroadcastCampaignAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -8337,7 +8337,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BusinessBroadcastInsightsAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -8728,7 +8728,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BusinessBroadcastListAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -9090,7 +9090,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CallLogAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -9363,7 +9363,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ChatAssignmentAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -9630,7 +9630,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ChatAssignmentOpenedStatusAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -9897,7 +9897,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ClearChatAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -10170,7 +10170,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CoexV2VersionAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -10534,7 +10534,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ContactAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -10881,7 +10881,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CtwaPerCustomerDataSharingAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -11195,7 +11195,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CustomPaymentMethod.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -11545,7 +11545,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CustomPaymentMethodMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -11821,7 +11821,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CustomPaymentMethodsAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -12275,7 +12275,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CustomerDataAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -12750,7 +12750,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DeleteChatAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13040,7 +13040,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DeleteIndividualCallLogAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13340,7 +13340,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DeleteMessageForMeAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13635,7 +13635,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DetectedOutcomesStatusAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13902,7 +13902,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ExternalWebBetaAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -14162,7 +14162,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             FavoritesAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -14443,7 +14443,7 @@ $root.SyncAction = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Favorite.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -14730,7 +14730,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InteractiveMessageAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -15032,7 +15032,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             KeyExpiration.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -15316,7 +15316,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LabelAssociationAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -15735,7 +15735,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LabelEditAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16225,12 +16225,8 @@ $root.SyncAction = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.sortedLabelIds != null && message.sortedLabelIds.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.sortedLabelIds.length; ++i)
-                        writer.int32(message.sortedLabelIds[i]);
-                    writer.ldelim();
-                }
+                if (message.sortedLabelIds != null && message.sortedLabelIds.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).int32s(message.sortedLabelIds);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -16247,7 +16243,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LabelReorderingAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16282,9 +16278,7 @@ $root.SyncAction = (function() {
                             if (wireType === 2) {
                                 if (!(message.sortedLabelIds && message.sortedLabelIds.length))
                                     message.sortedLabelIds = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.sortedLabelIds.push(reader.int32());
+                                reader.int32s(message.sortedLabelIds);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -16568,7 +16562,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LidContactAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16867,7 +16861,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LocaleSetting.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17134,7 +17128,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LockChatAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17418,7 +17412,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MaibaAIFeaturesControlAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17780,7 +17774,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MarkChatAsReadAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -18171,7 +18165,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MarketingMessageAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -18577,7 +18571,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MarketingMessageBroadcastAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -18895,7 +18889,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MerchantPaymentPartnerAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -19248,7 +19242,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MusicUserIdAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -19625,7 +19619,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MuteAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -19964,7 +19958,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NctSaltSyncAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -20234,7 +20228,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NewsletterSavedInterestsAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -20569,7 +20563,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NoteEditAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -20937,7 +20931,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NotificationActivitySettingAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -21241,7 +21235,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NuxAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -21525,7 +21519,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             OutContactAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -21808,7 +21802,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PaymentInfoAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -22092,7 +22086,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PaymentTosAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -22394,7 +22388,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PinAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -22661,7 +22655,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PnForLidChatAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -22921,7 +22915,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PrimaryFeature.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -23200,7 +23194,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PrimaryVersionAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -23467,7 +23461,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PrivacySettingChannelsPersonalisedRecommendationAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -23734,7 +23728,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PrivacySettingDisableLinkPreviewsAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24001,7 +23995,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PrivacySettingRelayAllCalls.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24268,7 +24262,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PrivateProcessingSettingAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24566,7 +24560,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PushNameSetting.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24910,7 +24904,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             QuickReplyAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -25276,7 +25270,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RecentEmojiWeightsAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -25560,7 +25554,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RemoveRecentStickerAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -26383,7 +26377,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SettingsSyncAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -27347,7 +27341,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StarAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -27614,7 +27608,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StatusPostOptInNotificationPreferencesAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -27935,12 +27929,8 @@ $root.SyncAction = (function() {
                 if (message.customLists != null && message.customLists.length)
                     for (var i = 0; i < message.customLists.length; ++i)
                         $root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.encode(message.customLists[i], writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
-                if (message.modes != null && message.modes.length) {
-                    writer.uint32(/* id 6, wireType 2 =*/50).fork();
-                    for (var i = 0; i < message.modes.length; ++i)
-                        writer.int32(message.modes[i]);
-                    writer.ldelim();
-                }
+                if (message.modes != null && message.modes.length)
+                    writer.uint32(/* id 6, wireType 2 =*/50).int32s(message.modes);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -27957,7 +27947,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StatusPrivacyAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -28029,9 +28019,7 @@ $root.SyncAction = (function() {
                             if (wireType === 2) {
                                 if (!(message.modes && message.modes.length))
                                     message.modes = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.modes.push(reader.int32());
+                                reader.int32s(message.modes);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -28463,7 +28451,7 @@ $root.SyncAction = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 CustomList.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -29034,7 +29022,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StickerAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -29545,7 +29533,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SubscriptionAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -29862,7 +29850,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SubscriptionsSyncV2Action.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -30228,7 +30216,7 @@ $root.SyncAction = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 PaidFeature.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -30674,7 +30662,7 @@ $root.SyncAction = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 SubscriptionInfo.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -31109,7 +31097,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SyncActionMessage.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -31440,7 +31428,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SyncActionMessageRange.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -31781,7 +31769,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ThreadPinAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32048,7 +32036,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TimeFormatAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32315,7 +32303,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UGCBot.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32585,7 +32573,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UnarchiveChatsSetting.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32852,7 +32840,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UserStatusMuteAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33119,7 +33107,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UsernameChatStartModeAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33404,7 +33392,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WASARootSecretAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33719,7 +33707,7 @@ $root.SyncAction = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 RootSecretEntry.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -34036,7 +34024,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WaffleAccountLinkStateAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -34334,7 +34322,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WamoUserIdentifierAction.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -34838,7 +34826,7 @@ $root.SyncAction = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         CallLogRecord.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -35514,7 +35502,7 @@ $root.SyncAction = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ParticipantInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -35882,7 +35870,7 @@ $root.SyncAction = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         RecentEmojiWeight.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -36402,7 +36390,7 @@ $root.ChatLockSettings = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ChatLockSettings.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -36756,7 +36744,7 @@ $root.UserPassword = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         UserPassword.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -37166,7 +37154,7 @@ $root.UserPassword = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TransformerArg.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -37475,7 +37463,7 @@ $root.UserPassword = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Value.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -37872,7 +37860,7 @@ $root.DeviceCapabilities = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         DeviceCapabilities.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -38270,7 +38258,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AiThread.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -38636,7 +38624,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BusinessBroadcast.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -38983,7 +38971,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LIDMigration.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -39278,7 +39266,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UserHasAvatar.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -39553,7 +39541,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -39884,7 +39872,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyStateStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -40243,7 +40231,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderChainKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -40546,7 +40534,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderMessageKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -40849,7 +40837,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderSigningKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -41158,7 +41146,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         IdentityKeyPairStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -41515,7 +41503,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SignedPreKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -41901,7 +41889,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PreKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -42219,7 +42207,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         RecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -42726,7 +42714,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SessionStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -43277,7 +43265,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Chain.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -43636,7 +43624,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 ChainKey.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -43973,7 +43961,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 MessageKey.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -44402,7 +44390,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PendingKeyExchange.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -44851,7 +44839,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PendingPreKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

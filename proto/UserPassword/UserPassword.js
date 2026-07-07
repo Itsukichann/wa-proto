@@ -176,7 +176,7 @@ $root.UserPassword = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         UserPassword.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -586,7 +586,7 @@ $root.UserPassword = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TransformerArg.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -895,7 +895,7 @@ $root.UserPassword = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Value.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**

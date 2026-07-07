@@ -638,12 +638,8 @@ $root.Wa6 = (function() {
                 writer.uint32(/* id 12, wireType 0 =*/96).int32(message.connectType);
             if (message.connectReason != null && $Object.hasOwnProperty.call(message, "connectReason"))
                 writer.uint32(/* id 13, wireType 0 =*/104).int32(message.connectReason);
-            if (message.shards != null && message.shards.length) {
-                writer.uint32(/* id 14, wireType 2 =*/114).fork();
-                for (var i = 0; i < message.shards.length; ++i)
-                    writer.int32(message.shards[i]);
-                writer.ldelim();
-            }
+            if (message.shards != null && message.shards.length)
+                writer.uint32(/* id 14, wireType 2 =*/114).int32s(message.shards);
             if (message.dnsSource != null && $Object.hasOwnProperty.call(message, "dnsSource"))
                 $root.Wa6.ClientPayload.DNSSource.encode(message.dnsSource, writer.uint32(/* id 15, wireType 2 =*/122).fork(), _depth + 1).ldelim();
             if (message.connectAttemptCount != null && $Object.hasOwnProperty.call(message, "connectAttemptCount"))
@@ -713,7 +709,7 @@ $root.Wa6 = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ClientPayload.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -811,9 +807,7 @@ $root.Wa6 = (function() {
                         if (wireType === 2) {
                             if (!(message.shards && message.shards.length))
                                 message.shards = [];
-                            var end2 = reader.uint32() + reader.pos;
-                            while (reader.pos < end2)
-                                message.shards.push(reader.int32());
+                            reader.int32s(message.shards);
                             continue;
                         }
                         if (wireType !== 0)
@@ -1889,7 +1883,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DNSSource.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2352,7 +2346,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DevicePairingRegistrationData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2805,7 +2799,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InteropData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -3425,7 +3419,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UserAgent.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -4235,7 +4229,7 @@ $root.Wa6 = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 AppVersion.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -4796,7 +4790,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WebInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5365,7 +5359,7 @@ $root.Wa6 = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 WebdPayload.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -5835,7 +5829,7 @@ $root.Wa6 = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         HandshakeMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -6217,7 +6211,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ClientFinish.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6713,7 +6707,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ClientHello.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7294,7 +7288,7 @@ $root.Wa6 = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ServerHello.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

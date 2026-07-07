@@ -255,7 +255,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdPatch.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -718,7 +718,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdMutation.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1025,7 +1025,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdMutations.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1356,7 +1356,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdSnapshot.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1789,7 +1789,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ExternalBlobReference.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2191,7 +2191,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdRecord.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2508,7 +2508,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         KeyId.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2778,7 +2778,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdValue.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3048,7 +3048,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdIndex.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3335,7 +3335,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ExitCode.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3630,7 +3630,7 @@ $root.ServerSync = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SyncdVersion.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**

@@ -174,7 +174,7 @@ $root.Protocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         LimitSharing.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -589,7 +589,7 @@ $root.Protocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         MessageKey.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**

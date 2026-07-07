@@ -208,7 +208,7 @@ $root.DeviceCapabilities = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         DeviceCapabilities.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -606,7 +606,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AiThread.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -972,7 +972,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BusinessBroadcast.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1319,7 +1319,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LIDMigration.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1614,7 +1614,7 @@ $root.DeviceCapabilities = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UserHasAvatar.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

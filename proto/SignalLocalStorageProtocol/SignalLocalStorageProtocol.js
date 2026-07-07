@@ -116,7 +116,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -447,7 +447,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyStateStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -806,7 +806,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderChainKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1109,7 +1109,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderMessageKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1412,7 +1412,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderSigningKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1721,7 +1721,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         IdentityKeyPairStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2078,7 +2078,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SignedPreKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2464,7 +2464,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PreKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2782,7 +2782,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         RecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3289,7 +3289,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SessionStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3840,7 +3840,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Chain.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -4199,7 +4199,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 ChainKey.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -4536,7 +4536,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 MessageKey.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -4965,7 +4965,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PendingKeyExchange.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5414,7 +5414,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PendingPreKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

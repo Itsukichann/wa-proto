@@ -123,7 +123,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ChatRowOpaqueData.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -461,7 +461,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DraftMessage.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1000,7 +1000,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 CtwaContextData.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -1528,7 +1528,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 CtwaContextLinkData.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**

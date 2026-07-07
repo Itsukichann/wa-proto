@@ -242,7 +242,7 @@ $root.VnameCert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BizIdentityInfo.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -800,7 +800,7 @@ $root.VnameCert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BizAccountLinkInfo.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1216,7 +1216,7 @@ $root.VnameCert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BizAccountPayload.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1542,7 +1542,7 @@ $root.VnameCert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         VerifiedNameCertificate.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1911,7 +1911,7 @@ $root.VnameCert = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Details.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2321,7 +2321,7 @@ $root.VnameCert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         LocalizedName.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**

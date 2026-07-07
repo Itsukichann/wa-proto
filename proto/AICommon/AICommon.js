@@ -123,7 +123,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotAgentDeepLinkMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -390,7 +390,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotAgentMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -693,7 +693,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotInfrastructureDiagnostics.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1056,7 +1056,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIHomeState.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1519,7 +1519,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIHomeOption.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1950,7 +1950,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotDocumentMessageMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2276,7 +2276,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SessionTransparencyMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2603,7 +2603,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRegenerateMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2904,7 +2904,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseUnifiedResponse.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3191,7 +3191,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMessageSharingInfo.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3703,7 +3703,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ForwardedAIBotMessageInfo.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -4104,7 +4104,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotFeedbackMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -4804,7 +4804,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SideBySideSurveyMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5242,7 +5242,7 @@ $root.AICommon = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 SideBySideSurveyAnalyticsData.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -5677,7 +5677,7 @@ $root.AICommon = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 SidebySideSurveyMetaAiAnalyticsData.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -6099,7 +6099,7 @@ $root.AICommon = (function() {
                      * @returns {$protobuf.Writer} Writer
                      */
                     SideBySideSurveyAbandonEventData.encodeDelimited = function(message, writer) {
-                        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                        return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                     };
 
                     /**
@@ -6383,7 +6383,7 @@ $root.AICommon = (function() {
                      * @returns {$protobuf.Writer} Writer
                      */
                     SideBySideSurveyCTAClickEventData.encodeDelimited = function(message, writer) {
-                        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                        return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                     };
 
                     /**
@@ -6666,7 +6666,7 @@ $root.AICommon = (function() {
                      * @returns {$protobuf.Writer} Writer
                      */
                     SideBySideSurveyCTAImpressionEventData.encodeDelimited = function(message, writer) {
-                        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                        return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                     };
 
                     /**
@@ -6913,7 +6913,7 @@ $root.AICommon = (function() {
                      * @returns {$protobuf.Writer} Writer
                      */
                     SideBySideSurveyCardImpressionEventData.encodeDelimited = function(message, writer) {
-                        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                        return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                     };
 
                     /**
@@ -7169,7 +7169,7 @@ $root.AICommon = (function() {
                      * @returns {$protobuf.Writer} Writer
                      */
                     SideBySideSurveyResponseEventData.encodeDelimited = function(message, writer) {
-                        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                        return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                     };
 
                     /**
@@ -7461,7 +7461,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotGroupParticipantMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -7745,7 +7745,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotRenderingConfigMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -8021,7 +8021,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotGroupMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -8305,7 +8305,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AISubscriptionUpsellMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -9288,7 +9288,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -10421,7 +10421,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotPttPromptMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -10705,7 +10705,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotResolvedToolCallMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -11022,7 +11022,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotCommandMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -11321,7 +11321,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIMetadataOperation.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -11628,7 +11628,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         HatchMetadataSync.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -11976,7 +11976,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIMediaCollectionMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -12292,7 +12292,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIMediaCollectionMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -12592,7 +12592,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIThreadInfo.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -12901,7 +12901,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIThreadClientInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13221,7 +13221,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIThreadServerInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13504,7 +13504,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotUnifiedResponseMutation.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -13842,7 +13842,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MediaDetailsMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -14170,7 +14170,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SideBySideMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -14456,7 +14456,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMessageOrigin.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -14735,7 +14735,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMessageOriginMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -15300,7 +15300,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         InThreadSurveyMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -15906,7 +15906,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InThreadSurveyOption.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16222,7 +16222,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InThreadSurveyPrivacyStatementPart.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16535,7 +16535,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InThreadSurveyQuestion.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16848,7 +16848,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotSourcesMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -17231,7 +17231,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BotSourceItem.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17674,7 +17674,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotAgeCollectionMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -18015,7 +18015,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotImagineMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -18334,7 +18334,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotQuotaMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -18649,7 +18649,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BotFeatureQuotaMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -18972,18 +18972,10 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw $Error("max depth exceeded");
-            if (message.mode != null && message.mode.length) {
-                writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                for (var i = 0; i < message.mode.length; ++i)
-                    writer.int32(message.mode[i]);
-                writer.ldelim();
-            }
-            if (message.overrideMode != null && message.overrideMode.length) {
-                writer.uint32(/* id 2, wireType 2 =*/18).fork();
-                for (var i = 0; i < message.overrideMode.length; ++i)
-                    writer.uint32(message.overrideMode[i]);
-                writer.ldelim();
-            }
+            if (message.mode != null && message.mode.length)
+                writer.uint32(/* id 1, wireType 2 =*/10).int32s(message.mode);
+            if (message.overrideMode != null && message.overrideMode.length)
+                writer.uint32(/* id 2, wireType 2 =*/18).uint32s(message.overrideMode);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -19000,7 +18992,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotModeSelectionMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -19035,9 +19027,7 @@ $root.AICommon = (function() {
                         if (wireType === 2) {
                             if (!(message.mode && message.mode.length))
                                 message.mode = [];
-                            var end2 = reader.uint32() + reader.pos;
-                            while (reader.pos < end2)
-                                message.mode.push(reader.int32());
+                            reader.int32s(message.mode);
                             continue;
                         }
                         if (wireType !== 0)
@@ -19051,9 +19041,7 @@ $root.AICommon = (function() {
                         if (wireType === 2) {
                             if (!(message.overrideMode && message.overrideMode.length))
                                 message.overrideMode = [];
-                            var end2 = reader.uint32() + reader.pos;
-                            while (reader.pos < end2)
-                                message.overrideMode.push(reader.uint32());
+                            reader.uint32s(message.overrideMode);
                             continue;
                         }
                         if (wireType !== 0)
@@ -19324,12 +19312,8 @@ $root.AICommon = (function() {
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw $Error("max depth exceeded");
-            if (message.capabilities != null && message.capabilities.length) {
-                writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                for (var i = 0; i < message.capabilities.length; ++i)
-                    writer.int32(message.capabilities[i]);
-                writer.ldelim();
-            }
+            if (message.capabilities != null && message.capabilities.length)
+                writer.uint32(/* id 1, wireType 2 =*/10).int32s(message.capabilities);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -19346,7 +19330,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotCapabilityMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -19381,9 +19365,7 @@ $root.AICommon = (function() {
                         if (wireType === 2) {
                             if (!(message.capabilities && message.capabilities.length))
                                 message.capabilities = [];
-                            var end2 = reader.uint32() + reader.pos;
-                            while (reader.pos < end2)
-                                message.capabilities.push(reader.int32());
+                            reader.int32s(message.capabilities);
                             continue;
                         }
                         if (wireType !== 0)
@@ -20073,7 +20055,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotProgressIndicatorMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -20493,7 +20475,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BotPlanningStepMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -20959,7 +20941,7 @@ $root.AICommon = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 BotPlanningSearchSourceMetadata.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -21327,7 +21309,7 @@ $root.AICommon = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 BotPlanningSearchSourcesMetadata.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -21693,7 +21675,7 @@ $root.AICommon = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 BotPlanningStepSectionMetadata.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -22086,7 +22068,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotModelMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -22515,7 +22497,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotReminderMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -22937,7 +22919,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMemuMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -23323,7 +23305,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMediaMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -23746,7 +23728,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotSessionMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -24098,7 +24080,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMetricsMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -24608,7 +24590,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotRenderingMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -24902,7 +24884,7 @@ $root.AICommon = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Keyword.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -25218,7 +25200,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotPromotionMessageMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -25579,7 +25561,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotSignatureVerificationUseCaseProof.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -25943,7 +25925,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotSignatureVerificationMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -26244,7 +26226,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMemoryFact.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -26553,7 +26535,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotMemoryMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -26888,7 +26870,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotLinkedAccount.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -27204,7 +27186,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotLinkedAccountsMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -27541,7 +27523,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotPromptSuggestion.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -27817,7 +27799,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotPromptSuggestions.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -28148,7 +28130,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotSuggestedPromptMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -28669,7 +28651,7 @@ $root.AICommon = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         BotPluginMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -29405,7 +29387,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -29736,7 +29718,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyStateStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -30095,7 +30077,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderChainKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -30398,7 +30380,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderMessageKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -30701,7 +30683,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SenderSigningKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -31010,7 +30992,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         IdentityKeyPairStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -31367,7 +31349,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SignedPreKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -31753,7 +31735,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PreKeyRecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -32071,7 +32053,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         RecordStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -32578,7 +32560,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SessionStructure.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -33129,7 +33111,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Chain.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33488,7 +33470,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 ChainKey.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -33825,7 +33807,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 MessageKey.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -34254,7 +34236,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PendingKeyExchange.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -34703,7 +34685,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PendingPreKey.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

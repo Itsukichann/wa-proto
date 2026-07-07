@@ -140,7 +140,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         DeviceConsistencyCodeMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -477,7 +477,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyDistributionMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -832,7 +832,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1202,7 +1202,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         KeyExchangeMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1664,7 +1664,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PreKeySignalMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2106,7 +2106,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SignalMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**

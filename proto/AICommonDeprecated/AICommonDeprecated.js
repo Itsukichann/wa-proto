@@ -288,7 +288,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseSubMessage.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -807,7 +807,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseContentItemsMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1127,7 +1127,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseContentItemMetadata.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1454,7 +1454,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseReelItem.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1867,7 +1867,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseMapMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -2297,7 +2297,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseMapAnnotation.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2644,7 +2644,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseLatexMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3078,7 +3078,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseLatexExpression.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -3527,7 +3527,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseDynamicMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -3898,7 +3898,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseTableMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -4209,7 +4209,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseTableRow.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -4521,7 +4521,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseCodeMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -4836,7 +4836,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseCodeBlock.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5222,7 +5222,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseInlineImageMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -5587,7 +5587,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseGridImageMetadata.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -5928,7 +5928,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseImageURL.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -6390,7 +6390,7 @@ $root.StatusAttributions = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         StatusAttribution.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -6881,7 +6881,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AiCreatedAttribution.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7224,7 +7224,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ExternalShare.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7630,7 +7630,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GroupStatus.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7982,7 +7982,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Music.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -8329,7 +8329,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RLAttribution.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -8650,7 +8650,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StatusReshare.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -9010,7 +9010,7 @@ $root.StatusAttributions = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Metadata.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**

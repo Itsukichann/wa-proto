@@ -189,7 +189,7 @@ $root.Reporting = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         Field.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -584,7 +584,7 @@ $root.Reporting = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         Config.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -967,7 +967,7 @@ $root.Reporting = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         Reportable.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**

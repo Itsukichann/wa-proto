@@ -140,7 +140,7 @@ $root.Cert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         CertChain.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -449,7 +449,7 @@ $root.Cert = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NoiseCertificate.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -803,7 +803,7 @@ $root.Cert = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Details.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
@@ -1184,7 +1184,7 @@ $root.Cert = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         NoiseCertificate.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -1538,7 +1538,7 @@ $root.Cert = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Details.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**

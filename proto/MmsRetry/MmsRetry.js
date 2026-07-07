@@ -123,7 +123,7 @@ $root.MmsRetry = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ServerErrorReceipt.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -441,7 +441,7 @@ $root.MmsRetry = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         MediaRetryNotification.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**

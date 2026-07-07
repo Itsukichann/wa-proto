@@ -230,7 +230,7 @@ $root.StatusAttributions = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         StatusAttribution.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -721,7 +721,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AiCreatedAttribution.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1064,7 +1064,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ExternalShare.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1470,7 +1470,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GroupStatus.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1822,7 +1822,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Music.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2169,7 +2169,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RLAttribution.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2490,7 +2490,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StatusReshare.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2850,7 +2850,7 @@ $root.StatusAttributions = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Metadata.encodeDelimited = function(message, writer) {
-                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
                 };
 
                 /**
