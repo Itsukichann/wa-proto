@@ -3332,6 +3332,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportHatchHistory] HistorySyncConfig supportHatchHistory
              * @property {Array.<string>|null} [supportedBotChannelFbids] HistorySyncConfig supportedBotChannelFbids
              * @property {boolean|null} [supportInlineContacts] HistorySyncConfig supportInlineContacts
+             * @property {boolean|null} [supportNewsletter] HistorySyncConfig supportNewsletter
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -3556,6 +3557,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.supportInlineContacts = null;
 
+            /**
+             * HistorySyncConfig supportNewsletter.
+             * @member {boolean|null|undefined} supportNewsletter
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportNewsletter = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -3697,6 +3706,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistorySyncConfig.prototype, "_supportNewsletter", {
+                get: $util.oneOfGetter($oneOfFields = ["supportNewsletter"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -3778,6 +3793,8 @@ $root.CompanionReg = (function() {
                         writer.uint32(/* id 23, wireType 2 =*/186).string(message.supportedBotChannelFbids[i]);
                 if (message.supportInlineContacts != null && $Object.hasOwnProperty.call(message, "supportInlineContacts"))
                     writer.uint32(/* id 24, wireType 0 =*/192).bool(message.supportInlineContacts);
+                if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter"))
+                    writer.uint32(/* id 25, wireType 0 =*/200).bool(message.supportNewsletter);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -3994,6 +4011,13 @@ $root.CompanionReg = (function() {
                             message._supportInlineContacts = "supportInlineContacts";
                             continue;
                         }
+                    case 25: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportNewsletter = reader.bool();
+                            message._supportNewsletter = "supportNewsletter";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -4160,6 +4184,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportInlineContacts !== "boolean")
                         return "supportInlineContacts: boolean expected";
                 }
+                if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter")) {
+                    properties._supportNewsletter = 1;
+                    if (typeof message.supportNewsletter !== "boolean")
+                        return "supportNewsletter: boolean expected";
+                }
                 return null;
             };
 
@@ -4234,6 +4263,8 @@ $root.CompanionReg = (function() {
                 }
                 if (object.supportInlineContacts != null)
                     message.supportInlineContacts = $Boolean(object.supportInlineContacts);
+                if (object.supportNewsletter != null)
+                    message.supportNewsletter = $Boolean(object.supportNewsletter);
                 return message;
             };
 
@@ -4307,6 +4338,8 @@ $root.CompanionReg = (function() {
                 }
                 if (message.supportInlineContacts != null && $Object.hasOwnProperty.call(message, "supportInlineContacts"))
                     object.supportInlineContacts = message.supportInlineContacts;
+                if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter"))
+                    object.supportNewsletter = message.supportNewsletter;
                 return object;
             };
 

@@ -1263,6 +1263,10 @@ $root.StatusAttributions = (function() {
                 case 12:
                     message.source = 12;
                     break;
+                case "PICSART":
+                case 13:
+                    message.source = 13;
+                    break;
                 default:
                     if (typeof object.source === "number" && (object.source | 0) === object.source)
                         message.source = object.source;
@@ -1344,6 +1348,7 @@ $root.StatusAttributions = (function() {
              * @property {number} GOOGLE_PHOTOS=10 GOOGLE_PHOTOS value
              * @property {number} SOUNDCLOUD=11 SOUNDCLOUD value
              * @property {number} SHAZAM=12 SHAZAM value
+             * @property {number} PICSART=13 PICSART value
              */
             ExternalShare.Source = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -1360,6 +1365,7 @@ $root.StatusAttributions = (function() {
                 values[valuesById[10] = "GOOGLE_PHOTOS"] = 10;
                 values[valuesById[11] = "SOUNDCLOUD"] = 11;
                 values[valuesById[12] = "SHAZAM"] = 12;
+                values[valuesById[13] = "PICSART"] = 13;
                 return values;
             })();
 

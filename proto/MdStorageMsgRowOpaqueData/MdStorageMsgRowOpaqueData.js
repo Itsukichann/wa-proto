@@ -16848,6 +16848,8 @@ $root.E2E = (function() {
          * @property {Array.<E2E.ThreadID.$Properties>|null} [threadId] MessageContextInfo threadId
          * @property {E2E.WebLinkRenderConfig|null} [weblinkRenderConfig] MessageContextInfo weblinkRenderConfig
          * @property {Uint8Array|null} [teeBotMetadata] MessageContextInfo teeBotMetadata
+         * @property {Aea.NonE2EEAttestation.$Properties|null} [accountEncryptionAttestation] MessageContextInfo accountEncryptionAttestation
+         * @property {Uint8Array|null} [associatedPrimaryIdentityKey] MessageContextInfo associatedPrimaryIdentityKey
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -17016,6 +17018,22 @@ $root.E2E = (function() {
          */
         MessageContextInfo.prototype.teeBotMetadata = null;
 
+        /**
+         * MessageContextInfo accountEncryptionAttestation.
+         * @member {Aea.NonE2EEAttestation.$Properties|null|undefined} accountEncryptionAttestation
+         * @memberof E2E.MessageContextInfo
+         * @instance
+         */
+        MessageContextInfo.prototype.accountEncryptionAttestation = null;
+
+        /**
+         * MessageContextInfo associatedPrimaryIdentityKey.
+         * @member {Uint8Array|null|undefined} associatedPrimaryIdentityKey
+         * @memberof E2E.MessageContextInfo
+         * @instance
+         */
+        MessageContextInfo.prototype.associatedPrimaryIdentityKey = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -17115,6 +17133,18 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MessageContextInfo.prototype, "_accountEncryptionAttestation", {
+            get: $util.oneOfGetter($oneOfFields = ["accountEncryptionAttestation"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MessageContextInfo.prototype, "_associatedPrimaryIdentityKey", {
+            get: $util.oneOfGetter($oneOfFields = ["associatedPrimaryIdentityKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new MessageContextInfo instance using the specified properties.
          * @function create
@@ -17182,6 +17212,10 @@ $root.E2E = (function() {
                 writer.uint32(/* id 16, wireType 0 =*/128).int32(message.weblinkRenderConfig);
             if (message.teeBotMetadata != null && $Object.hasOwnProperty.call(message, "teeBotMetadata"))
                 writer.uint32(/* id 17, wireType 2 =*/138).bytes(message.teeBotMetadata);
+            if (message.accountEncryptionAttestation != null && $Object.hasOwnProperty.call(message, "accountEncryptionAttestation"))
+                $root.Aea.NonE2EEAttestation.encode(message.accountEncryptionAttestation, writer.uint32(/* id 18, wireType 2 =*/146).fork(), _depth + 1).ldelim();
+            if (message.associatedPrimaryIdentityKey != null && $Object.hasOwnProperty.call(message, "associatedPrimaryIdentityKey"))
+                writer.uint32(/* id 19, wireType 2 =*/154).bytes(message.associatedPrimaryIdentityKey);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -17349,6 +17383,20 @@ $root.E2E = (function() {
                         message._teeBotMetadata = "teeBotMetadata";
                         continue;
                     }
+                case 18: {
+                        if (wireType !== 2)
+                            break;
+                        message.accountEncryptionAttestation = $root.Aea.NonE2EEAttestation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.accountEncryptionAttestation);
+                        message._accountEncryptionAttestation = "accountEncryptionAttestation";
+                        continue;
+                    }
+                case 19: {
+                        if (wireType !== 2)
+                            break;
+                        message.associatedPrimaryIdentityKey = reader.bytes();
+                        message._associatedPrimaryIdentityKey = "associatedPrimaryIdentityKey";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -17497,6 +17545,19 @@ $root.E2E = (function() {
                 if (!(message.teeBotMetadata && typeof message.teeBotMetadata.length === "number" || $util.isString(message.teeBotMetadata)))
                     return "teeBotMetadata: buffer expected";
             }
+            if (message.accountEncryptionAttestation != null && $Object.hasOwnProperty.call(message, "accountEncryptionAttestation")) {
+                properties._accountEncryptionAttestation = 1;
+                {
+                    var error = $root.Aea.NonE2EEAttestation.verify(message.accountEncryptionAttestation, _depth + 1);
+                    if (error)
+                        return "accountEncryptionAttestation." + error;
+                }
+            }
+            if (message.associatedPrimaryIdentityKey != null && $Object.hasOwnProperty.call(message, "associatedPrimaryIdentityKey")) {
+                properties._associatedPrimaryIdentityKey = 1;
+                if (!(message.associatedPrimaryIdentityKey && typeof message.associatedPrimaryIdentityKey.length === "number" || $util.isString(message.associatedPrimaryIdentityKey)))
+                    return "associatedPrimaryIdentityKey: buffer expected";
+            }
             return null;
         };
 
@@ -17609,6 +17670,16 @@ $root.E2E = (function() {
                     $util.base64.decode(object.teeBotMetadata, message.teeBotMetadata = $util.newBuffer($util.base64.length(object.teeBotMetadata)), 0);
                 else if (object.teeBotMetadata.length >= 0)
                     message.teeBotMetadata = object.teeBotMetadata;
+            if (object.accountEncryptionAttestation != null) {
+                if (!$util.isObject(object.accountEncryptionAttestation))
+                    throw $TypeError(".E2E.MessageContextInfo.accountEncryptionAttestation: object expected");
+                message.accountEncryptionAttestation = $root.Aea.NonE2EEAttestation.fromObject(object.accountEncryptionAttestation, _depth + 1);
+            }
+            if (object.associatedPrimaryIdentityKey != null)
+                if (typeof object.associatedPrimaryIdentityKey === "string")
+                    $util.base64.decode(object.associatedPrimaryIdentityKey, message.associatedPrimaryIdentityKey = $util.newBuffer($util.base64.length(object.associatedPrimaryIdentityKey)), 0);
+                else if (object.associatedPrimaryIdentityKey.length >= 0)
+                    message.associatedPrimaryIdentityKey = object.associatedPrimaryIdentityKey;
             return message;
         };
 
@@ -17668,6 +17739,10 @@ $root.E2E = (function() {
                 object.weblinkRenderConfig = options.enums === $String ? $root.E2E.WebLinkRenderConfig[message.weblinkRenderConfig] === $undefined ? message.weblinkRenderConfig : $root.E2E.WebLinkRenderConfig[message.weblinkRenderConfig] : message.weblinkRenderConfig;
             if (message.teeBotMetadata != null && $Object.hasOwnProperty.call(message, "teeBotMetadata"))
                 object.teeBotMetadata = options.bytes === $String ? $util.base64.encode(message.teeBotMetadata, 0, message.teeBotMetadata.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.teeBotMetadata) : message.teeBotMetadata;
+            if (message.accountEncryptionAttestation != null && $Object.hasOwnProperty.call(message, "accountEncryptionAttestation"))
+                object.accountEncryptionAttestation = $root.Aea.NonE2EEAttestation.toObject(message.accountEncryptionAttestation, options, _depth + 1);
+            if (message.associatedPrimaryIdentityKey != null && $Object.hasOwnProperty.call(message, "associatedPrimaryIdentityKey"))
+                object.associatedPrimaryIdentityKey = options.bytes === $String ? $util.base64.encode(message.associatedPrimaryIdentityKey, 0, message.associatedPrimaryIdentityKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.associatedPrimaryIdentityKey) : message.associatedPrimaryIdentityKey;
             return object;
         };
 
@@ -18595,6 +18670,8 @@ $root.E2E = (function() {
          * @property {E2E.ContextInfo.CrossAppSource|null} [crossAppSource] ContextInfo crossAppSource
          * @property {E2E.ContextInfo.BusinessInteractionPills.$Properties|null} [businessInteractionPills] ContextInfo businessInteractionPills
          * @property {string|null} [posterStatusId] ContextInfo posterStatusId
+         * @property {E2E.ContextInfo.InstagramThreadLink.$Properties|null} [instagramThreadLink] ContextInfo instagramThreadLink
+         * @property {AICommon.AIProvenance.$Properties|null} [aiProvenance] ContextInfo aiProvenance
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -18671,6 +18748,8 @@ $root.E2E = (function() {
          *   crossAppSource?: E2E.ContextInfo.CrossAppSource|null;
          *   businessInteractionPills?: E2E.ContextInfo.BusinessInteractionPills.$Shape|null;
          *   posterStatusId?: string|null;
+         *   instagramThreadLink?: E2E.ContextInfo.InstagramThreadLink.$Shape|null;
+         *   aiProvenance?: AICommon.AIProvenance.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.ContextInfo.$Shape
          */
@@ -19189,6 +19268,22 @@ $root.E2E = (function() {
          */
         ContextInfo.prototype.posterStatusId = null;
 
+        /**
+         * ContextInfo instagramThreadLink.
+         * @member {E2E.ContextInfo.InstagramThreadLink.$Properties|null|undefined} instagramThreadLink
+         * @memberof E2E.ContextInfo
+         * @instance
+         */
+        ContextInfo.prototype.instagramThreadLink = null;
+
+        /**
+         * ContextInfo aiProvenance.
+         * @member {AICommon.AIProvenance.$Properties|null|undefined} aiProvenance
+         * @memberof E2E.ContextInfo
+         * @instance
+         */
+        ContextInfo.prototype.aiProvenance = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -19546,6 +19641,18 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ContextInfo.prototype, "_instagramThreadLink", {
+            get: $util.oneOfGetter($oneOfFields = ["instagramThreadLink"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ContextInfo.prototype, "_aiProvenance", {
+            get: $util.oneOfGetter($oneOfFields = ["aiProvenance"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new ContextInfo instance using the specified properties.
          * @function create
@@ -19705,6 +19812,10 @@ $root.E2E = (function() {
                 $root.E2E.ContextInfo.BusinessInteractionPills.encode(message.businessInteractionPills, writer.uint32(/* id 78, wireType 2 =*/626).fork(), _depth + 1).ldelim();
             if (message.posterStatusId != null && $Object.hasOwnProperty.call(message, "posterStatusId"))
                 writer.uint32(/* id 79, wireType 2 =*/634).string(message.posterStatusId);
+            if (message.instagramThreadLink != null && $Object.hasOwnProperty.call(message, "instagramThreadLink"))
+                $root.E2E.ContextInfo.InstagramThreadLink.encode(message.instagramThreadLink, writer.uint32(/* id 80, wireType 2 =*/642).fork(), _depth + 1).ldelim();
+            if (message.aiProvenance != null && $Object.hasOwnProperty.call(message, "aiProvenance"))
+                $root.AICommon.AIProvenance.encode(message.aiProvenance, writer.uint32(/* id 81, wireType 2 =*/650).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -20189,6 +20300,20 @@ $root.E2E = (function() {
                         message._posterStatusId = "posterStatusId";
                         continue;
                     }
+                case 80: {
+                        if (wireType !== 2)
+                            break;
+                        message.instagramThreadLink = $root.E2E.ContextInfo.InstagramThreadLink.decode(reader, reader.uint32(), $undefined, _depth + 1, message.instagramThreadLink);
+                        message._instagramThreadLink = "instagramThreadLink";
+                        continue;
+                    }
+                case 81: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiProvenance = $root.AICommon.AIProvenance.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiProvenance);
+                        message._aiProvenance = "aiProvenance";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -20613,6 +20738,22 @@ $root.E2E = (function() {
                 if (!$util.isString(message.posterStatusId))
                     return "posterStatusId: string expected";
             }
+            if (message.instagramThreadLink != null && $Object.hasOwnProperty.call(message, "instagramThreadLink")) {
+                properties._instagramThreadLink = 1;
+                {
+                    var error = $root.E2E.ContextInfo.InstagramThreadLink.verify(message.instagramThreadLink, _depth + 1);
+                    if (error)
+                        return "instagramThreadLink." + error;
+                }
+            }
+            if (message.aiProvenance != null && $Object.hasOwnProperty.call(message, "aiProvenance")) {
+                properties._aiProvenance = 1;
+                {
+                    var error = $root.AICommon.AIProvenance.verify(message.aiProvenance, _depth + 1);
+                    if (error)
+                        return "aiProvenance." + error;
+                }
+            }
             return null;
         };
 
@@ -20997,6 +21138,16 @@ $root.E2E = (function() {
             }
             if (object.posterStatusId != null)
                 message.posterStatusId = $String(object.posterStatusId);
+            if (object.instagramThreadLink != null) {
+                if (!$util.isObject(object.instagramThreadLink))
+                    throw $TypeError(".E2E.ContextInfo.instagramThreadLink: object expected");
+                message.instagramThreadLink = $root.E2E.ContextInfo.InstagramThreadLink.fromObject(object.instagramThreadLink, _depth + 1);
+            }
+            if (object.aiProvenance != null) {
+                if (!$util.isObject(object.aiProvenance))
+                    throw $TypeError(".E2E.ContextInfo.aiProvenance: object expected");
+                message.aiProvenance = $root.AICommon.AIProvenance.fromObject(object.aiProvenance, _depth + 1);
+            }
             return message;
         };
 
@@ -21160,6 +21311,10 @@ $root.E2E = (function() {
                 object.businessInteractionPills = $root.E2E.ContextInfo.BusinessInteractionPills.toObject(message.businessInteractionPills, options, _depth + 1);
             if (message.posterStatusId != null && $Object.hasOwnProperty.call(message, "posterStatusId"))
                 object.posterStatusId = message.posterStatusId;
+            if (message.instagramThreadLink != null && $Object.hasOwnProperty.call(message, "instagramThreadLink"))
+                object.instagramThreadLink = $root.E2E.ContextInfo.InstagramThreadLink.toObject(message.instagramThreadLink, options, _depth + 1);
+            if (message.aiProvenance != null && $Object.hasOwnProperty.call(message, "aiProvenance"))
+                object.aiProvenance = $root.AICommon.AIProvenance.toObject(message.aiProvenance, options, _depth + 1);
             return object;
         };
 
@@ -21598,6 +21753,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.BusinessInteractionPills.EntryPoint|null} [entryPoint] BusinessInteractionPills entryPoint
              * @property {Uint8Array|null} [signedPayload] BusinessInteractionPills signedPayload
              * @property {AICommon.BotSignatureVerificationMetadata.$Properties|null} [signatureEnvelope] BusinessInteractionPills signatureEnvelope
+             * @property {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties|null} [unauthenticatedBusinessMetadata] BusinessInteractionPills unauthenticatedBusinessMetadata
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -21670,6 +21826,14 @@ $root.E2E = (function() {
              */
             BusinessInteractionPills.prototype.signatureEnvelope = null;
 
+            /**
+             * BusinessInteractionPills unauthenticatedBusinessMetadata.
+             * @member {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties|null|undefined} unauthenticatedBusinessMetadata
+             * @memberof E2E.ContextInfo.BusinessInteractionPills
+             * @instance
+             */
+            BusinessInteractionPills.prototype.unauthenticatedBusinessMetadata = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -21694,6 +21858,12 @@ $root.E2E = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(BusinessInteractionPills.prototype, "_signatureEnvelope", {
                 get: $util.oneOfGetter($oneOfFields = ["signatureEnvelope"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BusinessInteractionPills.prototype, "_unauthenticatedBusinessMetadata", {
+                get: $util.oneOfGetter($oneOfFields = ["unauthenticatedBusinessMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -21740,6 +21910,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.signedPayload);
                 if (message.signatureEnvelope != null && $Object.hasOwnProperty.call(message, "signatureEnvelope"))
                     $root.AICommon.BotSignatureVerificationMetadata.encode(message.signatureEnvelope, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
+                if (message.unauthenticatedBusinessMetadata != null && $Object.hasOwnProperty.call(message, "unauthenticatedBusinessMetadata"))
+                    $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.encode(message.unauthenticatedBusinessMetadata, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -21823,6 +21995,13 @@ $root.E2E = (function() {
                             message._signatureEnvelope = "signatureEnvelope";
                             continue;
                         }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.unauthenticatedBusinessMetadata = $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unauthenticatedBusinessMetadata);
+                            message._unauthenticatedBusinessMetadata = "unauthenticatedBusinessMetadata";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -21899,6 +22078,14 @@ $root.E2E = (function() {
                             return "signatureEnvelope." + error;
                     }
                 }
+                if (message.unauthenticatedBusinessMetadata != null && $Object.hasOwnProperty.call(message, "unauthenticatedBusinessMetadata")) {
+                    properties._unauthenticatedBusinessMetadata = 1;
+                    {
+                        var error = $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.verify(message.unauthenticatedBusinessMetadata, _depth + 1);
+                        if (error)
+                            return "unauthenticatedBusinessMetadata." + error;
+                    }
+                }
                 return null;
             };
 
@@ -21971,6 +22158,11 @@ $root.E2E = (function() {
                         throw $TypeError(".E2E.ContextInfo.BusinessInteractionPills.signatureEnvelope: object expected");
                     message.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.fromObject(object.signatureEnvelope, _depth + 1);
                 }
+                if (object.unauthenticatedBusinessMetadata != null) {
+                    if (!$util.isObject(object.unauthenticatedBusinessMetadata))
+                        throw $TypeError(".E2E.ContextInfo.BusinessInteractionPills.unauthenticatedBusinessMetadata: object expected");
+                    message.unauthenticatedBusinessMetadata = $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.fromObject(object.unauthenticatedBusinessMetadata, _depth + 1);
+                }
                 return message;
             };
 
@@ -22006,6 +22198,8 @@ $root.E2E = (function() {
                     object.signedPayload = options.bytes === $String ? $util.base64.encode(message.signedPayload, 0, message.signedPayload.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.signedPayload) : message.signedPayload;
                 if (message.signatureEnvelope != null && $Object.hasOwnProperty.call(message, "signatureEnvelope"))
                     object.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.toObject(message.signatureEnvelope, options, _depth + 1);
+                if (message.unauthenticatedBusinessMetadata != null && $Object.hasOwnProperty.call(message, "unauthenticatedBusinessMetadata"))
+                    object.unauthenticatedBusinessMetadata = $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.toObject(message.unauthenticatedBusinessMetadata, options, _depth + 1);
                 return object;
             };
 
@@ -22759,6 +22953,384 @@ $root.E2E = (function() {
                 };
 
                 return SignedPayload;
+            })();
+
+            BusinessInteractionPills.UnauthenticatedBusinessMetadata = (function() {
+
+                /**
+                 * Properties of an UnauthenticatedBusinessMetadata.
+                 * @typedef {Object} E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties
+                 * @property {string|null} [businessName] UnauthenticatedBusinessMetadata businessName
+                 * @property {string|null} [businessCategory] UnauthenticatedBusinessMetadata businessCategory
+                 * @property {boolean|null} [businessIsOpen] UnauthenticatedBusinessMetadata businessIsOpen
+                 * @property {number|Long|null} [businessIsOpenSnapshotMs] UnauthenticatedBusinessMetadata businessIsOpenSnapshotMs
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+
+                /**
+                 * Properties of an UnauthenticatedBusinessMetadata.
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills
+                 * @interface IUnauthenticatedBusinessMetadata
+                 * @augments E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties
+                 * @deprecated Use E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of an UnauthenticatedBusinessMetadata.
+                 * @typedef {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties} E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Shape
+                 */
+
+                /**
+                 * Constructs a new UnauthenticatedBusinessMetadata.
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills
+                 * @classdesc Represents an UnauthenticatedBusinessMetadata.
+                 * @constructor
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+                var UnauthenticatedBusinessMetadata = function (properties) {
+                    if (properties)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                this[keys[i]] = properties[keys[i]];
+                };
+
+                /**
+                 * UnauthenticatedBusinessMetadata businessName.
+                 * @member {string|null|undefined} businessName
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @instance
+                 */
+                UnauthenticatedBusinessMetadata.prototype.businessName = null;
+
+                /**
+                 * UnauthenticatedBusinessMetadata businessCategory.
+                 * @member {string|null|undefined} businessCategory
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @instance
+                 */
+                UnauthenticatedBusinessMetadata.prototype.businessCategory = null;
+
+                /**
+                 * UnauthenticatedBusinessMetadata businessIsOpen.
+                 * @member {boolean|null|undefined} businessIsOpen
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @instance
+                 */
+                UnauthenticatedBusinessMetadata.prototype.businessIsOpen = null;
+
+                /**
+                 * UnauthenticatedBusinessMetadata businessIsOpenSnapshotMs.
+                 * @member {number|Long|null|undefined} businessIsOpenSnapshotMs
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @instance
+                 */
+                UnauthenticatedBusinessMetadata.prototype.businessIsOpenSnapshotMs = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(UnauthenticatedBusinessMetadata.prototype, "_businessName", {
+                    get: $util.oneOfGetter($oneOfFields = ["businessName"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(UnauthenticatedBusinessMetadata.prototype, "_businessCategory", {
+                    get: $util.oneOfGetter($oneOfFields = ["businessCategory"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(UnauthenticatedBusinessMetadata.prototype, "_businessIsOpen", {
+                    get: $util.oneOfGetter($oneOfFields = ["businessIsOpen"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(UnauthenticatedBusinessMetadata.prototype, "_businessIsOpenSnapshotMs", {
+                    get: $util.oneOfGetter($oneOfFields = ["businessIsOpenSnapshotMs"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Creates a new UnauthenticatedBusinessMetadata instance using the specified properties.
+                 * @function create
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties=} [properties] Properties to set
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata} UnauthenticatedBusinessMetadata instance
+                 * @type {{
+                 *   (properties: E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Shape): E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata & E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Shape;
+                 *   (properties?: E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties): E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata;
+                 * }}
+                 */
+                UnauthenticatedBusinessMetadata.create = function(properties) {
+                    return new UnauthenticatedBusinessMetadata(properties);
+                };
+
+                /**
+                 * Encodes the specified UnauthenticatedBusinessMetadata message. Does not implicitly {@link E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.verify|verify} messages.
+                 * @function encode
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties} message UnauthenticatedBusinessMetadata message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                UnauthenticatedBusinessMetadata.encode = function (message, writer, _depth) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    if (message.businessName != null && $Object.hasOwnProperty.call(message, "businessName"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.businessName);
+                    if (message.businessCategory != null && $Object.hasOwnProperty.call(message, "businessCategory"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.businessCategory);
+                    if (message.businessIsOpen != null && $Object.hasOwnProperty.call(message, "businessIsOpen"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).bool(message.businessIsOpen);
+                    if (message.businessIsOpenSnapshotMs != null && $Object.hasOwnProperty.call(message, "businessIsOpenSnapshotMs"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).int64(message.businessIsOpenSnapshotMs);
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified UnauthenticatedBusinessMetadata message, length delimited. Does not implicitly {@link E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Properties} message UnauthenticatedBusinessMetadata message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                UnauthenticatedBusinessMetadata.encodeDelimited = function(message, writer) {
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+                };
+
+                /**
+                 * Decodes an UnauthenticatedBusinessMetadata message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata & E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Shape} UnauthenticatedBusinessMetadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                UnauthenticatedBusinessMetadata.decode = function (reader, length, _end, _depth, _target) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata();
+                    while (reader.pos < end) {
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = $undefined;
+                            break;
+                        }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.businessName = reader.stringVerify();
+                                message._businessName = "businessName";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.businessCategory = reader.stringVerify();
+                                message._businessCategory = "businessCategory";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.businessIsOpen = reader.bool();
+                                message._businessIsOpen = "businessIsOpen";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.businessIsOpenSnapshotMs = reader.int64();
+                                message._businessIsOpenSnapshotMs = "businessIsOpenSnapshotMs";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
+                    }
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
+                    return message;
+                };
+
+                /**
+                 * Decodes an UnauthenticatedBusinessMetadata message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata & E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.$Shape} UnauthenticatedBusinessMetadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                UnauthenticatedBusinessMetadata.decodeDelimited = function(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies an UnauthenticatedBusinessMetadata message.
+                 * @function verify
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                UnauthenticatedBusinessMetadata.verify = function (message, _depth) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
+                    var properties = {};
+                    if (message.businessName != null && $Object.hasOwnProperty.call(message, "businessName")) {
+                        properties._businessName = 1;
+                        if (!$util.isString(message.businessName))
+                            return "businessName: string expected";
+                    }
+                    if (message.businessCategory != null && $Object.hasOwnProperty.call(message, "businessCategory")) {
+                        properties._businessCategory = 1;
+                        if (!$util.isString(message.businessCategory))
+                            return "businessCategory: string expected";
+                    }
+                    if (message.businessIsOpen != null && $Object.hasOwnProperty.call(message, "businessIsOpen")) {
+                        properties._businessIsOpen = 1;
+                        if (typeof message.businessIsOpen !== "boolean")
+                            return "businessIsOpen: boolean expected";
+                    }
+                    if (message.businessIsOpenSnapshotMs != null && $Object.hasOwnProperty.call(message, "businessIsOpenSnapshotMs")) {
+                        properties._businessIsOpenSnapshotMs = 1;
+                        if (!$util.isInteger(message.businessIsOpenSnapshotMs) && !(message.businessIsOpenSnapshotMs && $util.isInteger(message.businessIsOpenSnapshotMs.low) && $util.isInteger(message.businessIsOpenSnapshotMs.high)))
+                            return "businessIsOpenSnapshotMs: integer|Long expected";
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates an UnauthenticatedBusinessMetadata message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata} UnauthenticatedBusinessMetadata
+                 */
+                UnauthenticatedBusinessMetadata.fromObject = function (object, _depth) {
+                    if (object instanceof $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata)
+                        return object;
+                    if (!$util.isObject(object))
+                        throw $TypeError(".E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata: object expected");
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var message = new $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata();
+                    if (object.businessName != null)
+                        message.businessName = $String(object.businessName);
+                    if (object.businessCategory != null)
+                        message.businessCategory = $String(object.businessCategory);
+                    if (object.businessIsOpen != null)
+                        message.businessIsOpen = $Boolean(object.businessIsOpen);
+                    if (object.businessIsOpenSnapshotMs != null)
+                        if ($util.Long)
+                            message.businessIsOpenSnapshotMs = $util.Long.fromValue(object.businessIsOpenSnapshotMs, false);
+                        else if (typeof object.businessIsOpenSnapshotMs === "string")
+                            message.businessIsOpenSnapshotMs = $parseInt(object.businessIsOpenSnapshotMs, 10);
+                        else if (typeof object.businessIsOpenSnapshotMs === "number")
+                            message.businessIsOpenSnapshotMs = object.businessIsOpenSnapshotMs;
+                        else if (typeof object.businessIsOpenSnapshotMs === "object")
+                            message.businessIsOpenSnapshotMs = new $util.LongBits(object.businessIsOpenSnapshotMs.low >>> 0, object.businessIsOpenSnapshotMs.high >>> 0).toNumber();
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from an UnauthenticatedBusinessMetadata message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata} message UnauthenticatedBusinessMetadata
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                UnauthenticatedBusinessMetadata.toObject = function (message, options, _depth) {
+                    if (!options)
+                        options = {};
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var object = {};
+                    if (message.businessName != null && $Object.hasOwnProperty.call(message, "businessName"))
+                        object.businessName = message.businessName;
+                    if (message.businessCategory != null && $Object.hasOwnProperty.call(message, "businessCategory"))
+                        object.businessCategory = message.businessCategory;
+                    if (message.businessIsOpen != null && $Object.hasOwnProperty.call(message, "businessIsOpen"))
+                        object.businessIsOpen = message.businessIsOpen;
+                    if (message.businessIsOpenSnapshotMs != null && $Object.hasOwnProperty.call(message, "businessIsOpenSnapshotMs"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.businessIsOpenSnapshotMs = typeof message.businessIsOpenSnapshotMs === "number" ? $BigInt(message.businessIsOpenSnapshotMs) : $util.Long.fromBits(message.businessIsOpenSnapshotMs.low >>> 0, message.businessIsOpenSnapshotMs.high >>> 0, false).toBigInt();
+                        else if (typeof message.businessIsOpenSnapshotMs === "number")
+                            object.businessIsOpenSnapshotMs = options.longs === $String ? $String(message.businessIsOpenSnapshotMs) : message.businessIsOpenSnapshotMs;
+                        else
+                            object.businessIsOpenSnapshotMs = options.longs === $String ? $util.Long.prototype.toString.call(message.businessIsOpenSnapshotMs) : options.longs === $Number ? new $util.LongBits(message.businessIsOpenSnapshotMs.low >>> 0, message.businessIsOpenSnapshotMs.high >>> 0).toNumber() : message.businessIsOpenSnapshotMs;
+                    return object;
+                };
+
+                /**
+                 * Converts this UnauthenticatedBusinessMetadata to JSON.
+                 * @function toJSON
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                UnauthenticatedBusinessMetadata.prototype.toJSON = function() {
+                    return UnauthenticatedBusinessMetadata.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the type url for UnauthenticatedBusinessMetadata
+                 * @function getTypeUrl
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata
+                 * @static
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
+                 */
+                UnauthenticatedBusinessMetadata.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata";
+                };
+
+                return UnauthenticatedBusinessMetadata;
             })();
 
             return BusinessInteractionPills;
@@ -26091,6 +26663,273 @@ $root.E2E = (function() {
             return ForwardedNewsletterMessageInfo;
         })();
 
+        ContextInfo.InstagramThreadLink = (function() {
+
+            /**
+             * Properties of an InstagramThreadLink.
+             * @typedef {Object} E2E.ContextInfo.InstagramThreadLink.$Properties
+             * @property {string|null} [url] InstagramThreadLink url
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of an InstagramThreadLink.
+             * @memberof E2E.ContextInfo
+             * @interface IInstagramThreadLink
+             * @augments E2E.ContextInfo.InstagramThreadLink.$Properties
+             * @deprecated Use E2E.ContextInfo.InstagramThreadLink.$Properties instead.
+             */
+
+            /**
+             * Shape of an InstagramThreadLink.
+             * @typedef {E2E.ContextInfo.InstagramThreadLink.$Properties} E2E.ContextInfo.InstagramThreadLink.$Shape
+             */
+
+            /**
+             * Constructs a new InstagramThreadLink.
+             * @memberof E2E.ContextInfo
+             * @classdesc Represents an InstagramThreadLink.
+             * @constructor
+             * @param {E2E.ContextInfo.InstagramThreadLink.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var InstagramThreadLink = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * InstagramThreadLink url.
+             * @member {string|null|undefined} url
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @instance
+             */
+            InstagramThreadLink.prototype.url = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(InstagramThreadLink.prototype, "_url", {
+                get: $util.oneOfGetter($oneOfFields = ["url"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new InstagramThreadLink instance using the specified properties.
+             * @function create
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {E2E.ContextInfo.InstagramThreadLink.$Properties=} [properties] Properties to set
+             * @returns {E2E.ContextInfo.InstagramThreadLink} InstagramThreadLink instance
+             * @type {{
+             *   (properties: E2E.ContextInfo.InstagramThreadLink.$Shape): E2E.ContextInfo.InstagramThreadLink & E2E.ContextInfo.InstagramThreadLink.$Shape;
+             *   (properties?: E2E.ContextInfo.InstagramThreadLink.$Properties): E2E.ContextInfo.InstagramThreadLink;
+             * }}
+             */
+            InstagramThreadLink.create = function(properties) {
+                return new InstagramThreadLink(properties);
+            };
+
+            /**
+             * Encodes the specified InstagramThreadLink message. Does not implicitly {@link E2E.ContextInfo.InstagramThreadLink.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {E2E.ContextInfo.InstagramThreadLink.$Properties} message InstagramThreadLink message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InstagramThreadLink.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.url != null && $Object.hasOwnProperty.call(message, "url"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.url);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified InstagramThreadLink message, length delimited. Does not implicitly {@link E2E.ContextInfo.InstagramThreadLink.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {E2E.ContextInfo.InstagramThreadLink.$Properties} message InstagramThreadLink message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InstagramThreadLink.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes an InstagramThreadLink message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.ContextInfo.InstagramThreadLink & E2E.ContextInfo.InstagramThreadLink.$Shape} InstagramThreadLink
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InstagramThreadLink.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.InstagramThreadLink();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.url = reader.stringVerify();
+                            message._url = "url";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes an InstagramThreadLink message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.ContextInfo.InstagramThreadLink & E2E.ContextInfo.InstagramThreadLink.$Shape} InstagramThreadLink
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InstagramThreadLink.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an InstagramThreadLink message.
+             * @function verify
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            InstagramThreadLink.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.url != null && $Object.hasOwnProperty.call(message, "url")) {
+                    properties._url = 1;
+                    if (!$util.isString(message.url))
+                        return "url: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an InstagramThreadLink message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.ContextInfo.InstagramThreadLink} InstagramThreadLink
+             */
+            InstagramThreadLink.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.ContextInfo.InstagramThreadLink)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.ContextInfo.InstagramThreadLink: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.ContextInfo.InstagramThreadLink();
+                if (object.url != null)
+                    message.url = $String(object.url);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an InstagramThreadLink message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {E2E.ContextInfo.InstagramThreadLink} message InstagramThreadLink
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            InstagramThreadLink.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.url != null && $Object.hasOwnProperty.call(message, "url"))
+                    object.url = message.url;
+                return object;
+            };
+
+            /**
+             * Converts this InstagramThreadLink to JSON.
+             * @function toJSON
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            InstagramThreadLink.prototype.toJSON = function() {
+                return InstagramThreadLink.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for InstagramThreadLink
+             * @function getTypeUrl
+             * @memberof E2E.ContextInfo.InstagramThreadLink
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            InstagramThreadLink.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.ContextInfo.InstagramThreadLink";
+            };
+
+            return InstagramThreadLink;
+        })();
+
         /**
          * PairedMediaType enum.
          * @name E2E.ContextInfo.PairedMediaType
@@ -27883,6 +28722,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.SplitPaymentMessage.$Properties|null} [splitPaymentMessage] Message splitPaymentMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterAdminProfileStatusMessage] Message newsletterAdminProfileStatusMessage
          * @property {E2E.Message.RootSecretDistributeMessage.$Properties|null} [rootSecretDistributeMessage] Message rootSecretDistributeMessage
+         * @property {E2E.Message.SplitPaymentUpdateMessage.$Properties|null} [splitPaymentUpdateMessage] Message splitPaymentUpdateMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -28004,6 +28844,7 @@ $root.E2E = (function() {
          *   splitPaymentMessage?: E2E.Message.SplitPaymentMessage.$Shape|null;
          *   newsletterAdminProfileStatusMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   rootSecretDistributeMessage?: E2E.Message.RootSecretDistributeMessage.$Shape|null;
+         *   splitPaymentUpdateMessage?: E2E.Message.SplitPaymentUpdateMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -28879,6 +29720,14 @@ $root.E2E = (function() {
          */
         Message.prototype.rootSecretDistributeMessage = null;
 
+        /**
+         * Message splitPaymentUpdateMessage.
+         * @member {E2E.Message.SplitPaymentUpdateMessage.$Properties|null|undefined} splitPaymentUpdateMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.splitPaymentUpdateMessage = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -29524,6 +30373,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_splitPaymentUpdateMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["splitPaymentUpdateMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new Message instance using the specified properties.
          * @function create
@@ -29770,6 +30625,8 @@ $root.E2E = (function() {
                 $root.E2E.Message.FutureProofMessage.encode(message.newsletterAdminProfileStatusMessage, writer.uint32(/* id 126, wireType 2 =*/1010).fork(), _depth + 1).ldelim();
             if (message.rootSecretDistributeMessage != null && $Object.hasOwnProperty.call(message, "rootSecretDistributeMessage"))
                 $root.E2E.Message.RootSecretDistributeMessage.encode(message.rootSecretDistributeMessage, writer.uint32(/* id 127, wireType 2 =*/1018).fork(), _depth + 1).ldelim();
+            if (message.splitPaymentUpdateMessage != null && $Object.hasOwnProperty.call(message, "splitPaymentUpdateMessage"))
+                $root.E2E.Message.SplitPaymentUpdateMessage.encode(message.splitPaymentUpdateMessage, writer.uint32(/* id 128, wireType 2 =*/1026).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -30564,6 +31421,13 @@ $root.E2E = (function() {
                             break;
                         message.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rootSecretDistributeMessage);
                         message._rootSecretDistributeMessage = "rootSecretDistributeMessage";
+                        continue;
+                    }
+                case 128: {
+                        if (wireType !== 2)
+                            break;
+                        message.splitPaymentUpdateMessage = $root.E2E.Message.SplitPaymentUpdateMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.splitPaymentUpdateMessage);
+                        message._splitPaymentUpdateMessage = "splitPaymentUpdateMessage";
                         continue;
                     }
                 }
@@ -31463,6 +32327,14 @@ $root.E2E = (function() {
                         return "rootSecretDistributeMessage." + error;
                 }
             }
+            if (message.splitPaymentUpdateMessage != null && $Object.hasOwnProperty.call(message, "splitPaymentUpdateMessage")) {
+                properties._splitPaymentUpdateMessage = 1;
+                {
+                    var error = $root.E2E.Message.SplitPaymentUpdateMessage.verify(message.splitPaymentUpdateMessage, _depth + 1);
+                    if (error)
+                        return "splitPaymentUpdateMessage." + error;
+                }
+            }
             return null;
         };
 
@@ -32016,6 +32888,11 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.Message.rootSecretDistributeMessage: object expected");
                 message.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.fromObject(object.rootSecretDistributeMessage, _depth + 1);
             }
+            if (object.splitPaymentUpdateMessage != null) {
+                if (!$util.isObject(object.splitPaymentUpdateMessage))
+                    throw $TypeError(".E2E.Message.splitPaymentUpdateMessage: object expected");
+                message.splitPaymentUpdateMessage = $root.E2E.Message.SplitPaymentUpdateMessage.fromObject(object.splitPaymentUpdateMessage, _depth + 1);
+            }
             return message;
         };
 
@@ -32250,6 +33127,8 @@ $root.E2E = (function() {
                 object.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.toObject(message.newsletterAdminProfileStatusMessage, options, _depth + 1);
             if (message.rootSecretDistributeMessage != null && $Object.hasOwnProperty.call(message, "rootSecretDistributeMessage"))
                 object.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.toObject(message.rootSecretDistributeMessage, options, _depth + 1);
+            if (message.splitPaymentUpdateMessage != null && $Object.hasOwnProperty.call(message, "splitPaymentUpdateMessage"))
+                object.splitPaymentUpdateMessage = $root.E2E.Message.SplitPaymentUpdateMessage.toObject(message.splitPaymentUpdateMessage, options, _depth + 1);
             return object;
         };
 
@@ -36003,6 +36882,365 @@ $root.E2E = (function() {
             })();
 
             return BCallMessage;
+        })();
+
+        Message.BotHistoryShareSyncMetadata = (function() {
+
+            /**
+             * Properties of a BotHistoryShareSyncMetadata.
+             * @typedef {Object} E2E.Message.BotHistoryShareSyncMetadata.$Properties
+             * @property {string|null} [botJid] BotHistoryShareSyncMetadata botJid
+             * @property {number|Long|null} [historyShareCutoffTimestamp] BotHistoryShareSyncMetadata historyShareCutoffTimestamp
+             * @property {Array.<E2E.Message.HistoryShareMessageEntry.$Properties>|null} [historyShareMessages] BotHistoryShareSyncMetadata historyShareMessages
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a BotHistoryShareSyncMetadata.
+             * @memberof E2E.Message
+             * @interface IBotHistoryShareSyncMetadata
+             * @augments E2E.Message.BotHistoryShareSyncMetadata.$Properties
+             * @deprecated Use E2E.Message.BotHistoryShareSyncMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a BotHistoryShareSyncMetadata.
+             * @typedef {E2E.Message.BotHistoryShareSyncMetadata.$Properties} E2E.Message.BotHistoryShareSyncMetadata.$Shape
+             */
+
+            /**
+             * Constructs a new BotHistoryShareSyncMetadata.
+             * @memberof E2E.Message
+             * @classdesc Represents a BotHistoryShareSyncMetadata.
+             * @constructor
+             * @param {E2E.Message.BotHistoryShareSyncMetadata.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var BotHistoryShareSyncMetadata = function (properties) {
+                this.historyShareMessages = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * BotHistoryShareSyncMetadata botJid.
+             * @member {string|null|undefined} botJid
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @instance
+             */
+            BotHistoryShareSyncMetadata.prototype.botJid = null;
+
+            /**
+             * BotHistoryShareSyncMetadata historyShareCutoffTimestamp.
+             * @member {number|Long|null|undefined} historyShareCutoffTimestamp
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @instance
+             */
+            BotHistoryShareSyncMetadata.prototype.historyShareCutoffTimestamp = null;
+
+            /**
+             * BotHistoryShareSyncMetadata historyShareMessages.
+             * @member {Array.<E2E.Message.HistoryShareMessageEntry.$Properties>} historyShareMessages
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @instance
+             */
+            BotHistoryShareSyncMetadata.prototype.historyShareMessages = $util.emptyArray;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BotHistoryShareSyncMetadata.prototype, "_botJid", {
+                get: $util.oneOfGetter($oneOfFields = ["botJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BotHistoryShareSyncMetadata.prototype, "_historyShareCutoffTimestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["historyShareCutoffTimestamp"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BotHistoryShareSyncMetadata instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {E2E.Message.BotHistoryShareSyncMetadata.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.BotHistoryShareSyncMetadata} BotHistoryShareSyncMetadata instance
+             * @type {{
+             *   (properties: E2E.Message.BotHistoryShareSyncMetadata.$Shape): E2E.Message.BotHistoryShareSyncMetadata & E2E.Message.BotHistoryShareSyncMetadata.$Shape;
+             *   (properties?: E2E.Message.BotHistoryShareSyncMetadata.$Properties): E2E.Message.BotHistoryShareSyncMetadata;
+             * }}
+             */
+            BotHistoryShareSyncMetadata.create = function(properties) {
+                return new BotHistoryShareSyncMetadata(properties);
+            };
+
+            /**
+             * Encodes the specified BotHistoryShareSyncMetadata message. Does not implicitly {@link E2E.Message.BotHistoryShareSyncMetadata.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {E2E.Message.BotHistoryShareSyncMetadata.$Properties} message BotHistoryShareSyncMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotHistoryShareSyncMetadata.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.botJid != null && $Object.hasOwnProperty.call(message, "botJid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.botJid);
+                if (message.historyShareCutoffTimestamp != null && $Object.hasOwnProperty.call(message, "historyShareCutoffTimestamp"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.historyShareCutoffTimestamp);
+                if (message.historyShareMessages != null && message.historyShareMessages.length)
+                    for (var i = 0; i < message.historyShareMessages.length; ++i)
+                        $root.E2E.Message.HistoryShareMessageEntry.encode(message.historyShareMessages[i], writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BotHistoryShareSyncMetadata message, length delimited. Does not implicitly {@link E2E.Message.BotHistoryShareSyncMetadata.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {E2E.Message.BotHistoryShareSyncMetadata.$Properties} message BotHistoryShareSyncMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotHistoryShareSyncMetadata.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a BotHistoryShareSyncMetadata message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.BotHistoryShareSyncMetadata & E2E.Message.BotHistoryShareSyncMetadata.$Shape} BotHistoryShareSyncMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotHistoryShareSyncMetadata.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.BotHistoryShareSyncMetadata();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.botJid = reader.stringVerify();
+                            message._botJid = "botJid";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.historyShareCutoffTimestamp = reader.int64();
+                            message._historyShareCutoffTimestamp = "historyShareCutoffTimestamp";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.historyShareMessages && message.historyShareMessages.length))
+                                message.historyShareMessages = [];
+                            message.historyShareMessages.push($root.E2E.Message.HistoryShareMessageEntry.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a BotHistoryShareSyncMetadata message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.BotHistoryShareSyncMetadata & E2E.Message.BotHistoryShareSyncMetadata.$Shape} BotHistoryShareSyncMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotHistoryShareSyncMetadata.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BotHistoryShareSyncMetadata message.
+             * @function verify
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BotHistoryShareSyncMetadata.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.botJid != null && $Object.hasOwnProperty.call(message, "botJid")) {
+                    properties._botJid = 1;
+                    if (!$util.isString(message.botJid))
+                        return "botJid: string expected";
+                }
+                if (message.historyShareCutoffTimestamp != null && $Object.hasOwnProperty.call(message, "historyShareCutoffTimestamp")) {
+                    properties._historyShareCutoffTimestamp = 1;
+                    if (!$util.isInteger(message.historyShareCutoffTimestamp) && !(message.historyShareCutoffTimestamp && $util.isInteger(message.historyShareCutoffTimestamp.low) && $util.isInteger(message.historyShareCutoffTimestamp.high)))
+                        return "historyShareCutoffTimestamp: integer|Long expected";
+                }
+                if (message.historyShareMessages != null && $Object.hasOwnProperty.call(message, "historyShareMessages")) {
+                    if (!$Array.isArray(message.historyShareMessages))
+                        return "historyShareMessages: array expected";
+                    for (var i = 0; i < message.historyShareMessages.length; ++i) {
+                        var error = $root.E2E.Message.HistoryShareMessageEntry.verify(message.historyShareMessages[i], _depth + 1);
+                        if (error)
+                            return "historyShareMessages." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BotHistoryShareSyncMetadata message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.BotHistoryShareSyncMetadata} BotHistoryShareSyncMetadata
+             */
+            BotHistoryShareSyncMetadata.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.BotHistoryShareSyncMetadata)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.BotHistoryShareSyncMetadata: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.BotHistoryShareSyncMetadata();
+                if (object.botJid != null)
+                    message.botJid = $String(object.botJid);
+                if (object.historyShareCutoffTimestamp != null)
+                    if ($util.Long)
+                        message.historyShareCutoffTimestamp = $util.Long.fromValue(object.historyShareCutoffTimestamp, false);
+                    else if (typeof object.historyShareCutoffTimestamp === "string")
+                        message.historyShareCutoffTimestamp = $parseInt(object.historyShareCutoffTimestamp, 10);
+                    else if (typeof object.historyShareCutoffTimestamp === "number")
+                        message.historyShareCutoffTimestamp = object.historyShareCutoffTimestamp;
+                    else if (typeof object.historyShareCutoffTimestamp === "object")
+                        message.historyShareCutoffTimestamp = new $util.LongBits(object.historyShareCutoffTimestamp.low >>> 0, object.historyShareCutoffTimestamp.high >>> 0).toNumber();
+                if (object.historyShareMessages) {
+                    if (!$Array.isArray(object.historyShareMessages))
+                        throw $TypeError(".E2E.Message.BotHistoryShareSyncMetadata.historyShareMessages: array expected");
+                    message.historyShareMessages = $Array(object.historyShareMessages.length);
+                    for (var i = 0; i < object.historyShareMessages.length; ++i) {
+                        if (!$util.isObject(object.historyShareMessages[i]))
+                            throw $TypeError(".E2E.Message.BotHistoryShareSyncMetadata.historyShareMessages: object expected");
+                        message.historyShareMessages[i] = $root.E2E.Message.HistoryShareMessageEntry.fromObject(object.historyShareMessages[i], _depth + 1);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BotHistoryShareSyncMetadata message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {E2E.Message.BotHistoryShareSyncMetadata} message BotHistoryShareSyncMetadata
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BotHistoryShareSyncMetadata.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.historyShareMessages = [];
+                if (message.botJid != null && $Object.hasOwnProperty.call(message, "botJid"))
+                    object.botJid = message.botJid;
+                if (message.historyShareCutoffTimestamp != null && $Object.hasOwnProperty.call(message, "historyShareCutoffTimestamp"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.historyShareCutoffTimestamp = typeof message.historyShareCutoffTimestamp === "number" ? $BigInt(message.historyShareCutoffTimestamp) : $util.Long.fromBits(message.historyShareCutoffTimestamp.low >>> 0, message.historyShareCutoffTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.historyShareCutoffTimestamp === "number")
+                        object.historyShareCutoffTimestamp = options.longs === $String ? $String(message.historyShareCutoffTimestamp) : message.historyShareCutoffTimestamp;
+                    else
+                        object.historyShareCutoffTimestamp = options.longs === $String ? $util.Long.prototype.toString.call(message.historyShareCutoffTimestamp) : options.longs === $Number ? new $util.LongBits(message.historyShareCutoffTimestamp.low >>> 0, message.historyShareCutoffTimestamp.high >>> 0).toNumber() : message.historyShareCutoffTimestamp;
+                if (message.historyShareMessages && message.historyShareMessages.length) {
+                    object.historyShareMessages = $Array(message.historyShareMessages.length);
+                    for (var j = 0; j < message.historyShareMessages.length; ++j)
+                        object.historyShareMessages[j] = $root.E2E.Message.HistoryShareMessageEntry.toObject(message.historyShareMessages[j], options, _depth + 1);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this BotHistoryShareSyncMetadata to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BotHistoryShareSyncMetadata.prototype.toJSON = function() {
+                return BotHistoryShareSyncMetadata.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for BotHistoryShareSyncMetadata
+             * @function getTypeUrl
+             * @memberof E2E.Message.BotHistoryShareSyncMetadata
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            BotHistoryShareSyncMetadata.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.BotHistoryShareSyncMetadata";
+            };
+
+            return BotHistoryShareSyncMetadata;
         })();
 
         Message.ButtonsMessage = (function() {
@@ -48524,7 +49762,7 @@ $root.E2E = (function() {
              * @property {boolean|null} [viewOnce] ExtendedTextMessage viewOnce
              * @property {number|null} [videoHeight] ExtendedTextMessage videoHeight
              * @property {number|null} [videoWidth] ExtendedTextMessage videoWidth
-             * @property {E2E.Message.MMSThumbnailMetadata.$Properties|null} [faviconMMSMetadata] ExtendedTextMessage faviconMMSMetadata
+             * @property {E2E.Message.MMSThumbnailMetadata.$Properties|null} [faviconMmsMetadata] ExtendedTextMessage faviconMmsMetadata
              * @property {E2E.Message.LinkPreviewMetadata.$Properties|null} [linkPreviewMetadata] ExtendedTextMessage linkPreviewMetadata
              * @property {E2E.Message.PaymentLinkMetadata.$Properties|null} [paymentLinkMetadata] ExtendedTextMessage paymentLinkMetadata
              * @property {Array.<E2E.Message.VideoEndCard.$Properties>|null} [endCardTiles] ExtendedTextMessage endCardTiles
@@ -48570,7 +49808,7 @@ $root.E2E = (function() {
              *   viewOnce?: boolean|null;
              *   videoHeight?: number|null;
              *   videoWidth?: number|null;
-             *   faviconMMSMetadata?: E2E.Message.MMSThumbnailMetadata.$Shape|null;
+             *   faviconMmsMetadata?: E2E.Message.MMSThumbnailMetadata.$Shape|null;
              *   linkPreviewMetadata?: E2E.Message.LinkPreviewMetadata.$Shape|null;
              *   paymentLinkMetadata?: E2E.Message.PaymentLinkMetadata.$Shape|null;
              *   endCardTiles?: Array.<E2E.Message.VideoEndCard.$Shape>|null;
@@ -48798,12 +50036,12 @@ $root.E2E = (function() {
             ExtendedTextMessage.prototype.videoWidth = null;
 
             /**
-             * ExtendedTextMessage faviconMMSMetadata.
-             * @member {E2E.Message.MMSThumbnailMetadata.$Properties|null|undefined} faviconMMSMetadata
+             * ExtendedTextMessage faviconMmsMetadata.
+             * @member {E2E.Message.MMSThumbnailMetadata.$Properties|null|undefined} faviconMmsMetadata
              * @memberof E2E.Message.ExtendedTextMessage
              * @instance
              */
-            ExtendedTextMessage.prototype.faviconMMSMetadata = null;
+            ExtendedTextMessage.prototype.faviconMmsMetadata = null;
 
             /**
              * ExtendedTextMessage linkPreviewMetadata.
@@ -49007,8 +50245,8 @@ $root.E2E = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ExtendedTextMessage.prototype, "_faviconMMSMetadata", {
-                get: $util.oneOfGetter($oneOfFields = ["faviconMMSMetadata"]),
+            $Object.defineProperty(ExtendedTextMessage.prototype, "_faviconMmsMetadata", {
+                get: $util.oneOfGetter($oneOfFields = ["faviconMmsMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -49124,8 +50362,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 31, wireType 0 =*/248).uint32(message.videoHeight);
                 if (message.videoWidth != null && $Object.hasOwnProperty.call(message, "videoWidth"))
                     writer.uint32(/* id 32, wireType 0 =*/256).uint32(message.videoWidth);
-                if (message.faviconMMSMetadata != null && $Object.hasOwnProperty.call(message, "faviconMMSMetadata"))
-                    $root.E2E.Message.MMSThumbnailMetadata.encode(message.faviconMMSMetadata, writer.uint32(/* id 33, wireType 2 =*/266).fork(), _depth + 1).ldelim();
+                if (message.faviconMmsMetadata != null && $Object.hasOwnProperty.call(message, "faviconMmsMetadata"))
+                    $root.E2E.Message.MMSThumbnailMetadata.encode(message.faviconMmsMetadata, writer.uint32(/* id 33, wireType 2 =*/266).fork(), _depth + 1).ldelim();
                 if (message.linkPreviewMetadata != null && $Object.hasOwnProperty.call(message, "linkPreviewMetadata"))
                     $root.E2E.Message.LinkPreviewMetadata.encode(message.linkPreviewMetadata, writer.uint32(/* id 34, wireType 2 =*/274).fork(), _depth + 1).ldelim();
                 if (message.paymentLinkMetadata != null && $Object.hasOwnProperty.call(message, "paymentLinkMetadata"))
@@ -49364,8 +50602,8 @@ $root.E2E = (function() {
                     case 33: {
                             if (wireType !== 2)
                                 break;
-                            message.faviconMMSMetadata = $root.E2E.Message.MMSThumbnailMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.faviconMMSMetadata);
-                            message._faviconMMSMetadata = "faviconMMSMetadata";
+                            message.faviconMmsMetadata = $root.E2E.Message.MMSThumbnailMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.faviconMmsMetadata);
+                            message._faviconMmsMetadata = "faviconMmsMetadata";
                             continue;
                         }
                     case 34: {
@@ -49583,12 +50821,12 @@ $root.E2E = (function() {
                     if (!$util.isInteger(message.videoWidth))
                         return "videoWidth: integer expected";
                 }
-                if (message.faviconMMSMetadata != null && $Object.hasOwnProperty.call(message, "faviconMMSMetadata")) {
-                    properties._faviconMMSMetadata = 1;
+                if (message.faviconMmsMetadata != null && $Object.hasOwnProperty.call(message, "faviconMmsMetadata")) {
+                    properties._faviconMmsMetadata = 1;
                     {
-                        var error = $root.E2E.Message.MMSThumbnailMetadata.verify(message.faviconMMSMetadata, _depth + 1);
+                        var error = $root.E2E.Message.MMSThumbnailMetadata.verify(message.faviconMmsMetadata, _depth + 1);
                         if (error)
-                            return "faviconMMSMetadata." + error;
+                            return "faviconMmsMetadata." + error;
                     }
                 }
                 if (message.linkPreviewMetadata != null && $Object.hasOwnProperty.call(message, "linkPreviewMetadata")) {
@@ -49833,10 +51071,10 @@ $root.E2E = (function() {
                     message.videoHeight = object.videoHeight >>> 0;
                 if (object.videoWidth != null)
                     message.videoWidth = object.videoWidth >>> 0;
-                if (object.faviconMMSMetadata != null) {
-                    if (!$util.isObject(object.faviconMMSMetadata))
-                        throw $TypeError(".E2E.Message.ExtendedTextMessage.faviconMMSMetadata: object expected");
-                    message.faviconMMSMetadata = $root.E2E.Message.MMSThumbnailMetadata.fromObject(object.faviconMMSMetadata, _depth + 1);
+                if (object.faviconMmsMetadata != null) {
+                    if (!$util.isObject(object.faviconMmsMetadata))
+                        throw $TypeError(".E2E.Message.ExtendedTextMessage.faviconMmsMetadata: object expected");
+                    message.faviconMmsMetadata = $root.E2E.Message.MMSThumbnailMetadata.fromObject(object.faviconMmsMetadata, _depth + 1);
                 }
                 if (object.linkPreviewMetadata != null) {
                     if (!$util.isObject(object.linkPreviewMetadata))
@@ -49947,8 +51185,8 @@ $root.E2E = (function() {
                     object.videoHeight = message.videoHeight;
                 if (message.videoWidth != null && $Object.hasOwnProperty.call(message, "videoWidth"))
                     object.videoWidth = message.videoWidth;
-                if (message.faviconMMSMetadata != null && $Object.hasOwnProperty.call(message, "faviconMMSMetadata"))
-                    object.faviconMMSMetadata = $root.E2E.Message.MMSThumbnailMetadata.toObject(message.faviconMMSMetadata, options, _depth + 1);
+                if (message.faviconMmsMetadata != null && $Object.hasOwnProperty.call(message, "faviconMmsMetadata"))
+                    object.faviconMmsMetadata = $root.E2E.Message.MMSThumbnailMetadata.toObject(message.faviconMmsMetadata, options, _depth + 1);
                 if (message.linkPreviewMetadata != null && $Object.hasOwnProperty.call(message, "linkPreviewMetadata"))
                     object.linkPreviewMetadata = $root.E2E.Message.LinkPreviewMetadata.toObject(message.linkPreviewMetadata, options, _depth + 1);
                 if (message.paymentLinkMetadata != null && $Object.hasOwnProperty.call(message, "paymentLinkMetadata"))
@@ -53930,6 +55168,309 @@ $root.E2E = (function() {
             })();
 
             return HighlyStructuredMessage;
+        })();
+
+        Message.HistoryShareMessageEntry = (function() {
+
+            /**
+             * Properties of a HistoryShareMessageEntry.
+             * @typedef {Object} E2E.Message.HistoryShareMessageEntry.$Properties
+             * @property {string|null} [stanzaId] HistoryShareMessageEntry stanzaId
+             * @property {Uint8Array|null} [messageSecretProof] HistoryShareMessageEntry messageSecretProof
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a HistoryShareMessageEntry.
+             * @memberof E2E.Message
+             * @interface IHistoryShareMessageEntry
+             * @augments E2E.Message.HistoryShareMessageEntry.$Properties
+             * @deprecated Use E2E.Message.HistoryShareMessageEntry.$Properties instead.
+             */
+
+            /**
+             * Shape of a HistoryShareMessageEntry.
+             * @typedef {E2E.Message.HistoryShareMessageEntry.$Properties} E2E.Message.HistoryShareMessageEntry.$Shape
+             */
+
+            /**
+             * Constructs a new HistoryShareMessageEntry.
+             * @memberof E2E.Message
+             * @classdesc Represents a HistoryShareMessageEntry.
+             * @constructor
+             * @param {E2E.Message.HistoryShareMessageEntry.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var HistoryShareMessageEntry = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * HistoryShareMessageEntry stanzaId.
+             * @member {string|null|undefined} stanzaId
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @instance
+             */
+            HistoryShareMessageEntry.prototype.stanzaId = null;
+
+            /**
+             * HistoryShareMessageEntry messageSecretProof.
+             * @member {Uint8Array|null|undefined} messageSecretProof
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @instance
+             */
+            HistoryShareMessageEntry.prototype.messageSecretProof = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistoryShareMessageEntry.prototype, "_stanzaId", {
+                get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistoryShareMessageEntry.prototype, "_messageSecretProof", {
+                get: $util.oneOfGetter($oneOfFields = ["messageSecretProof"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new HistoryShareMessageEntry instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {E2E.Message.HistoryShareMessageEntry.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.HistoryShareMessageEntry} HistoryShareMessageEntry instance
+             * @type {{
+             *   (properties: E2E.Message.HistoryShareMessageEntry.$Shape): E2E.Message.HistoryShareMessageEntry & E2E.Message.HistoryShareMessageEntry.$Shape;
+             *   (properties?: E2E.Message.HistoryShareMessageEntry.$Properties): E2E.Message.HistoryShareMessageEntry;
+             * }}
+             */
+            HistoryShareMessageEntry.create = function(properties) {
+                return new HistoryShareMessageEntry(properties);
+            };
+
+            /**
+             * Encodes the specified HistoryShareMessageEntry message. Does not implicitly {@link E2E.Message.HistoryShareMessageEntry.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {E2E.Message.HistoryShareMessageEntry.$Properties} message HistoryShareMessageEntry message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HistoryShareMessageEntry.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
+                if (message.messageSecretProof != null && $Object.hasOwnProperty.call(message, "messageSecretProof"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.messageSecretProof);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified HistoryShareMessageEntry message, length delimited. Does not implicitly {@link E2E.Message.HistoryShareMessageEntry.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {E2E.Message.HistoryShareMessageEntry.$Properties} message HistoryShareMessageEntry message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HistoryShareMessageEntry.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a HistoryShareMessageEntry message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.HistoryShareMessageEntry & E2E.Message.HistoryShareMessageEntry.$Shape} HistoryShareMessageEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HistoryShareMessageEntry.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.HistoryShareMessageEntry();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.stanzaId = reader.stringVerify();
+                            message._stanzaId = "stanzaId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.messageSecretProof = reader.bytes();
+                            message._messageSecretProof = "messageSecretProof";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a HistoryShareMessageEntry message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.HistoryShareMessageEntry & E2E.Message.HistoryShareMessageEntry.$Shape} HistoryShareMessageEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HistoryShareMessageEntry.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a HistoryShareMessageEntry message.
+             * @function verify
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            HistoryShareMessageEntry.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId")) {
+                    properties._stanzaId = 1;
+                    if (!$util.isString(message.stanzaId))
+                        return "stanzaId: string expected";
+                }
+                if (message.messageSecretProof != null && $Object.hasOwnProperty.call(message, "messageSecretProof")) {
+                    properties._messageSecretProof = 1;
+                    if (!(message.messageSecretProof && typeof message.messageSecretProof.length === "number" || $util.isString(message.messageSecretProof)))
+                        return "messageSecretProof: buffer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a HistoryShareMessageEntry message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.HistoryShareMessageEntry} HistoryShareMessageEntry
+             */
+            HistoryShareMessageEntry.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.HistoryShareMessageEntry)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.HistoryShareMessageEntry: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.HistoryShareMessageEntry();
+                if (object.stanzaId != null)
+                    message.stanzaId = $String(object.stanzaId);
+                if (object.messageSecretProof != null)
+                    if (typeof object.messageSecretProof === "string")
+                        $util.base64.decode(object.messageSecretProof, message.messageSecretProof = $util.newBuffer($util.base64.length(object.messageSecretProof)), 0);
+                    else if (object.messageSecretProof.length >= 0)
+                        message.messageSecretProof = object.messageSecretProof;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a HistoryShareMessageEntry message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {E2E.Message.HistoryShareMessageEntry} message HistoryShareMessageEntry
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            HistoryShareMessageEntry.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
+                    object.stanzaId = message.stanzaId;
+                if (message.messageSecretProof != null && $Object.hasOwnProperty.call(message, "messageSecretProof"))
+                    object.messageSecretProof = options.bytes === $String ? $util.base64.encode(message.messageSecretProof, 0, message.messageSecretProof.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.messageSecretProof) : message.messageSecretProof;
+                return object;
+            };
+
+            /**
+             * Converts this HistoryShareMessageEntry to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            HistoryShareMessageEntry.prototype.toJSON = function() {
+                return HistoryShareMessageEntry.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for HistoryShareMessageEntry
+             * @function getTypeUrl
+             * @memberof E2E.Message.HistoryShareMessageEntry
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            HistoryShareMessageEntry.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.HistoryShareMessageEntry";
+            };
+
+            return HistoryShareMessageEntry;
         })();
 
         Message.HistorySyncMessageAccessStatus = (function() {
@@ -68207,6 +69748,387 @@ $root.E2E = (function() {
             return MMSThumbnailMetadata;
         })();
 
+        Message.MarkAsVerifiedAction = (function() {
+
+            /**
+             * Properties of a MarkAsVerifiedAction.
+             * @typedef {Object} E2E.Message.MarkAsVerifiedAction.$Properties
+             * @property {string|null} [userJidString] MarkAsVerifiedAction userJidString
+             * @property {boolean|null} [verified] MarkAsVerifiedAction verified
+             * @property {Uint8Array|null} [verifiedIdentityKey] MarkAsVerifiedAction verifiedIdentityKey
+             * @property {number|Long|null} [actionSeq] MarkAsVerifiedAction actionSeq
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a MarkAsVerifiedAction.
+             * @memberof E2E.Message
+             * @interface IMarkAsVerifiedAction
+             * @augments E2E.Message.MarkAsVerifiedAction.$Properties
+             * @deprecated Use E2E.Message.MarkAsVerifiedAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MarkAsVerifiedAction.
+             * @typedef {E2E.Message.MarkAsVerifiedAction.$Properties} E2E.Message.MarkAsVerifiedAction.$Shape
+             */
+
+            /**
+             * Constructs a new MarkAsVerifiedAction.
+             * @memberof E2E.Message
+             * @classdesc Represents a MarkAsVerifiedAction.
+             * @constructor
+             * @param {E2E.Message.MarkAsVerifiedAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var MarkAsVerifiedAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * MarkAsVerifiedAction userJidString.
+             * @member {string|null|undefined} userJidString
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @instance
+             */
+            MarkAsVerifiedAction.prototype.userJidString = null;
+
+            /**
+             * MarkAsVerifiedAction verified.
+             * @member {boolean|null|undefined} verified
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @instance
+             */
+            MarkAsVerifiedAction.prototype.verified = null;
+
+            /**
+             * MarkAsVerifiedAction verifiedIdentityKey.
+             * @member {Uint8Array|null|undefined} verifiedIdentityKey
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @instance
+             */
+            MarkAsVerifiedAction.prototype.verifiedIdentityKey = null;
+
+            /**
+             * MarkAsVerifiedAction actionSeq.
+             * @member {number|Long|null|undefined} actionSeq
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @instance
+             */
+            MarkAsVerifiedAction.prototype.actionSeq = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(MarkAsVerifiedAction.prototype, "_userJidString", {
+                get: $util.oneOfGetter($oneOfFields = ["userJidString"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(MarkAsVerifiedAction.prototype, "_verified", {
+                get: $util.oneOfGetter($oneOfFields = ["verified"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(MarkAsVerifiedAction.prototype, "_verifiedIdentityKey", {
+                get: $util.oneOfGetter($oneOfFields = ["verifiedIdentityKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(MarkAsVerifiedAction.prototype, "_actionSeq", {
+                get: $util.oneOfGetter($oneOfFields = ["actionSeq"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new MarkAsVerifiedAction instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {E2E.Message.MarkAsVerifiedAction.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.MarkAsVerifiedAction} MarkAsVerifiedAction instance
+             * @type {{
+             *   (properties: E2E.Message.MarkAsVerifiedAction.$Shape): E2E.Message.MarkAsVerifiedAction & E2E.Message.MarkAsVerifiedAction.$Shape;
+             *   (properties?: E2E.Message.MarkAsVerifiedAction.$Properties): E2E.Message.MarkAsVerifiedAction;
+             * }}
+             */
+            MarkAsVerifiedAction.create = function(properties) {
+                return new MarkAsVerifiedAction(properties);
+            };
+
+            /**
+             * Encodes the specified MarkAsVerifiedAction message. Does not implicitly {@link E2E.Message.MarkAsVerifiedAction.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {E2E.Message.MarkAsVerifiedAction.$Properties} message MarkAsVerifiedAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MarkAsVerifiedAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.userJidString != null && $Object.hasOwnProperty.call(message, "userJidString"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.userJidString);
+                if (message.verified != null && $Object.hasOwnProperty.call(message, "verified"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.verified);
+                if (message.verifiedIdentityKey != null && $Object.hasOwnProperty.call(message, "verifiedIdentityKey"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.verifiedIdentityKey);
+                if (message.actionSeq != null && $Object.hasOwnProperty.call(message, "actionSeq"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.actionSeq);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MarkAsVerifiedAction message, length delimited. Does not implicitly {@link E2E.Message.MarkAsVerifiedAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {E2E.Message.MarkAsVerifiedAction.$Properties} message MarkAsVerifiedAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MarkAsVerifiedAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a MarkAsVerifiedAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.MarkAsVerifiedAction & E2E.Message.MarkAsVerifiedAction.$Shape} MarkAsVerifiedAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MarkAsVerifiedAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.MarkAsVerifiedAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.userJidString = reader.stringVerify();
+                            message._userJidString = "userJidString";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.verified = reader.bool();
+                            message._verified = "verified";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.verifiedIdentityKey = reader.bytes();
+                            message._verifiedIdentityKey = "verifiedIdentityKey";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.actionSeq = reader.uint64();
+                            message._actionSeq = "actionSeq";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a MarkAsVerifiedAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.MarkAsVerifiedAction & E2E.Message.MarkAsVerifiedAction.$Shape} MarkAsVerifiedAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MarkAsVerifiedAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MarkAsVerifiedAction message.
+             * @function verify
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MarkAsVerifiedAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.userJidString != null && $Object.hasOwnProperty.call(message, "userJidString")) {
+                    properties._userJidString = 1;
+                    if (!$util.isString(message.userJidString))
+                        return "userJidString: string expected";
+                }
+                if (message.verified != null && $Object.hasOwnProperty.call(message, "verified")) {
+                    properties._verified = 1;
+                    if (typeof message.verified !== "boolean")
+                        return "verified: boolean expected";
+                }
+                if (message.verifiedIdentityKey != null && $Object.hasOwnProperty.call(message, "verifiedIdentityKey")) {
+                    properties._verifiedIdentityKey = 1;
+                    if (!(message.verifiedIdentityKey && typeof message.verifiedIdentityKey.length === "number" || $util.isString(message.verifiedIdentityKey)))
+                        return "verifiedIdentityKey: buffer expected";
+                }
+                if (message.actionSeq != null && $Object.hasOwnProperty.call(message, "actionSeq")) {
+                    properties._actionSeq = 1;
+                    if (!$util.isInteger(message.actionSeq) && !(message.actionSeq && $util.isInteger(message.actionSeq.low) && $util.isInteger(message.actionSeq.high)))
+                        return "actionSeq: integer|Long expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a MarkAsVerifiedAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.MarkAsVerifiedAction} MarkAsVerifiedAction
+             */
+            MarkAsVerifiedAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.MarkAsVerifiedAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.MarkAsVerifiedAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.MarkAsVerifiedAction();
+                if (object.userJidString != null)
+                    message.userJidString = $String(object.userJidString);
+                if (object.verified != null)
+                    message.verified = $Boolean(object.verified);
+                if (object.verifiedIdentityKey != null)
+                    if (typeof object.verifiedIdentityKey === "string")
+                        $util.base64.decode(object.verifiedIdentityKey, message.verifiedIdentityKey = $util.newBuffer($util.base64.length(object.verifiedIdentityKey)), 0);
+                    else if (object.verifiedIdentityKey.length >= 0)
+                        message.verifiedIdentityKey = object.verifiedIdentityKey;
+                if (object.actionSeq != null)
+                    if ($util.Long)
+                        message.actionSeq = $util.Long.fromValue(object.actionSeq, true);
+                    else if (typeof object.actionSeq === "string")
+                        message.actionSeq = $parseInt(object.actionSeq, 10);
+                    else if (typeof object.actionSeq === "number")
+                        message.actionSeq = object.actionSeq;
+                    else if (typeof object.actionSeq === "object")
+                        message.actionSeq = new $util.LongBits(object.actionSeq.low >>> 0, object.actionSeq.high >>> 0).toNumber(true);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MarkAsVerifiedAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {E2E.Message.MarkAsVerifiedAction} message MarkAsVerifiedAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MarkAsVerifiedAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.userJidString != null && $Object.hasOwnProperty.call(message, "userJidString"))
+                    object.userJidString = message.userJidString;
+                if (message.verified != null && $Object.hasOwnProperty.call(message, "verified"))
+                    object.verified = message.verified;
+                if (message.verifiedIdentityKey != null && $Object.hasOwnProperty.call(message, "verifiedIdentityKey"))
+                    object.verifiedIdentityKey = options.bytes === $String ? $util.base64.encode(message.verifiedIdentityKey, 0, message.verifiedIdentityKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.verifiedIdentityKey) : message.verifiedIdentityKey;
+                if (message.actionSeq != null && $Object.hasOwnProperty.call(message, "actionSeq"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.actionSeq = typeof message.actionSeq === "number" ? $BigInt(message.actionSeq) : $util.Long.fromBits(message.actionSeq.low >>> 0, message.actionSeq.high >>> 0, true).toBigInt();
+                    else if (typeof message.actionSeq === "number")
+                        object.actionSeq = options.longs === $String ? $String(message.actionSeq) : message.actionSeq;
+                    else
+                        object.actionSeq = options.longs === $String ? $util.Long.prototype.toString.call(message.actionSeq) : options.longs === $Number ? new $util.LongBits(message.actionSeq.low >>> 0, message.actionSeq.high >>> 0).toNumber(true) : message.actionSeq;
+                return object;
+            };
+
+            /**
+             * Converts this MarkAsVerifiedAction to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MarkAsVerifiedAction.prototype.toJSON = function() {
+                return MarkAsVerifiedAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for MarkAsVerifiedAction
+             * @function getTypeUrl
+             * @memberof E2E.Message.MarkAsVerifiedAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            MarkAsVerifiedAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.MarkAsVerifiedAction";
+            };
+
+            return MarkAsVerifiedAction;
+        })();
+
         Message.MessageHistoryBundle = (function() {
 
             /**
@@ -69208,6 +71130,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.MessageHistoryNotice.$Properties
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] MessageHistoryNotice contextInfo
              * @property {E2E.Message.MessageHistoryMetadata.$Properties|null} [messageHistoryMetadata] MessageHistoryNotice messageHistoryMetadata
+             * @property {E2E.Message.BotHistoryShareSyncMetadata.$Properties|null} [botHistoryShareSyncMetadata] MessageHistoryNotice botHistoryShareSyncMetadata
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -69224,6 +71147,7 @@ $root.E2E = (function() {
              * @typedef {{
              *   contextInfo?: E2E.ContextInfo.$Shape|null;
              *   messageHistoryMetadata?: E2E.Message.MessageHistoryMetadata.$Shape|null;
+             *   botHistoryShareSyncMetadata?: E2E.Message.BotHistoryShareSyncMetadata.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.MessageHistoryNotice.$Shape
              */
@@ -69259,6 +71183,14 @@ $root.E2E = (function() {
              */
             MessageHistoryNotice.prototype.messageHistoryMetadata = null;
 
+            /**
+             * MessageHistoryNotice botHistoryShareSyncMetadata.
+             * @member {E2E.Message.BotHistoryShareSyncMetadata.$Properties|null|undefined} botHistoryShareSyncMetadata
+             * @memberof E2E.Message.MessageHistoryNotice
+             * @instance
+             */
+            MessageHistoryNotice.prototype.botHistoryShareSyncMetadata = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -69271,6 +71203,12 @@ $root.E2E = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(MessageHistoryNotice.prototype, "_messageHistoryMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["messageHistoryMetadata"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(MessageHistoryNotice.prototype, "_botHistoryShareSyncMetadata", {
+                get: $util.oneOfGetter($oneOfFields = ["botHistoryShareSyncMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -69310,6 +71248,8 @@ $root.E2E = (function() {
                     $root.E2E.ContextInfo.encode(message.contextInfo, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
                 if (message.messageHistoryMetadata != null && $Object.hasOwnProperty.call(message, "messageHistoryMetadata"))
                     $root.E2E.Message.MessageHistoryMetadata.encode(message.messageHistoryMetadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.botHistoryShareSyncMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareSyncMetadata"))
+                    $root.E2E.Message.BotHistoryShareSyncMetadata.encode(message.botHistoryShareSyncMetadata, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -69369,6 +71309,13 @@ $root.E2E = (function() {
                                 break;
                             message.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageHistoryMetadata);
                             message._messageHistoryMetadata = "messageHistoryMetadata";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.botHistoryShareSyncMetadata = $root.E2E.Message.BotHistoryShareSyncMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botHistoryShareSyncMetadata);
+                            message._botHistoryShareSyncMetadata = "botHistoryShareSyncMetadata";
                             continue;
                         }
                     }
@@ -69431,6 +71378,14 @@ $root.E2E = (function() {
                             return "messageHistoryMetadata." + error;
                     }
                 }
+                if (message.botHistoryShareSyncMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareSyncMetadata")) {
+                    properties._botHistoryShareSyncMetadata = 1;
+                    {
+                        var error = $root.E2E.Message.BotHistoryShareSyncMetadata.verify(message.botHistoryShareSyncMetadata, _depth + 1);
+                        if (error)
+                            return "botHistoryShareSyncMetadata." + error;
+                    }
+                }
                 return null;
             };
 
@@ -69462,6 +71417,11 @@ $root.E2E = (function() {
                         throw $TypeError(".E2E.Message.MessageHistoryNotice.messageHistoryMetadata: object expected");
                     message.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.fromObject(object.messageHistoryMetadata, _depth + 1);
                 }
+                if (object.botHistoryShareSyncMetadata != null) {
+                    if (!$util.isObject(object.botHistoryShareSyncMetadata))
+                        throw $TypeError(".E2E.Message.MessageHistoryNotice.botHistoryShareSyncMetadata: object expected");
+                    message.botHistoryShareSyncMetadata = $root.E2E.Message.BotHistoryShareSyncMetadata.fromObject(object.botHistoryShareSyncMetadata, _depth + 1);
+                }
                 return message;
             };
 
@@ -69486,6 +71446,8 @@ $root.E2E = (function() {
                     object.contextInfo = $root.E2E.ContextInfo.toObject(message.contextInfo, options, _depth + 1);
                 if (message.messageHistoryMetadata != null && $Object.hasOwnProperty.call(message, "messageHistoryMetadata"))
                     object.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.toObject(message.messageHistoryMetadata, options, _depth + 1);
+                if (message.botHistoryShareSyncMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareSyncMetadata"))
+                    object.botHistoryShareSyncMetadata = $root.E2E.Message.BotHistoryShareSyncMetadata.toObject(message.botHistoryShareSyncMetadata, options, _depth + 1);
                 return object;
             };
 
@@ -71223,6 +73185,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.PaymentExtendedMetadata.$Properties
              * @property {number|null} [type] PaymentExtendedMetadata type
              * @property {string|null} [platform] PaymentExtendedMetadata platform
+             * @property {string|null} [messageParamsJson] PaymentExtendedMetadata messageParamsJson
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -71270,6 +73233,14 @@ $root.E2E = (function() {
              */
             PaymentExtendedMetadata.prototype.platform = null;
 
+            /**
+             * PaymentExtendedMetadata messageParamsJson.
+             * @member {string|null|undefined} messageParamsJson
+             * @memberof E2E.Message.PaymentExtendedMetadata
+             * @instance
+             */
+            PaymentExtendedMetadata.prototype.messageParamsJson = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -71282,6 +73253,12 @@ $root.E2E = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(PaymentExtendedMetadata.prototype, "_platform", {
                 get: $util.oneOfGetter($oneOfFields = ["platform"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PaymentExtendedMetadata.prototype, "_messageParamsJson", {
+                get: $util.oneOfGetter($oneOfFields = ["messageParamsJson"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -71321,6 +73298,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.type);
                 if (message.platform != null && $Object.hasOwnProperty.call(message, "platform"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.platform);
+                if (message.messageParamsJson != null && $Object.hasOwnProperty.call(message, "messageParamsJson"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.messageParamsJson);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -71382,6 +73361,13 @@ $root.E2E = (function() {
                             message._platform = "platform";
                             continue;
                         }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.messageParamsJson = reader.stringVerify();
+                            message._messageParamsJson = "messageParamsJson";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -71436,6 +73422,11 @@ $root.E2E = (function() {
                     if (!$util.isString(message.platform))
                         return "platform: string expected";
                 }
+                if (message.messageParamsJson != null && $Object.hasOwnProperty.call(message, "messageParamsJson")) {
+                    properties._messageParamsJson = 1;
+                    if (!$util.isString(message.messageParamsJson))
+                        return "messageParamsJson: string expected";
+                }
                 return null;
             };
 
@@ -71461,6 +73452,8 @@ $root.E2E = (function() {
                     message.type = object.type >>> 0;
                 if (object.platform != null)
                     message.platform = $String(object.platform);
+                if (object.messageParamsJson != null)
+                    message.messageParamsJson = $String(object.messageParamsJson);
                 return message;
             };
 
@@ -71485,6 +73478,8 @@ $root.E2E = (function() {
                     object.type = message.type;
                 if (message.platform != null && $Object.hasOwnProperty.call(message, "platform"))
                     object.platform = message.platform;
+                if (message.messageParamsJson != null && $Object.hasOwnProperty.call(message, "messageParamsJson"))
+                    object.messageParamsJson = message.messageParamsJson;
                 return object;
             };
 
@@ -89889,6 +91884,8 @@ $root.E2E = (function() {
              * @property {number|null} [afterReadDuration] ProtocolMessage afterReadDuration
              * @property {E2E.Message.ChatThemeSetting.$Properties|null} [chatThemeSetting] ProtocolMessage chatThemeSetting
              * @property {AICommon.AIMetadataOperation.$Properties|null} [aiMetadataOperation] ProtocolMessage aiMetadataOperation
+             * @property {E2E.Message.MarkAsVerifiedAction.$Properties|null} [markAsVerifiedAction] ProtocolMessage markAsVerifiedAction
+             * @property {ServerSync.CoexStateSync.$Properties|null} [coexStateSync] ProtocolMessage coexStateSync
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -89931,6 +91928,8 @@ $root.E2E = (function() {
              *   afterReadDuration?: number|null;
              *   chatThemeSetting?: E2E.Message.ChatThemeSetting.$Shape|null;
              *   aiMetadataOperation?: AICommon.AIMetadataOperation.$Shape|null;
+             *   markAsVerifiedAction?: E2E.Message.MarkAsVerifiedAction.$Shape|null;
+             *   coexStateSync?: ServerSync.CoexStateSync.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.ProtocolMessage.$Shape
              */
@@ -90174,6 +92173,22 @@ $root.E2E = (function() {
              */
             ProtocolMessage.prototype.aiMetadataOperation = null;
 
+            /**
+             * ProtocolMessage markAsVerifiedAction.
+             * @member {E2E.Message.MarkAsVerifiedAction.$Properties|null|undefined} markAsVerifiedAction
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.markAsVerifiedAction = null;
+
+            /**
+             * ProtocolMessage coexStateSync.
+             * @member {ServerSync.CoexStateSync.$Properties|null|undefined} coexStateSync
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.coexStateSync = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -90345,6 +92360,18 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_markAsVerifiedAction", {
+                get: $util.oneOfGetter($oneOfFields = ["markAsVerifiedAction"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_coexStateSync", {
+                get: $util.oneOfGetter($oneOfFields = ["coexStateSync"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
              * @function create
@@ -90433,6 +92460,10 @@ $root.E2E = (function() {
                     $root.E2E.Message.ChatThemeSetting.encode(message.chatThemeSetting, writer.uint32(/* id 30, wireType 2 =*/242).fork(), _depth + 1).ldelim();
                 if (message.aiMetadataOperation != null && $Object.hasOwnProperty.call(message, "aiMetadataOperation"))
                     $root.AICommon.AIMetadataOperation.encode(message.aiMetadataOperation, writer.uint32(/* id 31, wireType 2 =*/250).fork(), _depth + 1).ldelim();
+                if (message.markAsVerifiedAction != null && $Object.hasOwnProperty.call(message, "markAsVerifiedAction"))
+                    $root.E2E.Message.MarkAsVerifiedAction.encode(message.markAsVerifiedAction, writer.uint32(/* id 32, wireType 2 =*/258).fork(), _depth + 1).ldelim();
+                if (message.coexStateSync != null && $Object.hasOwnProperty.call(message, "coexStateSync"))
+                    $root.ServerSync.CoexStateSync.encode(message.coexStateSync, writer.uint32(/* id 33, wireType 2 =*/266).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -90674,6 +92705,20 @@ $root.E2E = (function() {
                                 break;
                             message.aiMetadataOperation = $root.AICommon.AIMetadataOperation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiMetadataOperation);
                             message._aiMetadataOperation = "aiMetadataOperation";
+                            continue;
+                        }
+                    case 32: {
+                            if (wireType !== 2)
+                                break;
+                            message.markAsVerifiedAction = $root.E2E.Message.MarkAsVerifiedAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.markAsVerifiedAction);
+                            message._markAsVerifiedAction = "markAsVerifiedAction";
+                            continue;
+                        }
+                    case 33: {
+                            if (wireType !== 2)
+                                break;
+                            message.coexStateSync = $root.ServerSync.CoexStateSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.coexStateSync);
+                            message._coexStateSync = "coexStateSync";
                             continue;
                         }
                     }
@@ -90923,6 +92968,22 @@ $root.E2E = (function() {
                             return "aiMetadataOperation." + error;
                     }
                 }
+                if (message.markAsVerifiedAction != null && $Object.hasOwnProperty.call(message, "markAsVerifiedAction")) {
+                    properties._markAsVerifiedAction = 1;
+                    {
+                        var error = $root.E2E.Message.MarkAsVerifiedAction.verify(message.markAsVerifiedAction, _depth + 1);
+                        if (error)
+                            return "markAsVerifiedAction." + error;
+                    }
+                }
+                if (message.coexStateSync != null && $Object.hasOwnProperty.call(message, "coexStateSync")) {
+                    properties._coexStateSync = 1;
+                    {
+                        var error = $root.ServerSync.CoexStateSync.verify(message.coexStateSync, _depth + 1);
+                        if (error)
+                            return "coexStateSync." + error;
+                    }
+                }
                 return null;
             };
 
@@ -91070,6 +93131,14 @@ $root.E2E = (function() {
                 case 35:
                     message.type = 35;
                     break;
+                case "MARK_AS_VERIFIED_ACTION":
+                case 36:
+                    message.type = 36;
+                    break;
+                case "COEX_STATE_SYNC":
+                case 37:
+                    message.type = 37;
+                    break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
                         message.type = object.type;
@@ -91203,6 +93272,16 @@ $root.E2E = (function() {
                         throw $TypeError(".E2E.Message.ProtocolMessage.aiMetadataOperation: object expected");
                     message.aiMetadataOperation = $root.AICommon.AIMetadataOperation.fromObject(object.aiMetadataOperation, _depth + 1);
                 }
+                if (object.markAsVerifiedAction != null) {
+                    if (!$util.isObject(object.markAsVerifiedAction))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.markAsVerifiedAction: object expected");
+                    message.markAsVerifiedAction = $root.E2E.Message.MarkAsVerifiedAction.fromObject(object.markAsVerifiedAction, _depth + 1);
+                }
+                if (object.coexStateSync != null) {
+                    if (!$util.isObject(object.coexStateSync))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.coexStateSync: object expected");
+                    message.coexStateSync = $root.ServerSync.CoexStateSync.fromObject(object.coexStateSync, _depth + 1);
+                }
                 return message;
             };
 
@@ -91289,6 +93368,10 @@ $root.E2E = (function() {
                     object.chatThemeSetting = $root.E2E.Message.ChatThemeSetting.toObject(message.chatThemeSetting, options, _depth + 1);
                 if (message.aiMetadataOperation != null && $Object.hasOwnProperty.call(message, "aiMetadataOperation"))
                     object.aiMetadataOperation = $root.AICommon.AIMetadataOperation.toObject(message.aiMetadataOperation, options, _depth + 1);
+                if (message.markAsVerifiedAction != null && $Object.hasOwnProperty.call(message, "markAsVerifiedAction"))
+                    object.markAsVerifiedAction = $root.E2E.Message.MarkAsVerifiedAction.toObject(message.markAsVerifiedAction, options, _depth + 1);
+                if (message.coexStateSync != null && $Object.hasOwnProperty.call(message, "coexStateSync"))
+                    object.coexStateSync = $root.ServerSync.CoexStateSync.toObject(message.coexStateSync, options, _depth + 1);
                 return object;
             };
 
@@ -91351,6 +93434,8 @@ $root.E2E = (function() {
              * @property {number} MESSAGE_UNSCHEDULE=32 MESSAGE_UNSCHEDULE value
              * @property {number} CHAT_THEME_SETTING=34 CHAT_THEME_SETTING value
              * @property {number} AI_METADATA_OPERATION=35 AI_METADATA_OPERATION value
+             * @property {number} MARK_AS_VERIFIED_ACTION=36 MARK_AS_VERIFIED_ACTION value
+             * @property {number} COEX_STATE_SYNC=37 COEX_STATE_SYNC value
              */
             ProtocolMessage.Type = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -91384,6 +93469,8 @@ $root.E2E = (function() {
                 values[valuesById[32] = "MESSAGE_UNSCHEDULE"] = 32;
                 values[valuesById[34] = "CHAT_THEME_SETTING"] = 34;
                 values[valuesById[35] = "AI_METADATA_OPERATION"] = 35;
+                values[valuesById[36] = "MARK_AS_VERIFIED_ACTION"] = 36;
+                values[valuesById[37] = "COEX_STATE_SYNC"] = 37;
                 return values;
             })();
 
@@ -96262,6 +98349,306 @@ $root.E2E = (function() {
             })();
 
             return SplitPaymentParticipant;
+        })();
+
+        Message.SplitPaymentUpdateMessage = (function() {
+
+            /**
+             * Properties of a SplitPaymentUpdateMessage.
+             * @typedef {Object} E2E.Message.SplitPaymentUpdateMessage.$Properties
+             * @property {string|null} [splitId] SplitPaymentUpdateMessage splitId
+             * @property {string|null} [participantJid] SplitPaymentUpdateMessage participantJid
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a SplitPaymentUpdateMessage.
+             * @memberof E2E.Message
+             * @interface ISplitPaymentUpdateMessage
+             * @augments E2E.Message.SplitPaymentUpdateMessage.$Properties
+             * @deprecated Use E2E.Message.SplitPaymentUpdateMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a SplitPaymentUpdateMessage.
+             * @typedef {E2E.Message.SplitPaymentUpdateMessage.$Properties} E2E.Message.SplitPaymentUpdateMessage.$Shape
+             */
+
+            /**
+             * Constructs a new SplitPaymentUpdateMessage.
+             * @memberof E2E.Message
+             * @classdesc Represents a SplitPaymentUpdateMessage.
+             * @constructor
+             * @param {E2E.Message.SplitPaymentUpdateMessage.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var SplitPaymentUpdateMessage = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * SplitPaymentUpdateMessage splitId.
+             * @member {string|null|undefined} splitId
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @instance
+             */
+            SplitPaymentUpdateMessage.prototype.splitId = null;
+
+            /**
+             * SplitPaymentUpdateMessage participantJid.
+             * @member {string|null|undefined} participantJid
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @instance
+             */
+            SplitPaymentUpdateMessage.prototype.participantJid = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(SplitPaymentUpdateMessage.prototype, "_splitId", {
+                get: $util.oneOfGetter($oneOfFields = ["splitId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(SplitPaymentUpdateMessage.prototype, "_participantJid", {
+                get: $util.oneOfGetter($oneOfFields = ["participantJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new SplitPaymentUpdateMessage instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {E2E.Message.SplitPaymentUpdateMessage.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.SplitPaymentUpdateMessage} SplitPaymentUpdateMessage instance
+             * @type {{
+             *   (properties: E2E.Message.SplitPaymentUpdateMessage.$Shape): E2E.Message.SplitPaymentUpdateMessage & E2E.Message.SplitPaymentUpdateMessage.$Shape;
+             *   (properties?: E2E.Message.SplitPaymentUpdateMessage.$Properties): E2E.Message.SplitPaymentUpdateMessage;
+             * }}
+             */
+            SplitPaymentUpdateMessage.create = function(properties) {
+                return new SplitPaymentUpdateMessage(properties);
+            };
+
+            /**
+             * Encodes the specified SplitPaymentUpdateMessage message. Does not implicitly {@link E2E.Message.SplitPaymentUpdateMessage.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {E2E.Message.SplitPaymentUpdateMessage.$Properties} message SplitPaymentUpdateMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SplitPaymentUpdateMessage.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.splitId != null && $Object.hasOwnProperty.call(message, "splitId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.splitId);
+                if (message.participantJid != null && $Object.hasOwnProperty.call(message, "participantJid"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.participantJid);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified SplitPaymentUpdateMessage message, length delimited. Does not implicitly {@link E2E.Message.SplitPaymentUpdateMessage.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {E2E.Message.SplitPaymentUpdateMessage.$Properties} message SplitPaymentUpdateMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SplitPaymentUpdateMessage.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a SplitPaymentUpdateMessage message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.SplitPaymentUpdateMessage & E2E.Message.SplitPaymentUpdateMessage.$Shape} SplitPaymentUpdateMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SplitPaymentUpdateMessage.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SplitPaymentUpdateMessage();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.splitId = reader.stringVerify();
+                            message._splitId = "splitId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.participantJid = reader.stringVerify();
+                            message._participantJid = "participantJid";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a SplitPaymentUpdateMessage message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.SplitPaymentUpdateMessage & E2E.Message.SplitPaymentUpdateMessage.$Shape} SplitPaymentUpdateMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SplitPaymentUpdateMessage.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a SplitPaymentUpdateMessage message.
+             * @function verify
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SplitPaymentUpdateMessage.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.splitId != null && $Object.hasOwnProperty.call(message, "splitId")) {
+                    properties._splitId = 1;
+                    if (!$util.isString(message.splitId))
+                        return "splitId: string expected";
+                }
+                if (message.participantJid != null && $Object.hasOwnProperty.call(message, "participantJid")) {
+                    properties._participantJid = 1;
+                    if (!$util.isString(message.participantJid))
+                        return "participantJid: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a SplitPaymentUpdateMessage message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.SplitPaymentUpdateMessage} SplitPaymentUpdateMessage
+             */
+            SplitPaymentUpdateMessage.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.SplitPaymentUpdateMessage)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.SplitPaymentUpdateMessage: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.SplitPaymentUpdateMessage();
+                if (object.splitId != null)
+                    message.splitId = $String(object.splitId);
+                if (object.participantJid != null)
+                    message.participantJid = $String(object.participantJid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a SplitPaymentUpdateMessage message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {E2E.Message.SplitPaymentUpdateMessage} message SplitPaymentUpdateMessage
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SplitPaymentUpdateMessage.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.splitId != null && $Object.hasOwnProperty.call(message, "splitId"))
+                    object.splitId = message.splitId;
+                if (message.participantJid != null && $Object.hasOwnProperty.call(message, "participantJid"))
+                    object.participantJid = message.participantJid;
+                return object;
+            };
+
+            /**
+             * Converts this SplitPaymentUpdateMessage to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SplitPaymentUpdateMessage.prototype.toJSON = function() {
+                return SplitPaymentUpdateMessage.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for SplitPaymentUpdateMessage
+             * @function getTypeUrl
+             * @memberof E2E.Message.SplitPaymentUpdateMessage
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            SplitPaymentUpdateMessage.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.SplitPaymentUpdateMessage";
+            };
+
+            return SplitPaymentUpdateMessage;
         })();
 
         Message.StatusNotificationMessage = (function() {
@@ -111506,7 +113893,7 @@ $root.AICommonDeprecated = (function() {
              * Properties of a AIRichResponseContentItemMetadata.
              * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties
              * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties|null} [reelItem] AIRichResponseContentItemMetadata reelItem
-             * @property {"reelItem"} [aIRichResponseContentItem] AIRichResponseContentItemMetadata aIRichResponseContentItem
+             * @property {"reelItem"} [aiRichResponseContentItem] AIRichResponseContentItemMetadata aiRichResponseContentItem
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -111524,7 +113911,7 @@ $root.AICommonDeprecated = (function() {
              *   reelItem?: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
              * } & (
-             *   ({ aIRichResponseContentItem?: undefined; reelItem?: null }|{ aIRichResponseContentItem?: "reelItem"; reelItem: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape })
+             *   ({ aiRichResponseContentItem?: undefined; reelItem?: null }|{ aiRichResponseContentItem?: "reelItem"; reelItem: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape })
              * )} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape
              */
 
@@ -111555,12 +113942,12 @@ $root.AICommonDeprecated = (function() {
             var $oneOfFields;
 
             /**
-             * AIRichResponseContentItemMetadata aIRichResponseContentItem.
-             * @member {"reelItem"|undefined} aIRichResponseContentItem
+             * AIRichResponseContentItemMetadata aiRichResponseContentItem.
+             * @member {"reelItem"|undefined} aiRichResponseContentItem
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @instance
              */
-            $Object.defineProperty(AIRichResponseContentItemMetadata.prototype, "aIRichResponseContentItem", {
+            $Object.defineProperty(AIRichResponseContentItemMetadata.prototype, "aiRichResponseContentItem", {
                 get: $util.oneOfGetter($oneOfFields = ["reelItem"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -111650,7 +114037,7 @@ $root.AICommonDeprecated = (function() {
                             if (wireType !== 2)
                                 break;
                             message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reelItem);
-                            message.aIRichResponseContentItem = "reelItem";
+                            message.aiRichResponseContentItem = "reelItem";
                             continue;
                         }
                     }
@@ -111698,7 +114085,7 @@ $root.AICommonDeprecated = (function() {
                     return "max depth exceeded";
                 var properties = {};
                 if (message.reelItem != null && $Object.hasOwnProperty.call(message, "reelItem")) {
-                    properties.aIRichResponseContentItem = 1;
+                    properties.aiRichResponseContentItem = 1;
                     {
                         var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.verify(message.reelItem, _depth + 1);
                         if (error)
@@ -111754,7 +114141,7 @@ $root.AICommonDeprecated = (function() {
                 if (message.reelItem != null && $Object.hasOwnProperty.call(message, "reelItem")) {
                     object.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.toObject(message.reelItem, options, _depth + 1);
                     if (options.oneofs)
-                        object.aIRichResponseContentItem = "reelItem";
+                        object.aiRichResponseContentItem = "reelItem";
                 }
                 return object;
             };
@@ -116658,66 +119045,47 @@ $root.AICommonDeprecated = (function() {
     return AICommonDeprecated;
 })();
 
-$root.StatusAttributions = (function() {
+$root.AICommon = (function() {
 
     /**
-     * Namespace StatusAttributions.
-     * @exports StatusAttributions
+     * Namespace AICommon.
+     * @exports AICommon
      * @namespace
      */
-    var StatusAttributions = {};
+    var AICommon = {};
 
-    StatusAttributions.StatusAttribution = (function() {
+    AICommon.AIProvenance = (function() {
 
         /**
-         * Properties of a StatusAttribution.
-         * @typedef {Object} StatusAttributions.StatusAttribution.$Properties
-         * @property {StatusAttributions.StatusAttribution.Type|null} [type] StatusAttribution type
-         * @property {string|null} [actionUrl] StatusAttribution actionUrl
-         * @property {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null} [statusReshare] StatusAttribution statusReshare
-         * @property {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null} [externalShare] StatusAttribution externalShare
-         * @property {StatusAttributions.StatusAttribution.Music.$Properties|null} [music] StatusAttribution music
-         * @property {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null} [groupStatus] StatusAttribution groupStatus
-         * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
-         * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
-         * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
+         * Properties of a AIProvenance.
+         * @typedef {Object} AICommon.AIProvenance.$Properties
+         * @property {AICommon.AIProvenance.Metadata.$Properties|null} [c2PaMetadata] AIProvenance c2PaMetadata
+         * @property {AICommon.AIProvenance.Metadata.$Properties|null} [iptcMetadata] AIProvenance iptcMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
-         * Properties of a StatusAttribution.
-         * @memberof StatusAttributions
-         * @interface IStatusAttribution
-         * @augments StatusAttributions.StatusAttribution.$Properties
-         * @deprecated Use StatusAttributions.StatusAttribution.$Properties instead.
+         * Properties of a AIProvenance.
+         * @memberof AICommon
+         * @interface IAIProvenance
+         * @augments AICommon.AIProvenance.$Properties
+         * @deprecated Use AICommon.AIProvenance.$Properties instead.
          */
 
         /**
-         * Narrowed shape of a StatusAttribution.
-         * @typedef {{
-         *   type?: StatusAttributions.StatusAttribution.Type|null;
-         *   actionUrl?: string|null;
-         *   statusReshare?: StatusAttributions.StatusAttribution.StatusReshare.$Shape|null;
-         *   externalShare?: StatusAttributions.StatusAttribution.ExternalShare.$Shape|null;
-         *   music?: StatusAttributions.StatusAttribution.Music.$Shape|null;
-         *   groupStatus?: StatusAttributions.StatusAttribution.GroupStatus.$Shape|null;
-         *   rlAttribution?: StatusAttributions.StatusAttribution.RLAttribution.$Shape|null;
-         *   aiCreatedAttribution?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape|null;
-         *   $unknowns?: Array.<Uint8Array>;
-         * } & (
-         *   ({ attributionData?: undefined; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "statusReshare"; statusReshare: StatusAttributions.StatusAttribution.StatusReshare.$Shape; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "externalShare"; statusReshare?: null; externalShare: StatusAttributions.StatusAttribution.ExternalShare.$Shape; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "music"; statusReshare?: null; externalShare?: null; music: StatusAttributions.StatusAttribution.Music.$Shape; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "groupStatus"; statusReshare?: null; externalShare?: null; music?: null; groupStatus: StatusAttributions.StatusAttribution.GroupStatus.$Shape; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "rlAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution: StatusAttributions.StatusAttribution.RLAttribution.$Shape; aiCreatedAttribution?: null }|{ attributionData?: "aiCreatedAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape })
-         * )} StatusAttributions.StatusAttribution.$Shape
+         * Shape of a AIProvenance.
+         * @typedef {AICommon.AIProvenance.$Properties} AICommon.AIProvenance.$Shape
          */
 
         /**
-         * Constructs a new StatusAttribution.
-         * @memberof StatusAttributions
-         * @classdesc Represents a StatusAttribution.
+         * Constructs a new AIProvenance.
+         * @memberof AICommon
+         * @classdesc Represents a AIProvenance.
          * @constructor
-         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
+         * @param {AICommon.AIProvenance.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
-        var StatusAttribution = function (properties) {
+        var AIProvenance = function (properties) {
             if (properties)
                 for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -116725,143 +119093,72 @@ $root.StatusAttributions = (function() {
         };
 
         /**
-         * StatusAttribution type.
-         * @member {StatusAttributions.StatusAttribution.Type|null|undefined} type
-         * @memberof StatusAttributions.StatusAttribution
+         * AIProvenance c2PaMetadata.
+         * @member {AICommon.AIProvenance.Metadata.$Properties|null|undefined} c2PaMetadata
+         * @memberof AICommon.AIProvenance
          * @instance
          */
-        StatusAttribution.prototype.type = null;
+        AIProvenance.prototype.c2PaMetadata = null;
 
         /**
-         * StatusAttribution actionUrl.
-         * @member {string|null|undefined} actionUrl
-         * @memberof StatusAttributions.StatusAttribution
+         * AIProvenance iptcMetadata.
+         * @member {AICommon.AIProvenance.Metadata.$Properties|null|undefined} iptcMetadata
+         * @memberof AICommon.AIProvenance
          * @instance
          */
-        StatusAttribution.prototype.actionUrl = null;
-
-        /**
-         * StatusAttribution statusReshare.
-         * @member {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null|undefined} statusReshare
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        StatusAttribution.prototype.statusReshare = null;
-
-        /**
-         * StatusAttribution externalShare.
-         * @member {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null|undefined} externalShare
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        StatusAttribution.prototype.externalShare = null;
-
-        /**
-         * StatusAttribution music.
-         * @member {StatusAttributions.StatusAttribution.Music.$Properties|null|undefined} music
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        StatusAttribution.prototype.music = null;
-
-        /**
-         * StatusAttribution groupStatus.
-         * @member {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null|undefined} groupStatus
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        StatusAttribution.prototype.groupStatus = null;
-
-        /**
-         * StatusAttribution rlAttribution.
-         * @member {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null|undefined} rlAttribution
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        StatusAttribution.prototype.rlAttribution = null;
-
-        /**
-         * StatusAttribution aiCreatedAttribution.
-         * @member {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null|undefined} aiCreatedAttribution
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        StatusAttribution.prototype.aiCreatedAttribution = null;
+        AIProvenance.prototype.iptcMetadata = null;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        $Object.defineProperty(StatusAttribution.prototype, "_type", {
-            get: $util.oneOfGetter($oneOfFields = ["type"]),
+        $Object.defineProperty(AIProvenance.prototype, "_c2PaMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["c2PaMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        $Object.defineProperty(StatusAttribution.prototype, "_actionUrl", {
-            get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
+        $Object.defineProperty(AIProvenance.prototype, "_iptcMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["iptcMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
-         * StatusAttribution attributionData.
-         * @member {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"|undefined} attributionData
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
-        $Object.defineProperty(StatusAttribution.prototype, "attributionData", {
-            get: $util.oneOfGetter($oneOfFields = ["statusReshare", "externalShare", "music", "groupStatus", "rlAttribution", "aiCreatedAttribution"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * Creates a new StatusAttribution instance using the specified properties.
+         * Creates a new AIProvenance instance using the specified properties.
          * @function create
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
-         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
-         * @returns {StatusAttributions.StatusAttribution} StatusAttribution instance
+         * @param {AICommon.AIProvenance.$Properties=} [properties] Properties to set
+         * @returns {AICommon.AIProvenance} AIProvenance instance
          * @type {{
-         *   (properties: StatusAttributions.StatusAttribution.$Shape): StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape;
-         *   (properties?: StatusAttributions.StatusAttribution.$Properties): StatusAttributions.StatusAttribution;
+         *   (properties: AICommon.AIProvenance.$Shape): AICommon.AIProvenance & AICommon.AIProvenance.$Shape;
+         *   (properties?: AICommon.AIProvenance.$Properties): AICommon.AIProvenance;
          * }}
          */
-        StatusAttribution.create = function(properties) {
-            return new StatusAttribution(properties);
+        AIProvenance.create = function(properties) {
+            return new AIProvenance(properties);
         };
 
         /**
-         * Encodes the specified StatusAttribution message. Does not implicitly {@link StatusAttributions.StatusAttribution.verify|verify} messages.
+         * Encodes the specified AIProvenance message. Does not implicitly {@link AICommon.AIProvenance.verify|verify} messages.
          * @function encode
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
-         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
+         * @param {AICommon.AIProvenance.$Properties} message AIProvenance message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StatusAttribution.encode = function (message, writer, _depth) {
+        AIProvenance.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
             if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw $Error("max depth exceeded");
-            if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.actionUrl);
-            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare"))
-                $root.StatusAttributions.StatusAttribution.StatusReshare.encode(message.statusReshare, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
-            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare"))
-                $root.StatusAttributions.StatusAttribution.ExternalShare.encode(message.externalShare, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
-            if (message.music != null && $Object.hasOwnProperty.call(message, "music"))
-                $root.StatusAttributions.StatusAttribution.Music.encode(message.music, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
-            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus"))
-                $root.StatusAttributions.StatusAttribution.GroupStatus.encode(message.groupStatus, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
-            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution"))
-                $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
-            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
-                $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
+            if (message.c2PaMetadata != null && $Object.hasOwnProperty.call(message, "c2PaMetadata"))
+                $root.AICommon.AIProvenance.Metadata.encode(message.c2PaMetadata, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.iptcMetadata != null && $Object.hasOwnProperty.call(message, "iptcMetadata"))
+                $root.AICommon.AIProvenance.Metadata.encode(message.iptcMetadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -116869,37 +119166,37 @@ $root.StatusAttributions = (function() {
         };
 
         /**
-         * Encodes the specified StatusAttribution message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.verify|verify} messages.
+         * Encodes the specified AIProvenance message, length delimited. Does not implicitly {@link AICommon.AIProvenance.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
-         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
+         * @param {AICommon.AIProvenance.$Properties} message AIProvenance message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StatusAttribution.encodeDelimited = function(message, writer) {
+        AIProvenance.encodeDelimited = function(message, writer) {
             return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
-         * Decodes a StatusAttribution message from the specified reader or buffer.
+         * Decodes a AIProvenance message from the specified reader or buffer.
          * @function decode
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
+         * @returns {AICommon.AIProvenance & AICommon.AIProvenance.$Shape} AIProvenance
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StatusAttribution.decode = function (reader, length, _end, _depth, _target) {
+        AIProvenance.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution(), value;
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIProvenance();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -116910,59 +119207,17 @@ $root.StatusAttributions = (function() {
                 var wireType = tag & 7;
                 switch (tag >>>= 3) {
                 case 1: {
-                        if (wireType !== 0)
+                        if (wireType !== 2)
                             break;
-                        message.type = reader.int32();
-                        message._type = "type";
+                        message.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.c2PaMetadata);
+                        message._c2PaMetadata = "c2PaMetadata";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.actionUrl = reader.stringVerify();
-                        message._actionUrl = "actionUrl";
-                        continue;
-                    }
-                case 3: {
-                        if (wireType !== 2)
-                            break;
-                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusReshare);
-                        message.attributionData = "statusReshare";
-                        continue;
-                    }
-                case 4: {
-                        if (wireType !== 2)
-                            break;
-                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalShare);
-                        message.attributionData = "externalShare";
-                        continue;
-                    }
-                case 5: {
-                        if (wireType !== 2)
-                            break;
-                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), $undefined, _depth + 1, message.music);
-                        message.attributionData = "music";
-                        continue;
-                    }
-                case 6: {
-                        if (wireType !== 2)
-                            break;
-                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatus);
-                        message.attributionData = "groupStatus";
-                        continue;
-                    }
-                case 7: {
-                        if (wireType !== 2)
-                            break;
-                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rlAttribution);
-                        message.attributionData = "rlAttribution";
-                        continue;
-                    }
-                case 8: {
-                        if (wireType !== 2)
-                            break;
-                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiCreatedAttribution);
-                        message.attributionData = "aiCreatedAttribution";
+                        message.iptcMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.iptcMetadata);
+                        message._iptcMetadata = "iptcMetadata";
                         continue;
                     }
                 }
@@ -116978,30 +119233,30 @@ $root.StatusAttributions = (function() {
         };
 
         /**
-         * Decodes a StatusAttribution message from the specified reader or buffer, length delimited.
+         * Decodes a AIProvenance message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
+         * @returns {AICommon.AIProvenance & AICommon.AIProvenance.$Shape} AIProvenance
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StatusAttribution.decodeDelimited = function(reader) {
+        AIProvenance.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a StatusAttribution message.
+         * Verifies a AIProvenance message.
          * @function verify
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        StatusAttribution.verify = function (message, _depth) {
+        AIProvenance.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (_depth === $undefined)
@@ -117009,193 +119264,66 @@ $root.StatusAttributions = (function() {
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
-                properties._type = 1;
-                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
-                    return "type: enum value expected";
-            }
-            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
-                properties._actionUrl = 1;
-                if (!$util.isString(message.actionUrl))
-                    return "actionUrl: string expected";
-            }
-            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare")) {
-                properties.attributionData = 1;
+            if (message.c2PaMetadata != null && $Object.hasOwnProperty.call(message, "c2PaMetadata")) {
+                properties._c2PaMetadata = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.StatusReshare.verify(message.statusReshare, _depth + 1);
+                    var error = $root.AICommon.AIProvenance.Metadata.verify(message.c2PaMetadata, _depth + 1);
                     if (error)
-                        return "statusReshare." + error;
+                        return "c2PaMetadata." + error;
                 }
             }
-            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare")) {
-                if (properties.attributionData === 1)
-                    return "attributionData: multiple values";
-                properties.attributionData = 1;
+            if (message.iptcMetadata != null && $Object.hasOwnProperty.call(message, "iptcMetadata")) {
+                properties._iptcMetadata = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.ExternalShare.verify(message.externalShare, _depth + 1);
+                    var error = $root.AICommon.AIProvenance.Metadata.verify(message.iptcMetadata, _depth + 1);
                     if (error)
-                        return "externalShare." + error;
-                }
-            }
-            if (message.music != null && $Object.hasOwnProperty.call(message, "music")) {
-                if (properties.attributionData === 1)
-                    return "attributionData: multiple values";
-                properties.attributionData = 1;
-                {
-                    var error = $root.StatusAttributions.StatusAttribution.Music.verify(message.music, _depth + 1);
-                    if (error)
-                        return "music." + error;
-                }
-            }
-            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus")) {
-                if (properties.attributionData === 1)
-                    return "attributionData: multiple values";
-                properties.attributionData = 1;
-                {
-                    var error = $root.StatusAttributions.StatusAttribution.GroupStatus.verify(message.groupStatus, _depth + 1);
-                    if (error)
-                        return "groupStatus." + error;
-                }
-            }
-            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution")) {
-                if (properties.attributionData === 1)
-                    return "attributionData: multiple values";
-                properties.attributionData = 1;
-                {
-                    var error = $root.StatusAttributions.StatusAttribution.RLAttribution.verify(message.rlAttribution, _depth + 1);
-                    if (error)
-                        return "rlAttribution." + error;
-                }
-            }
-            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution")) {
-                if (properties.attributionData === 1)
-                    return "attributionData: multiple values";
-                properties.attributionData = 1;
-                {
-                    var error = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.verify(message.aiCreatedAttribution, _depth + 1);
-                    if (error)
-                        return "aiCreatedAttribution." + error;
+                        return "iptcMetadata." + error;
                 }
             }
             return null;
         };
 
         /**
-         * Creates a StatusAttribution message from a plain object. Also converts values to their respective internal types.
+         * Creates a AIProvenance message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {StatusAttributions.StatusAttribution} StatusAttribution
+         * @returns {AICommon.AIProvenance} AIProvenance
          */
-        StatusAttribution.fromObject = function (object, _depth) {
-            if (object instanceof $root.StatusAttributions.StatusAttribution)
+        AIProvenance.fromObject = function (object, _depth) {
+            if (object instanceof $root.AICommon.AIProvenance)
                 return object;
             if (!$util.isObject(object))
-                throw $TypeError(".StatusAttributions.StatusAttribution: object expected");
+                throw $TypeError(".AICommon.AIProvenance: object expected");
             if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw $Error("max depth exceeded");
-            var message = new $root.StatusAttributions.StatusAttribution();
-            switch (object.type) {
-            case "UNKNOWN":
-            case 0:
-                message.type = 0;
-                break;
-            case "RESHARE":
-            case 1:
-                message.type = 1;
-                break;
-            case "EXTERNAL_SHARE":
-            case 2:
-                message.type = 2;
-                break;
-            case "MUSIC":
-            case 3:
-                message.type = 3;
-                break;
-            case "STATUS_MENTION":
-            case 4:
-                message.type = 4;
-                break;
-            case "GROUP_STATUS":
-            case 5:
-                message.type = 5;
-                break;
-            case "RL_ATTRIBUTION":
-            case 6:
-                message.type = 6;
-                break;
-            case "AI_CREATED":
-            case 7:
-                message.type = 7;
-                break;
-            case "LAYOUTS":
-            case 8:
-                message.type = 8;
-                break;
-            case "NEWSLETTER_STATUS":
-            case 9:
-                message.type = 9;
-                break;
-            case "STATUS_CLOSE_SHARING":
-            case 10:
-                message.type = 10;
-                break;
-            case "PAID_PARTNERSHIP":
-            case 11:
-                message.type = 11;
-                break;
-            default:
-                if (typeof object.type === "number" && (object.type | 0) === object.type)
-                    message.type = object.type;
+            var message = new $root.AICommon.AIProvenance();
+            if (object.c2PaMetadata != null) {
+                if (!$util.isObject(object.c2PaMetadata))
+                    throw $TypeError(".AICommon.AIProvenance.c2PaMetadata: object expected");
+                message.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.fromObject(object.c2PaMetadata, _depth + 1);
             }
-            if (object.actionUrl != null)
-                message.actionUrl = $String(object.actionUrl);
-            if (object.statusReshare != null) {
-                if (!$util.isObject(object.statusReshare))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.statusReshare: object expected");
-                message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.fromObject(object.statusReshare, _depth + 1);
-            }
-            if (object.externalShare != null) {
-                if (!$util.isObject(object.externalShare))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.externalShare: object expected");
-                message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.fromObject(object.externalShare, _depth + 1);
-            }
-            if (object.music != null) {
-                if (!$util.isObject(object.music))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.music: object expected");
-                message.music = $root.StatusAttributions.StatusAttribution.Music.fromObject(object.music, _depth + 1);
-            }
-            if (object.groupStatus != null) {
-                if (!$util.isObject(object.groupStatus))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.groupStatus: object expected");
-                message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.fromObject(object.groupStatus, _depth + 1);
-            }
-            if (object.rlAttribution != null) {
-                if (!$util.isObject(object.rlAttribution))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.rlAttribution: object expected");
-                message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.fromObject(object.rlAttribution, _depth + 1);
-            }
-            if (object.aiCreatedAttribution != null) {
-                if (!$util.isObject(object.aiCreatedAttribution))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
-                message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, _depth + 1);
+            if (object.iptcMetadata != null) {
+                if (!$util.isObject(object.iptcMetadata))
+                    throw $TypeError(".AICommon.AIProvenance.iptcMetadata: object expected");
+                message.iptcMetadata = $root.AICommon.AIProvenance.Metadata.fromObject(object.iptcMetadata, _depth + 1);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a StatusAttribution message. Also converts values to other types if specified.
+         * Creates a plain object from a AIProvenance message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
-         * @param {StatusAttributions.StatusAttribution} message StatusAttribution
+         * @param {AICommon.AIProvenance} message AIProvenance
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        StatusAttribution.toObject = function (message, options, _depth) {
+        AIProvenance.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
             if (_depth === $undefined)
@@ -117203,99 +119331,70 @@ $root.StatusAttributions = (function() {
             if (_depth > $util.recursionLimit)
                 throw $Error("max depth exceeded");
             var object = {};
-            if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
-                object.type = options.enums === $String ? $root.StatusAttributions.StatusAttribution.Type[message.type] === $undefined ? message.type : $root.StatusAttributions.StatusAttribution.Type[message.type] : message.type;
-            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
-                object.actionUrl = message.actionUrl;
-            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare")) {
-                object.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.toObject(message.statusReshare, options, _depth + 1);
-                if (options.oneofs)
-                    object.attributionData = "statusReshare";
-            }
-            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare")) {
-                object.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.toObject(message.externalShare, options, _depth + 1);
-                if (options.oneofs)
-                    object.attributionData = "externalShare";
-            }
-            if (message.music != null && $Object.hasOwnProperty.call(message, "music")) {
-                object.music = $root.StatusAttributions.StatusAttribution.Music.toObject(message.music, options, _depth + 1);
-                if (options.oneofs)
-                    object.attributionData = "music";
-            }
-            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus")) {
-                object.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.toObject(message.groupStatus, options, _depth + 1);
-                if (options.oneofs)
-                    object.attributionData = "groupStatus";
-            }
-            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution")) {
-                object.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.toObject(message.rlAttribution, options, _depth + 1);
-                if (options.oneofs)
-                    object.attributionData = "rlAttribution";
-            }
-            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution")) {
-                object.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.toObject(message.aiCreatedAttribution, options, _depth + 1);
-                if (options.oneofs)
-                    object.attributionData = "aiCreatedAttribution";
-            }
+            if (message.c2PaMetadata != null && $Object.hasOwnProperty.call(message, "c2PaMetadata"))
+                object.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.toObject(message.c2PaMetadata, options, _depth + 1);
+            if (message.iptcMetadata != null && $Object.hasOwnProperty.call(message, "iptcMetadata"))
+                object.iptcMetadata = $root.AICommon.AIProvenance.Metadata.toObject(message.iptcMetadata, options, _depth + 1);
             return object;
         };
 
         /**
-         * Converts this StatusAttribution to JSON.
+         * Converts this AIProvenance to JSON.
          * @function toJSON
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        StatusAttribution.prototype.toJSON = function() {
-            return StatusAttribution.toObject(this, $protobuf.util.toJSONOptions);
+        AIProvenance.prototype.toJSON = function() {
+            return AIProvenance.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
-         * Gets the type url for StatusAttribution
+         * Gets the type url for AIProvenance
          * @function getTypeUrl
-         * @memberof StatusAttributions.StatusAttribution
+         * @memberof AICommon.AIProvenance
          * @static
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        StatusAttribution.getTypeUrl = function(prefix) {
+        AIProvenance.getTypeUrl = function(prefix) {
             if (prefix === $undefined)
                 prefix = "type.googleapis.com";
-            return prefix + "/StatusAttributions.StatusAttribution";
+            return prefix + "/AICommon.AIProvenance";
         };
 
-        StatusAttribution.AiCreatedAttribution = (function() {
+        AIProvenance.Metadata = (function() {
 
             /**
-             * Properties of an AiCreatedAttribution.
-             * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
-             * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
+             * Properties of a Metadata.
+             * @typedef {Object} AICommon.AIProvenance.Metadata.$Properties
+             * @property {boolean|null} [createdWithGenAi] Metadata createdWithGenAi
+             * @property {boolean|null} [editedWithGenAi] Metadata editedWithGenAi
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
-             * Properties of an AiCreatedAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IAiCreatedAttribution
-             * @augments StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
-             * @deprecated Use StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties instead.
+             * Properties of a Metadata.
+             * @memberof AICommon.AIProvenance
+             * @interface IMetadata
+             * @augments AICommon.AIProvenance.Metadata.$Properties
+             * @deprecated Use AICommon.AIProvenance.Metadata.$Properties instead.
              */
 
             /**
-             * Shape of an AiCreatedAttribution.
-             * @typedef {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape
+             * Shape of a Metadata.
+             * @typedef {AICommon.AIProvenance.Metadata.$Properties} AICommon.AIProvenance.Metadata.$Shape
              */
 
             /**
-             * Constructs a new AiCreatedAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @classdesc Represents an AiCreatedAttribution.
+             * Constructs a new Metadata.
+             * @memberof AICommon.AIProvenance
+             * @classdesc Represents a Metadata.
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
+             * @param {AICommon.AIProvenance.Metadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
-            var AiCreatedAttribution = function (properties) {
+            var Metadata = function (properties) {
                 if (properties)
                     for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -117303,56 +119402,72 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * AiCreatedAttribution source.
-             * @member {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null|undefined} source
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * Metadata createdWithGenAi.
+             * @member {boolean|null|undefined} createdWithGenAi
+             * @memberof AICommon.AIProvenance.Metadata
              * @instance
              */
-            AiCreatedAttribution.prototype.source = null;
+            Metadata.prototype.createdWithGenAi = null;
+
+            /**
+             * Metadata editedWithGenAi.
+             * @member {boolean|null|undefined} editedWithGenAi
+             * @memberof AICommon.AIProvenance.Metadata
+             * @instance
+             */
+            Metadata.prototype.editedWithGenAi = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(AiCreatedAttribution.prototype, "_source", {
-                get: $util.oneOfGetter($oneOfFields = ["source"]),
+            $Object.defineProperty(Metadata.prototype, "_createdWithGenAi", {
+                get: $util.oneOfGetter($oneOfFields = ["createdWithGenAi"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Metadata.prototype, "_editedWithGenAi", {
+                get: $util.oneOfGetter($oneOfFields = ["editedWithGenAi"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             /**
-             * Creates a new AiCreatedAttribution instance using the specified properties.
+             * Creates a new Metadata instance using the specified properties.
              * @function create
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
-             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution instance
+             * @param {AICommon.AIProvenance.Metadata.$Properties=} [properties] Properties to set
+             * @returns {AICommon.AIProvenance.Metadata} Metadata instance
              * @type {{
-             *   (properties: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape): StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape;
-             *   (properties?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties): StatusAttributions.StatusAttribution.AiCreatedAttribution;
+             *   (properties: AICommon.AIProvenance.Metadata.$Shape): AICommon.AIProvenance.Metadata & AICommon.AIProvenance.Metadata.$Shape;
+             *   (properties?: AICommon.AIProvenance.Metadata.$Properties): AICommon.AIProvenance.Metadata;
              * }}
              */
-            AiCreatedAttribution.create = function(properties) {
-                return new AiCreatedAttribution(properties);
+            Metadata.create = function(properties) {
+                return new Metadata(properties);
             };
 
             /**
-             * Encodes the specified AiCreatedAttribution message. Does not implicitly {@link StatusAttributions.StatusAttribution.AiCreatedAttribution.verify|verify} messages.
+             * Encodes the specified Metadata message. Does not implicitly {@link AICommon.AIProvenance.Metadata.verify|verify} messages.
              * @function encode
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
-             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
+             * @param {AICommon.AIProvenance.Metadata.$Properties} message Metadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AiCreatedAttribution.encode = function (message, writer, _depth) {
+            Metadata.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
                 if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
+                if (message.createdWithGenAi != null && $Object.hasOwnProperty.call(message, "createdWithGenAi"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.createdWithGenAi);
+                if (message.editedWithGenAi != null && $Object.hasOwnProperty.call(message, "editedWithGenAi"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.editedWithGenAi);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -117360,37 +119475,37 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Encodes the specified AiCreatedAttribution message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.AiCreatedAttribution.verify|verify} messages.
+             * Encodes the specified Metadata message, length delimited. Does not implicitly {@link AICommon.AIProvenance.Metadata.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
-             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
+             * @param {AICommon.AIProvenance.Metadata.$Properties} message Metadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AiCreatedAttribution.encodeDelimited = function(message, writer) {
+            Metadata.encodeDelimited = function(message, writer) {
                 return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
-             * Decodes an AiCreatedAttribution message from the specified reader or buffer.
+             * Decodes a Metadata message from the specified reader or buffer.
              * @function decode
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
+             * @returns {AICommon.AIProvenance.Metadata & AICommon.AIProvenance.Metadata.$Shape} Metadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AiCreatedAttribution.decode = function (reader, length, _end, _depth, _target) {
+            Metadata.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution(), value;
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIProvenance.Metadata();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -117403,372 +119518,15 @@ $root.StatusAttributions = (function() {
                     case 1: {
                             if (wireType !== 0)
                                 break;
-                            message.source = reader.int32();
-                            message._source = "source";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    if (!reader.discardUnknown) {
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                    }
-                }
-                if (_end !== $undefined)
-                    throw $Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes an AiCreatedAttribution message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            AiCreatedAttribution.decodeDelimited = function(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies an AiCreatedAttribution message.
-             * @function verify
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            AiCreatedAttribution.verify = function (message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
-                    properties._source = 1;
-                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
-                        return "source: enum value expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates an AiCreatedAttribution message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
-             */
-            AiCreatedAttribution.fromObject = function (object, _depth) {
-                if (object instanceof $root.StatusAttributions.StatusAttribution.AiCreatedAttribution)
-                    return object;
-                if (!$util.isObject(object))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.AiCreatedAttribution: object expected");
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var message = new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
-                switch (object.source) {
-                case "UNKNOWN":
-                case 0:
-                    message.source = 0;
-                    break;
-                case "STATUS_MIMICRY":
-                case 1:
-                    message.source = 1;
-                    break;
-                default:
-                    if (typeof object.source === "number" && (object.source | 0) === object.source)
-                        message.source = object.source;
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from an AiCreatedAttribution message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @static
-             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution} message AiCreatedAttribution
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            AiCreatedAttribution.toObject = function (message, options, _depth) {
-                if (!options)
-                    options = {};
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var object = {};
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] : message.source;
-                return object;
-            };
-
-            /**
-             * Converts this AiCreatedAttribution to JSON.
-             * @function toJSON
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            AiCreatedAttribution.prototype.toJSON = function() {
-                return AiCreatedAttribution.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for AiCreatedAttribution
-             * @function getTypeUrl
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            AiCreatedAttribution.getTypeUrl = function(prefix) {
-                if (prefix === $undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/StatusAttributions.StatusAttribution.AiCreatedAttribution";
-            };
-
-            /**
-             * Source enum.
-             * @name StatusAttributions.StatusAttribution.AiCreatedAttribution.Source
-             * @enum {number}
-             * @property {number} UNKNOWN=0 UNKNOWN value
-             * @property {number} STATUS_MIMICRY=1 STATUS_MIMICRY value
-             */
-            AiCreatedAttribution.Source = (function() {
-                var valuesById = $Object.create(null), values = $Object.create(valuesById);
-                values[valuesById[0] = "UNKNOWN"] = 0;
-                values[valuesById[1] = "STATUS_MIMICRY"] = 1;
-                return values;
-            })();
-
-            return AiCreatedAttribution;
-        })();
-
-        StatusAttribution.ExternalShare = (function() {
-
-            /**
-             * Properties of an ExternalShare.
-             * @typedef {Object} StatusAttributions.StatusAttribution.ExternalShare.$Properties
-             * @property {string|null} [actionUrl] ExternalShare actionUrl
-             * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
-             * @property {number|null} [duration] ExternalShare duration
-             * @property {string|null} [actionFallbackUrl] ExternalShare actionFallbackUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-
-            /**
-             * Properties of an ExternalShare.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IExternalShare
-             * @augments StatusAttributions.StatusAttribution.ExternalShare.$Properties
-             * @deprecated Use StatusAttributions.StatusAttribution.ExternalShare.$Properties instead.
-             */
-
-            /**
-             * Shape of an ExternalShare.
-             * @typedef {StatusAttributions.StatusAttribution.ExternalShare.$Properties} StatusAttributions.StatusAttribution.ExternalShare.$Shape
-             */
-
-            /**
-             * Constructs a new ExternalShare.
-             * @memberof StatusAttributions.StatusAttribution
-             * @classdesc Represents an ExternalShare.
-             * @constructor
-             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-            var ExternalShare = function (properties) {
-                if (properties)
-                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            };
-
-            /**
-             * ExternalShare actionUrl.
-             * @member {string|null|undefined} actionUrl
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
-            ExternalShare.prototype.actionUrl = null;
-
-            /**
-             * ExternalShare source.
-             * @member {StatusAttributions.StatusAttribution.ExternalShare.Source|null|undefined} source
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
-            ExternalShare.prototype.source = null;
-
-            /**
-             * ExternalShare duration.
-             * @member {number|null|undefined} duration
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
-            ExternalShare.prototype.duration = null;
-
-            /**
-             * ExternalShare actionFallbackUrl.
-             * @member {string|null|undefined} actionFallbackUrl
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
-            ExternalShare.prototype.actionFallbackUrl = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ExternalShare.prototype, "_actionUrl", {
-                get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ExternalShare.prototype, "_source", {
-                get: $util.oneOfGetter($oneOfFields = ["source"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ExternalShare.prototype, "_duration", {
-                get: $util.oneOfGetter($oneOfFields = ["duration"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ExternalShare.prototype, "_actionFallbackUrl", {
-                get: $util.oneOfGetter($oneOfFields = ["actionFallbackUrl"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new ExternalShare instance using the specified properties.
-             * @function create
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare instance
-             * @type {{
-             *   (properties: StatusAttributions.StatusAttribution.ExternalShare.$Shape): StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape;
-             *   (properties?: StatusAttributions.StatusAttribution.ExternalShare.$Properties): StatusAttributions.StatusAttribution.ExternalShare;
-             * }}
-             */
-            ExternalShare.create = function(properties) {
-                return new ExternalShare(properties);
-            };
-
-            /**
-             * Encodes the specified ExternalShare message. Does not implicitly {@link StatusAttributions.StatusAttribution.ExternalShare.verify|verify} messages.
-             * @function encode
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ExternalShare.encode = function (message, writer, _depth) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.actionUrl);
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.source);
-                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.duration);
-                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.actionFallbackUrl);
-                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified ExternalShare message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.ExternalShare.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ExternalShare.encodeDelimited = function(message, writer) {
-                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
-            };
-
-            /**
-             * Decodes an ExternalShare message from the specified reader or buffer.
-             * @function decode
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ExternalShare.decode = function (reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare(), value;
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = $undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 2)
-                                break;
-                            message.actionUrl = reader.stringVerify();
-                            message._actionUrl = "actionUrl";
+                            message.createdWithGenAi = reader.bool();
+                            message._createdWithGenAi = "createdWithGenAi";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 0)
                                 break;
-                            message.source = reader.int32();
-                            message._source = "source";
-                            continue;
-                        }
-                    case 3: {
-                            if (wireType !== 0)
-                                break;
-                            message.duration = reader.int32();
-                            message._duration = "duration";
-                            continue;
-                        }
-                    case 4: {
-                            if (wireType !== 2)
-                                break;
-                            message.actionFallbackUrl = reader.stringVerify();
-                            message._actionFallbackUrl = "actionFallbackUrl";
+                            message.editedWithGenAi = reader.bool();
+                            message._editedWithGenAi = "editedWithGenAi";
                             continue;
                         }
                     }
@@ -117784,30 +119542,30 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Decodes an ExternalShare message from the specified reader or buffer, length delimited.
+             * Decodes a Metadata message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
+             * @returns {AICommon.AIProvenance.Metadata & AICommon.AIProvenance.Metadata.$Shape} Metadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ExternalShare.decodeDelimited = function(reader) {
+            Metadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies an ExternalShare message.
+             * Verifies a Metadata message.
              * @function verify
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            ExternalShare.verify = function (message, _depth) {
+            Metadata.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (_depth === $undefined)
@@ -117815,123 +119573,54 @@ $root.StatusAttributions = (function() {
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
-                    properties._actionUrl = 1;
-                    if (!$util.isString(message.actionUrl))
-                        return "actionUrl: string expected";
+                if (message.createdWithGenAi != null && $Object.hasOwnProperty.call(message, "createdWithGenAi")) {
+                    properties._createdWithGenAi = 1;
+                    if (typeof message.createdWithGenAi !== "boolean")
+                        return "createdWithGenAi: boolean expected";
                 }
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
-                    properties._source = 1;
-                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
-                        return "source: enum value expected";
-                }
-                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
-                    properties._duration = 1;
-                    if (!$util.isInteger(message.duration))
-                        return "duration: integer expected";
-                }
-                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl")) {
-                    properties._actionFallbackUrl = 1;
-                    if (!$util.isString(message.actionFallbackUrl))
-                        return "actionFallbackUrl: string expected";
+                if (message.editedWithGenAi != null && $Object.hasOwnProperty.call(message, "editedWithGenAi")) {
+                    properties._editedWithGenAi = 1;
+                    if (typeof message.editedWithGenAi !== "boolean")
+                        return "editedWithGenAi: boolean expected";
                 }
                 return null;
             };
 
             /**
-             * Creates an ExternalShare message from a plain object. Also converts values to their respective internal types.
+             * Creates a Metadata message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
+             * @returns {AICommon.AIProvenance.Metadata} Metadata
              */
-            ExternalShare.fromObject = function (object, _depth) {
-                if (object instanceof $root.StatusAttributions.StatusAttribution.ExternalShare)
+            Metadata.fromObject = function (object, _depth) {
+                if (object instanceof $root.AICommon.AIProvenance.Metadata)
                     return object;
                 if (!$util.isObject(object))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.ExternalShare: object expected");
+                    throw $TypeError(".AICommon.AIProvenance.Metadata: object expected");
                 if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                var message = new $root.StatusAttributions.StatusAttribution.ExternalShare();
-                if (object.actionUrl != null)
-                    message.actionUrl = $String(object.actionUrl);
-                switch (object.source) {
-                case "UNKNOWN":
-                case 0:
-                    message.source = 0;
-                    break;
-                case "INSTAGRAM":
-                case 1:
-                    message.source = 1;
-                    break;
-                case "FACEBOOK":
-                case 2:
-                    message.source = 2;
-                    break;
-                case "MESSENGER":
-                case 3:
-                    message.source = 3;
-                    break;
-                case "SPOTIFY":
-                case 4:
-                    message.source = 4;
-                    break;
-                case "YOUTUBE":
-                case 5:
-                    message.source = 5;
-                    break;
-                case "PINTEREST":
-                case 6:
-                    message.source = 6;
-                    break;
-                case "THREADS":
-                case 7:
-                    message.source = 7;
-                    break;
-                case "APPLE_MUSIC":
-                case 8:
-                    message.source = 8;
-                    break;
-                case "SHARECHAT":
-                case 9:
-                    message.source = 9;
-                    break;
-                case "GOOGLE_PHOTOS":
-                case 10:
-                    message.source = 10;
-                    break;
-                case "SOUNDCLOUD":
-                case 11:
-                    message.source = 11;
-                    break;
-                case "SHAZAM":
-                case 12:
-                    message.source = 12;
-                    break;
-                default:
-                    if (typeof object.source === "number" && (object.source | 0) === object.source)
-                        message.source = object.source;
-                }
-                if (object.duration != null)
-                    message.duration = object.duration | 0;
-                if (object.actionFallbackUrl != null)
-                    message.actionFallbackUrl = $String(object.actionFallbackUrl);
+                var message = new $root.AICommon.AIProvenance.Metadata();
+                if (object.createdWithGenAi != null)
+                    message.createdWithGenAi = $Boolean(object.createdWithGenAi);
+                if (object.editedWithGenAi != null)
+                    message.editedWithGenAi = $Boolean(object.editedWithGenAi);
                 return message;
             };
 
             /**
-             * Creates a plain object from an ExternalShare message. Also converts values to other types if specified.
+             * Creates a plain object from a Metadata message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
-             * @param {StatusAttributions.StatusAttribution.ExternalShare} message ExternalShare
+             * @param {AICommon.AIProvenance.Metadata} message Metadata
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            ExternalShare.toObject = function (message, options, _depth) {
+            Metadata.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
                 if (_depth === $undefined)
@@ -117939,1847 +119628,43 @@ $root.StatusAttributions = (function() {
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
                 var object = {};
-                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
-                    object.actionUrl = message.actionUrl;
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] : message.source;
-                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
-                    object.duration = message.duration;
-                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl"))
-                    object.actionFallbackUrl = message.actionFallbackUrl;
+                if (message.createdWithGenAi != null && $Object.hasOwnProperty.call(message, "createdWithGenAi"))
+                    object.createdWithGenAi = message.createdWithGenAi;
+                if (message.editedWithGenAi != null && $Object.hasOwnProperty.call(message, "editedWithGenAi"))
+                    object.editedWithGenAi = message.editedWithGenAi;
                 return object;
             };
 
             /**
-             * Converts this ExternalShare to JSON.
+             * Converts this Metadata to JSON.
              * @function toJSON
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @memberof AICommon.AIProvenance.Metadata
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            ExternalShare.prototype.toJSON = function() {
-                return ExternalShare.toObject(this, $protobuf.util.toJSONOptions);
+            Metadata.prototype.toJSON = function() {
+                return Metadata.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
-             * Gets the type url for ExternalShare
+             * Gets the type url for Metadata
              * @function getTypeUrl
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @memberof AICommon.AIProvenance.Metadata
              * @static
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            ExternalShare.getTypeUrl = function(prefix) {
+            Metadata.getTypeUrl = function(prefix) {
                 if (prefix === $undefined)
                     prefix = "type.googleapis.com";
-                return prefix + "/StatusAttributions.StatusAttribution.ExternalShare";
+                return prefix + "/AICommon.AIProvenance.Metadata";
             };
 
-            /**
-             * Source enum.
-             * @name StatusAttributions.StatusAttribution.ExternalShare.Source
-             * @enum {number}
-             * @property {number} UNKNOWN=0 UNKNOWN value
-             * @property {number} INSTAGRAM=1 INSTAGRAM value
-             * @property {number} FACEBOOK=2 FACEBOOK value
-             * @property {number} MESSENGER=3 MESSENGER value
-             * @property {number} SPOTIFY=4 SPOTIFY value
-             * @property {number} YOUTUBE=5 YOUTUBE value
-             * @property {number} PINTEREST=6 PINTEREST value
-             * @property {number} THREADS=7 THREADS value
-             * @property {number} APPLE_MUSIC=8 APPLE_MUSIC value
-             * @property {number} SHARECHAT=9 SHARECHAT value
-             * @property {number} GOOGLE_PHOTOS=10 GOOGLE_PHOTOS value
-             * @property {number} SOUNDCLOUD=11 SOUNDCLOUD value
-             * @property {number} SHAZAM=12 SHAZAM value
-             */
-            ExternalShare.Source = (function() {
-                var valuesById = $Object.create(null), values = $Object.create(valuesById);
-                values[valuesById[0] = "UNKNOWN"] = 0;
-                values[valuesById[1] = "INSTAGRAM"] = 1;
-                values[valuesById[2] = "FACEBOOK"] = 2;
-                values[valuesById[3] = "MESSENGER"] = 3;
-                values[valuesById[4] = "SPOTIFY"] = 4;
-                values[valuesById[5] = "YOUTUBE"] = 5;
-                values[valuesById[6] = "PINTEREST"] = 6;
-                values[valuesById[7] = "THREADS"] = 7;
-                values[valuesById[8] = "APPLE_MUSIC"] = 8;
-                values[valuesById[9] = "SHARECHAT"] = 9;
-                values[valuesById[10] = "GOOGLE_PHOTOS"] = 10;
-                values[valuesById[11] = "SOUNDCLOUD"] = 11;
-                values[valuesById[12] = "SHAZAM"] = 12;
-                return values;
-            })();
-
-            return ExternalShare;
+            return Metadata;
         })();
 
-        StatusAttribution.GroupStatus = (function() {
-
-            /**
-             * Properties of a GroupStatus.
-             * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
-             * @property {string|null} [authorJid] GroupStatus authorJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-
-            /**
-             * Properties of a GroupStatus.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IGroupStatus
-             * @augments StatusAttributions.StatusAttribution.GroupStatus.$Properties
-             * @deprecated Use StatusAttributions.StatusAttribution.GroupStatus.$Properties instead.
-             */
-
-            /**
-             * Shape of a GroupStatus.
-             * @typedef {StatusAttributions.StatusAttribution.GroupStatus.$Properties} StatusAttributions.StatusAttribution.GroupStatus.$Shape
-             */
-
-            /**
-             * Constructs a new GroupStatus.
-             * @memberof StatusAttributions.StatusAttribution
-             * @classdesc Represents a GroupStatus.
-             * @constructor
-             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-            var GroupStatus = function (properties) {
-                if (properties)
-                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            };
-
-            /**
-             * GroupStatus authorJid.
-             * @member {string|null|undefined} authorJid
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @instance
-             */
-            GroupStatus.prototype.authorJid = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(GroupStatus.prototype, "_authorJid", {
-                get: $util.oneOfGetter($oneOfFields = ["authorJid"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new GroupStatus instance using the specified properties.
-             * @function create
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus instance
-             * @type {{
-             *   (properties: StatusAttributions.StatusAttribution.GroupStatus.$Shape): StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape;
-             *   (properties?: StatusAttributions.StatusAttribution.GroupStatus.$Properties): StatusAttributions.StatusAttribution.GroupStatus;
-             * }}
-             */
-            GroupStatus.create = function(properties) {
-                return new GroupStatus(properties);
-            };
-
-            /**
-             * Encodes the specified GroupStatus message. Does not implicitly {@link StatusAttributions.StatusAttribution.GroupStatus.verify|verify} messages.
-             * @function encode
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            GroupStatus.encode = function (message, writer, _depth) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorJid);
-                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified GroupStatus message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.GroupStatus.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            GroupStatus.encodeDelimited = function(message, writer) {
-                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
-            };
-
-            /**
-             * Decodes a GroupStatus message from the specified reader or buffer.
-             * @function decode
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            GroupStatus.decode = function (reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.GroupStatus();
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = $undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 2)
-                                break;
-                            message.authorJid = reader.stringVerify();
-                            message._authorJid = "authorJid";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    if (!reader.discardUnknown) {
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                    }
-                }
-                if (_end !== $undefined)
-                    throw $Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes a GroupStatus message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            GroupStatus.decodeDelimited = function(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a GroupStatus message.
-             * @function verify
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            GroupStatus.verify = function (message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid")) {
-                    properties._authorJid = 1;
-                    if (!$util.isString(message.authorJid))
-                        return "authorJid: string expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a GroupStatus message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
-             */
-            GroupStatus.fromObject = function (object, _depth) {
-                if (object instanceof $root.StatusAttributions.StatusAttribution.GroupStatus)
-                    return object;
-                if (!$util.isObject(object))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.GroupStatus: object expected");
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var message = new $root.StatusAttributions.StatusAttribution.GroupStatus();
-                if (object.authorJid != null)
-                    message.authorJid = $String(object.authorJid);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a GroupStatus message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {StatusAttributions.StatusAttribution.GroupStatus} message GroupStatus
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            GroupStatus.toObject = function (message, options, _depth) {
-                if (!options)
-                    options = {};
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var object = {};
-                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid"))
-                    object.authorJid = message.authorJid;
-                return object;
-            };
-
-            /**
-             * Converts this GroupStatus to JSON.
-             * @function toJSON
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            GroupStatus.prototype.toJSON = function() {
-                return GroupStatus.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for GroupStatus
-             * @function getTypeUrl
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            GroupStatus.getTypeUrl = function(prefix) {
-                if (prefix === $undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/StatusAttributions.StatusAttribution.GroupStatus";
-            };
-
-            return GroupStatus;
-        })();
-
-        StatusAttribution.Music = (function() {
-
-            /**
-             * Properties of a Music.
-             * @typedef {Object} StatusAttributions.StatusAttribution.Music.$Properties
-             * @property {string|null} [authorName] Music authorName
-             * @property {string|null} [songId] Music songId
-             * @property {string|null} [title] Music title
-             * @property {string|null} [author] Music author
-             * @property {string|null} [artistAttribution] Music artistAttribution
-             * @property {boolean|null} [isExplicit] Music isExplicit
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-
-            /**
-             * Properties of a Music.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IMusic
-             * @augments StatusAttributions.StatusAttribution.Music.$Properties
-             * @deprecated Use StatusAttributions.StatusAttribution.Music.$Properties instead.
-             */
-
-            /**
-             * Shape of a Music.
-             * @typedef {StatusAttributions.StatusAttribution.Music.$Properties} StatusAttributions.StatusAttribution.Music.$Shape
-             */
-
-            /**
-             * Constructs a new Music.
-             * @memberof StatusAttributions.StatusAttribution
-             * @classdesc Represents a Music.
-             * @constructor
-             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-            var Music = function (properties) {
-                if (properties)
-                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            };
-
-            /**
-             * Music authorName.
-             * @member {string|null|undefined} authorName
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
-            Music.prototype.authorName = null;
-
-            /**
-             * Music songId.
-             * @member {string|null|undefined} songId
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
-            Music.prototype.songId = null;
-
-            /**
-             * Music title.
-             * @member {string|null|undefined} title
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
-            Music.prototype.title = null;
-
-            /**
-             * Music author.
-             * @member {string|null|undefined} author
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
-            Music.prototype.author = null;
-
-            /**
-             * Music artistAttribution.
-             * @member {string|null|undefined} artistAttribution
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
-            Music.prototype.artistAttribution = null;
-
-            /**
-             * Music isExplicit.
-             * @member {boolean|null|undefined} isExplicit
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
-            Music.prototype.isExplicit = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(Music.prototype, "_authorName", {
-                get: $util.oneOfGetter($oneOfFields = ["authorName"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(Music.prototype, "_songId", {
-                get: $util.oneOfGetter($oneOfFields = ["songId"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(Music.prototype, "_title", {
-                get: $util.oneOfGetter($oneOfFields = ["title"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(Music.prototype, "_author", {
-                get: $util.oneOfGetter($oneOfFields = ["author"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(Music.prototype, "_artistAttribution", {
-                get: $util.oneOfGetter($oneOfFields = ["artistAttribution"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(Music.prototype, "_isExplicit", {
-                get: $util.oneOfGetter($oneOfFields = ["isExplicit"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new Music instance using the specified properties.
-             * @function create
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
-             * @returns {StatusAttributions.StatusAttribution.Music} Music instance
-             * @type {{
-             *   (properties: StatusAttributions.StatusAttribution.Music.$Shape): StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape;
-             *   (properties?: StatusAttributions.StatusAttribution.Music.$Properties): StatusAttributions.StatusAttribution.Music;
-             * }}
-             */
-            Music.create = function(properties) {
-                return new Music(properties);
-            };
-
-            /**
-             * Encodes the specified Music message. Does not implicitly {@link StatusAttributions.StatusAttribution.Music.verify|verify} messages.
-             * @function encode
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            Music.encode = function (message, writer, _depth) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorName);
-                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.songId);
-                if (message.title != null && $Object.hasOwnProperty.call(message, "title"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.title);
-                if (message.author != null && $Object.hasOwnProperty.call(message, "author"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.author);
-                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.artistAttribution);
-                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isExplicit);
-                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified Music message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.Music.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            Music.encodeDelimited = function(message, writer) {
-                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
-            };
-
-            /**
-             * Decodes a Music message from the specified reader or buffer.
-             * @function decode
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            Music.decode = function (reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.Music();
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = $undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 2)
-                                break;
-                            message.authorName = reader.stringVerify();
-                            message._authorName = "authorName";
-                            continue;
-                        }
-                    case 2: {
-                            if (wireType !== 2)
-                                break;
-                            message.songId = reader.stringVerify();
-                            message._songId = "songId";
-                            continue;
-                        }
-                    case 3: {
-                            if (wireType !== 2)
-                                break;
-                            message.title = reader.stringVerify();
-                            message._title = "title";
-                            continue;
-                        }
-                    case 4: {
-                            if (wireType !== 2)
-                                break;
-                            message.author = reader.stringVerify();
-                            message._author = "author";
-                            continue;
-                        }
-                    case 5: {
-                            if (wireType !== 2)
-                                break;
-                            message.artistAttribution = reader.stringVerify();
-                            message._artistAttribution = "artistAttribution";
-                            continue;
-                        }
-                    case 6: {
-                            if (wireType !== 0)
-                                break;
-                            message.isExplicit = reader.bool();
-                            message._isExplicit = "isExplicit";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    if (!reader.discardUnknown) {
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                    }
-                }
-                if (_end !== $undefined)
-                    throw $Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes a Music message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            Music.decodeDelimited = function(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a Music message.
-             * @function verify
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            Music.verify = function (message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName")) {
-                    properties._authorName = 1;
-                    if (!$util.isString(message.authorName))
-                        return "authorName: string expected";
-                }
-                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId")) {
-                    properties._songId = 1;
-                    if (!$util.isString(message.songId))
-                        return "songId: string expected";
-                }
-                if (message.title != null && $Object.hasOwnProperty.call(message, "title")) {
-                    properties._title = 1;
-                    if (!$util.isString(message.title))
-                        return "title: string expected";
-                }
-                if (message.author != null && $Object.hasOwnProperty.call(message, "author")) {
-                    properties._author = 1;
-                    if (!$util.isString(message.author))
-                        return "author: string expected";
-                }
-                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution")) {
-                    properties._artistAttribution = 1;
-                    if (!$util.isString(message.artistAttribution))
-                        return "artistAttribution: string expected";
-                }
-                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit")) {
-                    properties._isExplicit = 1;
-                    if (typeof message.isExplicit !== "boolean")
-                        return "isExplicit: boolean expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a Music message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {StatusAttributions.StatusAttribution.Music} Music
-             */
-            Music.fromObject = function (object, _depth) {
-                if (object instanceof $root.StatusAttributions.StatusAttribution.Music)
-                    return object;
-                if (!$util.isObject(object))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.Music: object expected");
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var message = new $root.StatusAttributions.StatusAttribution.Music();
-                if (object.authorName != null)
-                    message.authorName = $String(object.authorName);
-                if (object.songId != null)
-                    message.songId = $String(object.songId);
-                if (object.title != null)
-                    message.title = $String(object.title);
-                if (object.author != null)
-                    message.author = $String(object.author);
-                if (object.artistAttribution != null)
-                    message.artistAttribution = $String(object.artistAttribution);
-                if (object.isExplicit != null)
-                    message.isExplicit = $Boolean(object.isExplicit);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a Music message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {StatusAttributions.StatusAttribution.Music} message Music
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            Music.toObject = function (message, options, _depth) {
-                if (!options)
-                    options = {};
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var object = {};
-                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName"))
-                    object.authorName = message.authorName;
-                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId"))
-                    object.songId = message.songId;
-                if (message.title != null && $Object.hasOwnProperty.call(message, "title"))
-                    object.title = message.title;
-                if (message.author != null && $Object.hasOwnProperty.call(message, "author"))
-                    object.author = message.author;
-                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution"))
-                    object.artistAttribution = message.artistAttribution;
-                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit"))
-                    object.isExplicit = message.isExplicit;
-                return object;
-            };
-
-            /**
-             * Converts this Music to JSON.
-             * @function toJSON
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            Music.prototype.toJSON = function() {
-                return Music.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for Music
-             * @function getTypeUrl
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            Music.getTypeUrl = function(prefix) {
-                if (prefix === $undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/StatusAttributions.StatusAttribution.Music";
-            };
-
-            return Music;
-        })();
-
-        StatusAttribution.RLAttribution = (function() {
-
-            /**
-             * Properties of a RLAttribution.
-             * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
-             * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-
-            /**
-             * Properties of a RLAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IRLAttribution
-             * @augments StatusAttributions.StatusAttribution.RLAttribution.$Properties
-             * @deprecated Use StatusAttributions.StatusAttribution.RLAttribution.$Properties instead.
-             */
-
-            /**
-             * Shape of a RLAttribution.
-             * @typedef {StatusAttributions.StatusAttribution.RLAttribution.$Properties} StatusAttributions.StatusAttribution.RLAttribution.$Shape
-             */
-
-            /**
-             * Constructs a new RLAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @classdesc Represents a RLAttribution.
-             * @constructor
-             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-            var RLAttribution = function (properties) {
-                if (properties)
-                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            };
-
-            /**
-             * RLAttribution source.
-             * @member {StatusAttributions.StatusAttribution.RLAttribution.Source|null|undefined} source
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @instance
-             */
-            RLAttribution.prototype.source = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(RLAttribution.prototype, "_source", {
-                get: $util.oneOfGetter($oneOfFields = ["source"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new RLAttribution instance using the specified properties.
-             * @function create
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution instance
-             * @type {{
-             *   (properties: StatusAttributions.StatusAttribution.RLAttribution.$Shape): StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape;
-             *   (properties?: StatusAttributions.StatusAttribution.RLAttribution.$Properties): StatusAttributions.StatusAttribution.RLAttribution;
-             * }}
-             */
-            RLAttribution.create = function(properties) {
-                return new RLAttribution(properties);
-            };
-
-            /**
-             * Encodes the specified RLAttribution message. Does not implicitly {@link StatusAttributions.StatusAttribution.RLAttribution.verify|verify} messages.
-             * @function encode
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RLAttribution.encode = function (message, writer, _depth) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
-                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RLAttribution message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.RLAttribution.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RLAttribution.encodeDelimited = function(message, writer) {
-                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
-            };
-
-            /**
-             * Decodes a RLAttribution message from the specified reader or buffer.
-             * @function decode
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RLAttribution.decode = function (reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution(), value;
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = $undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 0)
-                                break;
-                            message.source = reader.int32();
-                            message._source = "source";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    if (!reader.discardUnknown) {
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                    }
-                }
-                if (_end !== $undefined)
-                    throw $Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes a RLAttribution message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RLAttribution.decodeDelimited = function(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RLAttribution message.
-             * @function verify
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RLAttribution.verify = function (message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
-                    properties._source = 1;
-                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
-                        return "source: enum value expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RLAttribution message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
-             */
-            RLAttribution.fromObject = function (object, _depth) {
-                if (object instanceof $root.StatusAttributions.StatusAttribution.RLAttribution)
-                    return object;
-                if (!$util.isObject(object))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.RLAttribution: object expected");
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var message = new $root.StatusAttributions.StatusAttribution.RLAttribution();
-                switch (object.source) {
-                case "UNKNOWN":
-                case 0:
-                    message.source = 0;
-                    break;
-                case "RAY_BAN_META_GLASSES":
-                case 1:
-                    message.source = 1;
-                    break;
-                case "OAKLEY_META_GLASSES":
-                case 2:
-                    message.source = 2;
-                    break;
-                case "HYPERNOVA_GLASSES":
-                case 3:
-                    message.source = 3;
-                    break;
-                default:
-                    if (typeof object.source === "number" && (object.source | 0) === object.source)
-                        message.source = object.source;
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RLAttribution message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {StatusAttributions.StatusAttribution.RLAttribution} message RLAttribution
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RLAttribution.toObject = function (message, options, _depth) {
-                if (!options)
-                    options = {};
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var object = {};
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] : message.source;
-                return object;
-            };
-
-            /**
-             * Converts this RLAttribution to JSON.
-             * @function toJSON
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RLAttribution.prototype.toJSON = function() {
-                return RLAttribution.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for RLAttribution
-             * @function getTypeUrl
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            RLAttribution.getTypeUrl = function(prefix) {
-                if (prefix === $undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/StatusAttributions.StatusAttribution.RLAttribution";
-            };
-
-            /**
-             * Source enum.
-             * @name StatusAttributions.StatusAttribution.RLAttribution.Source
-             * @enum {number}
-             * @property {number} UNKNOWN=0 UNKNOWN value
-             * @property {number} RAY_BAN_META_GLASSES=1 RAY_BAN_META_GLASSES value
-             * @property {number} OAKLEY_META_GLASSES=2 OAKLEY_META_GLASSES value
-             * @property {number} HYPERNOVA_GLASSES=3 HYPERNOVA_GLASSES value
-             */
-            RLAttribution.Source = (function() {
-                var valuesById = $Object.create(null), values = $Object.create(valuesById);
-                values[valuesById[0] = "UNKNOWN"] = 0;
-                values[valuesById[1] = "RAY_BAN_META_GLASSES"] = 1;
-                values[valuesById[2] = "OAKLEY_META_GLASSES"] = 2;
-                values[valuesById[3] = "HYPERNOVA_GLASSES"] = 3;
-                return values;
-            })();
-
-            return RLAttribution;
-        })();
-
-        StatusAttribution.StatusReshare = (function() {
-
-            /**
-             * Properties of a StatusReshare.
-             * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
-             * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
-             * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-
-            /**
-             * Properties of a StatusReshare.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IStatusReshare
-             * @augments StatusAttributions.StatusAttribution.StatusReshare.$Properties
-             * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.$Properties instead.
-             */
-
-            /**
-             * Shape of a StatusReshare.
-             * @typedef {StatusAttributions.StatusAttribution.StatusReshare.$Properties} StatusAttributions.StatusAttribution.StatusReshare.$Shape
-             */
-
-            /**
-             * Constructs a new StatusReshare.
-             * @memberof StatusAttributions.StatusAttribution
-             * @classdesc Represents a StatusReshare.
-             * @constructor
-             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-             */
-            var StatusReshare = function (properties) {
-                if (properties)
-                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            };
-
-            /**
-             * StatusReshare source.
-             * @member {StatusAttributions.StatusAttribution.StatusReshare.Source|null|undefined} source
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @instance
-             */
-            StatusReshare.prototype.source = null;
-
-            /**
-             * StatusReshare metadata.
-             * @member {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null|undefined} metadata
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @instance
-             */
-            StatusReshare.prototype.metadata = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(StatusReshare.prototype, "_source", {
-                get: $util.oneOfGetter($oneOfFields = ["source"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(StatusReshare.prototype, "_metadata", {
-                get: $util.oneOfGetter($oneOfFields = ["metadata"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new StatusReshare instance using the specified properties.
-             * @function create
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare instance
-             * @type {{
-             *   (properties: StatusAttributions.StatusAttribution.StatusReshare.$Shape): StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape;
-             *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.$Properties): StatusAttributions.StatusAttribution.StatusReshare;
-             * }}
-             */
-            StatusReshare.create = function(properties) {
-                return new StatusReshare(properties);
-            };
-
-            /**
-             * Encodes the specified StatusReshare message. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.verify|verify} messages.
-             * @function encode
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            StatusReshare.encode = function (message, writer, _depth) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
-                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata"))
-                    $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.encode(message.metadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
-                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified StatusReshare message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            StatusReshare.encodeDelimited = function(message, writer) {
-                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
-            };
-
-            /**
-             * Decodes a StatusReshare message from the specified reader or buffer.
-             * @function decode
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            StatusReshare.decode = function (reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare(), value;
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = $undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 0)
-                                break;
-                            message.source = reader.int32();
-                            message._source = "source";
-                            continue;
-                        }
-                    case 2: {
-                            if (wireType !== 2)
-                                break;
-                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
-                            message._metadata = "metadata";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    if (!reader.discardUnknown) {
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                    }
-                }
-                if (_end !== $undefined)
-                    throw $Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes a StatusReshare message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            StatusReshare.decodeDelimited = function(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a StatusReshare message.
-             * @function verify
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            StatusReshare.verify = function (message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
-                    properties._source = 1;
-                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
-                        return "source: enum value expected";
-                }
-                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata")) {
-                    properties._metadata = 1;
-                    {
-                        var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata, _depth + 1);
-                        if (error)
-                            return "metadata." + error;
-                    }
-                }
-                return null;
-            };
-
-            /**
-             * Creates a StatusReshare message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
-             */
-            StatusReshare.fromObject = function (object, _depth) {
-                if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare)
-                    return object;
-                if (!$util.isObject(object))
-                    throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare: object expected");
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var message = new $root.StatusAttributions.StatusAttribution.StatusReshare();
-                switch (object.source) {
-                case "UNKNOWN":
-                case 0:
-                    message.source = 0;
-                    break;
-                case "INTERNAL_RESHARE":
-                case 1:
-                    message.source = 1;
-                    break;
-                case "MENTION_RESHARE":
-                case 2:
-                    message.source = 2;
-                    break;
-                case "CHANNEL_RESHARE":
-                case 3:
-                    message.source = 3;
-                    break;
-                case "FORWARD":
-                case 4:
-                    message.source = 4;
-                    break;
-                default:
-                    if (typeof object.source === "number" && (object.source | 0) === object.source)
-                        message.source = object.source;
-                }
-                if (object.metadata != null) {
-                    if (!$util.isObject(object.metadata))
-                        throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare.metadata: object expected");
-                    message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.fromObject(object.metadata, _depth + 1);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a StatusReshare message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {StatusAttributions.StatusAttribution.StatusReshare} message StatusReshare
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            StatusReshare.toObject = function (message, options, _depth) {
-                if (!options)
-                    options = {};
-                if (_depth === $undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw $Error("max depth exceeded");
-                var object = {};
-                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
-                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] : message.source;
-                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata"))
-                    object.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.toObject(message.metadata, options, _depth + 1);
-                return object;
-            };
-
-            /**
-             * Converts this StatusReshare to JSON.
-             * @function toJSON
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            StatusReshare.prototype.toJSON = function() {
-                return StatusReshare.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for StatusReshare
-             * @function getTypeUrl
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            StatusReshare.getTypeUrl = function(prefix) {
-                if (prefix === $undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/StatusAttributions.StatusAttribution.StatusReshare";
-            };
-
-            StatusReshare.Metadata = (function() {
-
-                /**
-                 * Properties of a Metadata.
-                 * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
-                 * @property {number|null} [duration] Metadata duration
-                 * @property {string|null} [channelJid] Metadata channelJid
-                 * @property {number|null} [channelMessageId] Metadata channelMessageId
-                 * @property {boolean|null} [hasMultipleReshares] Metadata hasMultipleReshares
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-                 */
-
-                /**
-                 * Properties of a Metadata.
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
-                 * @interface IMetadata
-                 * @augments StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
-                 * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties instead.
-                 */
-
-                /**
-                 * Shape of a Metadata.
-                 * @typedef {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape
-                 */
-
-                /**
-                 * Constructs a new Metadata.
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
-                 * @classdesc Represents a Metadata.
-                 * @constructor
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
-                 */
-                var Metadata = function (properties) {
-                    if (properties)
-                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                                this[keys[i]] = properties[keys[i]];
-                };
-
-                /**
-                 * Metadata duration.
-                 * @member {number|null|undefined} duration
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
-                Metadata.prototype.duration = null;
-
-                /**
-                 * Metadata channelJid.
-                 * @member {string|null|undefined} channelJid
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
-                Metadata.prototype.channelJid = null;
-
-                /**
-                 * Metadata channelMessageId.
-                 * @member {number|null|undefined} channelMessageId
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
-                Metadata.prototype.channelMessageId = null;
-
-                /**
-                 * Metadata hasMultipleReshares.
-                 * @member {boolean|null|undefined} hasMultipleReshares
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
-                Metadata.prototype.hasMultipleReshares = null;
-
-                // OneOf field names bound to virtual getters and setters
-                var $oneOfFields;
-
-                // Virtual OneOf for proto3 optional field
-                $Object.defineProperty(Metadata.prototype, "_duration", {
-                    get: $util.oneOfGetter($oneOfFields = ["duration"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                // Virtual OneOf for proto3 optional field
-                $Object.defineProperty(Metadata.prototype, "_channelJid", {
-                    get: $util.oneOfGetter($oneOfFields = ["channelJid"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                // Virtual OneOf for proto3 optional field
-                $Object.defineProperty(Metadata.prototype, "_channelMessageId", {
-                    get: $util.oneOfGetter($oneOfFields = ["channelMessageId"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                // Virtual OneOf for proto3 optional field
-                $Object.defineProperty(Metadata.prototype, "_hasMultipleReshares", {
-                    get: $util.oneOfGetter($oneOfFields = ["hasMultipleReshares"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                /**
-                 * Creates a new Metadata instance using the specified properties.
-                 * @function create
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata instance
-                 * @type {{
-                 *   (properties: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape): StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape;
-                 *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties): StatusAttributions.StatusAttribution.StatusReshare.Metadata;
-                 * }}
-                 */
-                Metadata.create = function(properties) {
-                    return new Metadata(properties);
-                };
-
-                /**
-                 * Encodes the specified Metadata message. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify|verify} messages.
-                 * @function encode
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Metadata.encode = function (message, writer, _depth) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (_depth === $undefined)
-                        _depth = 0;
-                    if (_depth > $util.recursionLimit)
-                        throw $Error("max depth exceeded");
-                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
-                        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.duration);
-                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.channelJid);
-                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId"))
-                        writer.uint32(/* id 3, wireType 0 =*/24).int32(message.channelMessageId);
-                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares"))
-                        writer.uint32(/* id 4, wireType 0 =*/32).bool(message.hasMultipleReshares);
-                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
-                        for (var i = 0; i < message.$unknowns.length; ++i)
-                            writer.raw(message.$unknowns[i]);
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified Metadata message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Metadata.encodeDelimited = function(message, writer) {
-                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
-                };
-
-                /**
-                 * Decodes a Metadata message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Metadata.decode = function (reader, length, _end, _depth, _target) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    if (_depth === $undefined)
-                        _depth = 0;
-                    if (_depth > $Reader.recursionLimit)
-                        throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
-                    while (reader.pos < end) {
-                        var start = reader.pos;
-                        var tag = reader.tag();
-                        if (tag === _end) {
-                            _end = $undefined;
-                            break;
-                        }
-                        var wireType = tag & 7;
-                        switch (tag >>>= 3) {
-                        case 1: {
-                                if (wireType !== 0)
-                                    break;
-                                message.duration = reader.int32();
-                                message._duration = "duration";
-                                continue;
-                            }
-                        case 2: {
-                                if (wireType !== 2)
-                                    break;
-                                message.channelJid = reader.stringVerify();
-                                message._channelJid = "channelJid";
-                                continue;
-                            }
-                        case 3: {
-                                if (wireType !== 0)
-                                    break;
-                                message.channelMessageId = reader.int32();
-                                message._channelMessageId = "channelMessageId";
-                                continue;
-                            }
-                        case 4: {
-                                if (wireType !== 0)
-                                    break;
-                                message.hasMultipleReshares = reader.bool();
-                                message._hasMultipleReshares = "hasMultipleReshares";
-                                continue;
-                            }
-                        }
-                        reader.skipType(wireType, _depth, tag);
-                        if (!reader.discardUnknown) {
-                            $util.makeProp(message, "$unknowns", false);
-                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                        }
-                    }
-                    if (_end !== $undefined)
-                        throw $Error("missing end group");
-                    return message;
-                };
-
-                /**
-                 * Decodes a Metadata message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Metadata.decodeDelimited = function(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a Metadata message.
-                 * @function verify
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Metadata.verify = function (message, _depth) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (_depth === $undefined)
-                        _depth = 0;
-                    if (_depth > $util.recursionLimit)
-                        return "max depth exceeded";
-                    var properties = {};
-                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
-                        properties._duration = 1;
-                        if (!$util.isInteger(message.duration))
-                            return "duration: integer expected";
-                    }
-                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid")) {
-                        properties._channelJid = 1;
-                        if (!$util.isString(message.channelJid))
-                            return "channelJid: string expected";
-                    }
-                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId")) {
-                        properties._channelMessageId = 1;
-                        if (!$util.isInteger(message.channelMessageId))
-                            return "channelMessageId: integer expected";
-                    }
-                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares")) {
-                        properties._hasMultipleReshares = 1;
-                        if (typeof message.hasMultipleReshares !== "boolean")
-                            return "hasMultipleReshares: boolean expected";
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a Metadata message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
-                 */
-                Metadata.fromObject = function (object, _depth) {
-                    if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata)
-                        return object;
-                    if (!$util.isObject(object))
-                        throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare.Metadata: object expected");
-                    if (_depth === $undefined)
-                        _depth = 0;
-                    if (_depth > $util.recursionLimit)
-                        throw $Error("max depth exceeded");
-                    var message = new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
-                    if (object.duration != null)
-                        message.duration = object.duration | 0;
-                    if (object.channelJid != null)
-                        message.channelJid = $String(object.channelJid);
-                    if (object.channelMessageId != null)
-                        message.channelMessageId = object.channelMessageId | 0;
-                    if (object.hasMultipleReshares != null)
-                        message.hasMultipleReshares = $Boolean(object.hasMultipleReshares);
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a Metadata message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata} message Metadata
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Metadata.toObject = function (message, options, _depth) {
-                    if (!options)
-                        options = {};
-                    if (_depth === $undefined)
-                        _depth = 0;
-                    if (_depth > $util.recursionLimit)
-                        throw $Error("max depth exceeded");
-                    var object = {};
-                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
-                        object.duration = message.duration;
-                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid"))
-                        object.channelJid = message.channelJid;
-                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId"))
-                        object.channelMessageId = message.channelMessageId;
-                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares"))
-                        object.hasMultipleReshares = message.hasMultipleReshares;
-                    return object;
-                };
-
-                /**
-                 * Converts this Metadata to JSON.
-                 * @function toJSON
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Metadata.prototype.toJSON = function() {
-                    return Metadata.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                /**
-                 * Gets the type url for Metadata
-                 * @function getTypeUrl
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @static
-                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-                 * @returns {string} The type url
-                 */
-                Metadata.getTypeUrl = function(prefix) {
-                    if (prefix === $undefined)
-                        prefix = "type.googleapis.com";
-                    return prefix + "/StatusAttributions.StatusAttribution.StatusReshare.Metadata";
-                };
-
-                return Metadata;
-            })();
-
-            /**
-             * Source enum.
-             * @name StatusAttributions.StatusAttribution.StatusReshare.Source
-             * @enum {number}
-             * @property {number} UNKNOWN=0 UNKNOWN value
-             * @property {number} INTERNAL_RESHARE=1 INTERNAL_RESHARE value
-             * @property {number} MENTION_RESHARE=2 MENTION_RESHARE value
-             * @property {number} CHANNEL_RESHARE=3 CHANNEL_RESHARE value
-             * @property {number} FORWARD=4 FORWARD value
-             */
-            StatusReshare.Source = (function() {
-                var valuesById = $Object.create(null), values = $Object.create(valuesById);
-                values[valuesById[0] = "UNKNOWN"] = 0;
-                values[valuesById[1] = "INTERNAL_RESHARE"] = 1;
-                values[valuesById[2] = "MENTION_RESHARE"] = 2;
-                values[valuesById[3] = "CHANNEL_RESHARE"] = 3;
-                values[valuesById[4] = "FORWARD"] = 4;
-                return values;
-            })();
-
-            return StatusReshare;
-        })();
-
-        /**
-         * Type enum.
-         * @name StatusAttributions.StatusAttribution.Type
-         * @enum {number}
-         * @property {number} UNKNOWN=0 UNKNOWN value
-         * @property {number} RESHARE=1 RESHARE value
-         * @property {number} EXTERNAL_SHARE=2 EXTERNAL_SHARE value
-         * @property {number} MUSIC=3 MUSIC value
-         * @property {number} STATUS_MENTION=4 STATUS_MENTION value
-         * @property {number} GROUP_STATUS=5 GROUP_STATUS value
-         * @property {number} RL_ATTRIBUTION=6 RL_ATTRIBUTION value
-         * @property {number} AI_CREATED=7 AI_CREATED value
-         * @property {number} LAYOUTS=8 LAYOUTS value
-         * @property {number} NEWSLETTER_STATUS=9 NEWSLETTER_STATUS value
-         * @property {number} STATUS_CLOSE_SHARING=10 STATUS_CLOSE_SHARING value
-         * @property {number} PAID_PARTNERSHIP=11 PAID_PARTNERSHIP value
-         */
-        StatusAttribution.Type = (function() {
-            var valuesById = $Object.create(null), values = $Object.create(valuesById);
-            values[valuesById[0] = "UNKNOWN"] = 0;
-            values[valuesById[1] = "RESHARE"] = 1;
-            values[valuesById[2] = "EXTERNAL_SHARE"] = 2;
-            values[valuesById[3] = "MUSIC"] = 3;
-            values[valuesById[4] = "STATUS_MENTION"] = 4;
-            values[valuesById[5] = "GROUP_STATUS"] = 5;
-            values[valuesById[6] = "RL_ATTRIBUTION"] = 6;
-            values[valuesById[7] = "AI_CREATED"] = 7;
-            values[valuesById[8] = "LAYOUTS"] = 8;
-            values[valuesById[9] = "NEWSLETTER_STATUS"] = 9;
-            values[valuesById[10] = "STATUS_CLOSE_SHARING"] = 10;
-            values[valuesById[11] = "PAID_PARTNERSHIP"] = 11;
-            return values;
-        })();
-
-        return StatusAttribution;
+        return AIProvenance;
     })();
-
-    return StatusAttributions;
-})();
-
-$root.AICommon = (function() {
-
-    /**
-     * Namespace AICommon.
-     * @exports AICommon
-     * @namespace
-     */
-    var AICommon = {};
 
     AICommon.BotAgentDeepLinkMetadata = (function() {
 
@@ -119787,6 +119672,7 @@ $root.AICommon = (function() {
          * Properties of a BotAgentDeepLinkMetadata.
          * @typedef {Object} AICommon.BotAgentDeepLinkMetadata.$Properties
          * @property {string|null} [token] BotAgentDeepLinkMetadata token
+         * @property {Uint8Array|null} [clientPublicKey] BotAgentDeepLinkMetadata clientPublicKey
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -119826,12 +119712,26 @@ $root.AICommon = (function() {
          */
         BotAgentDeepLinkMetadata.prototype.token = null;
 
+        /**
+         * BotAgentDeepLinkMetadata clientPublicKey.
+         * @member {Uint8Array|null|undefined} clientPublicKey
+         * @memberof AICommon.BotAgentDeepLinkMetadata
+         * @instance
+         */
+        BotAgentDeepLinkMetadata.prototype.clientPublicKey = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BotAgentDeepLinkMetadata.prototype, "_token", {
             get: $util.oneOfGetter($oneOfFields = ["token"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotAgentDeepLinkMetadata.prototype, "_clientPublicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["clientPublicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -119869,6 +119769,8 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             if (message.token != null && $Object.hasOwnProperty.call(message, "token"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.token);
+            if (message.clientPublicKey != null && $Object.hasOwnProperty.call(message, "clientPublicKey"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.clientPublicKey);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -119923,6 +119825,13 @@ $root.AICommon = (function() {
                         message._token = "token";
                         continue;
                     }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.clientPublicKey = reader.bytes();
+                        message._clientPublicKey = "clientPublicKey";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -119972,6 +119881,11 @@ $root.AICommon = (function() {
                 if (!$util.isString(message.token))
                     return "token: string expected";
             }
+            if (message.clientPublicKey != null && $Object.hasOwnProperty.call(message, "clientPublicKey")) {
+                properties._clientPublicKey = 1;
+                if (!(message.clientPublicKey && typeof message.clientPublicKey.length === "number" || $util.isString(message.clientPublicKey)))
+                    return "clientPublicKey: buffer expected";
+            }
             return null;
         };
 
@@ -119995,6 +119909,11 @@ $root.AICommon = (function() {
             var message = new $root.AICommon.BotAgentDeepLinkMetadata();
             if (object.token != null)
                 message.token = $String(object.token);
+            if (object.clientPublicKey != null)
+                if (typeof object.clientPublicKey === "string")
+                    $util.base64.decode(object.clientPublicKey, message.clientPublicKey = $util.newBuffer($util.base64.length(object.clientPublicKey)), 0);
+                else if (object.clientPublicKey.length >= 0)
+                    message.clientPublicKey = object.clientPublicKey;
             return message;
         };
 
@@ -120017,6 +119936,8 @@ $root.AICommon = (function() {
             var object = {};
             if (message.token != null && $Object.hasOwnProperty.call(message, "token"))
                 object.token = message.token;
+            if (message.clientPublicKey != null && $Object.hasOwnProperty.call(message, "clientPublicKey"))
+                object.clientPublicKey = options.bytes === $String ? $util.base64.encode(message.clientPublicKey, 0, message.clientPublicKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.clientPublicKey) : message.clientPublicKey;
             return object;
         };
 
@@ -127686,6 +127607,283 @@ $root.AICommon = (function() {
         return BotRenderingConfigMetadata;
     })();
 
+    AICommon.BotHistoryShareMetadata = (function() {
+
+        /**
+         * Properties of a BotHistoryShareMetadata.
+         * @typedef {Object} AICommon.BotHistoryShareMetadata.$Properties
+         * @property {Array.<AICommon.BotGroupParticipantMetadata.$Properties>|null} [participantsMetadata] BotHistoryShareMetadata participantsMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a BotHistoryShareMetadata.
+         * @memberof AICommon
+         * @interface IBotHistoryShareMetadata
+         * @augments AICommon.BotHistoryShareMetadata.$Properties
+         * @deprecated Use AICommon.BotHistoryShareMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotHistoryShareMetadata.
+         * @typedef {AICommon.BotHistoryShareMetadata.$Properties} AICommon.BotHistoryShareMetadata.$Shape
+         */
+
+        /**
+         * Constructs a new BotHistoryShareMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotHistoryShareMetadata.
+         * @constructor
+         * @param {AICommon.BotHistoryShareMetadata.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var BotHistoryShareMetadata = function (properties) {
+            this.participantsMetadata = [];
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * BotHistoryShareMetadata participantsMetadata.
+         * @member {Array.<AICommon.BotGroupParticipantMetadata.$Properties>} participantsMetadata
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @instance
+         */
+        BotHistoryShareMetadata.prototype.participantsMetadata = $util.emptyArray;
+
+        /**
+         * Creates a new BotHistoryShareMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {AICommon.BotHistoryShareMetadata.$Properties=} [properties] Properties to set
+         * @returns {AICommon.BotHistoryShareMetadata} BotHistoryShareMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotHistoryShareMetadata.$Shape): AICommon.BotHistoryShareMetadata & AICommon.BotHistoryShareMetadata.$Shape;
+         *   (properties?: AICommon.BotHistoryShareMetadata.$Properties): AICommon.BotHistoryShareMetadata;
+         * }}
+         */
+        BotHistoryShareMetadata.create = function(properties) {
+            return new BotHistoryShareMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotHistoryShareMetadata message. Does not implicitly {@link AICommon.BotHistoryShareMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {AICommon.BotHistoryShareMetadata.$Properties} message BotHistoryShareMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotHistoryShareMetadata.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.participantsMetadata != null && message.participantsMetadata.length)
+                for (var i = 0; i < message.participantsMetadata.length; ++i)
+                    $root.AICommon.BotGroupParticipantMetadata.encode(message.participantsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotHistoryShareMetadata message, length delimited. Does not implicitly {@link AICommon.BotHistoryShareMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {AICommon.BotHistoryShareMetadata.$Properties} message BotHistoryShareMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotHistoryShareMetadata.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a BotHistoryShareMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotHistoryShareMetadata & AICommon.BotHistoryShareMetadata.$Shape} BotHistoryShareMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotHistoryShareMetadata.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotHistoryShareMetadata();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.participantsMetadata && message.participantsMetadata.length))
+                            message.participantsMetadata = [];
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a BotHistoryShareMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotHistoryShareMetadata & AICommon.BotHistoryShareMetadata.$Shape} BotHistoryShareMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotHistoryShareMetadata.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotHistoryShareMetadata message.
+         * @function verify
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotHistoryShareMetadata.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            if (message.participantsMetadata != null && $Object.hasOwnProperty.call(message, "participantsMetadata")) {
+                if (!$Array.isArray(message.participantsMetadata))
+                    return "participantsMetadata: array expected";
+                for (var i = 0; i < message.participantsMetadata.length; ++i) {
+                    var error = $root.AICommon.BotGroupParticipantMetadata.verify(message.participantsMetadata[i], _depth + 1);
+                    if (error)
+                        return "participantsMetadata." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a BotHistoryShareMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotHistoryShareMetadata} BotHistoryShareMetadata
+         */
+        BotHistoryShareMetadata.fromObject = function (object, _depth) {
+            if (object instanceof $root.AICommon.BotHistoryShareMetadata)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".AICommon.BotHistoryShareMetadata: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.AICommon.BotHistoryShareMetadata();
+            if (object.participantsMetadata) {
+                if (!$Array.isArray(object.participantsMetadata))
+                    throw $TypeError(".AICommon.BotHistoryShareMetadata.participantsMetadata: array expected");
+                message.participantsMetadata = $Array(object.participantsMetadata.length);
+                for (var i = 0; i < object.participantsMetadata.length; ++i) {
+                    if (!$util.isObject(object.participantsMetadata[i]))
+                        throw $TypeError(".AICommon.BotHistoryShareMetadata.participantsMetadata: object expected");
+                    message.participantsMetadata[i] = $root.AICommon.BotGroupParticipantMetadata.fromObject(object.participantsMetadata[i], _depth + 1);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotHistoryShareMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {AICommon.BotHistoryShareMetadata} message BotHistoryShareMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotHistoryShareMetadata.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.participantsMetadata = [];
+            if (message.participantsMetadata && message.participantsMetadata.length) {
+                object.participantsMetadata = $Array(message.participantsMetadata.length);
+                for (var j = 0; j < message.participantsMetadata.length; ++j)
+                    object.participantsMetadata[j] = $root.AICommon.BotGroupParticipantMetadata.toObject(message.participantsMetadata[j], options, _depth + 1);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this BotHistoryShareMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotHistoryShareMetadata.prototype.toJSON = function() {
+            return BotHistoryShareMetadata.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for BotHistoryShareMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotHistoryShareMetadata
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        BotHistoryShareMetadata.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotHistoryShareMetadata";
+        };
+
+        return BotHistoryShareMetadata;
+    })();
+
     AICommon.BotGroupMetadata = (function() {
 
         /**
@@ -128295,6 +128493,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotResolvedToolCallMetadata.$Properties|null} [resolvedToolCallMetadata] BotMetadata resolvedToolCallMetadata
          * @property {AICommon.AISubscriptionUpsellMetadata.$Properties|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {AICommon.BotPttPromptMetadata.$Properties|null} [pttPromptMetadata] BotMetadata pttPromptMetadata
+         * @property {AICommon.BotHistoryShareMetadata.$Properties|null} [botHistoryShareMetadata] BotMetadata botHistoryShareMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
@@ -128656,6 +128855,14 @@ $root.AICommon = (function() {
         BotMetadata.prototype.pttPromptMetadata = null;
 
         /**
+         * BotMetadata botHistoryShareMetadata.
+         * @member {AICommon.BotHistoryShareMetadata.$Properties|null|undefined} botHistoryShareMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.botHistoryShareMetadata = null;
+
+        /**
          * BotMetadata internalMetadata.
          * @member {Uint8Array|null|undefined} internalMetadata
          * @memberof AICommon.BotMetadata
@@ -128913,6 +129120,12 @@ $root.AICommon = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotMetadata.prototype, "_botHistoryShareMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["botHistoryShareMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BotMetadata.prototype, "_internalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -129032,6 +129245,8 @@ $root.AICommon = (function() {
                 $root.AICommon.AISubscriptionUpsellMetadata.encode(message.subscriptionUpsellMetadata, writer.uint32(/* id 41, wireType 2 =*/330).fork(), _depth + 1).ldelim();
             if (message.pttPromptMetadata != null && $Object.hasOwnProperty.call(message, "pttPromptMetadata"))
                 $root.AICommon.BotPttPromptMetadata.encode(message.pttPromptMetadata, writer.uint32(/* id 42, wireType 2 =*/338).fork(), _depth + 1).ldelim();
+            if (message.botHistoryShareMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareMetadata"))
+                $root.AICommon.BotHistoryShareMetadata.encode(message.botHistoryShareMetadata, writer.uint32(/* id 43, wireType 2 =*/346).fork(), _depth + 1).ldelim();
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -129366,6 +129581,13 @@ $root.AICommon = (function() {
                             break;
                         message.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pttPromptMetadata);
                         message._pttPromptMetadata = "pttPromptMetadata";
+                        continue;
+                    }
+                case 43: {
+                        if (wireType !== 2)
+                            break;
+                        message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botHistoryShareMetadata);
+                        message._botHistoryShareMetadata = "botHistoryShareMetadata";
                         continue;
                     }
                 case 999: {
@@ -129726,6 +129948,14 @@ $root.AICommon = (function() {
                         return "pttPromptMetadata." + error;
                 }
             }
+            if (message.botHistoryShareMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareMetadata")) {
+                properties._botHistoryShareMetadata = 1;
+                {
+                    var error = $root.AICommon.BotHistoryShareMetadata.verify(message.botHistoryShareMetadata, _depth + 1);
+                    if (error)
+                        return "botHistoryShareMetadata." + error;
+                }
+            }
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata")) {
                 properties._internalMetadata = 1;
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
@@ -129939,6 +130169,11 @@ $root.AICommon = (function() {
                     throw $TypeError(".AICommon.BotMetadata.pttPromptMetadata: object expected");
                 message.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.fromObject(object.pttPromptMetadata, _depth + 1);
             }
+            if (object.botHistoryShareMetadata != null) {
+                if (!$util.isObject(object.botHistoryShareMetadata))
+                    throw $TypeError(".AICommon.BotMetadata.botHistoryShareMetadata: object expected");
+                message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.fromObject(object.botHistoryShareMetadata, _depth + 1);
+            }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
                     $util.base64.decode(object.internalMetadata, message.internalMetadata = $util.newBuffer($util.base64.length(object.internalMetadata)), 0);
@@ -130046,6 +130281,8 @@ $root.AICommon = (function() {
                 object.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.toObject(message.subscriptionUpsellMetadata, options, _depth + 1);
             if (message.pttPromptMetadata != null && $Object.hasOwnProperty.call(message, "pttPromptMetadata"))
                 object.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.toObject(message.pttPromptMetadata, options, _depth + 1);
+            if (message.botHistoryShareMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareMetadata"))
+                object.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.toObject(message.botHistoryShareMetadata, options, _depth + 1);
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata"))
                 object.internalMetadata = options.bytes === $String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
             return object;
@@ -139478,6 +139715,10 @@ $root.AICommon = (function() {
                     case 65:
                         message.capabilities[message.capabilities.length] = 65;
                         break;
+                    case "RICH_RESPONSE_SPORTS_WIDGET_ENABLED":
+                    case 66:
+                        message.capabilities[message.capabilities.length] = 66;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -139608,6 +139849,7 @@ $root.AICommon = (function() {
          * @property {number} UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED=63 UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED value
          * @property {number} AI_RICH_RESPONSE_MAPS_V2_ENABLED=64 AI_RICH_RESPONSE_MAPS_V2_ENABLED value
          * @property {number} AI_SUBSCRIPTION_METERING_ENABLED=65 AI_SUBSCRIPTION_METERING_ENABLED value
+         * @property {number} RICH_RESPONSE_SPORTS_WIDGET_ENABLED=66 RICH_RESPONSE_SPORTS_WIDGET_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -139677,6 +139919,7 @@ $root.AICommon = (function() {
             values[valuesById[63] = "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED"] = 63;
             values[valuesById[64] = "AI_RICH_RESPONSE_MAPS_V2_ENABLED"] = 64;
             values[valuesById[65] = "AI_SUBSCRIPTION_METERING_ENABLED"] = 65;
+            values[valuesById[66] = "RICH_RESPONSE_SPORTS_WIDGET_ENABLED"] = 66;
             return values;
         })();
 
@@ -151819,6 +152062,3436 @@ $root.Protocol = (function() {
     return Protocol;
 })();
 
+$root.Aea = (function() {
+
+    /**
+     * Namespace Aea.
+     * @exports Aea
+     * @namespace
+     */
+    var Aea = {};
+
+    Aea.NonE2EEAttestation = (function() {
+
+        /**
+         * Properties of a NonE2EEAttestation.
+         * @typedef {Object} Aea.NonE2EEAttestation.$Properties
+         * @property {Aea.NonE2EEAttestation.AccountType|null} [accountType] NonE2EEAttestation accountType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a NonE2EEAttestation.
+         * @memberof Aea
+         * @interface INonE2EEAttestation
+         * @augments Aea.NonE2EEAttestation.$Properties
+         * @deprecated Use Aea.NonE2EEAttestation.$Properties instead.
+         */
+
+        /**
+         * Shape of a NonE2EEAttestation.
+         * @typedef {Aea.NonE2EEAttestation.$Properties} Aea.NonE2EEAttestation.$Shape
+         */
+
+        /**
+         * Constructs a new NonE2EEAttestation.
+         * @memberof Aea
+         * @classdesc Represents a NonE2EEAttestation.
+         * @constructor
+         * @param {Aea.NonE2EEAttestation.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var NonE2EEAttestation = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * NonE2EEAttestation accountType.
+         * @member {Aea.NonE2EEAttestation.AccountType|null|undefined} accountType
+         * @memberof Aea.NonE2EEAttestation
+         * @instance
+         */
+        NonE2EEAttestation.prototype.accountType = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(NonE2EEAttestation.prototype, "_accountType", {
+            get: $util.oneOfGetter($oneOfFields = ["accountType"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new NonE2EEAttestation instance using the specified properties.
+         * @function create
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {Aea.NonE2EEAttestation.$Properties=} [properties] Properties to set
+         * @returns {Aea.NonE2EEAttestation} NonE2EEAttestation instance
+         * @type {{
+         *   (properties: Aea.NonE2EEAttestation.$Shape): Aea.NonE2EEAttestation & Aea.NonE2EEAttestation.$Shape;
+         *   (properties?: Aea.NonE2EEAttestation.$Properties): Aea.NonE2EEAttestation;
+         * }}
+         */
+        NonE2EEAttestation.create = function(properties) {
+            return new NonE2EEAttestation(properties);
+        };
+
+        /**
+         * Encodes the specified NonE2EEAttestation message. Does not implicitly {@link Aea.NonE2EEAttestation.verify|verify} messages.
+         * @function encode
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {Aea.NonE2EEAttestation.$Properties} message NonE2EEAttestation message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        NonE2EEAttestation.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.accountType);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified NonE2EEAttestation message, length delimited. Does not implicitly {@link Aea.NonE2EEAttestation.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {Aea.NonE2EEAttestation.$Properties} message NonE2EEAttestation message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        NonE2EEAttestation.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a NonE2EEAttestation message from the specified reader or buffer.
+         * @function decode
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {Aea.NonE2EEAttestation & Aea.NonE2EEAttestation.$Shape} NonE2EEAttestation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        NonE2EEAttestation.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Aea.NonE2EEAttestation(), value;
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.accountType = reader.int32();
+                        message._accountType = "accountType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a NonE2EEAttestation message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {Aea.NonE2EEAttestation & Aea.NonE2EEAttestation.$Shape} NonE2EEAttestation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        NonE2EEAttestation.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a NonE2EEAttestation message.
+         * @function verify
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        NonE2EEAttestation.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
+                properties._accountType = 1;
+                if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
+                    return "accountType: enum value expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a NonE2EEAttestation message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {Aea.NonE2EEAttestation} NonE2EEAttestation
+         */
+        NonE2EEAttestation.fromObject = function (object, _depth) {
+            if (object instanceof $root.Aea.NonE2EEAttestation)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".Aea.NonE2EEAttestation: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.Aea.NonE2EEAttestation();
+            switch (object.accountType) {
+            case "E2EE":
+            case 0:
+                message.accountType = 0;
+                break;
+            case "HYBRID_E2EE":
+            case 1:
+                message.accountType = 1;
+                break;
+            case "NON_E2EE":
+            case 2:
+                message.accountType = 2;
+                break;
+            default:
+                if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
+                    message.accountType = object.accountType;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a NonE2EEAttestation message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {Aea.NonE2EEAttestation} message NonE2EEAttestation
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        NonE2EEAttestation.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
+                object.accountType = options.enums === $String ? $root.Aea.NonE2EEAttestation.AccountType[message.accountType] === $undefined ? message.accountType : $root.Aea.NonE2EEAttestation.AccountType[message.accountType] : message.accountType;
+            return object;
+        };
+
+        /**
+         * Converts this NonE2EEAttestation to JSON.
+         * @function toJSON
+         * @memberof Aea.NonE2EEAttestation
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        NonE2EEAttestation.prototype.toJSON = function() {
+            return NonE2EEAttestation.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for NonE2EEAttestation
+         * @function getTypeUrl
+         * @memberof Aea.NonE2EEAttestation
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        NonE2EEAttestation.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Aea.NonE2EEAttestation";
+        };
+
+        /**
+         * AccountType enum.
+         * @name Aea.NonE2EEAttestation.AccountType
+         * @enum {number}
+         * @property {number} E2EE=0 E2EE value
+         * @property {number} HYBRID_E2EE=1 HYBRID_E2EE value
+         * @property {number} NON_E2EE=2 NON_E2EE value
+         */
+        NonE2EEAttestation.AccountType = (function() {
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
+            values[valuesById[0] = "E2EE"] = 0;
+            values[valuesById[1] = "HYBRID_E2EE"] = 1;
+            values[valuesById[2] = "NON_E2EE"] = 2;
+            return values;
+        })();
+
+        return NonE2EEAttestation;
+    })();
+
+    return Aea;
+})();
+
+$root.StatusAttributions = (function() {
+
+    /**
+     * Namespace StatusAttributions.
+     * @exports StatusAttributions
+     * @namespace
+     */
+    var StatusAttributions = {};
+
+    StatusAttributions.StatusAttribution = (function() {
+
+        /**
+         * Properties of a StatusAttribution.
+         * @typedef {Object} StatusAttributions.StatusAttribution.$Properties
+         * @property {StatusAttributions.StatusAttribution.Type|null} [type] StatusAttribution type
+         * @property {string|null} [actionUrl] StatusAttribution actionUrl
+         * @property {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null} [statusReshare] StatusAttribution statusReshare
+         * @property {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null} [externalShare] StatusAttribution externalShare
+         * @property {StatusAttributions.StatusAttribution.Music.$Properties|null} [music] StatusAttribution music
+         * @property {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null} [groupStatus] StatusAttribution groupStatus
+         * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
+         * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
+         * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a StatusAttribution.
+         * @memberof StatusAttributions
+         * @interface IStatusAttribution
+         * @augments StatusAttributions.StatusAttribution.$Properties
+         * @deprecated Use StatusAttributions.StatusAttribution.$Properties instead.
+         */
+
+        /**
+         * Narrowed shape of a StatusAttribution.
+         * @typedef {{
+         *   type?: StatusAttributions.StatusAttribution.Type|null;
+         *   actionUrl?: string|null;
+         *   statusReshare?: StatusAttributions.StatusAttribution.StatusReshare.$Shape|null;
+         *   externalShare?: StatusAttributions.StatusAttribution.ExternalShare.$Shape|null;
+         *   music?: StatusAttributions.StatusAttribution.Music.$Shape|null;
+         *   groupStatus?: StatusAttributions.StatusAttribution.GroupStatus.$Shape|null;
+         *   rlAttribution?: StatusAttributions.StatusAttribution.RLAttribution.$Shape|null;
+         *   aiCreatedAttribution?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * } & (
+         *   ({ attributionData?: undefined; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "statusReshare"; statusReshare: StatusAttributions.StatusAttribution.StatusReshare.$Shape; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "externalShare"; statusReshare?: null; externalShare: StatusAttributions.StatusAttribution.ExternalShare.$Shape; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "music"; statusReshare?: null; externalShare?: null; music: StatusAttributions.StatusAttribution.Music.$Shape; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "groupStatus"; statusReshare?: null; externalShare?: null; music?: null; groupStatus: StatusAttributions.StatusAttribution.GroupStatus.$Shape; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "rlAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution: StatusAttributions.StatusAttribution.RLAttribution.$Shape; aiCreatedAttribution?: null }|{ attributionData?: "aiCreatedAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape })
+         * )} StatusAttributions.StatusAttribution.$Shape
+         */
+
+        /**
+         * Constructs a new StatusAttribution.
+         * @memberof StatusAttributions
+         * @classdesc Represents a StatusAttribution.
+         * @constructor
+         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var StatusAttribution = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * StatusAttribution type.
+         * @member {StatusAttributions.StatusAttribution.Type|null|undefined} type
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.type = null;
+
+        /**
+         * StatusAttribution actionUrl.
+         * @member {string|null|undefined} actionUrl
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.actionUrl = null;
+
+        /**
+         * StatusAttribution statusReshare.
+         * @member {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null|undefined} statusReshare
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.statusReshare = null;
+
+        /**
+         * StatusAttribution externalShare.
+         * @member {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null|undefined} externalShare
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.externalShare = null;
+
+        /**
+         * StatusAttribution music.
+         * @member {StatusAttributions.StatusAttribution.Music.$Properties|null|undefined} music
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.music = null;
+
+        /**
+         * StatusAttribution groupStatus.
+         * @member {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null|undefined} groupStatus
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.groupStatus = null;
+
+        /**
+         * StatusAttribution rlAttribution.
+         * @member {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null|undefined} rlAttribution
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.rlAttribution = null;
+
+        /**
+         * StatusAttribution aiCreatedAttribution.
+         * @member {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null|undefined} aiCreatedAttribution
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.aiCreatedAttribution = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(StatusAttribution.prototype, "_type", {
+            get: $util.oneOfGetter($oneOfFields = ["type"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(StatusAttribution.prototype, "_actionUrl", {
+            get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * StatusAttribution attributionData.
+         * @member {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"|undefined} attributionData
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        $Object.defineProperty(StatusAttribution.prototype, "attributionData", {
+            get: $util.oneOfGetter($oneOfFields = ["statusReshare", "externalShare", "music", "groupStatus", "rlAttribution", "aiCreatedAttribution"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new StatusAttribution instance using the specified properties.
+         * @function create
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
+         * @returns {StatusAttributions.StatusAttribution} StatusAttribution instance
+         * @type {{
+         *   (properties: StatusAttributions.StatusAttribution.$Shape): StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape;
+         *   (properties?: StatusAttributions.StatusAttribution.$Properties): StatusAttributions.StatusAttribution;
+         * }}
+         */
+        StatusAttribution.create = function(properties) {
+            return new StatusAttribution(properties);
+        };
+
+        /**
+         * Encodes the specified StatusAttribution message. Does not implicitly {@link StatusAttributions.StatusAttribution.verify|verify} messages.
+         * @function encode
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        StatusAttribution.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.actionUrl);
+            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare"))
+                $root.StatusAttributions.StatusAttribution.StatusReshare.encode(message.statusReshare, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare"))
+                $root.StatusAttributions.StatusAttribution.ExternalShare.encode(message.externalShare, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
+            if (message.music != null && $Object.hasOwnProperty.call(message, "music"))
+                $root.StatusAttributions.StatusAttribution.Music.encode(message.music, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
+            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus"))
+                $root.StatusAttributions.StatusAttribution.GroupStatus.encode(message.groupStatus, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
+            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution"))
+                $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
+            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
+                $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified StatusAttribution message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        StatusAttribution.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a StatusAttribution message from the specified reader or buffer.
+         * @function decode
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        StatusAttribution.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution(), value;
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.type = reader.int32();
+                        message._type = "type";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.actionUrl = reader.stringVerify();
+                        message._actionUrl = "actionUrl";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusReshare);
+                        message.attributionData = "statusReshare";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalShare);
+                        message.attributionData = "externalShare";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), $undefined, _depth + 1, message.music);
+                        message.attributionData = "music";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatus);
+                        message.attributionData = "groupStatus";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rlAttribution);
+                        message.attributionData = "rlAttribution";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiCreatedAttribution);
+                        message.attributionData = "aiCreatedAttribution";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a StatusAttribution message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        StatusAttribution.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a StatusAttribution message.
+         * @function verify
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        StatusAttribution.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
+                properties._type = 1;
+                if (typeof message.type !== "number" || (message.type | 0) !== message.type)
+                    return "type: enum value expected";
+            }
+            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
+                properties._actionUrl = 1;
+                if (!$util.isString(message.actionUrl))
+                    return "actionUrl: string expected";
+            }
+            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare")) {
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.StatusReshare.verify(message.statusReshare, _depth + 1);
+                    if (error)
+                        return "statusReshare." + error;
+                }
+            }
+            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare")) {
+                if (properties.attributionData === 1)
+                    return "attributionData: multiple values";
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.ExternalShare.verify(message.externalShare, _depth + 1);
+                    if (error)
+                        return "externalShare." + error;
+                }
+            }
+            if (message.music != null && $Object.hasOwnProperty.call(message, "music")) {
+                if (properties.attributionData === 1)
+                    return "attributionData: multiple values";
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.Music.verify(message.music, _depth + 1);
+                    if (error)
+                        return "music." + error;
+                }
+            }
+            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus")) {
+                if (properties.attributionData === 1)
+                    return "attributionData: multiple values";
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.GroupStatus.verify(message.groupStatus, _depth + 1);
+                    if (error)
+                        return "groupStatus." + error;
+                }
+            }
+            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution")) {
+                if (properties.attributionData === 1)
+                    return "attributionData: multiple values";
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.RLAttribution.verify(message.rlAttribution, _depth + 1);
+                    if (error)
+                        return "rlAttribution." + error;
+                }
+            }
+            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution")) {
+                if (properties.attributionData === 1)
+                    return "attributionData: multiple values";
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.verify(message.aiCreatedAttribution, _depth + 1);
+                    if (error)
+                        return "aiCreatedAttribution." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a StatusAttribution message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {StatusAttributions.StatusAttribution} StatusAttribution
+         */
+        StatusAttribution.fromObject = function (object, _depth) {
+            if (object instanceof $root.StatusAttributions.StatusAttribution)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".StatusAttributions.StatusAttribution: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.StatusAttributions.StatusAttribution();
+            switch (object.type) {
+            case "UNKNOWN":
+            case 0:
+                message.type = 0;
+                break;
+            case "RESHARE":
+            case 1:
+                message.type = 1;
+                break;
+            case "EXTERNAL_SHARE":
+            case 2:
+                message.type = 2;
+                break;
+            case "MUSIC":
+            case 3:
+                message.type = 3;
+                break;
+            case "STATUS_MENTION":
+            case 4:
+                message.type = 4;
+                break;
+            case "GROUP_STATUS":
+            case 5:
+                message.type = 5;
+                break;
+            case "RL_ATTRIBUTION":
+            case 6:
+                message.type = 6;
+                break;
+            case "AI_CREATED":
+            case 7:
+                message.type = 7;
+                break;
+            case "LAYOUTS":
+            case 8:
+                message.type = 8;
+                break;
+            case "NEWSLETTER_STATUS":
+            case 9:
+                message.type = 9;
+                break;
+            case "STATUS_CLOSE_SHARING":
+            case 10:
+                message.type = 10;
+                break;
+            case "PAID_PARTNERSHIP":
+            case 11:
+                message.type = 11;
+                break;
+            default:
+                if (typeof object.type === "number" && (object.type | 0) === object.type)
+                    message.type = object.type;
+            }
+            if (object.actionUrl != null)
+                message.actionUrl = $String(object.actionUrl);
+            if (object.statusReshare != null) {
+                if (!$util.isObject(object.statusReshare))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.statusReshare: object expected");
+                message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.fromObject(object.statusReshare, _depth + 1);
+            }
+            if (object.externalShare != null) {
+                if (!$util.isObject(object.externalShare))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.externalShare: object expected");
+                message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.fromObject(object.externalShare, _depth + 1);
+            }
+            if (object.music != null) {
+                if (!$util.isObject(object.music))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.music: object expected");
+                message.music = $root.StatusAttributions.StatusAttribution.Music.fromObject(object.music, _depth + 1);
+            }
+            if (object.groupStatus != null) {
+                if (!$util.isObject(object.groupStatus))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.groupStatus: object expected");
+                message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.fromObject(object.groupStatus, _depth + 1);
+            }
+            if (object.rlAttribution != null) {
+                if (!$util.isObject(object.rlAttribution))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.rlAttribution: object expected");
+                message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.fromObject(object.rlAttribution, _depth + 1);
+            }
+            if (object.aiCreatedAttribution != null) {
+                if (!$util.isObject(object.aiCreatedAttribution))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
+                message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, _depth + 1);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a StatusAttribution message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {StatusAttributions.StatusAttribution} message StatusAttribution
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        StatusAttribution.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
+                object.type = options.enums === $String ? $root.StatusAttributions.StatusAttribution.Type[message.type] === $undefined ? message.type : $root.StatusAttributions.StatusAttribution.Type[message.type] : message.type;
+            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
+                object.actionUrl = message.actionUrl;
+            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare")) {
+                object.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.toObject(message.statusReshare, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "statusReshare";
+            }
+            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare")) {
+                object.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.toObject(message.externalShare, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "externalShare";
+            }
+            if (message.music != null && $Object.hasOwnProperty.call(message, "music")) {
+                object.music = $root.StatusAttributions.StatusAttribution.Music.toObject(message.music, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "music";
+            }
+            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus")) {
+                object.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.toObject(message.groupStatus, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "groupStatus";
+            }
+            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution")) {
+                object.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.toObject(message.rlAttribution, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "rlAttribution";
+            }
+            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution")) {
+                object.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.toObject(message.aiCreatedAttribution, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "aiCreatedAttribution";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this StatusAttribution to JSON.
+         * @function toJSON
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        StatusAttribution.prototype.toJSON = function() {
+            return StatusAttribution.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for StatusAttribution
+         * @function getTypeUrl
+         * @memberof StatusAttributions.StatusAttribution
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        StatusAttribution.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/StatusAttributions.StatusAttribution";
+        };
+
+        StatusAttribution.AiCreatedAttribution = (function() {
+
+            /**
+             * Properties of an AiCreatedAttribution.
+             * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
+             * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of an AiCreatedAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IAiCreatedAttribution
+             * @augments StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiCreatedAttribution.
+             * @typedef {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape
+             */
+
+            /**
+             * Constructs a new AiCreatedAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents an AiCreatedAttribution.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var AiCreatedAttribution = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * AiCreatedAttribution source.
+             * @member {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null|undefined} source
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @instance
+             */
+            AiCreatedAttribution.prototype.source = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(AiCreatedAttribution.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new AiCreatedAttribution instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape): StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties): StatusAttributions.StatusAttribution.AiCreatedAttribution;
+             * }}
+             */
+            AiCreatedAttribution.create = function(properties) {
+                return new AiCreatedAttribution(properties);
+            };
+
+            /**
+             * Encodes the specified AiCreatedAttribution message. Does not implicitly {@link StatusAttributions.StatusAttribution.AiCreatedAttribution.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiCreatedAttribution.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AiCreatedAttribution message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.AiCreatedAttribution.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiCreatedAttribution.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes an AiCreatedAttribution message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiCreatedAttribution.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution(), value;
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes an AiCreatedAttribution message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiCreatedAttribution.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AiCreatedAttribution message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AiCreatedAttribution.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
+                    properties._source = 1;
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
+                        return "source: enum value expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AiCreatedAttribution message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
+             */
+            AiCreatedAttribution.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.AiCreatedAttribution)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.AiCreatedAttribution: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
+                switch (object.source) {
+                case "UNKNOWN":
+                case 0:
+                    message.source = 0;
+                    break;
+                case "STATUS_MIMICRY":
+                case 1:
+                    message.source = 1;
+                    break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AiCreatedAttribution message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution} message AiCreatedAttribution
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AiCreatedAttribution.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] : message.source;
+                return object;
+            };
+
+            /**
+             * Converts this AiCreatedAttribution to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AiCreatedAttribution.prototype.toJSON = function() {
+                return AiCreatedAttribution.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for AiCreatedAttribution
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            AiCreatedAttribution.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.AiCreatedAttribution";
+            };
+
+            /**
+             * Source enum.
+             * @name StatusAttributions.StatusAttribution.AiCreatedAttribution.Source
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} STATUS_MIMICRY=1 STATUS_MIMICRY value
+             */
+            AiCreatedAttribution.Source = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "STATUS_MIMICRY"] = 1;
+                return values;
+            })();
+
+            return AiCreatedAttribution;
+        })();
+
+        StatusAttribution.ExternalShare = (function() {
+
+            /**
+             * Properties of an ExternalShare.
+             * @typedef {Object} StatusAttributions.StatusAttribution.ExternalShare.$Properties
+             * @property {string|null} [actionUrl] ExternalShare actionUrl
+             * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
+             * @property {number|null} [duration] ExternalShare duration
+             * @property {string|null} [actionFallbackUrl] ExternalShare actionFallbackUrl
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of an ExternalShare.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IExternalShare
+             * @augments StatusAttributions.StatusAttribution.ExternalShare.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.ExternalShare.$Properties instead.
+             */
+
+            /**
+             * Shape of an ExternalShare.
+             * @typedef {StatusAttributions.StatusAttribution.ExternalShare.$Properties} StatusAttributions.StatusAttribution.ExternalShare.$Shape
+             */
+
+            /**
+             * Constructs a new ExternalShare.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents an ExternalShare.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var ExternalShare = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * ExternalShare actionUrl.
+             * @member {string|null|undefined} actionUrl
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            ExternalShare.prototype.actionUrl = null;
+
+            /**
+             * ExternalShare source.
+             * @member {StatusAttributions.StatusAttribution.ExternalShare.Source|null|undefined} source
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            ExternalShare.prototype.source = null;
+
+            /**
+             * ExternalShare duration.
+             * @member {number|null|undefined} duration
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            ExternalShare.prototype.duration = null;
+
+            /**
+             * ExternalShare actionFallbackUrl.
+             * @member {string|null|undefined} actionFallbackUrl
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            ExternalShare.prototype.actionFallbackUrl = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalShare.prototype, "_actionUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalShare.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalShare.prototype, "_duration", {
+                get: $util.oneOfGetter($oneOfFields = ["duration"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalShare.prototype, "_actionFallbackUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["actionFallbackUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new ExternalShare instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.ExternalShare.$Shape): StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.ExternalShare.$Properties): StatusAttributions.StatusAttribution.ExternalShare;
+             * }}
+             */
+            ExternalShare.create = function(properties) {
+                return new ExternalShare(properties);
+            };
+
+            /**
+             * Encodes the specified ExternalShare message. Does not implicitly {@link StatusAttributions.StatusAttribution.ExternalShare.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ExternalShare.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.actionUrl);
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.source);
+                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.duration);
+                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.actionFallbackUrl);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ExternalShare message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.ExternalShare.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ExternalShare.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes an ExternalShare message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ExternalShare.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare(), value;
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.actionUrl = reader.stringVerify();
+                            message._actionUrl = "actionUrl";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.duration = reader.int32();
+                            message._duration = "duration";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.actionFallbackUrl = reader.stringVerify();
+                            message._actionFallbackUrl = "actionFallbackUrl";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes an ExternalShare message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ExternalShare.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an ExternalShare message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ExternalShare.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
+                    properties._actionUrl = 1;
+                    if (!$util.isString(message.actionUrl))
+                        return "actionUrl: string expected";
+                }
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
+                    properties._source = 1;
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
+                        return "source: enum value expected";
+                }
+                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
+                    properties._duration = 1;
+                    if (!$util.isInteger(message.duration))
+                        return "duration: integer expected";
+                }
+                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl")) {
+                    properties._actionFallbackUrl = 1;
+                    if (!$util.isString(message.actionFallbackUrl))
+                        return "actionFallbackUrl: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an ExternalShare message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
+             */
+            ExternalShare.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.ExternalShare)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.ExternalShare: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.ExternalShare();
+                if (object.actionUrl != null)
+                    message.actionUrl = $String(object.actionUrl);
+                switch (object.source) {
+                case "UNKNOWN":
+                case 0:
+                    message.source = 0;
+                    break;
+                case "INSTAGRAM":
+                case 1:
+                    message.source = 1;
+                    break;
+                case "FACEBOOK":
+                case 2:
+                    message.source = 2;
+                    break;
+                case "MESSENGER":
+                case 3:
+                    message.source = 3;
+                    break;
+                case "SPOTIFY":
+                case 4:
+                    message.source = 4;
+                    break;
+                case "YOUTUBE":
+                case 5:
+                    message.source = 5;
+                    break;
+                case "PINTEREST":
+                case 6:
+                    message.source = 6;
+                    break;
+                case "THREADS":
+                case 7:
+                    message.source = 7;
+                    break;
+                case "APPLE_MUSIC":
+                case 8:
+                    message.source = 8;
+                    break;
+                case "SHARECHAT":
+                case 9:
+                    message.source = 9;
+                    break;
+                case "GOOGLE_PHOTOS":
+                case 10:
+                    message.source = 10;
+                    break;
+                case "SOUNDCLOUD":
+                case 11:
+                    message.source = 11;
+                    break;
+                case "SHAZAM":
+                case 12:
+                    message.source = 12;
+                    break;
+                case "PICSART":
+                case 13:
+                    message.source = 13;
+                    break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
+                }
+                if (object.duration != null)
+                    message.duration = object.duration | 0;
+                if (object.actionFallbackUrl != null)
+                    message.actionFallbackUrl = $String(object.actionFallbackUrl);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an ExternalShare message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.ExternalShare} message ExternalShare
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ExternalShare.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
+                    object.actionUrl = message.actionUrl;
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] : message.source;
+                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
+                    object.duration = message.duration;
+                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl"))
+                    object.actionFallbackUrl = message.actionFallbackUrl;
+                return object;
+            };
+
+            /**
+             * Converts this ExternalShare to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ExternalShare.prototype.toJSON = function() {
+                return ExternalShare.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for ExternalShare
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            ExternalShare.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.ExternalShare";
+            };
+
+            /**
+             * Source enum.
+             * @name StatusAttributions.StatusAttribution.ExternalShare.Source
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} INSTAGRAM=1 INSTAGRAM value
+             * @property {number} FACEBOOK=2 FACEBOOK value
+             * @property {number} MESSENGER=3 MESSENGER value
+             * @property {number} SPOTIFY=4 SPOTIFY value
+             * @property {number} YOUTUBE=5 YOUTUBE value
+             * @property {number} PINTEREST=6 PINTEREST value
+             * @property {number} THREADS=7 THREADS value
+             * @property {number} APPLE_MUSIC=8 APPLE_MUSIC value
+             * @property {number} SHARECHAT=9 SHARECHAT value
+             * @property {number} GOOGLE_PHOTOS=10 GOOGLE_PHOTOS value
+             * @property {number} SOUNDCLOUD=11 SOUNDCLOUD value
+             * @property {number} SHAZAM=12 SHAZAM value
+             * @property {number} PICSART=13 PICSART value
+             */
+            ExternalShare.Source = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "INSTAGRAM"] = 1;
+                values[valuesById[2] = "FACEBOOK"] = 2;
+                values[valuesById[3] = "MESSENGER"] = 3;
+                values[valuesById[4] = "SPOTIFY"] = 4;
+                values[valuesById[5] = "YOUTUBE"] = 5;
+                values[valuesById[6] = "PINTEREST"] = 6;
+                values[valuesById[7] = "THREADS"] = 7;
+                values[valuesById[8] = "APPLE_MUSIC"] = 8;
+                values[valuesById[9] = "SHARECHAT"] = 9;
+                values[valuesById[10] = "GOOGLE_PHOTOS"] = 10;
+                values[valuesById[11] = "SOUNDCLOUD"] = 11;
+                values[valuesById[12] = "SHAZAM"] = 12;
+                values[valuesById[13] = "PICSART"] = 13;
+                return values;
+            })();
+
+            return ExternalShare;
+        })();
+
+        StatusAttribution.GroupStatus = (function() {
+
+            /**
+             * Properties of a GroupStatus.
+             * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
+             * @property {string|null} [authorJid] GroupStatus authorJid
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a GroupStatus.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IGroupStatus
+             * @augments StatusAttributions.StatusAttribution.GroupStatus.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.GroupStatus.$Properties instead.
+             */
+
+            /**
+             * Shape of a GroupStatus.
+             * @typedef {StatusAttributions.StatusAttribution.GroupStatus.$Properties} StatusAttributions.StatusAttribution.GroupStatus.$Shape
+             */
+
+            /**
+             * Constructs a new GroupStatus.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents a GroupStatus.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var GroupStatus = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * GroupStatus authorJid.
+             * @member {string|null|undefined} authorJid
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @instance
+             */
+            GroupStatus.prototype.authorJid = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(GroupStatus.prototype, "_authorJid", {
+                get: $util.oneOfGetter($oneOfFields = ["authorJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new GroupStatus instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.GroupStatus.$Shape): StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.GroupStatus.$Properties): StatusAttributions.StatusAttribution.GroupStatus;
+             * }}
+             */
+            GroupStatus.create = function(properties) {
+                return new GroupStatus(properties);
+            };
+
+            /**
+             * Encodes the specified GroupStatus message. Does not implicitly {@link StatusAttributions.StatusAttribution.GroupStatus.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GroupStatus.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorJid);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GroupStatus message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.GroupStatus.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GroupStatus.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a GroupStatus message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GroupStatus.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.GroupStatus();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.authorJid = reader.stringVerify();
+                            message._authorJid = "authorJid";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a GroupStatus message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GroupStatus.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GroupStatus message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GroupStatus.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid")) {
+                    properties._authorJid = 1;
+                    if (!$util.isString(message.authorJid))
+                        return "authorJid: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a GroupStatus message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
+             */
+            GroupStatus.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.GroupStatus)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.GroupStatus: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.GroupStatus();
+                if (object.authorJid != null)
+                    message.authorJid = $String(object.authorJid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GroupStatus message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {StatusAttributions.StatusAttribution.GroupStatus} message GroupStatus
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GroupStatus.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid"))
+                    object.authorJid = message.authorJid;
+                return object;
+            };
+
+            /**
+             * Converts this GroupStatus to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GroupStatus.prototype.toJSON = function() {
+                return GroupStatus.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for GroupStatus
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            GroupStatus.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.GroupStatus";
+            };
+
+            return GroupStatus;
+        })();
+
+        StatusAttribution.Music = (function() {
+
+            /**
+             * Properties of a Music.
+             * @typedef {Object} StatusAttributions.StatusAttribution.Music.$Properties
+             * @property {string|null} [authorName] Music authorName
+             * @property {string|null} [songId] Music songId
+             * @property {string|null} [title] Music title
+             * @property {string|null} [author] Music author
+             * @property {string|null} [artistAttribution] Music artistAttribution
+             * @property {boolean|null} [isExplicit] Music isExplicit
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a Music.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IMusic
+             * @augments StatusAttributions.StatusAttribution.Music.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.Music.$Properties instead.
+             */
+
+            /**
+             * Shape of a Music.
+             * @typedef {StatusAttributions.StatusAttribution.Music.$Properties} StatusAttributions.StatusAttribution.Music.$Shape
+             */
+
+            /**
+             * Constructs a new Music.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents a Music.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var Music = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * Music authorName.
+             * @member {string|null|undefined} authorName
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Music.prototype.authorName = null;
+
+            /**
+             * Music songId.
+             * @member {string|null|undefined} songId
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Music.prototype.songId = null;
+
+            /**
+             * Music title.
+             * @member {string|null|undefined} title
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Music.prototype.title = null;
+
+            /**
+             * Music author.
+             * @member {string|null|undefined} author
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Music.prototype.author = null;
+
+            /**
+             * Music artistAttribution.
+             * @member {string|null|undefined} artistAttribution
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Music.prototype.artistAttribution = null;
+
+            /**
+             * Music isExplicit.
+             * @member {boolean|null|undefined} isExplicit
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Music.prototype.isExplicit = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Music.prototype, "_authorName", {
+                get: $util.oneOfGetter($oneOfFields = ["authorName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Music.prototype, "_songId", {
+                get: $util.oneOfGetter($oneOfFields = ["songId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Music.prototype, "_title", {
+                get: $util.oneOfGetter($oneOfFields = ["title"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Music.prototype, "_author", {
+                get: $util.oneOfGetter($oneOfFields = ["author"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Music.prototype, "_artistAttribution", {
+                get: $util.oneOfGetter($oneOfFields = ["artistAttribution"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Music.prototype, "_isExplicit", {
+                get: $util.oneOfGetter($oneOfFields = ["isExplicit"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new Music instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.Music} Music instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.Music.$Shape): StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.Music.$Properties): StatusAttributions.StatusAttribution.Music;
+             * }}
+             */
+            Music.create = function(properties) {
+                return new Music(properties);
+            };
+
+            /**
+             * Encodes the specified Music message. Does not implicitly {@link StatusAttributions.StatusAttribution.Music.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Music.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorName);
+                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.songId);
+                if (message.title != null && $Object.hasOwnProperty.call(message, "title"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.title);
+                if (message.author != null && $Object.hasOwnProperty.call(message, "author"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.author);
+                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.artistAttribution);
+                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isExplicit);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Music message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.Music.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Music.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a Music message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Music.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.Music();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.authorName = reader.stringVerify();
+                            message._authorName = "authorName";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.songId = reader.stringVerify();
+                            message._songId = "songId";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.title = reader.stringVerify();
+                            message._title = "title";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.author = reader.stringVerify();
+                            message._author = "author";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.artistAttribution = reader.stringVerify();
+                            message._artistAttribution = "artistAttribution";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 0)
+                                break;
+                            message.isExplicit = reader.bool();
+                            message._isExplicit = "isExplicit";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a Music message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Music.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Music message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Music.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName")) {
+                    properties._authorName = 1;
+                    if (!$util.isString(message.authorName))
+                        return "authorName: string expected";
+                }
+                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId")) {
+                    properties._songId = 1;
+                    if (!$util.isString(message.songId))
+                        return "songId: string expected";
+                }
+                if (message.title != null && $Object.hasOwnProperty.call(message, "title")) {
+                    properties._title = 1;
+                    if (!$util.isString(message.title))
+                        return "title: string expected";
+                }
+                if (message.author != null && $Object.hasOwnProperty.call(message, "author")) {
+                    properties._author = 1;
+                    if (!$util.isString(message.author))
+                        return "author: string expected";
+                }
+                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution")) {
+                    properties._artistAttribution = 1;
+                    if (!$util.isString(message.artistAttribution))
+                        return "artistAttribution: string expected";
+                }
+                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit")) {
+                    properties._isExplicit = 1;
+                    if (typeof message.isExplicit !== "boolean")
+                        return "isExplicit: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a Music message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.Music} Music
+             */
+            Music.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.Music)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.Music: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.Music();
+                if (object.authorName != null)
+                    message.authorName = $String(object.authorName);
+                if (object.songId != null)
+                    message.songId = $String(object.songId);
+                if (object.title != null)
+                    message.title = $String(object.title);
+                if (object.author != null)
+                    message.author = $String(object.author);
+                if (object.artistAttribution != null)
+                    message.artistAttribution = $String(object.artistAttribution);
+                if (object.isExplicit != null)
+                    message.isExplicit = $Boolean(object.isExplicit);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Music message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {StatusAttributions.StatusAttribution.Music} message Music
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Music.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName"))
+                    object.authorName = message.authorName;
+                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId"))
+                    object.songId = message.songId;
+                if (message.title != null && $Object.hasOwnProperty.call(message, "title"))
+                    object.title = message.title;
+                if (message.author != null && $Object.hasOwnProperty.call(message, "author"))
+                    object.author = message.author;
+                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution"))
+                    object.artistAttribution = message.artistAttribution;
+                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit"))
+                    object.isExplicit = message.isExplicit;
+                return object;
+            };
+
+            /**
+             * Converts this Music to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Music.prototype.toJSON = function() {
+                return Music.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for Music
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            Music.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.Music";
+            };
+
+            return Music;
+        })();
+
+        StatusAttribution.RLAttribution = (function() {
+
+            /**
+             * Properties of a RLAttribution.
+             * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
+             * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a RLAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IRLAttribution
+             * @augments StatusAttributions.StatusAttribution.RLAttribution.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.RLAttribution.$Properties instead.
+             */
+
+            /**
+             * Shape of a RLAttribution.
+             * @typedef {StatusAttributions.StatusAttribution.RLAttribution.$Properties} StatusAttributions.StatusAttribution.RLAttribution.$Shape
+             */
+
+            /**
+             * Constructs a new RLAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents a RLAttribution.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var RLAttribution = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * RLAttribution source.
+             * @member {StatusAttributions.StatusAttribution.RLAttribution.Source|null|undefined} source
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @instance
+             */
+            RLAttribution.prototype.source = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(RLAttribution.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new RLAttribution instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.RLAttribution.$Shape): StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.RLAttribution.$Properties): StatusAttributions.StatusAttribution.RLAttribution;
+             * }}
+             */
+            RLAttribution.create = function(properties) {
+                return new RLAttribution(properties);
+            };
+
+            /**
+             * Encodes the specified RLAttribution message. Does not implicitly {@link StatusAttributions.StatusAttribution.RLAttribution.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RLAttribution.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RLAttribution message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.RLAttribution.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RLAttribution.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a RLAttribution message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RLAttribution.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution(), value;
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a RLAttribution message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RLAttribution.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RLAttribution message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RLAttribution.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
+                    properties._source = 1;
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
+                        return "source: enum value expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RLAttribution message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
+             */
+            RLAttribution.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.RLAttribution)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.RLAttribution: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.RLAttribution();
+                switch (object.source) {
+                case "UNKNOWN":
+                case 0:
+                    message.source = 0;
+                    break;
+                case "RAY_BAN_META_GLASSES":
+                case 1:
+                    message.source = 1;
+                    break;
+                case "OAKLEY_META_GLASSES":
+                case 2:
+                    message.source = 2;
+                    break;
+                case "HYPERNOVA_GLASSES":
+                case 3:
+                    message.source = 3;
+                    break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RLAttribution message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {StatusAttributions.StatusAttribution.RLAttribution} message RLAttribution
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RLAttribution.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] : message.source;
+                return object;
+            };
+
+            /**
+             * Converts this RLAttribution to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RLAttribution.prototype.toJSON = function() {
+                return RLAttribution.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for RLAttribution
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            RLAttribution.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.RLAttribution";
+            };
+
+            /**
+             * Source enum.
+             * @name StatusAttributions.StatusAttribution.RLAttribution.Source
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} RAY_BAN_META_GLASSES=1 RAY_BAN_META_GLASSES value
+             * @property {number} OAKLEY_META_GLASSES=2 OAKLEY_META_GLASSES value
+             * @property {number} HYPERNOVA_GLASSES=3 HYPERNOVA_GLASSES value
+             */
+            RLAttribution.Source = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "RAY_BAN_META_GLASSES"] = 1;
+                values[valuesById[2] = "OAKLEY_META_GLASSES"] = 2;
+                values[valuesById[3] = "HYPERNOVA_GLASSES"] = 3;
+                return values;
+            })();
+
+            return RLAttribution;
+        })();
+
+        StatusAttribution.StatusReshare = (function() {
+
+            /**
+             * Properties of a StatusReshare.
+             * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
+             * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
+             * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a StatusReshare.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IStatusReshare
+             * @augments StatusAttributions.StatusAttribution.StatusReshare.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.$Properties instead.
+             */
+
+            /**
+             * Shape of a StatusReshare.
+             * @typedef {StatusAttributions.StatusAttribution.StatusReshare.$Properties} StatusAttributions.StatusAttribution.StatusReshare.$Shape
+             */
+
+            /**
+             * Constructs a new StatusReshare.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents a StatusReshare.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var StatusReshare = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * StatusReshare source.
+             * @member {StatusAttributions.StatusAttribution.StatusReshare.Source|null|undefined} source
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @instance
+             */
+            StatusReshare.prototype.source = null;
+
+            /**
+             * StatusReshare metadata.
+             * @member {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null|undefined} metadata
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @instance
+             */
+            StatusReshare.prototype.metadata = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(StatusReshare.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(StatusReshare.prototype, "_metadata", {
+                get: $util.oneOfGetter($oneOfFields = ["metadata"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new StatusReshare instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.StatusReshare.$Shape): StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.$Properties): StatusAttributions.StatusAttribution.StatusReshare;
+             * }}
+             */
+            StatusReshare.create = function(properties) {
+                return new StatusReshare(properties);
+            };
+
+            /**
+             * Encodes the specified StatusReshare message. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StatusReshare.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
+                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata"))
+                    $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.encode(message.metadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StatusReshare message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StatusReshare.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a StatusReshare message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StatusReshare.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare(), value;
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
+                            message._metadata = "metadata";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a StatusReshare message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StatusReshare.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StatusReshare message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StatusReshare.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
+                    properties._source = 1;
+                    if (typeof message.source !== "number" || (message.source | 0) !== message.source)
+                        return "source: enum value expected";
+                }
+                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata")) {
+                    properties._metadata = 1;
+                    {
+                        var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata, _depth + 1);
+                        if (error)
+                            return "metadata." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StatusReshare message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
+             */
+            StatusReshare.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.StatusReshare();
+                switch (object.source) {
+                case "UNKNOWN":
+                case 0:
+                    message.source = 0;
+                    break;
+                case "INTERNAL_RESHARE":
+                case 1:
+                    message.source = 1;
+                    break;
+                case "MENTION_RESHARE":
+                case 2:
+                    message.source = 2;
+                    break;
+                case "CHANNEL_RESHARE":
+                case 3:
+                    message.source = 3;
+                    break;
+                case "FORWARD":
+                case 4:
+                    message.source = 4;
+                    break;
+                default:
+                    if (typeof object.source === "number" && (object.source | 0) === object.source)
+                        message.source = object.source;
+                }
+                if (object.metadata != null) {
+                    if (!$util.isObject(object.metadata))
+                        throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare.metadata: object expected");
+                    message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.fromObject(object.metadata, _depth + 1);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StatusReshare message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusReshare} message StatusReshare
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StatusReshare.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] : message.source;
+                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata"))
+                    object.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.toObject(message.metadata, options, _depth + 1);
+                return object;
+            };
+
+            /**
+             * Converts this StatusReshare to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StatusReshare.prototype.toJSON = function() {
+                return StatusReshare.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for StatusReshare
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            StatusReshare.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.StatusReshare";
+            };
+
+            StatusReshare.Metadata = (function() {
+
+                /**
+                 * Properties of a Metadata.
+                 * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
+                 * @property {number|null} [duration] Metadata duration
+                 * @property {string|null} [channelJid] Metadata channelJid
+                 * @property {number|null} [channelMessageId] Metadata channelMessageId
+                 * @property {boolean|null} [hasMultipleReshares] Metadata hasMultipleReshares
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+
+                /**
+                 * Properties of a Metadata.
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
+                 * @interface IMetadata
+                 * @augments StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
+                 * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a Metadata.
+                 * @typedef {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape
+                 */
+
+                /**
+                 * Constructs a new Metadata.
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
+                 * @classdesc Represents a Metadata.
+                 * @constructor
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+                var Metadata = function (properties) {
+                    if (properties)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                this[keys[i]] = properties[keys[i]];
+                };
+
+                /**
+                 * Metadata duration.
+                 * @member {number|null|undefined} duration
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Metadata.prototype.duration = null;
+
+                /**
+                 * Metadata channelJid.
+                 * @member {string|null|undefined} channelJid
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Metadata.prototype.channelJid = null;
+
+                /**
+                 * Metadata channelMessageId.
+                 * @member {number|null|undefined} channelMessageId
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Metadata.prototype.channelMessageId = null;
+
+                /**
+                 * Metadata hasMultipleReshares.
+                 * @member {boolean|null|undefined} hasMultipleReshares
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Metadata.prototype.hasMultipleReshares = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Metadata.prototype, "_duration", {
+                    get: $util.oneOfGetter($oneOfFields = ["duration"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Metadata.prototype, "_channelJid", {
+                    get: $util.oneOfGetter($oneOfFields = ["channelJid"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Metadata.prototype, "_channelMessageId", {
+                    get: $util.oneOfGetter($oneOfFields = ["channelMessageId"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Metadata.prototype, "_hasMultipleReshares", {
+                    get: $util.oneOfGetter($oneOfFields = ["hasMultipleReshares"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Creates a new Metadata instance using the specified properties.
+                 * @function create
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata instance
+                 * @type {{
+                 *   (properties: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape): StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape;
+                 *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties): StatusAttributions.StatusAttribution.StatusReshare.Metadata;
+                 * }}
+                 */
+                Metadata.create = function(properties) {
+                    return new Metadata(properties);
+                };
+
+                /**
+                 * Encodes the specified Metadata message. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify|verify} messages.
+                 * @function encode
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Metadata.encode = function (message, writer, _depth) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
+                        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.duration);
+                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.channelJid);
+                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).int32(message.channelMessageId);
+                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).bool(message.hasMultipleReshares);
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Metadata message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Metadata.encodeDelimited = function(message, writer) {
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+                };
+
+                /**
+                 * Decodes a Metadata message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Metadata.decode = function (reader, length, _end, _depth, _target) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
+                    while (reader.pos < end) {
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = $undefined;
+                            break;
+                        }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 0)
+                                    break;
+                                message.duration = reader.int32();
+                                message._duration = "duration";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.channelJid = reader.stringVerify();
+                                message._channelJid = "channelJid";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.channelMessageId = reader.int32();
+                                message._channelMessageId = "channelMessageId";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.hasMultipleReshares = reader.bool();
+                                message._hasMultipleReshares = "hasMultipleReshares";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
+                    }
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
+                    return message;
+                };
+
+                /**
+                 * Decodes a Metadata message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Metadata.decodeDelimited = function(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Metadata message.
+                 * @function verify
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Metadata.verify = function (message, _depth) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
+                    var properties = {};
+                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
+                        properties._duration = 1;
+                        if (!$util.isInteger(message.duration))
+                            return "duration: integer expected";
+                    }
+                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid")) {
+                        properties._channelJid = 1;
+                        if (!$util.isString(message.channelJid))
+                            return "channelJid: string expected";
+                    }
+                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId")) {
+                        properties._channelMessageId = 1;
+                        if (!$util.isInteger(message.channelMessageId))
+                            return "channelMessageId: integer expected";
+                    }
+                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares")) {
+                        properties._hasMultipleReshares = 1;
+                        if (typeof message.hasMultipleReshares !== "boolean")
+                            return "hasMultipleReshares: boolean expected";
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a Metadata message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
+                 */
+                Metadata.fromObject = function (object, _depth) {
+                    if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata)
+                        return object;
+                    if (!$util.isObject(object))
+                        throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare.Metadata: object expected");
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var message = new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
+                    if (object.duration != null)
+                        message.duration = object.duration | 0;
+                    if (object.channelJid != null)
+                        message.channelJid = $String(object.channelJid);
+                    if (object.channelMessageId != null)
+                        message.channelMessageId = object.channelMessageId | 0;
+                    if (object.hasMultipleReshares != null)
+                        message.hasMultipleReshares = $Boolean(object.hasMultipleReshares);
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Metadata message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata} message Metadata
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Metadata.toObject = function (message, options, _depth) {
+                    if (!options)
+                        options = {};
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var object = {};
+                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
+                        object.duration = message.duration;
+                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid"))
+                        object.channelJid = message.channelJid;
+                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId"))
+                        object.channelMessageId = message.channelMessageId;
+                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares"))
+                        object.hasMultipleReshares = message.hasMultipleReshares;
+                    return object;
+                };
+
+                /**
+                 * Converts this Metadata to JSON.
+                 * @function toJSON
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Metadata.prototype.toJSON = function() {
+                    return Metadata.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the type url for Metadata
+                 * @function getTypeUrl
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @static
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
+                 */
+                Metadata.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/StatusAttributions.StatusAttribution.StatusReshare.Metadata";
+                };
+
+                return Metadata;
+            })();
+
+            /**
+             * Source enum.
+             * @name StatusAttributions.StatusAttribution.StatusReshare.Source
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} INTERNAL_RESHARE=1 INTERNAL_RESHARE value
+             * @property {number} MENTION_RESHARE=2 MENTION_RESHARE value
+             * @property {number} CHANNEL_RESHARE=3 CHANNEL_RESHARE value
+             * @property {number} FORWARD=4 FORWARD value
+             */
+            StatusReshare.Source = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "INTERNAL_RESHARE"] = 1;
+                values[valuesById[2] = "MENTION_RESHARE"] = 2;
+                values[valuesById[3] = "CHANNEL_RESHARE"] = 3;
+                values[valuesById[4] = "FORWARD"] = 4;
+                return values;
+            })();
+
+            return StatusReshare;
+        })();
+
+        /**
+         * Type enum.
+         * @name StatusAttributions.StatusAttribution.Type
+         * @enum {number}
+         * @property {number} UNKNOWN=0 UNKNOWN value
+         * @property {number} RESHARE=1 RESHARE value
+         * @property {number} EXTERNAL_SHARE=2 EXTERNAL_SHARE value
+         * @property {number} MUSIC=3 MUSIC value
+         * @property {number} STATUS_MENTION=4 STATUS_MENTION value
+         * @property {number} GROUP_STATUS=5 GROUP_STATUS value
+         * @property {number} RL_ATTRIBUTION=6 RL_ATTRIBUTION value
+         * @property {number} AI_CREATED=7 AI_CREATED value
+         * @property {number} LAYOUTS=8 LAYOUTS value
+         * @property {number} NEWSLETTER_STATUS=9 NEWSLETTER_STATUS value
+         * @property {number} STATUS_CLOSE_SHARING=10 STATUS_CLOSE_SHARING value
+         * @property {number} PAID_PARTNERSHIP=11 PAID_PARTNERSHIP value
+         */
+        StatusAttribution.Type = (function() {
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
+            values[valuesById[0] = "UNKNOWN"] = 0;
+            values[valuesById[1] = "RESHARE"] = 1;
+            values[valuesById[2] = "EXTERNAL_SHARE"] = 2;
+            values[valuesById[3] = "MUSIC"] = 3;
+            values[valuesById[4] = "STATUS_MENTION"] = 4;
+            values[valuesById[5] = "GROUP_STATUS"] = 5;
+            values[valuesById[6] = "RL_ATTRIBUTION"] = 6;
+            values[valuesById[7] = "AI_CREATED"] = 7;
+            values[valuesById[8] = "LAYOUTS"] = 8;
+            values[valuesById[9] = "NEWSLETTER_STATUS"] = 9;
+            values[valuesById[10] = "STATUS_CLOSE_SHARING"] = 10;
+            values[valuesById[11] = "PAID_PARTNERSHIP"] = 11;
+            return values;
+        })();
+
+        return StatusAttribution;
+    })();
+
+    return StatusAttributions;
+})();
+
 $root.CompanionReg = (function() {
 
     /**
@@ -155141,6 +158814,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportHatchHistory] HistorySyncConfig supportHatchHistory
              * @property {Array.<string>|null} [supportedBotChannelFbids] HistorySyncConfig supportedBotChannelFbids
              * @property {boolean|null} [supportInlineContacts] HistorySyncConfig supportInlineContacts
+             * @property {boolean|null} [supportNewsletter] HistorySyncConfig supportNewsletter
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -155365,6 +159039,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.supportInlineContacts = null;
 
+            /**
+             * HistorySyncConfig supportNewsletter.
+             * @member {boolean|null|undefined} supportNewsletter
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportNewsletter = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -155506,6 +159188,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistorySyncConfig.prototype, "_supportNewsletter", {
+                get: $util.oneOfGetter($oneOfFields = ["supportNewsletter"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -155587,6 +159275,8 @@ $root.CompanionReg = (function() {
                         writer.uint32(/* id 23, wireType 2 =*/186).string(message.supportedBotChannelFbids[i]);
                 if (message.supportInlineContacts != null && $Object.hasOwnProperty.call(message, "supportInlineContacts"))
                     writer.uint32(/* id 24, wireType 0 =*/192).bool(message.supportInlineContacts);
+                if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter"))
+                    writer.uint32(/* id 25, wireType 0 =*/200).bool(message.supportNewsletter);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -155803,6 +159493,13 @@ $root.CompanionReg = (function() {
                             message._supportInlineContacts = "supportInlineContacts";
                             continue;
                         }
+                    case 25: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportNewsletter = reader.bool();
+                            message._supportNewsletter = "supportNewsletter";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -155969,6 +159666,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportInlineContacts !== "boolean")
                         return "supportInlineContacts: boolean expected";
                 }
+                if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter")) {
+                    properties._supportNewsletter = 1;
+                    if (typeof message.supportNewsletter !== "boolean")
+                        return "supportNewsletter: boolean expected";
+                }
                 return null;
             };
 
@@ -156043,6 +159745,8 @@ $root.CompanionReg = (function() {
                 }
                 if (object.supportInlineContacts != null)
                     message.supportInlineContacts = $Boolean(object.supportInlineContacts);
+                if (object.supportNewsletter != null)
+                    message.supportNewsletter = $Boolean(object.supportNewsletter);
                 return message;
             };
 
@@ -156116,6 +159820,8 @@ $root.CompanionReg = (function() {
                 }
                 if (message.supportInlineContacts != null && $Object.hasOwnProperty.call(message, "supportInlineContacts"))
                     object.supportInlineContacts = message.supportInlineContacts;
+                if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter"))
+                    object.supportNewsletter = message.supportNewsletter;
                 return object;
             };
 
@@ -156896,6 +160602,4796 @@ $root.MmsRetry = (function() {
     })();
 
     return MmsRetry;
+})();
+
+$root.ServerSync = (function() {
+
+    /**
+     * Namespace ServerSync.
+     * @exports ServerSync
+     * @namespace
+     */
+    var ServerSync = {};
+
+    ServerSync.CoexStateSync = (function() {
+
+        /**
+         * Properties of a CoexStateSync.
+         * @typedef {Object} ServerSync.CoexStateSync.$Properties
+         * @property {Array.<ServerSync.CoexStateSync.CollectionMutations.$Properties>|null} [collectionMutations] CoexStateSync collectionMutations
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a CoexStateSync.
+         * @memberof ServerSync
+         * @interface ICoexStateSync
+         * @augments ServerSync.CoexStateSync.$Properties
+         * @deprecated Use ServerSync.CoexStateSync.$Properties instead.
+         */
+
+        /**
+         * Shape of a CoexStateSync.
+         * @typedef {ServerSync.CoexStateSync.$Properties} ServerSync.CoexStateSync.$Shape
+         */
+
+        /**
+         * Constructs a new CoexStateSync.
+         * @memberof ServerSync
+         * @classdesc Represents a CoexStateSync.
+         * @constructor
+         * @param {ServerSync.CoexStateSync.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var CoexStateSync = function (properties) {
+            this.collectionMutations = [];
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * CoexStateSync collectionMutations.
+         * @member {Array.<ServerSync.CoexStateSync.CollectionMutations.$Properties>} collectionMutations
+         * @memberof ServerSync.CoexStateSync
+         * @instance
+         */
+        CoexStateSync.prototype.collectionMutations = $util.emptyArray;
+
+        /**
+         * Creates a new CoexStateSync instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {ServerSync.CoexStateSync.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.CoexStateSync} CoexStateSync instance
+         * @type {{
+         *   (properties: ServerSync.CoexStateSync.$Shape): ServerSync.CoexStateSync & ServerSync.CoexStateSync.$Shape;
+         *   (properties?: ServerSync.CoexStateSync.$Properties): ServerSync.CoexStateSync;
+         * }}
+         */
+        CoexStateSync.create = function(properties) {
+            return new CoexStateSync(properties);
+        };
+
+        /**
+         * Encodes the specified CoexStateSync message. Does not implicitly {@link ServerSync.CoexStateSync.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {ServerSync.CoexStateSync.$Properties} message CoexStateSync message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CoexStateSync.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.collectionMutations != null && message.collectionMutations.length)
+                for (var i = 0; i < message.collectionMutations.length; ++i)
+                    $root.ServerSync.CoexStateSync.CollectionMutations.encode(message.collectionMutations[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CoexStateSync message, length delimited. Does not implicitly {@link ServerSync.CoexStateSync.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {ServerSync.CoexStateSync.$Properties} message CoexStateSync message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CoexStateSync.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a CoexStateSync message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.CoexStateSync & ServerSync.CoexStateSync.$Shape} CoexStateSync
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CoexStateSync.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.CoexStateSync();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.collectionMutations && message.collectionMutations.length))
+                            message.collectionMutations = [];
+                        message.collectionMutations.push($root.ServerSync.CoexStateSync.CollectionMutations.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a CoexStateSync message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.CoexStateSync & ServerSync.CoexStateSync.$Shape} CoexStateSync
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CoexStateSync.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CoexStateSync message.
+         * @function verify
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CoexStateSync.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            if (message.collectionMutations != null && $Object.hasOwnProperty.call(message, "collectionMutations")) {
+                if (!$Array.isArray(message.collectionMutations))
+                    return "collectionMutations: array expected";
+                for (var i = 0; i < message.collectionMutations.length; ++i) {
+                    var error = $root.ServerSync.CoexStateSync.CollectionMutations.verify(message.collectionMutations[i], _depth + 1);
+                    if (error)
+                        return "collectionMutations." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CoexStateSync message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.CoexStateSync} CoexStateSync
+         */
+        CoexStateSync.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.CoexStateSync)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.CoexStateSync: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.CoexStateSync();
+            if (object.collectionMutations) {
+                if (!$Array.isArray(object.collectionMutations))
+                    throw $TypeError(".ServerSync.CoexStateSync.collectionMutations: array expected");
+                message.collectionMutations = $Array(object.collectionMutations.length);
+                for (var i = 0; i < object.collectionMutations.length; ++i) {
+                    if (!$util.isObject(object.collectionMutations[i]))
+                        throw $TypeError(".ServerSync.CoexStateSync.collectionMutations: object expected");
+                    message.collectionMutations[i] = $root.ServerSync.CoexStateSync.CollectionMutations.fromObject(object.collectionMutations[i], _depth + 1);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CoexStateSync message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {ServerSync.CoexStateSync} message CoexStateSync
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CoexStateSync.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.collectionMutations = [];
+            if (message.collectionMutations && message.collectionMutations.length) {
+                object.collectionMutations = $Array(message.collectionMutations.length);
+                for (var j = 0; j < message.collectionMutations.length; ++j)
+                    object.collectionMutations[j] = $root.ServerSync.CoexStateSync.CollectionMutations.toObject(message.collectionMutations[j], options, _depth + 1);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this CoexStateSync to JSON.
+         * @function toJSON
+         * @memberof ServerSync.CoexStateSync
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CoexStateSync.prototype.toJSON = function() {
+            return CoexStateSync.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for CoexStateSync
+         * @function getTypeUrl
+         * @memberof ServerSync.CoexStateSync
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        CoexStateSync.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.CoexStateSync";
+        };
+
+        CoexStateSync.CollectionMutations = (function() {
+
+            /**
+             * Properties of a CollectionMutations.
+             * @typedef {Object} ServerSync.CoexStateSync.CollectionMutations.$Properties
+             * @property {string|null} [collection] CollectionMutations collection
+             * @property {Array.<ServerSync.CoexStateSync.Mutation.$Properties>|null} [mutations] CollectionMutations mutations
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a CollectionMutations.
+             * @memberof ServerSync.CoexStateSync
+             * @interface ICollectionMutations
+             * @augments ServerSync.CoexStateSync.CollectionMutations.$Properties
+             * @deprecated Use ServerSync.CoexStateSync.CollectionMutations.$Properties instead.
+             */
+
+            /**
+             * Shape of a CollectionMutations.
+             * @typedef {ServerSync.CoexStateSync.CollectionMutations.$Properties} ServerSync.CoexStateSync.CollectionMutations.$Shape
+             */
+
+            /**
+             * Constructs a new CollectionMutations.
+             * @memberof ServerSync.CoexStateSync
+             * @classdesc Represents a CollectionMutations.
+             * @constructor
+             * @param {ServerSync.CoexStateSync.CollectionMutations.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var CollectionMutations = function (properties) {
+                this.mutations = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * CollectionMutations collection.
+             * @member {string|null|undefined} collection
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @instance
+             */
+            CollectionMutations.prototype.collection = null;
+
+            /**
+             * CollectionMutations mutations.
+             * @member {Array.<ServerSync.CoexStateSync.Mutation.$Properties>} mutations
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @instance
+             */
+            CollectionMutations.prototype.mutations = $util.emptyArray;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(CollectionMutations.prototype, "_collection", {
+                get: $util.oneOfGetter($oneOfFields = ["collection"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new CollectionMutations instance using the specified properties.
+             * @function create
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {ServerSync.CoexStateSync.CollectionMutations.$Properties=} [properties] Properties to set
+             * @returns {ServerSync.CoexStateSync.CollectionMutations} CollectionMutations instance
+             * @type {{
+             *   (properties: ServerSync.CoexStateSync.CollectionMutations.$Shape): ServerSync.CoexStateSync.CollectionMutations & ServerSync.CoexStateSync.CollectionMutations.$Shape;
+             *   (properties?: ServerSync.CoexStateSync.CollectionMutations.$Properties): ServerSync.CoexStateSync.CollectionMutations;
+             * }}
+             */
+            CollectionMutations.create = function(properties) {
+                return new CollectionMutations(properties);
+            };
+
+            /**
+             * Encodes the specified CollectionMutations message. Does not implicitly {@link ServerSync.CoexStateSync.CollectionMutations.verify|verify} messages.
+             * @function encode
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {ServerSync.CoexStateSync.CollectionMutations.$Properties} message CollectionMutations message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CollectionMutations.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.collection != null && $Object.hasOwnProperty.call(message, "collection"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.collection);
+                if (message.mutations != null && message.mutations.length)
+                    for (var i = 0; i < message.mutations.length; ++i)
+                        $root.ServerSync.CoexStateSync.Mutation.encode(message.mutations[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CollectionMutations message, length delimited. Does not implicitly {@link ServerSync.CoexStateSync.CollectionMutations.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {ServerSync.CoexStateSync.CollectionMutations.$Properties} message CollectionMutations message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CollectionMutations.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a CollectionMutations message from the specified reader or buffer.
+             * @function decode
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {ServerSync.CoexStateSync.CollectionMutations & ServerSync.CoexStateSync.CollectionMutations.$Shape} CollectionMutations
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CollectionMutations.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.CoexStateSync.CollectionMutations();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.collection = reader.stringVerify();
+                            message._collection = "collection";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.mutations && message.mutations.length))
+                                message.mutations = [];
+                            message.mutations.push($root.ServerSync.CoexStateSync.Mutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a CollectionMutations message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {ServerSync.CoexStateSync.CollectionMutations & ServerSync.CoexStateSync.CollectionMutations.$Shape} CollectionMutations
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CollectionMutations.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CollectionMutations message.
+             * @function verify
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CollectionMutations.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.collection != null && $Object.hasOwnProperty.call(message, "collection")) {
+                    properties._collection = 1;
+                    if (!$util.isString(message.collection))
+                        return "collection: string expected";
+                }
+                if (message.mutations != null && $Object.hasOwnProperty.call(message, "mutations")) {
+                    if (!$Array.isArray(message.mutations))
+                        return "mutations: array expected";
+                    for (var i = 0; i < message.mutations.length; ++i) {
+                        var error = $root.ServerSync.CoexStateSync.Mutation.verify(message.mutations[i], _depth + 1);
+                        if (error)
+                            return "mutations." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a CollectionMutations message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {ServerSync.CoexStateSync.CollectionMutations} CollectionMutations
+             */
+            CollectionMutations.fromObject = function (object, _depth) {
+                if (object instanceof $root.ServerSync.CoexStateSync.CollectionMutations)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".ServerSync.CoexStateSync.CollectionMutations: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.ServerSync.CoexStateSync.CollectionMutations();
+                if (object.collection != null)
+                    message.collection = $String(object.collection);
+                if (object.mutations) {
+                    if (!$Array.isArray(object.mutations))
+                        throw $TypeError(".ServerSync.CoexStateSync.CollectionMutations.mutations: array expected");
+                    message.mutations = $Array(object.mutations.length);
+                    for (var i = 0; i < object.mutations.length; ++i) {
+                        if (!$util.isObject(object.mutations[i]))
+                            throw $TypeError(".ServerSync.CoexStateSync.CollectionMutations.mutations: object expected");
+                        message.mutations[i] = $root.ServerSync.CoexStateSync.Mutation.fromObject(object.mutations[i], _depth + 1);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CollectionMutations message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {ServerSync.CoexStateSync.CollectionMutations} message CollectionMutations
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CollectionMutations.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.mutations = [];
+                if (message.collection != null && $Object.hasOwnProperty.call(message, "collection"))
+                    object.collection = message.collection;
+                if (message.mutations && message.mutations.length) {
+                    object.mutations = $Array(message.mutations.length);
+                    for (var j = 0; j < message.mutations.length; ++j)
+                        object.mutations[j] = $root.ServerSync.CoexStateSync.Mutation.toObject(message.mutations[j], options, _depth + 1);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this CollectionMutations to JSON.
+             * @function toJSON
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CollectionMutations.prototype.toJSON = function() {
+                return CollectionMutations.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for CollectionMutations
+             * @function getTypeUrl
+             * @memberof ServerSync.CoexStateSync.CollectionMutations
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            CollectionMutations.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/ServerSync.CoexStateSync.CollectionMutations";
+            };
+
+            return CollectionMutations;
+        })();
+
+        CoexStateSync.Mutation = (function() {
+
+            /**
+             * Properties of a Mutation.
+             * @typedef {Object} ServerSync.CoexStateSync.Mutation.$Properties
+             * @property {ServerSync.SyncdIndex.$Properties|null} [index] Mutation index
+             * @property {ServerSync.SyncdValue.$Properties|null} [value] Mutation value
+             * @property {number|Long|null} [dirtyVersion] Mutation dirtyVersion
+             * @property {ServerSync.SyncdMutation.SyncdOperation|null} [operation] Mutation operation
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a Mutation.
+             * @memberof ServerSync.CoexStateSync
+             * @interface IMutation
+             * @augments ServerSync.CoexStateSync.Mutation.$Properties
+             * @deprecated Use ServerSync.CoexStateSync.Mutation.$Properties instead.
+             */
+
+            /**
+             * Shape of a Mutation.
+             * @typedef {ServerSync.CoexStateSync.Mutation.$Properties} ServerSync.CoexStateSync.Mutation.$Shape
+             */
+
+            /**
+             * Constructs a new Mutation.
+             * @memberof ServerSync.CoexStateSync
+             * @classdesc Represents a Mutation.
+             * @constructor
+             * @param {ServerSync.CoexStateSync.Mutation.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var Mutation = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * Mutation index.
+             * @member {ServerSync.SyncdIndex.$Properties|null|undefined} index
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @instance
+             */
+            Mutation.prototype.index = null;
+
+            /**
+             * Mutation value.
+             * @member {ServerSync.SyncdValue.$Properties|null|undefined} value
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @instance
+             */
+            Mutation.prototype.value = null;
+
+            /**
+             * Mutation dirtyVersion.
+             * @member {number|Long|null|undefined} dirtyVersion
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @instance
+             */
+            Mutation.prototype.dirtyVersion = null;
+
+            /**
+             * Mutation operation.
+             * @member {ServerSync.SyncdMutation.SyncdOperation|null|undefined} operation
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @instance
+             */
+            Mutation.prototype.operation = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Mutation.prototype, "_index", {
+                get: $util.oneOfGetter($oneOfFields = ["index"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Mutation.prototype, "_value", {
+                get: $util.oneOfGetter($oneOfFields = ["value"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Mutation.prototype, "_dirtyVersion", {
+                get: $util.oneOfGetter($oneOfFields = ["dirtyVersion"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Mutation.prototype, "_operation", {
+                get: $util.oneOfGetter($oneOfFields = ["operation"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new Mutation instance using the specified properties.
+             * @function create
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {ServerSync.CoexStateSync.Mutation.$Properties=} [properties] Properties to set
+             * @returns {ServerSync.CoexStateSync.Mutation} Mutation instance
+             * @type {{
+             *   (properties: ServerSync.CoexStateSync.Mutation.$Shape): ServerSync.CoexStateSync.Mutation & ServerSync.CoexStateSync.Mutation.$Shape;
+             *   (properties?: ServerSync.CoexStateSync.Mutation.$Properties): ServerSync.CoexStateSync.Mutation;
+             * }}
+             */
+            Mutation.create = function(properties) {
+                return new Mutation(properties);
+            };
+
+            /**
+             * Encodes the specified Mutation message. Does not implicitly {@link ServerSync.CoexStateSync.Mutation.verify|verify} messages.
+             * @function encode
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {ServerSync.CoexStateSync.Mutation.$Properties} message Mutation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Mutation.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.index != null && $Object.hasOwnProperty.call(message, "index"))
+                    $root.ServerSync.SyncdIndex.encode(message.index, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+                if (message.value != null && $Object.hasOwnProperty.call(message, "value"))
+                    $root.ServerSync.SyncdValue.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.dirtyVersion != null && $Object.hasOwnProperty.call(message, "dirtyVersion"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.dirtyVersion);
+                if (message.operation != null && $Object.hasOwnProperty.call(message, "operation"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.operation);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Mutation message, length delimited. Does not implicitly {@link ServerSync.CoexStateSync.Mutation.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {ServerSync.CoexStateSync.Mutation.$Properties} message Mutation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Mutation.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a Mutation message from the specified reader or buffer.
+             * @function decode
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {ServerSync.CoexStateSync.Mutation & ServerSync.CoexStateSync.Mutation.$Shape} Mutation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Mutation.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.CoexStateSync.Mutation(), value;
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), $undefined, _depth + 1, message.index);
+                            message._index = "index";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                            message._value = "value";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.dirtyVersion = reader.uint64();
+                            message._dirtyVersion = "dirtyVersion";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.operation = reader.int32();
+                            message._operation = "operation";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a Mutation message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {ServerSync.CoexStateSync.Mutation & ServerSync.CoexStateSync.Mutation.$Shape} Mutation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Mutation.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Mutation message.
+             * @function verify
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Mutation.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.index != null && $Object.hasOwnProperty.call(message, "index")) {
+                    properties._index = 1;
+                    {
+                        var error = $root.ServerSync.SyncdIndex.verify(message.index, _depth + 1);
+                        if (error)
+                            return "index." + error;
+                    }
+                }
+                if (message.value != null && $Object.hasOwnProperty.call(message, "value")) {
+                    properties._value = 1;
+                    {
+                        var error = $root.ServerSync.SyncdValue.verify(message.value, _depth + 1);
+                        if (error)
+                            return "value." + error;
+                    }
+                }
+                if (message.dirtyVersion != null && $Object.hasOwnProperty.call(message, "dirtyVersion")) {
+                    properties._dirtyVersion = 1;
+                    if (!$util.isInteger(message.dirtyVersion) && !(message.dirtyVersion && $util.isInteger(message.dirtyVersion.low) && $util.isInteger(message.dirtyVersion.high)))
+                        return "dirtyVersion: integer|Long expected";
+                }
+                if (message.operation != null && $Object.hasOwnProperty.call(message, "operation")) {
+                    properties._operation = 1;
+                    if (typeof message.operation !== "number" || (message.operation | 0) !== message.operation)
+                        return "operation: enum value expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a Mutation message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {ServerSync.CoexStateSync.Mutation} Mutation
+             */
+            Mutation.fromObject = function (object, _depth) {
+                if (object instanceof $root.ServerSync.CoexStateSync.Mutation)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".ServerSync.CoexStateSync.Mutation: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.ServerSync.CoexStateSync.Mutation();
+                if (object.index != null) {
+                    if (!$util.isObject(object.index))
+                        throw $TypeError(".ServerSync.CoexStateSync.Mutation.index: object expected");
+                    message.index = $root.ServerSync.SyncdIndex.fromObject(object.index, _depth + 1);
+                }
+                if (object.value != null) {
+                    if (!$util.isObject(object.value))
+                        throw $TypeError(".ServerSync.CoexStateSync.Mutation.value: object expected");
+                    message.value = $root.ServerSync.SyncdValue.fromObject(object.value, _depth + 1);
+                }
+                if (object.dirtyVersion != null)
+                    if ($util.Long)
+                        message.dirtyVersion = $util.Long.fromValue(object.dirtyVersion, true);
+                    else if (typeof object.dirtyVersion === "string")
+                        message.dirtyVersion = $parseInt(object.dirtyVersion, 10);
+                    else if (typeof object.dirtyVersion === "number")
+                        message.dirtyVersion = object.dirtyVersion;
+                    else if (typeof object.dirtyVersion === "object")
+                        message.dirtyVersion = new $util.LongBits(object.dirtyVersion.low >>> 0, object.dirtyVersion.high >>> 0).toNumber(true);
+                switch (object.operation) {
+                case "SET":
+                case 0:
+                    message.operation = 0;
+                    break;
+                case "REMOVE":
+                case 1:
+                    message.operation = 1;
+                    break;
+                default:
+                    if (typeof object.operation === "number" && (object.operation | 0) === object.operation)
+                        message.operation = object.operation;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Mutation message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {ServerSync.CoexStateSync.Mutation} message Mutation
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Mutation.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.index != null && $Object.hasOwnProperty.call(message, "index"))
+                    object.index = $root.ServerSync.SyncdIndex.toObject(message.index, options, _depth + 1);
+                if (message.value != null && $Object.hasOwnProperty.call(message, "value"))
+                    object.value = $root.ServerSync.SyncdValue.toObject(message.value, options, _depth + 1);
+                if (message.dirtyVersion != null && $Object.hasOwnProperty.call(message, "dirtyVersion"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.dirtyVersion = typeof message.dirtyVersion === "number" ? $BigInt(message.dirtyVersion) : $util.Long.fromBits(message.dirtyVersion.low >>> 0, message.dirtyVersion.high >>> 0, true).toBigInt();
+                    else if (typeof message.dirtyVersion === "number")
+                        object.dirtyVersion = options.longs === $String ? $String(message.dirtyVersion) : message.dirtyVersion;
+                    else
+                        object.dirtyVersion = options.longs === $String ? $util.Long.prototype.toString.call(message.dirtyVersion) : options.longs === $Number ? new $util.LongBits(message.dirtyVersion.low >>> 0, message.dirtyVersion.high >>> 0).toNumber(true) : message.dirtyVersion;
+                if (message.operation != null && $Object.hasOwnProperty.call(message, "operation"))
+                    object.operation = options.enums === $String ? $root.ServerSync.SyncdMutation.SyncdOperation[message.operation] === $undefined ? message.operation : $root.ServerSync.SyncdMutation.SyncdOperation[message.operation] : message.operation;
+                return object;
+            };
+
+            /**
+             * Converts this Mutation to JSON.
+             * @function toJSON
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Mutation.prototype.toJSON = function() {
+                return Mutation.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for Mutation
+             * @function getTypeUrl
+             * @memberof ServerSync.CoexStateSync.Mutation
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            Mutation.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/ServerSync.CoexStateSync.Mutation";
+            };
+
+            return Mutation;
+        })();
+
+        return CoexStateSync;
+    })();
+
+    ServerSync.SyncdPatch = (function() {
+
+        /**
+         * Properties of a SyncdPatch.
+         * @typedef {Object} ServerSync.SyncdPatch.$Properties
+         * @property {ServerSync.SyncdVersion.$Properties|null} [version] SyncdPatch version
+         * @property {Array.<ServerSync.SyncdMutation.$Properties>|null} [mutations] SyncdPatch mutations
+         * @property {ServerSync.ExternalBlobReference.$Properties|null} [externalMutations] SyncdPatch externalMutations
+         * @property {Uint8Array|null} [snapshotMac] SyncdPatch snapshotMac
+         * @property {Uint8Array|null} [patchMac] SyncdPatch patchMac
+         * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdPatch keyId
+         * @property {ServerSync.ExitCode.$Properties|null} [exitCode] SyncdPatch exitCode
+         * @property {number|null} [deviceIndex] SyncdPatch deviceIndex
+         * @property {Uint8Array|null} [clientDebugData] SyncdPatch clientDebugData
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdPatch.
+         * @memberof ServerSync
+         * @interface ISyncdPatch
+         * @augments ServerSync.SyncdPatch.$Properties
+         * @deprecated Use ServerSync.SyncdPatch.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdPatch.
+         * @typedef {ServerSync.SyncdPatch.$Properties} ServerSync.SyncdPatch.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdPatch.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdPatch.
+         * @constructor
+         * @param {ServerSync.SyncdPatch.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdPatch = function (properties) {
+            this.mutations = [];
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdPatch version.
+         * @member {ServerSync.SyncdVersion.$Properties|null|undefined} version
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.version = null;
+
+        /**
+         * SyncdPatch mutations.
+         * @member {Array.<ServerSync.SyncdMutation.$Properties>} mutations
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.mutations = $util.emptyArray;
+
+        /**
+         * SyncdPatch externalMutations.
+         * @member {ServerSync.ExternalBlobReference.$Properties|null|undefined} externalMutations
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.externalMutations = null;
+
+        /**
+         * SyncdPatch snapshotMac.
+         * @member {Uint8Array|null|undefined} snapshotMac
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.snapshotMac = null;
+
+        /**
+         * SyncdPatch patchMac.
+         * @member {Uint8Array|null|undefined} patchMac
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.patchMac = null;
+
+        /**
+         * SyncdPatch keyId.
+         * @member {ServerSync.KeyId.$Properties|null|undefined} keyId
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.keyId = null;
+
+        /**
+         * SyncdPatch exitCode.
+         * @member {ServerSync.ExitCode.$Properties|null|undefined} exitCode
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.exitCode = null;
+
+        /**
+         * SyncdPatch deviceIndex.
+         * @member {number|null|undefined} deviceIndex
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.deviceIndex = null;
+
+        /**
+         * SyncdPatch clientDebugData.
+         * @member {Uint8Array|null|undefined} clientDebugData
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        SyncdPatch.prototype.clientDebugData = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_externalMutations", {
+            get: $util.oneOfGetter($oneOfFields = ["externalMutations"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_snapshotMac", {
+            get: $util.oneOfGetter($oneOfFields = ["snapshotMac"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_patchMac", {
+            get: $util.oneOfGetter($oneOfFields = ["patchMac"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_exitCode", {
+            get: $util.oneOfGetter($oneOfFields = ["exitCode"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_deviceIndex", {
+            get: $util.oneOfGetter($oneOfFields = ["deviceIndex"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdPatch.prototype, "_clientDebugData", {
+            get: $util.oneOfGetter($oneOfFields = ["clientDebugData"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdPatch instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {ServerSync.SyncdPatch.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdPatch} SyncdPatch instance
+         * @type {{
+         *   (properties: ServerSync.SyncdPatch.$Shape): ServerSync.SyncdPatch & ServerSync.SyncdPatch.$Shape;
+         *   (properties?: ServerSync.SyncdPatch.$Properties): ServerSync.SyncdPatch;
+         * }}
+         */
+        SyncdPatch.create = function(properties) {
+            return new SyncdPatch(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdPatch message. Does not implicitly {@link ServerSync.SyncdPatch.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {ServerSync.SyncdPatch.$Properties} message SyncdPatch message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdPatch.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                $root.ServerSync.SyncdVersion.encode(message.version, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.mutations != null && message.mutations.length)
+                for (var i = 0; i < message.mutations.length; ++i)
+                    $root.ServerSync.SyncdMutation.encode(message.mutations[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+            if (message.externalMutations != null && $Object.hasOwnProperty.call(message, "externalMutations"))
+                $root.ServerSync.ExternalBlobReference.encode(message.externalMutations, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+            if (message.snapshotMac != null && $Object.hasOwnProperty.call(message, "snapshotMac"))
+                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.snapshotMac);
+            if (message.patchMac != null && $Object.hasOwnProperty.call(message, "patchMac"))
+                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.patchMac);
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                $root.ServerSync.KeyId.encode(message.keyId, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
+            if (message.exitCode != null && $Object.hasOwnProperty.call(message, "exitCode"))
+                $root.ServerSync.ExitCode.encode(message.exitCode, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
+            if (message.deviceIndex != null && $Object.hasOwnProperty.call(message, "deviceIndex"))
+                writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.deviceIndex);
+            if (message.clientDebugData != null && $Object.hasOwnProperty.call(message, "clientDebugData"))
+                writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.clientDebugData);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdPatch message, length delimited. Does not implicitly {@link ServerSync.SyncdPatch.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {ServerSync.SyncdPatch.$Properties} message SyncdPatch message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdPatch.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdPatch message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdPatch & ServerSync.SyncdPatch.$Shape} SyncdPatch
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdPatch.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdPatch();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message._version = "version";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.mutations && message.mutations.length))
+                            message.mutations = [];
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalMutations);
+                        message._externalMutations = "externalMutations";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.snapshotMac = reader.bytes();
+                        message._snapshotMac = "snapshotMac";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.patchMac = reader.bytes();
+                        message._patchMac = "patchMac";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.uint32(), $undefined, _depth + 1, message.exitCode);
+                        message._exitCode = "exitCode";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 0)
+                            break;
+                        message.deviceIndex = reader.uint32();
+                        message._deviceIndex = "deviceIndex";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.clientDebugData = reader.bytes();
+                        message._clientDebugData = "clientDebugData";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdPatch message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdPatch & ServerSync.SyncdPatch.$Shape} SyncdPatch
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdPatch.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdPatch message.
+         * @function verify
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdPatch.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
+                properties._version = 1;
+                {
+                    var error = $root.ServerSync.SyncdVersion.verify(message.version, _depth + 1);
+                    if (error)
+                        return "version." + error;
+                }
+            }
+            if (message.mutations != null && $Object.hasOwnProperty.call(message, "mutations")) {
+                if (!$Array.isArray(message.mutations))
+                    return "mutations: array expected";
+                for (var i = 0; i < message.mutations.length; ++i) {
+                    var error = $root.ServerSync.SyncdMutation.verify(message.mutations[i], _depth + 1);
+                    if (error)
+                        return "mutations." + error;
+                }
+            }
+            if (message.externalMutations != null && $Object.hasOwnProperty.call(message, "externalMutations")) {
+                properties._externalMutations = 1;
+                {
+                    var error = $root.ServerSync.ExternalBlobReference.verify(message.externalMutations, _depth + 1);
+                    if (error)
+                        return "externalMutations." + error;
+                }
+            }
+            if (message.snapshotMac != null && $Object.hasOwnProperty.call(message, "snapshotMac")) {
+                properties._snapshotMac = 1;
+                if (!(message.snapshotMac && typeof message.snapshotMac.length === "number" || $util.isString(message.snapshotMac)))
+                    return "snapshotMac: buffer expected";
+            }
+            if (message.patchMac != null && $Object.hasOwnProperty.call(message, "patchMac")) {
+                properties._patchMac = 1;
+                if (!(message.patchMac && typeof message.patchMac.length === "number" || $util.isString(message.patchMac)))
+                    return "patchMac: buffer expected";
+            }
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId")) {
+                properties._keyId = 1;
+                {
+                    var error = $root.ServerSync.KeyId.verify(message.keyId, _depth + 1);
+                    if (error)
+                        return "keyId." + error;
+                }
+            }
+            if (message.exitCode != null && $Object.hasOwnProperty.call(message, "exitCode")) {
+                properties._exitCode = 1;
+                {
+                    var error = $root.ServerSync.ExitCode.verify(message.exitCode, _depth + 1);
+                    if (error)
+                        return "exitCode." + error;
+                }
+            }
+            if (message.deviceIndex != null && $Object.hasOwnProperty.call(message, "deviceIndex")) {
+                properties._deviceIndex = 1;
+                if (!$util.isInteger(message.deviceIndex))
+                    return "deviceIndex: integer expected";
+            }
+            if (message.clientDebugData != null && $Object.hasOwnProperty.call(message, "clientDebugData")) {
+                properties._clientDebugData = 1;
+                if (!(message.clientDebugData && typeof message.clientDebugData.length === "number" || $util.isString(message.clientDebugData)))
+                    return "clientDebugData: buffer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdPatch message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdPatch} SyncdPatch
+         */
+        SyncdPatch.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdPatch)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdPatch: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdPatch();
+            if (object.version != null) {
+                if (!$util.isObject(object.version))
+                    throw $TypeError(".ServerSync.SyncdPatch.version: object expected");
+                message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, _depth + 1);
+            }
+            if (object.mutations) {
+                if (!$Array.isArray(object.mutations))
+                    throw $TypeError(".ServerSync.SyncdPatch.mutations: array expected");
+                message.mutations = $Array(object.mutations.length);
+                for (var i = 0; i < object.mutations.length; ++i) {
+                    if (!$util.isObject(object.mutations[i]))
+                        throw $TypeError(".ServerSync.SyncdPatch.mutations: object expected");
+                    message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], _depth + 1);
+                }
+            }
+            if (object.externalMutations != null) {
+                if (!$util.isObject(object.externalMutations))
+                    throw $TypeError(".ServerSync.SyncdPatch.externalMutations: object expected");
+                message.externalMutations = $root.ServerSync.ExternalBlobReference.fromObject(object.externalMutations, _depth + 1);
+            }
+            if (object.snapshotMac != null)
+                if (typeof object.snapshotMac === "string")
+                    $util.base64.decode(object.snapshotMac, message.snapshotMac = $util.newBuffer($util.base64.length(object.snapshotMac)), 0);
+                else if (object.snapshotMac.length >= 0)
+                    message.snapshotMac = object.snapshotMac;
+            if (object.patchMac != null)
+                if (typeof object.patchMac === "string")
+                    $util.base64.decode(object.patchMac, message.patchMac = $util.newBuffer($util.base64.length(object.patchMac)), 0);
+                else if (object.patchMac.length >= 0)
+                    message.patchMac = object.patchMac;
+            if (object.keyId != null) {
+                if (!$util.isObject(object.keyId))
+                    throw $TypeError(".ServerSync.SyncdPatch.keyId: object expected");
+                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
+            }
+            if (object.exitCode != null) {
+                if (!$util.isObject(object.exitCode))
+                    throw $TypeError(".ServerSync.SyncdPatch.exitCode: object expected");
+                message.exitCode = $root.ServerSync.ExitCode.fromObject(object.exitCode, _depth + 1);
+            }
+            if (object.deviceIndex != null)
+                message.deviceIndex = object.deviceIndex >>> 0;
+            if (object.clientDebugData != null)
+                if (typeof object.clientDebugData === "string")
+                    $util.base64.decode(object.clientDebugData, message.clientDebugData = $util.newBuffer($util.base64.length(object.clientDebugData)), 0);
+                else if (object.clientDebugData.length >= 0)
+                    message.clientDebugData = object.clientDebugData;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdPatch message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {ServerSync.SyncdPatch} message SyncdPatch
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdPatch.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.mutations = [];
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                object.version = $root.ServerSync.SyncdVersion.toObject(message.version, options, _depth + 1);
+            if (message.mutations && message.mutations.length) {
+                object.mutations = $Array(message.mutations.length);
+                for (var j = 0; j < message.mutations.length; ++j)
+                    object.mutations[j] = $root.ServerSync.SyncdMutation.toObject(message.mutations[j], options, _depth + 1);
+            }
+            if (message.externalMutations != null && $Object.hasOwnProperty.call(message, "externalMutations"))
+                object.externalMutations = $root.ServerSync.ExternalBlobReference.toObject(message.externalMutations, options, _depth + 1);
+            if (message.snapshotMac != null && $Object.hasOwnProperty.call(message, "snapshotMac"))
+                object.snapshotMac = options.bytes === $String ? $util.base64.encode(message.snapshotMac, 0, message.snapshotMac.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.snapshotMac) : message.snapshotMac;
+            if (message.patchMac != null && $Object.hasOwnProperty.call(message, "patchMac"))
+                object.patchMac = options.bytes === $String ? $util.base64.encode(message.patchMac, 0, message.patchMac.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.patchMac) : message.patchMac;
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                object.keyId = $root.ServerSync.KeyId.toObject(message.keyId, options, _depth + 1);
+            if (message.exitCode != null && $Object.hasOwnProperty.call(message, "exitCode"))
+                object.exitCode = $root.ServerSync.ExitCode.toObject(message.exitCode, options, _depth + 1);
+            if (message.deviceIndex != null && $Object.hasOwnProperty.call(message, "deviceIndex"))
+                object.deviceIndex = message.deviceIndex;
+            if (message.clientDebugData != null && $Object.hasOwnProperty.call(message, "clientDebugData"))
+                object.clientDebugData = options.bytes === $String ? $util.base64.encode(message.clientDebugData, 0, message.clientDebugData.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.clientDebugData) : message.clientDebugData;
+            return object;
+        };
+
+        /**
+         * Converts this SyncdPatch to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdPatch.prototype.toJSON = function() {
+            return SyncdPatch.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdPatch
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdPatch
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdPatch.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdPatch";
+        };
+
+        return SyncdPatch;
+    })();
+
+    ServerSync.SyncdMutation = (function() {
+
+        /**
+         * Properties of a SyncdMutation.
+         * @typedef {Object} ServerSync.SyncdMutation.$Properties
+         * @property {ServerSync.SyncdMutation.SyncdOperation|null} [operation] SyncdMutation operation
+         * @property {ServerSync.SyncdRecord.$Properties|null} [record] SyncdMutation record
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdMutation.
+         * @memberof ServerSync
+         * @interface ISyncdMutation
+         * @augments ServerSync.SyncdMutation.$Properties
+         * @deprecated Use ServerSync.SyncdMutation.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdMutation.
+         * @typedef {ServerSync.SyncdMutation.$Properties} ServerSync.SyncdMutation.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdMutation.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdMutation.
+         * @constructor
+         * @param {ServerSync.SyncdMutation.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdMutation = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdMutation operation.
+         * @member {ServerSync.SyncdMutation.SyncdOperation|null|undefined} operation
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         */
+        SyncdMutation.prototype.operation = null;
+
+        /**
+         * SyncdMutation record.
+         * @member {ServerSync.SyncdRecord.$Properties|null|undefined} record
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         */
+        SyncdMutation.prototype.record = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdMutation.prototype, "_operation", {
+            get: $util.oneOfGetter($oneOfFields = ["operation"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdMutation.prototype, "_record", {
+            get: $util.oneOfGetter($oneOfFields = ["record"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdMutation instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {ServerSync.SyncdMutation.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdMutation} SyncdMutation instance
+         * @type {{
+         *   (properties: ServerSync.SyncdMutation.$Shape): ServerSync.SyncdMutation & ServerSync.SyncdMutation.$Shape;
+         *   (properties?: ServerSync.SyncdMutation.$Properties): ServerSync.SyncdMutation;
+         * }}
+         */
+        SyncdMutation.create = function(properties) {
+            return new SyncdMutation(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdMutation message. Does not implicitly {@link ServerSync.SyncdMutation.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {ServerSync.SyncdMutation.$Properties} message SyncdMutation message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdMutation.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.operation != null && $Object.hasOwnProperty.call(message, "operation"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.operation);
+            if (message.record != null && $Object.hasOwnProperty.call(message, "record"))
+                $root.ServerSync.SyncdRecord.encode(message.record, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdMutation message, length delimited. Does not implicitly {@link ServerSync.SyncdMutation.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {ServerSync.SyncdMutation.$Properties} message SyncdMutation message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdMutation.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdMutation message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdMutation & ServerSync.SyncdMutation.$Shape} SyncdMutation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdMutation.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdMutation(), value;
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.operation = reader.int32();
+                        message._operation = "operation";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), $undefined, _depth + 1, message.record);
+                        message._record = "record";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdMutation message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdMutation & ServerSync.SyncdMutation.$Shape} SyncdMutation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdMutation.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdMutation message.
+         * @function verify
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdMutation.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.operation != null && $Object.hasOwnProperty.call(message, "operation")) {
+                properties._operation = 1;
+                if (typeof message.operation !== "number" || (message.operation | 0) !== message.operation)
+                    return "operation: enum value expected";
+            }
+            if (message.record != null && $Object.hasOwnProperty.call(message, "record")) {
+                properties._record = 1;
+                {
+                    var error = $root.ServerSync.SyncdRecord.verify(message.record, _depth + 1);
+                    if (error)
+                        return "record." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdMutation message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdMutation} SyncdMutation
+         */
+        SyncdMutation.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdMutation)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdMutation: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdMutation();
+            switch (object.operation) {
+            case "SET":
+            case 0:
+                message.operation = 0;
+                break;
+            case "REMOVE":
+            case 1:
+                message.operation = 1;
+                break;
+            default:
+                if (typeof object.operation === "number" && (object.operation | 0) === object.operation)
+                    message.operation = object.operation;
+            }
+            if (object.record != null) {
+                if (!$util.isObject(object.record))
+                    throw $TypeError(".ServerSync.SyncdMutation.record: object expected");
+                message.record = $root.ServerSync.SyncdRecord.fromObject(object.record, _depth + 1);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdMutation message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {ServerSync.SyncdMutation} message SyncdMutation
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdMutation.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.operation != null && $Object.hasOwnProperty.call(message, "operation"))
+                object.operation = options.enums === $String ? $root.ServerSync.SyncdMutation.SyncdOperation[message.operation] === $undefined ? message.operation : $root.ServerSync.SyncdMutation.SyncdOperation[message.operation] : message.operation;
+            if (message.record != null && $Object.hasOwnProperty.call(message, "record"))
+                object.record = $root.ServerSync.SyncdRecord.toObject(message.record, options, _depth + 1);
+            return object;
+        };
+
+        /**
+         * Converts this SyncdMutation to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdMutation.prototype.toJSON = function() {
+            return SyncdMutation.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdMutation
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdMutation
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdMutation.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdMutation";
+        };
+
+        /**
+         * SyncdOperation enum.
+         * @name ServerSync.SyncdMutation.SyncdOperation
+         * @enum {number}
+         * @property {number} SET=0 SET value
+         * @property {number} REMOVE=1 REMOVE value
+         */
+        SyncdMutation.SyncdOperation = (function() {
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
+            values[valuesById[0] = "SET"] = 0;
+            values[valuesById[1] = "REMOVE"] = 1;
+            return values;
+        })();
+
+        return SyncdMutation;
+    })();
+
+    ServerSync.SyncdMutations = (function() {
+
+        /**
+         * Properties of a SyncdMutations.
+         * @typedef {Object} ServerSync.SyncdMutations.$Properties
+         * @property {Array.<ServerSync.SyncdMutation.$Properties>|null} [mutations] SyncdMutations mutations
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdMutations.
+         * @memberof ServerSync
+         * @interface ISyncdMutations
+         * @augments ServerSync.SyncdMutations.$Properties
+         * @deprecated Use ServerSync.SyncdMutations.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdMutations.
+         * @typedef {ServerSync.SyncdMutations.$Properties} ServerSync.SyncdMutations.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdMutations.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdMutations.
+         * @constructor
+         * @param {ServerSync.SyncdMutations.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdMutations = function (properties) {
+            this.mutations = [];
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdMutations mutations.
+         * @member {Array.<ServerSync.SyncdMutation.$Properties>} mutations
+         * @memberof ServerSync.SyncdMutations
+         * @instance
+         */
+        SyncdMutations.prototype.mutations = $util.emptyArray;
+
+        /**
+         * Creates a new SyncdMutations instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {ServerSync.SyncdMutations.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdMutations} SyncdMutations instance
+         * @type {{
+         *   (properties: ServerSync.SyncdMutations.$Shape): ServerSync.SyncdMutations & ServerSync.SyncdMutations.$Shape;
+         *   (properties?: ServerSync.SyncdMutations.$Properties): ServerSync.SyncdMutations;
+         * }}
+         */
+        SyncdMutations.create = function(properties) {
+            return new SyncdMutations(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdMutations message. Does not implicitly {@link ServerSync.SyncdMutations.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {ServerSync.SyncdMutations.$Properties} message SyncdMutations message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdMutations.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.mutations != null && message.mutations.length)
+                for (var i = 0; i < message.mutations.length; ++i)
+                    $root.ServerSync.SyncdMutation.encode(message.mutations[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdMutations message, length delimited. Does not implicitly {@link ServerSync.SyncdMutations.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {ServerSync.SyncdMutations.$Properties} message SyncdMutations message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdMutations.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdMutations message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdMutations & ServerSync.SyncdMutations.$Shape} SyncdMutations
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdMutations.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdMutations();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.mutations && message.mutations.length))
+                            message.mutations = [];
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdMutations message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdMutations & ServerSync.SyncdMutations.$Shape} SyncdMutations
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdMutations.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdMutations message.
+         * @function verify
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdMutations.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            if (message.mutations != null && $Object.hasOwnProperty.call(message, "mutations")) {
+                if (!$Array.isArray(message.mutations))
+                    return "mutations: array expected";
+                for (var i = 0; i < message.mutations.length; ++i) {
+                    var error = $root.ServerSync.SyncdMutation.verify(message.mutations[i], _depth + 1);
+                    if (error)
+                        return "mutations." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdMutations message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdMutations} SyncdMutations
+         */
+        SyncdMutations.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdMutations)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdMutations: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdMutations();
+            if (object.mutations) {
+                if (!$Array.isArray(object.mutations))
+                    throw $TypeError(".ServerSync.SyncdMutations.mutations: array expected");
+                message.mutations = $Array(object.mutations.length);
+                for (var i = 0; i < object.mutations.length; ++i) {
+                    if (!$util.isObject(object.mutations[i]))
+                        throw $TypeError(".ServerSync.SyncdMutations.mutations: object expected");
+                    message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], _depth + 1);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdMutations message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {ServerSync.SyncdMutations} message SyncdMutations
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdMutations.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.mutations = [];
+            if (message.mutations && message.mutations.length) {
+                object.mutations = $Array(message.mutations.length);
+                for (var j = 0; j < message.mutations.length; ++j)
+                    object.mutations[j] = $root.ServerSync.SyncdMutation.toObject(message.mutations[j], options, _depth + 1);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this SyncdMutations to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdMutations
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdMutations.prototype.toJSON = function() {
+            return SyncdMutations.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdMutations
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdMutations
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdMutations.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdMutations";
+        };
+
+        return SyncdMutations;
+    })();
+
+    ServerSync.SyncdSnapshot = (function() {
+
+        /**
+         * Properties of a SyncdSnapshot.
+         * @typedef {Object} ServerSync.SyncdSnapshot.$Properties
+         * @property {ServerSync.SyncdVersion.$Properties|null} [version] SyncdSnapshot version
+         * @property {Array.<ServerSync.SyncdRecord.$Properties>|null} [records] SyncdSnapshot records
+         * @property {Uint8Array|null} [mac] SyncdSnapshot mac
+         * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdSnapshot keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdSnapshot.
+         * @memberof ServerSync
+         * @interface ISyncdSnapshot
+         * @augments ServerSync.SyncdSnapshot.$Properties
+         * @deprecated Use ServerSync.SyncdSnapshot.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdSnapshot.
+         * @typedef {ServerSync.SyncdSnapshot.$Properties} ServerSync.SyncdSnapshot.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdSnapshot.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdSnapshot.
+         * @constructor
+         * @param {ServerSync.SyncdSnapshot.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdSnapshot = function (properties) {
+            this.records = [];
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdSnapshot version.
+         * @member {ServerSync.SyncdVersion.$Properties|null|undefined} version
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        SyncdSnapshot.prototype.version = null;
+
+        /**
+         * SyncdSnapshot records.
+         * @member {Array.<ServerSync.SyncdRecord.$Properties>} records
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        SyncdSnapshot.prototype.records = $util.emptyArray;
+
+        /**
+         * SyncdSnapshot mac.
+         * @member {Uint8Array|null|undefined} mac
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        SyncdSnapshot.prototype.mac = null;
+
+        /**
+         * SyncdSnapshot keyId.
+         * @member {ServerSync.KeyId.$Properties|null|undefined} keyId
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        SyncdSnapshot.prototype.keyId = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdSnapshot.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdSnapshot.prototype, "_mac", {
+            get: $util.oneOfGetter($oneOfFields = ["mac"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdSnapshot.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdSnapshot instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {ServerSync.SyncdSnapshot.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdSnapshot} SyncdSnapshot instance
+         * @type {{
+         *   (properties: ServerSync.SyncdSnapshot.$Shape): ServerSync.SyncdSnapshot & ServerSync.SyncdSnapshot.$Shape;
+         *   (properties?: ServerSync.SyncdSnapshot.$Properties): ServerSync.SyncdSnapshot;
+         * }}
+         */
+        SyncdSnapshot.create = function(properties) {
+            return new SyncdSnapshot(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdSnapshot message. Does not implicitly {@link ServerSync.SyncdSnapshot.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {ServerSync.SyncdSnapshot.$Properties} message SyncdSnapshot message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdSnapshot.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                $root.ServerSync.SyncdVersion.encode(message.version, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.records != null && message.records.length)
+                for (var i = 0; i < message.records.length; ++i)
+                    $root.ServerSync.SyncdRecord.encode(message.records[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+            if (message.mac != null && $Object.hasOwnProperty.call(message, "mac"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.mac);
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                $root.ServerSync.KeyId.encode(message.keyId, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdSnapshot message, length delimited. Does not implicitly {@link ServerSync.SyncdSnapshot.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {ServerSync.SyncdSnapshot.$Properties} message SyncdSnapshot message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdSnapshot.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdSnapshot message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdSnapshot & ServerSync.SyncdSnapshot.$Shape} SyncdSnapshot
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdSnapshot.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdSnapshot();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message._version = "version";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.records && message.records.length))
+                            message.records = [];
+                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.mac = reader.bytes();
+                        message._mac = "mac";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdSnapshot message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdSnapshot & ServerSync.SyncdSnapshot.$Shape} SyncdSnapshot
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdSnapshot.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdSnapshot message.
+         * @function verify
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdSnapshot.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
+                properties._version = 1;
+                {
+                    var error = $root.ServerSync.SyncdVersion.verify(message.version, _depth + 1);
+                    if (error)
+                        return "version." + error;
+                }
+            }
+            if (message.records != null && $Object.hasOwnProperty.call(message, "records")) {
+                if (!$Array.isArray(message.records))
+                    return "records: array expected";
+                for (var i = 0; i < message.records.length; ++i) {
+                    var error = $root.ServerSync.SyncdRecord.verify(message.records[i], _depth + 1);
+                    if (error)
+                        return "records." + error;
+                }
+            }
+            if (message.mac != null && $Object.hasOwnProperty.call(message, "mac")) {
+                properties._mac = 1;
+                if (!(message.mac && typeof message.mac.length === "number" || $util.isString(message.mac)))
+                    return "mac: buffer expected";
+            }
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId")) {
+                properties._keyId = 1;
+                {
+                    var error = $root.ServerSync.KeyId.verify(message.keyId, _depth + 1);
+                    if (error)
+                        return "keyId." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdSnapshot message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdSnapshot} SyncdSnapshot
+         */
+        SyncdSnapshot.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdSnapshot)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdSnapshot: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdSnapshot();
+            if (object.version != null) {
+                if (!$util.isObject(object.version))
+                    throw $TypeError(".ServerSync.SyncdSnapshot.version: object expected");
+                message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, _depth + 1);
+            }
+            if (object.records) {
+                if (!$Array.isArray(object.records))
+                    throw $TypeError(".ServerSync.SyncdSnapshot.records: array expected");
+                message.records = $Array(object.records.length);
+                for (var i = 0; i < object.records.length; ++i) {
+                    if (!$util.isObject(object.records[i]))
+                        throw $TypeError(".ServerSync.SyncdSnapshot.records: object expected");
+                    message.records[i] = $root.ServerSync.SyncdRecord.fromObject(object.records[i], _depth + 1);
+                }
+            }
+            if (object.mac != null)
+                if (typeof object.mac === "string")
+                    $util.base64.decode(object.mac, message.mac = $util.newBuffer($util.base64.length(object.mac)), 0);
+                else if (object.mac.length >= 0)
+                    message.mac = object.mac;
+            if (object.keyId != null) {
+                if (!$util.isObject(object.keyId))
+                    throw $TypeError(".ServerSync.SyncdSnapshot.keyId: object expected");
+                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdSnapshot message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {ServerSync.SyncdSnapshot} message SyncdSnapshot
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdSnapshot.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.records = [];
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                object.version = $root.ServerSync.SyncdVersion.toObject(message.version, options, _depth + 1);
+            if (message.records && message.records.length) {
+                object.records = $Array(message.records.length);
+                for (var j = 0; j < message.records.length; ++j)
+                    object.records[j] = $root.ServerSync.SyncdRecord.toObject(message.records[j], options, _depth + 1);
+            }
+            if (message.mac != null && $Object.hasOwnProperty.call(message, "mac"))
+                object.mac = options.bytes === $String ? $util.base64.encode(message.mac, 0, message.mac.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.mac) : message.mac;
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                object.keyId = $root.ServerSync.KeyId.toObject(message.keyId, options, _depth + 1);
+            return object;
+        };
+
+        /**
+         * Converts this SyncdSnapshot to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdSnapshot.prototype.toJSON = function() {
+            return SyncdSnapshot.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdSnapshot
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdSnapshot
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdSnapshot.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdSnapshot";
+        };
+
+        return SyncdSnapshot;
+    })();
+
+    ServerSync.ExternalBlobReference = (function() {
+
+        /**
+         * Properties of an ExternalBlobReference.
+         * @typedef {Object} ServerSync.ExternalBlobReference.$Properties
+         * @property {Uint8Array|null} [mediaKey] ExternalBlobReference mediaKey
+         * @property {string|null} [directPath] ExternalBlobReference directPath
+         * @property {string|null} [handle] ExternalBlobReference handle
+         * @property {number|Long|null} [fileSizeBytes] ExternalBlobReference fileSizeBytes
+         * @property {Uint8Array|null} [fileSha256] ExternalBlobReference fileSha256
+         * @property {Uint8Array|null} [fileEncSha256] ExternalBlobReference fileEncSha256
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of an ExternalBlobReference.
+         * @memberof ServerSync
+         * @interface IExternalBlobReference
+         * @augments ServerSync.ExternalBlobReference.$Properties
+         * @deprecated Use ServerSync.ExternalBlobReference.$Properties instead.
+         */
+
+        /**
+         * Shape of an ExternalBlobReference.
+         * @typedef {ServerSync.ExternalBlobReference.$Properties} ServerSync.ExternalBlobReference.$Shape
+         */
+
+        /**
+         * Constructs a new ExternalBlobReference.
+         * @memberof ServerSync
+         * @classdesc Represents an ExternalBlobReference.
+         * @constructor
+         * @param {ServerSync.ExternalBlobReference.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var ExternalBlobReference = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * ExternalBlobReference mediaKey.
+         * @member {Uint8Array|null|undefined} mediaKey
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        ExternalBlobReference.prototype.mediaKey = null;
+
+        /**
+         * ExternalBlobReference directPath.
+         * @member {string|null|undefined} directPath
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        ExternalBlobReference.prototype.directPath = null;
+
+        /**
+         * ExternalBlobReference handle.
+         * @member {string|null|undefined} handle
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        ExternalBlobReference.prototype.handle = null;
+
+        /**
+         * ExternalBlobReference fileSizeBytes.
+         * @member {number|Long|null|undefined} fileSizeBytes
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        ExternalBlobReference.prototype.fileSizeBytes = null;
+
+        /**
+         * ExternalBlobReference fileSha256.
+         * @member {Uint8Array|null|undefined} fileSha256
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        ExternalBlobReference.prototype.fileSha256 = null;
+
+        /**
+         * ExternalBlobReference fileEncSha256.
+         * @member {Uint8Array|null|undefined} fileEncSha256
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        ExternalBlobReference.prototype.fileEncSha256 = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExternalBlobReference.prototype, "_mediaKey", {
+            get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExternalBlobReference.prototype, "_directPath", {
+            get: $util.oneOfGetter($oneOfFields = ["directPath"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExternalBlobReference.prototype, "_handle", {
+            get: $util.oneOfGetter($oneOfFields = ["handle"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExternalBlobReference.prototype, "_fileSizeBytes", {
+            get: $util.oneOfGetter($oneOfFields = ["fileSizeBytes"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExternalBlobReference.prototype, "_fileSha256", {
+            get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExternalBlobReference.prototype, "_fileEncSha256", {
+            get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new ExternalBlobReference instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {ServerSync.ExternalBlobReference.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.ExternalBlobReference} ExternalBlobReference instance
+         * @type {{
+         *   (properties: ServerSync.ExternalBlobReference.$Shape): ServerSync.ExternalBlobReference & ServerSync.ExternalBlobReference.$Shape;
+         *   (properties?: ServerSync.ExternalBlobReference.$Properties): ServerSync.ExternalBlobReference;
+         * }}
+         */
+        ExternalBlobReference.create = function(properties) {
+            return new ExternalBlobReference(properties);
+        };
+
+        /**
+         * Encodes the specified ExternalBlobReference message. Does not implicitly {@link ServerSync.ExternalBlobReference.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {ServerSync.ExternalBlobReference.$Properties} message ExternalBlobReference message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExternalBlobReference.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.mediaKey != null && $Object.hasOwnProperty.call(message, "mediaKey"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.mediaKey);
+            if (message.directPath != null && $Object.hasOwnProperty.call(message, "directPath"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.directPath);
+            if (message.handle != null && $Object.hasOwnProperty.call(message, "handle"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.handle);
+            if (message.fileSizeBytes != null && $Object.hasOwnProperty.call(message, "fileSizeBytes"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.fileSizeBytes);
+            if (message.fileSha256 != null && $Object.hasOwnProperty.call(message, "fileSha256"))
+                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.fileSha256);
+            if (message.fileEncSha256 != null && $Object.hasOwnProperty.call(message, "fileEncSha256"))
+                writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.fileEncSha256);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ExternalBlobReference message, length delimited. Does not implicitly {@link ServerSync.ExternalBlobReference.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {ServerSync.ExternalBlobReference.$Properties} message ExternalBlobReference message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExternalBlobReference.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes an ExternalBlobReference message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.ExternalBlobReference & ServerSync.ExternalBlobReference.$Shape} ExternalBlobReference
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExternalBlobReference.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.ExternalBlobReference();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.mediaKey = reader.bytes();
+                        message._mediaKey = "mediaKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.directPath = reader.stringVerify();
+                        message._directPath = "directPath";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.handle = reader.stringVerify();
+                        message._handle = "handle";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.fileSizeBytes = reader.uint64();
+                        message._fileSizeBytes = "fileSizeBytes";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.fileSha256 = reader.bytes();
+                        message._fileSha256 = "fileSha256";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.fileEncSha256 = reader.bytes();
+                        message._fileEncSha256 = "fileEncSha256";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes an ExternalBlobReference message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.ExternalBlobReference & ServerSync.ExternalBlobReference.$Shape} ExternalBlobReference
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExternalBlobReference.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ExternalBlobReference message.
+         * @function verify
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ExternalBlobReference.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.mediaKey != null && $Object.hasOwnProperty.call(message, "mediaKey")) {
+                properties._mediaKey = 1;
+                if (!(message.mediaKey && typeof message.mediaKey.length === "number" || $util.isString(message.mediaKey)))
+                    return "mediaKey: buffer expected";
+            }
+            if (message.directPath != null && $Object.hasOwnProperty.call(message, "directPath")) {
+                properties._directPath = 1;
+                if (!$util.isString(message.directPath))
+                    return "directPath: string expected";
+            }
+            if (message.handle != null && $Object.hasOwnProperty.call(message, "handle")) {
+                properties._handle = 1;
+                if (!$util.isString(message.handle))
+                    return "handle: string expected";
+            }
+            if (message.fileSizeBytes != null && $Object.hasOwnProperty.call(message, "fileSizeBytes")) {
+                properties._fileSizeBytes = 1;
+                if (!$util.isInteger(message.fileSizeBytes) && !(message.fileSizeBytes && $util.isInteger(message.fileSizeBytes.low) && $util.isInteger(message.fileSizeBytes.high)))
+                    return "fileSizeBytes: integer|Long expected";
+            }
+            if (message.fileSha256 != null && $Object.hasOwnProperty.call(message, "fileSha256")) {
+                properties._fileSha256 = 1;
+                if (!(message.fileSha256 && typeof message.fileSha256.length === "number" || $util.isString(message.fileSha256)))
+                    return "fileSha256: buffer expected";
+            }
+            if (message.fileEncSha256 != null && $Object.hasOwnProperty.call(message, "fileEncSha256")) {
+                properties._fileEncSha256 = 1;
+                if (!(message.fileEncSha256 && typeof message.fileEncSha256.length === "number" || $util.isString(message.fileEncSha256)))
+                    return "fileEncSha256: buffer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ExternalBlobReference message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.ExternalBlobReference} ExternalBlobReference
+         */
+        ExternalBlobReference.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.ExternalBlobReference)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.ExternalBlobReference: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.ExternalBlobReference();
+            if (object.mediaKey != null)
+                if (typeof object.mediaKey === "string")
+                    $util.base64.decode(object.mediaKey, message.mediaKey = $util.newBuffer($util.base64.length(object.mediaKey)), 0);
+                else if (object.mediaKey.length >= 0)
+                    message.mediaKey = object.mediaKey;
+            if (object.directPath != null)
+                message.directPath = $String(object.directPath);
+            if (object.handle != null)
+                message.handle = $String(object.handle);
+            if (object.fileSizeBytes != null)
+                if ($util.Long)
+                    message.fileSizeBytes = $util.Long.fromValue(object.fileSizeBytes, true);
+                else if (typeof object.fileSizeBytes === "string")
+                    message.fileSizeBytes = $parseInt(object.fileSizeBytes, 10);
+                else if (typeof object.fileSizeBytes === "number")
+                    message.fileSizeBytes = object.fileSizeBytes;
+                else if (typeof object.fileSizeBytes === "object")
+                    message.fileSizeBytes = new $util.LongBits(object.fileSizeBytes.low >>> 0, object.fileSizeBytes.high >>> 0).toNumber(true);
+            if (object.fileSha256 != null)
+                if (typeof object.fileSha256 === "string")
+                    $util.base64.decode(object.fileSha256, message.fileSha256 = $util.newBuffer($util.base64.length(object.fileSha256)), 0);
+                else if (object.fileSha256.length >= 0)
+                    message.fileSha256 = object.fileSha256;
+            if (object.fileEncSha256 != null)
+                if (typeof object.fileEncSha256 === "string")
+                    $util.base64.decode(object.fileEncSha256, message.fileEncSha256 = $util.newBuffer($util.base64.length(object.fileEncSha256)), 0);
+                else if (object.fileEncSha256.length >= 0)
+                    message.fileEncSha256 = object.fileEncSha256;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExternalBlobReference message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {ServerSync.ExternalBlobReference} message ExternalBlobReference
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExternalBlobReference.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.mediaKey != null && $Object.hasOwnProperty.call(message, "mediaKey"))
+                object.mediaKey = options.bytes === $String ? $util.base64.encode(message.mediaKey, 0, message.mediaKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.mediaKey) : message.mediaKey;
+            if (message.directPath != null && $Object.hasOwnProperty.call(message, "directPath"))
+                object.directPath = message.directPath;
+            if (message.handle != null && $Object.hasOwnProperty.call(message, "handle"))
+                object.handle = message.handle;
+            if (message.fileSizeBytes != null && $Object.hasOwnProperty.call(message, "fileSizeBytes"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.fileSizeBytes = typeof message.fileSizeBytes === "number" ? $BigInt(message.fileSizeBytes) : $util.Long.fromBits(message.fileSizeBytes.low >>> 0, message.fileSizeBytes.high >>> 0, true).toBigInt();
+                else if (typeof message.fileSizeBytes === "number")
+                    object.fileSizeBytes = options.longs === $String ? $String(message.fileSizeBytes) : message.fileSizeBytes;
+                else
+                    object.fileSizeBytes = options.longs === $String ? $util.Long.prototype.toString.call(message.fileSizeBytes) : options.longs === $Number ? new $util.LongBits(message.fileSizeBytes.low >>> 0, message.fileSizeBytes.high >>> 0).toNumber(true) : message.fileSizeBytes;
+            if (message.fileSha256 != null && $Object.hasOwnProperty.call(message, "fileSha256"))
+                object.fileSha256 = options.bytes === $String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.fileSha256) : message.fileSha256;
+            if (message.fileEncSha256 != null && $Object.hasOwnProperty.call(message, "fileEncSha256"))
+                object.fileEncSha256 = options.bytes === $String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256;
+            return object;
+        };
+
+        /**
+         * Converts this ExternalBlobReference to JSON.
+         * @function toJSON
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExternalBlobReference.prototype.toJSON = function() {
+            return ExternalBlobReference.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for ExternalBlobReference
+         * @function getTypeUrl
+         * @memberof ServerSync.ExternalBlobReference
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        ExternalBlobReference.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.ExternalBlobReference";
+        };
+
+        return ExternalBlobReference;
+    })();
+
+    ServerSync.SyncdRecord = (function() {
+
+        /**
+         * Properties of a SyncdRecord.
+         * @typedef {Object} ServerSync.SyncdRecord.$Properties
+         * @property {ServerSync.SyncdIndex.$Properties|null} [index] SyncdRecord index
+         * @property {ServerSync.SyncdValue.$Properties|null} [value] SyncdRecord value
+         * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdRecord keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdRecord.
+         * @memberof ServerSync
+         * @interface ISyncdRecord
+         * @augments ServerSync.SyncdRecord.$Properties
+         * @deprecated Use ServerSync.SyncdRecord.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdRecord.
+         * @typedef {ServerSync.SyncdRecord.$Properties} ServerSync.SyncdRecord.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdRecord.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdRecord.
+         * @constructor
+         * @param {ServerSync.SyncdRecord.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdRecord = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdRecord index.
+         * @member {ServerSync.SyncdIndex.$Properties|null|undefined} index
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
+        SyncdRecord.prototype.index = null;
+
+        /**
+         * SyncdRecord value.
+         * @member {ServerSync.SyncdValue.$Properties|null|undefined} value
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
+        SyncdRecord.prototype.value = null;
+
+        /**
+         * SyncdRecord keyId.
+         * @member {ServerSync.KeyId.$Properties|null|undefined} keyId
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
+        SyncdRecord.prototype.keyId = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdRecord.prototype, "_index", {
+            get: $util.oneOfGetter($oneOfFields = ["index"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdRecord.prototype, "_value", {
+            get: $util.oneOfGetter($oneOfFields = ["value"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdRecord.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdRecord instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {ServerSync.SyncdRecord.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdRecord} SyncdRecord instance
+         * @type {{
+         *   (properties: ServerSync.SyncdRecord.$Shape): ServerSync.SyncdRecord & ServerSync.SyncdRecord.$Shape;
+         *   (properties?: ServerSync.SyncdRecord.$Properties): ServerSync.SyncdRecord;
+         * }}
+         */
+        SyncdRecord.create = function(properties) {
+            return new SyncdRecord(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdRecord message. Does not implicitly {@link ServerSync.SyncdRecord.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {ServerSync.SyncdRecord.$Properties} message SyncdRecord message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdRecord.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.index != null && $Object.hasOwnProperty.call(message, "index"))
+                $root.ServerSync.SyncdIndex.encode(message.index, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+            if (message.value != null && $Object.hasOwnProperty.call(message, "value"))
+                $root.ServerSync.SyncdValue.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                $root.ServerSync.KeyId.encode(message.keyId, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdRecord message, length delimited. Does not implicitly {@link ServerSync.SyncdRecord.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {ServerSync.SyncdRecord.$Properties} message SyncdRecord message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdRecord.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdRecord message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdRecord & ServerSync.SyncdRecord.$Shape} SyncdRecord
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdRecord.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdRecord();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), $undefined, _depth + 1, message.index);
+                        message._index = "index";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                        message._value = "value";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdRecord message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdRecord & ServerSync.SyncdRecord.$Shape} SyncdRecord
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdRecord.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdRecord message.
+         * @function verify
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdRecord.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.index != null && $Object.hasOwnProperty.call(message, "index")) {
+                properties._index = 1;
+                {
+                    var error = $root.ServerSync.SyncdIndex.verify(message.index, _depth + 1);
+                    if (error)
+                        return "index." + error;
+                }
+            }
+            if (message.value != null && $Object.hasOwnProperty.call(message, "value")) {
+                properties._value = 1;
+                {
+                    var error = $root.ServerSync.SyncdValue.verify(message.value, _depth + 1);
+                    if (error)
+                        return "value." + error;
+                }
+            }
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId")) {
+                properties._keyId = 1;
+                {
+                    var error = $root.ServerSync.KeyId.verify(message.keyId, _depth + 1);
+                    if (error)
+                        return "keyId." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdRecord message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdRecord} SyncdRecord
+         */
+        SyncdRecord.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdRecord)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdRecord: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdRecord();
+            if (object.index != null) {
+                if (!$util.isObject(object.index))
+                    throw $TypeError(".ServerSync.SyncdRecord.index: object expected");
+                message.index = $root.ServerSync.SyncdIndex.fromObject(object.index, _depth + 1);
+            }
+            if (object.value != null) {
+                if (!$util.isObject(object.value))
+                    throw $TypeError(".ServerSync.SyncdRecord.value: object expected");
+                message.value = $root.ServerSync.SyncdValue.fromObject(object.value, _depth + 1);
+            }
+            if (object.keyId != null) {
+                if (!$util.isObject(object.keyId))
+                    throw $TypeError(".ServerSync.SyncdRecord.keyId: object expected");
+                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdRecord message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {ServerSync.SyncdRecord} message SyncdRecord
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdRecord.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.index != null && $Object.hasOwnProperty.call(message, "index"))
+                object.index = $root.ServerSync.SyncdIndex.toObject(message.index, options, _depth + 1);
+            if (message.value != null && $Object.hasOwnProperty.call(message, "value"))
+                object.value = $root.ServerSync.SyncdValue.toObject(message.value, options, _depth + 1);
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                object.keyId = $root.ServerSync.KeyId.toObject(message.keyId, options, _depth + 1);
+            return object;
+        };
+
+        /**
+         * Converts this SyncdRecord to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdRecord.prototype.toJSON = function() {
+            return SyncdRecord.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdRecord
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdRecord
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdRecord.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdRecord";
+        };
+
+        return SyncdRecord;
+    })();
+
+    ServerSync.KeyId = (function() {
+
+        /**
+         * Properties of a KeyId.
+         * @typedef {Object} ServerSync.KeyId.$Properties
+         * @property {Uint8Array|null} [id] KeyId id
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a KeyId.
+         * @memberof ServerSync
+         * @interface IKeyId
+         * @augments ServerSync.KeyId.$Properties
+         * @deprecated Use ServerSync.KeyId.$Properties instead.
+         */
+
+        /**
+         * Shape of a KeyId.
+         * @typedef {ServerSync.KeyId.$Properties} ServerSync.KeyId.$Shape
+         */
+
+        /**
+         * Constructs a new KeyId.
+         * @memberof ServerSync
+         * @classdesc Represents a KeyId.
+         * @constructor
+         * @param {ServerSync.KeyId.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var KeyId = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * KeyId id.
+         * @member {Uint8Array|null|undefined} id
+         * @memberof ServerSync.KeyId
+         * @instance
+         */
+        KeyId.prototype.id = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(KeyId.prototype, "_id", {
+            get: $util.oneOfGetter($oneOfFields = ["id"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new KeyId instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {ServerSync.KeyId.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.KeyId} KeyId instance
+         * @type {{
+         *   (properties: ServerSync.KeyId.$Shape): ServerSync.KeyId & ServerSync.KeyId.$Shape;
+         *   (properties?: ServerSync.KeyId.$Properties): ServerSync.KeyId;
+         * }}
+         */
+        KeyId.create = function(properties) {
+            return new KeyId(properties);
+        };
+
+        /**
+         * Encodes the specified KeyId message. Does not implicitly {@link ServerSync.KeyId.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {ServerSync.KeyId.$Properties} message KeyId message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        KeyId.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.id);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified KeyId message, length delimited. Does not implicitly {@link ServerSync.KeyId.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {ServerSync.KeyId.$Properties} message KeyId message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        KeyId.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a KeyId message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.KeyId & ServerSync.KeyId.$Shape} KeyId
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        KeyId.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.KeyId();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.id = reader.bytes();
+                        message._id = "id";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a KeyId message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.KeyId & ServerSync.KeyId.$Shape} KeyId
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        KeyId.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a KeyId message.
+         * @function verify
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        KeyId.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id")) {
+                properties._id = 1;
+                if (!(message.id && typeof message.id.length === "number" || $util.isString(message.id)))
+                    return "id: buffer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a KeyId message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.KeyId} KeyId
+         */
+        KeyId.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.KeyId)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.KeyId: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.KeyId();
+            if (object.id != null)
+                if (typeof object.id === "string")
+                    $util.base64.decode(object.id, message.id = $util.newBuffer($util.base64.length(object.id)), 0);
+                else if (object.id.length >= 0)
+                    message.id = object.id;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a KeyId message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {ServerSync.KeyId} message KeyId
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        KeyId.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
+                object.id = options.bytes === $String ? $util.base64.encode(message.id, 0, message.id.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.id) : message.id;
+            return object;
+        };
+
+        /**
+         * Converts this KeyId to JSON.
+         * @function toJSON
+         * @memberof ServerSync.KeyId
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        KeyId.prototype.toJSON = function() {
+            return KeyId.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for KeyId
+         * @function getTypeUrl
+         * @memberof ServerSync.KeyId
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        KeyId.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.KeyId";
+        };
+
+        return KeyId;
+    })();
+
+    ServerSync.SyncdValue = (function() {
+
+        /**
+         * Properties of a SyncdValue.
+         * @typedef {Object} ServerSync.SyncdValue.$Properties
+         * @property {Uint8Array|null} [blob] SyncdValue blob
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdValue.
+         * @memberof ServerSync
+         * @interface ISyncdValue
+         * @augments ServerSync.SyncdValue.$Properties
+         * @deprecated Use ServerSync.SyncdValue.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdValue.
+         * @typedef {ServerSync.SyncdValue.$Properties} ServerSync.SyncdValue.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdValue.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdValue.
+         * @constructor
+         * @param {ServerSync.SyncdValue.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdValue = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdValue blob.
+         * @member {Uint8Array|null|undefined} blob
+         * @memberof ServerSync.SyncdValue
+         * @instance
+         */
+        SyncdValue.prototype.blob = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdValue.prototype, "_blob", {
+            get: $util.oneOfGetter($oneOfFields = ["blob"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdValue instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {ServerSync.SyncdValue.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdValue} SyncdValue instance
+         * @type {{
+         *   (properties: ServerSync.SyncdValue.$Shape): ServerSync.SyncdValue & ServerSync.SyncdValue.$Shape;
+         *   (properties?: ServerSync.SyncdValue.$Properties): ServerSync.SyncdValue;
+         * }}
+         */
+        SyncdValue.create = function(properties) {
+            return new SyncdValue(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdValue message. Does not implicitly {@link ServerSync.SyncdValue.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {ServerSync.SyncdValue.$Properties} message SyncdValue message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdValue.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.blob != null && $Object.hasOwnProperty.call(message, "blob"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.blob);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdValue message, length delimited. Does not implicitly {@link ServerSync.SyncdValue.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {ServerSync.SyncdValue.$Properties} message SyncdValue message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdValue.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdValue message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdValue & ServerSync.SyncdValue.$Shape} SyncdValue
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdValue.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdValue();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.blob = reader.bytes();
+                        message._blob = "blob";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdValue message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdValue & ServerSync.SyncdValue.$Shape} SyncdValue
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdValue.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdValue message.
+         * @function verify
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdValue.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.blob != null && $Object.hasOwnProperty.call(message, "blob")) {
+                properties._blob = 1;
+                if (!(message.blob && typeof message.blob.length === "number" || $util.isString(message.blob)))
+                    return "blob: buffer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdValue message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdValue} SyncdValue
+         */
+        SyncdValue.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdValue)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdValue: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdValue();
+            if (object.blob != null)
+                if (typeof object.blob === "string")
+                    $util.base64.decode(object.blob, message.blob = $util.newBuffer($util.base64.length(object.blob)), 0);
+                else if (object.blob.length >= 0)
+                    message.blob = object.blob;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdValue message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {ServerSync.SyncdValue} message SyncdValue
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdValue.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.blob != null && $Object.hasOwnProperty.call(message, "blob"))
+                object.blob = options.bytes === $String ? $util.base64.encode(message.blob, 0, message.blob.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.blob) : message.blob;
+            return object;
+        };
+
+        /**
+         * Converts this SyncdValue to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdValue
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdValue.prototype.toJSON = function() {
+            return SyncdValue.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdValue
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdValue
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdValue.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdValue";
+        };
+
+        return SyncdValue;
+    })();
+
+    ServerSync.SyncdIndex = (function() {
+
+        /**
+         * Properties of a SyncdIndex.
+         * @typedef {Object} ServerSync.SyncdIndex.$Properties
+         * @property {Uint8Array|null} [blob] SyncdIndex blob
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdIndex.
+         * @memberof ServerSync
+         * @interface ISyncdIndex
+         * @augments ServerSync.SyncdIndex.$Properties
+         * @deprecated Use ServerSync.SyncdIndex.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdIndex.
+         * @typedef {ServerSync.SyncdIndex.$Properties} ServerSync.SyncdIndex.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdIndex.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdIndex.
+         * @constructor
+         * @param {ServerSync.SyncdIndex.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdIndex = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdIndex blob.
+         * @member {Uint8Array|null|undefined} blob
+         * @memberof ServerSync.SyncdIndex
+         * @instance
+         */
+        SyncdIndex.prototype.blob = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdIndex.prototype, "_blob", {
+            get: $util.oneOfGetter($oneOfFields = ["blob"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdIndex instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {ServerSync.SyncdIndex.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdIndex} SyncdIndex instance
+         * @type {{
+         *   (properties: ServerSync.SyncdIndex.$Shape): ServerSync.SyncdIndex & ServerSync.SyncdIndex.$Shape;
+         *   (properties?: ServerSync.SyncdIndex.$Properties): ServerSync.SyncdIndex;
+         * }}
+         */
+        SyncdIndex.create = function(properties) {
+            return new SyncdIndex(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdIndex message. Does not implicitly {@link ServerSync.SyncdIndex.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {ServerSync.SyncdIndex.$Properties} message SyncdIndex message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdIndex.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.blob != null && $Object.hasOwnProperty.call(message, "blob"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.blob);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdIndex message, length delimited. Does not implicitly {@link ServerSync.SyncdIndex.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {ServerSync.SyncdIndex.$Properties} message SyncdIndex message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdIndex.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdIndex message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdIndex & ServerSync.SyncdIndex.$Shape} SyncdIndex
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdIndex.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdIndex();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.blob = reader.bytes();
+                        message._blob = "blob";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdIndex message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdIndex & ServerSync.SyncdIndex.$Shape} SyncdIndex
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdIndex.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdIndex message.
+         * @function verify
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdIndex.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.blob != null && $Object.hasOwnProperty.call(message, "blob")) {
+                properties._blob = 1;
+                if (!(message.blob && typeof message.blob.length === "number" || $util.isString(message.blob)))
+                    return "blob: buffer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdIndex message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdIndex} SyncdIndex
+         */
+        SyncdIndex.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdIndex)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdIndex: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdIndex();
+            if (object.blob != null)
+                if (typeof object.blob === "string")
+                    $util.base64.decode(object.blob, message.blob = $util.newBuffer($util.base64.length(object.blob)), 0);
+                else if (object.blob.length >= 0)
+                    message.blob = object.blob;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdIndex message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {ServerSync.SyncdIndex} message SyncdIndex
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdIndex.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.blob != null && $Object.hasOwnProperty.call(message, "blob"))
+                object.blob = options.bytes === $String ? $util.base64.encode(message.blob, 0, message.blob.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.blob) : message.blob;
+            return object;
+        };
+
+        /**
+         * Converts this SyncdIndex to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdIndex
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdIndex.prototype.toJSON = function() {
+            return SyncdIndex.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdIndex
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdIndex
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdIndex.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdIndex";
+        };
+
+        return SyncdIndex;
+    })();
+
+    ServerSync.ExitCode = (function() {
+
+        /**
+         * Properties of an ExitCode.
+         * @typedef {Object} ServerSync.ExitCode.$Properties
+         * @property {number|Long|null} [code] ExitCode code
+         * @property {string|null} [text] ExitCode text
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of an ExitCode.
+         * @memberof ServerSync
+         * @interface IExitCode
+         * @augments ServerSync.ExitCode.$Properties
+         * @deprecated Use ServerSync.ExitCode.$Properties instead.
+         */
+
+        /**
+         * Shape of an ExitCode.
+         * @typedef {ServerSync.ExitCode.$Properties} ServerSync.ExitCode.$Shape
+         */
+
+        /**
+         * Constructs a new ExitCode.
+         * @memberof ServerSync
+         * @classdesc Represents an ExitCode.
+         * @constructor
+         * @param {ServerSync.ExitCode.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var ExitCode = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * ExitCode code.
+         * @member {number|Long|null|undefined} code
+         * @memberof ServerSync.ExitCode
+         * @instance
+         */
+        ExitCode.prototype.code = null;
+
+        /**
+         * ExitCode text.
+         * @member {string|null|undefined} text
+         * @memberof ServerSync.ExitCode
+         * @instance
+         */
+        ExitCode.prototype.text = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExitCode.prototype, "_code", {
+            get: $util.oneOfGetter($oneOfFields = ["code"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ExitCode.prototype, "_text", {
+            get: $util.oneOfGetter($oneOfFields = ["text"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new ExitCode instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {ServerSync.ExitCode.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.ExitCode} ExitCode instance
+         * @type {{
+         *   (properties: ServerSync.ExitCode.$Shape): ServerSync.ExitCode & ServerSync.ExitCode.$Shape;
+         *   (properties?: ServerSync.ExitCode.$Properties): ServerSync.ExitCode;
+         * }}
+         */
+        ExitCode.create = function(properties) {
+            return new ExitCode(properties);
+        };
+
+        /**
+         * Encodes the specified ExitCode message. Does not implicitly {@link ServerSync.ExitCode.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {ServerSync.ExitCode.$Properties} message ExitCode message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExitCode.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.code != null && $Object.hasOwnProperty.call(message, "code"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.code);
+            if (message.text != null && $Object.hasOwnProperty.call(message, "text"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.text);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ExitCode message, length delimited. Does not implicitly {@link ServerSync.ExitCode.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {ServerSync.ExitCode.$Properties} message ExitCode message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExitCode.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes an ExitCode message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.ExitCode & ServerSync.ExitCode.$Shape} ExitCode
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExitCode.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.ExitCode();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.code = reader.uint64();
+                        message._code = "code";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.text = reader.stringVerify();
+                        message._text = "text";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes an ExitCode message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.ExitCode & ServerSync.ExitCode.$Shape} ExitCode
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExitCode.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ExitCode message.
+         * @function verify
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ExitCode.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.code != null && $Object.hasOwnProperty.call(message, "code")) {
+                properties._code = 1;
+                if (!$util.isInteger(message.code) && !(message.code && $util.isInteger(message.code.low) && $util.isInteger(message.code.high)))
+                    return "code: integer|Long expected";
+            }
+            if (message.text != null && $Object.hasOwnProperty.call(message, "text")) {
+                properties._text = 1;
+                if (!$util.isString(message.text))
+                    return "text: string expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ExitCode message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.ExitCode} ExitCode
+         */
+        ExitCode.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.ExitCode)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.ExitCode: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.ExitCode();
+            if (object.code != null)
+                if ($util.Long)
+                    message.code = $util.Long.fromValue(object.code, true);
+                else if (typeof object.code === "string")
+                    message.code = $parseInt(object.code, 10);
+                else if (typeof object.code === "number")
+                    message.code = object.code;
+                else if (typeof object.code === "object")
+                    message.code = new $util.LongBits(object.code.low >>> 0, object.code.high >>> 0).toNumber(true);
+            if (object.text != null)
+                message.text = $String(object.text);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExitCode message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {ServerSync.ExitCode} message ExitCode
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExitCode.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.code != null && $Object.hasOwnProperty.call(message, "code"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.code = typeof message.code === "number" ? $BigInt(message.code) : $util.Long.fromBits(message.code.low >>> 0, message.code.high >>> 0, true).toBigInt();
+                else if (typeof message.code === "number")
+                    object.code = options.longs === $String ? $String(message.code) : message.code;
+                else
+                    object.code = options.longs === $String ? $util.Long.prototype.toString.call(message.code) : options.longs === $Number ? new $util.LongBits(message.code.low >>> 0, message.code.high >>> 0).toNumber(true) : message.code;
+            if (message.text != null && $Object.hasOwnProperty.call(message, "text"))
+                object.text = message.text;
+            return object;
+        };
+
+        /**
+         * Converts this ExitCode to JSON.
+         * @function toJSON
+         * @memberof ServerSync.ExitCode
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExitCode.prototype.toJSON = function() {
+            return ExitCode.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for ExitCode
+         * @function getTypeUrl
+         * @memberof ServerSync.ExitCode
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        ExitCode.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.ExitCode";
+        };
+
+        return ExitCode;
+    })();
+
+    ServerSync.SyncdVersion = (function() {
+
+        /**
+         * Properties of a SyncdVersion.
+         * @typedef {Object} ServerSync.SyncdVersion.$Properties
+         * @property {number|Long|null} [version] SyncdVersion version
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a SyncdVersion.
+         * @memberof ServerSync
+         * @interface ISyncdVersion
+         * @augments ServerSync.SyncdVersion.$Properties
+         * @deprecated Use ServerSync.SyncdVersion.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdVersion.
+         * @typedef {ServerSync.SyncdVersion.$Properties} ServerSync.SyncdVersion.$Shape
+         */
+
+        /**
+         * Constructs a new SyncdVersion.
+         * @memberof ServerSync
+         * @classdesc Represents a SyncdVersion.
+         * @constructor
+         * @param {ServerSync.SyncdVersion.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var SyncdVersion = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * SyncdVersion version.
+         * @member {number|Long|null|undefined} version
+         * @memberof ServerSync.SyncdVersion
+         * @instance
+         */
+        SyncdVersion.prototype.version = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncdVersion.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SyncdVersion instance using the specified properties.
+         * @function create
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {ServerSync.SyncdVersion.$Properties=} [properties] Properties to set
+         * @returns {ServerSync.SyncdVersion} SyncdVersion instance
+         * @type {{
+         *   (properties: ServerSync.SyncdVersion.$Shape): ServerSync.SyncdVersion & ServerSync.SyncdVersion.$Shape;
+         *   (properties?: ServerSync.SyncdVersion.$Properties): ServerSync.SyncdVersion;
+         * }}
+         */
+        SyncdVersion.create = function(properties) {
+            return new SyncdVersion(properties);
+        };
+
+        /**
+         * Encodes the specified SyncdVersion message. Does not implicitly {@link ServerSync.SyncdVersion.verify|verify} messages.
+         * @function encode
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {ServerSync.SyncdVersion.$Properties} message SyncdVersion message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdVersion.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.version);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SyncdVersion message, length delimited. Does not implicitly {@link ServerSync.SyncdVersion.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {ServerSync.SyncdVersion.$Properties} message SyncdVersion message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncdVersion.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a SyncdVersion message from the specified reader or buffer.
+         * @function decode
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ServerSync.SyncdVersion & ServerSync.SyncdVersion.$Shape} SyncdVersion
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdVersion.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdVersion();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.version = reader.uint64();
+                        message._version = "version";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a SyncdVersion message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ServerSync.SyncdVersion & ServerSync.SyncdVersion.$Shape} SyncdVersion
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncdVersion.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SyncdVersion message.
+         * @function verify
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SyncdVersion.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
+                properties._version = 1;
+                if (!$util.isInteger(message.version) && !(message.version && $util.isInteger(message.version.low) && $util.isInteger(message.version.high)))
+                    return "version: integer|Long expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SyncdVersion message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ServerSync.SyncdVersion} SyncdVersion
+         */
+        SyncdVersion.fromObject = function (object, _depth) {
+            if (object instanceof $root.ServerSync.SyncdVersion)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".ServerSync.SyncdVersion: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.ServerSync.SyncdVersion();
+            if (object.version != null)
+                if ($util.Long)
+                    message.version = $util.Long.fromValue(object.version, true);
+                else if (typeof object.version === "string")
+                    message.version = $parseInt(object.version, 10);
+                else if (typeof object.version === "number")
+                    message.version = object.version;
+                else if (typeof object.version === "object")
+                    message.version = new $util.LongBits(object.version.low >>> 0, object.version.high >>> 0).toNumber(true);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncdVersion message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {ServerSync.SyncdVersion} message SyncdVersion
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncdVersion.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.version = typeof message.version === "number" ? $BigInt(message.version) : $util.Long.fromBits(message.version.low >>> 0, message.version.high >>> 0, true).toBigInt();
+                else if (typeof message.version === "number")
+                    object.version = options.longs === $String ? $String(message.version) : message.version;
+                else
+                    object.version = options.longs === $String ? $util.Long.prototype.toString.call(message.version) : options.longs === $Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber(true) : message.version;
+            return object;
+        };
+
+        /**
+         * Converts this SyncdVersion to JSON.
+         * @function toJSON
+         * @memberof ServerSync.SyncdVersion
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncdVersion.prototype.toJSON = function() {
+            return SyncdVersion.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for SyncdVersion
+         * @function getTypeUrl
+         * @memberof ServerSync.SyncdVersion
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        SyncdVersion.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdVersion";
+        };
+
+        return SyncdVersion;
+    })();
+
+    return ServerSync;
 })();
 
 module.exports = $root;

@@ -5,7 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
-var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $Boolean = $util.global.Boolean, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number, $Boolean = $util.global.Boolean;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -30,6 +30,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
          * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
+         * @property {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties|null} [aiFbidMigration] DeviceCapabilities aiFbidMigration
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -109,6 +110,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.aiThread = null;
 
+        /**
+         * DeviceCapabilities aiFbidMigration.
+         * @member {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties|null|undefined} aiFbidMigration
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.aiFbidMigration = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -145,6 +154,12 @@ $root.DeviceCapabilities = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(DeviceCapabilities.prototype, "_aiThread", {
             get: $util.oneOfGetter($oneOfFields = ["aiThread"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_aiFbidMigration", {
+            get: $util.oneOfGetter($oneOfFields = ["aiFbidMigration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -192,6 +207,8 @@ $root.DeviceCapabilities = (function() {
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.memberNameTagPrimarySupport);
             if (message.aiThread != null && $Object.hasOwnProperty.call(message, "aiThread"))
                 $root.DeviceCapabilities.DeviceCapabilities.AiThread.encode(message.aiThread, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
+            if (message.aiFbidMigration != null && $Object.hasOwnProperty.call(message, "aiFbidMigration"))
+                $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.encode(message.aiFbidMigration, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -281,6 +298,13 @@ $root.DeviceCapabilities = (function() {
                         message._aiThread = "aiThread";
                         continue;
                     }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiFbidMigration);
+                        message._aiFbidMigration = "aiFbidMigration";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -367,6 +391,14 @@ $root.DeviceCapabilities = (function() {
                         return "aiThread." + error;
                 }
             }
+            if (message.aiFbidMigration != null && $Object.hasOwnProperty.call(message, "aiFbidMigration")) {
+                properties._aiFbidMigration = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.verify(message.aiFbidMigration, _depth + 1);
+                    if (error)
+                        return "aiFbidMigration." + error;
+                }
+            }
             return null;
         };
 
@@ -442,6 +474,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.aiThread: object expected");
                 message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.fromObject(object.aiThread, _depth + 1);
             }
+            if (object.aiFbidMigration != null) {
+                if (!$util.isObject(object.aiFbidMigration))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.aiFbidMigration: object expected");
+                message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.fromObject(object.aiFbidMigration, _depth + 1);
+            }
             return message;
         };
 
@@ -474,6 +511,8 @@ $root.DeviceCapabilities = (function() {
                 object.memberNameTagPrimarySupport = options.enums === $String ? $root.DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport[message.memberNameTagPrimarySupport] === $undefined ? message.memberNameTagPrimarySupport : $root.DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport[message.memberNameTagPrimarySupport] : message.memberNameTagPrimarySupport;
             if (message.aiThread != null && $Object.hasOwnProperty.call(message, "aiThread"))
                 object.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.toObject(message.aiThread, options, _depth + 1);
+            if (message.aiFbidMigration != null && $Object.hasOwnProperty.call(message, "aiFbidMigration"))
+                object.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.toObject(message.aiFbidMigration, options, _depth + 1);
             return object;
         };
 
@@ -501,6 +540,285 @@ $root.DeviceCapabilities = (function() {
                 prefix = "type.googleapis.com";
             return prefix + "/DeviceCapabilities.DeviceCapabilities";
         };
+
+        DeviceCapabilities.AiFbidMigration = (function() {
+
+            /**
+             * Properties of an AiFbidMigration.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties
+             * @property {number|Long|null} [chatDbMigrationTimestamp] AiFbidMigration chatDbMigrationTimestamp
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of an AiFbidMigration.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IAiFbidMigration
+             * @augments DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiFbidMigration.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties} DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Shape
+             */
+
+            /**
+             * Constructs a new AiFbidMigration.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents an AiFbidMigration.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var AiFbidMigration = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * AiFbidMigration chatDbMigrationTimestamp.
+             * @member {number|Long|null|undefined} chatDbMigrationTimestamp
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @instance
+             */
+            AiFbidMigration.prototype.chatDbMigrationTimestamp = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(AiFbidMigration.prototype, "_chatDbMigrationTimestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new AiFbidMigration instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiFbidMigration} AiFbidMigration instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Shape): DeviceCapabilities.DeviceCapabilities.AiFbidMigration & DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties): DeviceCapabilities.DeviceCapabilities.AiFbidMigration;
+             * }}
+             */
+            AiFbidMigration.create = function(properties) {
+                return new AiFbidMigration(properties);
+            };
+
+            /**
+             * Encodes the specified AiFbidMigration message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.AiFbidMigration.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties} message AiFbidMigration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiFbidMigration.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.chatDbMigrationTimestamp != null && $Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.chatDbMigrationTimestamp);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AiFbidMigration message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.AiFbidMigration.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties} message AiFbidMigration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiFbidMigration.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes an AiFbidMigration message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiFbidMigration & DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Shape} AiFbidMigration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiFbidMigration.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.chatDbMigrationTimestamp = reader.uint64();
+                            message._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes an AiFbidMigration message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiFbidMigration & DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Shape} AiFbidMigration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiFbidMigration.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AiFbidMigration message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AiFbidMigration.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.chatDbMigrationTimestamp != null && $Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp")) {
+                    properties._chatDbMigrationTimestamp = 1;
+                    if (!$util.isInteger(message.chatDbMigrationTimestamp) && !(message.chatDbMigrationTimestamp && $util.isInteger(message.chatDbMigrationTimestamp.low) && $util.isInteger(message.chatDbMigrationTimestamp.high)))
+                        return "chatDbMigrationTimestamp: integer|Long expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AiFbidMigration message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiFbidMigration} AiFbidMigration
+             */
+            AiFbidMigration.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.AiFbidMigration: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration();
+                if (object.chatDbMigrationTimestamp != null)
+                    if ($util.Long)
+                        message.chatDbMigrationTimestamp = $util.Long.fromValue(object.chatDbMigrationTimestamp, true);
+                    else if (typeof object.chatDbMigrationTimestamp === "string")
+                        message.chatDbMigrationTimestamp = $parseInt(object.chatDbMigrationTimestamp, 10);
+                    else if (typeof object.chatDbMigrationTimestamp === "number")
+                        message.chatDbMigrationTimestamp = object.chatDbMigrationTimestamp;
+                    else if (typeof object.chatDbMigrationTimestamp === "object")
+                        message.chatDbMigrationTimestamp = new $util.LongBits(object.chatDbMigrationTimestamp.low >>> 0, object.chatDbMigrationTimestamp.high >>> 0).toNumber(true);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AiFbidMigration message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiFbidMigration} message AiFbidMigration
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AiFbidMigration.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.chatDbMigrationTimestamp != null && $Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.chatDbMigrationTimestamp = typeof message.chatDbMigrationTimestamp === "number" ? $BigInt(message.chatDbMigrationTimestamp) : $util.Long.fromBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0, true).toBigInt();
+                    else if (typeof message.chatDbMigrationTimestamp === "number")
+                        object.chatDbMigrationTimestamp = options.longs === $String ? $String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
+                    else
+                        object.chatDbMigrationTimestamp = options.longs === $String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === $Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
+                return object;
+            };
+
+            /**
+             * Converts this AiFbidMigration to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AiFbidMigration.prototype.toJSON = function() {
+                return AiFbidMigration.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for AiFbidMigration
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiFbidMigration
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            AiFbidMigration.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.AiFbidMigration";
+            };
+
+            return AiFbidMigration;
+        })();
 
         DeviceCapabilities.AiThread = (function() {
 
