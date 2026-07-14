@@ -268,7 +268,7 @@ $root.Reporting = (function() {
                             case 2:
                                 if (wireType !== 2)
                                     break;
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1);
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1, value);
                                 continue;
                             }
                             reader.skipType(wireType, _depth, tag2);
@@ -635,7 +635,7 @@ $root.Reporting = (function() {
                             case 2:
                                 if (wireType !== 2)
                                     break;
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1);
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1, value);
                                 continue;
                             }
                             reader.skipType(wireType, _depth, tag2);
