@@ -35147,6 +35147,7 @@ $root.E2E = (function() {
              * @property {string|null} [deeplinkPayload] Call deeplinkPayload
              * @property {E2E.MessageContextInfo.$Properties|null} [messageContextInfo] Call messageContextInfo
              * @property {number|null} [callEntryPoint] Call callEntryPoint
+             * @property {string|null} [callReason] Call callReason
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -35172,6 +35173,7 @@ $root.E2E = (function() {
              *   deeplinkPayload?: string|null;
              *   messageContextInfo?: E2E.MessageContextInfo.$Shape|null;
              *   callEntryPoint?: number|null;
+             *   callReason?: string|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.Call.$Shape
              */
@@ -35279,6 +35281,14 @@ $root.E2E = (function() {
              */
             Call.prototype.callEntryPoint = null;
 
+            /**
+             * Call callReason.
+             * @member {string|null|undefined} callReason
+             * @memberof E2E.Message.Call
+             * @instance
+             */
+            Call.prototype.callReason = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -35348,6 +35358,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(Call.prototype, "_callReason", {
+                get: $util.oneOfGetter($oneOfFields = ["callReason"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new Call instance using the specified properties.
              * @function create
@@ -35402,6 +35418,8 @@ $root.E2E = (function() {
                     $root.E2E.MessageContextInfo.encode(message.messageContextInfo, writer.uint32(/* id 10, wireType 2 =*/82).fork(), _depth + 1).ldelim();
                 if (message.callEntryPoint != null && $Object.hasOwnProperty.call(message, "callEntryPoint"))
                     writer.uint32(/* id 11, wireType 0 =*/88).uint32(message.callEntryPoint);
+                if (message.callReason != null && $Object.hasOwnProperty.call(message, "callReason"))
+                    writer.uint32(/* id 12, wireType 2 =*/98).string(message.callReason);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -35526,6 +35544,13 @@ $root.E2E = (function() {
                             message._callEntryPoint = "callEntryPoint";
                             continue;
                         }
+                    case 12: {
+                            if (wireType !== 2)
+                                break;
+                            message.callReason = reader.stringVerify();
+                            message._callReason = "callReason";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -35631,6 +35656,11 @@ $root.E2E = (function() {
                     if (!$util.isInteger(message.callEntryPoint))
                         return "callEntryPoint: integer expected";
                 }
+                if (message.callReason != null && $Object.hasOwnProperty.call(message, "callReason")) {
+                    properties._callReason = 1;
+                    if (!$util.isString(message.callReason))
+                        return "callReason: string expected";
+                }
                 return null;
             };
 
@@ -35689,6 +35719,8 @@ $root.E2E = (function() {
                 }
                 if (object.callEntryPoint != null)
                     message.callEntryPoint = object.callEntryPoint >>> 0;
+                if (object.callReason != null)
+                    message.callReason = $String(object.callReason);
                 return message;
             };
 
@@ -35731,6 +35763,8 @@ $root.E2E = (function() {
                     object.messageContextInfo = $root.E2E.MessageContextInfo.toObject(message.messageContextInfo, options, _depth + 1);
                 if (message.callEntryPoint != null && $Object.hasOwnProperty.call(message, "callEntryPoint"))
                     object.callEntryPoint = message.callEntryPoint;
+                if (message.callReason != null && $Object.hasOwnProperty.call(message, "callReason"))
+                    object.callReason = message.callReason;
                 return object;
             };
 
@@ -87702,6 +87736,7 @@ $root.E2E = (function() {
              * @property {AICommon.AIMetadataOperation.$Properties|null} [aiMetadataOperation] ProtocolMessage aiMetadataOperation
              * @property {E2E.Message.MarkAsVerifiedAction.$Properties|null} [markAsVerifiedAction] ProtocolMessage markAsVerifiedAction
              * @property {ServerSync.CoexStateSync.$Properties|null} [coexStateSync] ProtocolMessage coexStateSync
+             * @property {E2E.Message.SyncRequestMutationRetry.$Properties|null} [syncRequestMutationRetry] ProtocolMessage syncRequestMutationRetry
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -87746,6 +87781,7 @@ $root.E2E = (function() {
              *   aiMetadataOperation?: AICommon.AIMetadataOperation.$Shape|null;
              *   markAsVerifiedAction?: E2E.Message.MarkAsVerifiedAction.$Shape|null;
              *   coexStateSync?: ServerSync.CoexStateSync.$Shape|null;
+             *   syncRequestMutationRetry?: E2E.Message.SyncRequestMutationRetry.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.ProtocolMessage.$Shape
              */
@@ -88005,6 +88041,14 @@ $root.E2E = (function() {
              */
             ProtocolMessage.prototype.coexStateSync = null;
 
+            /**
+             * ProtocolMessage syncRequestMutationRetry.
+             * @member {E2E.Message.SyncRequestMutationRetry.$Properties|null|undefined} syncRequestMutationRetry
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.syncRequestMutationRetry = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -88188,6 +88232,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_syncRequestMutationRetry", {
+                get: $util.oneOfGetter($oneOfFields = ["syncRequestMutationRetry"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
              * @function create
@@ -88280,6 +88330,8 @@ $root.E2E = (function() {
                     $root.E2E.Message.MarkAsVerifiedAction.encode(message.markAsVerifiedAction, writer.uint32(/* id 32, wireType 2 =*/258).fork(), _depth + 1).ldelim();
                 if (message.coexStateSync != null && $Object.hasOwnProperty.call(message, "coexStateSync"))
                     $root.ServerSync.CoexStateSync.encode(message.coexStateSync, writer.uint32(/* id 33, wireType 2 =*/266).fork(), _depth + 1).ldelim();
+                if (message.syncRequestMutationRetry != null && $Object.hasOwnProperty.call(message, "syncRequestMutationRetry"))
+                    $root.E2E.Message.SyncRequestMutationRetry.encode(message.syncRequestMutationRetry, writer.uint32(/* id 34, wireType 2 =*/274).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -88535,6 +88587,13 @@ $root.E2E = (function() {
                                 break;
                             message.coexStateSync = $root.ServerSync.CoexStateSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.coexStateSync);
                             message._coexStateSync = "coexStateSync";
+                            continue;
+                        }
+                    case 34: {
+                            if (wireType !== 2)
+                                break;
+                            message.syncRequestMutationRetry = $root.E2E.Message.SyncRequestMutationRetry.decode(reader, reader.uint32(), $undefined, _depth + 1, message.syncRequestMutationRetry);
+                            message._syncRequestMutationRetry = "syncRequestMutationRetry";
                             continue;
                         }
                     }
@@ -88800,6 +88859,14 @@ $root.E2E = (function() {
                             return "coexStateSync." + error;
                     }
                 }
+                if (message.syncRequestMutationRetry != null && $Object.hasOwnProperty.call(message, "syncRequestMutationRetry")) {
+                    properties._syncRequestMutationRetry = 1;
+                    {
+                        var error = $root.E2E.Message.SyncRequestMutationRetry.verify(message.syncRequestMutationRetry, _depth + 1);
+                        if (error)
+                            return "syncRequestMutationRetry." + error;
+                    }
+                }
                 return null;
             };
 
@@ -88955,6 +89022,10 @@ $root.E2E = (function() {
                 case 37:
                     message.type = 37;
                     break;
+                case "SYNC_REQUEST_MUTATION_RETRY":
+                case 38:
+                    message.type = 38;
+                    break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
                         message.type = object.type;
@@ -89098,6 +89169,11 @@ $root.E2E = (function() {
                         throw $TypeError(".E2E.Message.ProtocolMessage.coexStateSync: object expected");
                     message.coexStateSync = $root.ServerSync.CoexStateSync.fromObject(object.coexStateSync, _depth + 1);
                 }
+                if (object.syncRequestMutationRetry != null) {
+                    if (!$util.isObject(object.syncRequestMutationRetry))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.syncRequestMutationRetry: object expected");
+                    message.syncRequestMutationRetry = $root.E2E.Message.SyncRequestMutationRetry.fromObject(object.syncRequestMutationRetry, _depth + 1);
+                }
                 return message;
             };
 
@@ -89188,6 +89264,8 @@ $root.E2E = (function() {
                     object.markAsVerifiedAction = $root.E2E.Message.MarkAsVerifiedAction.toObject(message.markAsVerifiedAction, options, _depth + 1);
                 if (message.coexStateSync != null && $Object.hasOwnProperty.call(message, "coexStateSync"))
                     object.coexStateSync = $root.ServerSync.CoexStateSync.toObject(message.coexStateSync, options, _depth + 1);
+                if (message.syncRequestMutationRetry != null && $Object.hasOwnProperty.call(message, "syncRequestMutationRetry"))
+                    object.syncRequestMutationRetry = $root.E2E.Message.SyncRequestMutationRetry.toObject(message.syncRequestMutationRetry, options, _depth + 1);
                 return object;
             };
 
@@ -89252,6 +89330,7 @@ $root.E2E = (function() {
              * @property {number} AI_METADATA_OPERATION=35 AI_METADATA_OPERATION value
              * @property {number} MARK_AS_VERIFIED_ACTION=36 MARK_AS_VERIFIED_ACTION value
              * @property {number} COEX_STATE_SYNC=37 COEX_STATE_SYNC value
+             * @property {number} SYNC_REQUEST_MUTATION_RETRY=38 SYNC_REQUEST_MUTATION_RETRY value
              */
             ProtocolMessage.Type = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -89287,6 +89366,7 @@ $root.E2E = (function() {
                 values[valuesById[35] = "AI_METADATA_OPERATION"] = 35;
                 values[valuesById[36] = "MARK_AS_VERIFIED_ACTION"] = 36;
                 values[valuesById[37] = "COEX_STATE_SYNC"] = 37;
+                values[valuesById[38] = "SYNC_REQUEST_MUTATION_RETRY"] = 38;
                 return values;
             })();
 
@@ -98866,6 +98946,632 @@ $root.E2E = (function() {
             };
 
             return StickerSyncRMRMessage;
+        })();
+
+        Message.SyncRequestMutationRetry = (function() {
+
+            /**
+             * Properties of a SyncRequestMutationRetry.
+             * @typedef {Object} E2E.Message.SyncRequestMutationRetry.$Properties
+             * @property {Array.<E2E.Message.SyncRequestMutationRetry.Collection.$Properties>|null} [collections] SyncRequestMutationRetry collections
+             * @property {number|null} [count] SyncRequestMutationRetry count
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a SyncRequestMutationRetry.
+             * @memberof E2E.Message
+             * @interface ISyncRequestMutationRetry
+             * @augments E2E.Message.SyncRequestMutationRetry.$Properties
+             * @deprecated Use E2E.Message.SyncRequestMutationRetry.$Properties instead.
+             */
+
+            /**
+             * Shape of a SyncRequestMutationRetry.
+             * @typedef {E2E.Message.SyncRequestMutationRetry.$Properties} E2E.Message.SyncRequestMutationRetry.$Shape
+             */
+
+            /**
+             * Constructs a new SyncRequestMutationRetry.
+             * @memberof E2E.Message
+             * @classdesc Represents a SyncRequestMutationRetry.
+             * @constructor
+             * @param {E2E.Message.SyncRequestMutationRetry.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var SyncRequestMutationRetry = function (properties) {
+                this.collections = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * SyncRequestMutationRetry collections.
+             * @member {Array.<E2E.Message.SyncRequestMutationRetry.Collection.$Properties>} collections
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @instance
+             */
+            SyncRequestMutationRetry.prototype.collections = $util.emptyArray;
+
+            /**
+             * SyncRequestMutationRetry count.
+             * @member {number|null|undefined} count
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @instance
+             */
+            SyncRequestMutationRetry.prototype.count = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(SyncRequestMutationRetry.prototype, "_count", {
+                get: $util.oneOfGetter($oneOfFields = ["count"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new SyncRequestMutationRetry instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {E2E.Message.SyncRequestMutationRetry.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.SyncRequestMutationRetry} SyncRequestMutationRetry instance
+             * @type {{
+             *   (properties: E2E.Message.SyncRequestMutationRetry.$Shape): E2E.Message.SyncRequestMutationRetry & E2E.Message.SyncRequestMutationRetry.$Shape;
+             *   (properties?: E2E.Message.SyncRequestMutationRetry.$Properties): E2E.Message.SyncRequestMutationRetry;
+             * }}
+             */
+            SyncRequestMutationRetry.create = function(properties) {
+                return new SyncRequestMutationRetry(properties);
+            };
+
+            /**
+             * Encodes the specified SyncRequestMutationRetry message. Does not implicitly {@link E2E.Message.SyncRequestMutationRetry.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {E2E.Message.SyncRequestMutationRetry.$Properties} message SyncRequestMutationRetry message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SyncRequestMutationRetry.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.collections != null && message.collections.length)
+                    for (var i = 0; i < message.collections.length; ++i)
+                        $root.E2E.Message.SyncRequestMutationRetry.Collection.encode(message.collections[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+                if (message.count != null && $Object.hasOwnProperty.call(message, "count"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.count);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified SyncRequestMutationRetry message, length delimited. Does not implicitly {@link E2E.Message.SyncRequestMutationRetry.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {E2E.Message.SyncRequestMutationRetry.$Properties} message SyncRequestMutationRetry message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SyncRequestMutationRetry.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a SyncRequestMutationRetry message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.SyncRequestMutationRetry & E2E.Message.SyncRequestMutationRetry.$Shape} SyncRequestMutationRetry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SyncRequestMutationRetry.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SyncRequestMutationRetry();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.collections && message.collections.length))
+                                message.collections = [];
+                            message.collections.push($root.E2E.Message.SyncRequestMutationRetry.Collection.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.count = reader.uint32();
+                            message._count = "count";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a SyncRequestMutationRetry message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.SyncRequestMutationRetry & E2E.Message.SyncRequestMutationRetry.$Shape} SyncRequestMutationRetry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SyncRequestMutationRetry.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a SyncRequestMutationRetry message.
+             * @function verify
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SyncRequestMutationRetry.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.collections != null && $Object.hasOwnProperty.call(message, "collections")) {
+                    if (!$Array.isArray(message.collections))
+                        return "collections: array expected";
+                    for (var i = 0; i < message.collections.length; ++i) {
+                        var error = $root.E2E.Message.SyncRequestMutationRetry.Collection.verify(message.collections[i], _depth + 1);
+                        if (error)
+                            return "collections." + error;
+                    }
+                }
+                if (message.count != null && $Object.hasOwnProperty.call(message, "count")) {
+                    properties._count = 1;
+                    if (!$util.isInteger(message.count))
+                        return "count: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a SyncRequestMutationRetry message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.SyncRequestMutationRetry} SyncRequestMutationRetry
+             */
+            SyncRequestMutationRetry.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.SyncRequestMutationRetry)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.SyncRequestMutationRetry: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.SyncRequestMutationRetry();
+                if (object.collections) {
+                    if (!$Array.isArray(object.collections))
+                        throw $TypeError(".E2E.Message.SyncRequestMutationRetry.collections: array expected");
+                    message.collections = $Array(object.collections.length);
+                    for (var i = 0; i < object.collections.length; ++i) {
+                        if (!$util.isObject(object.collections[i]))
+                            throw $TypeError(".E2E.Message.SyncRequestMutationRetry.collections: object expected");
+                        message.collections[i] = $root.E2E.Message.SyncRequestMutationRetry.Collection.fromObject(object.collections[i], _depth + 1);
+                    }
+                }
+                if (object.count != null)
+                    message.count = object.count >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a SyncRequestMutationRetry message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {E2E.Message.SyncRequestMutationRetry} message SyncRequestMutationRetry
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SyncRequestMutationRetry.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.collections = [];
+                if (message.collections && message.collections.length) {
+                    object.collections = $Array(message.collections.length);
+                    for (var j = 0; j < message.collections.length; ++j)
+                        object.collections[j] = $root.E2E.Message.SyncRequestMutationRetry.Collection.toObject(message.collections[j], options, _depth + 1);
+                }
+                if (message.count != null && $Object.hasOwnProperty.call(message, "count"))
+                    object.count = message.count;
+                return object;
+            };
+
+            /**
+             * Converts this SyncRequestMutationRetry to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SyncRequestMutationRetry.prototype.toJSON = function() {
+                return SyncRequestMutationRetry.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for SyncRequestMutationRetry
+             * @function getTypeUrl
+             * @memberof E2E.Message.SyncRequestMutationRetry
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            SyncRequestMutationRetry.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.SyncRequestMutationRetry";
+            };
+
+            SyncRequestMutationRetry.Collection = (function() {
+
+                /**
+                 * Properties of a Collection.
+                 * @typedef {Object} E2E.Message.SyncRequestMutationRetry.Collection.$Properties
+                 * @property {string|null} [name] Collection name
+                 * @property {number|Long|null} [storedSyncdVersion] Collection storedSyncdVersion
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+
+                /**
+                 * Properties of a Collection.
+                 * @memberof E2E.Message.SyncRequestMutationRetry
+                 * @interface ICollection
+                 * @augments E2E.Message.SyncRequestMutationRetry.Collection.$Properties
+                 * @deprecated Use E2E.Message.SyncRequestMutationRetry.Collection.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a Collection.
+                 * @typedef {E2E.Message.SyncRequestMutationRetry.Collection.$Properties} E2E.Message.SyncRequestMutationRetry.Collection.$Shape
+                 */
+
+                /**
+                 * Constructs a new Collection.
+                 * @memberof E2E.Message.SyncRequestMutationRetry
+                 * @classdesc Represents a Collection.
+                 * @constructor
+                 * @param {E2E.Message.SyncRequestMutationRetry.Collection.$Properties=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+                var Collection = function (properties) {
+                    if (properties)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                this[keys[i]] = properties[keys[i]];
+                };
+
+                /**
+                 * Collection name.
+                 * @member {string|null|undefined} name
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @instance
+                 */
+                Collection.prototype.name = null;
+
+                /**
+                 * Collection storedSyncdVersion.
+                 * @member {number|Long|null|undefined} storedSyncdVersion
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @instance
+                 */
+                Collection.prototype.storedSyncdVersion = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Collection.prototype, "_name", {
+                    get: $util.oneOfGetter($oneOfFields = ["name"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Collection.prototype, "_storedSyncdVersion", {
+                    get: $util.oneOfGetter($oneOfFields = ["storedSyncdVersion"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Creates a new Collection instance using the specified properties.
+                 * @function create
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {E2E.Message.SyncRequestMutationRetry.Collection.$Properties=} [properties] Properties to set
+                 * @returns {E2E.Message.SyncRequestMutationRetry.Collection} Collection instance
+                 * @type {{
+                 *   (properties: E2E.Message.SyncRequestMutationRetry.Collection.$Shape): E2E.Message.SyncRequestMutationRetry.Collection & E2E.Message.SyncRequestMutationRetry.Collection.$Shape;
+                 *   (properties?: E2E.Message.SyncRequestMutationRetry.Collection.$Properties): E2E.Message.SyncRequestMutationRetry.Collection;
+                 * }}
+                 */
+                Collection.create = function(properties) {
+                    return new Collection(properties);
+                };
+
+                /**
+                 * Encodes the specified Collection message. Does not implicitly {@link E2E.Message.SyncRequestMutationRetry.Collection.verify|verify} messages.
+                 * @function encode
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {E2E.Message.SyncRequestMutationRetry.Collection.$Properties} message Collection message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Collection.encode = function (message, writer, _depth) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    if (message.name != null && $Object.hasOwnProperty.call(message, "name"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                    if (message.storedSyncdVersion != null && $Object.hasOwnProperty.call(message, "storedSyncdVersion"))
+                        writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.storedSyncdVersion);
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Collection message, length delimited. Does not implicitly {@link E2E.Message.SyncRequestMutationRetry.Collection.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {E2E.Message.SyncRequestMutationRetry.Collection.$Properties} message Collection message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Collection.encodeDelimited = function(message, writer) {
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+                };
+
+                /**
+                 * Decodes a Collection message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {E2E.Message.SyncRequestMutationRetry.Collection & E2E.Message.SyncRequestMutationRetry.Collection.$Shape} Collection
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Collection.decode = function (reader, length, _end, _depth, _target) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.SyncRequestMutationRetry.Collection();
+                    while (reader.pos < end) {
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = $undefined;
+                            break;
+                        }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.name = reader.stringVerify();
+                                message._name = "name";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.storedSyncdVersion = reader.uint64();
+                                message._storedSyncdVersion = "storedSyncdVersion";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
+                    }
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
+                    return message;
+                };
+
+                /**
+                 * Decodes a Collection message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {E2E.Message.SyncRequestMutationRetry.Collection & E2E.Message.SyncRequestMutationRetry.Collection.$Shape} Collection
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Collection.decodeDelimited = function(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Collection message.
+                 * @function verify
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Collection.verify = function (message, _depth) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
+                    var properties = {};
+                    if (message.name != null && $Object.hasOwnProperty.call(message, "name")) {
+                        properties._name = 1;
+                        if (!$util.isString(message.name))
+                            return "name: string expected";
+                    }
+                    if (message.storedSyncdVersion != null && $Object.hasOwnProperty.call(message, "storedSyncdVersion")) {
+                        properties._storedSyncdVersion = 1;
+                        if (!$util.isInteger(message.storedSyncdVersion) && !(message.storedSyncdVersion && $util.isInteger(message.storedSyncdVersion.low) && $util.isInteger(message.storedSyncdVersion.high)))
+                            return "storedSyncdVersion: integer|Long expected";
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a Collection message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {E2E.Message.SyncRequestMutationRetry.Collection} Collection
+                 */
+                Collection.fromObject = function (object, _depth) {
+                    if (object instanceof $root.E2E.Message.SyncRequestMutationRetry.Collection)
+                        return object;
+                    if (!$util.isObject(object))
+                        throw $TypeError(".E2E.Message.SyncRequestMutationRetry.Collection: object expected");
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var message = new $root.E2E.Message.SyncRequestMutationRetry.Collection();
+                    if (object.name != null)
+                        message.name = $String(object.name);
+                    if (object.storedSyncdVersion != null)
+                        if ($util.Long)
+                            message.storedSyncdVersion = $util.Long.fromValue(object.storedSyncdVersion, true);
+                        else if (typeof object.storedSyncdVersion === "string")
+                            message.storedSyncdVersion = $parseInt(object.storedSyncdVersion, 10);
+                        else if (typeof object.storedSyncdVersion === "number")
+                            message.storedSyncdVersion = object.storedSyncdVersion;
+                        else if (typeof object.storedSyncdVersion === "object")
+                            message.storedSyncdVersion = new $util.LongBits(object.storedSyncdVersion.low >>> 0, object.storedSyncdVersion.high >>> 0).toNumber(true);
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Collection message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {E2E.Message.SyncRequestMutationRetry.Collection} message Collection
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Collection.toObject = function (message, options, _depth) {
+                    if (!options)
+                        options = {};
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var object = {};
+                    if (message.name != null && $Object.hasOwnProperty.call(message, "name"))
+                        object.name = message.name;
+                    if (message.storedSyncdVersion != null && $Object.hasOwnProperty.call(message, "storedSyncdVersion"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.storedSyncdVersion = typeof message.storedSyncdVersion === "number" ? $BigInt(message.storedSyncdVersion) : $util.Long.fromBits(message.storedSyncdVersion.low >>> 0, message.storedSyncdVersion.high >>> 0, true).toBigInt();
+                        else if (typeof message.storedSyncdVersion === "number")
+                            object.storedSyncdVersion = options.longs === $String ? $String(message.storedSyncdVersion) : message.storedSyncdVersion;
+                        else
+                            object.storedSyncdVersion = options.longs === $String ? $util.Long.prototype.toString.call(message.storedSyncdVersion) : options.longs === $Number ? new $util.LongBits(message.storedSyncdVersion.low >>> 0, message.storedSyncdVersion.high >>> 0).toNumber(true) : message.storedSyncdVersion;
+                    return object;
+                };
+
+                /**
+                 * Converts this Collection to JSON.
+                 * @function toJSON
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Collection.prototype.toJSON = function() {
+                    return Collection.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the type url for Collection
+                 * @function getTypeUrl
+                 * @memberof E2E.Message.SyncRequestMutationRetry.Collection
+                 * @static
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
+                 */
+                Collection.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/E2E.Message.SyncRequestMutationRetry.Collection";
+                };
+
+                return Collection;
+            })();
+
+            return SyncRequestMutationRetry;
         })();
 
         Message.TemplateButtonReplyMessage = (function() {
@@ -119002,6 +119708,10 @@ $root.AICommon = (function() {
             case "NEW_CHAT_LIST":
             case 56:
                 message.botEntryPointOrigin = 56;
+                break;
+            case "CONTACTS_TAB":
+            case 57:
+                message.botEntryPointOrigin = 57;
                 break;
             default:
                 if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
@@ -140228,6 +140938,10 @@ $root.AICommon = (function() {
             case 56:
                 message.destinationEntryPoint = 56;
                 break;
+            case "CONTACTS_TAB":
+            case 57:
+                message.destinationEntryPoint = 57;
+                break;
             default:
                 if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
                     message.destinationEntryPoint = object.destinationEntryPoint;
@@ -145045,6 +145759,7 @@ $root.AICommon = (function() {
      * @property {number} GROUP_MEMBER=54 GROUP_MEMBER value
      * @property {number} CHATLIST_SEARCH=55 CHATLIST_SEARCH value
      * @property {number} NEW_CHAT_LIST=56 NEW_CHAT_LIST value
+     * @property {number} CONTACTS_TAB=57 CONTACTS_TAB value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -145096,6 +145811,7 @@ $root.AICommon = (function() {
         values[valuesById[54] = "GROUP_MEMBER"] = 54;
         values[valuesById[55] = "CHATLIST_SEARCH"] = 55;
         values[valuesById[56] = "NEW_CHAT_LIST"] = 56;
+        values[valuesById[57] = "CONTACTS_TAB"] = 57;
         return values;
     })();
 

@@ -4152,6 +4152,10 @@ $root.AICommon = (function() {
             case 56:
                 message.botEntryPointOrigin = 56;
                 break;
+            case "CONTACTS_TAB":
+            case 57:
+                message.botEntryPointOrigin = 57;
+                break;
             default:
                 if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
                     message.botEntryPointOrigin = object.botEntryPointOrigin;
@@ -25377,6 +25381,10 @@ $root.AICommon = (function() {
             case 56:
                 message.destinationEntryPoint = 56;
                 break;
+            case "CONTACTS_TAB":
+            case 57:
+                message.destinationEntryPoint = 57;
+                break;
             default:
                 if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
                     message.destinationEntryPoint = object.destinationEntryPoint;
@@ -30194,6 +30202,7 @@ $root.AICommon = (function() {
      * @property {number} GROUP_MEMBER=54 GROUP_MEMBER value
      * @property {number} CHATLIST_SEARCH=55 CHATLIST_SEARCH value
      * @property {number} NEW_CHAT_LIST=56 NEW_CHAT_LIST value
+     * @property {number} CONTACTS_TAB=57 CONTACTS_TAB value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -30245,6 +30254,7 @@ $root.AICommon = (function() {
         values[valuesById[54] = "GROUP_MEMBER"] = 54;
         values[valuesById[55] = "CHATLIST_SEARCH"] = 55;
         values[valuesById[56] = "NEW_CHAT_LIST"] = 56;
+        values[valuesById[57] = "CONTACTS_TAB"] = 57;
         return values;
     })();
 

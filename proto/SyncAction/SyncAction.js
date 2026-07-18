@@ -1189,6 +1189,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.CoexV2VersionAction.$Properties|null} [coexV2VersionAction] SyncActionValue coexV2VersionAction
          * @property {SyncAction.SyncActionValue.WASARootSecretAction.$Properties|null} [wasaRootSecretAction] SyncActionValue wasaRootSecretAction
          * @property {SyncAction.SyncActionValue.BubbleLockMessageAction.$Properties|null} [bubbleLockMessageAction] SyncActionValue bubbleLockMessageAction
+         * @property {SyncAction.SyncActionValue.LabelSublistAction.$Properties|null} [labelSublistAction] SyncActionValue labelSublistAction
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1284,6 +1285,7 @@ $root.SyncAction = (function() {
          *   coexV2VersionAction?: SyncAction.SyncActionValue.CoexV2VersionAction.$Shape|null;
          *   wasaRootSecretAction?: SyncAction.SyncActionValue.WASARootSecretAction.$Shape|null;
          *   bubbleLockMessageAction?: SyncAction.SyncActionValue.BubbleLockMessageAction.$Shape|null;
+         *   labelSublistAction?: SyncAction.SyncActionValue.LabelSublistAction.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -1951,6 +1953,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.bubbleLockMessageAction = null;
 
+        /**
+         * SyncActionValue labelSublistAction.
+         * @member {SyncAction.SyncActionValue.LabelSublistAction.$Properties|null|undefined} labelSublistAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.labelSublistAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2440,6 +2450,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_labelSublistAction", {
+            get: $util.oneOfGetter($oneOfFields = ["labelSublistAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2634,6 +2650,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.WASARootSecretAction.encode(message.wasaRootSecretAction, writer.uint32(/* id 89, wireType 2 =*/714).fork(), _depth + 1).ldelim();
             if (message.bubbleLockMessageAction != null && $Object.hasOwnProperty.call(message, "bubbleLockMessageAction"))
                 $root.SyncAction.SyncActionValue.BubbleLockMessageAction.encode(message.bubbleLockMessageAction, writer.uint32(/* id 90, wireType 2 =*/722).fork(), _depth + 1).ldelim();
+            if (message.labelSublistAction != null && $Object.hasOwnProperty.call(message, "labelSublistAction"))
+                $root.SyncAction.SyncActionValue.LabelSublistAction.encode(message.labelSublistAction, writer.uint32(/* id 91, wireType 2 =*/730).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3246,6 +3264,13 @@ $root.SyncAction = (function() {
                             break;
                         message.bubbleLockMessageAction = $root.SyncAction.SyncActionValue.BubbleLockMessageAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bubbleLockMessageAction);
                         message._bubbleLockMessageAction = "bubbleLockMessageAction";
+                        continue;
+                    }
+                case 91: {
+                        if (wireType !== 2)
+                            break;
+                        message.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.labelSublistAction);
+                        message._labelSublistAction = "labelSublistAction";
                         continue;
                     }
                 }
@@ -3937,6 +3962,14 @@ $root.SyncAction = (function() {
                         return "bubbleLockMessageAction." + error;
                 }
             }
+            if (message.labelSublistAction != null && $Object.hasOwnProperty.call(message, "labelSublistAction")) {
+                properties._labelSublistAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.LabelSublistAction.verify(message.labelSublistAction, _depth + 1);
+                    if (error)
+                        return "labelSublistAction." + error;
+                }
+            }
             return null;
         };
 
@@ -4367,6 +4400,11 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.bubbleLockMessageAction: object expected");
                 message.bubbleLockMessageAction = $root.SyncAction.SyncActionValue.BubbleLockMessageAction.fromObject(object.bubbleLockMessageAction, _depth + 1);
             }
+            if (object.labelSublistAction != null) {
+                if (!$util.isObject(object.labelSublistAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.labelSublistAction: object expected");
+                message.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.fromObject(object.labelSublistAction, _depth + 1);
+            }
             return message;
         };
 
@@ -4554,6 +4592,8 @@ $root.SyncAction = (function() {
                 object.wasaRootSecretAction = $root.SyncAction.SyncActionValue.WASARootSecretAction.toObject(message.wasaRootSecretAction, options, _depth + 1);
             if (message.bubbleLockMessageAction != null && $Object.hasOwnProperty.call(message, "bubbleLockMessageAction"))
                 object.bubbleLockMessageAction = $root.SyncAction.SyncActionValue.BubbleLockMessageAction.toObject(message.bubbleLockMessageAction, options, _depth + 1);
+            if (message.labelSublistAction != null && $Object.hasOwnProperty.call(message, "labelSublistAction"))
+                object.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.toObject(message.labelSublistAction, options, _depth + 1);
             return object;
         };
 
@@ -16762,6 +16802,273 @@ $root.SyncAction = (function() {
             };
 
             return LabelReorderingAction;
+        })();
+
+        SyncActionValue.LabelSublistAction = (function() {
+
+            /**
+             * Properties of a LabelSublistAction.
+             * @typedef {Object} SyncAction.SyncActionValue.LabelSublistAction.$Properties
+             * @property {number|null} [subListId] LabelSublistAction subListId
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a LabelSublistAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ILabelSublistAction
+             * @augments SyncAction.SyncActionValue.LabelSublistAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LabelSublistAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a LabelSublistAction.
+             * @typedef {SyncAction.SyncActionValue.LabelSublistAction.$Properties} SyncAction.SyncActionValue.LabelSublistAction.$Shape
+             */
+
+            /**
+             * Constructs a new LabelSublistAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a LabelSublistAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.LabelSublistAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var LabelSublistAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * LabelSublistAction subListId.
+             * @member {number|null|undefined} subListId
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @instance
+             */
+            LabelSublistAction.prototype.subListId = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(LabelSublistAction.prototype, "_subListId", {
+                get: $util.oneOfGetter($oneOfFields = ["subListId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new LabelSublistAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {SyncAction.SyncActionValue.LabelSublistAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.LabelSublistAction} LabelSublistAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LabelSublistAction.$Shape): SyncAction.SyncActionValue.LabelSublistAction & SyncAction.SyncActionValue.LabelSublistAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LabelSublistAction.$Properties): SyncAction.SyncActionValue.LabelSublistAction;
+             * }}
+             */
+            LabelSublistAction.create = function(properties) {
+                return new LabelSublistAction(properties);
+            };
+
+            /**
+             * Encodes the specified LabelSublistAction message. Does not implicitly {@link SyncAction.SyncActionValue.LabelSublistAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {SyncAction.SyncActionValue.LabelSublistAction.$Properties} message LabelSublistAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LabelSublistAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.subListId != null && $Object.hasOwnProperty.call(message, "subListId"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.subListId);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LabelSublistAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.LabelSublistAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {SyncAction.SyncActionValue.LabelSublistAction.$Properties} message LabelSublistAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LabelSublistAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a LabelSublistAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.LabelSublistAction & SyncAction.SyncActionValue.LabelSublistAction.$Shape} LabelSublistAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LabelSublistAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.LabelSublistAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.subListId = reader.int32();
+                            message._subListId = "subListId";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a LabelSublistAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.LabelSublistAction & SyncAction.SyncActionValue.LabelSublistAction.$Shape} LabelSublistAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LabelSublistAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LabelSublistAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LabelSublistAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.subListId != null && $Object.hasOwnProperty.call(message, "subListId")) {
+                    properties._subListId = 1;
+                    if (!$util.isInteger(message.subListId))
+                        return "subListId: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a LabelSublistAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.LabelSublistAction} LabelSublistAction
+             */
+            LabelSublistAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.LabelSublistAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.LabelSublistAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.LabelSublistAction();
+                if (object.subListId != null)
+                    message.subListId = object.subListId | 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LabelSublistAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {SyncAction.SyncActionValue.LabelSublistAction} message LabelSublistAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LabelSublistAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.subListId != null && $Object.hasOwnProperty.call(message, "subListId"))
+                    object.subListId = message.subListId;
+                return object;
+            };
+
+            /**
+             * Converts this LabelSublistAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LabelSublistAction.prototype.toJSON = function() {
+                return LabelSublistAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for LabelSublistAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.LabelSublistAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            LabelSublistAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.LabelSublistAction";
+            };
+
+            return LabelSublistAction;
         })();
 
         SyncActionValue.LidContactAction = (function() {
@@ -33917,6 +34224,7 @@ $root.SyncAction = (function() {
                  * @property {string|null} [id] RootSecretEntry id
                  * @property {Uint8Array|null} [rootSecret] RootSecretEntry rootSecret
                  * @property {number|Long|null} [epoch] RootSecretEntry epoch
+                 * @property {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.Status|null} [status] RootSecretEntry status
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
@@ -33972,6 +34280,14 @@ $root.SyncAction = (function() {
                  */
                 RootSecretEntry.prototype.epoch = null;
 
+                /**
+                 * RootSecretEntry status.
+                 * @member {SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.Status|null|undefined} status
+                 * @memberof SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                 * @instance
+                 */
+                RootSecretEntry.prototype.status = null;
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -33990,6 +34306,12 @@ $root.SyncAction = (function() {
                 // Virtual OneOf for proto3 optional field
                 $Object.defineProperty(RootSecretEntry.prototype, "_epoch", {
                     get: $util.oneOfGetter($oneOfFields = ["epoch"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(RootSecretEntry.prototype, "_status", {
+                    get: $util.oneOfGetter($oneOfFields = ["status"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -34031,6 +34353,8 @@ $root.SyncAction = (function() {
                         writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.rootSecret);
                     if (message.epoch != null && $Object.hasOwnProperty.call(message, "epoch"))
                         writer.uint32(/* id 3, wireType 0 =*/24).int64(message.epoch);
+                    if (message.status != null && $Object.hasOwnProperty.call(message, "status"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).int32(message.status);
                     if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                         for (var i = 0; i < message.$unknowns.length; ++i)
                             writer.raw(message.$unknowns[i]);
@@ -34068,7 +34392,7 @@ $root.SyncAction = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry();
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry(), value;
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
@@ -34097,6 +34421,13 @@ $root.SyncAction = (function() {
                                     break;
                                 message.epoch = reader.int64();
                                 message._epoch = "epoch";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.status = reader.int32();
+                                message._status = "status";
                                 continue;
                             }
                         }
@@ -34158,6 +34489,11 @@ $root.SyncAction = (function() {
                         if (!$util.isInteger(message.epoch) && !(message.epoch && $util.isInteger(message.epoch.low) && $util.isInteger(message.epoch.high)))
                             return "epoch: integer|Long expected";
                     }
+                    if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
+                        properties._status = 1;
+                        if (typeof message.status !== "number" || (message.status | 0) !== message.status)
+                            return "status: enum value expected";
+                    }
                     return null;
                 };
 
@@ -34195,6 +34531,19 @@ $root.SyncAction = (function() {
                             message.epoch = object.epoch;
                         else if (typeof object.epoch === "object")
                             message.epoch = new $util.LongBits(object.epoch.low >>> 0, object.epoch.high >>> 0).toNumber();
+                    switch (object.status) {
+                    case "INACTIVE":
+                    case 0:
+                        message.status = 0;
+                        break;
+                    case "ACTIVE":
+                    case 1:
+                        message.status = 1;
+                        break;
+                    default:
+                        if (typeof object.status === "number" && (object.status | 0) === object.status)
+                            message.status = object.status;
+                    }
                     return message;
                 };
 
@@ -34226,6 +34575,8 @@ $root.SyncAction = (function() {
                             object.epoch = options.longs === $String ? $String(message.epoch) : message.epoch;
                         else
                             object.epoch = options.longs === $String ? $util.Long.prototype.toString.call(message.epoch) : options.longs === $Number ? new $util.LongBits(message.epoch.low >>> 0, message.epoch.high >>> 0).toNumber() : message.epoch;
+                    if (message.status != null && $Object.hasOwnProperty.call(message, "status"))
+                        object.status = options.enums === $String ? $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.Status[message.status] === $undefined ? message.status : $root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.Status[message.status] : message.status;
                     return object;
                 };
 
@@ -34253,6 +34604,20 @@ $root.SyncAction = (function() {
                         prefix = "type.googleapis.com";
                     return prefix + "/SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry";
                 };
+
+                /**
+                 * Status enum.
+                 * @name SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.Status
+                 * @enum {number}
+                 * @property {number} INACTIVE=0 INACTIVE value
+                 * @property {number} ACTIVE=1 ACTIVE value
+                 */
+                RootSecretEntry.Status = (function() {
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                    values[valuesById[0] = "INACTIVE"] = 0;
+                    values[valuesById[1] = "ACTIVE"] = 1;
+                    return values;
+                })();
 
                 return RootSecretEntry;
             })();
@@ -36477,6 +36842,7 @@ $root.SyncAction = (function() {
      * @property {number} COEX_V2_VERSION_ACTION=88 COEX_V2_VERSION_ACTION value
      * @property {number} WASA_ROOT_SECRET_ACTION=89 WASA_ROOT_SECRET_ACTION value
      * @property {number} BUBBLE_LOCK_MESSAGE_ACTION=90 BUBBLE_LOCK_MESSAGE_ACTION value
+     * @property {number} LABEL_SUBLIST_ACTION=91 LABEL_SUBLIST_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -36567,6 +36933,7 @@ $root.SyncAction = (function() {
         values[valuesById[88] = "COEX_V2_VERSION_ACTION"] = 88;
         values[valuesById[89] = "WASA_ROOT_SECRET_ACTION"] = 89;
         values[valuesById[90] = "BUBBLE_LOCK_MESSAGE_ACTION"] = 90;
+        values[valuesById[91] = "LABEL_SUBLIST_ACTION"] = 91;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
