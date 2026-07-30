@@ -499,6 +499,10 @@ $root.StatusAttributions = (function() {
             case 11:
                 message.type = 11;
                 break;
+            case "USERNAME_STATUS":
+            case 12:
+                message.type = 12;
+                break;
             default:
                 if (typeof object.type === "number" && (object.type | 0) === object.type)
                     message.type = object.type;
@@ -3106,6 +3110,7 @@ $root.StatusAttributions = (function() {
          * @property {number} NEWSLETTER_STATUS=9 NEWSLETTER_STATUS value
          * @property {number} STATUS_CLOSE_SHARING=10 STATUS_CLOSE_SHARING value
          * @property {number} PAID_PARTNERSHIP=11 PAID_PARTNERSHIP value
+         * @property {number} USERNAME_STATUS=12 USERNAME_STATUS value
          */
         StatusAttribution.Type = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -3121,6 +3126,7 @@ $root.StatusAttributions = (function() {
             values[valuesById[9] = "NEWSLETTER_STATUS"] = 9;
             values[valuesById[10] = "STATUS_CLOSE_SHARING"] = 10;
             values[valuesById[11] = "PAID_PARTNERSHIP"] = 11;
+            values[valuesById[12] = "USERNAME_STATUS"] = 12;
             return values;
         })();
 
