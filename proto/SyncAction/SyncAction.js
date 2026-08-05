@@ -1190,6 +1190,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.WASARootSecretAction.$Properties|null} [wasaRootSecretAction] SyncActionValue wasaRootSecretAction
          * @property {SyncAction.SyncActionValue.BubbleLockMessageAction.$Properties|null} [bubbleLockMessageAction] SyncActionValue bubbleLockMessageAction
          * @property {SyncAction.SyncActionValue.LabelSublistAction.$Properties|null} [labelSublistAction] SyncActionValue labelSublistAction
+         * @property {DeviceCapabilities.DeviceCapabilities.$Properties|null} [deviceCapabilitiesV2] SyncActionValue deviceCapabilitiesV2
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1286,6 +1287,7 @@ $root.SyncAction = (function() {
          *   wasaRootSecretAction?: SyncAction.SyncActionValue.WASARootSecretAction.$Shape|null;
          *   bubbleLockMessageAction?: SyncAction.SyncActionValue.BubbleLockMessageAction.$Shape|null;
          *   labelSublistAction?: SyncAction.SyncActionValue.LabelSublistAction.$Shape|null;
+         *   deviceCapabilitiesV2?: DeviceCapabilities.DeviceCapabilities.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -1961,6 +1963,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.labelSublistAction = null;
 
+        /**
+         * SyncActionValue deviceCapabilitiesV2.
+         * @member {DeviceCapabilities.DeviceCapabilities.$Properties|null|undefined} deviceCapabilitiesV2
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.deviceCapabilitiesV2 = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2456,6 +2466,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_deviceCapabilitiesV2", {
+            get: $util.oneOfGetter($oneOfFields = ["deviceCapabilitiesV2"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2652,6 +2668,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.BubbleLockMessageAction.encode(message.bubbleLockMessageAction, writer.uint32(/* id 90, wireType 2 =*/722).fork(), _depth + 1).ldelim();
             if (message.labelSublistAction != null && $Object.hasOwnProperty.call(message, "labelSublistAction"))
                 $root.SyncAction.SyncActionValue.LabelSublistAction.encode(message.labelSublistAction, writer.uint32(/* id 91, wireType 2 =*/730).fork(), _depth + 1).ldelim();
+            if (message.deviceCapabilitiesV2 != null && $Object.hasOwnProperty.call(message, "deviceCapabilitiesV2"))
+                $root.DeviceCapabilities.DeviceCapabilities.encode(message.deviceCapabilitiesV2, writer.uint32(/* id 92, wireType 2 =*/738).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3271,6 +3289,13 @@ $root.SyncAction = (function() {
                             break;
                         message.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.labelSublistAction);
                         message._labelSublistAction = "labelSublistAction";
+                        continue;
+                    }
+                case 92: {
+                        if (wireType !== 2)
+                            break;
+                        message.deviceCapabilitiesV2 = $root.DeviceCapabilities.DeviceCapabilities.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deviceCapabilitiesV2);
+                        message._deviceCapabilitiesV2 = "deviceCapabilitiesV2";
                         continue;
                     }
                 }
@@ -3970,6 +3995,14 @@ $root.SyncAction = (function() {
                         return "labelSublistAction." + error;
                 }
             }
+            if (message.deviceCapabilitiesV2 != null && $Object.hasOwnProperty.call(message, "deviceCapabilitiesV2")) {
+                properties._deviceCapabilitiesV2 = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.verify(message.deviceCapabilitiesV2, _depth + 1);
+                    if (error)
+                        return "deviceCapabilitiesV2." + error;
+                }
+            }
             return null;
         };
 
@@ -4405,6 +4438,11 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.labelSublistAction: object expected");
                 message.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.fromObject(object.labelSublistAction, _depth + 1);
             }
+            if (object.deviceCapabilitiesV2 != null) {
+                if (!$util.isObject(object.deviceCapabilitiesV2))
+                    throw $TypeError(".SyncAction.SyncActionValue.deviceCapabilitiesV2: object expected");
+                message.deviceCapabilitiesV2 = $root.DeviceCapabilities.DeviceCapabilities.fromObject(object.deviceCapabilitiesV2, _depth + 1);
+            }
             return message;
         };
 
@@ -4594,6 +4632,8 @@ $root.SyncAction = (function() {
                 object.bubbleLockMessageAction = $root.SyncAction.SyncActionValue.BubbleLockMessageAction.toObject(message.bubbleLockMessageAction, options, _depth + 1);
             if (message.labelSublistAction != null && $Object.hasOwnProperty.call(message, "labelSublistAction"))
                 object.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.toObject(message.labelSublistAction, options, _depth + 1);
+            if (message.deviceCapabilitiesV2 != null && $Object.hasOwnProperty.call(message, "deviceCapabilitiesV2"))
+                object.deviceCapabilitiesV2 = $root.DeviceCapabilities.DeviceCapabilities.toObject(message.deviceCapabilitiesV2, options, _depth + 1);
             return object;
         };
 
@@ -26426,6 +26466,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [shouldPlaySoundForCallNotification] SettingsSyncAction shouldPlaySoundForCallNotification
              * @property {string|null} [chatThemeId] SettingsSyncAction chatThemeId
              * @property {string|null} [colorSchemeId] SettingsSyncAction colorSchemeId
+             * @property {string|null} [stockWallpaperImageId] SettingsSyncAction stockWallpaperImageId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -26721,6 +26762,14 @@ $root.SyncAction = (function() {
              */
             SettingsSyncAction.prototype.colorSchemeId = null;
 
+            /**
+             * SettingsSyncAction stockWallpaperImageId.
+             * @member {string|null|undefined} stockWallpaperImageId
+             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
+             * @instance
+             */
+            SettingsSyncAction.prototype.stockWallpaperImageId = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -26922,6 +26971,12 @@ $root.SyncAction = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(SettingsSyncAction.prototype, "_stockWallpaperImageId", {
+                get: $util.oneOfGetter($oneOfFields = ["stockWallpaperImageId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new SettingsSyncAction instance using the specified properties.
              * @function create
@@ -27020,6 +27075,8 @@ $root.SyncAction = (function() {
                     writer.uint32(/* id 32, wireType 2 =*/258).string(message.chatThemeId);
                 if (message.colorSchemeId != null && $Object.hasOwnProperty.call(message, "colorSchemeId"))
                     writer.uint32(/* id 33, wireType 2 =*/266).string(message.colorSchemeId);
+                if (message.stockWallpaperImageId != null && $Object.hasOwnProperty.call(message, "stockWallpaperImageId"))
+                    writer.uint32(/* id 34, wireType 2 =*/274).string(message.stockWallpaperImageId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -27298,6 +27355,13 @@ $root.SyncAction = (function() {
                             message._colorSchemeId = "colorSchemeId";
                             continue;
                         }
+                    case 34: {
+                            if (wireType !== 2)
+                                break;
+                            message.stockWallpaperImageId = reader.stringVerify();
+                            message._stockWallpaperImageId = "stockWallpaperImageId";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -27507,6 +27571,11 @@ $root.SyncAction = (function() {
                     if (!$util.isString(message.colorSchemeId))
                         return "colorSchemeId: string expected";
                 }
+                if (message.stockWallpaperImageId != null && $Object.hasOwnProperty.call(message, "stockWallpaperImageId")) {
+                    properties._stockWallpaperImageId = 1;
+                    if (!$util.isString(message.stockWallpaperImageId))
+                        return "stockWallpaperImageId: string expected";
+                }
                 return null;
             };
 
@@ -27647,6 +27716,8 @@ $root.SyncAction = (function() {
                     message.chatThemeId = $String(object.chatThemeId);
                 if (object.colorSchemeId != null)
                     message.colorSchemeId = $String(object.colorSchemeId);
+                if (object.stockWallpaperImageId != null)
+                    message.stockWallpaperImageId = $String(object.stockWallpaperImageId);
                 return message;
             };
 
@@ -27733,6 +27804,8 @@ $root.SyncAction = (function() {
                     object.chatThemeId = message.chatThemeId;
                 if (message.colorSchemeId != null && $Object.hasOwnProperty.call(message, "colorSchemeId"))
                     object.colorSchemeId = message.colorSchemeId;
+                if (message.stockWallpaperImageId != null && $Object.hasOwnProperty.call(message, "stockWallpaperImageId"))
+                    object.stockWallpaperImageId = message.stockWallpaperImageId;
                 return object;
             };
 
@@ -27833,6 +27906,7 @@ $root.SyncAction = (function() {
              * @property {number} SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION=31 SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION value
              * @property {number} CHAT_THEME_ID=32 CHAT_THEME_ID value
              * @property {number} COLOR_SCHEME_ID=33 COLOR_SCHEME_ID value
+             * @property {number} STOCK_WALLPAPER_IMAGE_ID=34 STOCK_WALLPAPER_IMAGE_ID value
              */
             SettingsSyncAction.SettingKey = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -27870,6 +27944,7 @@ $root.SyncAction = (function() {
                 values[valuesById[31] = "SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION"] = 31;
                 values[valuesById[32] = "CHAT_THEME_ID"] = 32;
                 values[valuesById[33] = "COLOR_SCHEME_ID"] = 33;
+                values[valuesById[34] = "STOCK_WALLPAPER_IMAGE_ID"] = 34;
                 return values;
             })();
 
@@ -36855,6 +36930,7 @@ $root.SyncAction = (function() {
      * @property {number} WASA_ROOT_SECRET_ACTION=89 WASA_ROOT_SECRET_ACTION value
      * @property {number} BUBBLE_LOCK_MESSAGE_ACTION=90 BUBBLE_LOCK_MESSAGE_ACTION value
      * @property {number} LABEL_SUBLIST_ACTION=91 LABEL_SUBLIST_ACTION value
+     * @property {number} DEVICE_CAPABILITIES_V2=92 DEVICE_CAPABILITIES_V2 value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -36946,6 +37022,7 @@ $root.SyncAction = (function() {
         values[valuesById[89] = "WASA_ROOT_SECRET_ACTION"] = 89;
         values[valuesById[90] = "BUBBLE_LOCK_MESSAGE_ACTION"] = 90;
         values[valuesById[91] = "LABEL_SUBLIST_ACTION"] = 91;
+        values[valuesById[92] = "DEVICE_CAPABILITIES_V2"] = 92;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
