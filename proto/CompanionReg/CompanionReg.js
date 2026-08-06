@@ -2330,6 +2330,10 @@ $root.CompanionReg = (function() {
             case 24:
                 message.deviceType = 24;
                 break;
+            case "WAIL":
+            case 25:
+                message.deviceType = 25;
+                break;
             default:
                 if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
                     message.deviceType = object.deviceType;
@@ -2834,6 +2838,10 @@ $root.CompanionReg = (function() {
             case "SMARTGLASSES":
             case 24:
                 message.platformType = 24;
+                break;
+            case "WAIL":
+            case 25:
+                message.platformType = 25;
                 break;
             default:
                 if (typeof object.platformType === "number" && (object.platformType | 0) === object.platformType)
@@ -4400,6 +4408,7 @@ $root.CompanionReg = (function() {
          * @property {number} VR=22 VR value
          * @property {number} CLOUD_API=23 CLOUD_API value
          * @property {number} SMARTGLASSES=24 SMARTGLASSES value
+         * @property {number} WAIL=25 WAIL value
          */
         DeviceProps.PlatformType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -4428,6 +4437,7 @@ $root.CompanionReg = (function() {
             values[valuesById[22] = "VR"] = 22;
             values[valuesById[23] = "CLOUD_API"] = 23;
             values[valuesById[24] = "SMARTGLASSES"] = 24;
+            values[valuesById[25] = "WAIL"] = 25;
             return values;
         })();
 
