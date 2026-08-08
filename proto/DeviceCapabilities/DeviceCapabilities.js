@@ -31,6 +31,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
          * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
          * @property {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties|null} [aiFbidMigration] DeviceCapabilities aiFbidMigration
+         * @property {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties|null} [bizAiSettingsSync] DeviceCapabilities bizAiSettingsSync
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -118,6 +119,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.aiFbidMigration = null;
 
+        /**
+         * DeviceCapabilities bizAiSettingsSync.
+         * @member {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties|null|undefined} bizAiSettingsSync
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.bizAiSettingsSync = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -160,6 +169,12 @@ $root.DeviceCapabilities = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(DeviceCapabilities.prototype, "_aiFbidMigration", {
             get: $util.oneOfGetter($oneOfFields = ["aiFbidMigration"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_bizAiSettingsSync", {
+            get: $util.oneOfGetter($oneOfFields = ["bizAiSettingsSync"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -209,6 +224,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.AiThread.encode(message.aiThread, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
             if (message.aiFbidMigration != null && $Object.hasOwnProperty.call(message, "aiFbidMigration"))
                 $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.encode(message.aiFbidMigration, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
+            if (message.bizAiSettingsSync != null && $Object.hasOwnProperty.call(message, "bizAiSettingsSync"))
+                $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.encode(message.bizAiSettingsSync, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -305,6 +322,13 @@ $root.DeviceCapabilities = (function() {
                         message._aiFbidMigration = "aiFbidMigration";
                         continue;
                     }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiSettingsSync);
+                        message._bizAiSettingsSync = "bizAiSettingsSync";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -399,6 +423,14 @@ $root.DeviceCapabilities = (function() {
                         return "aiFbidMigration." + error;
                 }
             }
+            if (message.bizAiSettingsSync != null && $Object.hasOwnProperty.call(message, "bizAiSettingsSync")) {
+                properties._bizAiSettingsSync = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.verify(message.bizAiSettingsSync, _depth + 1);
+                    if (error)
+                        return "bizAiSettingsSync." + error;
+                }
+            }
             return null;
         };
 
@@ -479,6 +511,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.aiFbidMigration: object expected");
                 message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.fromObject(object.aiFbidMigration, _depth + 1);
             }
+            if (object.bizAiSettingsSync != null) {
+                if (!$util.isObject(object.bizAiSettingsSync))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.bizAiSettingsSync: object expected");
+                message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.fromObject(object.bizAiSettingsSync, _depth + 1);
+            }
             return message;
         };
 
@@ -513,6 +550,8 @@ $root.DeviceCapabilities = (function() {
                 object.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.toObject(message.aiThread, options, _depth + 1);
             if (message.aiFbidMigration != null && $Object.hasOwnProperty.call(message, "aiFbidMigration"))
                 object.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.toObject(message.aiFbidMigration, options, _depth + 1);
+            if (message.bizAiSettingsSync != null && $Object.hasOwnProperty.call(message, "bizAiSettingsSync"))
+                object.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.toObject(message.bizAiSettingsSync, options, _depth + 1);
             return object;
         };
 
@@ -1116,6 +1155,273 @@ $root.DeviceCapabilities = (function() {
             })();
 
             return AiThread;
+        })();
+
+        DeviceCapabilities.BizAiSettingsSync = (function() {
+
+            /**
+             * Properties of a BizAiSettingsSync.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties
+             * @property {boolean|null} [handoffRemovalTimingEnabled] BizAiSettingsSync handoffRemovalTimingEnabled
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a BizAiSettingsSync.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IBizAiSettingsSync
+             * @augments DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties instead.
+             */
+
+            /**
+             * Shape of a BizAiSettingsSync.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties} DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Shape
+             */
+
+            /**
+             * Constructs a new BizAiSettingsSync.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a BizAiSettingsSync.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var BizAiSettingsSync = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * BizAiSettingsSync handoffRemovalTimingEnabled.
+             * @member {boolean|null|undefined} handoffRemovalTimingEnabled
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @instance
+             */
+            BizAiSettingsSync.prototype.handoffRemovalTimingEnabled = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BizAiSettingsSync.prototype, "_handoffRemovalTimingEnabled", {
+                get: $util.oneOfGetter($oneOfFields = ["handoffRemovalTimingEnabled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BizAiSettingsSync instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync} BizAiSettingsSync instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Shape): DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync & DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties): DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync;
+             * }}
+             */
+            BizAiSettingsSync.create = function(properties) {
+                return new BizAiSettingsSync(properties);
+            };
+
+            /**
+             * Encodes the specified BizAiSettingsSync message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties} message BizAiSettingsSync message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BizAiSettingsSync.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.handoffRemovalTimingEnabled != null && $Object.hasOwnProperty.call(message, "handoffRemovalTimingEnabled"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.handoffRemovalTimingEnabled);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BizAiSettingsSync message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties} message BizAiSettingsSync message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BizAiSettingsSync.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a BizAiSettingsSync message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync & DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Shape} BizAiSettingsSync
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BizAiSettingsSync.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.handoffRemovalTimingEnabled = reader.bool();
+                            message._handoffRemovalTimingEnabled = "handoffRemovalTimingEnabled";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a BizAiSettingsSync message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync & DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Shape} BizAiSettingsSync
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BizAiSettingsSync.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BizAiSettingsSync message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BizAiSettingsSync.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.handoffRemovalTimingEnabled != null && $Object.hasOwnProperty.call(message, "handoffRemovalTimingEnabled")) {
+                    properties._handoffRemovalTimingEnabled = 1;
+                    if (typeof message.handoffRemovalTimingEnabled !== "boolean")
+                        return "handoffRemovalTimingEnabled: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BizAiSettingsSync message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync} BizAiSettingsSync
+             */
+            BizAiSettingsSync.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync();
+                if (object.handoffRemovalTimingEnabled != null)
+                    message.handoffRemovalTimingEnabled = $Boolean(object.handoffRemovalTimingEnabled);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BizAiSettingsSync message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync} message BizAiSettingsSync
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BizAiSettingsSync.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.handoffRemovalTimingEnabled != null && $Object.hasOwnProperty.call(message, "handoffRemovalTimingEnabled"))
+                    object.handoffRemovalTimingEnabled = message.handoffRemovalTimingEnabled;
+                return object;
+            };
+
+            /**
+             * Converts this BizAiSettingsSync to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BizAiSettingsSync.prototype.toJSON = function() {
+                return BizAiSettingsSync.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for BizAiSettingsSync
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            BizAiSettingsSync.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync";
+            };
+
+            return BizAiSettingsSync;
         })();
 
         DeviceCapabilities.BusinessBroadcast = (function() {
