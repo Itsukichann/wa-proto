@@ -32,6 +32,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
          * @property {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties|null} [aiFbidMigration] DeviceCapabilities aiFbidMigration
          * @property {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties|null} [bizAiSettingsSync] DeviceCapabilities bizAiSettingsSync
+         * @property {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties|null} [contactRefresh] DeviceCapabilities contactRefresh
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -127,6 +128,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.bizAiSettingsSync = null;
 
+        /**
+         * DeviceCapabilities contactRefresh.
+         * @member {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties|null|undefined} contactRefresh
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.contactRefresh = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -178,6 +187,12 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_contactRefresh", {
+            get: $util.oneOfGetter($oneOfFields = ["contactRefresh"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -226,6 +241,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.encode(message.aiFbidMigration, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
             if (message.bizAiSettingsSync != null && $Object.hasOwnProperty.call(message, "bizAiSettingsSync"))
                 $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.encode(message.bizAiSettingsSync, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
+            if (message.contactRefresh != null && $Object.hasOwnProperty.call(message, "contactRefresh"))
+                $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.encode(message.contactRefresh, writer.uint32(/* id 9, wireType 2 =*/74).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -327,6 +344,13 @@ $root.DeviceCapabilities = (function() {
                             break;
                         message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiSettingsSync);
                         message._bizAiSettingsSync = "bizAiSettingsSync";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactRefresh);
+                        message._contactRefresh = "contactRefresh";
                         continue;
                     }
                 }
@@ -431,6 +455,14 @@ $root.DeviceCapabilities = (function() {
                         return "bizAiSettingsSync." + error;
                 }
             }
+            if (message.contactRefresh != null && $Object.hasOwnProperty.call(message, "contactRefresh")) {
+                properties._contactRefresh = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.verify(message.contactRefresh, _depth + 1);
+                    if (error)
+                        return "contactRefresh." + error;
+                }
+            }
             return null;
         };
 
@@ -516,6 +548,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.bizAiSettingsSync: object expected");
                 message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.fromObject(object.bizAiSettingsSync, _depth + 1);
             }
+            if (object.contactRefresh != null) {
+                if (!$util.isObject(object.contactRefresh))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.contactRefresh: object expected");
+                message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.fromObject(object.contactRefresh, _depth + 1);
+            }
             return message;
         };
 
@@ -552,6 +589,8 @@ $root.DeviceCapabilities = (function() {
                 object.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.toObject(message.aiFbidMigration, options, _depth + 1);
             if (message.bizAiSettingsSync != null && $Object.hasOwnProperty.call(message, "bizAiSettingsSync"))
                 object.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.toObject(message.bizAiSettingsSync, options, _depth + 1);
+            if (message.contactRefresh != null && $Object.hasOwnProperty.call(message, "contactRefresh"))
+                object.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.toObject(message.contactRefresh, options, _depth + 1);
             return object;
         };
 
@@ -1837,6 +1876,273 @@ $root.DeviceCapabilities = (function() {
             values[valuesById[1] = "MINIMAL"] = 1;
             values[valuesById[2] = "FULL"] = 2;
             return values;
+        })();
+
+        DeviceCapabilities.ContactRefresh = (function() {
+
+            /**
+             * Properties of a ContactRefresh.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties
+             * @property {boolean|null} [refreshSupported] ContactRefresh refreshSupported
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a ContactRefresh.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IContactRefresh
+             * @augments DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties instead.
+             */
+
+            /**
+             * Shape of a ContactRefresh.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties} DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Shape
+             */
+
+            /**
+             * Constructs a new ContactRefresh.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a ContactRefresh.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var ContactRefresh = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * ContactRefresh refreshSupported.
+             * @member {boolean|null|undefined} refreshSupported
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @instance
+             */
+            ContactRefresh.prototype.refreshSupported = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ContactRefresh.prototype, "_refreshSupported", {
+                get: $util.oneOfGetter($oneOfFields = ["refreshSupported"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new ContactRefresh instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.ContactRefresh} ContactRefresh instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Shape): DeviceCapabilities.DeviceCapabilities.ContactRefresh & DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties): DeviceCapabilities.DeviceCapabilities.ContactRefresh;
+             * }}
+             */
+            ContactRefresh.create = function(properties) {
+                return new ContactRefresh(properties);
+            };
+
+            /**
+             * Encodes the specified ContactRefresh message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.ContactRefresh.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties} message ContactRefresh message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ContactRefresh.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.refreshSupported != null && $Object.hasOwnProperty.call(message, "refreshSupported"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.refreshSupported);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ContactRefresh message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.ContactRefresh.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties} message ContactRefresh message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ContactRefresh.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a ContactRefresh message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.ContactRefresh & DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Shape} ContactRefresh
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ContactRefresh.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.refreshSupported = reader.bool();
+                            message._refreshSupported = "refreshSupported";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a ContactRefresh message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.ContactRefresh & DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Shape} ContactRefresh
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ContactRefresh.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ContactRefresh message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ContactRefresh.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.refreshSupported != null && $Object.hasOwnProperty.call(message, "refreshSupported")) {
+                    properties._refreshSupported = 1;
+                    if (typeof message.refreshSupported !== "boolean")
+                        return "refreshSupported: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a ContactRefresh message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.ContactRefresh} ContactRefresh
+             */
+            ContactRefresh.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.ContactRefresh: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh();
+                if (object.refreshSupported != null)
+                    message.refreshSupported = $Boolean(object.refreshSupported);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ContactRefresh message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ContactRefresh} message ContactRefresh
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ContactRefresh.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.refreshSupported != null && $Object.hasOwnProperty.call(message, "refreshSupported"))
+                    object.refreshSupported = message.refreshSupported;
+                return object;
+            };
+
+            /**
+             * Converts this ContactRefresh to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ContactRefresh.prototype.toJSON = function() {
+                return ContactRefresh.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for ContactRefresh
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.ContactRefresh
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            ContactRefresh.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.ContactRefresh";
+            };
+
+            return ContactRefresh;
         })();
 
         DeviceCapabilities.LIDMigration = (function() {
