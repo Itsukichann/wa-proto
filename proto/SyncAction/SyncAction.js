@@ -1194,6 +1194,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.CtwaMessageReceivedAction.$Properties|null} [ctwaMessageReceivedAction] SyncActionValue ctwaMessageReceivedAction
          * @property {SyncAction.SyncActionValue.SharedDeviceAllowlistAction.$Properties|null} [sharedDeviceAllowlistAction] SyncActionValue sharedDeviceAllowlistAction
          * @property {SyncAction.SyncActionValue.ContactManagerMetadataAction.$Properties|null} [contactManagerMetadataAction] SyncActionValue contactManagerMetadataAction
+         * @property {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties|null} [businessFolderActivationAction] SyncActionValue businessFolderActivationAction
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1294,6 +1295,7 @@ $root.SyncAction = (function() {
          *   ctwaMessageReceivedAction?: SyncAction.SyncActionValue.CtwaMessageReceivedAction.$Shape|null;
          *   sharedDeviceAllowlistAction?: SyncAction.SyncActionValue.SharedDeviceAllowlistAction.$Shape|null;
          *   contactManagerMetadataAction?: SyncAction.SyncActionValue.ContactManagerMetadataAction.$Shape|null;
+         *   businessFolderActivationAction?: SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -2001,6 +2003,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.contactManagerMetadataAction = null;
 
+        /**
+         * SyncActionValue businessFolderActivationAction.
+         * @member {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties|null|undefined} businessFolderActivationAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.businessFolderActivationAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2520,6 +2530,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_businessFolderActivationAction", {
+            get: $util.oneOfGetter($oneOfFields = ["businessFolderActivationAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2724,6 +2740,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.SharedDeviceAllowlistAction.encode(message.sharedDeviceAllowlistAction, writer.uint32(/* id 94, wireType 2 =*/754).fork(), _depth + 1).ldelim();
             if (message.contactManagerMetadataAction != null && $Object.hasOwnProperty.call(message, "contactManagerMetadataAction"))
                 $root.SyncAction.SyncActionValue.ContactManagerMetadataAction.encode(message.contactManagerMetadataAction, writer.uint32(/* id 95, wireType 2 =*/762).fork(), _depth + 1).ldelim();
+            if (message.businessFolderActivationAction != null && $Object.hasOwnProperty.call(message, "businessFolderActivationAction"))
+                $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.encode(message.businessFolderActivationAction, writer.uint32(/* id 96, wireType 2 =*/770).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3371,6 +3389,13 @@ $root.SyncAction = (function() {
                             break;
                         message.contactManagerMetadataAction = $root.SyncAction.SyncActionValue.ContactManagerMetadataAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactManagerMetadataAction);
                         message._contactManagerMetadataAction = "contactManagerMetadataAction";
+                        continue;
+                    }
+                case 96: {
+                        if (wireType !== 2)
+                            break;
+                        message.businessFolderActivationAction = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessFolderActivationAction);
+                        message._businessFolderActivationAction = "businessFolderActivationAction";
                         continue;
                     }
                 }
@@ -4102,6 +4127,14 @@ $root.SyncAction = (function() {
                         return "contactManagerMetadataAction." + error;
                 }
             }
+            if (message.businessFolderActivationAction != null && $Object.hasOwnProperty.call(message, "businessFolderActivationAction")) {
+                properties._businessFolderActivationAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.verify(message.businessFolderActivationAction, _depth + 1);
+                    if (error)
+                        return "businessFolderActivationAction." + error;
+                }
+            }
             return null;
         };
 
@@ -4557,6 +4590,11 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.contactManagerMetadataAction: object expected");
                 message.contactManagerMetadataAction = $root.SyncAction.SyncActionValue.ContactManagerMetadataAction.fromObject(object.contactManagerMetadataAction, _depth + 1);
             }
+            if (object.businessFolderActivationAction != null) {
+                if (!$util.isObject(object.businessFolderActivationAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.businessFolderActivationAction: object expected");
+                message.businessFolderActivationAction = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.fromObject(object.businessFolderActivationAction, _depth + 1);
+            }
             return message;
         };
 
@@ -4754,6 +4792,8 @@ $root.SyncAction = (function() {
                 object.sharedDeviceAllowlistAction = $root.SyncAction.SyncActionValue.SharedDeviceAllowlistAction.toObject(message.sharedDeviceAllowlistAction, options, _depth + 1);
             if (message.contactManagerMetadataAction != null && $Object.hasOwnProperty.call(message, "contactManagerMetadataAction"))
                 object.contactManagerMetadataAction = $root.SyncAction.SyncActionValue.ContactManagerMetadataAction.toObject(message.contactManagerMetadataAction, options, _depth + 1);
+            if (message.businessFolderActivationAction != null && $Object.hasOwnProperty.call(message, "businessFolderActivationAction"))
+                object.businessFolderActivationAction = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.toObject(message.businessFolderActivationAction, options, _depth + 1);
             return object;
         };
 
@@ -9530,6 +9570,273 @@ $root.SyncAction = (function() {
             };
 
             return BusinessBroadcastListAction;
+        })();
+
+        SyncActionValue.BusinessFolderActivationAction = (function() {
+
+            /**
+             * Properties of a BusinessFolderActivationAction.
+             * @typedef {Object} SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties
+             * @property {boolean|null} [activated] BusinessFolderActivationAction activated
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a BusinessFolderActivationAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessFolderActivationAction
+             * @augments SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessFolderActivationAction.
+             * @typedef {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties} SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape
+             */
+
+            /**
+             * Constructs a new BusinessFolderActivationAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a BusinessFolderActivationAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var BusinessFolderActivationAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * BusinessFolderActivationAction activated.
+             * @member {boolean|null|undefined} activated
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @instance
+             */
+            BusinessFolderActivationAction.prototype.activated = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BusinessFolderActivationAction.prototype, "_activated", {
+                get: $util.oneOfGetter($oneOfFields = ["activated"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BusinessFolderActivationAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.BusinessFolderActivationAction} BusinessFolderActivationAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape): SyncAction.SyncActionValue.BusinessFolderActivationAction & SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties): SyncAction.SyncActionValue.BusinessFolderActivationAction;
+             * }}
+             */
+            BusinessFolderActivationAction.create = function(properties) {
+                return new BusinessFolderActivationAction(properties);
+            };
+
+            /**
+             * Encodes the specified BusinessFolderActivationAction message. Does not implicitly {@link SyncAction.SyncActionValue.BusinessFolderActivationAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties} message BusinessFolderActivationAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BusinessFolderActivationAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.activated != null && $Object.hasOwnProperty.call(message, "activated"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.activated);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BusinessFolderActivationAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.BusinessFolderActivationAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties} message BusinessFolderActivationAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BusinessFolderActivationAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a BusinessFolderActivationAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.BusinessFolderActivationAction & SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape} BusinessFolderActivationAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BusinessFolderActivationAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.BusinessFolderActivationAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.activated = reader.bool();
+                            message._activated = "activated";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a BusinessFolderActivationAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.BusinessFolderActivationAction & SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape} BusinessFolderActivationAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BusinessFolderActivationAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BusinessFolderActivationAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BusinessFolderActivationAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.activated != null && $Object.hasOwnProperty.call(message, "activated")) {
+                    properties._activated = 1;
+                    if (typeof message.activated !== "boolean")
+                        return "activated: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BusinessFolderActivationAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.BusinessFolderActivationAction} BusinessFolderActivationAction
+             */
+            BusinessFolderActivationAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.BusinessFolderActivationAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.BusinessFolderActivationAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.BusinessFolderActivationAction();
+                if (object.activated != null)
+                    message.activated = $Boolean(object.activated);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BusinessFolderActivationAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderActivationAction} message BusinessFolderActivationAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BusinessFolderActivationAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.activated != null && $Object.hasOwnProperty.call(message, "activated"))
+                    object.activated = message.activated;
+                return object;
+            };
+
+            /**
+             * Converts this BusinessFolderActivationAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BusinessFolderActivationAction.prototype.toJSON = function() {
+                return BusinessFolderActivationAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for BusinessFolderActivationAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.BusinessFolderActivationAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            BusinessFolderActivationAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.BusinessFolderActivationAction";
+            };
+
+            return BusinessFolderActivationAction;
         })();
 
         SyncActionValue.CallLogAction = (function() {
@@ -37861,6 +38168,7 @@ $root.SyncAction = (function() {
      * @property {number} CTWA_MESSAGE_RECEIVED_ACTION=93 CTWA_MESSAGE_RECEIVED_ACTION value
      * @property {number} SHARED_DEVICE_ALLOWLIST_ACTION=94 SHARED_DEVICE_ALLOWLIST_ACTION value
      * @property {number} CONTACT_MANAGER_METADATA_ACTION=95 CONTACT_MANAGER_METADATA_ACTION value
+     * @property {number} BUSINESS_FOLDER_ACTIVATION_ACTION=96 BUSINESS_FOLDER_ACTIVATION_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -37956,6 +38264,7 @@ $root.SyncAction = (function() {
         values[valuesById[93] = "CTWA_MESSAGE_RECEIVED_ACTION"] = 93;
         values[valuesById[94] = "SHARED_DEVICE_ALLOWLIST_ACTION"] = 94;
         values[valuesById[95] = "CONTACT_MANAGER_METADATA_ACTION"] = 95;
+        values[valuesById[96] = "BUSINESS_FOLDER_ACTIVATION_ACTION"] = 96;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
