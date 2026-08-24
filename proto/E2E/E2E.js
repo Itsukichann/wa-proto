@@ -14488,6 +14488,7 @@ $root.E2E = (function() {
          * @property {string|null} [posterStatusId] ContextInfo posterStatusId
          * @property {E2E.ContextInfo.InstagramThreadLink.$Properties|null} [instagramThreadLink] ContextInfo instagramThreadLink
          * @property {AICommon.AIProvenance.$Properties|null} [aiProvenance] ContextInfo aiProvenance
+         * @property {Array.<number>|null} [experienceIds] ContextInfo experienceIds
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -14566,6 +14567,7 @@ $root.E2E = (function() {
          *   posterStatusId?: string|null;
          *   instagramThreadLink?: E2E.ContextInfo.InstagramThreadLink.$Shape|null;
          *   aiProvenance?: AICommon.AIProvenance.$Shape|null;
+         *   experienceIds?: Array.<number>|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.ContextInfo.$Shape
          */
@@ -14582,6 +14584,7 @@ $root.E2E = (function() {
             this.mentionedJid = [];
             this.groupMentions = [];
             this.statusAttributions = [];
+            this.experienceIds = [];
             if (properties)
                 for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -15099,6 +15102,14 @@ $root.E2E = (function() {
          * @instance
          */
         ContextInfo.prototype.aiProvenance = null;
+
+        /**
+         * ContextInfo experienceIds.
+         * @member {Array.<number>} experienceIds
+         * @memberof E2E.ContextInfo
+         * @instance
+         */
+        ContextInfo.prototype.experienceIds = $util.emptyArray;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -15632,6 +15643,8 @@ $root.E2E = (function() {
                 $root.E2E.ContextInfo.InstagramThreadLink.encode(message.instagramThreadLink, writer.uint32(/* id 80, wireType 2 =*/642).fork(), _depth + 1).ldelim();
             if (message.aiProvenance != null && $Object.hasOwnProperty.call(message, "aiProvenance"))
                 $root.AICommon.AIProvenance.encode(message.aiProvenance, writer.uint32(/* id 81, wireType 2 =*/650).fork(), _depth + 1).ldelim();
+            if (message.experienceIds != null && message.experienceIds.length)
+                writer.uint32(/* id 82, wireType 2 =*/658).uint32s(message.experienceIds);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -16130,6 +16143,20 @@ $root.E2E = (function() {
                         message._aiProvenance = "aiProvenance";
                         continue;
                     }
+                case 82: {
+                        if (wireType === 2) {
+                            if (!(message.experienceIds && message.experienceIds.length))
+                                message.experienceIds = [];
+                            reader.uint32s(message.experienceIds);
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.experienceIds && message.experienceIds.length))
+                            message.experienceIds = [];
+                        message.experienceIds.push(reader.uint32());
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -16570,6 +16597,13 @@ $root.E2E = (function() {
                         return "aiProvenance." + error;
                 }
             }
+            if (message.experienceIds != null && $Object.hasOwnProperty.call(message, "experienceIds")) {
+                if (!$Array.isArray(message.experienceIds))
+                    return "experienceIds: array expected";
+                for (var i = 0; i < message.experienceIds.length; ++i)
+                    if (!$util.isInteger(message.experienceIds[i]))
+                        return "experienceIds: integer[] expected";
+            }
             return null;
         };
 
@@ -16964,6 +16998,13 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.ContextInfo.aiProvenance: object expected");
                 message.aiProvenance = $root.AICommon.AIProvenance.fromObject(object.aiProvenance, _depth + 1);
             }
+            if (object.experienceIds) {
+                if (!$Array.isArray(object.experienceIds))
+                    throw $TypeError(".E2E.ContextInfo.experienceIds: array expected");
+                message.experienceIds = $Array(object.experienceIds.length);
+                for (var i = 0; i < object.experienceIds.length; ++i)
+                    message.experienceIds[i] = object.experienceIds[i] >>> 0;
+            }
             return message;
         };
 
@@ -16988,6 +17029,7 @@ $root.E2E = (function() {
                 object.mentionedJid = [];
                 object.groupMentions = [];
                 object.statusAttributions = [];
+                object.experienceIds = [];
             }
             if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 object.stanzaId = message.stanzaId;
@@ -17131,6 +17173,11 @@ $root.E2E = (function() {
                 object.instagramThreadLink = $root.E2E.ContextInfo.InstagramThreadLink.toObject(message.instagramThreadLink, options, _depth + 1);
             if (message.aiProvenance != null && $Object.hasOwnProperty.call(message, "aiProvenance"))
                 object.aiProvenance = $root.AICommon.AIProvenance.toObject(message.aiProvenance, options, _depth + 1);
+            if (message.experienceIds && message.experienceIds.length) {
+                object.experienceIds = $Array(message.experienceIds.length);
+                for (var j = 0; j < message.experienceIds.length; ++j)
+                    object.experienceIds[j] = message.experienceIds[j];
+            }
             return object;
         };
 
@@ -24541,6 +24588,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.MusicMessage.$Properties|null} [musicMessage] Message musicMessage
          * @property {E2E.Message.StatusLinkPreviewMetadata.$Properties|null} [statusLinkPreviewMetadata] Message statusLinkPreviewMetadata
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [botPlatformRegistrationSuccessMessage] Message botPlatformRegistrationSuccessMessage
+         * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterScheduledMessage] Message newsletterScheduledMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -24665,6 +24713,7 @@ $root.E2E = (function() {
          *   musicMessage?: E2E.Message.MusicMessage.$Shape|null;
          *   statusLinkPreviewMetadata?: E2E.Message.StatusLinkPreviewMetadata.$Shape|null;
          *   botPlatformRegistrationSuccessMessage?: E2E.Message.FutureProofMessage.$Shape|null;
+         *   newsletterScheduledMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -25564,6 +25613,14 @@ $root.E2E = (function() {
          */
         Message.prototype.botPlatformRegistrationSuccessMessage = null;
 
+        /**
+         * Message newsletterScheduledMessage.
+         * @member {E2E.Message.FutureProofMessage.$Properties|null|undefined} newsletterScheduledMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.newsletterScheduledMessage = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -26227,6 +26284,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_newsletterScheduledMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["newsletterScheduledMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new Message instance using the specified properties.
          * @function create
@@ -26479,6 +26542,8 @@ $root.E2E = (function() {
                 $root.E2E.Message.StatusLinkPreviewMetadata.encode(message.statusLinkPreviewMetadata, writer.uint32(/* id 130, wireType 2 =*/1042).fork(), _depth + 1).ldelim();
             if (message.botPlatformRegistrationSuccessMessage != null && $Object.hasOwnProperty.call(message, "botPlatformRegistrationSuccessMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.botPlatformRegistrationSuccessMessage, writer.uint32(/* id 131, wireType 2 =*/1050).fork(), _depth + 1).ldelim();
+            if (message.newsletterScheduledMessage != null && $Object.hasOwnProperty.call(message, "newsletterScheduledMessage"))
+                $root.E2E.Message.FutureProofMessage.encode(message.newsletterScheduledMessage, writer.uint32(/* id 132, wireType 2 =*/1058).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -27294,6 +27359,13 @@ $root.E2E = (function() {
                             break;
                         message.botPlatformRegistrationSuccessMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botPlatformRegistrationSuccessMessage);
                         message._botPlatformRegistrationSuccessMessage = "botPlatformRegistrationSuccessMessage";
+                        continue;
+                    }
+                case 132: {
+                        if (wireType !== 2)
+                            break;
+                        message.newsletterScheduledMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterScheduledMessage);
+                        message._newsletterScheduledMessage = "newsletterScheduledMessage";
                         continue;
                     }
                 }
@@ -28217,6 +28289,14 @@ $root.E2E = (function() {
                         return "botPlatformRegistrationSuccessMessage." + error;
                 }
             }
+            if (message.newsletterScheduledMessage != null && $Object.hasOwnProperty.call(message, "newsletterScheduledMessage")) {
+                properties._newsletterScheduledMessage = 1;
+                {
+                    var error = $root.E2E.Message.FutureProofMessage.verify(message.newsletterScheduledMessage, _depth + 1);
+                    if (error)
+                        return "newsletterScheduledMessage." + error;
+                }
+            }
             return null;
         };
 
@@ -28785,6 +28865,11 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.Message.botPlatformRegistrationSuccessMessage: object expected");
                 message.botPlatformRegistrationSuccessMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.botPlatformRegistrationSuccessMessage, _depth + 1);
             }
+            if (object.newsletterScheduledMessage != null) {
+                if (!$util.isObject(object.newsletterScheduledMessage))
+                    throw $TypeError(".E2E.Message.newsletterScheduledMessage: object expected");
+                message.newsletterScheduledMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.newsletterScheduledMessage, _depth + 1);
+            }
             return message;
         };
 
@@ -29025,6 +29110,8 @@ $root.E2E = (function() {
                 object.statusLinkPreviewMetadata = $root.E2E.Message.StatusLinkPreviewMetadata.toObject(message.statusLinkPreviewMetadata, options, _depth + 1);
             if (message.botPlatformRegistrationSuccessMessage != null && $Object.hasOwnProperty.call(message, "botPlatformRegistrationSuccessMessage"))
                 object.botPlatformRegistrationSuccessMessage = $root.E2E.Message.FutureProofMessage.toObject(message.botPlatformRegistrationSuccessMessage, options, _depth + 1);
+            if (message.newsletterScheduledMessage != null && $Object.hasOwnProperty.call(message, "newsletterScheduledMessage"))
+                object.newsletterScheduledMessage = $root.E2E.Message.FutureProofMessage.toObject(message.newsletterScheduledMessage, options, _depth + 1);
             return object;
         };
 
