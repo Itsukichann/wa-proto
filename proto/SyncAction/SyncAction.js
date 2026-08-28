@@ -42791,6 +42791,7 @@ $root.DeviceCapabilities = (function() {
              * @property {boolean|null} [campaignSyncEnabled] BusinessBroadcast campaignSyncEnabled
              * @property {boolean|null} [insightsSyncEnabled] BusinessBroadcast insightsSyncEnabled
              * @property {number|null} [recipientLimit] BusinessBroadcast recipientLimit
+             * @property {boolean|null} [proCompanionSupportEnabled] BusinessBroadcast proCompanionSupportEnabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -42862,6 +42863,14 @@ $root.DeviceCapabilities = (function() {
              */
             BusinessBroadcast.prototype.recipientLimit = null;
 
+            /**
+             * BusinessBroadcast proCompanionSupportEnabled.
+             * @member {boolean|null|undefined} proCompanionSupportEnabled
+             * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
+             * @instance
+             */
+            BusinessBroadcast.prototype.proCompanionSupportEnabled = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -42892,6 +42901,12 @@ $root.DeviceCapabilities = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(BusinessBroadcast.prototype, "_recipientLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["recipientLimit"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BusinessBroadcast.prototype, "_proCompanionSupportEnabled", {
+                get: $util.oneOfGetter($oneOfFields = ["proCompanionSupportEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -42937,6 +42952,8 @@ $root.DeviceCapabilities = (function() {
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.insightsSyncEnabled);
                 if (message.recipientLimit != null && $Object.hasOwnProperty.call(message, "recipientLimit"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int32(message.recipientLimit);
+                if (message.proCompanionSupportEnabled != null && $Object.hasOwnProperty.call(message, "proCompanionSupportEnabled"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.proCompanionSupportEnabled);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -43029,6 +43046,13 @@ $root.DeviceCapabilities = (function() {
                             message._recipientLimit = "recipientLimit";
                             continue;
                         }
+                    case 6: {
+                            if (wireType !== 0)
+                                break;
+                            message.proCompanionSupportEnabled = reader.bool();
+                            message._proCompanionSupportEnabled = "proCompanionSupportEnabled";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -43103,6 +43127,11 @@ $root.DeviceCapabilities = (function() {
                     if (!$util.isInteger(message.recipientLimit))
                         return "recipientLimit: integer expected";
                 }
+                if (message.proCompanionSupportEnabled != null && $Object.hasOwnProperty.call(message, "proCompanionSupportEnabled")) {
+                    properties._proCompanionSupportEnabled = 1;
+                    if (typeof message.proCompanionSupportEnabled !== "boolean")
+                        return "proCompanionSupportEnabled: boolean expected";
+                }
                 return null;
             };
 
@@ -43134,6 +43163,8 @@ $root.DeviceCapabilities = (function() {
                     message.insightsSyncEnabled = $Boolean(object.insightsSyncEnabled);
                 if (object.recipientLimit != null)
                     message.recipientLimit = object.recipientLimit | 0;
+                if (object.proCompanionSupportEnabled != null)
+                    message.proCompanionSupportEnabled = $Boolean(object.proCompanionSupportEnabled);
                 return message;
             };
 
@@ -43164,6 +43195,8 @@ $root.DeviceCapabilities = (function() {
                     object.insightsSyncEnabled = message.insightsSyncEnabled;
                 if (message.recipientLimit != null && $Object.hasOwnProperty.call(message, "recipientLimit"))
                     object.recipientLimit = message.recipientLimit;
+                if (message.proCompanionSupportEnabled != null && $Object.hasOwnProperty.call(message, "proCompanionSupportEnabled"))
+                    object.proCompanionSupportEnabled = message.proCompanionSupportEnabled;
                 return object;
             };
 

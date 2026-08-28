@@ -5394,6 +5394,7 @@ $root.E2E = (function() {
          * @property {Array.<AICommonDeprecated.AIRichResponseSubMessage.$Properties>|null} [submessages] AIRichResponseMessage submessages
          * @property {AICommon.AIRichResponseUnifiedResponse.$Properties|null} [unifiedResponse] AIRichResponseMessage unifiedResponse
          * @property {E2E.ContextInfo.$Properties|null} [contextInfo] AIRichResponseMessage contextInfo
+         * @property {AICommon.AIRichResponseUnifiedResponse.$Properties|null} [originalRecipientMetadata] AIRichResponseMessage originalRecipientMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -5412,6 +5413,7 @@ $root.E2E = (function() {
          *   submessages?: Array.<AICommonDeprecated.AIRichResponseSubMessage.$Shape>|null;
          *   unifiedResponse?: AICommon.AIRichResponseUnifiedResponse.$Shape|null;
          *   contextInfo?: E2E.ContextInfo.$Shape|null;
+         *   originalRecipientMetadata?: AICommon.AIRichResponseUnifiedResponse.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.AIRichResponseMessage.$Shape
          */
@@ -5464,6 +5466,14 @@ $root.E2E = (function() {
          */
         AIRichResponseMessage.prototype.contextInfo = null;
 
+        /**
+         * AIRichResponseMessage originalRecipientMetadata.
+         * @member {AICommon.AIRichResponseUnifiedResponse.$Properties|null|undefined} originalRecipientMetadata
+         * @memberof E2E.AIRichResponseMessage
+         * @instance
+         */
+        AIRichResponseMessage.prototype.originalRecipientMetadata = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -5482,6 +5492,12 @@ $root.E2E = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(AIRichResponseMessage.prototype, "_contextInfo", {
             get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(AIRichResponseMessage.prototype, "_originalRecipientMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["originalRecipientMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -5526,6 +5542,8 @@ $root.E2E = (function() {
                 $root.AICommon.AIRichResponseUnifiedResponse.encode(message.unifiedResponse, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
             if (message.contextInfo != null && $Object.hasOwnProperty.call(message, "contextInfo"))
                 $root.E2E.ContextInfo.encode(message.contextInfo, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
+            if (message.originalRecipientMetadata != null && $Object.hasOwnProperty.call(message, "originalRecipientMetadata"))
+                $root.AICommon.AIRichResponseUnifiedResponse.encode(message.originalRecipientMetadata, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -5612,6 +5630,13 @@ $root.E2E = (function() {
                         message._contextInfo = "contextInfo";
                         continue;
                     }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.originalRecipientMetadata = $root.AICommon.AIRichResponseUnifiedResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.originalRecipientMetadata);
+                        message._originalRecipientMetadata = "originalRecipientMetadata";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -5691,6 +5716,14 @@ $root.E2E = (function() {
                         return "contextInfo." + error;
                 }
             }
+            if (message.originalRecipientMetadata != null && $Object.hasOwnProperty.call(message, "originalRecipientMetadata")) {
+                properties._originalRecipientMetadata = 1;
+                {
+                    var error = $root.AICommon.AIRichResponseUnifiedResponse.verify(message.originalRecipientMetadata, _depth + 1);
+                    if (error)
+                        return "originalRecipientMetadata." + error;
+                }
+            }
             return null;
         };
 
@@ -5745,6 +5778,11 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.AIRichResponseMessage.contextInfo: object expected");
                 message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo, _depth + 1);
             }
+            if (object.originalRecipientMetadata != null) {
+                if (!$util.isObject(object.originalRecipientMetadata))
+                    throw $TypeError(".E2E.AIRichResponseMessage.originalRecipientMetadata: object expected");
+                message.originalRecipientMetadata = $root.AICommon.AIRichResponseUnifiedResponse.fromObject(object.originalRecipientMetadata, _depth + 1);
+            }
             return message;
         };
 
@@ -5778,6 +5816,8 @@ $root.E2E = (function() {
                 object.unifiedResponse = $root.AICommon.AIRichResponseUnifiedResponse.toObject(message.unifiedResponse, options, _depth + 1);
             if (message.contextInfo != null && $Object.hasOwnProperty.call(message, "contextInfo"))
                 object.contextInfo = $root.E2E.ContextInfo.toObject(message.contextInfo, options, _depth + 1);
+            if (message.originalRecipientMetadata != null && $Object.hasOwnProperty.call(message, "originalRecipientMetadata"))
+                object.originalRecipientMetadata = $root.AICommon.AIRichResponseUnifiedResponse.toObject(message.originalRecipientMetadata, options, _depth + 1);
             return object;
         };
 
@@ -110711,6 +110751,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [motionPhotoPresentationOffsetMs] VideoMessage motionPhotoPresentationOffsetMs
              * @property {string|null} [metadataUrl] VideoMessage metadataUrl
              * @property {E2E.Message.VideoMessage.VideoSourceType|null} [videoSourceType] VideoMessage videoSourceType
+             * @property {string|null} [dashManifestUrl] VideoMessage dashManifestUrl
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -110755,6 +110796,7 @@ $root.E2E = (function() {
              *   motionPhotoPresentationOffsetMs?: number|Long|null;
              *   metadataUrl?: string|null;
              *   videoSourceType?: E2E.Message.VideoMessage.VideoSourceType|null;
+             *   dashManifestUrl?: string|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.VideoMessage.$Shape
              */
@@ -111017,6 +111059,14 @@ $root.E2E = (function() {
              */
             VideoMessage.prototype.videoSourceType = null;
 
+            /**
+             * VideoMessage dashManifestUrl.
+             * @member {string|null|undefined} dashManifestUrl
+             * @memberof E2E.Message.VideoMessage
+             * @instance
+             */
+            VideoMessage.prototype.dashManifestUrl = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -111182,6 +111232,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(VideoMessage.prototype, "_dashManifestUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["dashManifestUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new VideoMessage instance using the specified properties.
              * @function create
@@ -111277,6 +111333,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 30, wireType 2 =*/242).string(message.metadataUrl);
                 if (message.videoSourceType != null && $Object.hasOwnProperty.call(message, "videoSourceType"))
                     writer.uint32(/* id 31, wireType 0 =*/248).int32(message.videoSourceType);
+                if (message.dashManifestUrl != null && $Object.hasOwnProperty.call(message, "dashManifestUrl"))
+                    writer.uint32(/* id 33, wireType 2 =*/266).string(message.dashManifestUrl);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -111547,6 +111605,13 @@ $root.E2E = (function() {
                             message._videoSourceType = "videoSourceType";
                             continue;
                         }
+                    case 33: {
+                            if (wireType !== 2)
+                                break;
+                            message.dashManifestUrl = reader.stringVerify();
+                            message._dashManifestUrl = "dashManifestUrl";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -111761,6 +111826,11 @@ $root.E2E = (function() {
                     if (typeof message.videoSourceType !== "number" || (message.videoSourceType | 0) !== message.videoSourceType)
                         return "videoSourceType: enum value expected";
                 }
+                if (message.dashManifestUrl != null && $Object.hasOwnProperty.call(message, "dashManifestUrl")) {
+                    properties._dashManifestUrl = 1;
+                    if (!$util.isString(message.dashManifestUrl))
+                        return "dashManifestUrl: string expected";
+                }
                 return null;
             };
 
@@ -111941,6 +112011,8 @@ $root.E2E = (function() {
                     if (typeof object.videoSourceType === "number" && (object.videoSourceType | 0) === object.videoSourceType)
                         message.videoSourceType = object.videoSourceType;
                 }
+                if (object.dashManifestUrl != null)
+                    message.dashManifestUrl = $String(object.dashManifestUrl);
                 return message;
             };
 
@@ -112050,6 +112122,8 @@ $root.E2E = (function() {
                     object.metadataUrl = message.metadataUrl;
                 if (message.videoSourceType != null && $Object.hasOwnProperty.call(message, "videoSourceType"))
                     object.videoSourceType = options.enums === $String ? $root.E2E.Message.VideoMessage.VideoSourceType[message.videoSourceType] === $undefined ? message.videoSourceType : $root.E2E.Message.VideoMessage.VideoSourceType[message.videoSourceType] : message.videoSourceType;
+                if (message.dashManifestUrl != null && $Object.hasOwnProperty.call(message, "dashManifestUrl"))
+                    object.dashManifestUrl = message.dashManifestUrl;
                 return object;
             };
 
@@ -128759,6 +128833,10 @@ $root.AICommon = (function() {
             case 57:
                 message.botEntryPointOrigin = 57;
                 break;
+            case "NEW_3P_AGENT_CREATION":
+            case 58:
+                message.botEntryPointOrigin = 58;
+                break;
             default:
                 if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
                     message.botEntryPointOrigin = object.botEntryPointOrigin;
@@ -134291,6 +134369,7 @@ $root.AICommon = (function() {
          * @property {AICommon.AISubscriptionUpsellMetadata.$Properties|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {AICommon.BotPttPromptMetadata.$Properties|null} [pttPromptMetadata] BotMetadata pttPromptMetadata
          * @property {AICommon.BotHistoryShareMetadata.$Properties|null} [botHistoryShareMetadata] BotMetadata botHistoryShareMetadata
+         * @property {boolean|null} [responseStoppedByUser] BotMetadata responseStoppedByUser
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
@@ -134660,6 +134739,14 @@ $root.AICommon = (function() {
         BotMetadata.prototype.botHistoryShareMetadata = null;
 
         /**
+         * BotMetadata responseStoppedByUser.
+         * @member {boolean|null|undefined} responseStoppedByUser
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.responseStoppedByUser = null;
+
+        /**
          * BotMetadata internalMetadata.
          * @member {Uint8Array|null|undefined} internalMetadata
          * @memberof AICommon.BotMetadata
@@ -134923,6 +135010,12 @@ $root.AICommon = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotMetadata.prototype, "_responseStoppedByUser", {
+            get: $util.oneOfGetter($oneOfFields = ["responseStoppedByUser"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BotMetadata.prototype, "_internalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -135044,6 +135137,8 @@ $root.AICommon = (function() {
                 $root.AICommon.BotPttPromptMetadata.encode(message.pttPromptMetadata, writer.uint32(/* id 42, wireType 2 =*/338).fork(), _depth + 1).ldelim();
             if (message.botHistoryShareMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareMetadata"))
                 $root.AICommon.BotHistoryShareMetadata.encode(message.botHistoryShareMetadata, writer.uint32(/* id 43, wireType 2 =*/346).fork(), _depth + 1).ldelim();
+            if (message.responseStoppedByUser != null && $Object.hasOwnProperty.call(message, "responseStoppedByUser"))
+                writer.uint32(/* id 44, wireType 0 =*/352).bool(message.responseStoppedByUser);
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -135395,6 +135490,13 @@ $root.AICommon = (function() {
                             break;
                         message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botHistoryShareMetadata);
                         message._botHistoryShareMetadata = "botHistoryShareMetadata";
+                        continue;
+                    }
+                case 44: {
+                        if (wireType !== 0)
+                            break;
+                        message.responseStoppedByUser = reader.bool();
+                        message._responseStoppedByUser = "responseStoppedByUser";
                         continue;
                     }
                 case 999: {
@@ -135768,6 +135870,11 @@ $root.AICommon = (function() {
                         return "botHistoryShareMetadata." + error;
                 }
             }
+            if (message.responseStoppedByUser != null && $Object.hasOwnProperty.call(message, "responseStoppedByUser")) {
+                properties._responseStoppedByUser = 1;
+                if (typeof message.responseStoppedByUser !== "boolean")
+                    return "responseStoppedByUser: boolean expected";
+            }
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata")) {
                 properties._internalMetadata = 1;
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
@@ -135986,6 +136093,8 @@ $root.AICommon = (function() {
                     throw $TypeError(".AICommon.BotMetadata.botHistoryShareMetadata: object expected");
                 message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.fromObject(object.botHistoryShareMetadata, _depth + 1);
             }
+            if (object.responseStoppedByUser != null)
+                message.responseStoppedByUser = $Boolean(object.responseStoppedByUser);
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
                     $util.base64.decode(object.internalMetadata, message.internalMetadata = $util.newBuffer($util.base64.length(object.internalMetadata)), 0);
@@ -136095,6 +136204,8 @@ $root.AICommon = (function() {
                 object.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.toObject(message.pttPromptMetadata, options, _depth + 1);
             if (message.botHistoryShareMetadata != null && $Object.hasOwnProperty.call(message, "botHistoryShareMetadata"))
                 object.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.toObject(message.botHistoryShareMetadata, options, _depth + 1);
+            if (message.responseStoppedByUser != null && $Object.hasOwnProperty.call(message, "responseStoppedByUser"))
+                object.responseStoppedByUser = message.responseStoppedByUser;
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata"))
                 object.internalMetadata = options.bytes === $String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
             return object;
@@ -145948,6 +146059,10 @@ $root.AICommon = (function() {
                     case 69:
                         message.capabilities[message.capabilities.length] = 69;
                         break;
+                    case "AI_STOP_GENERATION_ENABLED":
+                    case 70:
+                        message.capabilities[message.capabilities.length] = 70;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -146082,6 +146197,7 @@ $root.AICommon = (function() {
          * @property {number} AI_RICH_RESPONSE_ARTIFACTS_ENABLED=67 AI_RICH_RESPONSE_ARTIFACTS_ENABLED value
          * @property {number} AI_RICH_RESPONSE_EMAIL_CALENDAR_ENABLED=68 AI_RICH_RESPONSE_EMAIL_CALENDAR_ENABLED value
          * @property {number} AI_RICH_RESPONSE_REMINDERS_ENABLED=69 AI_RICH_RESPONSE_REMINDERS_ENABLED value
+         * @property {number} AI_STOP_GENERATION_ENABLED=70 AI_STOP_GENERATION_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -146155,6 +146271,7 @@ $root.AICommon = (function() {
             values[valuesById[67] = "AI_RICH_RESPONSE_ARTIFACTS_ENABLED"] = 67;
             values[valuesById[68] = "AI_RICH_RESPONSE_EMAIL_CALENDAR_ENABLED"] = 68;
             values[valuesById[69] = "AI_RICH_RESPONSE_REMINDERS_ENABLED"] = 69;
+            values[valuesById[70] = "AI_STOP_GENERATION_ENABLED"] = 70;
             return values;
         })();
 
@@ -150815,6 +150932,10 @@ $root.AICommon = (function() {
             case "CONTACTS_TAB":
             case 57:
                 message.destinationEntryPoint = 57;
+                break;
+            case "NEW_3P_AGENT_CREATION":
+            case 58:
+                message.destinationEntryPoint = 58;
                 break;
             default:
                 if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
@@ -156233,6 +156354,7 @@ $root.AICommon = (function() {
      * @property {number} CHATLIST_SEARCH=55 CHATLIST_SEARCH value
      * @property {number} NEW_CHAT_LIST=56 NEW_CHAT_LIST value
      * @property {number} CONTACTS_TAB=57 CONTACTS_TAB value
+     * @property {number} NEW_3P_AGENT_CREATION=58 NEW_3P_AGENT_CREATION value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -156285,6 +156407,7 @@ $root.AICommon = (function() {
         values[valuesById[55] = "CHATLIST_SEARCH"] = 55;
         values[valuesById[56] = "NEW_CHAT_LIST"] = 56;
         values[valuesById[57] = "CONTACTS_TAB"] = 57;
+        values[valuesById[58] = "NEW_3P_AGENT_CREATION"] = 58;
         return values;
     })();
 
