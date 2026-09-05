@@ -79,6 +79,8 @@ $root.MdStorageMsgRowOpaqueData = (function() {
          * @property {boolean|null} [sharableEventInviteIsCanceled] MsgOpaqueData sharableEventInviteIsCanceled
          * @property {Uint8Array|null} [sharableEventInviteJpegThumbnail] MsgOpaqueData sharableEventInviteJpegThumbnail
          * @property {string|null} [sharableEventInviteCallLink] MsgOpaqueData sharableEventInviteCallLink
+         * @property {string|null} [mediaPngThumbnail] MsgOpaqueData mediaPngThumbnail
+         * @property {string|null} [qrUrl] MsgOpaqueData qrUrl
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -551,6 +553,22 @@ $root.MdStorageMsgRowOpaqueData = (function() {
          */
         MsgOpaqueData.prototype.sharableEventInviteCallLink = null;
 
+        /**
+         * MsgOpaqueData mediaPngThumbnail.
+         * @member {string|null|undefined} mediaPngThumbnail
+         * @memberof MdStorageMsgRowOpaqueData.MsgOpaqueData
+         * @instance
+         */
+        MsgOpaqueData.prototype.mediaPngThumbnail = null;
+
+        /**
+         * MsgOpaqueData qrUrl.
+         * @member {string|null|undefined} qrUrl
+         * @memberof MdStorageMsgRowOpaqueData.MsgOpaqueData
+         * @instance
+         */
+        MsgOpaqueData.prototype.qrUrl = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -878,6 +896,18 @@ $root.MdStorageMsgRowOpaqueData = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MsgOpaqueData.prototype, "_mediaPngThumbnail", {
+            get: $util.oneOfGetter($oneOfFields = ["mediaPngThumbnail"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MsgOpaqueData.prototype, "_qrUrl", {
+            get: $util.oneOfGetter($oneOfFields = ["qrUrl"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new MsgOpaqueData instance using the specified properties.
          * @function create
@@ -1021,6 +1051,10 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 writer.uint32(/* id 59, wireType 2 =*/474).bytes(message.sharableEventInviteJpegThumbnail);
             if (message.sharableEventInviteCallLink != null && $Object.hasOwnProperty.call(message, "sharableEventInviteCallLink"))
                 writer.uint32(/* id 60, wireType 2 =*/482).string(message.sharableEventInviteCallLink);
+            if (message.mediaPngThumbnail != null && $Object.hasOwnProperty.call(message, "mediaPngThumbnail"))
+                writer.uint32(/* id 61, wireType 2 =*/490).string(message.mediaPngThumbnail);
+            if (message.qrUrl != null && $Object.hasOwnProperty.call(message, "qrUrl"))
+                writer.uint32(/* id 62, wireType 2 =*/498).string(message.qrUrl);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -1464,6 +1498,20 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                         message._sharableEventInviteCallLink = "sharableEventInviteCallLink";
                         continue;
                     }
+                case 61: {
+                        if (wireType !== 2)
+                            break;
+                        message.mediaPngThumbnail = reader.stringVerify();
+                        message._mediaPngThumbnail = "mediaPngThumbnail";
+                        continue;
+                    }
+                case 62: {
+                        if (wireType !== 2)
+                            break;
+                        message.qrUrl = reader.stringVerify();
+                        message._qrUrl = "qrUrl";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -1801,6 +1849,16 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 if (!$util.isString(message.sharableEventInviteCallLink))
                     return "sharableEventInviteCallLink: string expected";
             }
+            if (message.mediaPngThumbnail != null && $Object.hasOwnProperty.call(message, "mediaPngThumbnail")) {
+                properties._mediaPngThumbnail = 1;
+                if (!$util.isString(message.mediaPngThumbnail))
+                    return "mediaPngThumbnail: string expected";
+            }
+            if (message.qrUrl != null && $Object.hasOwnProperty.call(message, "qrUrl")) {
+                properties._qrUrl = 1;
+                if (!$util.isString(message.qrUrl))
+                    return "qrUrl: string expected";
+            }
             return null;
         };
 
@@ -2044,6 +2102,10 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                     message.sharableEventInviteJpegThumbnail = object.sharableEventInviteJpegThumbnail;
             if (object.sharableEventInviteCallLink != null)
                 message.sharableEventInviteCallLink = $String(object.sharableEventInviteCallLink);
+            if (object.mediaPngThumbnail != null)
+                message.mediaPngThumbnail = $String(object.mediaPngThumbnail);
+            if (object.qrUrl != null)
+                message.qrUrl = $String(object.qrUrl);
             return message;
         };
 
@@ -2209,6 +2271,10 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 object.sharableEventInviteJpegThumbnail = options.bytes === $String ? $util.base64.encode(message.sharableEventInviteJpegThumbnail, 0, message.sharableEventInviteJpegThumbnail.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.sharableEventInviteJpegThumbnail) : message.sharableEventInviteJpegThumbnail;
             if (message.sharableEventInviteCallLink != null && $Object.hasOwnProperty.call(message, "sharableEventInviteCallLink"))
                 object.sharableEventInviteCallLink = message.sharableEventInviteCallLink;
+            if (message.mediaPngThumbnail != null && $Object.hasOwnProperty.call(message, "mediaPngThumbnail"))
+                object.mediaPngThumbnail = message.mediaPngThumbnail;
+            if (message.qrUrl != null && $Object.hasOwnProperty.call(message, "qrUrl"))
+                object.qrUrl = message.qrUrl;
             return object;
         };
 
