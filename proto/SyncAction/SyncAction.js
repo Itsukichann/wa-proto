@@ -18180,6 +18180,10 @@ $root.SyncAction = (function() {
                 case 17:
                     message.type = 17;
                     break;
+                case "REQUESTS":
+                case 18:
+                    message.type = 18;
+                    break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
                         message.type = object.type;
@@ -18288,6 +18292,7 @@ $root.SyncAction = (function() {
              * @property {number} THIRD_PARTY=15 THIRD_PARTY value
              * @property {number} LEAD=16 LEAD value
              * @property {number} MENTIONS_AND_REPLIES=17 MENTIONS_AND_REPLIES value
+             * @property {number} REQUESTS=18 REQUESTS value
              */
             LabelEditAction.ListType = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -18309,6 +18314,7 @@ $root.SyncAction = (function() {
                 values[valuesById[15] = "THIRD_PARTY"] = 15;
                 values[valuesById[16] = "LEAD"] = 16;
                 values[valuesById[17] = "MENTIONS_AND_REPLIES"] = 17;
+                values[valuesById[18] = "REQUESTS"] = 18;
                 return values;
             })();
 

@@ -43837,6 +43837,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [botPlatformRegistrationSuccessMessage] Message botPlatformRegistrationSuccessMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterScheduledMessage] Message newsletterScheduledMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [acp2SettingMessage] Message acp2SettingMessage
+         * @property {E2E.Message.FutureProofMessage.$Properties|null} [audioStickerMessage] Message audioStickerMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -43963,6 +43964,7 @@ $root.E2E = (function() {
          *   botPlatformRegistrationSuccessMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   newsletterScheduledMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   acp2SettingMessage?: E2E.Message.FutureProofMessage.$Shape|null;
+         *   audioStickerMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -44878,6 +44880,14 @@ $root.E2E = (function() {
          */
         Message.prototype.acp2SettingMessage = null;
 
+        /**
+         * Message audioStickerMessage.
+         * @member {E2E.Message.FutureProofMessage.$Properties|null|undefined} audioStickerMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.audioStickerMessage = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -45553,6 +45563,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_audioStickerMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["audioStickerMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new Message instance using the specified properties.
          * @function create
@@ -45809,6 +45825,8 @@ $root.E2E = (function() {
                 $root.E2E.Message.FutureProofMessage.encode(message.newsletterScheduledMessage, writer.uint32(/* id 132, wireType 2 =*/1058).fork(), _depth + 1).ldelim();
             if (message.acp2SettingMessage != null && $Object.hasOwnProperty.call(message, "acp2SettingMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.acp2SettingMessage, writer.uint32(/* id 133, wireType 2 =*/1066).fork(), _depth + 1).ldelim();
+            if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage"))
+                $root.E2E.Message.FutureProofMessage.encode(message.audioStickerMessage, writer.uint32(/* id 134, wireType 2 =*/1074).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -46648,6 +46666,13 @@ $root.E2E = (function() {
                             break;
                         message.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.acp2SettingMessage);
                         message._acp2SettingMessage = "acp2SettingMessage";
+                        continue;
+                    }
+                case 134: {
+                        if (wireType !== 2)
+                            break;
+                        message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioStickerMessage);
+                        message._audioStickerMessage = "audioStickerMessage";
                         continue;
                     }
                 }
@@ -47592,6 +47617,14 @@ $root.E2E = (function() {
                         return "acp2SettingMessage." + error;
                 }
             }
+            if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage")) {
+                properties._audioStickerMessage = 1;
+                {
+                    var error = $root.E2E.Message.FutureProofMessage.verify(message.audioStickerMessage, _depth + 1);
+                    if (error)
+                        return "audioStickerMessage." + error;
+                }
+            }
             return null;
         };
 
@@ -48170,6 +48203,11 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.Message.acp2SettingMessage: object expected");
                 message.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.acp2SettingMessage, _depth + 1);
             }
+            if (object.audioStickerMessage != null) {
+                if (!$util.isObject(object.audioStickerMessage))
+                    throw $TypeError(".E2E.Message.audioStickerMessage: object expected");
+                message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.audioStickerMessage, _depth + 1);
+            }
             return message;
         };
 
@@ -48414,6 +48452,8 @@ $root.E2E = (function() {
                 object.newsletterScheduledMessage = $root.E2E.Message.FutureProofMessage.toObject(message.newsletterScheduledMessage, options, _depth + 1);
             if (message.acp2SettingMessage != null && $Object.hasOwnProperty.call(message, "acp2SettingMessage"))
                 object.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.toObject(message.acp2SettingMessage, options, _depth + 1);
+            if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage"))
+                object.audioStickerMessage = $root.E2E.Message.FutureProofMessage.toObject(message.audioStickerMessage, options, _depth + 1);
             return object;
         };
 
@@ -120518,6 +120558,8 @@ $root.E2E = (function() {
              * @property {string|null} [accessibilityLabel] StickerMessage accessibilityLabel
              * @property {number|null} [premium] StickerMessage premium
              * @property {string|null} [emojis] StickerMessage emojis
+             * @property {E2E.Message.AudioMessage.$Properties|null} [audioMessage] StickerMessage audioMessage
+             * @property {"audioMessage"} [audio] StickerMessage audio
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -120530,7 +120572,7 @@ $root.E2E = (function() {
              */
 
             /**
-             * Shape of a StickerMessage.
+             * Narrowed shape of a StickerMessage.
              * @typedef {{
              *   url?: string|null;
              *   fileSha256?: Uint8Array|null;
@@ -120554,8 +120596,11 @@ $root.E2E = (function() {
              *   accessibilityLabel?: string|null;
              *   premium?: number|null;
              *   emojis?: string|null;
+             *   audioMessage?: E2E.Message.AudioMessage.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
-             * }} E2E.Message.StickerMessage.$Shape
+             * } & (
+             *   ({ audio?: undefined; audioMessage?: null }|{ audio?: "audioMessage"; audioMessage: E2E.Message.AudioMessage.$Shape })
+             * )} E2E.Message.StickerMessage.$Shape
              */
 
             /**
@@ -120749,6 +120794,14 @@ $root.E2E = (function() {
              */
             StickerMessage.prototype.emojis = null;
 
+            /**
+             * StickerMessage audioMessage.
+             * @member {E2E.Message.AudioMessage.$Properties|null|undefined} audioMessage
+             * @memberof E2E.Message.StickerMessage
+             * @instance
+             */
+            StickerMessage.prototype.audioMessage = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -120885,6 +120938,17 @@ $root.E2E = (function() {
             });
 
             /**
+             * StickerMessage audio.
+             * @member {"audioMessage"|undefined} audio
+             * @memberof E2E.Message.StickerMessage
+             * @instance
+             */
+            $Object.defineProperty(StickerMessage.prototype, "audio", {
+                get: $util.oneOfGetter($oneOfFields = ["audioMessage"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
              * Creates a new StickerMessage instance using the specified properties.
              * @function create
              * @memberof E2E.Message.StickerMessage
@@ -120960,6 +121024,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 24, wireType 0 =*/192).int32(message.premium);
                 if (message.emojis != null && $Object.hasOwnProperty.call(message, "emojis"))
                     writer.uint32(/* id 25, wireType 2 =*/202).string(message.emojis);
+                if (message.audioMessage != null && $Object.hasOwnProperty.call(message, "audioMessage"))
+                    $root.E2E.Message.AudioMessage.encode(message.audioMessage, writer.uint32(/* id 26, wireType 2 =*/210).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -121171,6 +121237,13 @@ $root.E2E = (function() {
                             message._emojis = "emojis";
                             continue;
                         }
+                    case 26: {
+                            if (wireType !== 2)
+                                break;
+                            message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioMessage);
+                            message.audio = "audioMessage";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -121333,6 +121406,14 @@ $root.E2E = (function() {
                     if (!$util.isString(message.emojis))
                         return "emojis: string expected";
                 }
+                if (message.audioMessage != null && $Object.hasOwnProperty.call(message, "audioMessage")) {
+                    properties.audio = 1;
+                    {
+                        var error = $root.E2E.Message.AudioMessage.verify(message.audioMessage, _depth + 1);
+                        if (error)
+                            return "audioMessage." + error;
+                    }
+                }
                 return null;
             };
 
@@ -121437,6 +121518,11 @@ $root.E2E = (function() {
                     message.premium = object.premium | 0;
                 if (object.emojis != null)
                     message.emojis = $String(object.emojis);
+                if (object.audioMessage != null) {
+                    if (!$util.isObject(object.audioMessage))
+                        throw $TypeError(".E2E.Message.StickerMessage.audioMessage: object expected");
+                    message.audioMessage = $root.E2E.Message.AudioMessage.fromObject(object.audioMessage, _depth + 1);
+                }
                 return message;
             };
 
@@ -121516,6 +121602,11 @@ $root.E2E = (function() {
                     object.premium = message.premium;
                 if (message.emojis != null && $Object.hasOwnProperty.call(message, "emojis"))
                     object.emojis = message.emojis;
+                if (message.audioMessage != null && $Object.hasOwnProperty.call(message, "audioMessage")) {
+                    object.audioMessage = $root.E2E.Message.AudioMessage.toObject(message.audioMessage, options, _depth + 1);
+                    if (options.oneofs)
+                        object.audio = "audioMessage";
+                }
                 return object;
             };
 
