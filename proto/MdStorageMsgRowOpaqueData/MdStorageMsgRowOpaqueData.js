@@ -19529,6 +19529,7 @@ $root.E2E = (function() {
          * @property {E2E.ContextInfo.InstagramThreadLink.$Properties|null} [instagramThreadLink] ContextInfo instagramThreadLink
          * @property {AICommon.AIProvenance.$Properties|null} [aiProvenance] ContextInfo aiProvenance
          * @property {Array.<number>|null} [experienceIds] ContextInfo experienceIds
+         * @property {string|null} [partnerDeepLinkToken] ContextInfo partnerDeepLinkToken
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -19608,6 +19609,7 @@ $root.E2E = (function() {
          *   instagramThreadLink?: E2E.ContextInfo.InstagramThreadLink.$Shape|null;
          *   aiProvenance?: AICommon.AIProvenance.$Shape|null;
          *   experienceIds?: Array.<number>|null;
+         *   partnerDeepLinkToken?: string|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.ContextInfo.$Shape
          */
@@ -20151,6 +20153,14 @@ $root.E2E = (function() {
          */
         ContextInfo.prototype.experienceIds = $util.emptyArray;
 
+        /**
+         * ContextInfo partnerDeepLinkToken.
+         * @member {string|null|undefined} partnerDeepLinkToken
+         * @memberof E2E.ContextInfo
+         * @instance
+         */
+        ContextInfo.prototype.partnerDeepLinkToken = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -20520,6 +20530,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ContextInfo.prototype, "_partnerDeepLinkToken", {
+            get: $util.oneOfGetter($oneOfFields = ["partnerDeepLinkToken"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new ContextInfo instance using the specified properties.
          * @function create
@@ -20685,6 +20701,8 @@ $root.E2E = (function() {
                 $root.AICommon.AIProvenance.encode(message.aiProvenance, writer.uint32(/* id 81, wireType 2 =*/650).fork(), _depth + 1).ldelim();
             if (message.experienceIds != null && message.experienceIds.length)
                 writer.uint32(/* id 82, wireType 2 =*/658).uint32s(message.experienceIds);
+            if (message.partnerDeepLinkToken != null && $Object.hasOwnProperty.call(message, "partnerDeepLinkToken"))
+                writer.uint32(/* id 83, wireType 2 =*/666).string(message.partnerDeepLinkToken);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -21207,6 +21225,13 @@ $root.E2E = (function() {
                         message.experienceIds.push(reader.uint32());
                         continue;
                     }
+                case 83: {
+                        if (wireType !== 2)
+                            break;
+                        message.partnerDeepLinkToken = reader.stringVerify();
+                        message._partnerDeepLinkToken = "partnerDeepLinkToken";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -21659,6 +21684,11 @@ $root.E2E = (function() {
                     if (!$util.isInteger(message.experienceIds[i]))
                         return "experienceIds: integer[] expected";
             }
+            if (message.partnerDeepLinkToken != null && $Object.hasOwnProperty.call(message, "partnerDeepLinkToken")) {
+                properties._partnerDeepLinkToken = 1;
+                if (!$util.isString(message.partnerDeepLinkToken))
+                    return "partnerDeepLinkToken: string expected";
+            }
             return null;
         };
 
@@ -22060,6 +22090,8 @@ $root.E2E = (function() {
                 for (var i = 0; i < object.experienceIds.length; ++i)
                     message.experienceIds[i] = object.experienceIds[i] >>> 0;
             }
+            if (object.partnerDeepLinkToken != null)
+                message.partnerDeepLinkToken = $String(object.partnerDeepLinkToken);
             return message;
         };
 
@@ -22233,6 +22265,8 @@ $root.E2E = (function() {
                 for (var j = 0; j < message.experienceIds.length; ++j)
                     object.experienceIds[j] = message.experienceIds[j];
             }
+            if (message.partnerDeepLinkToken != null && $Object.hasOwnProperty.call(message, "partnerDeepLinkToken"))
+                object.partnerDeepLinkToken = message.partnerDeepLinkToken;
             return object;
         };
 
