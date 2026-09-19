@@ -39486,6 +39486,7 @@ $root.E2E = (function() {
              * @property {number|null} [agmSubtitleStrategy] ExternalAdReplyInfo agmSubtitleStrategy
              * @property {number|null} [agmHeaderInteractionStrategy] ExternalAdReplyInfo agmHeaderInteractionStrategy
              * @property {boolean|null} [containsCtwaFlowsAutoLabel] ExternalAdReplyInfo containsCtwaFlowsAutoLabel
+             * @property {string|null} [productId] ExternalAdReplyInfo productId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -39781,6 +39782,14 @@ $root.E2E = (function() {
              */
             ExternalAdReplyInfo.prototype.containsCtwaFlowsAutoLabel = null;
 
+            /**
+             * ExternalAdReplyInfo productId.
+             * @member {string|null|undefined} productId
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.productId = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -39982,6 +39991,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_productId", {
+                get: $util.oneOfGetter($oneOfFields = ["productId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ExternalAdReplyInfo instance using the specified properties.
              * @function create
@@ -40080,6 +40095,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 32, wireType 0 =*/256).int32(message.agmHeaderInteractionStrategy);
                 if (message.containsCtwaFlowsAutoLabel != null && $Object.hasOwnProperty.call(message, "containsCtwaFlowsAutoLabel"))
                     writer.uint32(/* id 33, wireType 0 =*/264).bool(message.containsCtwaFlowsAutoLabel);
+                if (message.productId != null && $Object.hasOwnProperty.call(message, "productId"))
+                    writer.uint32(/* id 34, wireType 2 =*/274).string(message.productId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -40368,6 +40385,13 @@ $root.E2E = (function() {
                             message._containsCtwaFlowsAutoLabel = "containsCtwaFlowsAutoLabel";
                             continue;
                         }
+                    case 34: {
+                            if (wireType !== 2)
+                                break;
+                            message.productId = reader.stringVerify();
+                            message._productId = "productId";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -40582,6 +40606,11 @@ $root.E2E = (function() {
                     if (typeof message.containsCtwaFlowsAutoLabel !== "boolean")
                         return "containsCtwaFlowsAutoLabel: boolean expected";
                 }
+                if (message.productId != null && $Object.hasOwnProperty.call(message, "productId")) {
+                    properties._productId = 1;
+                    if (!$util.isString(message.productId))
+                        return "productId: string expected";
+                }
                 return null;
             };
 
@@ -40698,6 +40727,8 @@ $root.E2E = (function() {
                     message.agmHeaderInteractionStrategy = object.agmHeaderInteractionStrategy | 0;
                 if (object.containsCtwaFlowsAutoLabel != null)
                     message.containsCtwaFlowsAutoLabel = $Boolean(object.containsCtwaFlowsAutoLabel);
+                if (object.productId != null)
+                    message.productId = $String(object.productId);
                 return message;
             };
 
@@ -40784,6 +40815,8 @@ $root.E2E = (function() {
                     object.agmHeaderInteractionStrategy = message.agmHeaderInteractionStrategy;
                 if (message.containsCtwaFlowsAutoLabel != null && $Object.hasOwnProperty.call(message, "containsCtwaFlowsAutoLabel"))
                     object.containsCtwaFlowsAutoLabel = message.containsCtwaFlowsAutoLabel;
+                if (message.productId != null && $Object.hasOwnProperty.call(message, "productId"))
+                    object.productId = message.productId;
                 return object;
             };
 
