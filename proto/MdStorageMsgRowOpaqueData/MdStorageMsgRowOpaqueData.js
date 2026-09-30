@@ -30001,6 +30001,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterScheduledMessage] Message newsletterScheduledMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [acp2SettingMessage] Message acp2SettingMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [audioStickerMessage] Message audioStickerMessage
+         * @property {E2E.Message.FutureProofMessage.$Properties|null} [botGroupParticipantMessage] Message botGroupParticipantMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -30128,6 +30129,7 @@ $root.E2E = (function() {
          *   newsletterScheduledMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   acp2SettingMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   audioStickerMessage?: E2E.Message.FutureProofMessage.$Shape|null;
+         *   botGroupParticipantMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -31051,6 +31053,14 @@ $root.E2E = (function() {
          */
         Message.prototype.audioStickerMessage = null;
 
+        /**
+         * Message botGroupParticipantMessage.
+         * @member {E2E.Message.FutureProofMessage.$Properties|null|undefined} botGroupParticipantMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.botGroupParticipantMessage = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -31732,6 +31742,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_botGroupParticipantMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["botGroupParticipantMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new Message instance using the specified properties.
          * @function create
@@ -31990,6 +32006,8 @@ $root.E2E = (function() {
                 $root.E2E.Message.FutureProofMessage.encode(message.acp2SettingMessage, writer.uint32(/* id 133, wireType 2 =*/1066).fork(), _depth + 1).ldelim();
             if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.audioStickerMessage, writer.uint32(/* id 134, wireType 2 =*/1074).fork(), _depth + 1).ldelim();
+            if (message.botGroupParticipantMessage != null && $Object.hasOwnProperty.call(message, "botGroupParticipantMessage"))
+                $root.E2E.Message.FutureProofMessage.encode(message.botGroupParticipantMessage, writer.uint32(/* id 137, wireType 2 =*/1098).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -32836,6 +32854,13 @@ $root.E2E = (function() {
                             break;
                         message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioStickerMessage);
                         message._audioStickerMessage = "audioStickerMessage";
+                        continue;
+                    }
+                case 137: {
+                        if (wireType !== 2)
+                            break;
+                        message.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botGroupParticipantMessage);
+                        message._botGroupParticipantMessage = "botGroupParticipantMessage";
                         continue;
                     }
                 }
@@ -33788,6 +33813,14 @@ $root.E2E = (function() {
                         return "audioStickerMessage." + error;
                 }
             }
+            if (message.botGroupParticipantMessage != null && $Object.hasOwnProperty.call(message, "botGroupParticipantMessage")) {
+                properties._botGroupParticipantMessage = 1;
+                {
+                    var error = $root.E2E.Message.FutureProofMessage.verify(message.botGroupParticipantMessage, _depth + 1);
+                    if (error)
+                        return "botGroupParticipantMessage." + error;
+                }
+            }
             return null;
         };
 
@@ -34371,6 +34404,11 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.Message.audioStickerMessage: object expected");
                 message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.audioStickerMessage, _depth + 1);
             }
+            if (object.botGroupParticipantMessage != null) {
+                if (!$util.isObject(object.botGroupParticipantMessage))
+                    throw $TypeError(".E2E.Message.botGroupParticipantMessage: object expected");
+                message.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.botGroupParticipantMessage, _depth + 1);
+            }
             return message;
         };
 
@@ -34617,6 +34655,8 @@ $root.E2E = (function() {
                 object.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.toObject(message.acp2SettingMessage, options, _depth + 1);
             if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage"))
                 object.audioStickerMessage = $root.E2E.Message.FutureProofMessage.toObject(message.audioStickerMessage, options, _depth + 1);
+            if (message.botGroupParticipantMessage != null && $Object.hasOwnProperty.call(message, "botGroupParticipantMessage"))
+                object.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.toObject(message.botGroupParticipantMessage, options, _depth + 1);
             return object;
         };
 
