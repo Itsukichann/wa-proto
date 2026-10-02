@@ -1226,6 +1226,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.ContactManagerMetadataAction.$Properties|null} [contactManagerMetadataAction] SyncActionValue contactManagerMetadataAction
          * @property {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties|null} [businessFolderActivationAction] SyncActionValue businessFolderActivationAction
          * @property {SyncAction.SyncActionValue.GroupHistoryToggleAction.$Properties|null} [groupHistoryToggleAction] SyncActionValue groupHistoryToggleAction
+         * @property {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties|null} [bbProPendingCustomerBaseAction] SyncActionValue bbProPendingCustomerBaseAction
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1328,6 +1329,7 @@ $root.SyncAction = (function() {
          *   contactManagerMetadataAction?: SyncAction.SyncActionValue.ContactManagerMetadataAction.$Shape|null;
          *   businessFolderActivationAction?: SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape|null;
          *   groupHistoryToggleAction?: SyncAction.SyncActionValue.GroupHistoryToggleAction.$Shape|null;
+         *   bbProPendingCustomerBaseAction?: SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -2051,6 +2053,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.groupHistoryToggleAction = null;
 
+        /**
+         * SyncActionValue bbProPendingCustomerBaseAction.
+         * @member {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties|null|undefined} bbProPendingCustomerBaseAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.bbProPendingCustomerBaseAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2582,6 +2592,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_bbProPendingCustomerBaseAction", {
+            get: $util.oneOfGetter($oneOfFields = ["bbProPendingCustomerBaseAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2790,6 +2806,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.encode(message.businessFolderActivationAction, writer.uint32(/* id 96, wireType 2 =*/770).fork(), _depth + 1).ldelim();
             if (message.groupHistoryToggleAction != null && $Object.hasOwnProperty.call(message, "groupHistoryToggleAction"))
                 $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.encode(message.groupHistoryToggleAction, writer.uint32(/* id 97, wireType 2 =*/778).fork(), _depth + 1).ldelim();
+            if (message.bbProPendingCustomerBaseAction != null && $Object.hasOwnProperty.call(message, "bbProPendingCustomerBaseAction"))
+                $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.encode(message.bbProPendingCustomerBaseAction, writer.uint32(/* id 98, wireType 2 =*/786).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3461,6 +3479,13 @@ $root.SyncAction = (function() {
                             break;
                         message.groupHistoryToggleAction = $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupHistoryToggleAction);
                         message._groupHistoryToggleAction = "groupHistoryToggleAction";
+                        continue;
+                    }
+                case 98: {
+                        if (wireType !== 2)
+                            break;
+                        message.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bbProPendingCustomerBaseAction);
+                        message._bbProPendingCustomerBaseAction = "bbProPendingCustomerBaseAction";
                         continue;
                     }
                 }
@@ -4213,6 +4238,14 @@ $root.SyncAction = (function() {
                         return "groupHistoryToggleAction." + error;
                 }
             }
+            if (message.bbProPendingCustomerBaseAction != null && $Object.hasOwnProperty.call(message, "bbProPendingCustomerBaseAction")) {
+                properties._bbProPendingCustomerBaseAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.verify(message.bbProPendingCustomerBaseAction, _depth + 1);
+                    if (error)
+                        return "bbProPendingCustomerBaseAction." + error;
+                }
+            }
             return null;
         };
 
@@ -4678,6 +4711,11 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.groupHistoryToggleAction: object expected");
                 message.groupHistoryToggleAction = $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.fromObject(object.groupHistoryToggleAction, _depth + 1);
             }
+            if (object.bbProPendingCustomerBaseAction != null) {
+                if (!$util.isObject(object.bbProPendingCustomerBaseAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.bbProPendingCustomerBaseAction: object expected");
+                message.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.fromObject(object.bbProPendingCustomerBaseAction, _depth + 1);
+            }
             return message;
         };
 
@@ -4879,6 +4917,8 @@ $root.SyncAction = (function() {
                 object.businessFolderActivationAction = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.toObject(message.businessFolderActivationAction, options, _depth + 1);
             if (message.groupHistoryToggleAction != null && $Object.hasOwnProperty.call(message, "groupHistoryToggleAction"))
                 object.groupHistoryToggleAction = $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.toObject(message.groupHistoryToggleAction, options, _depth + 1);
+            if (message.bbProPendingCustomerBaseAction != null && $Object.hasOwnProperty.call(message, "bbProPendingCustomerBaseAction"))
+                object.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.toObject(message.bbProPendingCustomerBaseAction, options, _depth + 1);
             return object;
         };
 
@@ -6780,6 +6820,288 @@ $root.SyncAction = (function() {
             })();
 
             return AvatarUpdatedAction;
+        })();
+
+        SyncActionValue.BBProPendingCustomerBaseAction = (function() {
+
+            /**
+             * Properties of a BBProPendingCustomerBaseAction.
+             * @typedef {Object} SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties
+             * @property {boolean|null} [pending] BBProPendingCustomerBaseAction pending
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a BBProPendingCustomerBaseAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBBProPendingCustomerBaseAction
+             * @augments SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BBProPendingCustomerBaseAction.
+             * @typedef {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties} SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape
+             */
+
+            /**
+             * Constructs a new BBProPendingCustomerBaseAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a BBProPendingCustomerBaseAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var BBProPendingCustomerBaseAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * BBProPendingCustomerBaseAction pending.
+             * @member {boolean|null|undefined} pending
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @instance
+             */
+            BBProPendingCustomerBaseAction.prototype.pending = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BBProPendingCustomerBaseAction.prototype, "_pending", {
+                get: $util.oneOfGetter($oneOfFields = ["pending"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BBProPendingCustomerBaseAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction} BBProPendingCustomerBaseAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape): SyncAction.SyncActionValue.BBProPendingCustomerBaseAction & SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties): SyncAction.SyncActionValue.BBProPendingCustomerBaseAction;
+             * }}
+             */
+            BBProPendingCustomerBaseAction.create = function(properties) {
+                return new BBProPendingCustomerBaseAction(properties);
+            };
+
+            /**
+             * Encodes the specified BBProPendingCustomerBaseAction message. Does not implicitly {@link SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties} message BBProPendingCustomerBaseAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BBProPendingCustomerBaseAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.pending != null && $Object.hasOwnProperty.call(message, "pending"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.pending);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BBProPendingCustomerBaseAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties} message BBProPendingCustomerBaseAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BBProPendingCustomerBaseAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a BBProPendingCustomerBaseAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction & SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape} BBProPendingCustomerBaseAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BBProPendingCustomerBaseAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.pending = reader.bool();
+                            message._pending = "pending";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a BBProPendingCustomerBaseAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction & SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape} BBProPendingCustomerBaseAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BBProPendingCustomerBaseAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BBProPendingCustomerBaseAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BBProPendingCustomerBaseAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.pending != null && $Object.hasOwnProperty.call(message, "pending")) {
+                    properties._pending = 1;
+                    if (typeof message.pending !== "boolean")
+                        return "pending: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BBProPendingCustomerBaseAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction} BBProPendingCustomerBaseAction
+             */
+            BBProPendingCustomerBaseAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.BBProPendingCustomerBaseAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction();
+                if (object.pending != null)
+                    message.pending = $Boolean(object.pending);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BBProPendingCustomerBaseAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction} message BBProPendingCustomerBaseAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BBProPendingCustomerBaseAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.pending != null && $Object.hasOwnProperty.call(message, "pending"))
+                    object.pending = message.pending;
+                return object;
+            };
+
+            /**
+             * Converts this BBProPendingCustomerBaseAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BBProPendingCustomerBaseAction.prototype.toJSON = function() {
+                return BBProPendingCustomerBaseAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for BBProPendingCustomerBaseAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.BBProPendingCustomerBaseAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            BBProPendingCustomerBaseAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.BBProPendingCustomerBaseAction";
+            };
+
+            return BBProPendingCustomerBaseAction;
         })();
 
         SyncActionValue.BizAISettingsNudgeAction = (function() {
@@ -39387,6 +39709,288 @@ $root.SyncAction = (function() {
             return values;
         })();
 
+        CallLogRecord.GuestInfo = (function() {
+
+            /**
+             * Properties of a GuestInfo.
+             * @typedef {Object} SyncAction.CallLogRecord.GuestInfo.$Properties
+             * @property {string|null} [pushName] GuestInfo pushName
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a GuestInfo.
+             * @memberof SyncAction.CallLogRecord
+             * @interface IGuestInfo
+             * @augments SyncAction.CallLogRecord.GuestInfo.$Properties
+             * @deprecated Use SyncAction.CallLogRecord.GuestInfo.$Properties instead.
+             */
+
+            /**
+             * Shape of a GuestInfo.
+             * @typedef {SyncAction.CallLogRecord.GuestInfo.$Properties} SyncAction.CallLogRecord.GuestInfo.$Shape
+             */
+
+            /**
+             * Constructs a new GuestInfo.
+             * @memberof SyncAction.CallLogRecord
+             * @classdesc Represents a GuestInfo.
+             * @constructor
+             * @param {SyncAction.CallLogRecord.GuestInfo.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var GuestInfo = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * GuestInfo pushName.
+             * @member {string|null|undefined} pushName
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @instance
+             */
+            GuestInfo.prototype.pushName = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(GuestInfo.prototype, "_pushName", {
+                get: $util.oneOfGetter($oneOfFields = ["pushName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new GuestInfo instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {SyncAction.CallLogRecord.GuestInfo.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.CallLogRecord.GuestInfo} GuestInfo instance
+             * @type {{
+             *   (properties: SyncAction.CallLogRecord.GuestInfo.$Shape): SyncAction.CallLogRecord.GuestInfo & SyncAction.CallLogRecord.GuestInfo.$Shape;
+             *   (properties?: SyncAction.CallLogRecord.GuestInfo.$Properties): SyncAction.CallLogRecord.GuestInfo;
+             * }}
+             */
+            GuestInfo.create = function(properties) {
+                return new GuestInfo(properties);
+            };
+
+            /**
+             * Encodes the specified GuestInfo message. Does not implicitly {@link SyncAction.CallLogRecord.GuestInfo.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {SyncAction.CallLogRecord.GuestInfo.$Properties} message GuestInfo message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GuestInfo.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.pushName != null && $Object.hasOwnProperty.call(message, "pushName"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.pushName);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GuestInfo message, length delimited. Does not implicitly {@link SyncAction.CallLogRecord.GuestInfo.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {SyncAction.CallLogRecord.GuestInfo.$Properties} message GuestInfo message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GuestInfo.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a GuestInfo message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.CallLogRecord.GuestInfo & SyncAction.CallLogRecord.GuestInfo.$Shape} GuestInfo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GuestInfo.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.SyncAction.CallLogRecord.GuestInfo();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.pushName = reader.stringVerify();
+                            message._pushName = "pushName";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a GuestInfo message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.CallLogRecord.GuestInfo & SyncAction.CallLogRecord.GuestInfo.$Shape} GuestInfo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GuestInfo.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GuestInfo message.
+             * @function verify
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GuestInfo.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.pushName != null && $Object.hasOwnProperty.call(message, "pushName")) {
+                    properties._pushName = 1;
+                    if (!$util.isString(message.pushName))
+                        return "pushName: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a GuestInfo message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.CallLogRecord.GuestInfo} GuestInfo
+             */
+            GuestInfo.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.CallLogRecord.GuestInfo)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.CallLogRecord.GuestInfo: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.CallLogRecord.GuestInfo();
+                if (object.pushName != null)
+                    message.pushName = $String(object.pushName);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GuestInfo message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {SyncAction.CallLogRecord.GuestInfo} message GuestInfo
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GuestInfo.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.pushName != null && $Object.hasOwnProperty.call(message, "pushName"))
+                    object.pushName = message.pushName;
+                return object;
+            };
+
+            /**
+             * Converts this GuestInfo to JSON.
+             * @function toJSON
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GuestInfo.prototype.toJSON = function() {
+                return GuestInfo.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for GuestInfo
+             * @function getTypeUrl
+             * @memberof SyncAction.CallLogRecord.GuestInfo
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            GuestInfo.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.CallLogRecord.GuestInfo";
+            };
+
+            return GuestInfo;
+        })();
+
         CallLogRecord.ParticipantInfo = (function() {
 
             /**
@@ -39394,6 +39998,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.CallLogRecord.ParticipantInfo.$Properties
              * @property {string|null} [userJid] ParticipantInfo userJid
              * @property {SyncAction.CallLogRecord.CallResult|null} [callResult] ParticipantInfo callResult
+             * @property {SyncAction.CallLogRecord.GuestInfo.$Properties|null} [guestInfo] ParticipantInfo guestInfo
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -39441,6 +40046,14 @@ $root.SyncAction = (function() {
              */
             ParticipantInfo.prototype.callResult = null;
 
+            /**
+             * ParticipantInfo guestInfo.
+             * @member {SyncAction.CallLogRecord.GuestInfo.$Properties|null|undefined} guestInfo
+             * @memberof SyncAction.CallLogRecord.ParticipantInfo
+             * @instance
+             */
+            ParticipantInfo.prototype.guestInfo = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -39453,6 +40066,12 @@ $root.SyncAction = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(ParticipantInfo.prototype, "_callResult", {
                 get: $util.oneOfGetter($oneOfFields = ["callResult"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ParticipantInfo.prototype, "_guestInfo", {
+                get: $util.oneOfGetter($oneOfFields = ["guestInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -39492,6 +40111,8 @@ $root.SyncAction = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.userJid);
                 if (message.callResult != null && $Object.hasOwnProperty.call(message, "callResult"))
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.callResult);
+                if (message.guestInfo != null && $Object.hasOwnProperty.call(message, "guestInfo"))
+                    $root.SyncAction.CallLogRecord.GuestInfo.encode(message.guestInfo, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -39563,6 +40184,13 @@ $root.SyncAction = (function() {
                             message._callResult = "callResult";
                             continue;
                         }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.guestInfo = $root.SyncAction.CallLogRecord.GuestInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.guestInfo);
+                            message._guestInfo = "guestInfo";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -39621,6 +40249,14 @@ $root.SyncAction = (function() {
                     properties._callResult = 1;
                     if (typeof message.callResult !== "number" || (message.callResult | 0) !== message.callResult)
                         return "callResult: enum value expected";
+                }
+                if (message.guestInfo != null && $Object.hasOwnProperty.call(message, "guestInfo")) {
+                    properties._guestInfo = 1;
+                    {
+                        var error = $root.SyncAction.CallLogRecord.GuestInfo.verify(message.guestInfo, _depth + 1);
+                        if (error)
+                            return "guestInfo." + error;
+                    }
                 }
                 return null;
             };
@@ -39694,6 +40330,11 @@ $root.SyncAction = (function() {
                     if (typeof object.callResult === "number" && (object.callResult | 0) === object.callResult)
                         message.callResult = object.callResult;
                 }
+                if (object.guestInfo != null) {
+                    if (!$util.isObject(object.guestInfo))
+                        throw $TypeError(".SyncAction.CallLogRecord.ParticipantInfo.guestInfo: object expected");
+                    message.guestInfo = $root.SyncAction.CallLogRecord.GuestInfo.fromObject(object.guestInfo, _depth + 1);
+                }
                 return message;
             };
 
@@ -39718,6 +40359,8 @@ $root.SyncAction = (function() {
                     object.userJid = message.userJid;
                 if (message.callResult != null && $Object.hasOwnProperty.call(message, "callResult"))
                     object.callResult = options.enums === $String ? $root.SyncAction.CallLogRecord.CallResult[message.callResult] === $undefined ? message.callResult : $root.SyncAction.CallLogRecord.CallResult[message.callResult] : message.callResult;
+                if (message.guestInfo != null && $Object.hasOwnProperty.call(message, "guestInfo"))
+                    object.guestInfo = $root.SyncAction.CallLogRecord.GuestInfo.toObject(message.guestInfo, options, _depth + 1);
                 return object;
             };
 
@@ -40180,6 +40823,7 @@ $root.SyncAction = (function() {
      * @property {number} CONTACT_MANAGER_METADATA_ACTION=95 CONTACT_MANAGER_METADATA_ACTION value
      * @property {number} BUSINESS_FOLDER_ACTIVATION_ACTION=96 BUSINESS_FOLDER_ACTIVATION_ACTION value
      * @property {number} GROUP_HISTORY_TOGGLE_ACTION=97 GROUP_HISTORY_TOGGLE_ACTION value
+     * @property {number} BB_PRO_PENDING_CUSTOMER_BASE_ACTION=98 BB_PRO_PENDING_CUSTOMER_BASE_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -40277,6 +40921,7 @@ $root.SyncAction = (function() {
         values[valuesById[95] = "CONTACT_MANAGER_METADATA_ACTION"] = 95;
         values[valuesById[96] = "BUSINESS_FOLDER_ACTIVATION_ACTION"] = 96;
         values[valuesById[97] = "GROUP_HISTORY_TOGGLE_ACTION"] = 97;
+        values[valuesById[98] = "BB_PRO_PENDING_CUSTOMER_BASE_ACTION"] = 98;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
