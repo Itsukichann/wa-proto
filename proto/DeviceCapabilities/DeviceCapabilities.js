@@ -5,7 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
-var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $String = $util.global.String, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number, $Boolean = $util.global.Boolean;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $String = $util.global.String, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number, $Boolean = $util.global.Boolean, $Array = $util.global.Array;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -33,6 +33,8 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.AiFbidMigration.$Properties|null} [aiFbidMigration] DeviceCapabilities aiFbidMigration
          * @property {DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.$Properties|null} [bizAiSettingsSync] DeviceCapabilities bizAiSettingsSync
          * @property {DeviceCapabilities.DeviceCapabilities.ContactRefresh.$Properties|null} [contactRefresh] DeviceCapabilities contactRefresh
+         * @property {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties|null} [reverseHistorySync] DeviceCapabilities reverseHistorySync
+         * @property {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties|null} [newsletterChatsMigration] DeviceCapabilities newsletterChatsMigration
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -136,6 +138,22 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.contactRefresh = null;
 
+        /**
+         * DeviceCapabilities reverseHistorySync.
+         * @member {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties|null|undefined} reverseHistorySync
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.reverseHistorySync = null;
+
+        /**
+         * DeviceCapabilities newsletterChatsMigration.
+         * @member {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties|null|undefined} newsletterChatsMigration
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.newsletterChatsMigration = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -193,6 +211,18 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_reverseHistorySync", {
+            get: $util.oneOfGetter($oneOfFields = ["reverseHistorySync"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_newsletterChatsMigration", {
+            get: $util.oneOfGetter($oneOfFields = ["newsletterChatsMigration"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -243,6 +273,10 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.encode(message.bizAiSettingsSync, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
             if (message.contactRefresh != null && $Object.hasOwnProperty.call(message, "contactRefresh"))
                 $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.encode(message.contactRefresh, writer.uint32(/* id 9, wireType 2 =*/74).fork(), _depth + 1).ldelim();
+            if (message.reverseHistorySync != null && $Object.hasOwnProperty.call(message, "reverseHistorySync"))
+                $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.encode(message.reverseHistorySync, writer.uint32(/* id 10, wireType 2 =*/82).fork(), _depth + 1).ldelim();
+            if (message.newsletterChatsMigration != null && $Object.hasOwnProperty.call(message, "newsletterChatsMigration"))
+                $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.encode(message.newsletterChatsMigration, writer.uint32(/* id 11, wireType 2 =*/90).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -363,6 +397,20 @@ $root.DeviceCapabilities = (function() {
                         message._contactRefresh = "contactRefresh";
                         continue;
                     }
+                case 10: {
+                        if (wireType !== 2)
+                            break;
+                        message.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reverseHistorySync);
+                        message._reverseHistorySync = "reverseHistorySync";
+                        continue;
+                    }
+                case 11: {
+                        if (wireType !== 2)
+                            break;
+                        message.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterChatsMigration);
+                        message._newsletterChatsMigration = "newsletterChatsMigration";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -478,6 +526,22 @@ $root.DeviceCapabilities = (function() {
                         return "contactRefresh." + error;
                 }
             }
+            if (message.reverseHistorySync != null && $Object.hasOwnProperty.call(message, "reverseHistorySync")) {
+                properties._reverseHistorySync = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.verify(message.reverseHistorySync, _depth + 1);
+                    if (error)
+                        return "reverseHistorySync." + error;
+                }
+            }
+            if (message.newsletterChatsMigration != null && $Object.hasOwnProperty.call(message, "newsletterChatsMigration")) {
+                properties._newsletterChatsMigration = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.verify(message.newsletterChatsMigration, _depth + 1);
+                    if (error)
+                        return "newsletterChatsMigration." + error;
+                }
+            }
             return null;
         };
 
@@ -568,6 +632,16 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.contactRefresh: object expected");
                 message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.fromObject(object.contactRefresh, _depth + 1);
             }
+            if (object.reverseHistorySync != null) {
+                if (!$util.isObject(object.reverseHistorySync))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.reverseHistorySync: object expected");
+                message.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.fromObject(object.reverseHistorySync, _depth + 1);
+            }
+            if (object.newsletterChatsMigration != null) {
+                if (!$util.isObject(object.newsletterChatsMigration))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.newsletterChatsMigration: object expected");
+                message.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.fromObject(object.newsletterChatsMigration, _depth + 1);
+            }
             return message;
         };
 
@@ -606,6 +680,10 @@ $root.DeviceCapabilities = (function() {
                 object.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.toObject(message.bizAiSettingsSync, options, _depth + 1);
             if (message.contactRefresh != null && $Object.hasOwnProperty.call(message, "contactRefresh"))
                 object.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.toObject(message.contactRefresh, options, _depth + 1);
+            if (message.reverseHistorySync != null && $Object.hasOwnProperty.call(message, "reverseHistorySync"))
+                object.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.toObject(message.reverseHistorySync, options, _depth + 1);
+            if (message.newsletterChatsMigration != null && $Object.hasOwnProperty.call(message, "newsletterChatsMigration"))
+                object.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.toObject(message.newsletterChatsMigration, options, _depth + 1);
             return object;
         };
 
@@ -2609,6 +2687,684 @@ $root.DeviceCapabilities = (function() {
             values[valuesById[1] = "RECEIVER_ENABLED"] = 1;
             values[valuesById[2] = "SENDER_ENABLED"] = 2;
             return values;
+        })();
+
+        DeviceCapabilities.NewsletterChatsMigration = (function() {
+
+            /**
+             * Properties of a NewsletterChatsMigration.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties
+             * @property {boolean|null} [effectiveMigrated] NewsletterChatsMigration effectiveMigrated
+             * @property {number|Long|null} [countdownEndsAt] NewsletterChatsMigration countdownEndsAt
+             * @property {boolean|null} [rolledBack] NewsletterChatsMigration rolledBack
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a NewsletterChatsMigration.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface INewsletterChatsMigration
+             * @augments DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties instead.
+             */
+
+            /**
+             * Shape of a NewsletterChatsMigration.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties} DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Shape
+             */
+
+            /**
+             * Constructs a new NewsletterChatsMigration.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a NewsletterChatsMigration.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var NewsletterChatsMigration = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * NewsletterChatsMigration effectiveMigrated.
+             * @member {boolean|null|undefined} effectiveMigrated
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @instance
+             */
+            NewsletterChatsMigration.prototype.effectiveMigrated = null;
+
+            /**
+             * NewsletterChatsMigration countdownEndsAt.
+             * @member {number|Long|null|undefined} countdownEndsAt
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @instance
+             */
+            NewsletterChatsMigration.prototype.countdownEndsAt = null;
+
+            /**
+             * NewsletterChatsMigration rolledBack.
+             * @member {boolean|null|undefined} rolledBack
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @instance
+             */
+            NewsletterChatsMigration.prototype.rolledBack = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(NewsletterChatsMigration.prototype, "_effectiveMigrated", {
+                get: $util.oneOfGetter($oneOfFields = ["effectiveMigrated"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(NewsletterChatsMigration.prototype, "_countdownEndsAt", {
+                get: $util.oneOfGetter($oneOfFields = ["countdownEndsAt"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(NewsletterChatsMigration.prototype, "_rolledBack", {
+                get: $util.oneOfGetter($oneOfFields = ["rolledBack"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new NewsletterChatsMigration instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration} NewsletterChatsMigration instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Shape): DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration & DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties): DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration;
+             * }}
+             */
+            NewsletterChatsMigration.create = function(properties) {
+                return new NewsletterChatsMigration(properties);
+            };
+
+            /**
+             * Encodes the specified NewsletterChatsMigration message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties} message NewsletterChatsMigration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            NewsletterChatsMigration.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.effectiveMigrated != null && $Object.hasOwnProperty.call(message, "effectiveMigrated"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.effectiveMigrated);
+                if (message.countdownEndsAt != null && $Object.hasOwnProperty.call(message, "countdownEndsAt"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.countdownEndsAt);
+                if (message.rolledBack != null && $Object.hasOwnProperty.call(message, "rolledBack"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.rolledBack);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified NewsletterChatsMigration message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties} message NewsletterChatsMigration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            NewsletterChatsMigration.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a NewsletterChatsMigration message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration & DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Shape} NewsletterChatsMigration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            NewsletterChatsMigration.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.effectiveMigrated = reader.bool();
+                            message._effectiveMigrated = "effectiveMigrated";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.countdownEndsAt = reader.int64();
+                            message._countdownEndsAt = "countdownEndsAt";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.rolledBack = reader.bool();
+                            message._rolledBack = "rolledBack";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a NewsletterChatsMigration message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration & DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Shape} NewsletterChatsMigration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            NewsletterChatsMigration.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a NewsletterChatsMigration message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            NewsletterChatsMigration.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.effectiveMigrated != null && $Object.hasOwnProperty.call(message, "effectiveMigrated")) {
+                    properties._effectiveMigrated = 1;
+                    if (typeof message.effectiveMigrated !== "boolean")
+                        return "effectiveMigrated: boolean expected";
+                }
+                if (message.countdownEndsAt != null && $Object.hasOwnProperty.call(message, "countdownEndsAt")) {
+                    properties._countdownEndsAt = 1;
+                    if (!$util.isInteger(message.countdownEndsAt) && !(message.countdownEndsAt && $util.isInteger(message.countdownEndsAt.low) && $util.isInteger(message.countdownEndsAt.high)))
+                        return "countdownEndsAt: integer|Long expected";
+                }
+                if (message.rolledBack != null && $Object.hasOwnProperty.call(message, "rolledBack")) {
+                    properties._rolledBack = 1;
+                    if (typeof message.rolledBack !== "boolean")
+                        return "rolledBack: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a NewsletterChatsMigration message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration} NewsletterChatsMigration
+             */
+            NewsletterChatsMigration.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration();
+                if (object.effectiveMigrated != null)
+                    message.effectiveMigrated = $Boolean(object.effectiveMigrated);
+                if (object.countdownEndsAt != null)
+                    if ($util.Long)
+                        message.countdownEndsAt = $util.Long.fromValue(object.countdownEndsAt, false);
+                    else if (typeof object.countdownEndsAt === "string")
+                        message.countdownEndsAt = $parseInt(object.countdownEndsAt, 10);
+                    else if (typeof object.countdownEndsAt === "number")
+                        message.countdownEndsAt = object.countdownEndsAt;
+                    else if (typeof object.countdownEndsAt === "object")
+                        message.countdownEndsAt = new $util.LongBits(object.countdownEndsAt.low >>> 0, object.countdownEndsAt.high >>> 0).toNumber();
+                if (object.rolledBack != null)
+                    message.rolledBack = $Boolean(object.rolledBack);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a NewsletterChatsMigration message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration} message NewsletterChatsMigration
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            NewsletterChatsMigration.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.effectiveMigrated != null && $Object.hasOwnProperty.call(message, "effectiveMigrated"))
+                    object.effectiveMigrated = message.effectiveMigrated;
+                if (message.countdownEndsAt != null && $Object.hasOwnProperty.call(message, "countdownEndsAt"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.countdownEndsAt = typeof message.countdownEndsAt === "number" ? $BigInt(message.countdownEndsAt) : $util.Long.fromBits(message.countdownEndsAt.low >>> 0, message.countdownEndsAt.high >>> 0, false).toBigInt();
+                    else if (typeof message.countdownEndsAt === "number")
+                        object.countdownEndsAt = options.longs === $String ? $String(message.countdownEndsAt) : message.countdownEndsAt;
+                    else
+                        object.countdownEndsAt = options.longs === $String ? $util.Long.prototype.toString.call(message.countdownEndsAt) : options.longs === $Number ? new $util.LongBits(message.countdownEndsAt.low >>> 0, message.countdownEndsAt.high >>> 0).toNumber() : message.countdownEndsAt;
+                if (message.rolledBack != null && $Object.hasOwnProperty.call(message, "rolledBack"))
+                    object.rolledBack = message.rolledBack;
+                return object;
+            };
+
+            /**
+             * Converts this NewsletterChatsMigration to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            NewsletterChatsMigration.prototype.toJSON = function() {
+                return NewsletterChatsMigration.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for NewsletterChatsMigration
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            NewsletterChatsMigration.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration";
+            };
+
+            return NewsletterChatsMigration;
+        })();
+
+        DeviceCapabilities.ReverseHistorySync = (function() {
+
+            /**
+             * Properties of a ReverseHistorySync.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties
+             * @property {Array.<DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.Product>|null} [enabledProducts] ReverseHistorySync enabledProducts
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a ReverseHistorySync.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IReverseHistorySync
+             * @augments DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties instead.
+             */
+
+            /**
+             * Shape of a ReverseHistorySync.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties} DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Shape
+             */
+
+            /**
+             * Constructs a new ReverseHistorySync.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a ReverseHistorySync.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var ReverseHistorySync = function (properties) {
+                this.enabledProducts = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * ReverseHistorySync enabledProducts.
+             * @member {Array.<DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.Product>} enabledProducts
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @instance
+             */
+            ReverseHistorySync.prototype.enabledProducts = $util.emptyArray;
+
+            /**
+             * Creates a new ReverseHistorySync instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync} ReverseHistorySync instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Shape): DeviceCapabilities.DeviceCapabilities.ReverseHistorySync & DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties): DeviceCapabilities.DeviceCapabilities.ReverseHistorySync;
+             * }}
+             */
+            ReverseHistorySync.create = function(properties) {
+                return new ReverseHistorySync(properties);
+            };
+
+            /**
+             * Encodes the specified ReverseHistorySync message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties} message ReverseHistorySync message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReverseHistorySync.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.enabledProducts != null && message.enabledProducts.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).int32s(message.enabledProducts);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ReverseHistorySync message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties} message ReverseHistorySync message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReverseHistorySync.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a ReverseHistorySync message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync & DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Shape} ReverseHistorySync
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReverseHistorySync.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType === 2) {
+                                if (!(message.enabledProducts && message.enabledProducts.length))
+                                    message.enabledProducts = [];
+                                reader.int32s(message.enabledProducts);
+                                continue;
+                            }
+                            if (wireType !== 0)
+                                break;
+                            if (!(message.enabledProducts && message.enabledProducts.length))
+                                message.enabledProducts = [];
+                            message.enabledProducts.push(reader.int32());
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a ReverseHistorySync message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync & DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Shape} ReverseHistorySync
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReverseHistorySync.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ReverseHistorySync message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ReverseHistorySync.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                if (message.enabledProducts != null && $Object.hasOwnProperty.call(message, "enabledProducts")) {
+                    if (!$Array.isArray(message.enabledProducts))
+                        return "enabledProducts: array expected";
+                    for (var i = 0; i < message.enabledProducts.length; ++i)
+                        if (typeof message.enabledProducts[i] !== "number" || (message.enabledProducts[i] | 0) !== message.enabledProducts[i])
+                            return "enabledProducts: enum value[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a ReverseHistorySync message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync} ReverseHistorySync
+             */
+            ReverseHistorySync.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.ReverseHistorySync: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync();
+                if (object.enabledProducts) {
+                    if (!$Array.isArray(object.enabledProducts))
+                        throw $TypeError(".DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.enabledProducts: array expected");
+                    message.enabledProducts = [];
+                    for (var i = 0; i < object.enabledProducts.length; ++i)
+                        switch (object.enabledProducts[i]) {
+                        case "PRODUCT_UNSPECIFIED":
+                        case 0:
+                            message.enabledProducts[message.enabledProducts.length] = 0;
+                            break;
+                        case "HATCH":
+                        case 1:
+                            message.enabledProducts[message.enabledProducts.length] = 1;
+                            break;
+                        default:
+                            if (typeof object.enabledProducts[i] === "number" && (object.enabledProducts[i] | 0) === object.enabledProducts[i])
+                                message.enabledProducts[message.enabledProducts.length] = object.enabledProducts[i];
+                        }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ReverseHistorySync message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync} message ReverseHistorySync
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ReverseHistorySync.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.enabledProducts = [];
+                if (message.enabledProducts && message.enabledProducts.length) {
+                    object.enabledProducts = $Array(message.enabledProducts.length);
+                    for (var j = 0; j < message.enabledProducts.length; ++j)
+                        object.enabledProducts[j] = options.enums === $String ? $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.Product[message.enabledProducts[j]] === $undefined ? message.enabledProducts[j] : $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.Product[message.enabledProducts[j]] : message.enabledProducts[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this ReverseHistorySync to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ReverseHistorySync.prototype.toJSON = function() {
+                return ReverseHistorySync.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for ReverseHistorySync
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.ReverseHistorySync
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            ReverseHistorySync.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.ReverseHistorySync";
+            };
+
+            /**
+             * Product enum.
+             * @name DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.Product
+             * @enum {number}
+             * @property {number} PRODUCT_UNSPECIFIED=0 PRODUCT_UNSPECIFIED value
+             * @property {number} HATCH=1 HATCH value
+             */
+            ReverseHistorySync.Product = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "PRODUCT_UNSPECIFIED"] = 0;
+                values[valuesById[1] = "HATCH"] = 1;
+                return values;
+            })();
+
+            return ReverseHistorySync;
         })();
 
         DeviceCapabilities.UserHasAvatar = (function() {
