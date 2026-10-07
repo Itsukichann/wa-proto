@@ -19339,6 +19339,10 @@ $root.E2E = (function() {
             case 20:
                 message.associationType = 20;
                 break;
+            case "AV1_VIDEO_DUAL_UPLOAD":
+            case 21:
+                message.associationType = 21;
+                break;
             default:
                 if (typeof object.associationType === "number" && (object.associationType | 0) === object.associationType)
                     message.associationType = object.associationType;
@@ -19429,6 +19433,7 @@ $root.E2E = (function() {
          * @property {number} STATUS_REACTION=18 STATUS_REACTION value
          * @property {number} HEVC_VIDEO_DUAL_UPLOAD=19 HEVC_VIDEO_DUAL_UPLOAD value
          * @property {number} POLL_ADD_OPTION=20 POLL_ADD_OPTION value
+         * @property {number} AV1_VIDEO_DUAL_UPLOAD=21 AV1_VIDEO_DUAL_UPLOAD value
          */
         MessageAssociation.AssociationType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -19453,6 +19458,7 @@ $root.E2E = (function() {
             values[valuesById[18] = "STATUS_REACTION"] = 18;
             values[valuesById[19] = "HEVC_VIDEO_DUAL_UPLOAD"] = 19;
             values[valuesById[20] = "POLL_ADD_OPTION"] = 20;
+            values[valuesById[21] = "AV1_VIDEO_DUAL_UPLOAD"] = 21;
             return values;
         })();
 
@@ -21921,6 +21927,14 @@ $root.E2E = (function() {
             case "HEVC_VIDEO_CHILD":
             case 8:
                 message.pairedMediaType = 8;
+                break;
+            case "AV1_VIDEO_PARENT":
+            case 9:
+                message.pairedMediaType = 9;
+                break;
+            case "AV1_VIDEO_CHILD":
+            case 10:
+                message.pairedMediaType = 10;
                 break;
             default:
                 if (typeof object.pairedMediaType === "number" && (object.pairedMediaType | 0) === object.pairedMediaType)
@@ -25541,6 +25555,13 @@ $root.E2E = (function() {
              * @property {number|null} [agmHeaderInteractionStrategy] ExternalAdReplyInfo agmHeaderInteractionStrategy
              * @property {boolean|null} [containsCtwaFlowsAutoLabel] ExternalAdReplyInfo containsCtwaFlowsAutoLabel
              * @property {string|null} [productId] ExternalAdReplyInfo productId
+             * @property {boolean|null} [containsCtwaPromo] ExternalAdReplyInfo containsCtwaPromo
+             * @property {string|null} [ctwaPromoResponseId] ExternalAdReplyInfo ctwaPromoResponseId
+             * @property {string|null} [ctwaPromoOfferId] ExternalAdReplyInfo ctwaPromoOfferId
+             * @property {string|null} [ctwaPromoAdEntryId] ExternalAdReplyInfo ctwaPromoAdEntryId
+             * @property {number|Long|null} [ctwaPromoResponseExpiresAtSeconds] ExternalAdReplyInfo ctwaPromoResponseExpiresAtSeconds
+             * @property {number|null} [ctwaPromoSchemaVersion] ExternalAdReplyInfo ctwaPromoSchemaVersion
+             * @property {string|null} [ctwaPromoAdgroupId] ExternalAdReplyInfo ctwaPromoAdgroupId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -25844,6 +25865,62 @@ $root.E2E = (function() {
              */
             ExternalAdReplyInfo.prototype.productId = null;
 
+            /**
+             * ExternalAdReplyInfo containsCtwaPromo.
+             * @member {boolean|null|undefined} containsCtwaPromo
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.containsCtwaPromo = null;
+
+            /**
+             * ExternalAdReplyInfo ctwaPromoResponseId.
+             * @member {string|null|undefined} ctwaPromoResponseId
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.ctwaPromoResponseId = null;
+
+            /**
+             * ExternalAdReplyInfo ctwaPromoOfferId.
+             * @member {string|null|undefined} ctwaPromoOfferId
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.ctwaPromoOfferId = null;
+
+            /**
+             * ExternalAdReplyInfo ctwaPromoAdEntryId.
+             * @member {string|null|undefined} ctwaPromoAdEntryId
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.ctwaPromoAdEntryId = null;
+
+            /**
+             * ExternalAdReplyInfo ctwaPromoResponseExpiresAtSeconds.
+             * @member {number|Long|null|undefined} ctwaPromoResponseExpiresAtSeconds
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.ctwaPromoResponseExpiresAtSeconds = null;
+
+            /**
+             * ExternalAdReplyInfo ctwaPromoSchemaVersion.
+             * @member {number|null|undefined} ctwaPromoSchemaVersion
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.ctwaPromoSchemaVersion = null;
+
+            /**
+             * ExternalAdReplyInfo ctwaPromoAdgroupId.
+             * @member {string|null|undefined} ctwaPromoAdgroupId
+             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
+             * @instance
+             */
+            ExternalAdReplyInfo.prototype.ctwaPromoAdgroupId = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -26051,6 +26128,48 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_containsCtwaPromo", {
+                get: $util.oneOfGetter($oneOfFields = ["containsCtwaPromo"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaPromoResponseId", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaPromoResponseId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaPromoOfferId", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaPromoOfferId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaPromoAdEntryId", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaPromoAdEntryId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaPromoResponseExpiresAtSeconds", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaPromoResponseExpiresAtSeconds"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaPromoSchemaVersion", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaPromoSchemaVersion"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaPromoAdgroupId", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaPromoAdgroupId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ExternalAdReplyInfo instance using the specified properties.
              * @function create
@@ -26151,6 +26270,20 @@ $root.E2E = (function() {
                     writer.uint32(/* id 33, wireType 0 =*/264).bool(message.containsCtwaFlowsAutoLabel);
                 if (message.productId != null && $Object.hasOwnProperty.call(message, "productId"))
                     writer.uint32(/* id 34, wireType 2 =*/274).string(message.productId);
+                if (message.containsCtwaPromo != null && $Object.hasOwnProperty.call(message, "containsCtwaPromo"))
+                    writer.uint32(/* id 35, wireType 0 =*/280).bool(message.containsCtwaPromo);
+                if (message.ctwaPromoResponseId != null && $Object.hasOwnProperty.call(message, "ctwaPromoResponseId"))
+                    writer.uint32(/* id 36, wireType 2 =*/290).string(message.ctwaPromoResponseId);
+                if (message.ctwaPromoOfferId != null && $Object.hasOwnProperty.call(message, "ctwaPromoOfferId"))
+                    writer.uint32(/* id 37, wireType 2 =*/298).string(message.ctwaPromoOfferId);
+                if (message.ctwaPromoAdEntryId != null && $Object.hasOwnProperty.call(message, "ctwaPromoAdEntryId"))
+                    writer.uint32(/* id 38, wireType 2 =*/306).string(message.ctwaPromoAdEntryId);
+                if (message.ctwaPromoResponseExpiresAtSeconds != null && $Object.hasOwnProperty.call(message, "ctwaPromoResponseExpiresAtSeconds"))
+                    writer.uint32(/* id 39, wireType 0 =*/312).uint64(message.ctwaPromoResponseExpiresAtSeconds);
+                if (message.ctwaPromoSchemaVersion != null && $Object.hasOwnProperty.call(message, "ctwaPromoSchemaVersion"))
+                    writer.uint32(/* id 40, wireType 0 =*/320).uint32(message.ctwaPromoSchemaVersion);
+                if (message.ctwaPromoAdgroupId != null && $Object.hasOwnProperty.call(message, "ctwaPromoAdgroupId"))
+                    writer.uint32(/* id 41, wireType 2 =*/330).string(message.ctwaPromoAdgroupId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -26446,6 +26579,55 @@ $root.E2E = (function() {
                             message._productId = "productId";
                             continue;
                         }
+                    case 35: {
+                            if (wireType !== 0)
+                                break;
+                            message.containsCtwaPromo = reader.bool();
+                            message._containsCtwaPromo = "containsCtwaPromo";
+                            continue;
+                        }
+                    case 36: {
+                            if (wireType !== 2)
+                                break;
+                            message.ctwaPromoResponseId = reader.stringVerify();
+                            message._ctwaPromoResponseId = "ctwaPromoResponseId";
+                            continue;
+                        }
+                    case 37: {
+                            if (wireType !== 2)
+                                break;
+                            message.ctwaPromoOfferId = reader.stringVerify();
+                            message._ctwaPromoOfferId = "ctwaPromoOfferId";
+                            continue;
+                        }
+                    case 38: {
+                            if (wireType !== 2)
+                                break;
+                            message.ctwaPromoAdEntryId = reader.stringVerify();
+                            message._ctwaPromoAdEntryId = "ctwaPromoAdEntryId";
+                            continue;
+                        }
+                    case 39: {
+                            if (wireType !== 0)
+                                break;
+                            message.ctwaPromoResponseExpiresAtSeconds = reader.uint64();
+                            message._ctwaPromoResponseExpiresAtSeconds = "ctwaPromoResponseExpiresAtSeconds";
+                            continue;
+                        }
+                    case 40: {
+                            if (wireType !== 0)
+                                break;
+                            message.ctwaPromoSchemaVersion = reader.uint32();
+                            message._ctwaPromoSchemaVersion = "ctwaPromoSchemaVersion";
+                            continue;
+                        }
+                    case 41: {
+                            if (wireType !== 2)
+                                break;
+                            message.ctwaPromoAdgroupId = reader.stringVerify();
+                            message._ctwaPromoAdgroupId = "ctwaPromoAdgroupId";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -26665,6 +26847,41 @@ $root.E2E = (function() {
                     if (!$util.isString(message.productId))
                         return "productId: string expected";
                 }
+                if (message.containsCtwaPromo != null && $Object.hasOwnProperty.call(message, "containsCtwaPromo")) {
+                    properties._containsCtwaPromo = 1;
+                    if (typeof message.containsCtwaPromo !== "boolean")
+                        return "containsCtwaPromo: boolean expected";
+                }
+                if (message.ctwaPromoResponseId != null && $Object.hasOwnProperty.call(message, "ctwaPromoResponseId")) {
+                    properties._ctwaPromoResponseId = 1;
+                    if (!$util.isString(message.ctwaPromoResponseId))
+                        return "ctwaPromoResponseId: string expected";
+                }
+                if (message.ctwaPromoOfferId != null && $Object.hasOwnProperty.call(message, "ctwaPromoOfferId")) {
+                    properties._ctwaPromoOfferId = 1;
+                    if (!$util.isString(message.ctwaPromoOfferId))
+                        return "ctwaPromoOfferId: string expected";
+                }
+                if (message.ctwaPromoAdEntryId != null && $Object.hasOwnProperty.call(message, "ctwaPromoAdEntryId")) {
+                    properties._ctwaPromoAdEntryId = 1;
+                    if (!$util.isString(message.ctwaPromoAdEntryId))
+                        return "ctwaPromoAdEntryId: string expected";
+                }
+                if (message.ctwaPromoResponseExpiresAtSeconds != null && $Object.hasOwnProperty.call(message, "ctwaPromoResponseExpiresAtSeconds")) {
+                    properties._ctwaPromoResponseExpiresAtSeconds = 1;
+                    if (!$util.isInteger(message.ctwaPromoResponseExpiresAtSeconds) && !(message.ctwaPromoResponseExpiresAtSeconds && $util.isInteger(message.ctwaPromoResponseExpiresAtSeconds.low) && $util.isInteger(message.ctwaPromoResponseExpiresAtSeconds.high)))
+                        return "ctwaPromoResponseExpiresAtSeconds: integer|Long expected";
+                }
+                if (message.ctwaPromoSchemaVersion != null && $Object.hasOwnProperty.call(message, "ctwaPromoSchemaVersion")) {
+                    properties._ctwaPromoSchemaVersion = 1;
+                    if (!$util.isInteger(message.ctwaPromoSchemaVersion))
+                        return "ctwaPromoSchemaVersion: integer expected";
+                }
+                if (message.ctwaPromoAdgroupId != null && $Object.hasOwnProperty.call(message, "ctwaPromoAdgroupId")) {
+                    properties._ctwaPromoAdgroupId = 1;
+                    if (!$util.isString(message.ctwaPromoAdgroupId))
+                        return "ctwaPromoAdgroupId: string expected";
+                }
                 return null;
             };
 
@@ -26783,6 +27000,27 @@ $root.E2E = (function() {
                     message.containsCtwaFlowsAutoLabel = $Boolean(object.containsCtwaFlowsAutoLabel);
                 if (object.productId != null)
                     message.productId = $String(object.productId);
+                if (object.containsCtwaPromo != null)
+                    message.containsCtwaPromo = $Boolean(object.containsCtwaPromo);
+                if (object.ctwaPromoResponseId != null)
+                    message.ctwaPromoResponseId = $String(object.ctwaPromoResponseId);
+                if (object.ctwaPromoOfferId != null)
+                    message.ctwaPromoOfferId = $String(object.ctwaPromoOfferId);
+                if (object.ctwaPromoAdEntryId != null)
+                    message.ctwaPromoAdEntryId = $String(object.ctwaPromoAdEntryId);
+                if (object.ctwaPromoResponseExpiresAtSeconds != null)
+                    if ($util.Long)
+                        message.ctwaPromoResponseExpiresAtSeconds = $util.Long.fromValue(object.ctwaPromoResponseExpiresAtSeconds, true);
+                    else if (typeof object.ctwaPromoResponseExpiresAtSeconds === "string")
+                        message.ctwaPromoResponseExpiresAtSeconds = $parseInt(object.ctwaPromoResponseExpiresAtSeconds, 10);
+                    else if (typeof object.ctwaPromoResponseExpiresAtSeconds === "number")
+                        message.ctwaPromoResponseExpiresAtSeconds = object.ctwaPromoResponseExpiresAtSeconds;
+                    else if (typeof object.ctwaPromoResponseExpiresAtSeconds === "object")
+                        message.ctwaPromoResponseExpiresAtSeconds = new $util.LongBits(object.ctwaPromoResponseExpiresAtSeconds.low >>> 0, object.ctwaPromoResponseExpiresAtSeconds.high >>> 0).toNumber(true);
+                if (object.ctwaPromoSchemaVersion != null)
+                    message.ctwaPromoSchemaVersion = object.ctwaPromoSchemaVersion >>> 0;
+                if (object.ctwaPromoAdgroupId != null)
+                    message.ctwaPromoAdgroupId = $String(object.ctwaPromoAdgroupId);
                 return message;
             };
 
@@ -26871,6 +27109,25 @@ $root.E2E = (function() {
                     object.containsCtwaFlowsAutoLabel = message.containsCtwaFlowsAutoLabel;
                 if (message.productId != null && $Object.hasOwnProperty.call(message, "productId"))
                     object.productId = message.productId;
+                if (message.containsCtwaPromo != null && $Object.hasOwnProperty.call(message, "containsCtwaPromo"))
+                    object.containsCtwaPromo = message.containsCtwaPromo;
+                if (message.ctwaPromoResponseId != null && $Object.hasOwnProperty.call(message, "ctwaPromoResponseId"))
+                    object.ctwaPromoResponseId = message.ctwaPromoResponseId;
+                if (message.ctwaPromoOfferId != null && $Object.hasOwnProperty.call(message, "ctwaPromoOfferId"))
+                    object.ctwaPromoOfferId = message.ctwaPromoOfferId;
+                if (message.ctwaPromoAdEntryId != null && $Object.hasOwnProperty.call(message, "ctwaPromoAdEntryId"))
+                    object.ctwaPromoAdEntryId = message.ctwaPromoAdEntryId;
+                if (message.ctwaPromoResponseExpiresAtSeconds != null && $Object.hasOwnProperty.call(message, "ctwaPromoResponseExpiresAtSeconds"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.ctwaPromoResponseExpiresAtSeconds = typeof message.ctwaPromoResponseExpiresAtSeconds === "number" ? $BigInt(message.ctwaPromoResponseExpiresAtSeconds) : $util.Long.fromBits(message.ctwaPromoResponseExpiresAtSeconds.low >>> 0, message.ctwaPromoResponseExpiresAtSeconds.high >>> 0, true).toBigInt();
+                    else if (typeof message.ctwaPromoResponseExpiresAtSeconds === "number")
+                        object.ctwaPromoResponseExpiresAtSeconds = options.longs === $String ? $String(message.ctwaPromoResponseExpiresAtSeconds) : message.ctwaPromoResponseExpiresAtSeconds;
+                    else
+                        object.ctwaPromoResponseExpiresAtSeconds = options.longs === $String ? $util.Long.prototype.toString.call(message.ctwaPromoResponseExpiresAtSeconds) : options.longs === $Number ? new $util.LongBits(message.ctwaPromoResponseExpiresAtSeconds.low >>> 0, message.ctwaPromoResponseExpiresAtSeconds.high >>> 0).toNumber(true) : message.ctwaPromoResponseExpiresAtSeconds;
+                if (message.ctwaPromoSchemaVersion != null && $Object.hasOwnProperty.call(message, "ctwaPromoSchemaVersion"))
+                    object.ctwaPromoSchemaVersion = message.ctwaPromoSchemaVersion;
+                if (message.ctwaPromoAdgroupId != null && $Object.hasOwnProperty.call(message, "ctwaPromoAdgroupId"))
+                    object.ctwaPromoAdgroupId = message.ctwaPromoAdgroupId;
                 return object;
             };
 
@@ -28141,6 +28398,8 @@ $root.E2E = (function() {
          * @property {number} MOTION_PHOTO_CHILD=6 MOTION_PHOTO_CHILD value
          * @property {number} HEVC_VIDEO_PARENT=7 HEVC_VIDEO_PARENT value
          * @property {number} HEVC_VIDEO_CHILD=8 HEVC_VIDEO_CHILD value
+         * @property {number} AV1_VIDEO_PARENT=9 AV1_VIDEO_PARENT value
+         * @property {number} AV1_VIDEO_CHILD=10 AV1_VIDEO_CHILD value
          */
         ContextInfo.PairedMediaType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -28153,6 +28412,8 @@ $root.E2E = (function() {
             values[valuesById[6] = "MOTION_PHOTO_CHILD"] = 6;
             values[valuesById[7] = "HEVC_VIDEO_PARENT"] = 7;
             values[valuesById[8] = "HEVC_VIDEO_CHILD"] = 8;
+            values[valuesById[9] = "AV1_VIDEO_PARENT"] = 9;
+            values[valuesById[10] = "AV1_VIDEO_CHILD"] = 10;
             return values;
         })();
 
@@ -30001,6 +30262,8 @@ $root.E2E = (function() {
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterScheduledMessage] Message newsletterScheduledMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [acp2SettingMessage] Message acp2SettingMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [audioStickerMessage] Message audioStickerMessage
+         * @property {E2E.Message.ImageMessage.$Properties|null} [instantImageMessage] Message instantImageMessage
+         * @property {E2E.Message.RequestLocationMessage.$Properties|null} [requestLocationMessage] Message requestLocationMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [botGroupParticipantMessage] Message botGroupParticipantMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
@@ -30129,6 +30392,8 @@ $root.E2E = (function() {
          *   newsletterScheduledMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   acp2SettingMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   audioStickerMessage?: E2E.Message.FutureProofMessage.$Shape|null;
+         *   instantImageMessage?: E2E.Message.ImageMessage.$Shape|null;
+         *   requestLocationMessage?: E2E.Message.RequestLocationMessage.$Shape|null;
          *   botGroupParticipantMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
@@ -31054,6 +31319,22 @@ $root.E2E = (function() {
         Message.prototype.audioStickerMessage = null;
 
         /**
+         * Message instantImageMessage.
+         * @member {E2E.Message.ImageMessage.$Properties|null|undefined} instantImageMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.instantImageMessage = null;
+
+        /**
+         * Message requestLocationMessage.
+         * @member {E2E.Message.RequestLocationMessage.$Properties|null|undefined} requestLocationMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.requestLocationMessage = null;
+
+        /**
          * Message botGroupParticipantMessage.
          * @member {E2E.Message.FutureProofMessage.$Properties|null|undefined} botGroupParticipantMessage
          * @memberof E2E.Message
@@ -31743,6 +32024,18 @@ $root.E2E = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_instantImageMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["instantImageMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_requestLocationMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["requestLocationMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         $Object.defineProperty(Message.prototype, "_botGroupParticipantMessage", {
             get: $util.oneOfGetter($oneOfFields = ["botGroupParticipantMessage"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -32006,6 +32299,10 @@ $root.E2E = (function() {
                 $root.E2E.Message.FutureProofMessage.encode(message.acp2SettingMessage, writer.uint32(/* id 133, wireType 2 =*/1066).fork(), _depth + 1).ldelim();
             if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.audioStickerMessage, writer.uint32(/* id 134, wireType 2 =*/1074).fork(), _depth + 1).ldelim();
+            if (message.instantImageMessage != null && $Object.hasOwnProperty.call(message, "instantImageMessage"))
+                $root.E2E.Message.ImageMessage.encode(message.instantImageMessage, writer.uint32(/* id 135, wireType 2 =*/1082).fork(), _depth + 1).ldelim();
+            if (message.requestLocationMessage != null && $Object.hasOwnProperty.call(message, "requestLocationMessage"))
+                $root.E2E.Message.RequestLocationMessage.encode(message.requestLocationMessage, writer.uint32(/* id 136, wireType 2 =*/1090).fork(), _depth + 1).ldelim();
             if (message.botGroupParticipantMessage != null && $Object.hasOwnProperty.call(message, "botGroupParticipantMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.botGroupParticipantMessage, writer.uint32(/* id 137, wireType 2 =*/1098).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -32854,6 +33151,20 @@ $root.E2E = (function() {
                             break;
                         message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioStickerMessage);
                         message._audioStickerMessage = "audioStickerMessage";
+                        continue;
+                    }
+                case 135: {
+                        if (wireType !== 2)
+                            break;
+                        message.instantImageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.instantImageMessage);
+                        message._instantImageMessage = "instantImageMessage";
+                        continue;
+                    }
+                case 136: {
+                        if (wireType !== 2)
+                            break;
+                        message.requestLocationMessage = $root.E2E.Message.RequestLocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestLocationMessage);
+                        message._requestLocationMessage = "requestLocationMessage";
                         continue;
                     }
                 case 137: {
@@ -33813,6 +34124,22 @@ $root.E2E = (function() {
                         return "audioStickerMessage." + error;
                 }
             }
+            if (message.instantImageMessage != null && $Object.hasOwnProperty.call(message, "instantImageMessage")) {
+                properties._instantImageMessage = 1;
+                {
+                    var error = $root.E2E.Message.ImageMessage.verify(message.instantImageMessage, _depth + 1);
+                    if (error)
+                        return "instantImageMessage." + error;
+                }
+            }
+            if (message.requestLocationMessage != null && $Object.hasOwnProperty.call(message, "requestLocationMessage")) {
+                properties._requestLocationMessage = 1;
+                {
+                    var error = $root.E2E.Message.RequestLocationMessage.verify(message.requestLocationMessage, _depth + 1);
+                    if (error)
+                        return "requestLocationMessage." + error;
+                }
+            }
             if (message.botGroupParticipantMessage != null && $Object.hasOwnProperty.call(message, "botGroupParticipantMessage")) {
                 properties._botGroupParticipantMessage = 1;
                 {
@@ -34404,6 +34731,16 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.Message.audioStickerMessage: object expected");
                 message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.audioStickerMessage, _depth + 1);
             }
+            if (object.instantImageMessage != null) {
+                if (!$util.isObject(object.instantImageMessage))
+                    throw $TypeError(".E2E.Message.instantImageMessage: object expected");
+                message.instantImageMessage = $root.E2E.Message.ImageMessage.fromObject(object.instantImageMessage, _depth + 1);
+            }
+            if (object.requestLocationMessage != null) {
+                if (!$util.isObject(object.requestLocationMessage))
+                    throw $TypeError(".E2E.Message.requestLocationMessage: object expected");
+                message.requestLocationMessage = $root.E2E.Message.RequestLocationMessage.fromObject(object.requestLocationMessage, _depth + 1);
+            }
             if (object.botGroupParticipantMessage != null) {
                 if (!$util.isObject(object.botGroupParticipantMessage))
                     throw $TypeError(".E2E.Message.botGroupParticipantMessage: object expected");
@@ -34655,6 +34992,10 @@ $root.E2E = (function() {
                 object.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.toObject(message.acp2SettingMessage, options, _depth + 1);
             if (message.audioStickerMessage != null && $Object.hasOwnProperty.call(message, "audioStickerMessage"))
                 object.audioStickerMessage = $root.E2E.Message.FutureProofMessage.toObject(message.audioStickerMessage, options, _depth + 1);
+            if (message.instantImageMessage != null && $Object.hasOwnProperty.call(message, "instantImageMessage"))
+                object.instantImageMessage = $root.E2E.Message.ImageMessage.toObject(message.instantImageMessage, options, _depth + 1);
+            if (message.requestLocationMessage != null && $Object.hasOwnProperty.call(message, "requestLocationMessage"))
+                object.requestLocationMessage = $root.E2E.Message.RequestLocationMessage.toObject(message.requestLocationMessage, options, _depth + 1);
             if (message.botGroupParticipantMessage != null && $Object.hasOwnProperty.call(message, "botGroupParticipantMessage"))
                 object.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.toObject(message.botGroupParticipantMessage, options, _depth + 1);
             return object;
@@ -44273,9 +44614,11 @@ $root.E2E = (function() {
             /**
              * Properties of a ChatSolidColorWallpaper.
              * @typedef {Object} E2E.Message.ChatSolidColorWallpaper.$Properties
-             * @property {string|null} [colorLight] ChatSolidColorWallpaper colorLight
-             * @property {string|null} [colorDark] ChatSolidColorWallpaper colorDark
+             * @property {number|null} [backgroundLightArgb] ChatSolidColorWallpaper backgroundLightArgb
+             * @property {number|null} [backgroundDarkArgb] ChatSolidColorWallpaper backgroundDarkArgb
              * @property {boolean|null} [isDoodleEnabled] ChatSolidColorWallpaper isDoodleEnabled
+             * @property {number|null} [doodleLightArgb] ChatSolidColorWallpaper doodleLightArgb
+             * @property {number|null} [doodleDarkArgb] ChatSolidColorWallpaper doodleDarkArgb
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -44308,20 +44651,20 @@ $root.E2E = (function() {
             };
 
             /**
-             * ChatSolidColorWallpaper colorLight.
-             * @member {string|null|undefined} colorLight
+             * ChatSolidColorWallpaper backgroundLightArgb.
+             * @member {number|null|undefined} backgroundLightArgb
              * @memberof E2E.Message.ChatSolidColorWallpaper
              * @instance
              */
-            ChatSolidColorWallpaper.prototype.colorLight = null;
+            ChatSolidColorWallpaper.prototype.backgroundLightArgb = null;
 
             /**
-             * ChatSolidColorWallpaper colorDark.
-             * @member {string|null|undefined} colorDark
+             * ChatSolidColorWallpaper backgroundDarkArgb.
+             * @member {number|null|undefined} backgroundDarkArgb
              * @memberof E2E.Message.ChatSolidColorWallpaper
              * @instance
              */
-            ChatSolidColorWallpaper.prototype.colorDark = null;
+            ChatSolidColorWallpaper.prototype.backgroundDarkArgb = null;
 
             /**
              * ChatSolidColorWallpaper isDoodleEnabled.
@@ -44331,24 +44674,52 @@ $root.E2E = (function() {
              */
             ChatSolidColorWallpaper.prototype.isDoodleEnabled = null;
 
+            /**
+             * ChatSolidColorWallpaper doodleLightArgb.
+             * @member {number|null|undefined} doodleLightArgb
+             * @memberof E2E.Message.ChatSolidColorWallpaper
+             * @instance
+             */
+            ChatSolidColorWallpaper.prototype.doodleLightArgb = null;
+
+            /**
+             * ChatSolidColorWallpaper doodleDarkArgb.
+             * @member {number|null|undefined} doodleDarkArgb
+             * @memberof E2E.Message.ChatSolidColorWallpaper
+             * @instance
+             */
+            ChatSolidColorWallpaper.prototype.doodleDarkArgb = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_colorLight", {
-                get: $util.oneOfGetter($oneOfFields = ["colorLight"]),
+            $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_backgroundLightArgb", {
+                get: $util.oneOfGetter($oneOfFields = ["backgroundLightArgb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_colorDark", {
-                get: $util.oneOfGetter($oneOfFields = ["colorDark"]),
+            $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_backgroundDarkArgb", {
+                get: $util.oneOfGetter($oneOfFields = ["backgroundDarkArgb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_isDoodleEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isDoodleEnabled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_doodleLightArgb", {
+                get: $util.oneOfGetter($oneOfFields = ["doodleLightArgb"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ChatSolidColorWallpaper.prototype, "_doodleDarkArgb", {
+                get: $util.oneOfGetter($oneOfFields = ["doodleDarkArgb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -44384,12 +44755,16 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.colorLight != null && $Object.hasOwnProperty.call(message, "colorLight"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.colorLight);
-                if (message.colorDark != null && $Object.hasOwnProperty.call(message, "colorDark"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.colorDark);
+                if (message.backgroundLightArgb != null && $Object.hasOwnProperty.call(message, "backgroundLightArgb"))
+                    writer.uint32(/* id 1, wireType 5 =*/13).fixed32(message.backgroundLightArgb);
+                if (message.backgroundDarkArgb != null && $Object.hasOwnProperty.call(message, "backgroundDarkArgb"))
+                    writer.uint32(/* id 2, wireType 5 =*/21).fixed32(message.backgroundDarkArgb);
                 if (message.isDoodleEnabled != null && $Object.hasOwnProperty.call(message, "isDoodleEnabled"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isDoodleEnabled);
+                if (message.doodleLightArgb != null && $Object.hasOwnProperty.call(message, "doodleLightArgb"))
+                    writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.doodleLightArgb);
+                if (message.doodleDarkArgb != null && $Object.hasOwnProperty.call(message, "doodleDarkArgb"))
+                    writer.uint32(/* id 5, wireType 5 =*/45).fixed32(message.doodleDarkArgb);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -44448,17 +44823,17 @@ $root.E2E = (function() {
                     var wireType = tag & 7;
                     switch (tag >>>= 3) {
                     case 1: {
-                            if (wireType !== 2)
+                            if (wireType !== 5)
                                 break;
-                            message.colorLight = reader.stringVerify();
-                            message._colorLight = "colorLight";
+                            message.backgroundLightArgb = reader.fixed32();
+                            message._backgroundLightArgb = "backgroundLightArgb";
                             continue;
                         }
                     case 2: {
-                            if (wireType !== 2)
+                            if (wireType !== 5)
                                 break;
-                            message.colorDark = reader.stringVerify();
-                            message._colorDark = "colorDark";
+                            message.backgroundDarkArgb = reader.fixed32();
+                            message._backgroundDarkArgb = "backgroundDarkArgb";
                             continue;
                         }
                     case 3: {
@@ -44466,6 +44841,20 @@ $root.E2E = (function() {
                                 break;
                             message.isDoodleEnabled = reader.bool();
                             message._isDoodleEnabled = "isDoodleEnabled";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 5)
+                                break;
+                            message.doodleLightArgb = reader.fixed32();
+                            message._doodleLightArgb = "doodleLightArgb";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 5)
+                                break;
+                            message.doodleDarkArgb = reader.fixed32();
+                            message._doodleDarkArgb = "doodleDarkArgb";
                             continue;
                         }
                     }
@@ -44517,20 +44906,30 @@ $root.E2E = (function() {
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.colorLight != null && $Object.hasOwnProperty.call(message, "colorLight")) {
-                    properties._colorLight = 1;
-                    if (!$util.isString(message.colorLight))
-                        return "colorLight: string expected";
+                if (message.backgroundLightArgb != null && $Object.hasOwnProperty.call(message, "backgroundLightArgb")) {
+                    properties._backgroundLightArgb = 1;
+                    if (!$util.isInteger(message.backgroundLightArgb))
+                        return "backgroundLightArgb: integer expected";
                 }
-                if (message.colorDark != null && $Object.hasOwnProperty.call(message, "colorDark")) {
-                    properties._colorDark = 1;
-                    if (!$util.isString(message.colorDark))
-                        return "colorDark: string expected";
+                if (message.backgroundDarkArgb != null && $Object.hasOwnProperty.call(message, "backgroundDarkArgb")) {
+                    properties._backgroundDarkArgb = 1;
+                    if (!$util.isInteger(message.backgroundDarkArgb))
+                        return "backgroundDarkArgb: integer expected";
                 }
                 if (message.isDoodleEnabled != null && $Object.hasOwnProperty.call(message, "isDoodleEnabled")) {
                     properties._isDoodleEnabled = 1;
                     if (typeof message.isDoodleEnabled !== "boolean")
                         return "isDoodleEnabled: boolean expected";
+                }
+                if (message.doodleLightArgb != null && $Object.hasOwnProperty.call(message, "doodleLightArgb")) {
+                    properties._doodleLightArgb = 1;
+                    if (!$util.isInteger(message.doodleLightArgb))
+                        return "doodleLightArgb: integer expected";
+                }
+                if (message.doodleDarkArgb != null && $Object.hasOwnProperty.call(message, "doodleDarkArgb")) {
+                    properties._doodleDarkArgb = 1;
+                    if (!$util.isInteger(message.doodleDarkArgb))
+                        return "doodleDarkArgb: integer expected";
                 }
                 return null;
             };
@@ -44553,12 +44952,16 @@ $root.E2E = (function() {
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
                 var message = new $root.E2E.Message.ChatSolidColorWallpaper();
-                if (object.colorLight != null)
-                    message.colorLight = $String(object.colorLight);
-                if (object.colorDark != null)
-                    message.colorDark = $String(object.colorDark);
+                if (object.backgroundLightArgb != null)
+                    message.backgroundLightArgb = object.backgroundLightArgb >>> 0;
+                if (object.backgroundDarkArgb != null)
+                    message.backgroundDarkArgb = object.backgroundDarkArgb >>> 0;
                 if (object.isDoodleEnabled != null)
                     message.isDoodleEnabled = $Boolean(object.isDoodleEnabled);
+                if (object.doodleLightArgb != null)
+                    message.doodleLightArgb = object.doodleLightArgb >>> 0;
+                if (object.doodleDarkArgb != null)
+                    message.doodleDarkArgb = object.doodleDarkArgb >>> 0;
                 return message;
             };
 
@@ -44579,12 +44982,16 @@ $root.E2E = (function() {
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
                 var object = {};
-                if (message.colorLight != null && $Object.hasOwnProperty.call(message, "colorLight"))
-                    object.colorLight = message.colorLight;
-                if (message.colorDark != null && $Object.hasOwnProperty.call(message, "colorDark"))
-                    object.colorDark = message.colorDark;
+                if (message.backgroundLightArgb != null && $Object.hasOwnProperty.call(message, "backgroundLightArgb"))
+                    object.backgroundLightArgb = message.backgroundLightArgb;
+                if (message.backgroundDarkArgb != null && $Object.hasOwnProperty.call(message, "backgroundDarkArgb"))
+                    object.backgroundDarkArgb = message.backgroundDarkArgb;
                 if (message.isDoodleEnabled != null && $Object.hasOwnProperty.call(message, "isDoodleEnabled"))
                     object.isDoodleEnabled = message.isDoodleEnabled;
+                if (message.doodleLightArgb != null && $Object.hasOwnProperty.call(message, "doodleLightArgb"))
+                    object.doodleLightArgb = message.doodleLightArgb;
+                if (message.doodleDarkArgb != null && $Object.hasOwnProperty.call(message, "doodleDarkArgb"))
+                    object.doodleDarkArgb = message.doodleDarkArgb;
                 return object;
             };
 
@@ -46318,6 +46725,333 @@ $root.E2E = (function() {
             })();
 
             return CloudAPIThreadControlNotification;
+        })();
+
+        Message.CoexConnectionDescriptor = (function() {
+
+            /**
+             * Properties of a CoexConnectionDescriptor.
+             * @typedef {Object} E2E.Message.CoexConnectionDescriptor.$Properties
+             * @property {number|Long|null} [providerId] CoexConnectionDescriptor providerId
+             * @property {string|null} [product] CoexConnectionDescriptor product
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a CoexConnectionDescriptor.
+             * @memberof E2E.Message
+             * @interface ICoexConnectionDescriptor
+             * @augments E2E.Message.CoexConnectionDescriptor.$Properties
+             * @deprecated Use E2E.Message.CoexConnectionDescriptor.$Properties instead.
+             */
+
+            /**
+             * Shape of a CoexConnectionDescriptor.
+             * @typedef {E2E.Message.CoexConnectionDescriptor.$Properties} E2E.Message.CoexConnectionDescriptor.$Shape
+             */
+
+            /**
+             * Constructs a new CoexConnectionDescriptor.
+             * @memberof E2E.Message
+             * @classdesc Represents a CoexConnectionDescriptor.
+             * @constructor
+             * @param {E2E.Message.CoexConnectionDescriptor.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var CoexConnectionDescriptor = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * CoexConnectionDescriptor providerId.
+             * @member {number|Long|null|undefined} providerId
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @instance
+             */
+            CoexConnectionDescriptor.prototype.providerId = null;
+
+            /**
+             * CoexConnectionDescriptor product.
+             * @member {string|null|undefined} product
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @instance
+             */
+            CoexConnectionDescriptor.prototype.product = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(CoexConnectionDescriptor.prototype, "_providerId", {
+                get: $util.oneOfGetter($oneOfFields = ["providerId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(CoexConnectionDescriptor.prototype, "_product", {
+                get: $util.oneOfGetter($oneOfFields = ["product"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new CoexConnectionDescriptor instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {E2E.Message.CoexConnectionDescriptor.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.CoexConnectionDescriptor} CoexConnectionDescriptor instance
+             * @type {{
+             *   (properties: E2E.Message.CoexConnectionDescriptor.$Shape): E2E.Message.CoexConnectionDescriptor & E2E.Message.CoexConnectionDescriptor.$Shape;
+             *   (properties?: E2E.Message.CoexConnectionDescriptor.$Properties): E2E.Message.CoexConnectionDescriptor;
+             * }}
+             */
+            CoexConnectionDescriptor.create = function(properties) {
+                return new CoexConnectionDescriptor(properties);
+            };
+
+            /**
+             * Encodes the specified CoexConnectionDescriptor message. Does not implicitly {@link E2E.Message.CoexConnectionDescriptor.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {E2E.Message.CoexConnectionDescriptor.$Properties} message CoexConnectionDescriptor message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CoexConnectionDescriptor.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.providerId != null && $Object.hasOwnProperty.call(message, "providerId"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int64(message.providerId);
+                if (message.product != null && $Object.hasOwnProperty.call(message, "product"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.product);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CoexConnectionDescriptor message, length delimited. Does not implicitly {@link E2E.Message.CoexConnectionDescriptor.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {E2E.Message.CoexConnectionDescriptor.$Properties} message CoexConnectionDescriptor message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CoexConnectionDescriptor.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a CoexConnectionDescriptor message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.CoexConnectionDescriptor & E2E.Message.CoexConnectionDescriptor.$Shape} CoexConnectionDescriptor
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CoexConnectionDescriptor.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.E2E.Message.CoexConnectionDescriptor();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.providerId = reader.int64();
+                            message._providerId = "providerId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.product = reader.stringVerify();
+                            message._product = "product";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a CoexConnectionDescriptor message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.CoexConnectionDescriptor & E2E.Message.CoexConnectionDescriptor.$Shape} CoexConnectionDescriptor
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CoexConnectionDescriptor.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CoexConnectionDescriptor message.
+             * @function verify
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CoexConnectionDescriptor.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.providerId != null && $Object.hasOwnProperty.call(message, "providerId")) {
+                    properties._providerId = 1;
+                    if (!$util.isInteger(message.providerId) && !(message.providerId && $util.isInteger(message.providerId.low) && $util.isInteger(message.providerId.high)))
+                        return "providerId: integer|Long expected";
+                }
+                if (message.product != null && $Object.hasOwnProperty.call(message, "product")) {
+                    properties._product = 1;
+                    if (!$util.isString(message.product))
+                        return "product: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a CoexConnectionDescriptor message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.CoexConnectionDescriptor} CoexConnectionDescriptor
+             */
+            CoexConnectionDescriptor.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.CoexConnectionDescriptor)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.CoexConnectionDescriptor: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.CoexConnectionDescriptor();
+                if (object.providerId != null)
+                    if ($util.Long)
+                        message.providerId = $util.Long.fromValue(object.providerId, false);
+                    else if (typeof object.providerId === "string")
+                        message.providerId = $parseInt(object.providerId, 10);
+                    else if (typeof object.providerId === "number")
+                        message.providerId = object.providerId;
+                    else if (typeof object.providerId === "object")
+                        message.providerId = new $util.LongBits(object.providerId.low >>> 0, object.providerId.high >>> 0).toNumber();
+                if (object.product != null)
+                    message.product = $String(object.product);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CoexConnectionDescriptor message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {E2E.Message.CoexConnectionDescriptor} message CoexConnectionDescriptor
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CoexConnectionDescriptor.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.providerId != null && $Object.hasOwnProperty.call(message, "providerId"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.providerId = typeof message.providerId === "number" ? $BigInt(message.providerId) : $util.Long.fromBits(message.providerId.low >>> 0, message.providerId.high >>> 0, false).toBigInt();
+                    else if (typeof message.providerId === "number")
+                        object.providerId = options.longs === $String ? $String(message.providerId) : message.providerId;
+                    else
+                        object.providerId = options.longs === $String ? $util.Long.prototype.toString.call(message.providerId) : options.longs === $Number ? new $util.LongBits(message.providerId.low >>> 0, message.providerId.high >>> 0).toNumber() : message.providerId;
+                if (message.product != null && $Object.hasOwnProperty.call(message, "product"))
+                    object.product = message.product;
+                return object;
+            };
+
+            /**
+             * Converts this CoexConnectionDescriptor to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CoexConnectionDescriptor.prototype.toJSON = function() {
+                return CoexConnectionDescriptor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for CoexConnectionDescriptor
+             * @function getTypeUrl
+             * @memberof E2E.Message.CoexConnectionDescriptor
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            CoexConnectionDescriptor.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.CoexConnectionDescriptor";
+            };
+
+            return CoexConnectionDescriptor;
         })();
 
         Message.CommentMessage = (function() {
@@ -50583,6 +51317,10 @@ $root.E2E = (function() {
              * @property {boolean|null} [isCanceled] EventInviteMessage isCanceled
              * @property {number|Long|null} [endTime] EventInviteMessage endTime
              * @property {string|null} [callLink] EventInviteMessage callLink
+             * @property {string|null} [coverImageHandle] EventInviteMessage coverImageHandle
+             * @property {string|null} [locationName] EventInviteMessage locationName
+             * @property {number|Long|null} [lastUpdatedTsUsec] EventInviteMessage lastUpdatedTsUsec
+             * @property {E2E.Message.EventInviteMessage.EventStatus|null} [status] EventInviteMessage status
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -50606,6 +51344,10 @@ $root.E2E = (function() {
              *   isCanceled?: boolean|null;
              *   endTime?: number|Long|null;
              *   callLink?: string|null;
+             *   coverImageHandle?: string|null;
+             *   locationName?: string|null;
+             *   lastUpdatedTsUsec?: number|Long|null;
+             *   status?: E2E.Message.EventInviteMessage.EventStatus|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.EventInviteMessage.$Shape
              */
@@ -50697,6 +51439,38 @@ $root.E2E = (function() {
              */
             EventInviteMessage.prototype.callLink = null;
 
+            /**
+             * EventInviteMessage coverImageHandle.
+             * @member {string|null|undefined} coverImageHandle
+             * @memberof E2E.Message.EventInviteMessage
+             * @instance
+             */
+            EventInviteMessage.prototype.coverImageHandle = null;
+
+            /**
+             * EventInviteMessage locationName.
+             * @member {string|null|undefined} locationName
+             * @memberof E2E.Message.EventInviteMessage
+             * @instance
+             */
+            EventInviteMessage.prototype.locationName = null;
+
+            /**
+             * EventInviteMessage lastUpdatedTsUsec.
+             * @member {number|Long|null|undefined} lastUpdatedTsUsec
+             * @memberof E2E.Message.EventInviteMessage
+             * @instance
+             */
+            EventInviteMessage.prototype.lastUpdatedTsUsec = null;
+
+            /**
+             * EventInviteMessage status.
+             * @member {E2E.Message.EventInviteMessage.EventStatus|null|undefined} status
+             * @memberof E2E.Message.EventInviteMessage
+             * @instance
+             */
+            EventInviteMessage.prototype.status = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -50754,6 +51528,30 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(EventInviteMessage.prototype, "_coverImageHandle", {
+                get: $util.oneOfGetter($oneOfFields = ["coverImageHandle"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(EventInviteMessage.prototype, "_locationName", {
+                get: $util.oneOfGetter($oneOfFields = ["locationName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(EventInviteMessage.prototype, "_lastUpdatedTsUsec", {
+                get: $util.oneOfGetter($oneOfFields = ["lastUpdatedTsUsec"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(EventInviteMessage.prototype, "_status", {
+                get: $util.oneOfGetter($oneOfFields = ["status"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new EventInviteMessage instance using the specified properties.
              * @function create
@@ -50804,6 +51602,14 @@ $root.E2E = (function() {
                     writer.uint32(/* id 8, wireType 0 =*/64).int64(message.endTime);
                 if (message.callLink != null && $Object.hasOwnProperty.call(message, "callLink"))
                     writer.uint32(/* id 9, wireType 2 =*/74).string(message.callLink);
+                if (message.coverImageHandle != null && $Object.hasOwnProperty.call(message, "coverImageHandle"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.coverImageHandle);
+                if (message.locationName != null && $Object.hasOwnProperty.call(message, "locationName"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.locationName);
+                if (message.lastUpdatedTsUsec != null && $Object.hasOwnProperty.call(message, "lastUpdatedTsUsec"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).int64(message.lastUpdatedTsUsec);
+                if (message.status != null && $Object.hasOwnProperty.call(message, "status"))
+                    writer.uint32(/* id 13, wireType 0 =*/104).int32(message.status);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -50841,7 +51647,7 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end, message;
+                var end, message, value;
                 if (length === $undefined)
                     end = reader.len;
                 else {
@@ -50922,6 +51728,34 @@ $root.E2E = (function() {
                                 break;
                             message.callLink = reader.stringVerify();
                             message._callLink = "callLink";
+                            continue;
+                        }
+                    case 10: {
+                            if (wireType !== 2)
+                                break;
+                            message.coverImageHandle = reader.stringVerify();
+                            message._coverImageHandle = "coverImageHandle";
+                            continue;
+                        }
+                    case 11: {
+                            if (wireType !== 2)
+                                break;
+                            message.locationName = reader.stringVerify();
+                            message._locationName = "locationName";
+                            continue;
+                        }
+                    case 12: {
+                            if (wireType !== 0)
+                                break;
+                            message.lastUpdatedTsUsec = reader.int64();
+                            message._lastUpdatedTsUsec = "lastUpdatedTsUsec";
+                            continue;
+                        }
+                    case 13: {
+                            if (wireType !== 0)
+                                break;
+                            message.status = reader.int32();
+                            message._status = "status";
                             continue;
                         }
                     }
@@ -51021,6 +51855,26 @@ $root.E2E = (function() {
                     if (!$util.isString(message.callLink))
                         return "callLink: string expected";
                 }
+                if (message.coverImageHandle != null && $Object.hasOwnProperty.call(message, "coverImageHandle")) {
+                    properties._coverImageHandle = 1;
+                    if (!$util.isString(message.coverImageHandle))
+                        return "coverImageHandle: string expected";
+                }
+                if (message.locationName != null && $Object.hasOwnProperty.call(message, "locationName")) {
+                    properties._locationName = 1;
+                    if (!$util.isString(message.locationName))
+                        return "locationName: string expected";
+                }
+                if (message.lastUpdatedTsUsec != null && $Object.hasOwnProperty.call(message, "lastUpdatedTsUsec")) {
+                    properties._lastUpdatedTsUsec = 1;
+                    if (!$util.isInteger(message.lastUpdatedTsUsec) && !(message.lastUpdatedTsUsec && $util.isInteger(message.lastUpdatedTsUsec.low) && $util.isInteger(message.lastUpdatedTsUsec.high)))
+                        return "lastUpdatedTsUsec: integer|Long expected";
+                }
+                if (message.status != null && $Object.hasOwnProperty.call(message, "status")) {
+                    properties._status = 1;
+                    if (typeof message.status !== "number" || (message.status | 0) !== message.status)
+                        return "status: enum value expected";
+                }
                 return null;
             };
 
@@ -51080,6 +51934,52 @@ $root.E2E = (function() {
                         message.endTime = new $util.LongBits(object.endTime.low >>> 0, object.endTime.high >>> 0).toNumber();
                 if (object.callLink != null)
                     message.callLink = $String(object.callLink);
+                if (object.coverImageHandle != null)
+                    message.coverImageHandle = $String(object.coverImageHandle);
+                if (object.locationName != null)
+                    message.locationName = $String(object.locationName);
+                if (object.lastUpdatedTsUsec != null)
+                    if ($util.Long)
+                        message.lastUpdatedTsUsec = $util.Long.fromValue(object.lastUpdatedTsUsec, false);
+                    else if (typeof object.lastUpdatedTsUsec === "string")
+                        message.lastUpdatedTsUsec = $parseInt(object.lastUpdatedTsUsec, 10);
+                    else if (typeof object.lastUpdatedTsUsec === "number")
+                        message.lastUpdatedTsUsec = object.lastUpdatedTsUsec;
+                    else if (typeof object.lastUpdatedTsUsec === "object")
+                        message.lastUpdatedTsUsec = new $util.LongBits(object.lastUpdatedTsUsec.low >>> 0, object.lastUpdatedTsUsec.high >>> 0).toNumber();
+                switch (object.status) {
+                case "UNKNOWN":
+                case 0:
+                    message.status = 0;
+                    break;
+                case "ACTIVE":
+                case 1:
+                    message.status = 1;
+                    break;
+                case "CANCELED":
+                case 2:
+                    message.status = 2;
+                    break;
+                case "SUSPENDED":
+                case 3:
+                    message.status = 3;
+                    break;
+                case "DELETED":
+                case 4:
+                    message.status = 4;
+                    break;
+                case "LEFT_EVENT":
+                case 5:
+                    message.status = 5;
+                    break;
+                case "REMOVED_FROM_INVITE_LIST":
+                case 6:
+                    message.status = 6;
+                    break;
+                default:
+                    if (typeof object.status === "number" && (object.status | 0) === object.status)
+                        message.status = object.status;
+                }
                 return message;
             };
 
@@ -51128,6 +52028,19 @@ $root.E2E = (function() {
                         object.endTime = options.longs === $String ? $util.Long.prototype.toString.call(message.endTime) : options.longs === $Number ? new $util.LongBits(message.endTime.low >>> 0, message.endTime.high >>> 0).toNumber() : message.endTime;
                 if (message.callLink != null && $Object.hasOwnProperty.call(message, "callLink"))
                     object.callLink = message.callLink;
+                if (message.coverImageHandle != null && $Object.hasOwnProperty.call(message, "coverImageHandle"))
+                    object.coverImageHandle = message.coverImageHandle;
+                if (message.locationName != null && $Object.hasOwnProperty.call(message, "locationName"))
+                    object.locationName = message.locationName;
+                if (message.lastUpdatedTsUsec != null && $Object.hasOwnProperty.call(message, "lastUpdatedTsUsec"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.lastUpdatedTsUsec = typeof message.lastUpdatedTsUsec === "number" ? $BigInt(message.lastUpdatedTsUsec) : $util.Long.fromBits(message.lastUpdatedTsUsec.low >>> 0, message.lastUpdatedTsUsec.high >>> 0, false).toBigInt();
+                    else if (typeof message.lastUpdatedTsUsec === "number")
+                        object.lastUpdatedTsUsec = options.longs === $String ? $String(message.lastUpdatedTsUsec) : message.lastUpdatedTsUsec;
+                    else
+                        object.lastUpdatedTsUsec = options.longs === $String ? $util.Long.prototype.toString.call(message.lastUpdatedTsUsec) : options.longs === $Number ? new $util.LongBits(message.lastUpdatedTsUsec.low >>> 0, message.lastUpdatedTsUsec.high >>> 0).toNumber() : message.lastUpdatedTsUsec;
+                if (message.status != null && $Object.hasOwnProperty.call(message, "status"))
+                    object.status = options.enums === $String ? $root.E2E.Message.EventInviteMessage.EventStatus[message.status] === $undefined ? message.status : $root.E2E.Message.EventInviteMessage.EventStatus[message.status] : message.status;
                 return object;
             };
 
@@ -51155,6 +52068,30 @@ $root.E2E = (function() {
                     prefix = "type.googleapis.com";
                 return prefix + "/E2E.Message.EventInviteMessage";
             };
+
+            /**
+             * EventStatus enum.
+             * @name E2E.Message.EventInviteMessage.EventStatus
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} ACTIVE=1 ACTIVE value
+             * @property {number} CANCELED=2 CANCELED value
+             * @property {number} SUSPENDED=3 SUSPENDED value
+             * @property {number} DELETED=4 DELETED value
+             * @property {number} LEFT_EVENT=5 LEFT_EVENT value
+             * @property {number} REMOVED_FROM_INVITE_LIST=6 REMOVED_FROM_INVITE_LIST value
+             */
+            EventInviteMessage.EventStatus = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "ACTIVE"] = 1;
+                values[valuesById[2] = "CANCELED"] = 2;
+                values[valuesById[3] = "SUSPENDED"] = 3;
+                values[valuesById[4] = "DELETED"] = 4;
+                values[valuesById[5] = "LEFT_EVENT"] = 5;
+                values[valuesById[6] = "REMOVED_FROM_INVITE_LIST"] = 6;
+                return values;
+            })();
 
             return EventInviteMessage;
         })();
@@ -54180,6 +55117,7 @@ $root.E2E = (function() {
              * @property {string|null} [requestId] FullHistorySyncOnDemandRequestMetadata requestId
              * @property {string|null} [businessProduct] FullHistorySyncOnDemandRequestMetadata businessProduct
              * @property {Uint8Array|null} [opaqueClientData] FullHistorySyncOnDemandRequestMetadata opaqueClientData
+             * @property {E2E.Message.CoexConnectionDescriptor.$Properties|null} [connection] FullHistorySyncOnDemandRequestMetadata connection
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -54235,6 +55173,14 @@ $root.E2E = (function() {
              */
             FullHistorySyncOnDemandRequestMetadata.prototype.opaqueClientData = null;
 
+            /**
+             * FullHistorySyncOnDemandRequestMetadata connection.
+             * @member {E2E.Message.CoexConnectionDescriptor.$Properties|null|undefined} connection
+             * @memberof E2E.Message.FullHistorySyncOnDemandRequestMetadata
+             * @instance
+             */
+            FullHistorySyncOnDemandRequestMetadata.prototype.connection = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -54253,6 +55199,12 @@ $root.E2E = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(FullHistorySyncOnDemandRequestMetadata.prototype, "_opaqueClientData", {
                 get: $util.oneOfGetter($oneOfFields = ["opaqueClientData"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(FullHistorySyncOnDemandRequestMetadata.prototype, "_connection", {
+                get: $util.oneOfGetter($oneOfFields = ["connection"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -54294,6 +55246,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.businessProduct);
                 if (message.opaqueClientData != null && $Object.hasOwnProperty.call(message, "opaqueClientData"))
                     writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.opaqueClientData);
+                if (message.connection != null && $Object.hasOwnProperty.call(message, "connection"))
+                    $root.E2E.Message.CoexConnectionDescriptor.encode(message.connection, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -54372,6 +55326,13 @@ $root.E2E = (function() {
                             message._opaqueClientData = "opaqueClientData";
                             continue;
                         }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.connection = $root.E2E.Message.CoexConnectionDescriptor.decode(reader, reader.uint32(), $undefined, _depth + 1, message.connection);
+                            message._connection = "connection";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -54436,6 +55397,14 @@ $root.E2E = (function() {
                     if (!(message.opaqueClientData && typeof message.opaqueClientData.length === "number" || $util.isString(message.opaqueClientData)))
                         return "opaqueClientData: buffer expected";
                 }
+                if (message.connection != null && $Object.hasOwnProperty.call(message, "connection")) {
+                    properties._connection = 1;
+                    {
+                        var error = $root.E2E.Message.CoexConnectionDescriptor.verify(message.connection, _depth + 1);
+                        if (error)
+                            return "connection." + error;
+                    }
+                }
                 return null;
             };
 
@@ -54466,6 +55435,11 @@ $root.E2E = (function() {
                         $util.base64.decode(object.opaqueClientData, message.opaqueClientData = $util.newBuffer($util.base64.length(object.opaqueClientData)), 0);
                     else if (object.opaqueClientData.length >= 0)
                         message.opaqueClientData = object.opaqueClientData;
+                if (object.connection != null) {
+                    if (!$util.isObject(object.connection))
+                        throw $TypeError(".E2E.Message.FullHistorySyncOnDemandRequestMetadata.connection: object expected");
+                    message.connection = $root.E2E.Message.CoexConnectionDescriptor.fromObject(object.connection, _depth + 1);
+                }
                 return message;
             };
 
@@ -54492,6 +55466,8 @@ $root.E2E = (function() {
                     object.businessProduct = message.businessProduct;
                 if (message.opaqueClientData != null && $Object.hasOwnProperty.call(message, "opaqueClientData"))
                     object.opaqueClientData = options.bytes === $String ? $util.base64.encode(message.opaqueClientData, 0, message.opaqueClientData.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.opaqueClientData) : message.opaqueClientData;
+                if (message.connection != null && $Object.hasOwnProperty.call(message, "connection"))
+                    object.connection = $root.E2E.Message.CoexConnectionDescriptor.toObject(message.connection, options, _depth + 1);
                 return object;
             };
 
@@ -96855,6 +97831,7 @@ $root.E2E = (function() {
              * @property {Protocol.ACP2Setting.$Properties|null} [acp2Setting] ProtocolMessage acp2Setting
              * @property {E2E.Message.SharedDeviceContactHashKeyShare.$Properties|null} [sharedDeviceContactHashKeyShare] ProtocolMessage sharedDeviceContactHashKeyShare
              * @property {E2E.Message.SharedDeviceContactHashKeyRequest.$Properties|null} [sharedDeviceContactHashKeyRequest] ProtocolMessage sharedDeviceContactHashKeyRequest
+             * @property {Array.<string>|null} [additionalPromptIds] ProtocolMessage additionalPromptIds
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -96902,6 +97879,7 @@ $root.E2E = (function() {
              *   acp2Setting?: Protocol.ACP2Setting.$Shape|null;
              *   sharedDeviceContactHashKeyShare?: E2E.Message.SharedDeviceContactHashKeyShare.$Shape|null;
              *   sharedDeviceContactHashKeyRequest?: E2E.Message.SharedDeviceContactHashKeyRequest.$Shape|null;
+             *   additionalPromptIds?: Array.<string>|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.ProtocolMessage.$Shape
              */
@@ -96915,6 +97893,7 @@ $root.E2E = (function() {
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ProtocolMessage = function (properties) {
+                this.additionalPromptIds = [];
                 if (properties)
                     for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -97184,6 +98163,14 @@ $root.E2E = (function() {
              * @instance
              */
             ProtocolMessage.prototype.sharedDeviceContactHashKeyRequest = null;
+
+            /**
+             * ProtocolMessage additionalPromptIds.
+             * @member {Array.<string>} additionalPromptIds
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.additionalPromptIds = $util.emptyArray;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -97484,6 +98471,9 @@ $root.E2E = (function() {
                     $root.E2E.Message.SharedDeviceContactHashKeyShare.encode(message.sharedDeviceContactHashKeyShare, writer.uint32(/* id 36, wireType 2 =*/290).fork(), _depth + 1).ldelim();
                 if (message.sharedDeviceContactHashKeyRequest != null && $Object.hasOwnProperty.call(message, "sharedDeviceContactHashKeyRequest"))
                     $root.E2E.Message.SharedDeviceContactHashKeyRequest.encode(message.sharedDeviceContactHashKeyRequest, writer.uint32(/* id 37, wireType 2 =*/298).fork(), _depth + 1).ldelim();
+                if (message.additionalPromptIds != null && message.additionalPromptIds.length)
+                    for (var i = 0; i < message.additionalPromptIds.length; ++i)
+                        writer.uint32(/* id 38, wireType 2 =*/306).string(message.additionalPromptIds[i]);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -97770,6 +98760,14 @@ $root.E2E = (function() {
                                 break;
                             message.sharedDeviceContactHashKeyRequest = $root.E2E.Message.SharedDeviceContactHashKeyRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sharedDeviceContactHashKeyRequest);
                             message._sharedDeviceContactHashKeyRequest = "sharedDeviceContactHashKeyRequest";
+                            continue;
+                        }
+                    case 38: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.additionalPromptIds && message.additionalPromptIds.length))
+                                message.additionalPromptIds = [];
+                            message.additionalPromptIds.push(reader.stringVerify());
                             continue;
                         }
                     }
@@ -98063,6 +99061,13 @@ $root.E2E = (function() {
                         if (error)
                             return "sharedDeviceContactHashKeyRequest." + error;
                     }
+                }
+                if (message.additionalPromptIds != null && $Object.hasOwnProperty.call(message, "additionalPromptIds")) {
+                    if (!$Array.isArray(message.additionalPromptIds))
+                        return "additionalPromptIds: array expected";
+                    for (var i = 0; i < message.additionalPromptIds.length; ++i)
+                        if (!$util.isString(message.additionalPromptIds[i]))
+                            return "additionalPromptIds: string[] expected";
                 }
                 return null;
             };
@@ -98389,6 +99394,13 @@ $root.E2E = (function() {
                         throw $TypeError(".E2E.Message.ProtocolMessage.sharedDeviceContactHashKeyRequest: object expected");
                     message.sharedDeviceContactHashKeyRequest = $root.E2E.Message.SharedDeviceContactHashKeyRequest.fromObject(object.sharedDeviceContactHashKeyRequest, _depth + 1);
                 }
+                if (object.additionalPromptIds) {
+                    if (!$Array.isArray(object.additionalPromptIds))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.additionalPromptIds: array expected");
+                    message.additionalPromptIds = $Array(object.additionalPromptIds.length);
+                    for (var i = 0; i < object.additionalPromptIds.length; ++i)
+                        message.additionalPromptIds[i] = $String(object.additionalPromptIds[i]);
+                }
                 return message;
             };
 
@@ -98409,6 +99421,8 @@ $root.E2E = (function() {
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
                 var object = {};
+                if (options.arrays || options.defaults)
+                    object.additionalPromptIds = [];
                 if (message.key != null && $Object.hasOwnProperty.call(message, "key"))
                     object.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.toObject(message.key, options, _depth + 1);
                 if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
@@ -98485,6 +99499,11 @@ $root.E2E = (function() {
                     object.sharedDeviceContactHashKeyShare = $root.E2E.Message.SharedDeviceContactHashKeyShare.toObject(message.sharedDeviceContactHashKeyShare, options, _depth + 1);
                 if (message.sharedDeviceContactHashKeyRequest != null && $Object.hasOwnProperty.call(message, "sharedDeviceContactHashKeyRequest"))
                     object.sharedDeviceContactHashKeyRequest = $root.E2E.Message.SharedDeviceContactHashKeyRequest.toObject(message.sharedDeviceContactHashKeyRequest, options, _depth + 1);
+                if (message.additionalPromptIds && message.additionalPromptIds.length) {
+                    object.additionalPromptIds = $Array(message.additionalPromptIds.length);
+                    for (var j = 0; j < message.additionalPromptIds.length; ++j)
+                        object.additionalPromptIds[j] = message.additionalPromptIds[j];
+                }
                 return object;
             };
 
@@ -99314,6 +100333,297 @@ $root.E2E = (function() {
             };
 
             return ReactionMessage;
+        })();
+
+        Message.RequestLocationMessage = (function() {
+
+            /**
+             * Properties of a RequestLocationMessage.
+             * @typedef {Object} E2E.Message.RequestLocationMessage.$Properties
+             * @property {E2E.ContextInfo.$Properties|null} [contextInfo] RequestLocationMessage contextInfo
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a RequestLocationMessage.
+             * @memberof E2E.Message
+             * @interface IRequestLocationMessage
+             * @augments E2E.Message.RequestLocationMessage.$Properties
+             * @deprecated Use E2E.Message.RequestLocationMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a RequestLocationMessage.
+             * @typedef {{
+             *   contextInfo?: E2E.ContextInfo.$Shape|null;
+             *   $unknowns?: Array.<Uint8Array>;
+             * }} E2E.Message.RequestLocationMessage.$Shape
+             */
+
+            /**
+             * Constructs a new RequestLocationMessage.
+             * @memberof E2E.Message
+             * @classdesc Represents a RequestLocationMessage.
+             * @constructor
+             * @param {E2E.Message.RequestLocationMessage.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var RequestLocationMessage = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * RequestLocationMessage contextInfo.
+             * @member {E2E.ContextInfo.$Properties|null|undefined} contextInfo
+             * @memberof E2E.Message.RequestLocationMessage
+             * @instance
+             */
+            RequestLocationMessage.prototype.contextInfo = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(RequestLocationMessage.prototype, "_contextInfo", {
+                get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new RequestLocationMessage instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {E2E.Message.RequestLocationMessage.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.RequestLocationMessage} RequestLocationMessage instance
+             * @type {{
+             *   (properties: E2E.Message.RequestLocationMessage.$Shape): E2E.Message.RequestLocationMessage & E2E.Message.RequestLocationMessage.$Shape;
+             *   (properties?: E2E.Message.RequestLocationMessage.$Properties): E2E.Message.RequestLocationMessage;
+             * }}
+             */
+            RequestLocationMessage.create = function(properties) {
+                return new RequestLocationMessage(properties);
+            };
+
+            /**
+             * Encodes the specified RequestLocationMessage message. Does not implicitly {@link E2E.Message.RequestLocationMessage.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {E2E.Message.RequestLocationMessage.$Properties} message RequestLocationMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RequestLocationMessage.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.contextInfo != null && $Object.hasOwnProperty.call(message, "contextInfo"))
+                    $root.E2E.ContextInfo.encode(message.contextInfo, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RequestLocationMessage message, length delimited. Does not implicitly {@link E2E.Message.RequestLocationMessage.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {E2E.Message.RequestLocationMessage.$Properties} message RequestLocationMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RequestLocationMessage.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a RequestLocationMessage message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.RequestLocationMessage & E2E.Message.RequestLocationMessage.$Shape} RequestLocationMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RequestLocationMessage.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.E2E.Message.RequestLocationMessage();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message._contextInfo = "contextInfo";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a RequestLocationMessage message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.RequestLocationMessage & E2E.Message.RequestLocationMessage.$Shape} RequestLocationMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RequestLocationMessage.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RequestLocationMessage message.
+             * @function verify
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RequestLocationMessage.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.contextInfo != null && $Object.hasOwnProperty.call(message, "contextInfo")) {
+                    properties._contextInfo = 1;
+                    {
+                        var error = $root.E2E.ContextInfo.verify(message.contextInfo, _depth + 1);
+                        if (error)
+                            return "contextInfo." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RequestLocationMessage message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.RequestLocationMessage} RequestLocationMessage
+             */
+            RequestLocationMessage.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.RequestLocationMessage)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.RequestLocationMessage: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.RequestLocationMessage();
+                if (object.contextInfo != null) {
+                    if (!$util.isObject(object.contextInfo))
+                        throw $TypeError(".E2E.Message.RequestLocationMessage.contextInfo: object expected");
+                    message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo, _depth + 1);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RequestLocationMessage message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {E2E.Message.RequestLocationMessage} message RequestLocationMessage
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RequestLocationMessage.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.contextInfo != null && $Object.hasOwnProperty.call(message, "contextInfo"))
+                    object.contextInfo = $root.E2E.ContextInfo.toObject(message.contextInfo, options, _depth + 1);
+                return object;
+            };
+
+            /**
+             * Converts this RequestLocationMessage to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.RequestLocationMessage
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RequestLocationMessage.prototype.toJSON = function() {
+                return RequestLocationMessage.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for RequestLocationMessage
+             * @function getTypeUrl
+             * @memberof E2E.Message.RequestLocationMessage
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            RequestLocationMessage.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.RequestLocationMessage";
+            };
+
+            return RequestLocationMessage;
         })();
 
         Message.RequestPaymentMessage = (function() {
@@ -142063,6 +143373,10 @@ $root.AICommon = (function() {
                 case 3:
                     message.type = 3;
                     break;
+                case "PRIVATE_SEARCH_CHAT":
+                case 4:
+                    message.type = 4;
+                    break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
                         message.type = object.type;
@@ -142129,6 +143443,7 @@ $root.AICommon = (function() {
              * @property {number} DEFAULT=1 DEFAULT value
              * @property {number} INCOGNITO=2 INCOGNITO value
              * @property {number} SIDE_CHAT=3 SIDE_CHAT value
+             * @property {number} PRIVATE_SEARCH_CHAT=4 PRIVATE_SEARCH_CHAT value
              */
             AIThreadClientInfo.AIThreadType = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -142136,6 +143451,7 @@ $root.AICommon = (function() {
                 values[valuesById[1] = "DEFAULT"] = 1;
                 values[valuesById[2] = "INCOGNITO"] = 2;
                 values[valuesById[3] = "SIDE_CHAT"] = 3;
+                values[valuesById[4] = "PRIVATE_SEARCH_CHAT"] = 4;
                 return values;
             })();
 
@@ -149039,9 +150355,37 @@ $root.AICommon = (function() {
                     case 72:
                         message.capabilities[message.capabilities.length] = 72;
                         break;
+                    case "AI_SUGGESTED_REPLIES_ENABLED":
+                    case 73:
+                        message.capabilities[message.capabilities.length] = 73;
+                        break;
+                    case "RICH_RESPONSE_IN_APP_SURVEY_BLOKS":
+                    case 74:
+                        message.capabilities[message.capabilities.length] = 74;
+                        break;
+                    case "RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION":
+                    case 75:
+                        message.capabilities[message.capabilities.length] = 75;
+                        break;
                     case "HATCH_CONNECTOR_ACTION_CARD_ENABLED":
                     case 76:
                         message.capabilities[message.capabilities.length] = 76;
+                        break;
+                    case "HATCH_SECURE_CREDENTIAL_CARD_ENABLED":
+                    case 77:
+                        message.capabilities[message.capabilities.length] = 77;
+                        break;
+                    case "HATCH_BROWSER_TASK_CARD_ENABLED":
+                    case 78:
+                        message.capabilities[message.capabilities.length] = 78;
+                        break;
+                    case "HATCH_ARTIFACT_CARD_ENABLED":
+                    case 79:
+                        message.capabilities[message.capabilities.length] = 79;
+                        break;
+                    case "AI_STUDY_CENTER_ENABLED":
+                    case 80:
+                        message.capabilities[message.capabilities.length] = 80;
                         break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
@@ -149180,7 +150524,14 @@ $root.AICommon = (function() {
          * @property {number} AI_STOP_GENERATION_ENABLED=70 AI_STOP_GENERATION_ENABLED value
          * @property {number} AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED=71 AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED value
          * @property {number} HATCH_NOTIFICATION_METADATA_EVENT_ENABLED=72 HATCH_NOTIFICATION_METADATA_EVENT_ENABLED value
+         * @property {number} AI_SUGGESTED_REPLIES_ENABLED=73 AI_SUGGESTED_REPLIES_ENABLED value
+         * @property {number} RICH_RESPONSE_IN_APP_SURVEY_BLOKS=74 RICH_RESPONSE_IN_APP_SURVEY_BLOKS value
+         * @property {number} RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION=75 RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION value
          * @property {number} HATCH_CONNECTOR_ACTION_CARD_ENABLED=76 HATCH_CONNECTOR_ACTION_CARD_ENABLED value
+         * @property {number} HATCH_SECURE_CREDENTIAL_CARD_ENABLED=77 HATCH_SECURE_CREDENTIAL_CARD_ENABLED value
+         * @property {number} HATCH_BROWSER_TASK_CARD_ENABLED=78 HATCH_BROWSER_TASK_CARD_ENABLED value
+         * @property {number} HATCH_ARTIFACT_CARD_ENABLED=79 HATCH_ARTIFACT_CARD_ENABLED value
+         * @property {number} AI_STUDY_CENTER_ENABLED=80 AI_STUDY_CENTER_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -149257,7 +150608,14 @@ $root.AICommon = (function() {
             values[valuesById[70] = "AI_STOP_GENERATION_ENABLED"] = 70;
             values[valuesById[71] = "AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED"] = 71;
             values[valuesById[72] = "HATCH_NOTIFICATION_METADATA_EVENT_ENABLED"] = 72;
+            values[valuesById[73] = "AI_SUGGESTED_REPLIES_ENABLED"] = 73;
+            values[valuesById[74] = "RICH_RESPONSE_IN_APP_SURVEY_BLOKS"] = 74;
+            values[valuesById[75] = "RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION"] = 75;
             values[valuesById[76] = "HATCH_CONNECTOR_ACTION_CARD_ENABLED"] = 76;
+            values[valuesById[77] = "HATCH_SECURE_CREDENTIAL_CARD_ENABLED"] = 77;
+            values[valuesById[78] = "HATCH_BROWSER_TASK_CARD_ENABLED"] = 78;
+            values[valuesById[79] = "HATCH_ARTIFACT_CARD_ENABLED"] = 79;
+            values[valuesById[80] = "AI_STUDY_CENTER_ENABLED"] = 80;
             return values;
         })();
 
@@ -168734,6 +170092,14 @@ $root.CompanionReg = (function() {
             case 27:
                 message.deviceType = 27;
                 break;
+            case "WAIL_WAI":
+            case 28:
+                message.deviceType = 28;
+                break;
+            case "WAIL_ALEXA":
+            case 29:
+                message.deviceType = 29;
+                break;
             default:
                 if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
                     message.deviceType = object.deviceType;
@@ -169266,6 +170632,14 @@ $root.CompanionReg = (function() {
             case 27:
                 message.platformType = 27;
                 break;
+            case "WAIL_WAI":
+            case 28:
+                message.platformType = 28;
+                break;
+            case "WAIL_ALEXA":
+            case 29:
+                message.platformType = 29;
+                break;
             default:
                 if (typeof object.platformType === "number" && (object.platformType | 0) === object.platformType)
                     message.platformType = object.platformType;
@@ -169779,6 +171153,8 @@ $root.CompanionReg = (function() {
              * @property {Array.<string>|null} [supportedBotChannelFbids] HistorySyncConfig supportedBotChannelFbids
              * @property {boolean|null} [supportInlineContacts] HistorySyncConfig supportInlineContacts
              * @property {boolean|null} [supportNewsletter] HistorySyncConfig supportNewsletter
+             * @property {boolean|null} [supportUniversalReachChat] HistorySyncConfig supportUniversalReachChat
+             * @property {boolean|null} [supportOmittedConversationIndex] HistorySyncConfig supportOmittedConversationIndex
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -170011,6 +171387,22 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.supportNewsletter = null;
 
+            /**
+             * HistorySyncConfig supportUniversalReachChat.
+             * @member {boolean|null|undefined} supportUniversalReachChat
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportUniversalReachChat = null;
+
+            /**
+             * HistorySyncConfig supportOmittedConversationIndex.
+             * @member {boolean|null|undefined} supportOmittedConversationIndex
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportOmittedConversationIndex = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -170158,6 +171550,18 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistorySyncConfig.prototype, "_supportUniversalReachChat", {
+                get: $util.oneOfGetter($oneOfFields = ["supportUniversalReachChat"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistorySyncConfig.prototype, "_supportOmittedConversationIndex", {
+                get: $util.oneOfGetter($oneOfFields = ["supportOmittedConversationIndex"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -170241,6 +171645,10 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 24, wireType 0 =*/192).bool(message.supportInlineContacts);
                 if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter"))
                     writer.uint32(/* id 25, wireType 0 =*/200).bool(message.supportNewsletter);
+                if (message.supportUniversalReachChat != null && $Object.hasOwnProperty.call(message, "supportUniversalReachChat"))
+                    writer.uint32(/* id 26, wireType 0 =*/208).bool(message.supportUniversalReachChat);
+                if (message.supportOmittedConversationIndex != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationIndex"))
+                    writer.uint32(/* id 27, wireType 0 =*/216).bool(message.supportOmittedConversationIndex);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -170474,6 +171882,20 @@ $root.CompanionReg = (function() {
                             message._supportNewsletter = "supportNewsletter";
                             continue;
                         }
+                    case 26: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportUniversalReachChat = reader.bool();
+                            message._supportUniversalReachChat = "supportUniversalReachChat";
+                            continue;
+                        }
+                    case 27: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportOmittedConversationIndex = reader.bool();
+                            message._supportOmittedConversationIndex = "supportOmittedConversationIndex";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -170650,6 +172072,16 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportNewsletter !== "boolean")
                         return "supportNewsletter: boolean expected";
                 }
+                if (message.supportUniversalReachChat != null && $Object.hasOwnProperty.call(message, "supportUniversalReachChat")) {
+                    properties._supportUniversalReachChat = 1;
+                    if (typeof message.supportUniversalReachChat !== "boolean")
+                        return "supportUniversalReachChat: boolean expected";
+                }
+                if (message.supportOmittedConversationIndex != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationIndex")) {
+                    properties._supportOmittedConversationIndex = 1;
+                    if (typeof message.supportOmittedConversationIndex !== "boolean")
+                        return "supportOmittedConversationIndex: boolean expected";
+                }
                 return null;
             };
 
@@ -170726,6 +172158,10 @@ $root.CompanionReg = (function() {
                     message.supportInlineContacts = $Boolean(object.supportInlineContacts);
                 if (object.supportNewsletter != null)
                     message.supportNewsletter = $Boolean(object.supportNewsletter);
+                if (object.supportUniversalReachChat != null)
+                    message.supportUniversalReachChat = $Boolean(object.supportUniversalReachChat);
+                if (object.supportOmittedConversationIndex != null)
+                    message.supportOmittedConversationIndex = $Boolean(object.supportOmittedConversationIndex);
                 return message;
             };
 
@@ -170801,6 +172237,10 @@ $root.CompanionReg = (function() {
                     object.supportInlineContacts = message.supportInlineContacts;
                 if (message.supportNewsletter != null && $Object.hasOwnProperty.call(message, "supportNewsletter"))
                     object.supportNewsletter = message.supportNewsletter;
+                if (message.supportUniversalReachChat != null && $Object.hasOwnProperty.call(message, "supportUniversalReachChat"))
+                    object.supportUniversalReachChat = message.supportUniversalReachChat;
+                if (message.supportOmittedConversationIndex != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationIndex"))
+                    object.supportOmittedConversationIndex = message.supportOmittedConversationIndex;
                 return object;
             };
 
@@ -170864,6 +172304,8 @@ $root.CompanionReg = (function() {
          * @property {number} WAIL=25 WAIL value
          * @property {number} WASS=26 WASS value
          * @property {number} BUSINESS_BACK_OFFICE=27 BUSINESS_BACK_OFFICE value
+         * @property {number} WAIL_WAI=28 WAIL_WAI value
+         * @property {number} WAIL_ALEXA=29 WAIL_ALEXA value
          */
         DeviceProps.PlatformType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -170895,6 +172337,8 @@ $root.CompanionReg = (function() {
             values[valuesById[25] = "WAIL"] = 25;
             values[valuesById[26] = "WASS"] = 26;
             values[valuesById[27] = "BUSINESS_BACK_OFFICE"] = 27;
+            values[valuesById[28] = "WAIL_WAI"] = 28;
+            values[valuesById[29] = "WAIL_ALEXA"] = 29;
             return values;
         })();
 

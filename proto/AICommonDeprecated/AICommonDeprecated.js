@@ -21997,6 +21997,10 @@ $root.AICommon = (function() {
                 case 3:
                     message.type = 3;
                     break;
+                case "PRIVATE_SEARCH_CHAT":
+                case 4:
+                    message.type = 4;
+                    break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
                         message.type = object.type;
@@ -22063,6 +22067,7 @@ $root.AICommon = (function() {
              * @property {number} DEFAULT=1 DEFAULT value
              * @property {number} INCOGNITO=2 INCOGNITO value
              * @property {number} SIDE_CHAT=3 SIDE_CHAT value
+             * @property {number} PRIVATE_SEARCH_CHAT=4 PRIVATE_SEARCH_CHAT value
              */
             AIThreadClientInfo.AIThreadType = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -22070,6 +22075,7 @@ $root.AICommon = (function() {
                 values[valuesById[1] = "DEFAULT"] = 1;
                 values[valuesById[2] = "INCOGNITO"] = 2;
                 values[valuesById[3] = "SIDE_CHAT"] = 3;
+                values[valuesById[4] = "PRIVATE_SEARCH_CHAT"] = 4;
                 return values;
             })();
 
@@ -28973,9 +28979,37 @@ $root.AICommon = (function() {
                     case 72:
                         message.capabilities[message.capabilities.length] = 72;
                         break;
+                    case "AI_SUGGESTED_REPLIES_ENABLED":
+                    case 73:
+                        message.capabilities[message.capabilities.length] = 73;
+                        break;
+                    case "RICH_RESPONSE_IN_APP_SURVEY_BLOKS":
+                    case 74:
+                        message.capabilities[message.capabilities.length] = 74;
+                        break;
+                    case "RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION":
+                    case 75:
+                        message.capabilities[message.capabilities.length] = 75;
+                        break;
                     case "HATCH_CONNECTOR_ACTION_CARD_ENABLED":
                     case 76:
                         message.capabilities[message.capabilities.length] = 76;
+                        break;
+                    case "HATCH_SECURE_CREDENTIAL_CARD_ENABLED":
+                    case 77:
+                        message.capabilities[message.capabilities.length] = 77;
+                        break;
+                    case "HATCH_BROWSER_TASK_CARD_ENABLED":
+                    case 78:
+                        message.capabilities[message.capabilities.length] = 78;
+                        break;
+                    case "HATCH_ARTIFACT_CARD_ENABLED":
+                    case 79:
+                        message.capabilities[message.capabilities.length] = 79;
+                        break;
+                    case "AI_STUDY_CENTER_ENABLED":
+                    case 80:
+                        message.capabilities[message.capabilities.length] = 80;
                         break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
@@ -29114,7 +29148,14 @@ $root.AICommon = (function() {
          * @property {number} AI_STOP_GENERATION_ENABLED=70 AI_STOP_GENERATION_ENABLED value
          * @property {number} AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED=71 AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED value
          * @property {number} HATCH_NOTIFICATION_METADATA_EVENT_ENABLED=72 HATCH_NOTIFICATION_METADATA_EVENT_ENABLED value
+         * @property {number} AI_SUGGESTED_REPLIES_ENABLED=73 AI_SUGGESTED_REPLIES_ENABLED value
+         * @property {number} RICH_RESPONSE_IN_APP_SURVEY_BLOKS=74 RICH_RESPONSE_IN_APP_SURVEY_BLOKS value
+         * @property {number} RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION=75 RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION value
          * @property {number} HATCH_CONNECTOR_ACTION_CARD_ENABLED=76 HATCH_CONNECTOR_ACTION_CARD_ENABLED value
+         * @property {number} HATCH_SECURE_CREDENTIAL_CARD_ENABLED=77 HATCH_SECURE_CREDENTIAL_CARD_ENABLED value
+         * @property {number} HATCH_BROWSER_TASK_CARD_ENABLED=78 HATCH_BROWSER_TASK_CARD_ENABLED value
+         * @property {number} HATCH_ARTIFACT_CARD_ENABLED=79 HATCH_ARTIFACT_CARD_ENABLED value
+         * @property {number} AI_STUDY_CENTER_ENABLED=80 AI_STUDY_CENTER_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -29191,7 +29232,14 @@ $root.AICommon = (function() {
             values[valuesById[70] = "AI_STOP_GENERATION_ENABLED"] = 70;
             values[valuesById[71] = "AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED"] = 71;
             values[valuesById[72] = "HATCH_NOTIFICATION_METADATA_EVENT_ENABLED"] = 72;
+            values[valuesById[73] = "AI_SUGGESTED_REPLIES_ENABLED"] = 73;
+            values[valuesById[74] = "RICH_RESPONSE_IN_APP_SURVEY_BLOKS"] = 74;
+            values[valuesById[75] = "RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION"] = 75;
             values[valuesById[76] = "HATCH_CONNECTOR_ACTION_CARD_ENABLED"] = 76;
+            values[valuesById[77] = "HATCH_SECURE_CREDENTIAL_CARD_ENABLED"] = 77;
+            values[valuesById[78] = "HATCH_BROWSER_TASK_CARD_ENABLED"] = 78;
+            values[valuesById[79] = "HATCH_ARTIFACT_CARD_ENABLED"] = 79;
+            values[valuesById[80] = "AI_STUDY_CENTER_ENABLED"] = 80;
             return values;
         })();
 
