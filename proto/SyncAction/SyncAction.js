@@ -1227,6 +1227,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.BusinessFolderActivationAction.$Properties|null} [businessFolderActivationAction] SyncActionValue businessFolderActivationAction
          * @property {SyncAction.SyncActionValue.GroupHistoryToggleAction.$Properties|null} [groupHistoryToggleAction] SyncActionValue groupHistoryToggleAction
          * @property {SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Properties|null} [bbProPendingCustomerBaseAction] SyncActionValue bbProPendingCustomerBaseAction
+         * @property {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties|null} [communityNestingStateAction] SyncActionValue communityNestingStateAction
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1330,6 +1331,7 @@ $root.SyncAction = (function() {
          *   businessFolderActivationAction?: SyncAction.SyncActionValue.BusinessFolderActivationAction.$Shape|null;
          *   groupHistoryToggleAction?: SyncAction.SyncActionValue.GroupHistoryToggleAction.$Shape|null;
          *   bbProPendingCustomerBaseAction?: SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.$Shape|null;
+         *   communityNestingStateAction?: SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -2061,6 +2063,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.bbProPendingCustomerBaseAction = null;
 
+        /**
+         * SyncActionValue communityNestingStateAction.
+         * @member {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties|null|undefined} communityNestingStateAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.communityNestingStateAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2598,6 +2608,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_communityNestingStateAction", {
+            get: $util.oneOfGetter($oneOfFields = ["communityNestingStateAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2808,6 +2824,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.encode(message.groupHistoryToggleAction, writer.uint32(/* id 97, wireType 2 =*/778).fork(), _depth + 1).ldelim();
             if (message.bbProPendingCustomerBaseAction != null && $Object.hasOwnProperty.call(message, "bbProPendingCustomerBaseAction"))
                 $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.encode(message.bbProPendingCustomerBaseAction, writer.uint32(/* id 98, wireType 2 =*/786).fork(), _depth + 1).ldelim();
+            if (message.communityNestingStateAction != null && $Object.hasOwnProperty.call(message, "communityNestingStateAction"))
+                $root.SyncAction.SyncActionValue.CommunityNestingStateAction.encode(message.communityNestingStateAction, writer.uint32(/* id 99, wireType 2 =*/794).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3486,6 +3504,13 @@ $root.SyncAction = (function() {
                             break;
                         message.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bbProPendingCustomerBaseAction);
                         message._bbProPendingCustomerBaseAction = "bbProPendingCustomerBaseAction";
+                        continue;
+                    }
+                case 99: {
+                        if (wireType !== 2)
+                            break;
+                        message.communityNestingStateAction = $root.SyncAction.SyncActionValue.CommunityNestingStateAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.communityNestingStateAction);
+                        message._communityNestingStateAction = "communityNestingStateAction";
                         continue;
                     }
                 }
@@ -4246,6 +4271,14 @@ $root.SyncAction = (function() {
                         return "bbProPendingCustomerBaseAction." + error;
                 }
             }
+            if (message.communityNestingStateAction != null && $Object.hasOwnProperty.call(message, "communityNestingStateAction")) {
+                properties._communityNestingStateAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.CommunityNestingStateAction.verify(message.communityNestingStateAction, _depth + 1);
+                    if (error)
+                        return "communityNestingStateAction." + error;
+                }
+            }
             return null;
         };
 
@@ -4716,6 +4749,11 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.bbProPendingCustomerBaseAction: object expected");
                 message.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.fromObject(object.bbProPendingCustomerBaseAction, _depth + 1);
             }
+            if (object.communityNestingStateAction != null) {
+                if (!$util.isObject(object.communityNestingStateAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.communityNestingStateAction: object expected");
+                message.communityNestingStateAction = $root.SyncAction.SyncActionValue.CommunityNestingStateAction.fromObject(object.communityNestingStateAction, _depth + 1);
+            }
             return message;
         };
 
@@ -4919,6 +4957,8 @@ $root.SyncAction = (function() {
                 object.groupHistoryToggleAction = $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.toObject(message.groupHistoryToggleAction, options, _depth + 1);
             if (message.bbProPendingCustomerBaseAction != null && $Object.hasOwnProperty.call(message, "bbProPendingCustomerBaseAction"))
                 object.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.toObject(message.bbProPendingCustomerBaseAction, options, _depth + 1);
+            if (message.communityNestingStateAction != null && $Object.hasOwnProperty.call(message, "communityNestingStateAction"))
+                object.communityNestingStateAction = $root.SyncAction.SyncActionValue.CommunityNestingStateAction.toObject(message.communityNestingStateAction, options, _depth + 1);
             return object;
         };
 
@@ -12042,6 +12082,319 @@ $root.SyncAction = (function() {
             };
 
             return CoexV2VersionAction;
+        })();
+
+        SyncActionValue.CommunityNestingStateAction = (function() {
+
+            /**
+             * Properties of a CommunityNestingStateAction.
+             * @typedef {Object} SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties
+             * @property {SyncAction.SyncActionValue.CommunityNestingStateAction.NestingState|null} [nestingState] CommunityNestingStateAction nestingState
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a CommunityNestingStateAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ICommunityNestingStateAction
+             * @augments SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a CommunityNestingStateAction.
+             * @typedef {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties} SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape
+             */
+
+            /**
+             * Constructs a new CommunityNestingStateAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a CommunityNestingStateAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var CommunityNestingStateAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * CommunityNestingStateAction nestingState.
+             * @member {SyncAction.SyncActionValue.CommunityNestingStateAction.NestingState|null|undefined} nestingState
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @instance
+             */
+            CommunityNestingStateAction.prototype.nestingState = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(CommunityNestingStateAction.prototype, "_nestingState", {
+                get: $util.oneOfGetter($oneOfFields = ["nestingState"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new CommunityNestingStateAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.CommunityNestingStateAction} CommunityNestingStateAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape): SyncAction.SyncActionValue.CommunityNestingStateAction & SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties): SyncAction.SyncActionValue.CommunityNestingStateAction;
+             * }}
+             */
+            CommunityNestingStateAction.create = function(properties) {
+                return new CommunityNestingStateAction(properties);
+            };
+
+            /**
+             * Encodes the specified CommunityNestingStateAction message. Does not implicitly {@link SyncAction.SyncActionValue.CommunityNestingStateAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties} message CommunityNestingStateAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CommunityNestingStateAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.nestingState != null && $Object.hasOwnProperty.call(message, "nestingState"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.nestingState);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CommunityNestingStateAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.CommunityNestingStateAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties} message CommunityNestingStateAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CommunityNestingStateAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a CommunityNestingStateAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.CommunityNestingStateAction & SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape} CommunityNestingStateAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CommunityNestingStateAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.SyncAction.SyncActionValue.CommunityNestingStateAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.nestingState = reader.int32();
+                            message._nestingState = "nestingState";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a CommunityNestingStateAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.CommunityNestingStateAction & SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape} CommunityNestingStateAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CommunityNestingStateAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CommunityNestingStateAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CommunityNestingStateAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.nestingState != null && $Object.hasOwnProperty.call(message, "nestingState")) {
+                    properties._nestingState = 1;
+                    if (typeof message.nestingState !== "number" || (message.nestingState | 0) !== message.nestingState)
+                        return "nestingState: enum value expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a CommunityNestingStateAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.CommunityNestingStateAction} CommunityNestingStateAction
+             */
+            CommunityNestingStateAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.CommunityNestingStateAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.CommunityNestingStateAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.CommunityNestingStateAction();
+                switch (object.nestingState) {
+                case "NESTING_STATE_UNKNOWN":
+                case 0:
+                    message.nestingState = 0;
+                    break;
+                case "NESTING_STATE_NESTED":
+                case 1:
+                    message.nestingState = 1;
+                    break;
+                case "NESTING_STATE_UNNESTED":
+                case 2:
+                    message.nestingState = 2;
+                    break;
+                default:
+                    if (typeof object.nestingState === "number" && (object.nestingState | 0) === object.nestingState)
+                        message.nestingState = object.nestingState;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CommunityNestingStateAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {SyncAction.SyncActionValue.CommunityNestingStateAction} message CommunityNestingStateAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CommunityNestingStateAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.nestingState != null && $Object.hasOwnProperty.call(message, "nestingState"))
+                    object.nestingState = options.enums === $String ? $root.SyncAction.SyncActionValue.CommunityNestingStateAction.NestingState[message.nestingState] === $undefined ? message.nestingState : $root.SyncAction.SyncActionValue.CommunityNestingStateAction.NestingState[message.nestingState] : message.nestingState;
+                return object;
+            };
+
+            /**
+             * Converts this CommunityNestingStateAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CommunityNestingStateAction.prototype.toJSON = function() {
+                return CommunityNestingStateAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for CommunityNestingStateAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.CommunityNestingStateAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            CommunityNestingStateAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.CommunityNestingStateAction";
+            };
+
+            /**
+             * NestingState enum.
+             * @name SyncAction.SyncActionValue.CommunityNestingStateAction.NestingState
+             * @enum {number}
+             * @property {number} NESTING_STATE_UNKNOWN=0 NESTING_STATE_UNKNOWN value
+             * @property {number} NESTING_STATE_NESTED=1 NESTING_STATE_NESTED value
+             * @property {number} NESTING_STATE_UNNESTED=2 NESTING_STATE_UNNESTED value
+             */
+            CommunityNestingStateAction.NestingState = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "NESTING_STATE_UNKNOWN"] = 0;
+                values[valuesById[1] = "NESTING_STATE_NESTED"] = 1;
+                values[valuesById[2] = "NESTING_STATE_UNNESTED"] = 2;
+                return values;
+            })();
+
+            return CommunityNestingStateAction;
         })();
 
         SyncActionValue.ContactAction = (function() {
@@ -40896,6 +41249,7 @@ $root.SyncAction = (function() {
      * @property {number} BUSINESS_FOLDER_ACTIVATION_ACTION=96 BUSINESS_FOLDER_ACTIVATION_ACTION value
      * @property {number} GROUP_HISTORY_TOGGLE_ACTION=97 GROUP_HISTORY_TOGGLE_ACTION value
      * @property {number} BB_PRO_PENDING_CUSTOMER_BASE_ACTION=98 BB_PRO_PENDING_CUSTOMER_BASE_ACTION value
+     * @property {number} COMMUNITY_NESTING_STATE_ACTION=99 COMMUNITY_NESTING_STATE_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -40994,6 +41348,7 @@ $root.SyncAction = (function() {
         values[valuesById[96] = "BUSINESS_FOLDER_ACTIVATION_ACTION"] = 96;
         values[valuesById[97] = "GROUP_HISTORY_TOGGLE_ACTION"] = 97;
         values[valuesById[98] = "BB_PRO_PENDING_CUSTOMER_BASE_ACTION"] = 98;
+        values[valuesById[99] = "COMMUNITY_NESTING_STATE_ACTION"] = 99;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
