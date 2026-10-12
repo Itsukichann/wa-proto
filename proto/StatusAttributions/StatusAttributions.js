@@ -288,42 +288,42 @@ $root.StatusAttributions = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusReshare);
+                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.size(), $undefined, _depth + 1, message.statusReshare);
                         message.attributionData = "statusReshare";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalShare);
+                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.size(), $undefined, _depth + 1, message.externalShare);
                         message.attributionData = "externalShare";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), $undefined, _depth + 1, message.music);
+                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.size(), $undefined, _depth + 1, message.music);
                         message.attributionData = "music";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatus);
+                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.size(), $undefined, _depth + 1, message.groupStatus);
                         message.attributionData = "groupStatus";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rlAttribution);
+                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.size(), $undefined, _depth + 1, message.rlAttribution);
                         message.attributionData = "rlAttribution";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiCreatedAttribution);
+                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.size(), $undefined, _depth + 1, message.aiCreatedAttribution);
                         message.attributionData = "aiCreatedAttribution";
                         continue;
                     }
@@ -357,7 +357,7 @@ $root.StatusAttributions = (function() {
         StatusAttribution.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -818,7 +818,7 @@ $root.StatusAttributions = (function() {
             AiCreatedAttribution.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1197,7 +1197,7 @@ $root.StatusAttributions = (function() {
             ExternalShare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1603,7 +1603,7 @@ $root.StatusAttributions = (function() {
             GroupStatus.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2005,7 +2005,7 @@ $root.StatusAttributions = (function() {
             Music.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2332,7 +2332,7 @@ $root.StatusAttributions = (function() {
             RLAttribution.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2641,7 +2641,7 @@ $root.StatusAttributions = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
+                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.size(), $undefined, _depth + 1, message.metadata);
                             message._metadata = "metadata";
                             continue;
                         }
@@ -2675,7 +2675,7 @@ $root.StatusAttributions = (function() {
             StatusReshare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -3064,7 +3064,7 @@ $root.StatusAttributions = (function() {
                 Metadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**

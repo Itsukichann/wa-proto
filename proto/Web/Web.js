@@ -249,7 +249,7 @@ $root.Web = (function() {
         ScheduledMessageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -588,7 +588,7 @@ $root.Web = (function() {
         QuarantinedMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -869,7 +869,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.deprecatedMessageHistoryBundle = $root.E2E.Message.MessageHistoryBundle.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deprecatedMessageHistoryBundle);
+                        message.deprecatedMessageHistoryBundle = $root.E2E.Message.MessageHistoryBundle.decode(reader, reader.size(), $undefined, _depth + 1, message.deprecatedMessageHistoryBundle);
                         message._deprecatedMessageHistoryBundle = "deprecatedMessageHistoryBundle";
                         continue;
                     }
@@ -910,7 +910,7 @@ $root.Web = (function() {
         GroupHistoryBundleInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1239,7 +1239,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.bundleMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bundleMessageKey);
+                        message.bundleMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.bundleMessageKey);
                         message._bundleMessageKey = "bundleMessageKey";
                         continue;
                     }
@@ -1280,7 +1280,7 @@ $root.Web = (function() {
         GroupHistoryIndividualMessageInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1649,7 +1649,7 @@ $root.Web = (function() {
         Citation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1927,7 +1927,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.quotedStatus = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedStatus);
+                        message.quotedStatus = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedStatus);
                         message._quotedStatus = "quotedStatus";
                         continue;
                     }
@@ -1961,7 +1961,7 @@ $root.Web = (function() {
         StatusMentionMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2351,7 +2351,7 @@ $root.Web = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.messageAddOn = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageAddOn);
+                        message.messageAddOn = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.messageAddOn);
                         message._messageAddOn = "messageAddOn";
                         continue;
                     }
@@ -2379,21 +2379,21 @@ $root.Web = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.addOnContextInfo = $root.Web.MessageAddOnContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.addOnContextInfo);
+                        message.addOnContextInfo = $root.Web.MessageAddOnContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.addOnContextInfo);
                         message._addOnContextInfo = "addOnContextInfo";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.messageAddOnKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageAddOnKey);
+                        message.messageAddOnKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageAddOnKey);
                         message._messageAddOnKey = "messageAddOnKey";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.legacyMessage = $root.Web.LegacyMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.legacyMessage);
+                        message.legacyMessage = $root.Web.LegacyMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.legacyMessage);
                         message._legacyMessage = "legacyMessage";
                         continue;
                     }
@@ -2427,7 +2427,7 @@ $root.Web = (function() {
         MessageAddOn.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2879,14 +2879,14 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.eventResponseMessage = $root.E2E.Message.EventResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventResponseMessage);
+                        message.eventResponseMessage = $root.E2E.Message.EventResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.eventResponseMessage);
                         message._eventResponseMessage = "eventResponseMessage";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.pollVote = $root.E2E.Message.PollVoteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollVote);
+                        message.pollVote = $root.E2E.Message.PollVoteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollVote);
                         message._pollVote = "pollVote";
                         continue;
                     }
@@ -2920,7 +2920,7 @@ $root.Web = (function() {
         LegacyMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3240,7 +3240,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.eventResponseMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventResponseMessageKey);
+                        message.eventResponseMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.eventResponseMessageKey);
                         message._eventResponseMessageKey = "eventResponseMessageKey";
                         continue;
                     }
@@ -3254,7 +3254,7 @@ $root.Web = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.eventResponseMessage = $root.E2E.Message.EventResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventResponseMessage);
+                        message.eventResponseMessage = $root.E2E.Message.EventResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.eventResponseMessage);
                         message._eventResponseMessage = "eventResponseMessage";
                         continue;
                     }
@@ -3295,7 +3295,7 @@ $root.Web = (function() {
         EventResponse.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3628,7 +3628,7 @@ $root.Web = (function() {
         PremiumMessageInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3934,7 +3934,7 @@ $root.Web = (function() {
         MessageAddOnContextInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4277,7 +4277,7 @@ $root.Web = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                         message._key = "key";
                         continue;
                     }
@@ -4298,7 +4298,7 @@ $root.Web = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.messageAddOnContextInfo = $root.Web.MessageAddOnContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageAddOnContextInfo);
+                        message.messageAddOnContextInfo = $root.Web.MessageAddOnContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.messageAddOnContextInfo);
                         message._messageAddOnContextInfo = "messageAddOnContextInfo";
                         continue;
                     }
@@ -4332,7 +4332,7 @@ $root.Web = (function() {
         PinInChat.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4782,7 +4782,7 @@ $root.Web = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                         message._key = "key";
                         continue;
                     }
@@ -4837,7 +4837,7 @@ $root.Web = (function() {
         KeepInChat.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -5221,7 +5221,7 @@ $root.Web = (function() {
         EventInviteAdditionalMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -5503,7 +5503,7 @@ $root.Web = (function() {
         EventAdditionalMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -5785,7 +5785,7 @@ $root.Web = (function() {
         InteractiveMessageAdditionalMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -6068,7 +6068,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.pollNameHashHistory && message.pollNameHashHistory.length))
                             message.pollNameHashHistory = [];
-                        message.pollNameHashHistory.push($root.Web.PollAdditionalMetadata.PollNameHashHistoryEntry.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.pollNameHashHistory.push($root.Web.PollAdditionalMetadata.PollNameHashHistoryEntry.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -6076,7 +6076,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.originalOptions && message.originalOptions.length))
                             message.originalOptions = [];
-                        message.originalOptions.push($root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.originalOptions.push($root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -6109,7 +6109,7 @@ $root.Web = (function() {
         PollAdditionalMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -6464,7 +6464,7 @@ $root.Web = (function() {
             PollNameHashHistoryEntry.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -6812,14 +6812,14 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.pollUpdateMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollUpdateMessageKey);
+                        message.pollUpdateMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pollUpdateMessageKey);
                         message._pollUpdateMessageKey = "pollUpdateMessageKey";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.vote = $root.E2E.Message.PollVoteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.vote);
+                        message.vote = $root.E2E.Message.PollVoteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.vote);
                         message._vote = "vote";
                         continue;
                     }
@@ -6847,7 +6847,7 @@ $root.Web = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
+                        message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.metadata);
                         message._metadata = "metadata";
                         continue;
                     }
@@ -6881,7 +6881,7 @@ $root.Web = (function() {
         PollUpdate.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -7284,7 +7284,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                         message._key = "key";
                         continue;
                     }
@@ -7346,7 +7346,7 @@ $root.Web = (function() {
         Reaction.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -7796,7 +7796,7 @@ $root.Web = (function() {
         UserReceipt.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -8207,7 +8207,7 @@ $root.Web = (function() {
         StatusPSA.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -8570,7 +8570,7 @@ $root.Web = (function() {
         PhotoChange.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -8876,7 +8876,7 @@ $root.Web = (function() {
         MediaData.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -9182,7 +9182,7 @@ $root.Web = (function() {
         ReportingTokenInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -10544,7 +10544,7 @@ $root.Web = (function() {
         WebFeatures.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -12118,14 +12118,14 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                         message._key = "key";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                        message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                         message._message = "message";
                         continue;
                     }
@@ -12173,7 +12173,7 @@ $root.Web = (function() {
         NotificationMessageInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -12548,7 +12548,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.notifyMessages && message.notifyMessages.length))
                             message.notifyMessages = [];
-                        message.notifyMessages.push($root.Web.WebMessageInfo.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.notifyMessages.push($root.Web.WebMessageInfo.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -12581,7 +12581,7 @@ $root.Web = (function() {
         WebNotificationsInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -13124,7 +13124,7 @@ $root.Web = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestMessageKey);
+                        message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.requestMessageKey);
                         message._requestMessageKey = "requestMessageKey";
                         continue;
                     }
@@ -13166,14 +13166,14 @@ $root.Web = (function() {
                 case 12: {
                         if (wireType !== 2)
                             break;
-                        message.primaryAmount = $root.E2E.Money.decode(reader, reader.uint32(), $undefined, _depth + 1, message.primaryAmount);
+                        message.primaryAmount = $root.E2E.Money.decode(reader, reader.size(), $undefined, _depth + 1, message.primaryAmount);
                         message._primaryAmount = "primaryAmount";
                         continue;
                     }
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.exchangeAmount = $root.E2E.Money.decode(reader, reader.uint32(), $undefined, _depth + 1, message.exchangeAmount);
+                        message.exchangeAmount = $root.E2E.Money.decode(reader, reader.size(), $undefined, _depth + 1, message.exchangeAmount);
                         message._exchangeAmount = "exchangeAmount";
                         continue;
                     }
@@ -13207,7 +13207,7 @@ $root.Web = (function() {
         PaymentInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -13949,7 +13949,7 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.commentParentKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commentParentKey);
+                        message.commentParentKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.commentParentKey);
                         message._commentParentKey = "commentParentKey";
                         continue;
                     }
@@ -13990,7 +13990,7 @@ $root.Web = (function() {
         CommentMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -15508,14 +15508,14 @@ $root.Web = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                        message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                         message._key = "key";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                        message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                         message._message = "message";
                         continue;
                     }
@@ -15643,21 +15643,21 @@ $root.Web = (function() {
                 case 29: {
                         if (wireType !== 2)
                             break;
-                        message.paymentInfo = $root.Web.PaymentInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentInfo);
+                        message.paymentInfo = $root.Web.PaymentInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentInfo);
                         message._paymentInfo = "paymentInfo";
                         continue;
                     }
                 case 30: {
                         if (wireType !== 2)
                             break;
-                        message.finalLiveLocation = $root.E2E.Message.LiveLocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.finalLiveLocation);
+                        message.finalLiveLocation = $root.E2E.Message.LiveLocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.finalLiveLocation);
                         message._finalLiveLocation = "finalLiveLocation";
                         continue;
                     }
                 case 31: {
                         if (wireType !== 2)
                             break;
-                        message.quotedPaymentInfo = $root.Web.PaymentInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedPaymentInfo);
+                        message.quotedPaymentInfo = $root.Web.PaymentInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedPaymentInfo);
                         message._quotedPaymentInfo = "quotedPaymentInfo";
                         continue;
                     }
@@ -15706,14 +15706,14 @@ $root.Web = (function() {
                 case 38: {
                         if (wireType !== 2)
                             break;
-                        message.mediaData = $root.E2E.PaymentBackground.MediaData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.mediaData);
+                        message.mediaData = $root.E2E.PaymentBackground.MediaData.decode(reader, reader.size(), $undefined, _depth + 1, message.mediaData);
                         message._mediaData = "mediaData";
                         continue;
                     }
                 case 39: {
                         if (wireType !== 2)
                             break;
-                        message.photoChange = $root.Web.PhotoChange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.photoChange);
+                        message.photoChange = $root.Web.PhotoChange.decode(reader, reader.size(), $undefined, _depth + 1, message.photoChange);
                         message._photoChange = "photoChange";
                         continue;
                     }
@@ -15722,7 +15722,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.userReceipt && message.userReceipt.length))
                             message.userReceipt = [];
-                        message.userReceipt.push($root.Web.UserReceipt.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.userReceipt.push($root.Web.UserReceipt.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 41: {
@@ -15730,13 +15730,13 @@ $root.Web = (function() {
                             break;
                         if (!(message.reactions && message.reactions.length))
                             message.reactions = [];
-                        message.reactions.push($root.Web.Reaction.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.reactions.push($root.Web.Reaction.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 42: {
                         if (wireType !== 2)
                             break;
-                        message.quotedStickerData = $root.E2E.PaymentBackground.MediaData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedStickerData);
+                        message.quotedStickerData = $root.E2E.PaymentBackground.MediaData.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedStickerData);
                         message._quotedStickerData = "quotedStickerData";
                         continue;
                     }
@@ -15750,7 +15750,7 @@ $root.Web = (function() {
                 case 44: {
                         if (wireType !== 2)
                             break;
-                        message.statusPsa = $root.Web.StatusPSA.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusPsa);
+                        message.statusPsa = $root.Web.StatusPSA.decode(reader, reader.size(), $undefined, _depth + 1, message.statusPsa);
                         message._statusPsa = "statusPsa";
                         continue;
                     }
@@ -15759,13 +15759,13 @@ $root.Web = (function() {
                             break;
                         if (!(message.pollUpdates && message.pollUpdates.length))
                             message.pollUpdates = [];
-                        message.pollUpdates.push($root.Web.PollUpdate.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.pollUpdates.push($root.Web.PollUpdate.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 46: {
                         if (wireType !== 2)
                             break;
-                        message.pollAdditionalMetadata = $root.Web.PollAdditionalMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollAdditionalMetadata);
+                        message.pollAdditionalMetadata = $root.Web.PollAdditionalMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.pollAdditionalMetadata);
                         message._pollAdditionalMetadata = "pollAdditionalMetadata";
                         continue;
                     }
@@ -15793,7 +15793,7 @@ $root.Web = (function() {
                 case 50: {
                         if (wireType !== 2)
                             break;
-                        message.keepInChat = $root.Web.KeepInChat.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keepInChat);
+                        message.keepInChat = $root.Web.KeepInChat.decode(reader, reader.size(), $undefined, _depth + 1, message.keepInChat);
                         message._keepInChat = "keepInChat";
                         continue;
                     }
@@ -15814,14 +15814,14 @@ $root.Web = (function() {
                 case 54: {
                         if (wireType !== 2)
                             break;
-                        message.pinInChat = $root.Web.PinInChat.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pinInChat);
+                        message.pinInChat = $root.Web.PinInChat.decode(reader, reader.size(), $undefined, _depth + 1, message.pinInChat);
                         message._pinInChat = "pinInChat";
                         continue;
                     }
                 case 55: {
                         if (wireType !== 2)
                             break;
-                        message.premiumMessageInfo = $root.Web.PremiumMessageInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.premiumMessageInfo);
+                        message.premiumMessageInfo = $root.Web.PremiumMessageInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.premiumMessageInfo);
                         message._premiumMessageInfo = "premiumMessageInfo";
                         continue;
                     }
@@ -15849,7 +15849,7 @@ $root.Web = (function() {
                 case 59: {
                         if (wireType !== 2)
                             break;
-                        message.commentMetadata = $root.Web.CommentMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commentMetadata);
+                        message.commentMetadata = $root.Web.CommentMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.commentMetadata);
                         message._commentMetadata = "commentMetadata";
                         continue;
                     }
@@ -15858,13 +15858,13 @@ $root.Web = (function() {
                             break;
                         if (!(message.eventResponses && message.eventResponses.length))
                             message.eventResponses = [];
-                        message.eventResponses.push($root.Web.EventResponse.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.eventResponses.push($root.Web.EventResponse.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 62: {
                         if (wireType !== 2)
                             break;
-                        message.reportingTokenInfo = $root.Web.ReportingTokenInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reportingTokenInfo);
+                        message.reportingTokenInfo = $root.Web.ReportingTokenInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.reportingTokenInfo);
                         message._reportingTokenInfo = "reportingTokenInfo";
                         continue;
                     }
@@ -15878,7 +15878,7 @@ $root.Web = (function() {
                 case 64: {
                         if (wireType !== 2)
                             break;
-                        message.eventAdditionalMetadata = $root.Web.EventAdditionalMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventAdditionalMetadata);
+                        message.eventAdditionalMetadata = $root.Web.EventAdditionalMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.eventAdditionalMetadata);
                         message._eventAdditionalMetadata = "eventAdditionalMetadata";
                         continue;
                     }
@@ -15900,7 +15900,7 @@ $root.Web = (function() {
                 case 67: {
                         if (wireType !== 2)
                             break;
-                        message.targetMessageId = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.targetMessageId);
+                        message.targetMessageId = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.targetMessageId);
                         message._targetMessageId = "targetMessageId";
                         continue;
                     }
@@ -15909,13 +15909,13 @@ $root.Web = (function() {
                             break;
                         if (!(message.messageAddOns && message.messageAddOns.length))
                             message.messageAddOns = [];
-                        message.messageAddOns.push($root.Web.MessageAddOn.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.messageAddOns.push($root.Web.MessageAddOn.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 69: {
                         if (wireType !== 2)
                             break;
-                        message.statusMentionMessageInfo = $root.Web.StatusMentionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusMentionMessageInfo);
+                        message.statusMentionMessageInfo = $root.Web.StatusMentionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusMentionMessageInfo);
                         message._statusMentionMessageInfo = "statusMentionMessageInfo";
                         continue;
                     }
@@ -15939,7 +15939,7 @@ $root.Web = (function() {
                             break;
                         if (!(message.supportAiCitations && message.supportAiCitations.length))
                             message.supportAiCitations = [];
-                        message.supportAiCitations.push($root.Web.Citation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.supportAiCitations.push($root.Web.Citation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 73: {
@@ -15952,28 +15952,28 @@ $root.Web = (function() {
                 case 74: {
                         if (wireType !== 2)
                             break;
-                        message.groupHistoryIndividualMessageInfo = $root.Web.GroupHistoryIndividualMessageInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupHistoryIndividualMessageInfo);
+                        message.groupHistoryIndividualMessageInfo = $root.Web.GroupHistoryIndividualMessageInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.groupHistoryIndividualMessageInfo);
                         message._groupHistoryIndividualMessageInfo = "groupHistoryIndividualMessageInfo";
                         continue;
                     }
                 case 75: {
                         if (wireType !== 2)
                             break;
-                        message.groupHistoryBundleInfo = $root.Web.GroupHistoryBundleInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupHistoryBundleInfo);
+                        message.groupHistoryBundleInfo = $root.Web.GroupHistoryBundleInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.groupHistoryBundleInfo);
                         message._groupHistoryBundleInfo = "groupHistoryBundleInfo";
                         continue;
                     }
                 case 76: {
                         if (wireType !== 2)
                             break;
-                        message.interactiveMessageAdditionalMetadata = $root.Web.InteractiveMessageAdditionalMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.interactiveMessageAdditionalMetadata);
+                        message.interactiveMessageAdditionalMetadata = $root.Web.InteractiveMessageAdditionalMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.interactiveMessageAdditionalMetadata);
                         message._interactiveMessageAdditionalMetadata = "interactiveMessageAdditionalMetadata";
                         continue;
                     }
                 case 77: {
                         if (wireType !== 2)
                             break;
-                        message.quarantinedMessage = $root.Web.QuarantinedMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quarantinedMessage);
+                        message.quarantinedMessage = $root.Web.QuarantinedMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.quarantinedMessage);
                         message._quarantinedMessage = "quarantinedMessage";
                         continue;
                     }
@@ -16001,7 +16001,7 @@ $root.Web = (function() {
                 case 81: {
                         if (wireType !== 2)
                             break;
-                        message.scheduledMessageMetadata = $root.Web.ScheduledMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.scheduledMessageMetadata);
+                        message.scheduledMessageMetadata = $root.Web.ScheduledMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.scheduledMessageMetadata);
                         message._scheduledMessageMetadata = "scheduledMessageMetadata";
                         continue;
                     }
@@ -16023,7 +16023,7 @@ $root.Web = (function() {
                 case 84: {
                         if (wireType !== 2)
                             break;
-                        message.eventInviteAdditionalMetadata = $root.Web.EventInviteAdditionalMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventInviteAdditionalMetadata);
+                        message.eventInviteAdditionalMetadata = $root.Web.EventInviteAdditionalMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.eventInviteAdditionalMetadata);
                         message._eventInviteAdditionalMetadata = "eventInviteAdditionalMetadata";
                         continue;
                     }
@@ -16057,7 +16057,7 @@ $root.Web = (function() {
         WebMessageInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -19078,7 +19078,7 @@ $root.E2E = (function() {
         GroupRootKeyShareEntry.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -19375,7 +19375,7 @@ $root.E2E = (function() {
                             break;
                         if (!(message.keys && message.keys.length))
                             message.keys = [];
-                        message.keys.push($root.E2E.GroupRootKeyShareEntry.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.keys.push($root.E2E.GroupRootKeyShareEntry.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -19408,7 +19408,7 @@ $root.E2E = (function() {
         GroupRootKeyShare.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -19711,14 +19711,14 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageKey);
+                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
                         message._messageKey = "messageKey";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                        message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                         message._message = "message";
                         continue;
                     }
@@ -19759,7 +19759,7 @@ $root.E2E = (function() {
         AIQueryFanout.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -20129,27 +20129,27 @@ $root.E2E = (function() {
                             break;
                         if (!(message.submessages && message.submessages.length))
                             message.submessages = [];
-                        message.submessages.push($root.AICommonDeprecated.AIRichResponseSubMessage.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.submessages.push($root.AICommonDeprecated.AIRichResponseSubMessage.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.unifiedResponse = $root.AICommon.AIRichResponseUnifiedResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unifiedResponse);
+                        message.unifiedResponse = $root.AICommon.AIRichResponseUnifiedResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.unifiedResponse);
                         message._unifiedResponse = "unifiedResponse";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                        message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                         message._contextInfo = "contextInfo";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.originalRecipientMetadata = $root.AICommon.AIRichResponseUnifiedResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.originalRecipientMetadata);
+                        message.originalRecipientMetadata = $root.AICommon.AIRichResponseUnifiedResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.originalRecipientMetadata);
                         message._originalRecipientMetadata = "originalRecipientMetadata";
                         continue;
                     }
@@ -20183,7 +20183,7 @@ $root.E2E = (function() {
         AIRichResponseMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -20571,7 +20571,7 @@ $root.E2E = (function() {
         MemberLabel.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -20835,7 +20835,7 @@ $root.E2E = (function() {
                             break;
                         if (!(message.urlTrackingMapElements && message.urlTrackingMapElements.length))
                             message.urlTrackingMapElements = [];
-                        message.urlTrackingMapElements.push($root.E2E.UrlTrackingMap.UrlTrackingMapElement.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.urlTrackingMapElements.push($root.E2E.UrlTrackingMap.UrlTrackingMapElement.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -20868,7 +20868,7 @@ $root.E2E = (function() {
         UrlTrackingMap.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -21235,7 +21235,7 @@ $root.E2E = (function() {
             UrlTrackingMapElement.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -21712,7 +21712,7 @@ $root.E2E = (function() {
         ProcessedVideo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -22121,7 +22121,7 @@ $root.E2E = (function() {
         LIDMigrationMappingSyncMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -22454,7 +22454,7 @@ $root.E2E = (function() {
         MediaNotifyMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -22817,7 +22817,7 @@ $root.E2E = (function() {
         MessageSecretMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -23147,7 +23147,7 @@ $root.E2E = (function() {
         GroupMention.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -23462,7 +23462,7 @@ $root.E2E = (function() {
         ActionLink.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -23825,7 +23825,7 @@ $root.E2E = (function() {
         DisappearingMode.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -24395,7 +24395,7 @@ $root.E2E = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.mediaData = $root.E2E.PaymentBackground.MediaData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.mediaData);
+                        message.mediaData = $root.E2E.PaymentBackground.MediaData.decode(reader, reader.size(), $undefined, _depth + 1, message.mediaData);
                         message._mediaData = "mediaData";
                         continue;
                     }
@@ -24436,7 +24436,7 @@ $root.E2E = (function() {
         PaymentBackground.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -24921,7 +24921,7 @@ $root.E2E = (function() {
             MediaData.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -25325,7 +25325,7 @@ $root.E2E = (function() {
         Money.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -25663,21 +25663,21 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.quickReplyButton = $root.E2E.HydratedTemplateButton.HydratedQuickReplyButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quickReplyButton);
+                        message.quickReplyButton = $root.E2E.HydratedTemplateButton.HydratedQuickReplyButton.decode(reader, reader.size(), $undefined, _depth + 1, message.quickReplyButton);
                         message.hydratedButton = "quickReplyButton";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.urlButton = $root.E2E.HydratedTemplateButton.HydratedURLButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.urlButton);
+                        message.urlButton = $root.E2E.HydratedTemplateButton.HydratedURLButton.decode(reader, reader.size(), $undefined, _depth + 1, message.urlButton);
                         message.hydratedButton = "urlButton";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.callButton = $root.E2E.HydratedTemplateButton.HydratedCallButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.callButton);
+                        message.callButton = $root.E2E.HydratedTemplateButton.HydratedCallButton.decode(reader, reader.size(), $undefined, _depth + 1, message.callButton);
                         message.hydratedButton = "callButton";
                         continue;
                     }
@@ -25711,7 +25711,7 @@ $root.E2E = (function() {
         HydratedTemplateButton.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -26072,7 +26072,7 @@ $root.E2E = (function() {
             HydratedCallButton.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26387,7 +26387,7 @@ $root.E2E = (function() {
             HydratedQuickReplyButton.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26750,7 +26750,7 @@ $root.E2E = (function() {
             HydratedURLButton.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -27119,21 +27119,21 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.quickReplyButton = $root.E2E.TemplateButton.QuickReplyButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quickReplyButton);
+                        message.quickReplyButton = $root.E2E.TemplateButton.QuickReplyButton.decode(reader, reader.size(), $undefined, _depth + 1, message.quickReplyButton);
                         message.button = "quickReplyButton";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.urlButton = $root.E2E.TemplateButton.URLButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.urlButton);
+                        message.urlButton = $root.E2E.TemplateButton.URLButton.decode(reader, reader.size(), $undefined, _depth + 1, message.urlButton);
                         message.button = "urlButton";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.callButton = $root.E2E.TemplateButton.CallButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.callButton);
+                        message.callButton = $root.E2E.TemplateButton.CallButton.decode(reader, reader.size(), $undefined, _depth + 1, message.callButton);
                         message.button = "callButton";
                         continue;
                     }
@@ -27167,7 +27167,7 @@ $root.E2E = (function() {
         TemplateButton.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -27491,14 +27491,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayText = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.displayText);
+                            message.displayText = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.displayText);
                             message._displayText = "displayText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.phoneNumber = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.phoneNumber);
+                            message.phoneNumber = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.phoneNumber);
                             message._phoneNumber = "phoneNumber";
                             continue;
                         }
@@ -27532,7 +27532,7 @@ $root.E2E = (function() {
             CallButton.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -27822,7 +27822,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayText = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.displayText);
+                            message.displayText = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.displayText);
                             message._displayText = "displayText";
                             continue;
                         }
@@ -27863,7 +27863,7 @@ $root.E2E = (function() {
             QuickReplyButton.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -28147,14 +28147,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.displayText = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.displayText);
+                            message.displayText = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.displayText);
                             message._displayText = "displayText";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.url = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.url);
+                            message.url = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.url);
                             message._url = "url";
                             continue;
                         }
@@ -28188,7 +28188,7 @@ $root.E2E = (function() {
             URLButton.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -28542,7 +28542,7 @@ $root.E2E = (function() {
         Location.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -28914,7 +28914,7 @@ $root.E2E = (function() {
         Point.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -29306,7 +29306,7 @@ $root.E2E = (function() {
                             break;
                         if (!(message.polygonVertices && message.polygonVertices.length))
                             message.polygonVertices = [];
-                        message.polygonVertices.push($root.E2E.Point.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.polygonVertices.push($root.E2E.Point.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 4: {
@@ -29319,7 +29319,7 @@ $root.E2E = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.embeddedContent = $root.E2E.EmbeddedContent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.embeddedContent);
+                        message.embeddedContent = $root.E2E.EmbeddedContent.decode(reader, reader.size(), $undefined, _depth + 1, message.embeddedContent);
                         message._embeddedContent = "embeddedContent";
                         continue;
                     }
@@ -29333,14 +29333,14 @@ $root.E2E = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.location = $root.E2E.Location.decode(reader, reader.uint32(), $undefined, _depth + 1, message.location);
+                        message.location = $root.E2E.Location.decode(reader, reader.size(), $undefined, _depth + 1, message.location);
                         message.action = "location";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.newsletter = $root.E2E.ContextInfo.ForwardedNewsletterMessageInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletter);
+                        message.newsletter = $root.E2E.ContextInfo.ForwardedNewsletterMessageInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletter);
                         message.action = "newsletter";
                         continue;
                     }
@@ -29354,7 +29354,7 @@ $root.E2E = (function() {
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.tapAction = $root.E2E.TapLinkAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.tapAction);
+                        message.tapAction = $root.E2E.TapLinkAction.decode(reader, reader.size(), $undefined, _depth + 1, message.tapAction);
                         message.action = "tapAction";
                         continue;
                     }
@@ -29388,7 +29388,7 @@ $root.E2E = (function() {
         InteractiveAnnotation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -29847,7 +29847,7 @@ $root.E2E = (function() {
         TapLinkAction.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -30127,14 +30127,14 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.embeddedMessage = $root.E2E.EmbeddedMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.embeddedMessage);
+                        message.embeddedMessage = $root.E2E.EmbeddedMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.embeddedMessage);
                         message.content = "embeddedMessage";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.embeddedMusic = $root.E2E.EmbeddedMusic.decode(reader, reader.uint32(), $undefined, _depth + 1, message.embeddedMusic);
+                        message.embeddedMusic = $root.E2E.EmbeddedMusic.decode(reader, reader.size(), $undefined, _depth + 1, message.embeddedMusic);
                         message.content = "embeddedMusic";
                         continue;
                     }
@@ -30168,7 +30168,7 @@ $root.E2E = (function() {
         EmbeddedContent.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -30791,7 +30791,7 @@ $root.E2E = (function() {
         EmbeddedMusic.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -31232,7 +31232,7 @@ $root.E2E = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                        message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                         message._message = "message";
                         continue;
                     }
@@ -31266,7 +31266,7 @@ $root.E2E = (function() {
         EmbeddedMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -31735,7 +31735,7 @@ $root.E2E = (function() {
         DeviceListMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -32466,7 +32466,7 @@ $root.E2E = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.deviceListMetadata = $root.E2E.DeviceListMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deviceListMetadata);
+                        message.deviceListMetadata = $root.E2E.DeviceListMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.deviceListMetadata);
                         message._deviceListMetadata = "deviceListMetadata";
                         continue;
                     }
@@ -32508,7 +32508,7 @@ $root.E2E = (function() {
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.botMetadata = $root.AICommon.BotMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botMetadata);
+                        message.botMetadata = $root.AICommon.BotMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botMetadata);
                         message._botMetadata = "botMetadata";
                         continue;
                     }
@@ -32529,7 +32529,7 @@ $root.E2E = (function() {
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.messageAssociation = $root.E2E.MessageAssociation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageAssociation);
+                        message.messageAssociation = $root.E2E.MessageAssociation.decode(reader, reader.size(), $undefined, _depth + 1, message.messageAssociation);
                         message._messageAssociation = "messageAssociation";
                         continue;
                     }
@@ -32550,14 +32550,14 @@ $root.E2E = (function() {
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.limitSharing = $root.Protocol.LimitSharing.decode(reader, reader.uint32(), $undefined, _depth + 1, message.limitSharing);
+                        message.limitSharing = $root.Protocol.LimitSharing.decode(reader, reader.size(), $undefined, _depth + 1, message.limitSharing);
                         message._limitSharing = "limitSharing";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.limitSharingV2 = $root.Protocol.LimitSharing.decode(reader, reader.uint32(), $undefined, _depth + 1, message.limitSharingV2);
+                        message.limitSharingV2 = $root.Protocol.LimitSharing.decode(reader, reader.size(), $undefined, _depth + 1, message.limitSharingV2);
                         message._limitSharingV2 = "limitSharingV2";
                         continue;
                     }
@@ -32566,7 +32566,7 @@ $root.E2E = (function() {
                             break;
                         if (!(message.threadId && message.threadId.length))
                             message.threadId = [];
-                        message.threadId.push($root.E2E.ThreadID.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.threadId.push($root.E2E.ThreadID.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 16: {
@@ -32586,7 +32586,7 @@ $root.E2E = (function() {
                 case 18: {
                         if (wireType !== 2)
                             break;
-                        message.accountEncryptionAttestation = $root.Aea.NonE2EEAttestation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.accountEncryptionAttestation);
+                        message.accountEncryptionAttestation = $root.Aea.NonE2EEAttestation.decode(reader, reader.size(), $undefined, _depth + 1, message.accountEncryptionAttestation);
                         message._accountEncryptionAttestation = "accountEncryptionAttestation";
                         continue;
                     }
@@ -32607,7 +32607,7 @@ $root.E2E = (function() {
                 case 21: {
                         if (wireType !== 2)
                             break;
-                        message.acp2Setting = $root.Protocol.ACP2Setting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.acp2Setting);
+                        message.acp2Setting = $root.Protocol.ACP2Setting.decode(reader, reader.size(), $undefined, _depth + 1, message.acp2Setting);
                         message._acp2Setting = "acp2Setting";
                         continue;
                     }
@@ -32641,7 +32641,7 @@ $root.E2E = (function() {
         MessageContextInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -33203,7 +33203,7 @@ $root.E2E = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.threadKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.threadKey);
+                        message.threadKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.threadKey);
                         message._threadKey = "threadKey";
                         continue;
                     }
@@ -33237,7 +33237,7 @@ $root.E2E = (function() {
         ThreadID.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -33572,7 +33572,7 @@ $root.E2E = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.parentMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.parentMessageKey);
+                        message.parentMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.parentMessageKey);
                         message._parentMessageKey = "parentMessageKey";
                         continue;
                     }
@@ -33613,7 +33613,7 @@ $root.E2E = (function() {
         MessageAssociation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -35206,7 +35206,7 @@ $root.E2E = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.quotedMessage = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedMessage);
+                        message.quotedMessage = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedMessage);
                         message._quotedMessage = "quotedMessage";
                         continue;
                     }
@@ -35263,14 +35263,14 @@ $root.E2E = (function() {
                 case 23: {
                         if (wireType !== 2)
                             break;
-                        message.quotedAd = $root.E2E.ContextInfo.AdReplyInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedAd);
+                        message.quotedAd = $root.E2E.ContextInfo.AdReplyInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedAd);
                         message._quotedAd = "quotedAd";
                         continue;
                     }
                 case 24: {
                         if (wireType !== 2)
                             break;
-                        message.placeholderKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.placeholderKey);
+                        message.placeholderKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.placeholderKey);
                         message._placeholderKey = "placeholderKey";
                         continue;
                     }
@@ -35298,7 +35298,7 @@ $root.E2E = (function() {
                 case 28: {
                         if (wireType !== 2)
                             break;
-                        message.externalAdReply = $root.E2E.ContextInfo.ExternalAdReplyInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalAdReply);
+                        message.externalAdReply = $root.E2E.ContextInfo.ExternalAdReplyInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.externalAdReply);
                         message._externalAdReply = "externalAdReply";
                         continue;
                     }
@@ -35326,14 +35326,14 @@ $root.E2E = (function() {
                 case 32: {
                         if (wireType !== 2)
                             break;
-                        message.disappearingMode = $root.E2E.DisappearingMode.decode(reader, reader.uint32(), $undefined, _depth + 1, message.disappearingMode);
+                        message.disappearingMode = $root.E2E.DisappearingMode.decode(reader, reader.size(), $undefined, _depth + 1, message.disappearingMode);
                         message._disappearingMode = "disappearingMode";
                         continue;
                     }
                 case 33: {
                         if (wireType !== 2)
                             break;
-                        message.actionLink = $root.E2E.ActionLink.decode(reader, reader.uint32(), $undefined, _depth + 1, message.actionLink);
+                        message.actionLink = $root.E2E.ActionLink.decode(reader, reader.size(), $undefined, _depth + 1, message.actionLink);
                         message._actionLink = "actionLink";
                         continue;
                     }
@@ -35377,27 +35377,27 @@ $root.E2E = (function() {
                             break;
                         if (!(message.groupMentions && message.groupMentions.length))
                             message.groupMentions = [];
-                        message.groupMentions.push($root.E2E.GroupMention.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.groupMentions.push($root.E2E.GroupMention.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 41: {
                         if (wireType !== 2)
                             break;
-                        message.utm = $root.E2E.ContextInfo.UTMInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.utm);
+                        message.utm = $root.E2E.ContextInfo.UTMInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.utm);
                         message._utm = "utm";
                         continue;
                     }
                 case 43: {
                         if (wireType !== 2)
                             break;
-                        message.forwardedNewsletterMessageInfo = $root.E2E.ContextInfo.ForwardedNewsletterMessageInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.forwardedNewsletterMessageInfo);
+                        message.forwardedNewsletterMessageInfo = $root.E2E.ContextInfo.ForwardedNewsletterMessageInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.forwardedNewsletterMessageInfo);
                         message._forwardedNewsletterMessageInfo = "forwardedNewsletterMessageInfo";
                         continue;
                     }
                 case 44: {
                         if (wireType !== 2)
                             break;
-                        message.businessMessageForwardInfo = $root.E2E.ContextInfo.BusinessMessageForwardInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessMessageForwardInfo);
+                        message.businessMessageForwardInfo = $root.E2E.ContextInfo.BusinessMessageForwardInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.businessMessageForwardInfo);
                         message._businessMessageForwardInfo = "businessMessageForwardInfo";
                         continue;
                     }
@@ -35418,7 +35418,7 @@ $root.E2E = (function() {
                 case 47: {
                         if (wireType !== 2)
                             break;
-                        message.dataSharingContext = $root.E2E.ContextInfo.DataSharingContext.decode(reader, reader.uint32(), $undefined, _depth + 1, message.dataSharingContext);
+                        message.dataSharingContext = $root.E2E.ContextInfo.DataSharingContext.decode(reader, reader.size(), $undefined, _depth + 1, message.dataSharingContext);
                         message._dataSharingContext = "dataSharingContext";
                         continue;
                     }
@@ -35432,7 +35432,7 @@ $root.E2E = (function() {
                 case 49: {
                         if (wireType !== 2)
                             break;
-                        message.featureEligibilities = $root.E2E.ContextInfo.FeatureEligibilities.decode(reader, reader.uint32(), $undefined, _depth + 1, message.featureEligibilities);
+                        message.featureEligibilities = $root.E2E.ContextInfo.FeatureEligibilities.decode(reader, reader.size(), $undefined, _depth + 1, message.featureEligibilities);
                         message._featureEligibilities = "featureEligibilities";
                         continue;
                     }
@@ -35467,7 +35467,7 @@ $root.E2E = (function() {
                 case 56: {
                         if (wireType !== 2)
                             break;
-                        message.forwardedAiBotMessageInfo = $root.AICommon.ForwardedAIBotMessageInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.forwardedAiBotMessageInfo);
+                        message.forwardedAiBotMessageInfo = $root.AICommon.ForwardedAIBotMessageInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.forwardedAiBotMessageInfo);
                         message._forwardedAiBotMessageInfo = "forwardedAiBotMessageInfo";
                         continue;
                     }
@@ -35481,7 +35481,7 @@ $root.E2E = (function() {
                 case 58: {
                         if (wireType !== 2)
                             break;
-                        message.urlTrackingMap = $root.E2E.UrlTrackingMap.decode(reader, reader.uint32(), $undefined, _depth + 1, message.urlTrackingMap);
+                        message.urlTrackingMap = $root.E2E.UrlTrackingMap.decode(reader, reader.size(), $undefined, _depth + 1, message.urlTrackingMap);
                         message._urlTrackingMap = "urlTrackingMap";
                         continue;
                     }
@@ -35502,7 +35502,7 @@ $root.E2E = (function() {
                 case 62: {
                         if (wireType !== 2)
                             break;
-                        message.memberLabel = $root.E2E.MemberLabel.decode(reader, reader.uint32(), $undefined, _depth + 1, message.memberLabel);
+                        message.memberLabel = $root.E2E.MemberLabel.decode(reader, reader.size(), $undefined, _depth + 1, message.memberLabel);
                         message._memberLabel = "memberLabel";
                         continue;
                     }
@@ -35525,7 +35525,7 @@ $root.E2E = (function() {
                             break;
                         if (!(message.statusAttributions && message.statusAttributions.length))
                             message.statusAttributions = [];
-                        message.statusAttributions.push($root.StatusAttributions.StatusAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.statusAttributions.push($root.StatusAttributions.StatusAttribution.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 66: {
@@ -35545,14 +35545,14 @@ $root.E2E = (function() {
                 case 68: {
                         if (wireType !== 2)
                             break;
-                        message.questionReplyQuotedMessage = $root.E2E.ContextInfo.QuestionReplyQuotedMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.questionReplyQuotedMessage);
+                        message.questionReplyQuotedMessage = $root.E2E.ContextInfo.QuestionReplyQuotedMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.questionReplyQuotedMessage);
                         message._questionReplyQuotedMessage = "questionReplyQuotedMessage";
                         continue;
                     }
                 case 69: {
                         if (wireType !== 2)
                             break;
-                        message.statusAudienceMetadata = $root.E2E.ContextInfo.StatusAudienceMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusAudienceMetadata);
+                        message.statusAudienceMetadata = $root.E2E.ContextInfo.StatusAudienceMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.statusAudienceMetadata);
                         message._statusAudienceMetadata = "statusAudienceMetadata";
                         continue;
                     }
@@ -35573,7 +35573,7 @@ $root.E2E = (function() {
                 case 72: {
                         if (wireType !== 2)
                             break;
-                        message.botMessageSharingInfo = $root.AICommon.BotMessageSharingInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botMessageSharingInfo);
+                        message.botMessageSharingInfo = $root.AICommon.BotMessageSharingInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.botMessageSharingInfo);
                         message._botMessageSharingInfo = "botMessageSharingInfo";
                         continue;
                     }
@@ -35587,14 +35587,14 @@ $root.E2E = (function() {
                 case 74: {
                         if (wireType !== 2)
                             break;
-                        message.mediaDomainInfo = $root.E2E.MediaDomainInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.mediaDomainInfo);
+                        message.mediaDomainInfo = $root.E2E.MediaDomainInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.mediaDomainInfo);
                         message._mediaDomainInfo = "mediaDomainInfo";
                         continue;
                     }
                 case 75: {
                         if (wireType !== 2)
                             break;
-                        message.partiallySelectedContent = $root.E2E.ContextInfo.PartiallySelectedContent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.partiallySelectedContent);
+                        message.partiallySelectedContent = $root.E2E.ContextInfo.PartiallySelectedContent.decode(reader, reader.size(), $undefined, _depth + 1, message.partiallySelectedContent);
                         message._partiallySelectedContent = "partiallySelectedContent";
                         continue;
                     }
@@ -35615,7 +35615,7 @@ $root.E2E = (function() {
                 case 78: {
                         if (wireType !== 2)
                             break;
-                        message.businessInteractionPills = $root.E2E.ContextInfo.BusinessInteractionPills.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessInteractionPills);
+                        message.businessInteractionPills = $root.E2E.ContextInfo.BusinessInteractionPills.decode(reader, reader.size(), $undefined, _depth + 1, message.businessInteractionPills);
                         message._businessInteractionPills = "businessInteractionPills";
                         continue;
                     }
@@ -35629,14 +35629,14 @@ $root.E2E = (function() {
                 case 80: {
                         if (wireType !== 2)
                             break;
-                        message.instagramThreadLink = $root.E2E.ContextInfo.InstagramThreadLink.decode(reader, reader.uint32(), $undefined, _depth + 1, message.instagramThreadLink);
+                        message.instagramThreadLink = $root.E2E.ContextInfo.InstagramThreadLink.decode(reader, reader.size(), $undefined, _depth + 1, message.instagramThreadLink);
                         message._instagramThreadLink = "instagramThreadLink";
                         continue;
                     }
                 case 81: {
                         if (wireType !== 2)
                             break;
-                        message.aiProvenance = $root.AICommon.AIProvenance.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiProvenance);
+                        message.aiProvenance = $root.AICommon.AIProvenance.decode(reader, reader.size(), $undefined, _depth + 1, message.aiProvenance);
                         message._aiProvenance = "aiProvenance";
                         continue;
                     }
@@ -35691,7 +35691,7 @@ $root.E2E = (function() {
         ContextInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -36994,7 +36994,7 @@ $root.E2E = (function() {
             AdReplyInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -37393,7 +37393,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.pills && message.pills.length))
                                 message.pills = [];
-                            message.pills.push($root.E2E.ContextInfo.BusinessInteractionPills.Pill.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.pills.push($root.E2E.ContextInfo.BusinessInteractionPills.Pill.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 3: {
@@ -37413,14 +37413,14 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.signatureEnvelope);
+                            message.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.signatureEnvelope);
                             message._signatureEnvelope = "signatureEnvelope";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.unauthenticatedBusinessMetadata = $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unauthenticatedBusinessMetadata);
+                            message.unauthenticatedBusinessMetadata = $root.E2E.ContextInfo.BusinessInteractionPills.UnauthenticatedBusinessMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.unauthenticatedBusinessMetadata);
                             message._unauthenticatedBusinessMetadata = "unauthenticatedBusinessMetadata";
                             continue;
                         }
@@ -37454,7 +37454,7 @@ $root.E2E = (function() {
             BusinessInteractionPills.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -37883,7 +37883,7 @@ $root.E2E = (function() {
                 Pill.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -38253,7 +38253,7 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.pills && message.pills.length))
                                     message.pills = [];
-                                message.pills.push($root.E2E.ContextInfo.BusinessInteractionPills.Pill.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.pills.push($root.E2E.ContextInfo.BusinessInteractionPills.Pill.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         }
@@ -38286,7 +38286,7 @@ $root.E2E = (function() {
                 SignedPayload.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -38666,7 +38666,7 @@ $root.E2E = (function() {
                 UnauthenticatedBusinessMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -38990,7 +38990,7 @@ $root.E2E = (function() {
             BusinessMessageForwardInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -39317,7 +39317,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.parameters && message.parameters.length))
                                 message.parameters = [];
-                            message.parameters.push($root.E2E.ContextInfo.DataSharingContext.Parameters.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.parameters.push($root.E2E.ContextInfo.DataSharingContext.Parameters.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 4: {
@@ -39357,7 +39357,7 @@ $root.E2E = (function() {
             DataSharingContext.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -39756,7 +39756,7 @@ $root.E2E = (function() {
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.contents = $root.E2E.ContextInfo.DataSharingContext.Parameters.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contents);
+                                message.contents = $root.E2E.ContextInfo.DataSharingContext.Parameters.decode(reader, reader.size(), $undefined, _depth + 1, message.contents);
                                 message._contents = "contents";
                                 continue;
                             }
@@ -39790,7 +39790,7 @@ $root.E2E = (function() {
                 Parameters.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -41089,7 +41089,7 @@ $root.E2E = (function() {
             ExternalAdReplyInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -41898,7 +41898,7 @@ $root.E2E = (function() {
             FeatureEligibilities.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -42358,7 +42358,7 @@ $root.E2E = (function() {
             ForwardedNewsletterMessageInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -42716,7 +42716,7 @@ $root.E2E = (function() {
             InstagramThreadLink.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -43034,7 +43034,7 @@ $root.E2E = (function() {
             PartiallySelectedContent.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -43328,14 +43328,14 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.quotedQuestion = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedQuestion);
+                            message.quotedQuestion = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedQuestion);
                             message._quotedQuestion = "quotedQuestion";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.quotedResponse = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quotedResponse);
+                            message.quotedResponse = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.quotedResponse);
                             message._quotedResponse = "quotedResponse";
                             continue;
                         }
@@ -43369,7 +43369,7 @@ $root.E2E = (function() {
             QuestionReplyQuotedMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -43763,7 +43763,7 @@ $root.E2E = (function() {
             StatusAudienceMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -44134,7 +44134,7 @@ $root.E2E = (function() {
             UTMInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -44452,7 +44452,7 @@ $root.E2E = (function() {
         MediaDomainInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -46825,812 +46825,812 @@ $root.E2E = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.senderKeyDistributionMessage = $root.E2E.Message.SenderKeyDistributionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderKeyDistributionMessage);
+                        message.senderKeyDistributionMessage = $root.E2E.Message.SenderKeyDistributionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.senderKeyDistributionMessage);
                         message._senderKeyDistributionMessage = "senderKeyDistributionMessage";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMessage);
+                        message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMessage);
                         message._imageMessage = "imageMessage";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.contactMessage = $root.E2E.Message.ContactMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactMessage);
+                        message.contactMessage = $root.E2E.Message.ContactMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.contactMessage);
                         message._contactMessage = "contactMessage";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.locationMessage);
+                        message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.locationMessage);
                         message._locationMessage = "locationMessage";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.extendedTextMessage = $root.E2E.Message.ExtendedTextMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.extendedTextMessage);
+                        message.extendedTextMessage = $root.E2E.Message.ExtendedTextMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.extendedTextMessage);
                         message._extendedTextMessage = "extendedTextMessage";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.documentMessage);
+                        message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.documentMessage);
                         message._documentMessage = "documentMessage";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioMessage);
+                        message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.audioMessage);
                         message._audioMessage = "audioMessage";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.videoMessage);
+                        message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.videoMessage);
                         message._videoMessage = "videoMessage";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.call = $root.E2E.Message.Call.decode(reader, reader.uint32(), $undefined, _depth + 1, message.call);
+                        message.call = $root.E2E.Message.Call.decode(reader, reader.size(), $undefined, _depth + 1, message.call);
                         message._call = "call";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.chat = $root.E2E.Message.Chat.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chat);
+                        message.chat = $root.E2E.Message.Chat.decode(reader, reader.size(), $undefined, _depth + 1, message.chat);
                         message._chat = "chat";
                         continue;
                     }
                 case 12: {
                         if (wireType !== 2)
                             break;
-                        message.protocolMessage = $root.E2E.Message.ProtocolMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.protocolMessage);
+                        message.protocolMessage = $root.E2E.Message.ProtocolMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.protocolMessage);
                         message._protocolMessage = "protocolMessage";
                         continue;
                     }
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.contactsArrayMessage = $root.E2E.Message.ContactsArrayMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactsArrayMessage);
+                        message.contactsArrayMessage = $root.E2E.Message.ContactsArrayMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.contactsArrayMessage);
                         message._contactsArrayMessage = "contactsArrayMessage";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.highlyStructuredMessage = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.highlyStructuredMessage);
+                        message.highlyStructuredMessage = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.highlyStructuredMessage);
                         message._highlyStructuredMessage = "highlyStructuredMessage";
                         continue;
                     }
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.fastRatchetKeySenderKeyDistributionMessage = $root.E2E.Message.SenderKeyDistributionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fastRatchetKeySenderKeyDistributionMessage);
+                        message.fastRatchetKeySenderKeyDistributionMessage = $root.E2E.Message.SenderKeyDistributionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.fastRatchetKeySenderKeyDistributionMessage);
                         message._fastRatchetKeySenderKeyDistributionMessage = "fastRatchetKeySenderKeyDistributionMessage";
                         continue;
                     }
                 case 16: {
                         if (wireType !== 2)
                             break;
-                        message.sendPaymentMessage = $root.E2E.Message.SendPaymentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sendPaymentMessage);
+                        message.sendPaymentMessage = $root.E2E.Message.SendPaymentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.sendPaymentMessage);
                         message._sendPaymentMessage = "sendPaymentMessage";
                         continue;
                     }
                 case 18: {
                         if (wireType !== 2)
                             break;
-                        message.liveLocationMessage = $root.E2E.Message.LiveLocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.liveLocationMessage);
+                        message.liveLocationMessage = $root.E2E.Message.LiveLocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.liveLocationMessage);
                         message._liveLocationMessage = "liveLocationMessage";
                         continue;
                     }
                 case 22: {
                         if (wireType !== 2)
                             break;
-                        message.requestPaymentMessage = $root.E2E.Message.RequestPaymentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestPaymentMessage);
+                        message.requestPaymentMessage = $root.E2E.Message.RequestPaymentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.requestPaymentMessage);
                         message._requestPaymentMessage = "requestPaymentMessage";
                         continue;
                     }
                 case 23: {
                         if (wireType !== 2)
                             break;
-                        message.declinePaymentRequestMessage = $root.E2E.Message.DeclinePaymentRequestMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.declinePaymentRequestMessage);
+                        message.declinePaymentRequestMessage = $root.E2E.Message.DeclinePaymentRequestMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.declinePaymentRequestMessage);
                         message._declinePaymentRequestMessage = "declinePaymentRequestMessage";
                         continue;
                     }
                 case 24: {
                         if (wireType !== 2)
                             break;
-                        message.cancelPaymentRequestMessage = $root.E2E.Message.CancelPaymentRequestMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.cancelPaymentRequestMessage);
+                        message.cancelPaymentRequestMessage = $root.E2E.Message.CancelPaymentRequestMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.cancelPaymentRequestMessage);
                         message._cancelPaymentRequestMessage = "cancelPaymentRequestMessage";
                         continue;
                     }
                 case 25: {
                         if (wireType !== 2)
                             break;
-                        message.templateMessage = $root.E2E.Message.TemplateMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.templateMessage);
+                        message.templateMessage = $root.E2E.Message.TemplateMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.templateMessage);
                         message._templateMessage = "templateMessage";
                         continue;
                     }
                 case 26: {
                         if (wireType !== 2)
                             break;
-                        message.stickerMessage = $root.E2E.Message.StickerMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.stickerMessage);
+                        message.stickerMessage = $root.E2E.Message.StickerMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.stickerMessage);
                         message._stickerMessage = "stickerMessage";
                         continue;
                     }
                 case 28: {
                         if (wireType !== 2)
                             break;
-                        message.groupInviteMessage = $root.E2E.Message.GroupInviteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupInviteMessage);
+                        message.groupInviteMessage = $root.E2E.Message.GroupInviteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.groupInviteMessage);
                         message._groupInviteMessage = "groupInviteMessage";
                         continue;
                     }
                 case 29: {
                         if (wireType !== 2)
                             break;
-                        message.templateButtonReplyMessage = $root.E2E.Message.TemplateButtonReplyMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.templateButtonReplyMessage);
+                        message.templateButtonReplyMessage = $root.E2E.Message.TemplateButtonReplyMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.templateButtonReplyMessage);
                         message._templateButtonReplyMessage = "templateButtonReplyMessage";
                         continue;
                     }
                 case 30: {
                         if (wireType !== 2)
                             break;
-                        message.productMessage = $root.E2E.Message.ProductMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.productMessage);
+                        message.productMessage = $root.E2E.Message.ProductMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.productMessage);
                         message._productMessage = "productMessage";
                         continue;
                     }
                 case 31: {
                         if (wireType !== 2)
                             break;
-                        message.deviceSentMessage = $root.E2E.Message.DeviceSentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deviceSentMessage);
+                        message.deviceSentMessage = $root.E2E.Message.DeviceSentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.deviceSentMessage);
                         message._deviceSentMessage = "deviceSentMessage";
                         continue;
                     }
                 case 35: {
                         if (wireType !== 2)
                             break;
-                        message.messageContextInfo = $root.E2E.MessageContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageContextInfo);
+                        message.messageContextInfo = $root.E2E.MessageContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.messageContextInfo);
                         message._messageContextInfo = "messageContextInfo";
                         continue;
                     }
                 case 36: {
                         if (wireType !== 2)
                             break;
-                        message.listMessage = $root.E2E.Message.ListMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.listMessage);
+                        message.listMessage = $root.E2E.Message.ListMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.listMessage);
                         message._listMessage = "listMessage";
                         continue;
                     }
                 case 37: {
                         if (wireType !== 2)
                             break;
-                        message.viewOnceMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.viewOnceMessage);
+                        message.viewOnceMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.viewOnceMessage);
                         message._viewOnceMessage = "viewOnceMessage";
                         continue;
                     }
                 case 38: {
                         if (wireType !== 2)
                             break;
-                        message.orderMessage = $root.E2E.Message.OrderMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.orderMessage);
+                        message.orderMessage = $root.E2E.Message.OrderMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.orderMessage);
                         message._orderMessage = "orderMessage";
                         continue;
                     }
                 case 39: {
                         if (wireType !== 2)
                             break;
-                        message.listResponseMessage = $root.E2E.Message.ListResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.listResponseMessage);
+                        message.listResponseMessage = $root.E2E.Message.ListResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.listResponseMessage);
                         message._listResponseMessage = "listResponseMessage";
                         continue;
                     }
                 case 40: {
                         if (wireType !== 2)
                             break;
-                        message.ephemeralMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ephemeralMessage);
+                        message.ephemeralMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.ephemeralMessage);
                         message._ephemeralMessage = "ephemeralMessage";
                         continue;
                     }
                 case 41: {
                         if (wireType !== 2)
                             break;
-                        message.invoiceMessage = $root.E2E.Message.InvoiceMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.invoiceMessage);
+                        message.invoiceMessage = $root.E2E.Message.InvoiceMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.invoiceMessage);
                         message._invoiceMessage = "invoiceMessage";
                         continue;
                     }
                 case 42: {
                         if (wireType !== 2)
                             break;
-                        message.buttonsMessage = $root.E2E.Message.ButtonsMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.buttonsMessage);
+                        message.buttonsMessage = $root.E2E.Message.ButtonsMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.buttonsMessage);
                         message._buttonsMessage = "buttonsMessage";
                         continue;
                     }
                 case 43: {
                         if (wireType !== 2)
                             break;
-                        message.buttonsResponseMessage = $root.E2E.Message.ButtonsResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.buttonsResponseMessage);
+                        message.buttonsResponseMessage = $root.E2E.Message.ButtonsResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.buttonsResponseMessage);
                         message._buttonsResponseMessage = "buttonsResponseMessage";
                         continue;
                     }
                 case 44: {
                         if (wireType !== 2)
                             break;
-                        message.paymentInviteMessage = $root.E2E.Message.PaymentInviteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentInviteMessage);
+                        message.paymentInviteMessage = $root.E2E.Message.PaymentInviteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentInviteMessage);
                         message._paymentInviteMessage = "paymentInviteMessage";
                         continue;
                     }
                 case 45: {
                         if (wireType !== 2)
                             break;
-                        message.interactiveMessage = $root.E2E.Message.InteractiveMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.interactiveMessage);
+                        message.interactiveMessage = $root.E2E.Message.InteractiveMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.interactiveMessage);
                         message._interactiveMessage = "interactiveMessage";
                         continue;
                     }
                 case 46: {
                         if (wireType !== 2)
                             break;
-                        message.reactionMessage = $root.E2E.Message.ReactionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reactionMessage);
+                        message.reactionMessage = $root.E2E.Message.ReactionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.reactionMessage);
                         message._reactionMessage = "reactionMessage";
                         continue;
                     }
                 case 47: {
                         if (wireType !== 2)
                             break;
-                        message.stickerSyncRmrMessage = $root.E2E.Message.StickerSyncRMRMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.stickerSyncRmrMessage);
+                        message.stickerSyncRmrMessage = $root.E2E.Message.StickerSyncRMRMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.stickerSyncRmrMessage);
                         message._stickerSyncRmrMessage = "stickerSyncRmrMessage";
                         continue;
                     }
                 case 48: {
                         if (wireType !== 2)
                             break;
-                        message.interactiveResponseMessage = $root.E2E.Message.InteractiveResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.interactiveResponseMessage);
+                        message.interactiveResponseMessage = $root.E2E.Message.InteractiveResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.interactiveResponseMessage);
                         message._interactiveResponseMessage = "interactiveResponseMessage";
                         continue;
                     }
                 case 49: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationMessage = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessage);
+                        message.pollCreationMessage = $root.E2E.Message.PollCreationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessage);
                         message._pollCreationMessage = "pollCreationMessage";
                         continue;
                     }
                 case 50: {
                         if (wireType !== 2)
                             break;
-                        message.pollUpdateMessage = $root.E2E.Message.PollUpdateMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollUpdateMessage);
+                        message.pollUpdateMessage = $root.E2E.Message.PollUpdateMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollUpdateMessage);
                         message._pollUpdateMessage = "pollUpdateMessage";
                         continue;
                     }
                 case 51: {
                         if (wireType !== 2)
                             break;
-                        message.keepInChatMessage = $root.E2E.Message.KeepInChatMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keepInChatMessage);
+                        message.keepInChatMessage = $root.E2E.Message.KeepInChatMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.keepInChatMessage);
                         message._keepInChatMessage = "keepInChatMessage";
                         continue;
                     }
                 case 53: {
                         if (wireType !== 2)
                             break;
-                        message.documentWithCaptionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.documentWithCaptionMessage);
+                        message.documentWithCaptionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.documentWithCaptionMessage);
                         message._documentWithCaptionMessage = "documentWithCaptionMessage";
                         continue;
                     }
                 case 54: {
                         if (wireType !== 2)
                             break;
-                        message.requestPhoneNumberMessage = $root.E2E.Message.RequestPhoneNumberMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestPhoneNumberMessage);
+                        message.requestPhoneNumberMessage = $root.E2E.Message.RequestPhoneNumberMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.requestPhoneNumberMessage);
                         message._requestPhoneNumberMessage = "requestPhoneNumberMessage";
                         continue;
                     }
                 case 55: {
                         if (wireType !== 2)
                             break;
-                        message.viewOnceMessageV2 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.viewOnceMessageV2);
+                        message.viewOnceMessageV2 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.viewOnceMessageV2);
                         message._viewOnceMessageV2 = "viewOnceMessageV2";
                         continue;
                     }
                 case 56: {
                         if (wireType !== 2)
                             break;
-                        message.encReactionMessage = $root.E2E.Message.EncReactionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.encReactionMessage);
+                        message.encReactionMessage = $root.E2E.Message.EncReactionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.encReactionMessage);
                         message._encReactionMessage = "encReactionMessage";
                         continue;
                     }
                 case 58: {
                         if (wireType !== 2)
                             break;
-                        message.editedMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.editedMessage);
+                        message.editedMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.editedMessage);
                         message._editedMessage = "editedMessage";
                         continue;
                     }
                 case 59: {
                         if (wireType !== 2)
                             break;
-                        message.viewOnceMessageV2Extension = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.viewOnceMessageV2Extension);
+                        message.viewOnceMessageV2Extension = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.viewOnceMessageV2Extension);
                         message._viewOnceMessageV2Extension = "viewOnceMessageV2Extension";
                         continue;
                     }
                 case 60: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationMessageV2 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageV2);
+                        message.pollCreationMessageV2 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageV2);
                         message._pollCreationMessageV2 = "pollCreationMessageV2";
                         continue;
                     }
                 case 61: {
                         if (wireType !== 2)
                             break;
-                        message.scheduledCallCreationMessage = $root.E2E.Message.ScheduledCallCreationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.scheduledCallCreationMessage);
+                        message.scheduledCallCreationMessage = $root.E2E.Message.ScheduledCallCreationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.scheduledCallCreationMessage);
                         message._scheduledCallCreationMessage = "scheduledCallCreationMessage";
                         continue;
                     }
                 case 62: {
                         if (wireType !== 2)
                             break;
-                        message.groupMentionedMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupMentionedMessage);
+                        message.groupMentionedMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.groupMentionedMessage);
                         message._groupMentionedMessage = "groupMentionedMessage";
                         continue;
                     }
                 case 63: {
                         if (wireType !== 2)
                             break;
-                        message.pinInChatMessage = $root.E2E.Message.PinInChatMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pinInChatMessage);
+                        message.pinInChatMessage = $root.E2E.Message.PinInChatMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pinInChatMessage);
                         message._pinInChatMessage = "pinInChatMessage";
                         continue;
                     }
                 case 64: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationMessageV3 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageV3);
+                        message.pollCreationMessageV3 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageV3);
                         message._pollCreationMessageV3 = "pollCreationMessageV3";
                         continue;
                     }
                 case 65: {
                         if (wireType !== 2)
                             break;
-                        message.scheduledCallEditMessage = $root.E2E.Message.ScheduledCallEditMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.scheduledCallEditMessage);
+                        message.scheduledCallEditMessage = $root.E2E.Message.ScheduledCallEditMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.scheduledCallEditMessage);
                         message._scheduledCallEditMessage = "scheduledCallEditMessage";
                         continue;
                     }
                 case 66: {
                         if (wireType !== 2)
                             break;
-                        message.ptvMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ptvMessage);
+                        message.ptvMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.ptvMessage);
                         message._ptvMessage = "ptvMessage";
                         continue;
                     }
                 case 67: {
                         if (wireType !== 2)
                             break;
-                        message.botInvokeMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botInvokeMessage);
+                        message.botInvokeMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.botInvokeMessage);
                         message._botInvokeMessage = "botInvokeMessage";
                         continue;
                     }
                 case 69: {
                         if (wireType !== 2)
                             break;
-                        message.callLogMesssage = $root.E2E.Message.CallLogMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.callLogMesssage);
+                        message.callLogMesssage = $root.E2E.Message.CallLogMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.callLogMesssage);
                         message._callLogMesssage = "callLogMesssage";
                         continue;
                     }
                 case 70: {
                         if (wireType !== 2)
                             break;
-                        message.messageHistoryBundle = $root.E2E.Message.MessageHistoryBundle.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageHistoryBundle);
+                        message.messageHistoryBundle = $root.E2E.Message.MessageHistoryBundle.decode(reader, reader.size(), $undefined, _depth + 1, message.messageHistoryBundle);
                         message._messageHistoryBundle = "messageHistoryBundle";
                         continue;
                     }
                 case 71: {
                         if (wireType !== 2)
                             break;
-                        message.encCommentMessage = $root.E2E.Message.EncCommentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.encCommentMessage);
+                        message.encCommentMessage = $root.E2E.Message.EncCommentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.encCommentMessage);
                         message._encCommentMessage = "encCommentMessage";
                         continue;
                     }
                 case 72: {
                         if (wireType !== 2)
                             break;
-                        message.bcallMessage = $root.E2E.Message.BCallMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bcallMessage);
+                        message.bcallMessage = $root.E2E.Message.BCallMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.bcallMessage);
                         message._bcallMessage = "bcallMessage";
                         continue;
                     }
                 case 74: {
                         if (wireType !== 2)
                             break;
-                        message.lottieStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.lottieStickerMessage);
+                        message.lottieStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.lottieStickerMessage);
                         message._lottieStickerMessage = "lottieStickerMessage";
                         continue;
                     }
                 case 75: {
                         if (wireType !== 2)
                             break;
-                        message.eventMessage = $root.E2E.Message.EventMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventMessage);
+                        message.eventMessage = $root.E2E.Message.EventMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.eventMessage);
                         message._eventMessage = "eventMessage";
                         continue;
                     }
                 case 76: {
                         if (wireType !== 2)
                             break;
-                        message.encEventResponseMessage = $root.E2E.Message.EncEventResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.encEventResponseMessage);
+                        message.encEventResponseMessage = $root.E2E.Message.EncEventResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.encEventResponseMessage);
                         message._encEventResponseMessage = "encEventResponseMessage";
                         continue;
                     }
                 case 77: {
                         if (wireType !== 2)
                             break;
-                        message.commentMessage = $root.E2E.Message.CommentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commentMessage);
+                        message.commentMessage = $root.E2E.Message.CommentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.commentMessage);
                         message._commentMessage = "commentMessage";
                         continue;
                     }
                 case 78: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterAdminInviteMessage = $root.E2E.Message.NewsletterAdminInviteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterAdminInviteMessage);
+                        message.newsletterAdminInviteMessage = $root.E2E.Message.NewsletterAdminInviteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterAdminInviteMessage);
                         message._newsletterAdminInviteMessage = "newsletterAdminInviteMessage";
                         continue;
                     }
                 case 80: {
                         if (wireType !== 2)
                             break;
-                        message.placeholderMessage = $root.E2E.Message.PlaceholderMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.placeholderMessage);
+                        message.placeholderMessage = $root.E2E.Message.PlaceholderMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.placeholderMessage);
                         message._placeholderMessage = "placeholderMessage";
                         continue;
                     }
                 case 82: {
                         if (wireType !== 2)
                             break;
-                        message.secretEncryptedMessage = $root.E2E.Message.SecretEncryptedMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.secretEncryptedMessage);
+                        message.secretEncryptedMessage = $root.E2E.Message.SecretEncryptedMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.secretEncryptedMessage);
                         message._secretEncryptedMessage = "secretEncryptedMessage";
                         continue;
                     }
                 case 83: {
                         if (wireType !== 2)
                             break;
-                        message.albumMessage = $root.E2E.Message.AlbumMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.albumMessage);
+                        message.albumMessage = $root.E2E.Message.AlbumMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.albumMessage);
                         message._albumMessage = "albumMessage";
                         continue;
                     }
                 case 85: {
                         if (wireType !== 2)
                             break;
-                        message.eventCoverImage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventCoverImage);
+                        message.eventCoverImage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.eventCoverImage);
                         message._eventCoverImage = "eventCoverImage";
                         continue;
                     }
                 case 86: {
                         if (wireType !== 2)
                             break;
-                        message.stickerPackMessage = $root.E2E.Message.StickerPackMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.stickerPackMessage);
+                        message.stickerPackMessage = $root.E2E.Message.StickerPackMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.stickerPackMessage);
                         message._stickerPackMessage = "stickerPackMessage";
                         continue;
                     }
                 case 87: {
                         if (wireType !== 2)
                             break;
-                        message.statusMentionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusMentionMessage);
+                        message.statusMentionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusMentionMessage);
                         message._statusMentionMessage = "statusMentionMessage";
                         continue;
                     }
                 case 88: {
                         if (wireType !== 2)
                             break;
-                        message.pollResultSnapshotMessage = $root.E2E.Message.PollResultSnapshotMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollResultSnapshotMessage);
+                        message.pollResultSnapshotMessage = $root.E2E.Message.PollResultSnapshotMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollResultSnapshotMessage);
                         message._pollResultSnapshotMessage = "pollResultSnapshotMessage";
                         continue;
                     }
                 case 90: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationOptionImageMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationOptionImageMessage);
+                        message.pollCreationOptionImageMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationOptionImageMessage);
                         message._pollCreationOptionImageMessage = "pollCreationOptionImageMessage";
                         continue;
                     }
                 case 91: {
                         if (wireType !== 2)
                             break;
-                        message.associatedChildMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.associatedChildMessage);
+                        message.associatedChildMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.associatedChildMessage);
                         message._associatedChildMessage = "associatedChildMessage";
                         continue;
                     }
                 case 92: {
                         if (wireType !== 2)
                             break;
-                        message.groupStatusMentionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatusMentionMessage);
+                        message.groupStatusMentionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.groupStatusMentionMessage);
                         message._groupStatusMentionMessage = "groupStatusMentionMessage";
                         continue;
                     }
                 case 93: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationMessageV4 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageV4);
+                        message.pollCreationMessageV4 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageV4);
                         message._pollCreationMessageV4 = "pollCreationMessageV4";
                         continue;
                     }
                 case 95: {
                         if (wireType !== 2)
                             break;
-                        message.statusAddYours = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusAddYours);
+                        message.statusAddYours = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusAddYours);
                         message._statusAddYours = "statusAddYours";
                         continue;
                     }
                 case 96: {
                         if (wireType !== 2)
                             break;
-                        message.groupStatusMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatusMessage);
+                        message.groupStatusMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.groupStatusMessage);
                         message._groupStatusMessage = "groupStatusMessage";
                         continue;
                     }
                 case 97: {
                         if (wireType !== 2)
                             break;
-                        message.richResponseMessage = $root.E2E.AIRichResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.richResponseMessage);
+                        message.richResponseMessage = $root.E2E.AIRichResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.richResponseMessage);
                         message._richResponseMessage = "richResponseMessage";
                         continue;
                     }
                 case 98: {
                         if (wireType !== 2)
                             break;
-                        message.statusNotificationMessage = $root.E2E.Message.StatusNotificationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusNotificationMessage);
+                        message.statusNotificationMessage = $root.E2E.Message.StatusNotificationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusNotificationMessage);
                         message._statusNotificationMessage = "statusNotificationMessage";
                         continue;
                     }
                 case 99: {
                         if (wireType !== 2)
                             break;
-                        message.limitSharingMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.limitSharingMessage);
+                        message.limitSharingMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.limitSharingMessage);
                         message._limitSharingMessage = "limitSharingMessage";
                         continue;
                     }
                 case 100: {
                         if (wireType !== 2)
                             break;
-                        message.botTaskMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botTaskMessage);
+                        message.botTaskMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.botTaskMessage);
                         message._botTaskMessage = "botTaskMessage";
                         continue;
                     }
                 case 101: {
                         if (wireType !== 2)
                             break;
-                        message.questionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.questionMessage);
+                        message.questionMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.questionMessage);
                         message._questionMessage = "questionMessage";
                         continue;
                     }
                 case 102: {
                         if (wireType !== 2)
                             break;
-                        message.messageHistoryNotice = $root.E2E.Message.MessageHistoryNotice.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageHistoryNotice);
+                        message.messageHistoryNotice = $root.E2E.Message.MessageHistoryNotice.decode(reader, reader.size(), $undefined, _depth + 1, message.messageHistoryNotice);
                         message._messageHistoryNotice = "messageHistoryNotice";
                         continue;
                     }
                 case 103: {
                         if (wireType !== 2)
                             break;
-                        message.groupStatusMessageV2 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatusMessageV2);
+                        message.groupStatusMessageV2 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.groupStatusMessageV2);
                         message._groupStatusMessageV2 = "groupStatusMessageV2";
                         continue;
                     }
                 case 104: {
                         if (wireType !== 2)
                             break;
-                        message.botForwardedMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botForwardedMessage);
+                        message.botForwardedMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.botForwardedMessage);
                         message._botForwardedMessage = "botForwardedMessage";
                         continue;
                     }
                 case 105: {
                         if (wireType !== 2)
                             break;
-                        message.statusQuestionAnswerMessage = $root.E2E.Message.StatusQuestionAnswerMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusQuestionAnswerMessage);
+                        message.statusQuestionAnswerMessage = $root.E2E.Message.StatusQuestionAnswerMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusQuestionAnswerMessage);
                         message._statusQuestionAnswerMessage = "statusQuestionAnswerMessage";
                         continue;
                     }
                 case 106: {
                         if (wireType !== 2)
                             break;
-                        message.questionReplyMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.questionReplyMessage);
+                        message.questionReplyMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.questionReplyMessage);
                         message._questionReplyMessage = "questionReplyMessage";
                         continue;
                     }
                 case 107: {
                         if (wireType !== 2)
                             break;
-                        message.questionResponseMessage = $root.E2E.Message.QuestionResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.questionResponseMessage);
+                        message.questionResponseMessage = $root.E2E.Message.QuestionResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.questionResponseMessage);
                         message._questionResponseMessage = "questionResponseMessage";
                         continue;
                     }
                 case 109: {
                         if (wireType !== 2)
                             break;
-                        message.statusQuotedMessage = $root.E2E.Message.StatusQuotedMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusQuotedMessage);
+                        message.statusQuotedMessage = $root.E2E.Message.StatusQuotedMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusQuotedMessage);
                         message._statusQuotedMessage = "statusQuotedMessage";
                         continue;
                     }
                 case 110: {
                         if (wireType !== 2)
                             break;
-                        message.statusStickerInteractionMessage = $root.E2E.Message.StatusStickerInteractionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusStickerInteractionMessage);
+                        message.statusStickerInteractionMessage = $root.E2E.Message.StatusStickerInteractionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.statusStickerInteractionMessage);
                         message._statusStickerInteractionMessage = "statusStickerInteractionMessage";
                         continue;
                     }
                 case 111: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationMessageV5 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageV5);
+                        message.pollCreationMessageV5 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageV5);
                         message._pollCreationMessageV5 = "pollCreationMessageV5";
                         continue;
                     }
                 case 113: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterFollowerInviteMessageV2 = $root.E2E.Message.NewsletterFollowerInviteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterFollowerInviteMessageV2);
+                        message.newsletterFollowerInviteMessageV2 = $root.E2E.Message.NewsletterFollowerInviteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterFollowerInviteMessageV2);
                         message._newsletterFollowerInviteMessageV2 = "newsletterFollowerInviteMessageV2";
                         continue;
                     }
                 case 115: {
                         if (wireType !== 2)
                             break;
-                        message.pollResultSnapshotMessageV3 = $root.E2E.Message.PollResultSnapshotMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollResultSnapshotMessageV3);
+                        message.pollResultSnapshotMessageV3 = $root.E2E.Message.PollResultSnapshotMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollResultSnapshotMessageV3);
                         message._pollResultSnapshotMessageV3 = "pollResultSnapshotMessageV3";
                         continue;
                     }
                 case 116: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterAdminProfileMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterAdminProfileMessage);
+                        message.newsletterAdminProfileMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterAdminProfileMessage);
                         message._newsletterAdminProfileMessage = "newsletterAdminProfileMessage";
                         continue;
                     }
                 case 118: {
                         if (wireType !== 2)
                             break;
-                        message.spoilerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.spoilerMessage);
+                        message.spoilerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.spoilerMessage);
                         message._spoilerMessage = "spoilerMessage";
                         continue;
                     }
                 case 119: {
                         if (wireType !== 2)
                             break;
-                        message.pollCreationMessageV6 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageV6);
+                        message.pollCreationMessageV6 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageV6);
                         message._pollCreationMessageV6 = "pollCreationMessageV6";
                         continue;
                     }
                 case 120: {
                         if (wireType !== 2)
                             break;
-                        message.conditionalRevealMessage = $root.E2E.Message.ConditionalRevealMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.conditionalRevealMessage);
+                        message.conditionalRevealMessage = $root.E2E.Message.ConditionalRevealMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.conditionalRevealMessage);
                         message._conditionalRevealMessage = "conditionalRevealMessage";
                         continue;
                     }
                 case 121: {
                         if (wireType !== 2)
                             break;
-                        message.pollAddOptionMessage = $root.E2E.Message.PollAddOptionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollAddOptionMessage);
+                        message.pollAddOptionMessage = $root.E2E.Message.PollAddOptionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.pollAddOptionMessage);
                         message._pollAddOptionMessage = "pollAddOptionMessage";
                         continue;
                     }
                 case 122: {
                         if (wireType !== 2)
                             break;
-                        message.eventInviteMessage = $root.E2E.Message.EventInviteMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventInviteMessage);
+                        message.eventInviteMessage = $root.E2E.Message.EventInviteMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.eventInviteMessage);
                         message._eventInviteMessage = "eventInviteMessage";
                         continue;
                     }
                 case 123: {
                         if (wireType !== 2)
                             break;
-                        message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupRootKeyShare);
+                        message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.decode(reader, reader.size(), $undefined, _depth + 1, message.groupRootKeyShare);
                         message._groupRootKeyShare = "groupRootKeyShare";
                         continue;
                     }
                 case 124: {
                         if (wireType !== 2)
                             break;
-                        message.paymentReminderMessage = $root.E2E.Message.PaymentReminderMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentReminderMessage);
+                        message.paymentReminderMessage = $root.E2E.Message.PaymentReminderMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentReminderMessage);
                         message._paymentReminderMessage = "paymentReminderMessage";
                         continue;
                     }
                 case 125: {
                         if (wireType !== 2)
                             break;
-                        message.splitPaymentMessage = $root.E2E.Message.SplitPaymentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.splitPaymentMessage);
+                        message.splitPaymentMessage = $root.E2E.Message.SplitPaymentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.splitPaymentMessage);
                         message._splitPaymentMessage = "splitPaymentMessage";
                         continue;
                     }
                 case 126: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterAdminProfileStatusMessage);
+                        message.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterAdminProfileStatusMessage);
                         message._newsletterAdminProfileStatusMessage = "newsletterAdminProfileStatusMessage";
                         continue;
                     }
                 case 127: {
                         if (wireType !== 2)
                             break;
-                        message.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rootSecretDistributeMessage);
+                        message.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.rootSecretDistributeMessage);
                         message._rootSecretDistributeMessage = "rootSecretDistributeMessage";
                         continue;
                     }
                 case 128: {
                         if (wireType !== 2)
                             break;
-                        message.splitPaymentUpdateMessage = $root.E2E.Message.SplitPaymentUpdateMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.splitPaymentUpdateMessage);
+                        message.splitPaymentUpdateMessage = $root.E2E.Message.SplitPaymentUpdateMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.splitPaymentUpdateMessage);
                         message._splitPaymentUpdateMessage = "splitPaymentUpdateMessage";
                         continue;
                     }
                 case 129: {
                         if (wireType !== 2)
                             break;
-                        message.musicMessage = $root.E2E.Message.MusicMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.musicMessage);
+                        message.musicMessage = $root.E2E.Message.MusicMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.musicMessage);
                         message._musicMessage = "musicMessage";
                         continue;
                     }
                 case 130: {
                         if (wireType !== 2)
                             break;
-                        message.statusLinkPreviewMetadata = $root.E2E.Message.StatusLinkPreviewMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusLinkPreviewMetadata);
+                        message.statusLinkPreviewMetadata = $root.E2E.Message.StatusLinkPreviewMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.statusLinkPreviewMetadata);
                         message._statusLinkPreviewMetadata = "statusLinkPreviewMetadata";
                         continue;
                     }
                 case 131: {
                         if (wireType !== 2)
                             break;
-                        message.botPlatformRegistrationSuccessMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botPlatformRegistrationSuccessMessage);
+                        message.botPlatformRegistrationSuccessMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.botPlatformRegistrationSuccessMessage);
                         message._botPlatformRegistrationSuccessMessage = "botPlatformRegistrationSuccessMessage";
                         continue;
                     }
                 case 132: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterScheduledMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterScheduledMessage);
+                        message.newsletterScheduledMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterScheduledMessage);
                         message._newsletterScheduledMessage = "newsletterScheduledMessage";
                         continue;
                     }
                 case 133: {
                         if (wireType !== 2)
                             break;
-                        message.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.acp2SettingMessage);
+                        message.acp2SettingMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.acp2SettingMessage);
                         message._acp2SettingMessage = "acp2SettingMessage";
                         continue;
                     }
                 case 134: {
                         if (wireType !== 2)
                             break;
-                        message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioStickerMessage);
+                        message.audioStickerMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.audioStickerMessage);
                         message._audioStickerMessage = "audioStickerMessage";
                         continue;
                     }
                 case 135: {
                         if (wireType !== 2)
                             break;
-                        message.instantImageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.instantImageMessage);
+                        message.instantImageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.instantImageMessage);
                         message._instantImageMessage = "instantImageMessage";
                         continue;
                     }
                 case 136: {
                         if (wireType !== 2)
                             break;
-                        message.requestLocationMessage = $root.E2E.Message.RequestLocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestLocationMessage);
+                        message.requestLocationMessage = $root.E2E.Message.RequestLocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.requestLocationMessage);
                         message._requestLocationMessage = "requestLocationMessage";
                         continue;
                     }
                 case 137: {
                         if (wireType !== 2)
                             break;
-                        message.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botGroupParticipantMessage);
+                        message.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.botGroupParticipantMessage);
                         message._botGroupParticipantMessage = "botGroupParticipantMessage";
                         continue;
                     }
                 case 138: {
                         if (wireType !== 2)
                             break;
-                        message.requestLocationUpdateMessage = $root.E2E.Message.RequestLocationUpdateMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestLocationUpdateMessage);
+                        message.requestLocationUpdateMessage = $root.E2E.Message.RequestLocationUpdateMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.requestLocationUpdateMessage);
                         message._requestLocationUpdateMessage = "requestLocationUpdateMessage";
                         continue;
                     }
@@ -47664,7 +47664,7 @@ $root.E2E = (function() {
         Message.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -49702,7 +49702,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -49736,7 +49736,7 @@ $root.E2E = (function() {
             AlbumMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -50063,7 +50063,7 @@ $root.E2E = (function() {
             AppStateFatalExceptionNotification.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -50361,14 +50361,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.keyId = $root.E2E.Message.AppStateSyncKeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                            message.keyId = $root.E2E.Message.AppStateSyncKeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                             message._keyId = "keyId";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.keyData = $root.E2E.Message.AppStateSyncKeyData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyData);
+                            message.keyData = $root.E2E.Message.AppStateSyncKeyData.decode(reader, reader.size(), $undefined, _depth + 1, message.keyData);
                             message._keyData = "keyData";
                             continue;
                         }
@@ -50402,7 +50402,7 @@ $root.E2E = (function() {
             AppStateSyncKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -50712,7 +50712,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.fingerprint = $root.E2E.Message.AppStateSyncKeyFingerprint.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fingerprint);
+                            message.fingerprint = $root.E2E.Message.AppStateSyncKeyFingerprint.decode(reader, reader.size(), $undefined, _depth + 1, message.fingerprint);
                             message._fingerprint = "fingerprint";
                             continue;
                         }
@@ -50753,7 +50753,7 @@ $root.E2E = (function() {
             AppStateSyncKeyData.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -51124,7 +51124,7 @@ $root.E2E = (function() {
             AppStateSyncKeyFingerprint.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -51436,7 +51436,7 @@ $root.E2E = (function() {
             AppStateSyncKeyId.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -51682,7 +51682,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.keyIds && message.keyIds.length))
                                 message.keyIds = [];
-                            message.keyIds.push($root.E2E.Message.AppStateSyncKeyId.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.keyIds.push($root.E2E.Message.AppStateSyncKeyId.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -51715,7 +51715,7 @@ $root.E2E = (function() {
             AppStateSyncKeyRequest.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -51974,7 +51974,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.keys && message.keys.length))
                                 message.keys = [];
-                            message.keys.push($root.E2E.Message.AppStateSyncKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.keys.push($root.E2E.Message.AppStateSyncKey.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -52007,7 +52007,7 @@ $root.E2E = (function() {
             AppStateSyncKeyShare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -52614,7 +52614,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -52683,7 +52683,7 @@ $root.E2E = (function() {
             AudioMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -53217,7 +53217,7 @@ $root.E2E = (function() {
             BCallMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -53572,7 +53572,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.historyShareMessages && message.historyShareMessages.length))
                                 message.historyShareMessages = [];
-                            message.historyShareMessages.push($root.E2E.Message.HistoryShareMessageEntry.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.historyShareMessages.push($root.E2E.Message.HistoryShareMessageEntry.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -53605,7 +53605,7 @@ $root.E2E = (function() {
             BotHistoryShareSyncMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -54059,7 +54059,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -54068,7 +54068,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.buttons && message.buttons.length))
                                 message.buttons = [];
-                            message.buttons.push($root.E2E.Message.ButtonsMessage.Button.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.buttons.push($root.E2E.Message.ButtonsMessage.Button.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 10: {
@@ -54088,28 +54088,28 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.documentMessage);
+                            message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.documentMessage);
                             message.header = "documentMessage";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMessage);
+                            message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMessage);
                             message.header = "imageMessage";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.videoMessage);
+                            message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.videoMessage);
                             message.header = "videoMessage";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.locationMessage);
+                            message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.locationMessage);
                             message.header = "locationMessage";
                             continue;
                         }
@@ -54143,7 +54143,7 @@ $root.E2E = (function() {
             ButtonsMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -54628,7 +54628,7 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.buttonText = $root.E2E.Message.ButtonsMessage.Button.ButtonText.decode(reader, reader.uint32(), $undefined, _depth + 1, message.buttonText);
+                                message.buttonText = $root.E2E.Message.ButtonsMessage.Button.ButtonText.decode(reader, reader.size(), $undefined, _depth + 1, message.buttonText);
                                 message._buttonText = "buttonText";
                                 continue;
                             }
@@ -54642,7 +54642,7 @@ $root.E2E = (function() {
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.nativeFlowInfo = $root.E2E.Message.ButtonsMessage.Button.NativeFlowInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.nativeFlowInfo);
+                                message.nativeFlowInfo = $root.E2E.Message.ButtonsMessage.Button.NativeFlowInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.nativeFlowInfo);
                                 message._nativeFlowInfo = "nativeFlowInfo";
                                 continue;
                             }
@@ -54676,7 +54676,7 @@ $root.E2E = (function() {
                 Button.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -55009,7 +55009,7 @@ $root.E2E = (function() {
                     ButtonText.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -55315,7 +55315,7 @@ $root.E2E = (function() {
                     NativeFlowInfo.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -55690,7 +55690,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -55738,7 +55738,7 @@ $root.E2E = (function() {
             ButtonsResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -56290,7 +56290,7 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -56311,7 +56311,7 @@ $root.E2E = (function() {
                     case 10: {
                             if (wireType !== 2)
                                 break;
-                            message.messageContextInfo = $root.E2E.MessageContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageContextInfo);
+                            message.messageContextInfo = $root.E2E.MessageContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.messageContextInfo);
                             message._messageContextInfo = "messageContextInfo";
                             continue;
                         }
@@ -56359,7 +56359,7 @@ $root.E2E = (function() {
             Call.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -56821,7 +56821,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.participants && message.participants.length))
                                 message.participants = [];
-                            message.participants.push($root.E2E.Message.CallLogMessage.CallParticipant.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.participants.push($root.E2E.Message.CallLogMessage.CallParticipant.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -56854,7 +56854,7 @@ $root.E2E = (function() {
             CallLogMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -57298,7 +57298,7 @@ $root.E2E = (function() {
                 CallParticipant.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -57609,7 +57609,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -57643,7 +57643,7 @@ $root.E2E = (function() {
             CancelPaymentRequestMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -57955,7 +57955,7 @@ $root.E2E = (function() {
             Chat.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -58270,7 +58270,7 @@ $root.E2E = (function() {
             ChatAnimatedWallpaper.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -58657,7 +58657,7 @@ $root.E2E = (function() {
             ChatCustomImageWallpaper.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -58984,7 +58984,7 @@ $root.E2E = (function() {
             ChatDefaultWallpaper.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -59362,7 +59362,7 @@ $root.E2E = (function() {
             ChatSolidColorWallpaper.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -59704,7 +59704,7 @@ $root.E2E = (function() {
             ChatStockImageWallpaper.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -60095,35 +60095,35 @@ $root.E2E = (function() {
                     case 10: {
                             if (wireType !== 2)
                                 break;
-                            message.defaultWallpaper = $root.E2E.Message.ChatDefaultWallpaper.decode(reader, reader.uint32(), $undefined, _depth + 1, message.defaultWallpaper);
+                            message.defaultWallpaper = $root.E2E.Message.ChatDefaultWallpaper.decode(reader, reader.size(), $undefined, _depth + 1, message.defaultWallpaper);
                             message.wallpaper = "defaultWallpaper";
                             continue;
                         }
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.solidColor = $root.E2E.Message.ChatSolidColorWallpaper.decode(reader, reader.uint32(), $undefined, _depth + 1, message.solidColor);
+                            message.solidColor = $root.E2E.Message.ChatSolidColorWallpaper.decode(reader, reader.size(), $undefined, _depth + 1, message.solidColor);
                             message.wallpaper = "solidColor";
                             continue;
                         }
                     case 12: {
                             if (wireType !== 2)
                                 break;
-                            message.stockImage = $root.E2E.Message.ChatStockImageWallpaper.decode(reader, reader.uint32(), $undefined, _depth + 1, message.stockImage);
+                            message.stockImage = $root.E2E.Message.ChatStockImageWallpaper.decode(reader, reader.size(), $undefined, _depth + 1, message.stockImage);
                             message.wallpaper = "stockImage";
                             continue;
                         }
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.customImage = $root.E2E.Message.ChatCustomImageWallpaper.decode(reader, reader.uint32(), $undefined, _depth + 1, message.customImage);
+                            message.customImage = $root.E2E.Message.ChatCustomImageWallpaper.decode(reader, reader.size(), $undefined, _depth + 1, message.customImage);
                             message.wallpaper = "customImage";
                             continue;
                         }
                     case 14: {
                             if (wireType !== 2)
                                 break;
-                            message.animatedWallpaper = $root.E2E.Message.ChatAnimatedWallpaper.decode(reader, reader.uint32(), $undefined, _depth + 1, message.animatedWallpaper);
+                            message.animatedWallpaper = $root.E2E.Message.ChatAnimatedWallpaper.decode(reader, reader.size(), $undefined, _depth + 1, message.animatedWallpaper);
                             message.wallpaper = "animatedWallpaper";
                             continue;
                         }
@@ -60157,7 +60157,7 @@ $root.E2E = (function() {
             ChatThemeSetting.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -60646,7 +60646,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.notificationContent = $root.E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.notificationContent);
+                            message.notificationContent = $root.E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.decode(reader, reader.size(), $undefined, _depth + 1, message.notificationContent);
                             message._notificationContent = "notificationContent";
                             continue;
                         }
@@ -60687,7 +60687,7 @@ $root.E2E = (function() {
             CloudAPIThreadControlNotification.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -61090,7 +61090,7 @@ $root.E2E = (function() {
                 CloudAPIThreadControlNotificationContent.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -61408,7 +61408,7 @@ $root.E2E = (function() {
             CoexConnectionDescriptor.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -61698,14 +61698,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                            message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                             message._message = "message";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.targetMessageKey);
+                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.targetMessageKey);
                             message._targetMessageKey = "targetMessageKey";
                             continue;
                         }
@@ -61739,7 +61739,7 @@ $root.E2E = (function() {
             CommentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -62114,7 +62114,7 @@ $root.E2E = (function() {
             ConditionalRevealMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -62491,7 +62491,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -62532,7 +62532,7 @@ $root.E2E = (function() {
             ContactMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -62857,13 +62857,13 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.contacts && message.contacts.length))
                                 message.contacts = [];
-                            message.contacts.push($root.E2E.Message.ContactMessage.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.contacts.push($root.E2E.Message.ContactMessage.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -62897,7 +62897,7 @@ $root.E2E = (function() {
             ContactsArrayMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -63186,7 +63186,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -63220,7 +63220,7 @@ $root.E2E = (function() {
             DeclinePaymentRequestMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -63520,7 +63520,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                            message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                             message._message = "message";
                             continue;
                         }
@@ -63561,7 +63561,7 @@ $root.E2E = (function() {
             DeviceSentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -64308,7 +64308,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -64370,7 +64370,7 @@ $root.E2E = (function() {
             DocumentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -64880,7 +64880,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.targetMessageKey);
+                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.targetMessageKey);
                             message._targetMessageKey = "targetMessageKey";
                             continue;
                         }
@@ -64928,7 +64928,7 @@ $root.E2E = (function() {
             EncCommentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -65240,7 +65240,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.eventCreationMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.eventCreationMessageKey);
+                            message.eventCreationMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.eventCreationMessageKey);
                             message._eventCreationMessageKey = "eventCreationMessageKey";
                             continue;
                         }
@@ -65288,7 +65288,7 @@ $root.E2E = (function() {
             EncEventResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -65600,7 +65600,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.targetMessageKey);
+                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.targetMessageKey);
                             message._targetMessageKey = "targetMessageKey";
                             continue;
                         }
@@ -65648,7 +65648,7 @@ $root.E2E = (function() {
             EncReactionMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -66145,7 +66145,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -66263,7 +66263,7 @@ $root.E2E = (function() {
             EventInviteMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -66920,7 +66920,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -66948,7 +66948,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.location = $root.E2E.Message.LocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.location);
+                            message.location = $root.E2E.Message.LocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.location);
                             message._location = "location";
                             continue;
                         }
@@ -67031,7 +67031,7 @@ $root.E2E = (function() {
             EventMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -67508,7 +67508,7 @@ $root.E2E = (function() {
             EventResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -68443,7 +68443,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -68555,21 +68555,21 @@ $root.E2E = (function() {
                     case 33: {
                             if (wireType !== 2)
                                 break;
-                            message.faviconMmsMetadata = $root.E2E.Message.MMSThumbnailMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.faviconMmsMetadata);
+                            message.faviconMmsMetadata = $root.E2E.Message.MMSThumbnailMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.faviconMmsMetadata);
                             message._faviconMmsMetadata = "faviconMmsMetadata";
                             continue;
                         }
                     case 34: {
                             if (wireType !== 2)
                                 break;
-                            message.linkPreviewMetadata = $root.E2E.Message.LinkPreviewMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.linkPreviewMetadata);
+                            message.linkPreviewMetadata = $root.E2E.Message.LinkPreviewMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.linkPreviewMetadata);
                             message._linkPreviewMetadata = "linkPreviewMetadata";
                             continue;
                         }
                     case 35: {
                             if (wireType !== 2)
                                 break;
-                            message.paymentLinkMetadata = $root.E2E.Message.PaymentLinkMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentLinkMetadata);
+                            message.paymentLinkMetadata = $root.E2E.Message.PaymentLinkMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentLinkMetadata);
                             message._paymentLinkMetadata = "paymentLinkMetadata";
                             continue;
                         }
@@ -68578,7 +68578,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.endCardTiles && message.endCardTiles.length))
                                 message.endCardTiles = [];
-                            message.endCardTiles.push($root.E2E.Message.VideoEndCard.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.endCardTiles.push($root.E2E.Message.VideoEndCard.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 37: {
@@ -68591,14 +68591,14 @@ $root.E2E = (function() {
                     case 38: {
                             if (wireType !== 2)
                                 break;
-                            message.musicMetadata = $root.E2E.EmbeddedMusic.decode(reader, reader.uint32(), $undefined, _depth + 1, message.musicMetadata);
+                            message.musicMetadata = $root.E2E.EmbeddedMusic.decode(reader, reader.size(), $undefined, _depth + 1, message.musicMetadata);
                             message._musicMetadata = "musicMetadata";
                             continue;
                         }
                     case 39: {
                             if (wireType !== 2)
                                 break;
-                            message.paymentExtendedMetadata = $root.E2E.Message.PaymentExtendedMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentExtendedMetadata);
+                            message.paymentExtendedMetadata = $root.E2E.Message.PaymentExtendedMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentExtendedMetadata);
                             message._paymentExtendedMetadata = "paymentExtendedMetadata";
                             continue;
                         }
@@ -68632,7 +68632,7 @@ $root.E2E = (function() {
             ExtendedTextMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -69463,7 +69463,7 @@ $root.E2E = (function() {
             FullHistorySyncOnDemandConfig.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -69804,7 +69804,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.connection = $root.E2E.Message.CoexConnectionDescriptor.decode(reader, reader.uint32(), $undefined, _depth + 1, message.connection);
+                            message.connection = $root.E2E.Message.CoexConnectionDescriptor.decode(reader, reader.size(), $undefined, _depth + 1, message.connection);
                             message._connection = "connection";
                             continue;
                         }
@@ -69838,7 +69838,7 @@ $root.E2E = (function() {
             FullHistorySyncOnDemandRequestMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -70125,7 +70125,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.message = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.message);
+                            message.message = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.message);
                             message._message = "message";
                             continue;
                         }
@@ -70159,7 +70159,7 @@ $root.E2E = (function() {
             FutureProofMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -70584,7 +70584,7 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -70625,7 +70625,7 @@ $root.E2E = (function() {
             GroupInviteMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -71159,7 +71159,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.localizableParams && message.localizableParams.length))
                                 message.localizableParams = [];
-                            message.localizableParams.push($root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.localizableParams.push($root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 7: {
@@ -71179,7 +71179,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.hydratedHsm = $root.E2E.Message.TemplateMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.hydratedHsm);
+                            message.hydratedHsm = $root.E2E.Message.TemplateMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.hydratedHsm);
                             message._hydratedHsm = "hydratedHsm";
                             continue;
                         }
@@ -71213,7 +71213,7 @@ $root.E2E = (function() {
             HighlyStructuredMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -71613,14 +71613,14 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.currency = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.decode(reader, reader.uint32(), $undefined, _depth + 1, message.currency);
+                                message.currency = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.decode(reader, reader.size(), $undefined, _depth + 1, message.currency);
                                 message.paramOneof = "currency";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.dateTime = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.decode(reader, reader.uint32(), $undefined, _depth + 1, message.dateTime);
+                                message.dateTime = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.decode(reader, reader.size(), $undefined, _depth + 1, message.dateTime);
                                 message.paramOneof = "dateTime";
                                 continue;
                             }
@@ -71654,7 +71654,7 @@ $root.E2E = (function() {
                 HSMLocalizableParameter.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -71995,7 +71995,7 @@ $root.E2E = (function() {
                     HSMCurrency.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -72287,14 +72287,14 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.component = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.component);
+                                    message.component = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.decode(reader, reader.size(), $undefined, _depth + 1, message.component);
                                     message.datetimeOneof = "component";
                                     continue;
                                 }
                             case 2: {
                                     if (wireType !== 2)
                                         break;
-                                    message.unixEpoch = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unixEpoch);
+                                    message.unixEpoch = $root.E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.decode(reader, reader.size(), $undefined, _depth + 1, message.unixEpoch);
                                     message.datetimeOneof = "unixEpoch";
                                     continue;
                                 }
@@ -72328,7 +72328,7 @@ $root.E2E = (function() {
                     HSMDateTime.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -72780,7 +72780,7 @@ $root.E2E = (function() {
                         HSMDateTimeComponent.decodeDelimited = function(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
+                            return this.decode(reader, reader.size());
                         };
 
                         /**
@@ -73196,7 +73196,7 @@ $root.E2E = (function() {
                         HSMDateTimeUnixEpoch.decodeDelimited = function(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
+                            return this.decode(reader, reader.size());
                         };
 
                         /**
@@ -73523,7 +73523,7 @@ $root.E2E = (function() {
             HistoryShareMessageEntry.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -73817,7 +73817,7 @@ $root.E2E = (function() {
             HistorySyncMessageAccessStatus.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -74387,7 +74387,7 @@ $root.E2E = (function() {
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.fullHistorySyncOnDemandRequestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fullHistorySyncOnDemandRequestMetadata);
+                            message.fullHistorySyncOnDemandRequestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.fullHistorySyncOnDemandRequestMetadata);
                             message._fullHistorySyncOnDemandRequestMetadata = "fullHistorySyncOnDemandRequestMetadata";
                             continue;
                         }
@@ -74401,7 +74401,7 @@ $root.E2E = (function() {
                     case 15: {
                             if (wireType !== 2)
                                 break;
-                            message.messageAccessStatus = $root.E2E.Message.HistorySyncMessageAccessStatus.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageAccessStatus);
+                            message.messageAccessStatus = $root.E2E.Message.HistorySyncMessageAccessStatus.decode(reader, reader.size(), $undefined, _depth + 1, message.messageAccessStatus);
                             message._messageAccessStatus = "messageAccessStatus";
                             continue;
                         }
@@ -74435,7 +74435,7 @@ $root.E2E = (function() {
             HistorySyncNotification.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -75501,7 +75501,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.interactiveAnnotations && message.interactiveAnnotations.length))
                                 message.interactiveAnnotations = [];
-                            message.interactiveAnnotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.interactiveAnnotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 11: {
@@ -75528,7 +75528,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -75628,7 +75628,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.annotations && message.annotations.length))
                                 message.annotations = [];
-                            message.annotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.annotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 31: {
@@ -75682,7 +75682,7 @@ $root.E2E = (function() {
             ImageMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -76367,7 +76367,7 @@ $root.E2E = (function() {
             InitialSecurityNotificationSettingSync.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -76790,70 +76790,70 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.header = $root.E2E.Message.InteractiveMessage.Header.decode(reader, reader.uint32(), $undefined, _depth + 1, message.header);
+                            message.header = $root.E2E.Message.InteractiveMessage.Header.decode(reader, reader.size(), $undefined, _depth + 1, message.header);
                             message._header = "header";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.body = $root.E2E.Message.InteractiveMessage.Body.decode(reader, reader.uint32(), $undefined, _depth + 1, message.body);
+                            message.body = $root.E2E.Message.InteractiveMessage.Body.decode(reader, reader.size(), $undefined, _depth + 1, message.body);
                             message._body = "body";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.footer = $root.E2E.Message.InteractiveMessage.Footer.decode(reader, reader.uint32(), $undefined, _depth + 1, message.footer);
+                            message.footer = $root.E2E.Message.InteractiveMessage.Footer.decode(reader, reader.size(), $undefined, _depth + 1, message.footer);
                             message._footer = "footer";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.bloksWidget = $root.E2E.Message.InteractiveMessage.BloksWidget.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bloksWidget);
+                            message.bloksWidget = $root.E2E.Message.InteractiveMessage.BloksWidget.decode(reader, reader.size(), $undefined, _depth + 1, message.bloksWidget);
                             message._bloksWidget = "bloksWidget";
                             continue;
                         }
                     case 15: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
                     case 16: {
                             if (wireType !== 2)
                                 break;
-                            message.urlTrackingMap = $root.E2E.UrlTrackingMap.decode(reader, reader.uint32(), $undefined, _depth + 1, message.urlTrackingMap);
+                            message.urlTrackingMap = $root.E2E.UrlTrackingMap.decode(reader, reader.size(), $undefined, _depth + 1, message.urlTrackingMap);
                             message._urlTrackingMap = "urlTrackingMap";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.shopStorefrontMessage = $root.E2E.Message.InteractiveMessage.ShopMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.shopStorefrontMessage);
+                            message.shopStorefrontMessage = $root.E2E.Message.InteractiveMessage.ShopMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.shopStorefrontMessage);
                             message.interactiveMessage = "shopStorefrontMessage";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.collectionMessage = $root.E2E.Message.InteractiveMessage.CollectionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.collectionMessage);
+                            message.collectionMessage = $root.E2E.Message.InteractiveMessage.CollectionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.collectionMessage);
                             message.interactiveMessage = "collectionMessage";
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.nativeFlowMessage = $root.E2E.Message.InteractiveMessage.NativeFlowMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.nativeFlowMessage);
+                            message.nativeFlowMessage = $root.E2E.Message.InteractiveMessage.NativeFlowMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.nativeFlowMessage);
                             message.interactiveMessage = "nativeFlowMessage";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.carouselMessage = $root.E2E.Message.InteractiveMessage.CarouselMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.carouselMessage);
+                            message.carouselMessage = $root.E2E.Message.InteractiveMessage.CarouselMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.carouselMessage);
                             message.interactiveMessage = "carouselMessage";
                             continue;
                         }
@@ -76887,7 +76887,7 @@ $root.E2E = (function() {
             InteractiveMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -77397,7 +77397,7 @@ $root.E2E = (function() {
                 BloksWidget.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -77706,7 +77706,7 @@ $root.E2E = (function() {
                 Body.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -77991,7 +77991,7 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.cards && message.cards.length))
                                     message.cards = [];
-                                message.cards.push($root.E2E.Message.InteractiveMessage.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.cards.push($root.E2E.Message.InteractiveMessage.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         case 2: {
@@ -78038,7 +78038,7 @@ $root.E2E = (function() {
                 CarouselMessage.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -78434,7 +78434,7 @@ $root.E2E = (function() {
                 CollectionMessage.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -78761,7 +78761,7 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioMessage);
+                                message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.audioMessage);
                                 message.media = "audioMessage";
                                 continue;
                             }
@@ -78795,7 +78795,7 @@ $root.E2E = (function() {
                 Footer.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -79234,21 +79234,21 @@ $root.E2E = (function() {
                         case 10: {
                                 if (wireType !== 2)
                                     break;
-                                message.bloksWidget = $root.E2E.Message.InteractiveMessage.BloksWidget.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bloksWidget);
+                                message.bloksWidget = $root.E2E.Message.InteractiveMessage.BloksWidget.decode(reader, reader.size(), $undefined, _depth + 1, message.bloksWidget);
                                 message._bloksWidget = "bloksWidget";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.documentMessage);
+                                message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.documentMessage);
                                 message.media = "documentMessage";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMessage);
+                                message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMessage);
                                 message.media = "imageMessage";
                                 continue;
                             }
@@ -79262,21 +79262,21 @@ $root.E2E = (function() {
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.videoMessage);
+                                message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.videoMessage);
                                 message.media = "videoMessage";
                                 continue;
                             }
                         case 8: {
                                 if (wireType !== 2)
                                     break;
-                                message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.locationMessage);
+                                message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.locationMessage);
                                 message.media = "locationMessage";
                                 continue;
                             }
                         case 9: {
                                 if (wireType !== 2)
                                     break;
-                                message.productMessage = $root.E2E.Message.ProductMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.productMessage);
+                                message.productMessage = $root.E2E.Message.ProductMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.productMessage);
                                 message.media = "productMessage";
                                 continue;
                             }
@@ -79310,7 +79310,7 @@ $root.E2E = (function() {
                 Header.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -79738,7 +79738,7 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.buttons && message.buttons.length))
                                     message.buttons = [];
-                                message.buttons.push($root.E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.buttons.push($root.E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         case 2: {
@@ -79785,7 +79785,7 @@ $root.E2E = (function() {
                 NativeFlowMessage.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -80123,7 +80123,7 @@ $root.E2E = (function() {
                     NativeFlowButton.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -80465,7 +80465,7 @@ $root.E2E = (function() {
                 ShopMessage.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -80818,21 +80818,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.body = $root.E2E.Message.InteractiveResponseMessage.Body.decode(reader, reader.uint32(), $undefined, _depth + 1, message.body);
+                            message.body = $root.E2E.Message.InteractiveResponseMessage.Body.decode(reader, reader.size(), $undefined, _depth + 1, message.body);
                             message._body = "body";
                             continue;
                         }
                     case 15: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.nativeFlowResponseMessage = $root.E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.nativeFlowResponseMessage);
+                            message.nativeFlowResponseMessage = $root.E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.nativeFlowResponseMessage);
                             message.interactiveResponseMessage = "nativeFlowResponseMessage";
                             continue;
                         }
@@ -80866,7 +80866,7 @@ $root.E2E = (function() {
             InteractiveResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -81208,7 +81208,7 @@ $root.E2E = (function() {
                 Body.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -81572,7 +81572,7 @@ $root.E2E = (function() {
                 NativeFlowResponseMessage.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -82091,7 +82091,7 @@ $root.E2E = (function() {
             InvoiceMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -82503,7 +82503,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -82551,7 +82551,7 @@ $root.E2E = (function() {
             KeepInChatMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -82986,14 +82986,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.paymentLinkMetadata = $root.E2E.Message.PaymentLinkMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentLinkMetadata);
+                            message.paymentLinkMetadata = $root.E2E.Message.PaymentLinkMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentLinkMetadata);
                             message._paymentLinkMetadata = "paymentLinkMetadata";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.urlMetadata = $root.E2E.Message.URLMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.urlMetadata);
+                            message.urlMetadata = $root.E2E.Message.URLMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.urlMetadata);
                             message._urlMetadata = "urlMetadata";
                             continue;
                         }
@@ -83035,7 +83035,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.musicMetadata = $root.E2E.EmbeddedMusic.decode(reader, reader.uint32(), $undefined, _depth + 1, message.musicMetadata);
+                            message.musicMetadata = $root.E2E.EmbeddedMusic.decode(reader, reader.size(), $undefined, _depth + 1, message.musicMetadata);
                             message._musicMetadata = "musicMetadata";
                             continue;
                         }
@@ -83076,7 +83076,7 @@ $root.E2E = (function() {
             LinkPreviewMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -83618,13 +83618,13 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.sections && message.sections.length))
                                 message.sections = [];
-                            message.sections.push($root.E2E.Message.ListMessage.Section.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.sections.push($root.E2E.Message.ListMessage.Section.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.productListInfo = $root.E2E.Message.ListMessage.ProductListInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.productListInfo);
+                            message.productListInfo = $root.E2E.Message.ListMessage.ProductListInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.productListInfo);
                             message._productListInfo = "productListInfo";
                             continue;
                         }
@@ -83638,7 +83638,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -83672,7 +83672,7 @@ $root.E2E = (function() {
             ListMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -84074,7 +84074,7 @@ $root.E2E = (function() {
                 Product.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -84380,7 +84380,7 @@ $root.E2E = (function() {
                 ProductListHeaderImage.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -84672,13 +84672,13 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.productSections && message.productSections.length))
                                     message.productSections = [];
-                                message.productSections.push($root.E2E.Message.ListMessage.ProductSection.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.productSections.push($root.E2E.Message.ListMessage.ProductSection.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.headerImage = $root.E2E.Message.ListMessage.ProductListHeaderImage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.headerImage);
+                                message.headerImage = $root.E2E.Message.ListMessage.ProductListHeaderImage.decode(reader, reader.size(), $undefined, _depth + 1, message.headerImage);
                                 message._headerImage = "headerImage";
                                 continue;
                             }
@@ -84719,7 +84719,7 @@ $root.E2E = (function() {
                 ProductListInfo.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -85030,7 +85030,7 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.products && message.products.length))
                                     message.products = [];
-                                message.products.push($root.E2E.Message.ListMessage.Product.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.products.push($root.E2E.Message.ListMessage.Product.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         }
@@ -85063,7 +85063,7 @@ $root.E2E = (function() {
                 ProductSection.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -85419,7 +85419,7 @@ $root.E2E = (function() {
                 Row.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -85707,7 +85707,7 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.rows && message.rows.length))
                                     message.rows = [];
-                                message.rows.push($root.E2E.Message.ListMessage.Row.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.rows.push($root.E2E.Message.ListMessage.Row.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         }
@@ -85740,7 +85740,7 @@ $root.E2E = (function() {
                 Section.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -86106,14 +86106,14 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.singleSelectReply = $root.E2E.Message.ListResponseMessage.SingleSelectReply.decode(reader, reader.uint32(), $undefined, _depth + 1, message.singleSelectReply);
+                            message.singleSelectReply = $root.E2E.Message.ListResponseMessage.SingleSelectReply.decode(reader, reader.size(), $undefined, _depth + 1, message.singleSelectReply);
                             message._singleSelectReply = "singleSelectReply";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -86154,7 +86154,7 @@ $root.E2E = (function() {
             ListResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -86506,7 +86506,7 @@ $root.E2E = (function() {
                 SingleSelectReply.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -86985,7 +86985,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -87019,7 +87019,7 @@ $root.E2E = (function() {
             LiveLocationMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -87647,7 +87647,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -87681,7 +87681,7 @@ $root.E2E = (function() {
             LocationMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -88215,7 +88215,7 @@ $root.E2E = (function() {
             MMSThumbnailMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -88644,7 +88644,7 @@ $root.E2E = (function() {
             MarkAsVerifiedAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -89105,14 +89105,14 @@ $root.E2E = (function() {
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageHistoryMetadata);
+                            message.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.messageHistoryMetadata);
                             message._messageHistoryMetadata = "messageHistoryMetadata";
                             continue;
                         }
@@ -89146,7 +89146,7 @@ $root.E2E = (function() {
             MessageHistoryBundle.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -89638,7 +89638,7 @@ $root.E2E = (function() {
             MessageHistoryMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -90030,21 +90030,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageHistoryMetadata);
+                            message.messageHistoryMetadata = $root.E2E.Message.MessageHistoryMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.messageHistoryMetadata);
                             message._messageHistoryMetadata = "messageHistoryMetadata";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.botHistoryShareSyncMetadata = $root.E2E.Message.BotHistoryShareSyncMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botHistoryShareSyncMetadata);
+                            message.botHistoryShareSyncMetadata = $root.E2E.Message.BotHistoryShareSyncMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botHistoryShareSyncMetadata);
                             message._botHistoryShareSyncMetadata = "botHistoryShareSyncMetadata";
                             continue;
                         }
@@ -90078,7 +90078,7 @@ $root.E2E = (function() {
             MessageHistoryNotice.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -90437,7 +90437,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.embeddedMusic = $root.E2E.EmbeddedMusic.decode(reader, reader.uint32(), $undefined, _depth + 1, message.embeddedMusic);
+                            message.embeddedMusic = $root.E2E.EmbeddedMusic.decode(reader, reader.size(), $undefined, _depth + 1, message.embeddedMusic);
                             message._embeddedMusic = "embeddedMusic";
                             continue;
                         }
@@ -90465,7 +90465,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -90499,7 +90499,7 @@ $root.E2E = (function() {
             MusicMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -90937,7 +90937,7 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -90971,7 +90971,7 @@ $root.E2E = (function() {
             NewsletterAdminInviteMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -91388,7 +91388,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -91422,7 +91422,7 @@ $root.E2E = (function() {
             NewsletterFollowerInviteMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -92047,7 +92047,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -92061,7 +92061,7 @@ $root.E2E = (function() {
                     case 13: {
                             if (wireType !== 2)
                                 break;
-                            message.orderRequestMessageId = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.orderRequestMessageId);
+                            message.orderRequestMessageId = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.orderRequestMessageId);
                             message._orderRequestMessageId = "orderRequestMessageId";
                             continue;
                         }
@@ -92102,7 +92102,7 @@ $root.E2E = (function() {
             OrderMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -92635,7 +92635,7 @@ $root.E2E = (function() {
             PaymentExtendedMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -93031,7 +93031,7 @@ $root.E2E = (function() {
             PaymentInviteMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -93429,21 +93429,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.button = $root.E2E.Message.PaymentLinkMetadata.PaymentLinkButton.decode(reader, reader.uint32(), $undefined, _depth + 1, message.button);
+                            message.button = $root.E2E.Message.PaymentLinkMetadata.PaymentLinkButton.decode(reader, reader.size(), $undefined, _depth + 1, message.button);
                             message._button = "button";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.header = $root.E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.decode(reader, reader.uint32(), $undefined, _depth + 1, message.header);
+                            message.header = $root.E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.decode(reader, reader.size(), $undefined, _depth + 1, message.header);
                             message._header = "header";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.provider = $root.E2E.Message.PaymentLinkMetadata.PaymentLinkProvider.decode(reader, reader.uint32(), $undefined, _depth + 1, message.provider);
+                            message.provider = $root.E2E.Message.PaymentLinkMetadata.PaymentLinkProvider.decode(reader, reader.size(), $undefined, _depth + 1, message.provider);
                             message._provider = "provider";
                             continue;
                         }
@@ -93477,7 +93477,7 @@ $root.E2E = (function() {
             PaymentLinkMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -93792,7 +93792,7 @@ $root.E2E = (function() {
                 PaymentLinkButton.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -94074,7 +94074,7 @@ $root.E2E = (function() {
                 PaymentLinkHeader.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -94381,7 +94381,7 @@ $root.E2E = (function() {
                 PaymentLinkProvider.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -94824,7 +94824,7 @@ $root.E2E = (function() {
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.amount = $root.E2E.Money.decode(reader, reader.uint32(), $undefined, _depth + 1, message.amount);
+                            message.amount = $root.E2E.Money.decode(reader, reader.size(), $undefined, _depth + 1, message.amount);
                             message._amount = "amount";
                             continue;
                         }
@@ -94858,7 +94858,7 @@ $root.E2E = (function() {
             PaymentReminderMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -95460,7 +95460,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.requestStickerReupload && message.requestStickerReupload.length))
                                 message.requestStickerReupload = [];
-                            message.requestStickerReupload.push($root.E2E.Message.PeerDataOperationRequestMessage.RequestStickerReupload.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.requestStickerReupload.push($root.E2E.Message.PeerDataOperationRequestMessage.RequestStickerReupload.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 3: {
@@ -95468,13 +95468,13 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.requestUrlPreview && message.requestUrlPreview.length))
                                 message.requestUrlPreview = [];
-                            message.requestUrlPreview.push($root.E2E.Message.PeerDataOperationRequestMessage.RequestUrlPreview.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.requestUrlPreview.push($root.E2E.Message.PeerDataOperationRequestMessage.RequestUrlPreview.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.historySyncOnDemandRequest = $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncOnDemandRequest);
+                            message.historySyncOnDemandRequest = $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncOnDemandRequest);
                             message._historySyncOnDemandRequest = "historySyncOnDemandRequest";
                             continue;
                         }
@@ -95483,55 +95483,55 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.placeholderMessageResendRequest && message.placeholderMessageResendRequest.length))
                                 message.placeholderMessageResendRequest = [];
-                            message.placeholderMessageResendRequest.push($root.E2E.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.placeholderMessageResendRequest.push($root.E2E.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.fullHistorySyncOnDemandRequest = $root.E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fullHistorySyncOnDemandRequest);
+                            message.fullHistorySyncOnDemandRequest = $root.E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.fullHistorySyncOnDemandRequest);
                             message._fullHistorySyncOnDemandRequest = "fullHistorySyncOnDemandRequest";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.syncdCollectionFatalRecoveryRequest = $root.E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.syncdCollectionFatalRecoveryRequest);
+                            message.syncdCollectionFatalRecoveryRequest = $root.E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.syncdCollectionFatalRecoveryRequest);
                             message._syncdCollectionFatalRecoveryRequest = "syncdCollectionFatalRecoveryRequest";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.historySyncChunkRetryRequest = $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncChunkRetryRequest);
+                            message.historySyncChunkRetryRequest = $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncChunkRetryRequest);
                             message._historySyncChunkRetryRequest = "historySyncChunkRetryRequest";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.galaxyFlowAction = $root.E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.galaxyFlowAction);
+                            message.galaxyFlowAction = $root.E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.decode(reader, reader.size(), $undefined, _depth + 1, message.galaxyFlowAction);
                             message._galaxyFlowAction = "galaxyFlowAction";
                             continue;
                         }
                     case 10: {
                             if (wireType !== 2)
                                 break;
-                            message.companionCanonicalUserNonceFetchRequest = $root.E2E.Message.PeerDataOperationRequestMessage.CompanionCanonicalUserNonceFetchRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.companionCanonicalUserNonceFetchRequest);
+                            message.companionCanonicalUserNonceFetchRequest = $root.E2E.Message.PeerDataOperationRequestMessage.CompanionCanonicalUserNonceFetchRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.companionCanonicalUserNonceFetchRequest);
                             message._companionCanonicalUserNonceFetchRequest = "companionCanonicalUserNonceFetchRequest";
                             continue;
                         }
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.bizBroadcastInsightsContactListRequest = $root.E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsContactListRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizBroadcastInsightsContactListRequest);
+                            message.bizBroadcastInsightsContactListRequest = $root.E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsContactListRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.bizBroadcastInsightsContactListRequest);
                             message._bizBroadcastInsightsContactListRequest = "bizBroadcastInsightsContactListRequest";
                             continue;
                         }
                     case 12: {
                             if (wireType !== 2)
                                 break;
-                            message.bizBroadcastInsightsRefreshRequest = $root.E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsRefreshRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizBroadcastInsightsRefreshRequest);
+                            message.bizBroadcastInsightsRefreshRequest = $root.E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsRefreshRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.bizBroadcastInsightsRefreshRequest);
                             message._bizBroadcastInsightsRefreshRequest = "bizBroadcastInsightsRefreshRequest";
                             continue;
                         }
@@ -95565,7 +95565,7 @@ $root.E2E = (function() {
             PeerDataOperationRequestMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -96104,7 +96104,7 @@ $root.E2E = (function() {
                 BizBroadcastInsightsContactListRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -96386,7 +96386,7 @@ $root.E2E = (function() {
                 BizBroadcastInsightsRefreshRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -96668,7 +96668,7 @@ $root.E2E = (function() {
                 CompanionCanonicalUserNonceFetchRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -96950,21 +96950,21 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.requestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestMetadata);
+                                message.requestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.requestMetadata);
                                 message._requestMetadata = "requestMetadata";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncConfig);
+                                message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncConfig);
                                 message._historySyncConfig = "historySyncConfig";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.fullHistorySyncOnDemandConfig = $root.E2E.Message.FullHistorySyncOnDemandConfig.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fullHistorySyncOnDemandConfig);
+                                message.fullHistorySyncOnDemandConfig = $root.E2E.Message.FullHistorySyncOnDemandConfig.decode(reader, reader.size(), $undefined, _depth + 1, message.fullHistorySyncOnDemandConfig);
                                 message._fullHistorySyncOnDemandConfig = "fullHistorySyncOnDemandConfig";
                                 continue;
                             }
@@ -96998,7 +96998,7 @@ $root.E2E = (function() {
                 FullHistorySyncOnDemandRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -97412,7 +97412,7 @@ $root.E2E = (function() {
                 GalaxyFlowAction.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -97827,7 +97827,7 @@ $root.E2E = (function() {
                 HistorySyncChunkRetryRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -98319,7 +98319,7 @@ $root.E2E = (function() {
                 HistorySyncOnDemandRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -98633,7 +98633,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageKey);
+                                message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
                                 message._messageKey = "messageKey";
                                 continue;
                             }
@@ -98667,7 +98667,7 @@ $root.E2E = (function() {
                 PlaceholderMessageResendRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -98955,7 +98955,7 @@ $root.E2E = (function() {
                 RequestStickerReupload.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -99261,7 +99261,7 @@ $root.E2E = (function() {
                 RequestUrlPreview.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -99576,7 +99576,7 @@ $root.E2E = (function() {
                 SyncDCollectionFatalRecoveryRequest.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -99899,7 +99899,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.peerDataOperationResult && message.peerDataOperationResult.length))
                                 message.peerDataOperationResult = [];
-                            message.peerDataOperationResult.push($root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.peerDataOperationResult.push($root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -99932,7 +99932,7 @@ $root.E2E = (function() {
             PeerDataOperationRequestResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -100501,84 +100501,84 @@ $root.E2E = (function() {
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.stickerMessage = $root.E2E.Message.StickerMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.stickerMessage);
+                                message.stickerMessage = $root.E2E.Message.StickerMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.stickerMessage);
                                 message._stickerMessage = "stickerMessage";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.linkPreviewResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.linkPreviewResponse);
+                                message.linkPreviewResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.linkPreviewResponse);
                                 message._linkPreviewResponse = "linkPreviewResponse";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.placeholderMessageResendResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.placeholderMessageResendResponse);
+                                message.placeholderMessageResendResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.placeholderMessageResendResponse);
                                 message._placeholderMessageResendResponse = "placeholderMessageResendResponse";
                                 continue;
                             }
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.waffleNonceFetchRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.waffleNonceFetchRequestResponse);
+                                message.waffleNonceFetchRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.waffleNonceFetchRequestResponse);
                                 message._waffleNonceFetchRequestResponse = "waffleNonceFetchRequestResponse";
                                 continue;
                             }
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.fullHistorySyncOnDemandRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fullHistorySyncOnDemandRequestResponse);
+                                message.fullHistorySyncOnDemandRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.fullHistorySyncOnDemandRequestResponse);
                                 message._fullHistorySyncOnDemandRequestResponse = "fullHistorySyncOnDemandRequestResponse";
                                 continue;
                             }
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.companionMetaNonceFetchRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionMetaNonceFetchResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.companionMetaNonceFetchRequestResponse);
+                                message.companionMetaNonceFetchRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionMetaNonceFetchResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.companionMetaNonceFetchRequestResponse);
                                 message._companionMetaNonceFetchRequestResponse = "companionMetaNonceFetchRequestResponse";
                                 continue;
                             }
                         case 8: {
                                 if (wireType !== 2)
                                     break;
-                                message.syncdSnapshotFatalRecoveryResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.syncdSnapshotFatalRecoveryResponse);
+                                message.syncdSnapshotFatalRecoveryResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.syncdSnapshotFatalRecoveryResponse);
                                 message._syncdSnapshotFatalRecoveryResponse = "syncdSnapshotFatalRecoveryResponse";
                                 continue;
                             }
                         case 9: {
                                 if (wireType !== 2)
                                     break;
-                                message.companionCanonicalUserNonceFetchRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionCanonicalUserNonceFetchResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.companionCanonicalUserNonceFetchRequestResponse);
+                                message.companionCanonicalUserNonceFetchRequestResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionCanonicalUserNonceFetchResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.companionCanonicalUserNonceFetchRequestResponse);
                                 message._companionCanonicalUserNonceFetchRequestResponse = "companionCanonicalUserNonceFetchRequestResponse";
                                 continue;
                             }
                         case 10: {
                                 if (wireType !== 2)
                                     break;
-                                message.historySyncChunkRetryResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncChunkRetryResponse);
+                                message.historySyncChunkRetryResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncChunkRetryResponse);
                                 message._historySyncChunkRetryResponse = "historySyncChunkRetryResponse";
                                 continue;
                             }
                         case 11: {
                                 if (wireType !== 2)
                                     break;
-                                message.flowResponsesCsvBundle = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FlowResponsesCsvBundle.decode(reader, reader.uint32(), $undefined, _depth + 1, message.flowResponsesCsvBundle);
+                                message.flowResponsesCsvBundle = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FlowResponsesCsvBundle.decode(reader, reader.size(), $undefined, _depth + 1, message.flowResponsesCsvBundle);
                                 message._flowResponsesCsvBundle = "flowResponsesCsvBundle";
                                 continue;
                             }
                         case 12: {
                                 if (wireType !== 2)
                                     break;
-                                message.bizBroadcastInsightsContactListResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactListResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizBroadcastInsightsContactListResponse);
+                                message.bizBroadcastInsightsContactListResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactListResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.bizBroadcastInsightsContactListResponse);
                                 message._bizBroadcastInsightsContactListResponse = "bizBroadcastInsightsContactListResponse";
                                 continue;
                             }
                         case 13: {
                                 if (wireType !== 2)
                                     break;
-                                message.contactRefreshResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ContactRefreshResponse.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactRefreshResponse);
+                                message.contactRefreshResponse = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ContactRefreshResponse.decode(reader, reader.size(), $undefined, _depth + 1, message.contactRefreshResponse);
                                 message._contactRefreshResponse = "contactRefreshResponse";
                                 continue;
                             }
@@ -100612,7 +100612,7 @@ $root.E2E = (function() {
                 PeerDataOperationResult.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -101102,7 +101102,7 @@ $root.E2E = (function() {
                                         break;
                                     if (!(message.contacts && message.contacts.length))
                                         message.contacts = [];
-                                    message.contacts.push($root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                    message.contacts.push($root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState.decode(reader, reader.size(), $undefined, _depth + 1));
                                     continue;
                                 }
                             }
@@ -101135,7 +101135,7 @@ $root.E2E = (function() {
                     BizBroadcastInsightsContactListResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -101488,7 +101488,7 @@ $root.E2E = (function() {
                     BizBroadcastInsightsContactState.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -101850,7 +101850,7 @@ $root.E2E = (function() {
                     CompanionCanonicalUserNonceFetchResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -102150,7 +102150,7 @@ $root.E2E = (function() {
                     CompanionMetaNonceFetchResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -102501,7 +102501,7 @@ $root.E2E = (function() {
                     ContactRefreshResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -103062,7 +103062,7 @@ $root.E2E = (function() {
                     FlowResponsesCsvBundle.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -103441,7 +103441,7 @@ $root.E2E = (function() {
                             case 1: {
                                     if (wireType !== 2)
                                         break;
-                                    message.requestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestMetadata);
+                                    message.requestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.requestMetadata);
                                     message._requestMetadata = "requestMetadata";
                                     continue;
                                 }
@@ -103482,7 +103482,7 @@ $root.E2E = (function() {
                     FullHistorySyncOnDemandRequestResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -103936,7 +103936,7 @@ $root.E2E = (function() {
                     HistorySyncChunkRetryResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -104469,14 +104469,14 @@ $root.E2E = (function() {
                             case 8: {
                                     if (wireType !== 2)
                                         break;
-                                    message.hqThumbnail = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail.decode(reader, reader.uint32(), $undefined, _depth + 1, message.hqThumbnail);
+                                    message.hqThumbnail = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail.decode(reader, reader.size(), $undefined, _depth + 1, message.hqThumbnail);
                                     message._hqThumbnail = "hqThumbnail";
                                     continue;
                                 }
                             case 9: {
                                     if (wireType !== 2)
                                         break;
-                                    message.previewMetadata = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.PaymentLinkPreviewMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.previewMetadata);
+                                    message.previewMetadata = $root.E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.PaymentLinkPreviewMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.previewMetadata);
                                     message._previewMetadata = "previewMetadata";
                                     continue;
                                 }
@@ -104510,7 +104510,7 @@ $root.E2E = (function() {
                     LinkPreviewResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -105011,7 +105011,7 @@ $root.E2E = (function() {
                         LinkPreviewHighQualityThumbnail.decodeDelimited = function(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
+                            return this.decode(reader, reader.size());
                         };
 
                         /**
@@ -105458,7 +105458,7 @@ $root.E2E = (function() {
                         PaymentLinkPreviewMetadata.decodeDelimited = function(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
+                            return this.decode(reader, reader.size());
                         };
 
                         /**
@@ -105779,7 +105779,7 @@ $root.E2E = (function() {
                     PlaceholderMessageResendResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -106088,7 +106088,7 @@ $root.E2E = (function() {
                     SyncDSnapshotFatalRecoveryResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -106406,7 +106406,7 @@ $root.E2E = (function() {
                     WaffleNonceFetchResponse.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -106743,7 +106743,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -106791,7 +106791,7 @@ $root.E2E = (function() {
             PinInChatMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -107140,7 +107140,7 @@ $root.E2E = (function() {
             PlaceholderMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -107441,21 +107441,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.pollCreationMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageKey);
+                            message.pollCreationMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageKey);
                             message._pollCreationMessageKey = "pollCreationMessageKey";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.addOption = $root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.uint32(), $undefined, _depth + 1, message.addOption);
+                            message.addOption = $root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.size(), $undefined, _depth + 1, message.addOption);
                             message._addOption = "addOption";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
+                            message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.metadata);
                             message._metadata = "metadata";
                             continue;
                         }
@@ -107489,7 +107489,7 @@ $root.E2E = (function() {
             PollAddOptionMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -107984,7 +107984,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.options && message.options.length))
                                 message.options = [];
-                            message.options.push($root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.options.push($root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 4: {
@@ -107997,7 +107997,7 @@ $root.E2E = (function() {
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -108018,7 +108018,7 @@ $root.E2E = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.correctAnswer = $root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.uint32(), $undefined, _depth + 1, message.correctAnswer);
+                            message.correctAnswer = $root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.size(), $undefined, _depth + 1, message.correctAnswer);
                             message._correctAnswer = "correctAnswer";
                             continue;
                         }
@@ -108073,7 +108073,7 @@ $root.E2E = (function() {
             PollCreationMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -108536,7 +108536,7 @@ $root.E2E = (function() {
                 Option.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -108854,7 +108854,7 @@ $root.E2E = (function() {
             PollEncValue.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -109179,13 +109179,13 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.pollVotes && message.pollVotes.length))
                                 message.pollVotes = [];
-                            message.pollVotes.push($root.E2E.Message.PollResultSnapshotMessage.PollVote.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.pollVotes.push($root.E2E.Message.PollResultSnapshotMessage.PollVote.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -109226,7 +109226,7 @@ $root.E2E = (function() {
             PollResultSnapshotMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -109590,7 +109590,7 @@ $root.E2E = (function() {
                 PollVote.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -109927,21 +109927,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.pollCreationMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pollCreationMessageKey);
+                            message.pollCreationMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pollCreationMessageKey);
                             message._pollCreationMessageKey = "pollCreationMessageKey";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.vote = $root.E2E.Message.PollEncValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.vote);
+                            message.vote = $root.E2E.Message.PollEncValue.decode(reader, reader.size(), $undefined, _depth + 1, message.vote);
                             message._vote = "vote";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
+                            message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.metadata);
                             message._metadata = "metadata";
                             continue;
                         }
@@ -109982,7 +109982,7 @@ $root.E2E = (function() {
             PollUpdateMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -110345,7 +110345,7 @@ $root.E2E = (function() {
             PollUpdateMessageMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -110633,7 +110633,7 @@ $root.E2E = (function() {
             PollVoteMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -110988,7 +110988,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.product = $root.E2E.Message.ProductMessage.ProductSnapshot.decode(reader, reader.uint32(), $undefined, _depth + 1, message.product);
+                            message.product = $root.E2E.Message.ProductMessage.ProductSnapshot.decode(reader, reader.size(), $undefined, _depth + 1, message.product);
                             message._product = "product";
                             continue;
                         }
@@ -111002,7 +111002,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.catalog = $root.E2E.Message.ProductMessage.CatalogSnapshot.decode(reader, reader.uint32(), $undefined, _depth + 1, message.catalog);
+                            message.catalog = $root.E2E.Message.ProductMessage.CatalogSnapshot.decode(reader, reader.size(), $undefined, _depth + 1, message.catalog);
                             message._catalog = "catalog";
                             continue;
                         }
@@ -111023,7 +111023,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -111057,7 +111057,7 @@ $root.E2E = (function() {
             ProductMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -111404,7 +111404,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.catalogImage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.catalogImage);
+                                message.catalogImage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.catalogImage);
                                 message._catalogImage = "catalogImage";
                                 continue;
                             }
@@ -111452,7 +111452,7 @@ $root.E2E = (function() {
                 CatalogSnapshot.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -111925,7 +111925,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.productImage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.productImage);
+                                message.productImage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.productImage);
                                 message._productImage = "productImage";
                                 continue;
                             }
@@ -112036,7 +112036,7 @@ $root.E2E = (function() {
                 ProductSnapshot.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -113009,7 +113009,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -113037,49 +113037,49 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.historySyncNotification = $root.E2E.Message.HistorySyncNotification.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncNotification);
+                            message.historySyncNotification = $root.E2E.Message.HistorySyncNotification.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncNotification);
                             message._historySyncNotification = "historySyncNotification";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.appStateSyncKeyShare = $root.E2E.Message.AppStateSyncKeyShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.appStateSyncKeyShare);
+                            message.appStateSyncKeyShare = $root.E2E.Message.AppStateSyncKeyShare.decode(reader, reader.size(), $undefined, _depth + 1, message.appStateSyncKeyShare);
                             message._appStateSyncKeyShare = "appStateSyncKeyShare";
                             continue;
                         }
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.appStateSyncKeyRequest = $root.E2E.Message.AppStateSyncKeyRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.appStateSyncKeyRequest);
+                            message.appStateSyncKeyRequest = $root.E2E.Message.AppStateSyncKeyRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.appStateSyncKeyRequest);
                             message._appStateSyncKeyRequest = "appStateSyncKeyRequest";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.initialSecurityNotificationSettingSync = $root.E2E.Message.InitialSecurityNotificationSettingSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.initialSecurityNotificationSettingSync);
+                            message.initialSecurityNotificationSettingSync = $root.E2E.Message.InitialSecurityNotificationSettingSync.decode(reader, reader.size(), $undefined, _depth + 1, message.initialSecurityNotificationSettingSync);
                             message._initialSecurityNotificationSettingSync = "initialSecurityNotificationSettingSync";
                             continue;
                         }
                     case 10: {
                             if (wireType !== 2)
                                 break;
-                            message.appStateFatalExceptionNotification = $root.E2E.Message.AppStateFatalExceptionNotification.decode(reader, reader.uint32(), $undefined, _depth + 1, message.appStateFatalExceptionNotification);
+                            message.appStateFatalExceptionNotification = $root.E2E.Message.AppStateFatalExceptionNotification.decode(reader, reader.size(), $undefined, _depth + 1, message.appStateFatalExceptionNotification);
                             message._appStateFatalExceptionNotification = "appStateFatalExceptionNotification";
                             continue;
                         }
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.disappearingMode = $root.E2E.DisappearingMode.decode(reader, reader.uint32(), $undefined, _depth + 1, message.disappearingMode);
+                            message.disappearingMode = $root.E2E.DisappearingMode.decode(reader, reader.size(), $undefined, _depth + 1, message.disappearingMode);
                             message._disappearingMode = "disappearingMode";
                             continue;
                         }
                     case 14: {
                             if (wireType !== 2)
                                 break;
-                            message.editedMessage = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.editedMessage);
+                            message.editedMessage = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.editedMessage);
                             message._editedMessage = "editedMessage";
                             continue;
                         }
@@ -113093,21 +113093,21 @@ $root.E2E = (function() {
                     case 16: {
                             if (wireType !== 2)
                                 break;
-                            message.peerDataOperationRequestMessage = $root.E2E.Message.PeerDataOperationRequestMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.peerDataOperationRequestMessage);
+                            message.peerDataOperationRequestMessage = $root.E2E.Message.PeerDataOperationRequestMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.peerDataOperationRequestMessage);
                             message._peerDataOperationRequestMessage = "peerDataOperationRequestMessage";
                             continue;
                         }
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.peerDataOperationRequestResponseMessage = $root.E2E.Message.PeerDataOperationRequestResponseMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.peerDataOperationRequestResponseMessage);
+                            message.peerDataOperationRequestResponseMessage = $root.E2E.Message.PeerDataOperationRequestResponseMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.peerDataOperationRequestResponseMessage);
                             message._peerDataOperationRequestResponseMessage = "peerDataOperationRequestResponseMessage";
                             continue;
                         }
                     case 18: {
                             if (wireType !== 2)
                                 break;
-                            message.botFeedbackMessage = $root.AICommon.BotFeedbackMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botFeedbackMessage);
+                            message.botFeedbackMessage = $root.AICommon.BotFeedbackMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.botFeedbackMessage);
                             message._botFeedbackMessage = "botFeedbackMessage";
                             continue;
                         }
@@ -113121,35 +113121,35 @@ $root.E2E = (function() {
                     case 20: {
                             if (wireType !== 2)
                                 break;
-                            message.requestWelcomeMessageMetadata = $root.E2E.Message.RequestWelcomeMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestWelcomeMessageMetadata);
+                            message.requestWelcomeMessageMetadata = $root.E2E.Message.RequestWelcomeMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.requestWelcomeMessageMetadata);
                             message._requestWelcomeMessageMetadata = "requestWelcomeMessageMetadata";
                             continue;
                         }
                     case 21: {
                             if (wireType !== 2)
                                 break;
-                            message.mediaNotifyMessage = $root.E2E.MediaNotifyMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.mediaNotifyMessage);
+                            message.mediaNotifyMessage = $root.E2E.MediaNotifyMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.mediaNotifyMessage);
                             message._mediaNotifyMessage = "mediaNotifyMessage";
                             continue;
                         }
                     case 22: {
                             if (wireType !== 2)
                                 break;
-                            message.cloudApiThreadControlNotification = $root.E2E.Message.CloudAPIThreadControlNotification.decode(reader, reader.uint32(), $undefined, _depth + 1, message.cloudApiThreadControlNotification);
+                            message.cloudApiThreadControlNotification = $root.E2E.Message.CloudAPIThreadControlNotification.decode(reader, reader.size(), $undefined, _depth + 1, message.cloudApiThreadControlNotification);
                             message._cloudApiThreadControlNotification = "cloudApiThreadControlNotification";
                             continue;
                         }
                     case 23: {
                             if (wireType !== 2)
                                 break;
-                            message.lidMigrationMappingSyncMessage = $root.E2E.LIDMigrationMappingSyncMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.lidMigrationMappingSyncMessage);
+                            message.lidMigrationMappingSyncMessage = $root.E2E.LIDMigrationMappingSyncMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.lidMigrationMappingSyncMessage);
                             message._lidMigrationMappingSyncMessage = "lidMigrationMappingSyncMessage";
                             continue;
                         }
                     case 24: {
                             if (wireType !== 2)
                                 break;
-                            message.limitSharing = $root.Protocol.LimitSharing.decode(reader, reader.uint32(), $undefined, _depth + 1, message.limitSharing);
+                            message.limitSharing = $root.Protocol.LimitSharing.decode(reader, reader.size(), $undefined, _depth + 1, message.limitSharing);
                             message._limitSharing = "limitSharing";
                             continue;
                         }
@@ -113163,21 +113163,21 @@ $root.E2E = (function() {
                     case 26: {
                             if (wireType !== 2)
                                 break;
-                            message.aiQueryFanout = $root.E2E.AIQueryFanout.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiQueryFanout);
+                            message.aiQueryFanout = $root.E2E.AIQueryFanout.decode(reader, reader.size(), $undefined, _depth + 1, message.aiQueryFanout);
                             message._aiQueryFanout = "aiQueryFanout";
                             continue;
                         }
                     case 27: {
                             if (wireType !== 2)
                                 break;
-                            message.memberLabel = $root.E2E.MemberLabel.decode(reader, reader.uint32(), $undefined, _depth + 1, message.memberLabel);
+                            message.memberLabel = $root.E2E.MemberLabel.decode(reader, reader.size(), $undefined, _depth + 1, message.memberLabel);
                             message._memberLabel = "memberLabel";
                             continue;
                         }
                     case 28: {
                             if (wireType !== 2)
                                 break;
-                            message.aiMediaCollectionMessage = $root.AICommon.AIMediaCollectionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiMediaCollectionMessage);
+                            message.aiMediaCollectionMessage = $root.AICommon.AIMediaCollectionMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.aiMediaCollectionMessage);
                             message._aiMediaCollectionMessage = "aiMediaCollectionMessage";
                             continue;
                         }
@@ -113191,49 +113191,49 @@ $root.E2E = (function() {
                     case 30: {
                             if (wireType !== 2)
                                 break;
-                            message.chatThemeSetting = $root.E2E.Message.ChatThemeSetting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chatThemeSetting);
+                            message.chatThemeSetting = $root.E2E.Message.ChatThemeSetting.decode(reader, reader.size(), $undefined, _depth + 1, message.chatThemeSetting);
                             message._chatThemeSetting = "chatThemeSetting";
                             continue;
                         }
                     case 31: {
                             if (wireType !== 2)
                                 break;
-                            message.aiMetadataOperation = $root.AICommon.AIMetadataOperation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiMetadataOperation);
+                            message.aiMetadataOperation = $root.AICommon.AIMetadataOperation.decode(reader, reader.size(), $undefined, _depth + 1, message.aiMetadataOperation);
                             message._aiMetadataOperation = "aiMetadataOperation";
                             continue;
                         }
                     case 32: {
                             if (wireType !== 2)
                                 break;
-                            message.markAsVerifiedAction = $root.E2E.Message.MarkAsVerifiedAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.markAsVerifiedAction);
+                            message.markAsVerifiedAction = $root.E2E.Message.MarkAsVerifiedAction.decode(reader, reader.size(), $undefined, _depth + 1, message.markAsVerifiedAction);
                             message._markAsVerifiedAction = "markAsVerifiedAction";
                             continue;
                         }
                     case 33: {
                             if (wireType !== 2)
                                 break;
-                            message.coexStateSync = $root.ServerSync.CoexStateSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.coexStateSync);
+                            message.coexStateSync = $root.ServerSync.CoexStateSync.decode(reader, reader.size(), $undefined, _depth + 1, message.coexStateSync);
                             message._coexStateSync = "coexStateSync";
                             continue;
                         }
                     case 35: {
                             if (wireType !== 2)
                                 break;
-                            message.acp2Setting = $root.Protocol.ACP2Setting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.acp2Setting);
+                            message.acp2Setting = $root.Protocol.ACP2Setting.decode(reader, reader.size(), $undefined, _depth + 1, message.acp2Setting);
                             message._acp2Setting = "acp2Setting";
                             continue;
                         }
                     case 36: {
                             if (wireType !== 2)
                                 break;
-                            message.sharedDeviceContactHashKeyShare = $root.E2E.Message.SharedDeviceContactHashKeyShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sharedDeviceContactHashKeyShare);
+                            message.sharedDeviceContactHashKeyShare = $root.E2E.Message.SharedDeviceContactHashKeyShare.decode(reader, reader.size(), $undefined, _depth + 1, message.sharedDeviceContactHashKeyShare);
                             message._sharedDeviceContactHashKeyShare = "sharedDeviceContactHashKeyShare";
                             continue;
                         }
                     case 37: {
                             if (wireType !== 2)
                                 break;
-                            message.sharedDeviceContactHashKeyRequest = $root.E2E.Message.SharedDeviceContactHashKeyRequest.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sharedDeviceContactHashKeyRequest);
+                            message.sharedDeviceContactHashKeyRequest = $root.E2E.Message.SharedDeviceContactHashKeyRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.sharedDeviceContactHashKeyRequest);
                             message._sharedDeviceContactHashKeyRequest = "sharedDeviceContactHashKeyRequest";
                             continue;
                         }
@@ -113275,7 +113275,7 @@ $root.E2E = (function() {
             ProtocolMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -114255,7 +114255,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -114296,7 +114296,7 @@ $root.E2E = (function() {
             QuestionResponseMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -114610,7 +114610,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -114665,7 +114665,7 @@ $root.E2E = (function() {
             ReactionMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -114961,7 +114961,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -114995,7 +114995,7 @@ $root.E2E = (function() {
             RequestLocationMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -115283,7 +115283,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -115331,7 +115331,7 @@ $root.E2E = (function() {
             RequestLocationUpdateMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -115751,7 +115751,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.noteMessage = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.noteMessage);
+                            message.noteMessage = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.noteMessage);
                             message._noteMessage = "noteMessage";
                             continue;
                         }
@@ -115786,14 +115786,14 @@ $root.E2E = (function() {
                     case 6: {
                             if (wireType !== 2)
                                 break;
-                            message.amount = $root.E2E.Money.decode(reader, reader.uint32(), $undefined, _depth + 1, message.amount);
+                            message.amount = $root.E2E.Money.decode(reader, reader.size(), $undefined, _depth + 1, message.amount);
                             message._amount = "amount";
                             continue;
                         }
                     case 7: {
                             if (wireType !== 2)
                                 break;
-                            message.background = $root.E2E.PaymentBackground.decode(reader, reader.uint32(), $undefined, _depth + 1, message.background);
+                            message.background = $root.E2E.PaymentBackground.decode(reader, reader.size(), $undefined, _depth + 1, message.background);
                             message._background = "background";
                             continue;
                         }
@@ -115827,7 +115827,7 @@ $root.E2E = (function() {
             RequestPaymentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -116174,7 +116174,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -116208,7 +116208,7 @@ $root.E2E = (function() {
             RequestPhoneNumberMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -116510,7 +116510,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.botAgentMetadata = $root.AICommon.BotAgentMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botAgentMetadata);
+                            message.botAgentMetadata = $root.AICommon.BotAgentMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botAgentMetadata);
                             message._botAgentMetadata = "botAgentMetadata";
                             continue;
                         }
@@ -116544,7 +116544,7 @@ $root.E2E = (function() {
             RequestWelcomeMessageMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -116900,7 +116900,7 @@ $root.E2E = (function() {
             RootSecretDistributeMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -117230,7 +117230,7 @@ $root.E2E = (function() {
             ScheduledCallCreationMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -117556,7 +117556,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -117597,7 +117597,7 @@ $root.E2E = (function() {
             ScheduledCallEditMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -117953,7 +117953,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.targetMessageKey);
+                            message.targetMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.targetMessageKey);
                             message._targetMessageKey = "targetMessageKey";
                             continue;
                         }
@@ -118015,7 +118015,7 @@ $root.E2E = (function() {
             SecretEncryptedMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -118417,21 +118417,21 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.noteMessage = $root.E2E.Message.decode(reader, reader.uint32(), $undefined, _depth + 1, message.noteMessage);
+                            message.noteMessage = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.noteMessage);
                             message._noteMessage = "noteMessage";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestMessageKey);
+                            message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.requestMessageKey);
                             message._requestMessageKey = "requestMessageKey";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.background = $root.E2E.PaymentBackground.decode(reader, reader.uint32(), $undefined, _depth + 1, message.background);
+                            message.background = $root.E2E.PaymentBackground.decode(reader, reader.size(), $undefined, _depth + 1, message.background);
                             message._background = "background";
                             continue;
                         }
@@ -118472,7 +118472,7 @@ $root.E2E = (function() {
             SendPaymentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -118823,7 +118823,7 @@ $root.E2E = (function() {
             SenderKeyDistributionMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -119165,7 +119165,7 @@ $root.E2E = (function() {
             SharedDeviceContactHashKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -119499,7 +119499,7 @@ $root.E2E = (function() {
             SharedDeviceContactHashKeyRequest.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -119742,7 +119742,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.keys && message.keys.length))
                                 message.keys = [];
-                            message.keys.push($root.E2E.Message.SharedDeviceContactHashKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.keys.push($root.E2E.Message.SharedDeviceContactHashKey.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -119775,7 +119775,7 @@ $root.E2E = (function() {
             SharedDeviceContactHashKeyShare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -120153,7 +120153,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.totalAmount = $root.E2E.Money.decode(reader, reader.uint32(), $undefined, _depth + 1, message.totalAmount);
+                            message.totalAmount = $root.E2E.Money.decode(reader, reader.size(), $undefined, _depth + 1, message.totalAmount);
                             message._totalAmount = "totalAmount";
                             continue;
                         }
@@ -120176,7 +120176,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.participants && message.participants.length))
                                 message.participants = [];
-                            message.participants.push($root.E2E.Message.SplitPaymentParticipant.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.participants.push($root.E2E.Message.SplitPaymentParticipant.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 6: {
@@ -120189,7 +120189,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -120223,7 +120223,7 @@ $root.E2E = (function() {
             SplitPaymentMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -120607,7 +120607,7 @@ $root.E2E = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.amount = $root.E2E.Money.decode(reader, reader.uint32(), $undefined, _depth + 1, message.amount);
+                            message.amount = $root.E2E.Money.decode(reader, reader.size(), $undefined, _depth + 1, message.amount);
                             message._amount = "amount";
                             continue;
                         }
@@ -120648,7 +120648,7 @@ $root.E2E = (function() {
             SplitPaymentParticipant.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -121003,7 +121003,7 @@ $root.E2E = (function() {
             SplitPaymentUpdateMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -121294,7 +121294,7 @@ $root.E2E = (function() {
             StatusLinkPreviewMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -121613,14 +121613,14 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.responseMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.responseMessageKey);
+                            message.responseMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.responseMessageKey);
                             message._responseMessageKey = "responseMessageKey";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.originalMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.originalMessageKey);
+                            message.originalMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.originalMessageKey);
                             message._originalMessageKey = "originalMessageKey";
                             continue;
                         }
@@ -121661,7 +121661,7 @@ $root.E2E = (function() {
             StatusNotificationMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -121999,7 +121999,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -122040,7 +122040,7 @@ $root.E2E = (function() {
             StatusQuestionAnswerMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -122375,7 +122375,7 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.originalStatusId = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.originalStatusId);
+                            message.originalStatusId = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.originalStatusId);
                             message._originalStatusId = "originalStatusId";
                             continue;
                         }
@@ -122409,7 +122409,7 @@ $root.E2E = (function() {
             StatusQuotedMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -122746,7 +122746,7 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -122794,7 +122794,7 @@ $root.E2E = (function() {
             StatusStickerInteractionMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -123596,7 +123596,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -123652,7 +123652,7 @@ $root.E2E = (function() {
                     case 26: {
                             if (wireType !== 2)
                                 break;
-                            message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.audioMessage);
+                            message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.audioMessage);
                             message.audio = "audioMessage";
                             continue;
                         }
@@ -123686,7 +123686,7 @@ $root.E2E = (function() {
             StickerMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -124598,7 +124598,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.stickers && message.stickers.length))
                                 message.stickers = [];
-                            message.stickers.push($root.E2E.Message.StickerPackMessage.Sticker.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.stickers.push($root.E2E.Message.StickerPackMessage.Sticker.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 5: {
@@ -124646,7 +124646,7 @@ $root.E2E = (function() {
                     case 11: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -124757,7 +124757,7 @@ $root.E2E = (function() {
             StickerPackMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -125455,7 +125455,7 @@ $root.E2E = (function() {
                 Sticker.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -125867,7 +125867,7 @@ $root.E2E = (function() {
             StickerSyncRMRMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -126246,7 +126246,7 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -126294,7 +126294,7 @@ $root.E2E = (function() {
             TemplateButtonReplyMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -126673,14 +126673,14 @@ $root.E2E = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.hydratedTemplate = $root.E2E.Message.TemplateMessage.HydratedFourRowTemplate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.hydratedTemplate);
+                            message.hydratedTemplate = $root.E2E.Message.TemplateMessage.HydratedFourRowTemplate.decode(reader, reader.size(), $undefined, _depth + 1, message.hydratedTemplate);
                             message._hydratedTemplate = "hydratedTemplate";
                             continue;
                         }
@@ -126694,21 +126694,21 @@ $root.E2E = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.fourRowTemplate = $root.E2E.Message.TemplateMessage.FourRowTemplate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.fourRowTemplate);
+                            message.fourRowTemplate = $root.E2E.Message.TemplateMessage.FourRowTemplate.decode(reader, reader.size(), $undefined, _depth + 1, message.fourRowTemplate);
                             message.format = "fourRowTemplate";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.hydratedFourRowTemplate = $root.E2E.Message.TemplateMessage.HydratedFourRowTemplate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.hydratedFourRowTemplate);
+                            message.hydratedFourRowTemplate = $root.E2E.Message.TemplateMessage.HydratedFourRowTemplate.decode(reader, reader.size(), $undefined, _depth + 1, message.hydratedFourRowTemplate);
                             message.format = "hydratedFourRowTemplate";
                             continue;
                         }
                     case 5: {
                             if (wireType !== 2)
                                 break;
-                            message.interactiveMessageTemplate = $root.E2E.Message.InteractiveMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.interactiveMessageTemplate);
+                            message.interactiveMessageTemplate = $root.E2E.Message.InteractiveMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.interactiveMessageTemplate);
                             message.format = "interactiveMessageTemplate";
                             continue;
                         }
@@ -126742,7 +126742,7 @@ $root.E2E = (function() {
             TemplateMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -127184,14 +127184,14 @@ $root.E2E = (function() {
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.content = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.content);
+                                message.content = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.content);
                                 message._content = "content";
                                 continue;
                             }
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.footer = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.footer);
+                                message.footer = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.footer);
                                 message._footer = "footer";
                                 continue;
                             }
@@ -127200,41 +127200,41 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.buttons && message.buttons.length))
                                     message.buttons = [];
-                                message.buttons.push($root.E2E.TemplateButton.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.buttons.push($root.E2E.TemplateButton.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.documentMessage);
+                                message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.documentMessage);
                                 message.title = "documentMessage";
                                 continue;
                             }
                         case 2: {
                                 if (wireType !== 2)
                                     break;
-                                message.highlyStructuredMessage = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.highlyStructuredMessage);
+                                message.highlyStructuredMessage = $root.E2E.Message.HighlyStructuredMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.highlyStructuredMessage);
                                 message.title = "highlyStructuredMessage";
                                 continue;
                             }
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMessage);
+                                message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMessage);
                                 message.title = "imageMessage";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.videoMessage);
+                                message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.videoMessage);
                                 message.title = "videoMessage";
                                 continue;
                             }
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.locationMessage);
+                                message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.locationMessage);
                                 message.title = "locationMessage";
                                 continue;
                             }
@@ -127268,7 +127268,7 @@ $root.E2E = (function() {
                 FourRowTemplate.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -127822,7 +127822,7 @@ $root.E2E = (function() {
                                     break;
                                 if (!(message.hydratedButtons && message.hydratedButtons.length))
                                     message.hydratedButtons = [];
-                                message.hydratedButtons.push($root.E2E.HydratedTemplateButton.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.hydratedButtons.push($root.E2E.HydratedTemplateButton.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         case 9: {
@@ -127842,7 +127842,7 @@ $root.E2E = (function() {
                         case 1: {
                                 if (wireType !== 2)
                                     break;
-                                message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.documentMessage);
+                                message.documentMessage = $root.E2E.Message.DocumentMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.documentMessage);
                                 message.title = "documentMessage";
                                 continue;
                             }
@@ -127856,21 +127856,21 @@ $root.E2E = (function() {
                         case 3: {
                                 if (wireType !== 2)
                                     break;
-                                message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMessage);
+                                message.imageMessage = $root.E2E.Message.ImageMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMessage);
                                 message.title = "imageMessage";
                                 continue;
                             }
                         case 4: {
                                 if (wireType !== 2)
                                     break;
-                                message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.videoMessage);
+                                message.videoMessage = $root.E2E.Message.VideoMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.videoMessage);
                                 message.title = "videoMessage";
                                 continue;
                             }
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.locationMessage);
+                                message.locationMessage = $root.E2E.Message.LocationMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.locationMessage);
                                 message.title = "locationMessage";
                                 continue;
                             }
@@ -127904,7 +127904,7 @@ $root.E2E = (function() {
                 HydratedFourRowTemplate.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -128334,7 +128334,7 @@ $root.E2E = (function() {
             URLMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -128688,7 +128688,7 @@ $root.E2E = (function() {
             VideoEndCard.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -129591,7 +129591,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.interactiveAnnotations && message.interactiveAnnotations.length))
                                 message.interactiveAnnotations = [];
-                            message.interactiveAnnotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.interactiveAnnotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 13: {
@@ -129618,7 +129618,7 @@ $root.E2E = (function() {
                     case 17: {
                             if (wireType !== 2)
                                 break;
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contextInfo);
+                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.contextInfo);
                             message._contextInfo = "contextInfo";
                             continue;
                         }
@@ -129676,7 +129676,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.annotations && message.annotations.length))
                                 message.annotations = [];
-                            message.annotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.annotations.push($root.E2E.InteractiveAnnotation.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 26: {
@@ -129691,7 +129691,7 @@ $root.E2E = (function() {
                                 break;
                             if (!(message.processedVideos && message.processedVideos.length))
                                 message.processedVideos = [];
-                            message.processedVideos.push($root.E2E.ProcessedVideo.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.processedVideos.push($root.E2E.ProcessedVideo.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 28: {
@@ -129766,7 +129766,7 @@ $root.E2E = (function() {
             VideoMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -130536,7 +130536,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
                             message.senderKeyStates = [];
-                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -130569,7 +130569,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -130887,14 +130887,14 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChainKey);
+                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChainKey);
                         message._senderChainKey = "senderChainKey";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderSigningKey);
+                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderSigningKey);
                         message._senderSigningKey = "senderSigningKey";
                         continue;
                     }
@@ -130903,7 +130903,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderMessageKeys && message.senderMessageKeys.length))
                             message.senderMessageKeys = [];
-                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -130936,7 +130936,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyStateStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -131295,7 +131295,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderChainKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -131613,7 +131613,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderMessageKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -131931,7 +131931,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderSigningKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -132255,7 +132255,7 @@ $root.SignalLocalStorageProtocol = (function() {
         IdentityKeyPairStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -132648,7 +132648,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SignedPreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -133035,7 +133035,7 @@ $root.SignalLocalStorageProtocol = (function() {
         PreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -133320,7 +133320,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1, message.currentSession);
+                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1, message.currentSession);
                         message._currentSession = "currentSession";
                         continue;
                     }
@@ -133329,7 +133329,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.previousSessions && message.previousSessions.length))
                             message.previousSessions = [];
-                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -133362,7 +133362,7 @@ $root.SignalLocalStorageProtocol = (function() {
         RecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -133877,7 +133877,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChain);
+                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChain);
                         message._senderChain = "senderChain";
                         continue;
                     }
@@ -133886,20 +133886,20 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.receiverChains && message.receiverChains.length))
                             message.receiverChains = [];
-                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingKeyExchange);
+                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingKeyExchange);
                         message._pendingKeyExchange = "pendingKeyExchange";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingPreKey);
+                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingPreKey);
                         message._pendingPreKey = "pendingPreKey";
                         continue;
                     }
@@ -133961,7 +133961,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SessionStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -134422,7 +134422,7 @@ $root.SignalLocalStorageProtocol = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chainKey);
+                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.chainKey);
                             message._chainKey = "chainKey";
                             continue;
                         }
@@ -134431,7 +134431,7 @@ $root.SignalLocalStorageProtocol = (function() {
                                 break;
                             if (!(message.messageKeys && message.messageKeys.length))
                                 message.messageKeys = [];
-                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -134464,7 +134464,7 @@ $root.SignalLocalStorageProtocol = (function() {
             Chain.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -134823,7 +134823,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 ChainKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -135189,7 +135189,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 MessageKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -135654,7 +135654,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingKeyExchange.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -136104,7 +136104,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingPreKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -136581,7 +136581,7 @@ $root.AICommonDeprecated = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.gridImageMetadata);
+                        message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.gridImageMetadata);
                         message._gridImageMetadata = "gridImageMetadata";
                         continue;
                     }
@@ -136595,49 +136595,49 @@ $root.AICommonDeprecated = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMetadata);
+                        message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMetadata);
                         message._imageMetadata = "imageMetadata";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.codeMetadata);
+                        message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.codeMetadata);
                         message._codeMetadata = "codeMetadata";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.tableMetadata);
+                        message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.tableMetadata);
                         message._tableMetadata = "tableMetadata";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.dynamicMetadata);
+                        message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.dynamicMetadata);
                         message._dynamicMetadata = "dynamicMetadata";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.latexMetadata);
+                        message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.latexMetadata);
                         message._latexMetadata = "latexMetadata";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.mapMetadata);
+                        message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.mapMetadata);
                         message._mapMetadata = "mapMetadata";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contentItemsMetadata);
+                        message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.contentItemsMetadata);
                         message._contentItemsMetadata = "contentItemsMetadata";
                         continue;
                     }
@@ -136671,7 +136671,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseSubMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -137110,7 +137110,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.itemsMetadata && message.itemsMetadata.length))
                             message.itemsMetadata = [];
-                        message.itemsMetadata.push($root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.itemsMetadata.push($root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -137150,7 +137150,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseContentItemsMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -137443,7 +137443,7 @@ $root.AICommonDeprecated = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reelItem);
+                            message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.size(), $undefined, _depth + 1, message.reelItem);
                             message.aiRichResponseContentItem = "reelItem";
                             continue;
                         }
@@ -137477,7 +137477,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseContentItemMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -137840,7 +137840,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseReelItem.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -138243,7 +138243,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.annotations && message.annotations.length))
                             message.annotations = [];
-                        message.annotations.push($root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.annotations.push($root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 6: {
@@ -138283,7 +138283,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseMapMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -138720,7 +138720,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseMapAnnotation.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -139029,7 +139029,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.expressions && message.expressions.length))
                             message.expressions = [];
-                        message.expressions.push($root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.expressions.push($root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -139062,7 +139062,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseLatexMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -139559,7 +139559,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseLatexExpression.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -139988,7 +139988,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseDynamicMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -140321,7 +140321,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.rows && message.rows.length))
                             message.rows = [];
-                        message.rows.push($root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.rows.push($root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -140361,7 +140361,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseTableMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -140687,7 +140687,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseTableRow.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -140981,7 +140981,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.codeBlocks && message.codeBlocks.length))
                             message.codeBlocks = [];
-                        message.codeBlocks.push($root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.codeBlocks.push($root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -141014,7 +141014,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseCodeMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -141343,7 +141343,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseCodeBlock.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -141703,7 +141703,7 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageUrl);
+                        message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.size(), $undefined, _depth + 1, message.imageUrl);
                         message._imageUrl = "imageUrl";
                         continue;
                     }
@@ -141758,7 +141758,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseInlineImageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -142083,7 +142083,7 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), $undefined, _depth + 1, message.gridImageUrl);
+                        message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.size(), $undefined, _depth + 1, message.gridImageUrl);
                         message._gridImageUrl = "gridImageUrl";
                         continue;
                     }
@@ -142092,7 +142092,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.imageUrls && message.imageUrls.length))
                             message.imageUrls = [];
-                        message.imageUrls.push($root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.imageUrls.push($root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -142125,7 +142125,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseGridImageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -142487,7 +142487,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseImageURL.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -142820,7 +142820,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.serverEvent = $root.AICommon.BizAIMetadataSync.ServerEvent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.serverEvent);
+                        message.serverEvent = $root.AICommon.BizAIMetadataSync.ServerEvent.decode(reader, reader.size(), $undefined, _depth + 1, message.serverEvent);
                         message.operation = "serverEvent";
                         continue;
                     }
@@ -142854,7 +142854,7 @@ $root.AICommon = (function() {
         BizAIMetadataSync.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -143138,7 +143138,7 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.agentOnboardingStarted = $root.AICommon.BizAIMetadataSync.ServerEvent.AgentOnboardingStarted.decode(reader, reader.uint32(), $undefined, _depth + 1, message.agentOnboardingStarted);
+                            message.agentOnboardingStarted = $root.AICommon.BizAIMetadataSync.ServerEvent.AgentOnboardingStarted.decode(reader, reader.size(), $undefined, _depth + 1, message.agentOnboardingStarted);
                             message.event = "agentOnboardingStarted";
                             continue;
                         }
@@ -143172,7 +143172,7 @@ $root.AICommon = (function() {
             ServerEvent.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -143485,7 +143485,7 @@ $root.AICommon = (function() {
                 AgentOnboardingStarted.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -143782,14 +143782,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.c2PaMetadata);
+                        message.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.size(), $undefined, _depth + 1, message.c2PaMetadata);
                         message._c2PaMetadata = "c2PaMetadata";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.iptcMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.iptcMetadata);
+                        message.iptcMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.size(), $undefined, _depth + 1, message.iptcMetadata);
                         message._iptcMetadata = "iptcMetadata";
                         continue;
                     }
@@ -143823,7 +143823,7 @@ $root.AICommon = (function() {
         AIProvenance.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -144147,7 +144147,7 @@ $root.AICommon = (function() {
             Metadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -144465,7 +144465,7 @@ $root.AICommon = (function() {
         BotAgentDeepLinkMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -144725,7 +144725,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deepLinkMetadata);
+                        message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.deepLinkMetadata);
                         message._deepLinkMetadata = "deepLinkMetadata";
                         continue;
                     }
@@ -144759,7 +144759,7 @@ $root.AICommon = (function() {
         BotAgentMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -145092,7 +145092,7 @@ $root.AICommon = (function() {
         BotInfrastructureDiagnostics.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -145430,7 +145430,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.capabilityOptions && message.capabilityOptions.length))
                             message.capabilityOptions = [];
-                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -145438,7 +145438,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.conversationOptions && message.conversationOptions.length))
                             message.conversationOptions = [];
-                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -145471,7 +145471,7 @@ $root.AICommon = (function() {
         AIHomeState.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -145982,7 +145982,7 @@ $root.AICommon = (function() {
             AIHomeOption.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -146379,7 +146379,7 @@ $root.AICommon = (function() {
         BotDocumentMessageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -146734,7 +146734,7 @@ $root.AICommon = (function() {
         SessionTransparencyMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -147028,7 +147028,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageKey);
+                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
                         message._messageKey = "messageKey";
                         continue;
                     }
@@ -147069,7 +147069,7 @@ $root.AICommon = (function() {
         AIRegenerateMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -147378,7 +147378,7 @@ $root.AICommon = (function() {
         AIRichResponseUnifiedResponse.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -147687,7 +147687,7 @@ $root.AICommon = (function() {
         BotMessageSharingInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -148229,7 +148229,7 @@ $root.AICommon = (function() {
         ForwardedAIBotMessageInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -148597,7 +148597,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageKey);
+                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
                         message._messageKey = "messageKey";
                         continue;
                     }
@@ -148639,7 +148639,7 @@ $root.AICommon = (function() {
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sideBySideSurveyMetadata);
+                        message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sideBySideSurveyMetadata);
                         message._sideBySideSurveyMetadata = "sideBySideSurveyMetadata";
                         continue;
                     }
@@ -148673,7 +148673,7 @@ $root.AICommon = (function() {
         BotFeedbackMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -149361,14 +149361,14 @@ $root.AICommon = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.analyticsData);
+                            message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.size(), $undefined, _depth + 1, message.analyticsData);
                             message._analyticsData = "analyticsData";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metaAiAnalyticsData);
+                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.size(), $undefined, _depth + 1, message.metaAiAnalyticsData);
                             message._metaAiAnalyticsData = "metaAiAnalyticsData";
                             continue;
                         }
@@ -149402,7 +149402,7 @@ $root.AICommon = (function() {
             SideBySideSurveyMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -149813,7 +149813,7 @@ $root.AICommon = (function() {
                 SideBySideSurveyAnalyticsData.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -150243,35 +150243,35 @@ $root.AICommon = (function() {
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctaImpressionEvent);
+                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.ctaImpressionEvent);
                                 message._ctaImpressionEvent = "ctaImpressionEvent";
                                 continue;
                             }
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctaClickEvent);
+                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.ctaClickEvent);
                                 message._ctaClickEvent = "ctaClickEvent";
                                 continue;
                             }
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.cardImpressionEvent);
+                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.cardImpressionEvent);
                                 message._cardImpressionEvent = "cardImpressionEvent";
                                 continue;
                             }
                         case 8: {
                                 if (wireType !== 2)
                                     break;
-                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.responseEvent);
+                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.responseEvent);
                                 message._responseEvent = "responseEvent";
                                 continue;
                             }
                         case 9: {
                                 if (wireType !== 2)
                                     break;
-                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.abandonEvent);
+                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.abandonEvent);
                                 message._abandonEvent = "abandonEvent";
                                 continue;
                             }
@@ -150305,7 +150305,7 @@ $root.AICommon = (function() {
                 SidebySideSurveyMetaAiAnalyticsData.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -150686,7 +150686,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyAbandonEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -150992,7 +150992,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyCTAClickEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -151283,7 +151283,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyCTAImpressionEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -151535,7 +151535,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyCardImpressionEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -151823,7 +151823,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyResponseEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -152123,7 +152123,7 @@ $root.AICommon = (function() {
         BotGroupParticipantMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -152429,7 +152429,7 @@ $root.AICommon = (function() {
         BotRenderingConfigMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -152681,7 +152681,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.participantsMetadata && message.participantsMetadata.length))
                             message.participantsMetadata = [];
-                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -152714,7 +152714,7 @@ $root.AICommon = (function() {
         BotHistoryShareMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -152973,7 +152973,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.participantsMetadata && message.participantsMetadata.length))
                             message.participantsMetadata = [];
-                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -153006,7 +153006,7 @@ $root.AICommon = (function() {
         BotGroupMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -153304,7 +153304,7 @@ $root.AICommon = (function() {
         AISubscriptionUpsellMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -154309,14 +154309,14 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.pluginMetadata = $root.AICommon.BotPluginMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pluginMetadata);
+                        message.pluginMetadata = $root.AICommon.BotPluginMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.pluginMetadata);
                         message._pluginMetadata = "pluginMetadata";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.suggestedPromptMetadata);
+                        message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.suggestedPromptMetadata);
                         message._suggestedPromptMetadata = "suggestedPromptMetadata";
                         continue;
                     }
@@ -154330,14 +154330,14 @@ $root.AICommon = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.sessionMetadata = $root.AICommon.BotSessionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sessionMetadata);
+                        message.sessionMetadata = $root.AICommon.BotSessionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sessionMetadata);
                         message._sessionMetadata = "sessionMetadata";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.memuMetadata = $root.AICommon.BotMemuMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.memuMetadata);
+                        message.memuMetadata = $root.AICommon.BotMemuMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.memuMetadata);
                         message._memuMetadata = "memuMetadata";
                         continue;
                     }
@@ -154351,14 +154351,14 @@ $root.AICommon = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.reminderMetadata = $root.AICommon.BotReminderMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reminderMetadata);
+                        message.reminderMetadata = $root.AICommon.BotReminderMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.reminderMetadata);
                         message._reminderMetadata = "reminderMetadata";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.modelMetadata = $root.AICommon.BotModelMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.modelMetadata);
+                        message.modelMetadata = $root.AICommon.BotModelMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.modelMetadata);
                         message._modelMetadata = "modelMetadata";
                         continue;
                     }
@@ -154372,56 +154372,56 @@ $root.AICommon = (function() {
                 case 12: {
                         if (wireType !== 2)
                             break;
-                        message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.progressIndicatorMetadata);
+                        message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.progressIndicatorMetadata);
                         message._progressIndicatorMetadata = "progressIndicatorMetadata";
                         continue;
                     }
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.capabilityMetadata);
+                        message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.capabilityMetadata);
                         message._capabilityMetadata = "capabilityMetadata";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.imagineMetadata = $root.AICommon.BotImagineMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imagineMetadata);
+                        message.imagineMetadata = $root.AICommon.BotImagineMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.imagineMetadata);
                         message._imagineMetadata = "imagineMetadata";
                         continue;
                     }
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.memoryMetadata = $root.AICommon.BotMemoryMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.memoryMetadata);
+                        message.memoryMetadata = $root.AICommon.BotMemoryMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.memoryMetadata);
                         message._memoryMetadata = "memoryMetadata";
                         continue;
                     }
                 case 16: {
                         if (wireType !== 2)
                             break;
-                        message.renderingMetadata = $root.AICommon.BotRenderingMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.renderingMetadata);
+                        message.renderingMetadata = $root.AICommon.BotRenderingMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.renderingMetadata);
                         message._renderingMetadata = "renderingMetadata";
                         continue;
                     }
                 case 17: {
                         if (wireType !== 2)
                             break;
-                        message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botMetricsMetadata);
+                        message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botMetricsMetadata);
                         message._botMetricsMetadata = "botMetricsMetadata";
                         continue;
                     }
                 case 18: {
                         if (wireType !== 2)
                             break;
-                        message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botLinkedAccountsMetadata);
+                        message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botLinkedAccountsMetadata);
                         message._botLinkedAccountsMetadata = "botLinkedAccountsMetadata";
                         continue;
                     }
                 case 19: {
                         if (wireType !== 2)
                             break;
-                        message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.richResponseSourcesMetadata);
+                        message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.richResponseSourcesMetadata);
                         message._richResponseSourcesMetadata = "richResponseSourcesMetadata";
                         continue;
                     }
@@ -154435,28 +154435,28 @@ $root.AICommon = (function() {
                 case 21: {
                         if (wireType !== 2)
                             break;
-                        message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botPromotionMessageMetadata);
+                        message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botPromotionMessageMetadata);
                         message._botPromotionMessageMetadata = "botPromotionMessageMetadata";
                         continue;
                     }
                 case 22: {
                         if (wireType !== 2)
                             break;
-                        message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botModeSelectionMetadata);
+                        message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botModeSelectionMetadata);
                         message._botModeSelectionMetadata = "botModeSelectionMetadata";
                         continue;
                     }
                 case 23: {
                         if (wireType !== 2)
                             break;
-                        message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botQuotaMetadata);
+                        message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botQuotaMetadata);
                         message._botQuotaMetadata = "botQuotaMetadata";
                         continue;
                     }
                 case 24: {
                         if (wireType !== 2)
                             break;
-                        message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botAgeCollectionMetadata);
+                        message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botAgeCollectionMetadata);
                         message._botAgeCollectionMetadata = "botAgeCollectionMetadata";
                         continue;
                     }
@@ -154477,119 +154477,119 @@ $root.AICommon = (function() {
                 case 27: {
                         if (wireType !== 2)
                             break;
-                        message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.verificationMetadata);
+                        message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.verificationMetadata);
                         message._verificationMetadata = "verificationMetadata";
                         continue;
                     }
                 case 28: {
                         if (wireType !== 2)
                             break;
-                        message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unifiedResponseMutation);
+                        message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.decode(reader, reader.size(), $undefined, _depth + 1, message.unifiedResponseMutation);
                         message._unifiedResponseMutation = "unifiedResponseMutation";
                         continue;
                     }
                 case 29: {
                         if (wireType !== 2)
                             break;
-                        message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botMessageOriginMetadata);
+                        message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botMessageOriginMetadata);
                         message._botMessageOriginMetadata = "botMessageOriginMetadata";
                         continue;
                     }
                 case 30: {
                         if (wireType !== 2)
                             break;
-                        message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.inThreadSurveyMetadata);
+                        message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.inThreadSurveyMetadata);
                         message._inThreadSurveyMetadata = "inThreadSurveyMetadata";
                         continue;
                     }
                 case 31: {
                         if (wireType !== 2)
                             break;
-                        message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botThreadInfo);
+                        message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.botThreadInfo);
                         message._botThreadInfo = "botThreadInfo";
                         continue;
                     }
                 case 32: {
                         if (wireType !== 2)
                             break;
-                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.regenerateMetadata);
+                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.regenerateMetadata);
                         message._regenerateMetadata = "regenerateMetadata";
                         continue;
                     }
                 case 33: {
                         if (wireType !== 2)
                             break;
-                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sessionTransparencyMetadata);
+                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sessionTransparencyMetadata);
                         message._sessionTransparencyMetadata = "sessionTransparencyMetadata";
                         continue;
                     }
                 case 34: {
                         if (wireType !== 2)
                             break;
-                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botDocumentMessageMetadata);
+                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botDocumentMessageMetadata);
                         message._botDocumentMessageMetadata = "botDocumentMessageMetadata";
                         continue;
                     }
                 case 35: {
                         if (wireType !== 2)
                             break;
-                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botGroupMetadata);
+                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botGroupMetadata);
                         message._botGroupMetadata = "botGroupMetadata";
                         continue;
                     }
                 case 36: {
                         if (wireType !== 2)
                             break;
-                        message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botRenderingConfigMetadata);
+                        message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botRenderingConfigMetadata);
                         message._botRenderingConfigMetadata = "botRenderingConfigMetadata";
                         continue;
                     }
                 case 37: {
                         if (wireType !== 2)
                             break;
-                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botInfrastructureDiagnostics);
+                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.size(), $undefined, _depth + 1, message.botInfrastructureDiagnostics);
                         message._botInfrastructureDiagnostics = "botInfrastructureDiagnostics";
                         continue;
                     }
                 case 38: {
                         if (wireType !== 2)
                             break;
-                        message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiMediaCollectionMetadata);
+                        message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.aiMediaCollectionMetadata);
                         message._aiMediaCollectionMetadata = "aiMediaCollectionMetadata";
                         continue;
                     }
                 case 39: {
                         if (wireType !== 2)
                             break;
-                        message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commandMetadata);
+                        message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.commandMetadata);
                         message._commandMetadata = "commandMetadata";
                         continue;
                     }
                 case 40: {
                         if (wireType !== 2)
                             break;
-                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.resolvedToolCallMetadata);
+                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.resolvedToolCallMetadata);
                         message._resolvedToolCallMetadata = "resolvedToolCallMetadata";
                         continue;
                     }
                 case 41: {
                         if (wireType !== 2)
                             break;
-                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.subscriptionUpsellMetadata);
+                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.subscriptionUpsellMetadata);
                         message._subscriptionUpsellMetadata = "subscriptionUpsellMetadata";
                         continue;
                     }
                 case 42: {
                         if (wireType !== 2)
                             break;
-                        message.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pttPromptMetadata);
+                        message.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.pttPromptMetadata);
                         message._pttPromptMetadata = "pttPromptMetadata";
                         continue;
                     }
                 case 43: {
                         if (wireType !== 2)
                             break;
-                        message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botHistoryShareMetadata);
+                        message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botHistoryShareMetadata);
                         message._botHistoryShareMetadata = "botHistoryShareMetadata";
                         continue;
                     }
@@ -154637,7 +154637,7 @@ $root.AICommon = (function() {
         BotMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -155522,7 +155522,7 @@ $root.AICommon = (function() {
         BotPttPromptMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -155828,7 +155828,7 @@ $root.AICommon = (function() {
         BotResolvedToolCallMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -156167,7 +156167,7 @@ $root.AICommon = (function() {
         BotCommandMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -156454,14 +156454,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.hatchMetadataSync = $root.AICommon.HatchMetadataSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.hatchMetadataSync);
+                        message.hatchMetadataSync = $root.AICommon.HatchMetadataSync.decode(reader, reader.size(), $undefined, _depth + 1, message.hatchMetadataSync);
                         message._hatchMetadataSync = "hatchMetadataSync";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.bizAiMetadataSync = $root.AICommon.BizAIMetadataSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiMetadataSync);
+                        message.bizAiMetadataSync = $root.AICommon.BizAIMetadataSync.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiMetadataSync);
                         message._bizAiMetadataSync = "bizAiMetadataSync";
                         continue;
                     }
@@ -156495,7 +156495,7 @@ $root.AICommon = (function() {
         AIMetadataOperation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -156846,7 +156846,7 @@ $root.AICommon = (function() {
         HatchMetadataSync.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -157209,7 +157209,7 @@ $root.AICommon = (function() {
         AIMediaCollectionMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -157533,7 +157533,7 @@ $root.AICommon = (function() {
         AIMediaCollectionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -157807,14 +157807,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.serverInfo);
+                        message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.serverInfo);
                         message._serverInfo = "serverInfo";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.clientInfo);
+                        message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.clientInfo);
                         message._clientInfo = "clientInfo";
                         continue;
                     }
@@ -157848,7 +157848,7 @@ $root.AICommon = (function() {
         AIThreadInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -158172,7 +158172,7 @@ $root.AICommon = (function() {
             AIThreadClientInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -158506,7 +158506,7 @@ $root.AICommon = (function() {
             AIThreadServerInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -158770,7 +158770,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sbsMetadata);
+                        message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sbsMetadata);
                         message._sbsMetadata = "sbsMetadata";
                         continue;
                     }
@@ -158779,7 +158779,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.mediaDetailsMetadataList && message.mediaDetailsMetadataList.length))
                             message.mediaDetailsMetadataList = [];
-                        message.mediaDetailsMetadataList.push($root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.mediaDetailsMetadataList.push($root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -158812,7 +158812,7 @@ $root.AICommon = (function() {
         BotUnifiedResponseMutation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -159130,14 +159130,14 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.highResMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.highResMedia);
+                            message.highResMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.highResMedia);
                             message._highResMedia = "highResMedia";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.previewMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.previewMedia);
+                            message.previewMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.previewMedia);
                             message._previewMedia = "previewMedia";
                             continue;
                         }
@@ -159171,7 +159171,7 @@ $root.AICommon = (function() {
             MediaDetailsMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -159507,7 +159507,7 @@ $root.AICommon = (function() {
             SideBySideMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -159801,7 +159801,7 @@ $root.AICommon = (function() {
         BotMessageOrigin.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -160063,7 +160063,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.origins && message.origins.length))
                             message.origins = [];
-                        message.origins.push($root.AICommon.BotMessageOrigin.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.origins.push($root.AICommon.BotMessageOrigin.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -160096,7 +160096,7 @@ $root.AICommon = (function() {
         BotMessageOriginMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -160720,7 +160720,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.questions && message.questions.length))
                             message.questions = [];
-                        message.questions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.questions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 13: {
@@ -160749,7 +160749,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.privacyStatementParts && message.privacyStatementParts.length))
                             message.privacyStatementParts = [];
-                        message.privacyStatementParts.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.privacyStatementParts.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 17: {
@@ -160796,7 +160796,7 @@ $root.AICommon = (function() {
         InThreadSurveyMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -161310,7 +161310,7 @@ $root.AICommon = (function() {
             InThreadSurveyOption.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -161634,7 +161634,7 @@ $root.AICommon = (function() {
             InThreadSurveyPrivacyStatementPart.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -161937,7 +161937,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.questionOptions && message.questionOptions.length))
                                 message.questionOptions = [];
-                            message.questionOptions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.questionOptions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -161970,7 +161970,7 @@ $root.AICommon = (function() {
             InThreadSurveyQuestion.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -162251,7 +162251,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.sources && message.sources.length))
                             message.sources = [];
-                        message.sources.push($root.AICommon.BotSourcesMetadata.BotSourceItem.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.sources.push($root.AICommon.BotSourcesMetadata.BotSourceItem.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -162284,7 +162284,7 @@ $root.AICommon = (function() {
         BotSourcesMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -162723,7 +162723,7 @@ $root.AICommon = (function() {
             BotSourceItem.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -163153,7 +163153,7 @@ $root.AICommon = (function() {
         BotAgeCollectionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -163502,7 +163502,7 @@ $root.AICommon = (function() {
         BotImagineMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -163797,7 +163797,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.botFeatureQuotaMetadata && message.botFeatureQuotaMetadata.length))
                             message.botFeatureQuotaMetadata = [];
-                        message.botFeatureQuotaMetadata.push($root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.botFeatureQuotaMetadata.push($root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -163830,7 +163830,7 @@ $root.AICommon = (function() {
         BotQuotaMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -164173,7 +164173,7 @@ $root.AICommon = (function() {
             BotFeatureQuotaMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -164538,7 +164538,7 @@ $root.AICommon = (function() {
         BotModeSelectionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -164877,7 +164877,7 @@ $root.AICommon = (function() {
         BotCapabilityMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -165681,7 +165681,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.stepsMetadata && message.stepsMetadata.length))
                             message.stepsMetadata = [];
-                        message.stepsMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.stepsMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -165721,7 +165721,7 @@ $root.AICommon = (function() {
         BotProgressIndicatorMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -166123,7 +166123,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.sourcesMetadata && message.sourcesMetadata.length))
                                 message.sourcesMetadata = [];
-                            message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 4: {
@@ -166152,7 +166152,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.sections && message.sections.length))
                                 message.sections = [];
-                            message.sections.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.sections.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -166185,7 +166185,7 @@ $root.AICommon = (function() {
             BotPlanningStepMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -166643,7 +166643,7 @@ $root.AICommon = (function() {
                 BotPlanningSearchSourceMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -167019,7 +167019,7 @@ $root.AICommon = (function() {
                 BotPlanningSearchSourcesMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -167368,7 +167368,7 @@ $root.AICommon = (function() {
                                     break;
                                 if (!(message.sourcesMetadata && message.sourcesMetadata.length))
                                     message.sourcesMetadata = [];
-                                message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         }
@@ -167401,7 +167401,7 @@ $root.AICommon = (function() {
                 BotPlanningStepSectionMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -167808,7 +167808,7 @@ $root.AICommon = (function() {
         BotModelMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -168204,7 +168204,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestMessageKey);
+                        message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.requestMessageKey);
                         message._requestMessageKey = "requestMessageKey";
                         continue;
                     }
@@ -168266,7 +168266,7 @@ $root.AICommon = (function() {
         BotReminderMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -168643,7 +168643,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.faceImages && message.faceImages.length))
                             message.faceImages = [];
-                        message.faceImages.push($root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.faceImages.push($root.AICommon.BotMediaMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -168676,7 +168676,7 @@ $root.AICommon = (function() {
         BotMemuMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -169118,7 +169118,7 @@ $root.AICommon = (function() {
         BotMediaMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -169521,7 +169521,7 @@ $root.AICommon = (function() {
         BotSessionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -169895,7 +169895,7 @@ $root.AICommon = (function() {
         BotMetricsMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -170382,7 +170382,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.keywords && message.keywords.length))
                             message.keywords = [];
-                        message.keywords.push($root.AICommon.BotRenderingMetadata.Keyword.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.keywords.push($root.AICommon.BotRenderingMetadata.Keyword.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -170415,7 +170415,7 @@ $root.AICommon = (function() {
         BotRenderingMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -170731,7 +170731,7 @@ $root.AICommon = (function() {
             Keyword.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -171061,7 +171061,7 @@ $root.AICommon = (function() {
         BotPromotionMessageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -171440,7 +171440,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.certificateChainSki && message.certificateChainSki.length))
                             message.certificateChainSki = [];
-                        message.certificateChainSki.push($root.AICommon.BotSignatureVerificationUseCaseProof.CertificateSKI.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.certificateChainSki.push($root.AICommon.BotSignatureVerificationUseCaseProof.CertificateSKI.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -171473,7 +171473,7 @@ $root.AICommon = (function() {
         BotSignatureVerificationUseCaseProof.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -171896,7 +171896,7 @@ $root.AICommon = (function() {
             CertificateSKI.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -172181,7 +172181,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.proofs && message.proofs.length))
                             message.proofs = [];
-                        message.proofs.push($root.AICommon.BotSignatureVerificationUseCaseProof.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.proofs.push($root.AICommon.BotSignatureVerificationUseCaseProof.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -172214,7 +172214,7 @@ $root.AICommon = (function() {
         BotSignatureVerificationMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -172536,7 +172536,7 @@ $root.AICommon = (function() {
         BotMemoryFact.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -172821,7 +172821,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.addedFacts && message.addedFacts.length))
                             message.addedFacts = [];
-                        message.addedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.addedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -172829,7 +172829,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.removedFacts && message.removedFacts.length))
                             message.removedFacts = [];
-                        message.removedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.removedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -172869,7 +172869,7 @@ $root.AICommon = (function() {
         BotMemoryMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -173203,7 +173203,7 @@ $root.AICommon = (function() {
         BotLinkedAccount.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -173502,7 +173502,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.accounts && message.accounts.length))
                             message.accounts = [];
-                        message.accounts.push($root.AICommon.BotLinkedAccount.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.accounts.push($root.AICommon.BotLinkedAccount.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -173549,7 +173549,7 @@ $root.AICommon = (function() {
         BotLinkedAccountsMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -173893,7 +173893,7 @@ $root.AICommon = (function() {
         BotPromptSuggestion.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -174145,7 +174145,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.suggestions && message.suggestions.length))
                             message.suggestions = [];
-                        message.suggestions.push($root.AICommon.BotPromptSuggestion.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.suggestions.push($root.AICommon.BotPromptSuggestion.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -174178,7 +174178,7 @@ $root.AICommon = (function() {
         BotPromptSuggestions.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -174504,7 +174504,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.promptSuggestions = $root.AICommon.BotPromptSuggestions.decode(reader, reader.uint32(), $undefined, _depth + 1, message.promptSuggestions);
+                        message.promptSuggestions = $root.AICommon.BotPromptSuggestions.decode(reader, reader.size(), $undefined, _depth + 1, message.promptSuggestions);
                         message._promptSuggestions = "promptSuggestions";
                         continue;
                     }
@@ -174545,7 +174545,7 @@ $root.AICommon = (function() {
         BotSuggestedPromptMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -175081,7 +175081,7 @@ $root.AICommon = (function() {
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.parentPluginMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.parentPluginMessageKey);
+                        message.parentPluginMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.parentPluginMessageKey);
                         message._parentPluginMessageKey = "parentPluginMessageKey";
                         continue;
                     }
@@ -175136,7 +175136,7 @@ $root.AICommon = (function() {
         BotPluginMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -175869,7 +175869,7 @@ $root.Adv = (function() {
         ADVSignedDeviceIdentityHMAC.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -176262,7 +176262,7 @@ $root.Adv = (function() {
         ADVSignedDeviceIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -176679,7 +176679,7 @@ $root.Adv = (function() {
         ADVDeviceIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -177087,7 +177087,7 @@ $root.Adv = (function() {
         ADVSignedKeyIndexList.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -177494,7 +177494,7 @@ $root.Adv = (function() {
         ADVKeyIndexList.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -177951,7 +177951,7 @@ $root.Protocol = (function() {
         ACP2Setting.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -178363,7 +178363,7 @@ $root.Protocol = (function() {
         LimitSharing.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -178793,7 +178793,7 @@ $root.Protocol = (function() {
         MessageKey.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -179114,7 +179114,7 @@ $root.Aea = (function() {
         NonE2EEAttestation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -179526,42 +179526,42 @@ $root.StatusAttributions = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusReshare);
+                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.size(), $undefined, _depth + 1, message.statusReshare);
                         message.attributionData = "statusReshare";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalShare);
+                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.size(), $undefined, _depth + 1, message.externalShare);
                         message.attributionData = "externalShare";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), $undefined, _depth + 1, message.music);
+                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.size(), $undefined, _depth + 1, message.music);
                         message.attributionData = "music";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatus);
+                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.size(), $undefined, _depth + 1, message.groupStatus);
                         message.attributionData = "groupStatus";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rlAttribution);
+                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.size(), $undefined, _depth + 1, message.rlAttribution);
                         message.attributionData = "rlAttribution";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiCreatedAttribution);
+                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.size(), $undefined, _depth + 1, message.aiCreatedAttribution);
                         message.attributionData = "aiCreatedAttribution";
                         continue;
                     }
@@ -179595,7 +179595,7 @@ $root.StatusAttributions = (function() {
         StatusAttribution.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -180056,7 +180056,7 @@ $root.StatusAttributions = (function() {
             AiCreatedAttribution.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -180435,7 +180435,7 @@ $root.StatusAttributions = (function() {
             ExternalShare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -180841,7 +180841,7 @@ $root.StatusAttributions = (function() {
             GroupStatus.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -181243,7 +181243,7 @@ $root.StatusAttributions = (function() {
             Music.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -181570,7 +181570,7 @@ $root.StatusAttributions = (function() {
             RLAttribution.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -181879,7 +181879,7 @@ $root.StatusAttributions = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
+                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.size(), $undefined, _depth + 1, message.metadata);
                             message._metadata = "metadata";
                             continue;
                         }
@@ -181913,7 +181913,7 @@ $root.StatusAttributions = (function() {
             StatusReshare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -182302,7 +182302,7 @@ $root.StatusAttributions = (function() {
                 Metadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -182805,7 +182805,7 @@ $root.CompanionReg = (function() {
         ClientPairingProps.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -183159,7 +183159,7 @@ $root.CompanionReg = (function() {
         EncryptedPairingRequest.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -183504,7 +183504,7 @@ $root.CompanionReg = (function() {
         PairingRequest.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -183837,7 +183837,7 @@ $root.CompanionReg = (function() {
         PrimaryEphemeralIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -184124,7 +184124,7 @@ $root.CompanionReg = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commitment);
+                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.size(), $undefined, _depth + 1, message.commitment);
                         message._commitment = "commitment";
                         continue;
                     }
@@ -184158,7 +184158,7 @@ $root.CompanionReg = (function() {
         ProloguePayload.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -184458,7 +184458,7 @@ $root.CompanionReg = (function() {
         CompanionCommitment.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -184791,7 +184791,7 @@ $root.CompanionReg = (function() {
         CompanionEphemeralIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -185258,7 +185258,7 @@ $root.CompanionReg = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.version);
                         message._version = "version";
                         continue;
                     }
@@ -185279,7 +185279,7 @@ $root.CompanionReg = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncConfig);
+                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncConfig);
                         message._historySyncConfig = "historySyncConfig";
                         continue;
                     }
@@ -185313,7 +185313,7 @@ $root.CompanionReg = (function() {
         DeviceProps.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -185859,7 +185859,7 @@ $root.CompanionReg = (function() {
             AppVersion.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -186798,7 +186798,7 @@ $root.CompanionReg = (function() {
             HistorySyncConfig.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -187411,7 +187411,7 @@ $root.MmsRetry = (function() {
         ServerErrorReceipt.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -187765,7 +187765,7 @@ $root.MmsRetry = (function() {
         MediaRetryNotification.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -188087,7 +188087,7 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.collectionMutations && message.collectionMutations.length))
                             message.collectionMutations = [];
-                        message.collectionMutations.push($root.ServerSync.CoexStateSync.CollectionMutations.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.collectionMutations.push($root.ServerSync.CoexStateSync.CollectionMutations.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -188120,7 +188120,7 @@ $root.ServerSync = (function() {
         CoexStateSync.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -188403,7 +188403,7 @@ $root.ServerSync = (function() {
                                 break;
                             if (!(message.mutations && message.mutations.length))
                                 message.mutations = [];
-                            message.mutations.push($root.ServerSync.CoexStateSync.Mutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.mutations.push($root.ServerSync.CoexStateSync.Mutation.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -188436,7 +188436,7 @@ $root.ServerSync = (function() {
             CollectionMutations.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -188761,14 +188761,14 @@ $root.ServerSync = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), $undefined, _depth + 1, message.index);
+                            message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.size(), $undefined, _depth + 1, message.index);
                             message._index = "index";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                            message.value = $root.ServerSync.SyncdValue.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                             message._value = "value";
                             continue;
                         }
@@ -188816,7 +188816,7 @@ $root.ServerSync = (function() {
             Mutation.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -189261,7 +189261,7 @@ $root.ServerSync = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.version);
                         message._version = "version";
                         continue;
                     }
@@ -189270,13 +189270,13 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.mutations && message.mutations.length))
                             message.mutations = [];
-                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalMutations);
+                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.size(), $undefined, _depth + 1, message.externalMutations);
                         message._externalMutations = "externalMutations";
                         continue;
                     }
@@ -189297,14 +189297,14 @@ $root.ServerSync = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                         message._keyId = "keyId";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.uint32(), $undefined, _depth + 1, message.exitCode);
+                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.size(), $undefined, _depth + 1, message.exitCode);
                         message._exitCode = "exitCode";
                         continue;
                     }
@@ -189352,7 +189352,7 @@ $root.ServerSync = (function() {
         SyncdPatch.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -189746,7 +189746,7 @@ $root.ServerSync = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), $undefined, _depth + 1, message.record);
+                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.size(), $undefined, _depth + 1, message.record);
                         message._record = "record";
                         continue;
                     }
@@ -189780,7 +189780,7 @@ $root.ServerSync = (function() {
         SyncdMutation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -190063,7 +190063,7 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.mutations && message.mutations.length))
                             message.mutations = [];
-                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -190096,7 +190096,7 @@ $root.ServerSync = (function() {
         SyncdMutations.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -190407,7 +190407,7 @@ $root.ServerSync = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.version);
                         message._version = "version";
                         continue;
                     }
@@ -190416,7 +190416,7 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.records && message.records.length))
                             message.records = [];
-                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -190429,7 +190429,7 @@ $root.ServerSync = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                         message._keyId = "keyId";
                         continue;
                     }
@@ -190463,7 +190463,7 @@ $root.ServerSync = (function() {
         SyncdSnapshot.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -190924,7 +190924,7 @@ $root.ServerSync = (function() {
         ExternalBlobReference.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -191272,21 +191272,21 @@ $root.ServerSync = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), $undefined, _depth + 1, message.index);
+                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.size(), $undefined, _depth + 1, message.index);
                         message._index = "index";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                         message._value = "value";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                         message._keyId = "keyId";
                         continue;
                     }
@@ -191320,7 +191320,7 @@ $root.ServerSync = (function() {
         SyncdRecord.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -191638,7 +191638,7 @@ $root.ServerSync = (function() {
         KeyId.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -191923,7 +191923,7 @@ $root.ServerSync = (function() {
         SyncdValue.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -192208,7 +192208,7 @@ $root.ServerSync = (function() {
         SyncdIndex.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -192517,7 +192517,7 @@ $root.ServerSync = (function() {
         ExitCode.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -192820,7 +192820,7 @@ $root.ServerSync = (function() {
         SyncdVersion.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

@@ -293,7 +293,7 @@ $root.VnameCert = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.vnameCert);
+                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.size(), $undefined, _depth + 1, message.vnameCert);
                         message._vnameCert = "vnameCert";
                         continue;
                     }
@@ -369,7 +369,7 @@ $root.VnameCert = (function() {
         BizIdentityInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -921,7 +921,7 @@ $root.VnameCert = (function() {
         BizAccountLinkInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1290,7 +1290,7 @@ $root.VnameCert = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.vnameCert);
+                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.size(), $undefined, _depth + 1, message.vnameCert);
                         message._vnameCert = "vnameCert";
                         continue;
                     }
@@ -1331,7 +1331,7 @@ $root.VnameCert = (function() {
         BizAccountPayload.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1679,7 +1679,7 @@ $root.VnameCert = (function() {
         VerifiedNameCertificate.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2038,7 +2038,7 @@ $root.VnameCert = (function() {
                                 break;
                             if (!(message.localizedNames && message.localizedNames.length))
                                 message.localizedNames = [];
-                            message.localizedNames.push($root.VnameCert.LocalizedName.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.localizedNames.push($root.VnameCert.LocalizedName.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 10: {
@@ -2078,7 +2078,7 @@ $root.VnameCert = (function() {
             Details.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2488,7 +2488,7 @@ $root.VnameCert = (function() {
         LocalizedName.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

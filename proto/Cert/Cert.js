@@ -184,14 +184,14 @@ $root.Cert = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.leaf);
+                        message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.size(), $undefined, _depth + 1, message.leaf);
                         message._leaf = "leaf";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.intermediate = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.intermediate);
+                        message.intermediate = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.size(), $undefined, _depth + 1, message.intermediate);
                         message._intermediate = "intermediate";
                         continue;
                     }
@@ -225,7 +225,7 @@ $root.Cert = (function() {
         CertChain.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -549,7 +549,7 @@ $root.Cert = (function() {
             NoiseCertificate.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -939,7 +939,7 @@ $root.Cert = (function() {
                 Details.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -1314,7 +1314,7 @@ $root.Cert = (function() {
         NoiseCertificate.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1704,7 +1704,7 @@ $root.Cert = (function() {
             Details.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

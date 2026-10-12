@@ -201,7 +201,7 @@ $root.Aea = (function() {
         NonE2EEAttestation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

@@ -162,7 +162,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
                             message.senderKeyStates = [];
-                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -195,7 +195,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -513,14 +513,14 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChainKey);
+                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChainKey);
                         message._senderChainKey = "senderChainKey";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderSigningKey);
+                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderSigningKey);
                         message._senderSigningKey = "senderSigningKey";
                         continue;
                     }
@@ -529,7 +529,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderMessageKeys && message.senderMessageKeys.length))
                             message.senderMessageKeys = [];
-                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -562,7 +562,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyStateStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -921,7 +921,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderChainKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1239,7 +1239,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderMessageKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1557,7 +1557,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderSigningKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1881,7 +1881,7 @@ $root.SignalLocalStorageProtocol = (function() {
         IdentityKeyPairStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2274,7 +2274,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SignedPreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2661,7 +2661,7 @@ $root.SignalLocalStorageProtocol = (function() {
         PreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2946,7 +2946,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1, message.currentSession);
+                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1, message.currentSession);
                         message._currentSession = "currentSession";
                         continue;
                     }
@@ -2955,7 +2955,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.previousSessions && message.previousSessions.length))
                             message.previousSessions = [];
-                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -2988,7 +2988,7 @@ $root.SignalLocalStorageProtocol = (function() {
         RecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3503,7 +3503,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChain);
+                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChain);
                         message._senderChain = "senderChain";
                         continue;
                     }
@@ -3512,20 +3512,20 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.receiverChains && message.receiverChains.length))
                             message.receiverChains = [];
-                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingKeyExchange);
+                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingKeyExchange);
                         message._pendingKeyExchange = "pendingKeyExchange";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingPreKey);
+                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingPreKey);
                         message._pendingPreKey = "pendingPreKey";
                         continue;
                     }
@@ -3587,7 +3587,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SessionStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4048,7 +4048,7 @@ $root.SignalLocalStorageProtocol = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chainKey);
+                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.chainKey);
                             message._chainKey = "chainKey";
                             continue;
                         }
@@ -4057,7 +4057,7 @@ $root.SignalLocalStorageProtocol = (function() {
                                 break;
                             if (!(message.messageKeys && message.messageKeys.length))
                                 message.messageKeys = [];
-                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -4090,7 +4090,7 @@ $root.SignalLocalStorageProtocol = (function() {
             Chain.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -4449,7 +4449,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 ChainKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -4815,7 +4815,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 MessageKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -5280,7 +5280,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingKeyExchange.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -5730,7 +5730,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingPreKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

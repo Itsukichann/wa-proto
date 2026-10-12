@@ -225,7 +225,7 @@ $root.SignalWhisperTextProtocol = (function() {
         DeviceConsistencyCodeMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -591,7 +591,7 @@ $root.SignalWhisperTextProtocol = (function() {
         SenderKeyDistributionMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -954,7 +954,7 @@ $root.SignalWhisperTextProtocol = (function() {
         SenderKeyMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1353,7 +1353,7 @@ $root.SignalWhisperTextProtocol = (function() {
         KeyExchangeMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1851,7 +1851,7 @@ $root.SignalWhisperTextProtocol = (function() {
         PreKeySignalMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2280,7 +2280,7 @@ $root.SignalWhisperTextProtocol = (function() {
         SignalMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

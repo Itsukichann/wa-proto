@@ -339,7 +339,7 @@ $root.AICommonDeprecated = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.gridImageMetadata);
+                        message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.gridImageMetadata);
                         message._gridImageMetadata = "gridImageMetadata";
                         continue;
                     }
@@ -353,49 +353,49 @@ $root.AICommonDeprecated = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageMetadata);
+                        message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.imageMetadata);
                         message._imageMetadata = "imageMetadata";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.codeMetadata);
+                        message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.codeMetadata);
                         message._codeMetadata = "codeMetadata";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.tableMetadata);
+                        message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.tableMetadata);
                         message._tableMetadata = "tableMetadata";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.dynamicMetadata);
+                        message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.dynamicMetadata);
                         message._dynamicMetadata = "dynamicMetadata";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.latexMetadata);
+                        message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.latexMetadata);
                         message._latexMetadata = "latexMetadata";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.mapMetadata);
+                        message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.mapMetadata);
                         message._mapMetadata = "mapMetadata";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contentItemsMetadata);
+                        message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.contentItemsMetadata);
                         message._contentItemsMetadata = "contentItemsMetadata";
                         continue;
                     }
@@ -429,7 +429,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseSubMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -868,7 +868,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.itemsMetadata && message.itemsMetadata.length))
                             message.itemsMetadata = [];
-                        message.itemsMetadata.push($root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.itemsMetadata.push($root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -908,7 +908,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseContentItemsMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1201,7 +1201,7 @@ $root.AICommonDeprecated = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reelItem);
+                            message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.size(), $undefined, _depth + 1, message.reelItem);
                             message.aiRichResponseContentItem = "reelItem";
                             continue;
                         }
@@ -1235,7 +1235,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseContentItemMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1598,7 +1598,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseReelItem.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2001,7 +2001,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.annotations && message.annotations.length))
                             message.annotations = [];
-                        message.annotations.push($root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.annotations.push($root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 6: {
@@ -2041,7 +2041,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseMapMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2478,7 +2478,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseMapAnnotation.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2787,7 +2787,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.expressions && message.expressions.length))
                             message.expressions = [];
-                        message.expressions.push($root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.expressions.push($root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -2820,7 +2820,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseLatexMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3317,7 +3317,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseLatexExpression.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -3746,7 +3746,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseDynamicMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4079,7 +4079,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.rows && message.rows.length))
                             message.rows = [];
-                        message.rows.push($root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.rows.push($root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -4119,7 +4119,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseTableMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4445,7 +4445,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseTableRow.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -4739,7 +4739,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.codeBlocks && message.codeBlocks.length))
                             message.codeBlocks = [];
-                        message.codeBlocks.push($root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.codeBlocks.push($root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -4772,7 +4772,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseCodeMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -5101,7 +5101,7 @@ $root.AICommonDeprecated = (function() {
             AIRichResponseCodeBlock.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -5461,7 +5461,7 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imageUrl);
+                        message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.size(), $undefined, _depth + 1, message.imageUrl);
                         message._imageUrl = "imageUrl";
                         continue;
                     }
@@ -5516,7 +5516,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseInlineImageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -5841,7 +5841,7 @@ $root.AICommonDeprecated = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), $undefined, _depth + 1, message.gridImageUrl);
+                        message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.size(), $undefined, _depth + 1, message.gridImageUrl);
                         message._gridImageUrl = "gridImageUrl";
                         continue;
                     }
@@ -5850,7 +5850,7 @@ $root.AICommonDeprecated = (function() {
                             break;
                         if (!(message.imageUrls && message.imageUrls.length))
                             message.imageUrls = [];
-                        message.imageUrls.push($root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.imageUrls.push($root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -5883,7 +5883,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseGridImageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -6245,7 +6245,7 @@ $root.AICommonDeprecated = (function() {
         AIRichResponseImageURL.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -6578,7 +6578,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.serverEvent = $root.AICommon.BizAIMetadataSync.ServerEvent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.serverEvent);
+                        message.serverEvent = $root.AICommon.BizAIMetadataSync.ServerEvent.decode(reader, reader.size(), $undefined, _depth + 1, message.serverEvent);
                         message.operation = "serverEvent";
                         continue;
                     }
@@ -6612,7 +6612,7 @@ $root.AICommon = (function() {
         BizAIMetadataSync.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -6896,7 +6896,7 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.agentOnboardingStarted = $root.AICommon.BizAIMetadataSync.ServerEvent.AgentOnboardingStarted.decode(reader, reader.uint32(), $undefined, _depth + 1, message.agentOnboardingStarted);
+                            message.agentOnboardingStarted = $root.AICommon.BizAIMetadataSync.ServerEvent.AgentOnboardingStarted.decode(reader, reader.size(), $undefined, _depth + 1, message.agentOnboardingStarted);
                             message.event = "agentOnboardingStarted";
                             continue;
                         }
@@ -6930,7 +6930,7 @@ $root.AICommon = (function() {
             ServerEvent.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -7243,7 +7243,7 @@ $root.AICommon = (function() {
                 AgentOnboardingStarted.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -7540,14 +7540,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.c2PaMetadata);
+                        message.c2PaMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.size(), $undefined, _depth + 1, message.c2PaMetadata);
                         message._c2PaMetadata = "c2PaMetadata";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.iptcMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.iptcMetadata);
+                        message.iptcMetadata = $root.AICommon.AIProvenance.Metadata.decode(reader, reader.size(), $undefined, _depth + 1, message.iptcMetadata);
                         message._iptcMetadata = "iptcMetadata";
                         continue;
                     }
@@ -7581,7 +7581,7 @@ $root.AICommon = (function() {
         AIProvenance.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -7905,7 +7905,7 @@ $root.AICommon = (function() {
             Metadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -8223,7 +8223,7 @@ $root.AICommon = (function() {
         BotAgentDeepLinkMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -8483,7 +8483,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deepLinkMetadata);
+                        message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.deepLinkMetadata);
                         message._deepLinkMetadata = "deepLinkMetadata";
                         continue;
                     }
@@ -8517,7 +8517,7 @@ $root.AICommon = (function() {
         BotAgentMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -8850,7 +8850,7 @@ $root.AICommon = (function() {
         BotInfrastructureDiagnostics.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -9188,7 +9188,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.capabilityOptions && message.capabilityOptions.length))
                             message.capabilityOptions = [];
-                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -9196,7 +9196,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.conversationOptions && message.conversationOptions.length))
                             message.conversationOptions = [];
-                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -9229,7 +9229,7 @@ $root.AICommon = (function() {
         AIHomeState.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -9740,7 +9740,7 @@ $root.AICommon = (function() {
             AIHomeOption.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -10137,7 +10137,7 @@ $root.AICommon = (function() {
         BotDocumentMessageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -10492,7 +10492,7 @@ $root.AICommon = (function() {
         SessionTransparencyMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -10786,7 +10786,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageKey);
+                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
                         message._messageKey = "messageKey";
                         continue;
                     }
@@ -10827,7 +10827,7 @@ $root.AICommon = (function() {
         AIRegenerateMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -11136,7 +11136,7 @@ $root.AICommon = (function() {
         AIRichResponseUnifiedResponse.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -11445,7 +11445,7 @@ $root.AICommon = (function() {
         BotMessageSharingInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -11987,7 +11987,7 @@ $root.AICommon = (function() {
         ForwardedAIBotMessageInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -12355,7 +12355,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageKey);
+                        message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
                         message._messageKey = "messageKey";
                         continue;
                     }
@@ -12397,7 +12397,7 @@ $root.AICommon = (function() {
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sideBySideSurveyMetadata);
+                        message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sideBySideSurveyMetadata);
                         message._sideBySideSurveyMetadata = "sideBySideSurveyMetadata";
                         continue;
                     }
@@ -12431,7 +12431,7 @@ $root.AICommon = (function() {
         BotFeedbackMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -13119,14 +13119,14 @@ $root.AICommon = (function() {
                     case 8: {
                             if (wireType !== 2)
                                 break;
-                            message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.analyticsData);
+                            message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.size(), $undefined, _depth + 1, message.analyticsData);
                             message._analyticsData = "analyticsData";
                             continue;
                         }
                     case 9: {
                             if (wireType !== 2)
                                 break;
-                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metaAiAnalyticsData);
+                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.size(), $undefined, _depth + 1, message.metaAiAnalyticsData);
                             message._metaAiAnalyticsData = "metaAiAnalyticsData";
                             continue;
                         }
@@ -13160,7 +13160,7 @@ $root.AICommon = (function() {
             SideBySideSurveyMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -13571,7 +13571,7 @@ $root.AICommon = (function() {
                 SideBySideSurveyAnalyticsData.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -14001,35 +14001,35 @@ $root.AICommon = (function() {
                         case 5: {
                                 if (wireType !== 2)
                                     break;
-                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctaImpressionEvent);
+                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.ctaImpressionEvent);
                                 message._ctaImpressionEvent = "ctaImpressionEvent";
                                 continue;
                             }
                         case 6: {
                                 if (wireType !== 2)
                                     break;
-                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctaClickEvent);
+                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.ctaClickEvent);
                                 message._ctaClickEvent = "ctaClickEvent";
                                 continue;
                             }
                         case 7: {
                                 if (wireType !== 2)
                                     break;
-                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.cardImpressionEvent);
+                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.cardImpressionEvent);
                                 message._cardImpressionEvent = "cardImpressionEvent";
                                 continue;
                             }
                         case 8: {
                                 if (wireType !== 2)
                                     break;
-                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.responseEvent);
+                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.responseEvent);
                                 message._responseEvent = "responseEvent";
                                 continue;
                             }
                         case 9: {
                                 if (wireType !== 2)
                                     break;
-                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.abandonEvent);
+                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.size(), $undefined, _depth + 1, message.abandonEvent);
                                 message._abandonEvent = "abandonEvent";
                                 continue;
                             }
@@ -14063,7 +14063,7 @@ $root.AICommon = (function() {
                 SidebySideSurveyMetaAiAnalyticsData.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -14444,7 +14444,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyAbandonEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -14750,7 +14750,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyCTAClickEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -15041,7 +15041,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyCTAImpressionEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -15293,7 +15293,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyCardImpressionEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -15581,7 +15581,7 @@ $root.AICommon = (function() {
                     SideBySideSurveyResponseEventData.decodeDelimited = function(reader) {
                         if (!(reader instanceof $Reader))
                             reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
+                        return this.decode(reader, reader.size());
                     };
 
                     /**
@@ -15881,7 +15881,7 @@ $root.AICommon = (function() {
         BotGroupParticipantMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -16187,7 +16187,7 @@ $root.AICommon = (function() {
         BotRenderingConfigMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -16439,7 +16439,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.participantsMetadata && message.participantsMetadata.length))
                             message.participantsMetadata = [];
-                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -16472,7 +16472,7 @@ $root.AICommon = (function() {
         BotHistoryShareMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -16731,7 +16731,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.participantsMetadata && message.participantsMetadata.length))
                             message.participantsMetadata = [];
-                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -16764,7 +16764,7 @@ $root.AICommon = (function() {
         BotGroupMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -17062,7 +17062,7 @@ $root.AICommon = (function() {
         AISubscriptionUpsellMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -18067,14 +18067,14 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.pluginMetadata = $root.AICommon.BotPluginMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pluginMetadata);
+                        message.pluginMetadata = $root.AICommon.BotPluginMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.pluginMetadata);
                         message._pluginMetadata = "pluginMetadata";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.suggestedPromptMetadata);
+                        message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.suggestedPromptMetadata);
                         message._suggestedPromptMetadata = "suggestedPromptMetadata";
                         continue;
                     }
@@ -18088,14 +18088,14 @@ $root.AICommon = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.sessionMetadata = $root.AICommon.BotSessionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sessionMetadata);
+                        message.sessionMetadata = $root.AICommon.BotSessionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sessionMetadata);
                         message._sessionMetadata = "sessionMetadata";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.memuMetadata = $root.AICommon.BotMemuMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.memuMetadata);
+                        message.memuMetadata = $root.AICommon.BotMemuMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.memuMetadata);
                         message._memuMetadata = "memuMetadata";
                         continue;
                     }
@@ -18109,14 +18109,14 @@ $root.AICommon = (function() {
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.reminderMetadata = $root.AICommon.BotReminderMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reminderMetadata);
+                        message.reminderMetadata = $root.AICommon.BotReminderMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.reminderMetadata);
                         message._reminderMetadata = "reminderMetadata";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.modelMetadata = $root.AICommon.BotModelMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.modelMetadata);
+                        message.modelMetadata = $root.AICommon.BotModelMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.modelMetadata);
                         message._modelMetadata = "modelMetadata";
                         continue;
                     }
@@ -18130,56 +18130,56 @@ $root.AICommon = (function() {
                 case 12: {
                         if (wireType !== 2)
                             break;
-                        message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.progressIndicatorMetadata);
+                        message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.progressIndicatorMetadata);
                         message._progressIndicatorMetadata = "progressIndicatorMetadata";
                         continue;
                     }
                 case 13: {
                         if (wireType !== 2)
                             break;
-                        message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.capabilityMetadata);
+                        message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.capabilityMetadata);
                         message._capabilityMetadata = "capabilityMetadata";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.imagineMetadata = $root.AICommon.BotImagineMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.imagineMetadata);
+                        message.imagineMetadata = $root.AICommon.BotImagineMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.imagineMetadata);
                         message._imagineMetadata = "imagineMetadata";
                         continue;
                     }
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.memoryMetadata = $root.AICommon.BotMemoryMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.memoryMetadata);
+                        message.memoryMetadata = $root.AICommon.BotMemoryMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.memoryMetadata);
                         message._memoryMetadata = "memoryMetadata";
                         continue;
                     }
                 case 16: {
                         if (wireType !== 2)
                             break;
-                        message.renderingMetadata = $root.AICommon.BotRenderingMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.renderingMetadata);
+                        message.renderingMetadata = $root.AICommon.BotRenderingMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.renderingMetadata);
                         message._renderingMetadata = "renderingMetadata";
                         continue;
                     }
                 case 17: {
                         if (wireType !== 2)
                             break;
-                        message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botMetricsMetadata);
+                        message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botMetricsMetadata);
                         message._botMetricsMetadata = "botMetricsMetadata";
                         continue;
                     }
                 case 18: {
                         if (wireType !== 2)
                             break;
-                        message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botLinkedAccountsMetadata);
+                        message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botLinkedAccountsMetadata);
                         message._botLinkedAccountsMetadata = "botLinkedAccountsMetadata";
                         continue;
                     }
                 case 19: {
                         if (wireType !== 2)
                             break;
-                        message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.richResponseSourcesMetadata);
+                        message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.richResponseSourcesMetadata);
                         message._richResponseSourcesMetadata = "richResponseSourcesMetadata";
                         continue;
                     }
@@ -18193,28 +18193,28 @@ $root.AICommon = (function() {
                 case 21: {
                         if (wireType !== 2)
                             break;
-                        message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botPromotionMessageMetadata);
+                        message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botPromotionMessageMetadata);
                         message._botPromotionMessageMetadata = "botPromotionMessageMetadata";
                         continue;
                     }
                 case 22: {
                         if (wireType !== 2)
                             break;
-                        message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botModeSelectionMetadata);
+                        message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botModeSelectionMetadata);
                         message._botModeSelectionMetadata = "botModeSelectionMetadata";
                         continue;
                     }
                 case 23: {
                         if (wireType !== 2)
                             break;
-                        message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botQuotaMetadata);
+                        message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botQuotaMetadata);
                         message._botQuotaMetadata = "botQuotaMetadata";
                         continue;
                     }
                 case 24: {
                         if (wireType !== 2)
                             break;
-                        message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botAgeCollectionMetadata);
+                        message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botAgeCollectionMetadata);
                         message._botAgeCollectionMetadata = "botAgeCollectionMetadata";
                         continue;
                     }
@@ -18235,119 +18235,119 @@ $root.AICommon = (function() {
                 case 27: {
                         if (wireType !== 2)
                             break;
-                        message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.verificationMetadata);
+                        message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.verificationMetadata);
                         message._verificationMetadata = "verificationMetadata";
                         continue;
                     }
                 case 28: {
                         if (wireType !== 2)
                             break;
-                        message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unifiedResponseMutation);
+                        message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.decode(reader, reader.size(), $undefined, _depth + 1, message.unifiedResponseMutation);
                         message._unifiedResponseMutation = "unifiedResponseMutation";
                         continue;
                     }
                 case 29: {
                         if (wireType !== 2)
                             break;
-                        message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botMessageOriginMetadata);
+                        message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botMessageOriginMetadata);
                         message._botMessageOriginMetadata = "botMessageOriginMetadata";
                         continue;
                     }
                 case 30: {
                         if (wireType !== 2)
                             break;
-                        message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.inThreadSurveyMetadata);
+                        message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.inThreadSurveyMetadata);
                         message._inThreadSurveyMetadata = "inThreadSurveyMetadata";
                         continue;
                     }
                 case 31: {
                         if (wireType !== 2)
                             break;
-                        message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botThreadInfo);
+                        message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.botThreadInfo);
                         message._botThreadInfo = "botThreadInfo";
                         continue;
                     }
                 case 32: {
                         if (wireType !== 2)
                             break;
-                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.regenerateMetadata);
+                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.regenerateMetadata);
                         message._regenerateMetadata = "regenerateMetadata";
                         continue;
                     }
                 case 33: {
                         if (wireType !== 2)
                             break;
-                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sessionTransparencyMetadata);
+                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sessionTransparencyMetadata);
                         message._sessionTransparencyMetadata = "sessionTransparencyMetadata";
                         continue;
                     }
                 case 34: {
                         if (wireType !== 2)
                             break;
-                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botDocumentMessageMetadata);
+                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botDocumentMessageMetadata);
                         message._botDocumentMessageMetadata = "botDocumentMessageMetadata";
                         continue;
                     }
                 case 35: {
                         if (wireType !== 2)
                             break;
-                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botGroupMetadata);
+                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botGroupMetadata);
                         message._botGroupMetadata = "botGroupMetadata";
                         continue;
                     }
                 case 36: {
                         if (wireType !== 2)
                             break;
-                        message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botRenderingConfigMetadata);
+                        message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botRenderingConfigMetadata);
                         message._botRenderingConfigMetadata = "botRenderingConfigMetadata";
                         continue;
                     }
                 case 37: {
                         if (wireType !== 2)
                             break;
-                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botInfrastructureDiagnostics);
+                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.size(), $undefined, _depth + 1, message.botInfrastructureDiagnostics);
                         message._botInfrastructureDiagnostics = "botInfrastructureDiagnostics";
                         continue;
                     }
                 case 38: {
                         if (wireType !== 2)
                             break;
-                        message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiMediaCollectionMetadata);
+                        message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.aiMediaCollectionMetadata);
                         message._aiMediaCollectionMetadata = "aiMediaCollectionMetadata";
                         continue;
                     }
                 case 39: {
                         if (wireType !== 2)
                             break;
-                        message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commandMetadata);
+                        message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.commandMetadata);
                         message._commandMetadata = "commandMetadata";
                         continue;
                     }
                 case 40: {
                         if (wireType !== 2)
                             break;
-                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.resolvedToolCallMetadata);
+                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.resolvedToolCallMetadata);
                         message._resolvedToolCallMetadata = "resolvedToolCallMetadata";
                         continue;
                     }
                 case 41: {
                         if (wireType !== 2)
                             break;
-                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.subscriptionUpsellMetadata);
+                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.subscriptionUpsellMetadata);
                         message._subscriptionUpsellMetadata = "subscriptionUpsellMetadata";
                         continue;
                     }
                 case 42: {
                         if (wireType !== 2)
                             break;
-                        message.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pttPromptMetadata);
+                        message.pttPromptMetadata = $root.AICommon.BotPttPromptMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.pttPromptMetadata);
                         message._pttPromptMetadata = "pttPromptMetadata";
                         continue;
                     }
                 case 43: {
                         if (wireType !== 2)
                             break;
-                        message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botHistoryShareMetadata);
+                        message.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.botHistoryShareMetadata);
                         message._botHistoryShareMetadata = "botHistoryShareMetadata";
                         continue;
                     }
@@ -18395,7 +18395,7 @@ $root.AICommon = (function() {
         BotMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -19280,7 +19280,7 @@ $root.AICommon = (function() {
         BotPttPromptMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -19586,7 +19586,7 @@ $root.AICommon = (function() {
         BotResolvedToolCallMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -19925,7 +19925,7 @@ $root.AICommon = (function() {
         BotCommandMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -20212,14 +20212,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.hatchMetadataSync = $root.AICommon.HatchMetadataSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.hatchMetadataSync);
+                        message.hatchMetadataSync = $root.AICommon.HatchMetadataSync.decode(reader, reader.size(), $undefined, _depth + 1, message.hatchMetadataSync);
                         message._hatchMetadataSync = "hatchMetadataSync";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.bizAiMetadataSync = $root.AICommon.BizAIMetadataSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiMetadataSync);
+                        message.bizAiMetadataSync = $root.AICommon.BizAIMetadataSync.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiMetadataSync);
                         message._bizAiMetadataSync = "bizAiMetadataSync";
                         continue;
                     }
@@ -20253,7 +20253,7 @@ $root.AICommon = (function() {
         AIMetadataOperation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -20604,7 +20604,7 @@ $root.AICommon = (function() {
         HatchMetadataSync.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -20967,7 +20967,7 @@ $root.AICommon = (function() {
         AIMediaCollectionMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -21291,7 +21291,7 @@ $root.AICommon = (function() {
         AIMediaCollectionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -21565,14 +21565,14 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.serverInfo);
+                        message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.serverInfo);
                         message._serverInfo = "serverInfo";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.clientInfo);
+                        message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.clientInfo);
                         message._clientInfo = "clientInfo";
                         continue;
                     }
@@ -21606,7 +21606,7 @@ $root.AICommon = (function() {
         AIThreadInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -21930,7 +21930,7 @@ $root.AICommon = (function() {
             AIThreadClientInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -22264,7 +22264,7 @@ $root.AICommon = (function() {
             AIThreadServerInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -22528,7 +22528,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sbsMetadata);
+                        message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.sbsMetadata);
                         message._sbsMetadata = "sbsMetadata";
                         continue;
                     }
@@ -22537,7 +22537,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.mediaDetailsMetadataList && message.mediaDetailsMetadataList.length))
                             message.mediaDetailsMetadataList = [];
-                        message.mediaDetailsMetadataList.push($root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.mediaDetailsMetadataList.push($root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -22570,7 +22570,7 @@ $root.AICommon = (function() {
         BotUnifiedResponseMutation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -22888,14 +22888,14 @@ $root.AICommon = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.highResMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.highResMedia);
+                            message.highResMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.highResMedia);
                             message._highResMedia = "highResMedia";
                             continue;
                         }
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.previewMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.previewMedia);
+                            message.previewMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.previewMedia);
                             message._previewMedia = "previewMedia";
                             continue;
                         }
@@ -22929,7 +22929,7 @@ $root.AICommon = (function() {
             MediaDetailsMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -23265,7 +23265,7 @@ $root.AICommon = (function() {
             SideBySideMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -23559,7 +23559,7 @@ $root.AICommon = (function() {
         BotMessageOrigin.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -23821,7 +23821,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.origins && message.origins.length))
                             message.origins = [];
-                        message.origins.push($root.AICommon.BotMessageOrigin.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.origins.push($root.AICommon.BotMessageOrigin.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -23854,7 +23854,7 @@ $root.AICommon = (function() {
         BotMessageOriginMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -24478,7 +24478,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.questions && message.questions.length))
                             message.questions = [];
-                        message.questions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.questions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 13: {
@@ -24507,7 +24507,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.privacyStatementParts && message.privacyStatementParts.length))
                             message.privacyStatementParts = [];
-                        message.privacyStatementParts.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.privacyStatementParts.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 17: {
@@ -24554,7 +24554,7 @@ $root.AICommon = (function() {
         InThreadSurveyMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -25068,7 +25068,7 @@ $root.AICommon = (function() {
             InThreadSurveyOption.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -25392,7 +25392,7 @@ $root.AICommon = (function() {
             InThreadSurveyPrivacyStatementPart.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -25695,7 +25695,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.questionOptions && message.questionOptions.length))
                                 message.questionOptions = [];
-                            message.questionOptions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.questionOptions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -25728,7 +25728,7 @@ $root.AICommon = (function() {
             InThreadSurveyQuestion.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26009,7 +26009,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.sources && message.sources.length))
                             message.sources = [];
-                        message.sources.push($root.AICommon.BotSourcesMetadata.BotSourceItem.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.sources.push($root.AICommon.BotSourcesMetadata.BotSourceItem.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -26042,7 +26042,7 @@ $root.AICommon = (function() {
         BotSourcesMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -26481,7 +26481,7 @@ $root.AICommon = (function() {
             BotSourceItem.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26911,7 +26911,7 @@ $root.AICommon = (function() {
         BotAgeCollectionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -27260,7 +27260,7 @@ $root.AICommon = (function() {
         BotImagineMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -27555,7 +27555,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.botFeatureQuotaMetadata && message.botFeatureQuotaMetadata.length))
                             message.botFeatureQuotaMetadata = [];
-                        message.botFeatureQuotaMetadata.push($root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.botFeatureQuotaMetadata.push($root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -27588,7 +27588,7 @@ $root.AICommon = (function() {
         BotQuotaMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -27931,7 +27931,7 @@ $root.AICommon = (function() {
             BotFeatureQuotaMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -28296,7 +28296,7 @@ $root.AICommon = (function() {
         BotModeSelectionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -28635,7 +28635,7 @@ $root.AICommon = (function() {
         BotCapabilityMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -29439,7 +29439,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.stepsMetadata && message.stepsMetadata.length))
                             message.stepsMetadata = [];
-                        message.stepsMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.stepsMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -29479,7 +29479,7 @@ $root.AICommon = (function() {
         BotProgressIndicatorMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -29881,7 +29881,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.sourcesMetadata && message.sourcesMetadata.length))
                                 message.sourcesMetadata = [];
-                            message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 4: {
@@ -29910,7 +29910,7 @@ $root.AICommon = (function() {
                                 break;
                             if (!(message.sections && message.sections.length))
                                 message.sections = [];
-                            message.sections.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.sections.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -29943,7 +29943,7 @@ $root.AICommon = (function() {
             BotPlanningStepMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -30401,7 +30401,7 @@ $root.AICommon = (function() {
                 BotPlanningSearchSourceMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -30777,7 +30777,7 @@ $root.AICommon = (function() {
                 BotPlanningSearchSourcesMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -31126,7 +31126,7 @@ $root.AICommon = (function() {
                                     break;
                                 if (!(message.sourcesMetadata && message.sourcesMetadata.length))
                                     message.sourcesMetadata = [];
-                                message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                                message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                                 continue;
                             }
                         }
@@ -31159,7 +31159,7 @@ $root.AICommon = (function() {
                 BotPlanningStepSectionMetadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -31566,7 +31566,7 @@ $root.AICommon = (function() {
         BotModelMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -31962,7 +31962,7 @@ $root.AICommon = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.requestMessageKey);
+                        message.requestMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.requestMessageKey);
                         message._requestMessageKey = "requestMessageKey";
                         continue;
                     }
@@ -32024,7 +32024,7 @@ $root.AICommon = (function() {
         BotReminderMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -32401,7 +32401,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.faceImages && message.faceImages.length))
                             message.faceImages = [];
-                        message.faceImages.push($root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.faceImages.push($root.AICommon.BotMediaMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -32434,7 +32434,7 @@ $root.AICommon = (function() {
         BotMemuMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -32876,7 +32876,7 @@ $root.AICommon = (function() {
         BotMediaMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -33279,7 +33279,7 @@ $root.AICommon = (function() {
         BotSessionMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -33653,7 +33653,7 @@ $root.AICommon = (function() {
         BotMetricsMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -34140,7 +34140,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.keywords && message.keywords.length))
                             message.keywords = [];
-                        message.keywords.push($root.AICommon.BotRenderingMetadata.Keyword.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.keywords.push($root.AICommon.BotRenderingMetadata.Keyword.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -34173,7 +34173,7 @@ $root.AICommon = (function() {
         BotRenderingMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -34489,7 +34489,7 @@ $root.AICommon = (function() {
             Keyword.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -34819,7 +34819,7 @@ $root.AICommon = (function() {
         BotPromotionMessageMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -35198,7 +35198,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.certificateChainSki && message.certificateChainSki.length))
                             message.certificateChainSki = [];
-                        message.certificateChainSki.push($root.AICommon.BotSignatureVerificationUseCaseProof.CertificateSKI.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.certificateChainSki.push($root.AICommon.BotSignatureVerificationUseCaseProof.CertificateSKI.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -35231,7 +35231,7 @@ $root.AICommon = (function() {
         BotSignatureVerificationUseCaseProof.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -35654,7 +35654,7 @@ $root.AICommon = (function() {
             CertificateSKI.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -35939,7 +35939,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.proofs && message.proofs.length))
                             message.proofs = [];
-                        message.proofs.push($root.AICommon.BotSignatureVerificationUseCaseProof.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.proofs.push($root.AICommon.BotSignatureVerificationUseCaseProof.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -35972,7 +35972,7 @@ $root.AICommon = (function() {
         BotSignatureVerificationMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -36294,7 +36294,7 @@ $root.AICommon = (function() {
         BotMemoryFact.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -36579,7 +36579,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.addedFacts && message.addedFacts.length))
                             message.addedFacts = [];
-                        message.addedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.addedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -36587,7 +36587,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.removedFacts && message.removedFacts.length))
                             message.removedFacts = [];
-                        message.removedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.removedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -36627,7 +36627,7 @@ $root.AICommon = (function() {
         BotMemoryMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -36961,7 +36961,7 @@ $root.AICommon = (function() {
         BotLinkedAccount.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -37260,7 +37260,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.accounts && message.accounts.length))
                             message.accounts = [];
-                        message.accounts.push($root.AICommon.BotLinkedAccount.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.accounts.push($root.AICommon.BotLinkedAccount.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -37307,7 +37307,7 @@ $root.AICommon = (function() {
         BotLinkedAccountsMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -37651,7 +37651,7 @@ $root.AICommon = (function() {
         BotPromptSuggestion.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -37903,7 +37903,7 @@ $root.AICommon = (function() {
                             break;
                         if (!(message.suggestions && message.suggestions.length))
                             message.suggestions = [];
-                        message.suggestions.push($root.AICommon.BotPromptSuggestion.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.suggestions.push($root.AICommon.BotPromptSuggestion.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -37936,7 +37936,7 @@ $root.AICommon = (function() {
         BotPromptSuggestions.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -38262,7 +38262,7 @@ $root.AICommon = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.promptSuggestions = $root.AICommon.BotPromptSuggestions.decode(reader, reader.uint32(), $undefined, _depth + 1, message.promptSuggestions);
+                        message.promptSuggestions = $root.AICommon.BotPromptSuggestions.decode(reader, reader.size(), $undefined, _depth + 1, message.promptSuggestions);
                         message._promptSuggestions = "promptSuggestions";
                         continue;
                     }
@@ -38303,7 +38303,7 @@ $root.AICommon = (function() {
         BotSuggestedPromptMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -38839,7 +38839,7 @@ $root.AICommon = (function() {
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.parentPluginMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.parentPluginMessageKey);
+                        message.parentPluginMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.parentPluginMessageKey);
                         message._parentPluginMessageKey = "parentPluginMessageKey";
                         continue;
                     }
@@ -38894,7 +38894,7 @@ $root.AICommon = (function() {
         BotPluginMetadata.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -39540,7 +39540,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
                             message.senderKeyStates = [];
-                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -39573,7 +39573,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -39891,14 +39891,14 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChainKey);
+                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChainKey);
                         message._senderChainKey = "senderChainKey";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderSigningKey);
+                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderSigningKey);
                         message._senderSigningKey = "senderSigningKey";
                         continue;
                     }
@@ -39907,7 +39907,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderMessageKeys && message.senderMessageKeys.length))
                             message.senderMessageKeys = [];
-                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -39940,7 +39940,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyStateStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -40299,7 +40299,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderChainKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -40617,7 +40617,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderMessageKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -40935,7 +40935,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderSigningKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -41259,7 +41259,7 @@ $root.SignalLocalStorageProtocol = (function() {
         IdentityKeyPairStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -41652,7 +41652,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SignedPreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -42039,7 +42039,7 @@ $root.SignalLocalStorageProtocol = (function() {
         PreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -42324,7 +42324,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1, message.currentSession);
+                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1, message.currentSession);
                         message._currentSession = "currentSession";
                         continue;
                     }
@@ -42333,7 +42333,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.previousSessions && message.previousSessions.length))
                             message.previousSessions = [];
-                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -42366,7 +42366,7 @@ $root.SignalLocalStorageProtocol = (function() {
         RecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -42881,7 +42881,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChain);
+                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChain);
                         message._senderChain = "senderChain";
                         continue;
                     }
@@ -42890,20 +42890,20 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.receiverChains && message.receiverChains.length))
                             message.receiverChains = [];
-                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingKeyExchange);
+                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingKeyExchange);
                         message._pendingKeyExchange = "pendingKeyExchange";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingPreKey);
+                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingPreKey);
                         message._pendingPreKey = "pendingPreKey";
                         continue;
                     }
@@ -42965,7 +42965,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SessionStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -43426,7 +43426,7 @@ $root.SignalLocalStorageProtocol = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chainKey);
+                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.chainKey);
                             message._chainKey = "chainKey";
                             continue;
                         }
@@ -43435,7 +43435,7 @@ $root.SignalLocalStorageProtocol = (function() {
                                 break;
                             if (!(message.messageKeys && message.messageKeys.length))
                                 message.messageKeys = [];
-                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -43468,7 +43468,7 @@ $root.SignalLocalStorageProtocol = (function() {
             Chain.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -43827,7 +43827,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 ChainKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -44193,7 +44193,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 MessageKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -44658,7 +44658,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingKeyExchange.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -45108,7 +45108,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingPreKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

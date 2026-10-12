@@ -784,14 +784,14 @@ $root.Wa6 = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.userAgent = $root.Wa6.ClientPayload.UserAgent.decode(reader, reader.uint32(), $undefined, _depth + 1, message.userAgent);
+                        message.userAgent = $root.Wa6.ClientPayload.UserAgent.decode(reader, reader.size(), $undefined, _depth + 1, message.userAgent);
                         message._userAgent = "userAgent";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.webInfo = $root.Wa6.ClientPayload.WebInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.webInfo);
+                        message.webInfo = $root.Wa6.ClientPayload.WebInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.webInfo);
                         message._webInfo = "webInfo";
                         continue;
                     }
@@ -847,7 +847,7 @@ $root.Wa6 = (function() {
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.dnsSource = $root.Wa6.ClientPayload.DNSSource.decode(reader, reader.uint32(), $undefined, _depth + 1, message.dnsSource);
+                        message.dnsSource = $root.Wa6.ClientPayload.DNSSource.decode(reader, reader.size(), $undefined, _depth + 1, message.dnsSource);
                         message._dnsSource = "dnsSource";
                         continue;
                     }
@@ -868,7 +868,7 @@ $root.Wa6 = (function() {
                 case 19: {
                         if (wireType !== 2)
                             break;
-                        message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.devicePairingData);
+                        message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.decode(reader, reader.size(), $undefined, _depth + 1, message.devicePairingData);
                         message._devicePairingData = "devicePairingData";
                         continue;
                     }
@@ -959,7 +959,7 @@ $root.Wa6 = (function() {
                 case 38: {
                         if (wireType !== 2)
                             break;
-                        message.interopData = $root.Wa6.ClientPayload.InteropData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.interopData);
+                        message.interopData = $root.Wa6.ClientPayload.InteropData.decode(reader, reader.size(), $undefined, _depth + 1, message.interopData);
                         message._interopData = "interopData";
                         continue;
                     }
@@ -1064,7 +1064,7 @@ $root.Wa6 = (function() {
         ClientPayload.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2028,7 +2028,7 @@ $root.Wa6 = (function() {
             DNSSource.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2548,7 +2548,7 @@ $root.Wa6 = (function() {
             DevicePairingRegistrationData.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2981,7 +2981,7 @@ $root.Wa6 = (function() {
             InteropData.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -3575,7 +3575,7 @@ $root.Wa6 = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.appVersion);
+                            message.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.appVersion);
                             message._appVersion = "appVersion";
                             continue;
                         }
@@ -3714,7 +3714,7 @@ $root.Wa6 = (function() {
             UserAgent.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -4467,7 +4467,7 @@ $root.Wa6 = (function() {
                 AppVersion.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -5001,7 +5001,7 @@ $root.Wa6 = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.decode(reader, reader.uint32(), $undefined, _depth + 1, message.webdPayload);
+                            message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.decode(reader, reader.size(), $undefined, _depth + 1, message.webdPayload);
                             message._webdPayload = "webdPayload";
                             continue;
                         }
@@ -5056,7 +5056,7 @@ $root.Wa6 = (function() {
             WebInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -5675,7 +5675,7 @@ $root.Wa6 = (function() {
                 WebdPayload.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -6056,21 +6056,21 @@ $root.Wa6 = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.decode(reader, reader.uint32(), $undefined, _depth + 1, message.clientHello);
+                        message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.decode(reader, reader.size(), $undefined, _depth + 1, message.clientHello);
                         message._clientHello = "clientHello";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.serverHello = $root.Wa6.HandshakeMessage.ServerHello.decode(reader, reader.uint32(), $undefined, _depth + 1, message.serverHello);
+                        message.serverHello = $root.Wa6.HandshakeMessage.ServerHello.decode(reader, reader.size(), $undefined, _depth + 1, message.serverHello);
                         message._serverHello = "serverHello";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.decode(reader, reader.uint32(), $undefined, _depth + 1, message.clientFinish);
+                        message.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.decode(reader, reader.size(), $undefined, _depth + 1, message.clientFinish);
                         message._clientFinish = "clientFinish";
                         continue;
                     }
@@ -6104,7 +6104,7 @@ $root.Wa6 = (function() {
         HandshakeMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -6515,7 +6515,7 @@ $root.Wa6 = (function() {
             ClientFinish.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -7061,7 +7061,7 @@ $root.Wa6 = (function() {
             ClientHello.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -7635,7 +7635,7 @@ $root.Wa6 = (function() {
             ServerHello.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

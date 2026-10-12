@@ -263,7 +263,7 @@ $root.Reporting = (function() {
                             break;
                         if (message.subfield === $util.emptyObject)
                             message.subfield = {};
-                        var end2 = reader.uint32() + reader.pos;
+                        var end2 = reader.size() + reader.pos;
                         if (end2 > reader.len)
                             throw $RangeError("index out of range");
                         reader.len = end2;
@@ -281,7 +281,7 @@ $root.Reporting = (function() {
                             case 2:
                                 if (wireType !== 2)
                                     break;
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1, value);
+                                value = $root.Reporting.Field.decode(reader, reader.size(), $undefined, _depth + 1, value);
                                 continue;
                             }
                             reader.skipType(wireType, _depth, tag2);
@@ -322,7 +322,7 @@ $root.Reporting = (function() {
         Field.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -651,7 +651,7 @@ $root.Reporting = (function() {
                             break;
                         if (message.field === $util.emptyObject)
                             message.field = {};
-                        var end2 = reader.uint32() + reader.pos;
+                        var end2 = reader.size() + reader.pos;
                         if (end2 > reader.len)
                             throw $RangeError("index out of range");
                         reader.len = end2;
@@ -669,7 +669,7 @@ $root.Reporting = (function() {
                             case 2:
                                 if (wireType !== 2)
                                     break;
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1, value);
+                                value = $root.Reporting.Field.decode(reader, reader.size(), $undefined, _depth + 1, value);
                                 continue;
                             }
                             reader.skipType(wireType, _depth, tag2);
@@ -717,7 +717,7 @@ $root.Reporting = (function() {
         Config.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1108,7 +1108,7 @@ $root.Reporting = (function() {
         Reportable.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

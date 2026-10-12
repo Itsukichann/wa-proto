@@ -182,7 +182,7 @@ $root.LidMigrationSyncPayload = (function() {
                             break;
                         if (!(message.pnToLidMappings && message.pnToLidMappings.length))
                             message.pnToLidMappings = [];
-                        message.pnToLidMappings.push($root.LidMigrationSyncPayload.LIDMigrationMapping.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.pnToLidMappings.push($root.LidMigrationSyncPayload.LIDMigrationMapping.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 2: {
@@ -222,7 +222,7 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMappingSyncPayload.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -590,7 +590,7 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMapping.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

@@ -441,7 +441,7 @@ $root.SyncAction = (function() {
         PatchDebugData.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -946,7 +946,7 @@ $root.SyncAction = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.value = $root.SyncAction.SyncActionValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                        message.value = $root.SyncAction.SyncActionValue.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                         message._value = "value";
                         continue;
                     }
@@ -994,7 +994,7 @@ $root.SyncAction = (function() {
         SyncActionData.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2893,623 +2893,623 @@ $root.SyncAction = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.starAction = $root.SyncAction.SyncActionValue.StarAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.starAction);
+                        message.starAction = $root.SyncAction.SyncActionValue.StarAction.decode(reader, reader.size(), $undefined, _depth + 1, message.starAction);
                         message._starAction = "starAction";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.contactAction = $root.SyncAction.SyncActionValue.ContactAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactAction);
+                        message.contactAction = $root.SyncAction.SyncActionValue.ContactAction.decode(reader, reader.size(), $undefined, _depth + 1, message.contactAction);
                         message._contactAction = "contactAction";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.muteAction = $root.SyncAction.SyncActionValue.MuteAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.muteAction);
+                        message.muteAction = $root.SyncAction.SyncActionValue.MuteAction.decode(reader, reader.size(), $undefined, _depth + 1, message.muteAction);
                         message._muteAction = "muteAction";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.pinAction = $root.SyncAction.SyncActionValue.PinAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pinAction);
+                        message.pinAction = $root.SyncAction.SyncActionValue.PinAction.decode(reader, reader.size(), $undefined, _depth + 1, message.pinAction);
                         message._pinAction = "pinAction";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.pushNameSetting = $root.SyncAction.SyncActionValue.PushNameSetting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pushNameSetting);
+                        message.pushNameSetting = $root.SyncAction.SyncActionValue.PushNameSetting.decode(reader, reader.size(), $undefined, _depth + 1, message.pushNameSetting);
                         message._pushNameSetting = "pushNameSetting";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.quickReplyAction = $root.SyncAction.SyncActionValue.QuickReplyAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.quickReplyAction);
+                        message.quickReplyAction = $root.SyncAction.SyncActionValue.QuickReplyAction.decode(reader, reader.size(), $undefined, _depth + 1, message.quickReplyAction);
                         message._quickReplyAction = "quickReplyAction";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.recentEmojiWeightsAction = $root.SyncAction.SyncActionValue.RecentEmojiWeightsAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.recentEmojiWeightsAction);
+                        message.recentEmojiWeightsAction = $root.SyncAction.SyncActionValue.RecentEmojiWeightsAction.decode(reader, reader.size(), $undefined, _depth + 1, message.recentEmojiWeightsAction);
                         message._recentEmojiWeightsAction = "recentEmojiWeightsAction";
                         continue;
                     }
                 case 14: {
                         if (wireType !== 2)
                             break;
-                        message.labelEditAction = $root.SyncAction.SyncActionValue.LabelEditAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.labelEditAction);
+                        message.labelEditAction = $root.SyncAction.SyncActionValue.LabelEditAction.decode(reader, reader.size(), $undefined, _depth + 1, message.labelEditAction);
                         message._labelEditAction = "labelEditAction";
                         continue;
                     }
                 case 15: {
                         if (wireType !== 2)
                             break;
-                        message.labelAssociationAction = $root.SyncAction.SyncActionValue.LabelAssociationAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.labelAssociationAction);
+                        message.labelAssociationAction = $root.SyncAction.SyncActionValue.LabelAssociationAction.decode(reader, reader.size(), $undefined, _depth + 1, message.labelAssociationAction);
                         message._labelAssociationAction = "labelAssociationAction";
                         continue;
                     }
                 case 16: {
                         if (wireType !== 2)
                             break;
-                        message.localeSetting = $root.SyncAction.SyncActionValue.LocaleSetting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.localeSetting);
+                        message.localeSetting = $root.SyncAction.SyncActionValue.LocaleSetting.decode(reader, reader.size(), $undefined, _depth + 1, message.localeSetting);
                         message._localeSetting = "localeSetting";
                         continue;
                     }
                 case 17: {
                         if (wireType !== 2)
                             break;
-                        message.archiveChatAction = $root.SyncAction.SyncActionValue.ArchiveChatAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.archiveChatAction);
+                        message.archiveChatAction = $root.SyncAction.SyncActionValue.ArchiveChatAction.decode(reader, reader.size(), $undefined, _depth + 1, message.archiveChatAction);
                         message._archiveChatAction = "archiveChatAction";
                         continue;
                     }
                 case 18: {
                         if (wireType !== 2)
                             break;
-                        message.deleteMessageForMeAction = $root.SyncAction.SyncActionValue.DeleteMessageForMeAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deleteMessageForMeAction);
+                        message.deleteMessageForMeAction = $root.SyncAction.SyncActionValue.DeleteMessageForMeAction.decode(reader, reader.size(), $undefined, _depth + 1, message.deleteMessageForMeAction);
                         message._deleteMessageForMeAction = "deleteMessageForMeAction";
                         continue;
                     }
                 case 19: {
                         if (wireType !== 2)
                             break;
-                        message.keyExpiration = $root.SyncAction.SyncActionValue.KeyExpiration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyExpiration);
+                        message.keyExpiration = $root.SyncAction.SyncActionValue.KeyExpiration.decode(reader, reader.size(), $undefined, _depth + 1, message.keyExpiration);
                         message._keyExpiration = "keyExpiration";
                         continue;
                     }
                 case 20: {
                         if (wireType !== 2)
                             break;
-                        message.markChatAsReadAction = $root.SyncAction.SyncActionValue.MarkChatAsReadAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.markChatAsReadAction);
+                        message.markChatAsReadAction = $root.SyncAction.SyncActionValue.MarkChatAsReadAction.decode(reader, reader.size(), $undefined, _depth + 1, message.markChatAsReadAction);
                         message._markChatAsReadAction = "markChatAsReadAction";
                         continue;
                     }
                 case 21: {
                         if (wireType !== 2)
                             break;
-                        message.clearChatAction = $root.SyncAction.SyncActionValue.ClearChatAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.clearChatAction);
+                        message.clearChatAction = $root.SyncAction.SyncActionValue.ClearChatAction.decode(reader, reader.size(), $undefined, _depth + 1, message.clearChatAction);
                         message._clearChatAction = "clearChatAction";
                         continue;
                     }
                 case 22: {
                         if (wireType !== 2)
                             break;
-                        message.deleteChatAction = $root.SyncAction.SyncActionValue.DeleteChatAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deleteChatAction);
+                        message.deleteChatAction = $root.SyncAction.SyncActionValue.DeleteChatAction.decode(reader, reader.size(), $undefined, _depth + 1, message.deleteChatAction);
                         message._deleteChatAction = "deleteChatAction";
                         continue;
                     }
                 case 23: {
                         if (wireType !== 2)
                             break;
-                        message.unarchiveChatsSetting = $root.SyncAction.SyncActionValue.UnarchiveChatsSetting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.unarchiveChatsSetting);
+                        message.unarchiveChatsSetting = $root.SyncAction.SyncActionValue.UnarchiveChatsSetting.decode(reader, reader.size(), $undefined, _depth + 1, message.unarchiveChatsSetting);
                         message._unarchiveChatsSetting = "unarchiveChatsSetting";
                         continue;
                     }
                 case 24: {
                         if (wireType !== 2)
                             break;
-                        message.primaryFeature = $root.SyncAction.SyncActionValue.PrimaryFeature.decode(reader, reader.uint32(), $undefined, _depth + 1, message.primaryFeature);
+                        message.primaryFeature = $root.SyncAction.SyncActionValue.PrimaryFeature.decode(reader, reader.size(), $undefined, _depth + 1, message.primaryFeature);
                         message._primaryFeature = "primaryFeature";
                         continue;
                     }
                 case 26: {
                         if (wireType !== 2)
                             break;
-                        message.androidUnsupportedActions = $root.SyncAction.SyncActionValue.AndroidUnsupportedActions.decode(reader, reader.uint32(), $undefined, _depth + 1, message.androidUnsupportedActions);
+                        message.androidUnsupportedActions = $root.SyncAction.SyncActionValue.AndroidUnsupportedActions.decode(reader, reader.size(), $undefined, _depth + 1, message.androidUnsupportedActions);
                         message._androidUnsupportedActions = "androidUnsupportedActions";
                         continue;
                     }
                 case 27: {
                         if (wireType !== 2)
                             break;
-                        message.agentAction = $root.SyncAction.SyncActionValue.AgentAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.agentAction);
+                        message.agentAction = $root.SyncAction.SyncActionValue.AgentAction.decode(reader, reader.size(), $undefined, _depth + 1, message.agentAction);
                         message._agentAction = "agentAction";
                         continue;
                     }
                 case 28: {
                         if (wireType !== 2)
                             break;
-                        message.subscriptionAction = $root.SyncAction.SyncActionValue.SubscriptionAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.subscriptionAction);
+                        message.subscriptionAction = $root.SyncAction.SyncActionValue.SubscriptionAction.decode(reader, reader.size(), $undefined, _depth + 1, message.subscriptionAction);
                         message._subscriptionAction = "subscriptionAction";
                         continue;
                     }
                 case 29: {
                         if (wireType !== 2)
                             break;
-                        message.userStatusMuteAction = $root.SyncAction.SyncActionValue.UserStatusMuteAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.userStatusMuteAction);
+                        message.userStatusMuteAction = $root.SyncAction.SyncActionValue.UserStatusMuteAction.decode(reader, reader.size(), $undefined, _depth + 1, message.userStatusMuteAction);
                         message._userStatusMuteAction = "userStatusMuteAction";
                         continue;
                     }
                 case 30: {
                         if (wireType !== 2)
                             break;
-                        message.timeFormatAction = $root.SyncAction.SyncActionValue.TimeFormatAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.timeFormatAction);
+                        message.timeFormatAction = $root.SyncAction.SyncActionValue.TimeFormatAction.decode(reader, reader.size(), $undefined, _depth + 1, message.timeFormatAction);
                         message._timeFormatAction = "timeFormatAction";
                         continue;
                     }
                 case 31: {
                         if (wireType !== 2)
                             break;
-                        message.nuxAction = $root.SyncAction.SyncActionValue.NuxAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.nuxAction);
+                        message.nuxAction = $root.SyncAction.SyncActionValue.NuxAction.decode(reader, reader.size(), $undefined, _depth + 1, message.nuxAction);
                         message._nuxAction = "nuxAction";
                         continue;
                     }
                 case 32: {
                         if (wireType !== 2)
                             break;
-                        message.primaryVersionAction = $root.SyncAction.SyncActionValue.PrimaryVersionAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.primaryVersionAction);
+                        message.primaryVersionAction = $root.SyncAction.SyncActionValue.PrimaryVersionAction.decode(reader, reader.size(), $undefined, _depth + 1, message.primaryVersionAction);
                         message._primaryVersionAction = "primaryVersionAction";
                         continue;
                     }
                 case 33: {
                         if (wireType !== 2)
                             break;
-                        message.stickerAction = $root.SyncAction.SyncActionValue.StickerAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.stickerAction);
+                        message.stickerAction = $root.SyncAction.SyncActionValue.StickerAction.decode(reader, reader.size(), $undefined, _depth + 1, message.stickerAction);
                         message._stickerAction = "stickerAction";
                         continue;
                     }
                 case 34: {
                         if (wireType !== 2)
                             break;
-                        message.removeRecentStickerAction = $root.SyncAction.SyncActionValue.RemoveRecentStickerAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.removeRecentStickerAction);
+                        message.removeRecentStickerAction = $root.SyncAction.SyncActionValue.RemoveRecentStickerAction.decode(reader, reader.size(), $undefined, _depth + 1, message.removeRecentStickerAction);
                         message._removeRecentStickerAction = "removeRecentStickerAction";
                         continue;
                     }
                 case 35: {
                         if (wireType !== 2)
                             break;
-                        message.chatAssignment = $root.SyncAction.SyncActionValue.ChatAssignmentAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chatAssignment);
+                        message.chatAssignment = $root.SyncAction.SyncActionValue.ChatAssignmentAction.decode(reader, reader.size(), $undefined, _depth + 1, message.chatAssignment);
                         message._chatAssignment = "chatAssignment";
                         continue;
                     }
                 case 36: {
                         if (wireType !== 2)
                             break;
-                        message.chatAssignmentOpenedStatus = $root.SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chatAssignmentOpenedStatus);
+                        message.chatAssignmentOpenedStatus = $root.SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.decode(reader, reader.size(), $undefined, _depth + 1, message.chatAssignmentOpenedStatus);
                         message._chatAssignmentOpenedStatus = "chatAssignmentOpenedStatus";
                         continue;
                     }
                 case 37: {
                         if (wireType !== 2)
                             break;
-                        message.pnForLidChatAction = $root.SyncAction.SyncActionValue.PnForLidChatAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pnForLidChatAction);
+                        message.pnForLidChatAction = $root.SyncAction.SyncActionValue.PnForLidChatAction.decode(reader, reader.size(), $undefined, _depth + 1, message.pnForLidChatAction);
                         message._pnForLidChatAction = "pnForLidChatAction";
                         continue;
                     }
                 case 38: {
                         if (wireType !== 2)
                             break;
-                        message.marketingMessageAction = $root.SyncAction.SyncActionValue.MarketingMessageAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.marketingMessageAction);
+                        message.marketingMessageAction = $root.SyncAction.SyncActionValue.MarketingMessageAction.decode(reader, reader.size(), $undefined, _depth + 1, message.marketingMessageAction);
                         message._marketingMessageAction = "marketingMessageAction";
                         continue;
                     }
                 case 39: {
                         if (wireType !== 2)
                             break;
-                        message.marketingMessageBroadcastAction = $root.SyncAction.SyncActionValue.MarketingMessageBroadcastAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.marketingMessageBroadcastAction);
+                        message.marketingMessageBroadcastAction = $root.SyncAction.SyncActionValue.MarketingMessageBroadcastAction.decode(reader, reader.size(), $undefined, _depth + 1, message.marketingMessageBroadcastAction);
                         message._marketingMessageBroadcastAction = "marketingMessageBroadcastAction";
                         continue;
                     }
                 case 40: {
                         if (wireType !== 2)
                             break;
-                        message.externalWebBetaAction = $root.SyncAction.SyncActionValue.ExternalWebBetaAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalWebBetaAction);
+                        message.externalWebBetaAction = $root.SyncAction.SyncActionValue.ExternalWebBetaAction.decode(reader, reader.size(), $undefined, _depth + 1, message.externalWebBetaAction);
                         message._externalWebBetaAction = "externalWebBetaAction";
                         continue;
                     }
                 case 41: {
                         if (wireType !== 2)
                             break;
-                        message.privacySettingRelayAllCalls = $root.SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.decode(reader, reader.uint32(), $undefined, _depth + 1, message.privacySettingRelayAllCalls);
+                        message.privacySettingRelayAllCalls = $root.SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.decode(reader, reader.size(), $undefined, _depth + 1, message.privacySettingRelayAllCalls);
                         message._privacySettingRelayAllCalls = "privacySettingRelayAllCalls";
                         continue;
                     }
                 case 42: {
                         if (wireType !== 2)
                             break;
-                        message.callLogAction = $root.SyncAction.SyncActionValue.CallLogAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.callLogAction);
+                        message.callLogAction = $root.SyncAction.SyncActionValue.CallLogAction.decode(reader, reader.size(), $undefined, _depth + 1, message.callLogAction);
                         message._callLogAction = "callLogAction";
                         continue;
                     }
                 case 43: {
                         if (wireType !== 2)
                             break;
-                        message.ugcBot = $root.SyncAction.SyncActionValue.UGCBot.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ugcBot);
+                        message.ugcBot = $root.SyncAction.SyncActionValue.UGCBot.decode(reader, reader.size(), $undefined, _depth + 1, message.ugcBot);
                         message._ugcBot = "ugcBot";
                         continue;
                     }
                 case 44: {
                         if (wireType !== 2)
                             break;
-                        message.statusPrivacy = $root.SyncAction.SyncActionValue.StatusPrivacyAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusPrivacy);
+                        message.statusPrivacy = $root.SyncAction.SyncActionValue.StatusPrivacyAction.decode(reader, reader.size(), $undefined, _depth + 1, message.statusPrivacy);
                         message._statusPrivacy = "statusPrivacy";
                         continue;
                     }
                 case 45: {
                         if (wireType !== 2)
                             break;
-                        message.botWelcomeRequestAction = $root.SyncAction.SyncActionValue.BotWelcomeRequestAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.botWelcomeRequestAction);
+                        message.botWelcomeRequestAction = $root.SyncAction.SyncActionValue.BotWelcomeRequestAction.decode(reader, reader.size(), $undefined, _depth + 1, message.botWelcomeRequestAction);
                         message._botWelcomeRequestAction = "botWelcomeRequestAction";
                         continue;
                     }
                 case 46: {
                         if (wireType !== 2)
                             break;
-                        message.deleteIndividualCallLog = $root.SyncAction.SyncActionValue.DeleteIndividualCallLogAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deleteIndividualCallLog);
+                        message.deleteIndividualCallLog = $root.SyncAction.SyncActionValue.DeleteIndividualCallLogAction.decode(reader, reader.size(), $undefined, _depth + 1, message.deleteIndividualCallLog);
                         message._deleteIndividualCallLog = "deleteIndividualCallLog";
                         continue;
                     }
                 case 47: {
                         if (wireType !== 2)
                             break;
-                        message.labelReorderingAction = $root.SyncAction.SyncActionValue.LabelReorderingAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.labelReorderingAction);
+                        message.labelReorderingAction = $root.SyncAction.SyncActionValue.LabelReorderingAction.decode(reader, reader.size(), $undefined, _depth + 1, message.labelReorderingAction);
                         message._labelReorderingAction = "labelReorderingAction";
                         continue;
                     }
                 case 48: {
                         if (wireType !== 2)
                             break;
-                        message.paymentInfoAction = $root.SyncAction.SyncActionValue.PaymentInfoAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentInfoAction);
+                        message.paymentInfoAction = $root.SyncAction.SyncActionValue.PaymentInfoAction.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentInfoAction);
                         message._paymentInfoAction = "paymentInfoAction";
                         continue;
                     }
                 case 49: {
                         if (wireType !== 2)
                             break;
-                        message.customPaymentMethodsAction = $root.SyncAction.SyncActionValue.CustomPaymentMethodsAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.customPaymentMethodsAction);
+                        message.customPaymentMethodsAction = $root.SyncAction.SyncActionValue.CustomPaymentMethodsAction.decode(reader, reader.size(), $undefined, _depth + 1, message.customPaymentMethodsAction);
                         message._customPaymentMethodsAction = "customPaymentMethodsAction";
                         continue;
                     }
                 case 50: {
                         if (wireType !== 2)
                             break;
-                        message.lockChatAction = $root.SyncAction.SyncActionValue.LockChatAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.lockChatAction);
+                        message.lockChatAction = $root.SyncAction.SyncActionValue.LockChatAction.decode(reader, reader.size(), $undefined, _depth + 1, message.lockChatAction);
                         message._lockChatAction = "lockChatAction";
                         continue;
                     }
                 case 51: {
                         if (wireType !== 2)
                             break;
-                        message.chatLockSettings = $root.ChatLockSettings.ChatLockSettings.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chatLockSettings);
+                        message.chatLockSettings = $root.ChatLockSettings.ChatLockSettings.decode(reader, reader.size(), $undefined, _depth + 1, message.chatLockSettings);
                         message._chatLockSettings = "chatLockSettings";
                         continue;
                     }
                 case 52: {
                         if (wireType !== 2)
                             break;
-                        message.wamoUserIdentifierAction = $root.SyncAction.SyncActionValue.WamoUserIdentifierAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.wamoUserIdentifierAction);
+                        message.wamoUserIdentifierAction = $root.SyncAction.SyncActionValue.WamoUserIdentifierAction.decode(reader, reader.size(), $undefined, _depth + 1, message.wamoUserIdentifierAction);
                         message._wamoUserIdentifierAction = "wamoUserIdentifierAction";
                         continue;
                     }
                 case 53: {
                         if (wireType !== 2)
                             break;
-                        message.privacySettingDisableLinkPreviewsAction = $root.SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.privacySettingDisableLinkPreviewsAction);
+                        message.privacySettingDisableLinkPreviewsAction = $root.SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.decode(reader, reader.size(), $undefined, _depth + 1, message.privacySettingDisableLinkPreviewsAction);
                         message._privacySettingDisableLinkPreviewsAction = "privacySettingDisableLinkPreviewsAction";
                         continue;
                     }
                 case 54: {
                         if (wireType !== 2)
                             break;
-                        message.deviceCapabilities = $root.DeviceCapabilities.DeviceCapabilities.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deviceCapabilities);
+                        message.deviceCapabilities = $root.DeviceCapabilities.DeviceCapabilities.decode(reader, reader.size(), $undefined, _depth + 1, message.deviceCapabilities);
                         message._deviceCapabilities = "deviceCapabilities";
                         continue;
                     }
                 case 55: {
                         if (wireType !== 2)
                             break;
-                        message.noteEditAction = $root.SyncAction.SyncActionValue.NoteEditAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.noteEditAction);
+                        message.noteEditAction = $root.SyncAction.SyncActionValue.NoteEditAction.decode(reader, reader.size(), $undefined, _depth + 1, message.noteEditAction);
                         message._noteEditAction = "noteEditAction";
                         continue;
                     }
                 case 56: {
                         if (wireType !== 2)
                             break;
-                        message.favoritesAction = $root.SyncAction.SyncActionValue.FavoritesAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.favoritesAction);
+                        message.favoritesAction = $root.SyncAction.SyncActionValue.FavoritesAction.decode(reader, reader.size(), $undefined, _depth + 1, message.favoritesAction);
                         message._favoritesAction = "favoritesAction";
                         continue;
                     }
                 case 57: {
                         if (wireType !== 2)
                             break;
-                        message.merchantPaymentPartnerAction = $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.merchantPaymentPartnerAction);
+                        message.merchantPaymentPartnerAction = $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction.decode(reader, reader.size(), $undefined, _depth + 1, message.merchantPaymentPartnerAction);
                         message._merchantPaymentPartnerAction = "merchantPaymentPartnerAction";
                         continue;
                     }
                 case 58: {
                         if (wireType !== 2)
                             break;
-                        message.waffleAccountLinkStateAction = $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.waffleAccountLinkStateAction);
+                        message.waffleAccountLinkStateAction = $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction.decode(reader, reader.size(), $undefined, _depth + 1, message.waffleAccountLinkStateAction);
                         message._waffleAccountLinkStateAction = "waffleAccountLinkStateAction";
                         continue;
                     }
                 case 59: {
                         if (wireType !== 2)
                             break;
-                        message.usernameChatStartMode = $root.SyncAction.SyncActionValue.UsernameChatStartModeAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.usernameChatStartMode);
+                        message.usernameChatStartMode = $root.SyncAction.SyncActionValue.UsernameChatStartModeAction.decode(reader, reader.size(), $undefined, _depth + 1, message.usernameChatStartMode);
                         message._usernameChatStartMode = "usernameChatStartMode";
                         continue;
                     }
                 case 60: {
                         if (wireType !== 2)
                             break;
-                        message.notificationActivitySettingAction = $root.SyncAction.SyncActionValue.NotificationActivitySettingAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.notificationActivitySettingAction);
+                        message.notificationActivitySettingAction = $root.SyncAction.SyncActionValue.NotificationActivitySettingAction.decode(reader, reader.size(), $undefined, _depth + 1, message.notificationActivitySettingAction);
                         message._notificationActivitySettingAction = "notificationActivitySettingAction";
                         continue;
                     }
                 case 61: {
                         if (wireType !== 2)
                             break;
-                        message.lidContactAction = $root.SyncAction.SyncActionValue.LidContactAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.lidContactAction);
+                        message.lidContactAction = $root.SyncAction.SyncActionValue.LidContactAction.decode(reader, reader.size(), $undefined, _depth + 1, message.lidContactAction);
                         message._lidContactAction = "lidContactAction";
                         continue;
                     }
                 case 62: {
                         if (wireType !== 2)
                             break;
-                        message.ctwaPerCustomerDataSharingAction = $root.SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctwaPerCustomerDataSharingAction);
+                        message.ctwaPerCustomerDataSharingAction = $root.SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.decode(reader, reader.size(), $undefined, _depth + 1, message.ctwaPerCustomerDataSharingAction);
                         message._ctwaPerCustomerDataSharingAction = "ctwaPerCustomerDataSharingAction";
                         continue;
                     }
                 case 63: {
                         if (wireType !== 2)
                             break;
-                        message.paymentTosAction = $root.SyncAction.SyncActionValue.PaymentTosAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.paymentTosAction);
+                        message.paymentTosAction = $root.SyncAction.SyncActionValue.PaymentTosAction.decode(reader, reader.size(), $undefined, _depth + 1, message.paymentTosAction);
                         message._paymentTosAction = "paymentTosAction";
                         continue;
                     }
                 case 64: {
                         if (wireType !== 2)
                             break;
-                        message.privacySettingChannelsPersonalisedRecommendationAction = $root.SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.privacySettingChannelsPersonalisedRecommendationAction);
+                        message.privacySettingChannelsPersonalisedRecommendationAction = $root.SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.decode(reader, reader.size(), $undefined, _depth + 1, message.privacySettingChannelsPersonalisedRecommendationAction);
                         message._privacySettingChannelsPersonalisedRecommendationAction = "privacySettingChannelsPersonalisedRecommendationAction";
                         continue;
                     }
                 case 66: {
                         if (wireType !== 2)
                             break;
-                        message.detectedOutcomesStatusAction = $root.SyncAction.SyncActionValue.DetectedOutcomesStatusAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.detectedOutcomesStatusAction);
+                        message.detectedOutcomesStatusAction = $root.SyncAction.SyncActionValue.DetectedOutcomesStatusAction.decode(reader, reader.size(), $undefined, _depth + 1, message.detectedOutcomesStatusAction);
                         message._detectedOutcomesStatusAction = "detectedOutcomesStatusAction";
                         continue;
                     }
                 case 68: {
                         if (wireType !== 2)
                             break;
-                        message.maibaAiFeaturesControlAction = $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.maibaAiFeaturesControlAction);
+                        message.maibaAiFeaturesControlAction = $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.decode(reader, reader.size(), $undefined, _depth + 1, message.maibaAiFeaturesControlAction);
                         message._maibaAiFeaturesControlAction = "maibaAiFeaturesControlAction";
                         continue;
                     }
                 case 69: {
                         if (wireType !== 2)
                             break;
-                        message.businessBroadcastListAction = $root.SyncAction.SyncActionValue.BusinessBroadcastListAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessBroadcastListAction);
+                        message.businessBroadcastListAction = $root.SyncAction.SyncActionValue.BusinessBroadcastListAction.decode(reader, reader.size(), $undefined, _depth + 1, message.businessBroadcastListAction);
                         message._businessBroadcastListAction = "businessBroadcastListAction";
                         continue;
                     }
                 case 70: {
                         if (wireType !== 2)
                             break;
-                        message.musicUserIdAction = $root.SyncAction.SyncActionValue.MusicUserIdAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.musicUserIdAction);
+                        message.musicUserIdAction = $root.SyncAction.SyncActionValue.MusicUserIdAction.decode(reader, reader.size(), $undefined, _depth + 1, message.musicUserIdAction);
                         message._musicUserIdAction = "musicUserIdAction";
                         continue;
                     }
                 case 71: {
                         if (wireType !== 2)
                             break;
-                        message.statusPostOptInNotificationPreferencesAction = $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusPostOptInNotificationPreferencesAction);
+                        message.statusPostOptInNotificationPreferencesAction = $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.decode(reader, reader.size(), $undefined, _depth + 1, message.statusPostOptInNotificationPreferencesAction);
                         message._statusPostOptInNotificationPreferencesAction = "statusPostOptInNotificationPreferencesAction";
                         continue;
                     }
                 case 72: {
                         if (wireType !== 2)
                             break;
-                        message.avatarUpdatedAction = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.avatarUpdatedAction);
+                        message.avatarUpdatedAction = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.decode(reader, reader.size(), $undefined, _depth + 1, message.avatarUpdatedAction);
                         message._avatarUpdatedAction = "avatarUpdatedAction";
                         continue;
                     }
                 case 74: {
                         if (wireType !== 2)
                             break;
-                        message.privateProcessingSettingAction = $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.privateProcessingSettingAction);
+                        message.privateProcessingSettingAction = $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction.decode(reader, reader.size(), $undefined, _depth + 1, message.privateProcessingSettingAction);
                         message._privateProcessingSettingAction = "privateProcessingSettingAction";
                         continue;
                     }
                 case 75: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterSavedInterestsAction = $root.SyncAction.SyncActionValue.NewsletterSavedInterestsAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterSavedInterestsAction);
+                        message.newsletterSavedInterestsAction = $root.SyncAction.SyncActionValue.NewsletterSavedInterestsAction.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterSavedInterestsAction);
                         message._newsletterSavedInterestsAction = "newsletterSavedInterestsAction";
                         continue;
                     }
                 case 76: {
                         if (wireType !== 2)
                             break;
-                        message.aiThreadRenameAction = $root.SyncAction.SyncActionValue.AiThreadRenameAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiThreadRenameAction);
+                        message.aiThreadRenameAction = $root.SyncAction.SyncActionValue.AiThreadRenameAction.decode(reader, reader.size(), $undefined, _depth + 1, message.aiThreadRenameAction);
                         message._aiThreadRenameAction = "aiThreadRenameAction";
                         continue;
                     }
                 case 77: {
                         if (wireType !== 2)
                             break;
-                        message.interactiveMessageAction = $root.SyncAction.SyncActionValue.InteractiveMessageAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.interactiveMessageAction);
+                        message.interactiveMessageAction = $root.SyncAction.SyncActionValue.InteractiveMessageAction.decode(reader, reader.size(), $undefined, _depth + 1, message.interactiveMessageAction);
                         message._interactiveMessageAction = "interactiveMessageAction";
                         continue;
                     }
                 case 78: {
                         if (wireType !== 2)
                             break;
-                        message.settingsSyncAction = $root.SyncAction.SyncActionValue.SettingsSyncAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.settingsSyncAction);
+                        message.settingsSyncAction = $root.SyncAction.SyncActionValue.SettingsSyncAction.decode(reader, reader.size(), $undefined, _depth + 1, message.settingsSyncAction);
                         message._settingsSyncAction = "settingsSyncAction";
                         continue;
                     }
                 case 79: {
                         if (wireType !== 2)
                             break;
-                        message.outContactAction = $root.SyncAction.SyncActionValue.OutContactAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.outContactAction);
+                        message.outContactAction = $root.SyncAction.SyncActionValue.OutContactAction.decode(reader, reader.size(), $undefined, _depth + 1, message.outContactAction);
                         message._outContactAction = "outContactAction";
                         continue;
                     }
                 case 80: {
                         if (wireType !== 2)
                             break;
-                        message.nctSaltSyncAction = $root.SyncAction.SyncActionValue.NctSaltSyncAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.nctSaltSyncAction);
+                        message.nctSaltSyncAction = $root.SyncAction.SyncActionValue.NctSaltSyncAction.decode(reader, reader.size(), $undefined, _depth + 1, message.nctSaltSyncAction);
                         message._nctSaltSyncAction = "nctSaltSyncAction";
                         continue;
                     }
                 case 81: {
                         if (wireType !== 2)
                             break;
-                        message.businessBroadcastCampaignAction = $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessBroadcastCampaignAction);
+                        message.businessBroadcastCampaignAction = $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.decode(reader, reader.size(), $undefined, _depth + 1, message.businessBroadcastCampaignAction);
                         message._businessBroadcastCampaignAction = "businessBroadcastCampaignAction";
                         continue;
                     }
                 case 82: {
                         if (wireType !== 2)
                             break;
-                        message.businessBroadcastInsightsAction = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessBroadcastInsightsAction);
+                        message.businessBroadcastInsightsAction = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.decode(reader, reader.size(), $undefined, _depth + 1, message.businessBroadcastInsightsAction);
                         message._businessBroadcastInsightsAction = "businessBroadcastInsightsAction";
                         continue;
                     }
                 case 83: {
                         if (wireType !== 2)
                             break;
-                        message.customerDataAction = $root.SyncAction.SyncActionValue.CustomerDataAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.customerDataAction);
+                        message.customerDataAction = $root.SyncAction.SyncActionValue.CustomerDataAction.decode(reader, reader.size(), $undefined, _depth + 1, message.customerDataAction);
                         message._customerDataAction = "customerDataAction";
                         continue;
                     }
                 case 84: {
                         if (wireType !== 2)
                             break;
-                        message.subscriptionsSyncV2Action = $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.decode(reader, reader.uint32(), $undefined, _depth + 1, message.subscriptionsSyncV2Action);
+                        message.subscriptionsSyncV2Action = $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.decode(reader, reader.size(), $undefined, _depth + 1, message.subscriptionsSyncV2Action);
                         message._subscriptionsSyncV2Action = "subscriptionsSyncV2Action";
                         continue;
                     }
                 case 85: {
                         if (wireType !== 2)
                             break;
-                        message.threadPinAction = $root.SyncAction.SyncActionValue.ThreadPinAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.threadPinAction);
+                        message.threadPinAction = $root.SyncAction.SyncActionValue.ThreadPinAction.decode(reader, reader.size(), $undefined, _depth + 1, message.threadPinAction);
                         message._threadPinAction = "threadPinAction";
                         continue;
                     }
                 case 86: {
                         if (wireType !== 2)
                             break;
-                        message.autoOrganizeBusinessChatSetting = $root.SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.decode(reader, reader.uint32(), $undefined, _depth + 1, message.autoOrganizeBusinessChatSetting);
+                        message.autoOrganizeBusinessChatSetting = $root.SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.decode(reader, reader.size(), $undefined, _depth + 1, message.autoOrganizeBusinessChatSetting);
                         message._autoOrganizeBusinessChatSetting = "autoOrganizeBusinessChatSetting";
                         continue;
                     }
                 case 87: {
                         if (wireType !== 2)
                             break;
-                        message.bizAiSettingsNudgeAction = $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiSettingsNudgeAction);
+                        message.bizAiSettingsNudgeAction = $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiSettingsNudgeAction);
                         message._bizAiSettingsNudgeAction = "bizAiSettingsNudgeAction";
                         continue;
                     }
                 case 88: {
                         if (wireType !== 2)
                             break;
-                        message.coexV2VersionAction = $root.SyncAction.SyncActionValue.CoexV2VersionAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.coexV2VersionAction);
+                        message.coexV2VersionAction = $root.SyncAction.SyncActionValue.CoexV2VersionAction.decode(reader, reader.size(), $undefined, _depth + 1, message.coexV2VersionAction);
                         message._coexV2VersionAction = "coexV2VersionAction";
                         continue;
                     }
                 case 89: {
                         if (wireType !== 2)
                             break;
-                        message.wasaRootSecretAction = $root.SyncAction.SyncActionValue.WASARootSecretAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.wasaRootSecretAction);
+                        message.wasaRootSecretAction = $root.SyncAction.SyncActionValue.WASARootSecretAction.decode(reader, reader.size(), $undefined, _depth + 1, message.wasaRootSecretAction);
                         message._wasaRootSecretAction = "wasaRootSecretAction";
                         continue;
                     }
                 case 90: {
                         if (wireType !== 2)
                             break;
-                        message.bubbleLockMessageAction = $root.SyncAction.SyncActionValue.BubbleLockMessageAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bubbleLockMessageAction);
+                        message.bubbleLockMessageAction = $root.SyncAction.SyncActionValue.BubbleLockMessageAction.decode(reader, reader.size(), $undefined, _depth + 1, message.bubbleLockMessageAction);
                         message._bubbleLockMessageAction = "bubbleLockMessageAction";
                         continue;
                     }
                 case 91: {
                         if (wireType !== 2)
                             break;
-                        message.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.labelSublistAction);
+                        message.labelSublistAction = $root.SyncAction.SyncActionValue.LabelSublistAction.decode(reader, reader.size(), $undefined, _depth + 1, message.labelSublistAction);
                         message._labelSublistAction = "labelSublistAction";
                         continue;
                     }
                 case 92: {
                         if (wireType !== 2)
                             break;
-                        message.deviceCapabilitiesV2 = $root.DeviceCapabilities.DeviceCapabilities.decode(reader, reader.uint32(), $undefined, _depth + 1, message.deviceCapabilitiesV2);
+                        message.deviceCapabilitiesV2 = $root.DeviceCapabilities.DeviceCapabilities.decode(reader, reader.size(), $undefined, _depth + 1, message.deviceCapabilitiesV2);
                         message._deviceCapabilitiesV2 = "deviceCapabilitiesV2";
                         continue;
                     }
                 case 93: {
                         if (wireType !== 2)
                             break;
-                        message.ctwaMessageReceivedAction = $root.SyncAction.SyncActionValue.CtwaMessageReceivedAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctwaMessageReceivedAction);
+                        message.ctwaMessageReceivedAction = $root.SyncAction.SyncActionValue.CtwaMessageReceivedAction.decode(reader, reader.size(), $undefined, _depth + 1, message.ctwaMessageReceivedAction);
                         message._ctwaMessageReceivedAction = "ctwaMessageReceivedAction";
                         continue;
                     }
                 case 94: {
                         if (wireType !== 2)
                             break;
-                        message.sharedDeviceAllowlistAction = $root.SyncAction.SyncActionValue.SharedDeviceAllowlistAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.sharedDeviceAllowlistAction);
+                        message.sharedDeviceAllowlistAction = $root.SyncAction.SyncActionValue.SharedDeviceAllowlistAction.decode(reader, reader.size(), $undefined, _depth + 1, message.sharedDeviceAllowlistAction);
                         message._sharedDeviceAllowlistAction = "sharedDeviceAllowlistAction";
                         continue;
                     }
                 case 95: {
                         if (wireType !== 2)
                             break;
-                        message.contactManagerMetadataAction = $root.SyncAction.SyncActionValue.ContactManagerMetadataAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactManagerMetadataAction);
+                        message.contactManagerMetadataAction = $root.SyncAction.SyncActionValue.ContactManagerMetadataAction.decode(reader, reader.size(), $undefined, _depth + 1, message.contactManagerMetadataAction);
                         message._contactManagerMetadataAction = "contactManagerMetadataAction";
                         continue;
                     }
                 case 96: {
                         if (wireType !== 2)
                             break;
-                        message.businessFolderActivationAction = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessFolderActivationAction);
+                        message.businessFolderActivationAction = $root.SyncAction.SyncActionValue.BusinessFolderActivationAction.decode(reader, reader.size(), $undefined, _depth + 1, message.businessFolderActivationAction);
                         message._businessFolderActivationAction = "businessFolderActivationAction";
                         continue;
                     }
                 case 97: {
                         if (wireType !== 2)
                             break;
-                        message.groupHistoryToggleAction = $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupHistoryToggleAction);
+                        message.groupHistoryToggleAction = $root.SyncAction.SyncActionValue.GroupHistoryToggleAction.decode(reader, reader.size(), $undefined, _depth + 1, message.groupHistoryToggleAction);
                         message._groupHistoryToggleAction = "groupHistoryToggleAction";
                         continue;
                     }
                 case 98: {
                         if (wireType !== 2)
                             break;
-                        message.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bbProPendingCustomerBaseAction);
+                        message.bbProPendingCustomerBaseAction = $root.SyncAction.SyncActionValue.BBProPendingCustomerBaseAction.decode(reader, reader.size(), $undefined, _depth + 1, message.bbProPendingCustomerBaseAction);
                         message._bbProPendingCustomerBaseAction = "bbProPendingCustomerBaseAction";
                         continue;
                     }
                 case 99: {
                         if (wireType !== 2)
                             break;
-                        message.communityNestingStateAction = $root.SyncAction.SyncActionValue.CommunityNestingStateAction.decode(reader, reader.uint32(), $undefined, _depth + 1, message.communityNestingStateAction);
+                        message.communityNestingStateAction = $root.SyncAction.SyncActionValue.CommunityNestingStateAction.decode(reader, reader.size(), $undefined, _depth + 1, message.communityNestingStateAction);
                         message._communityNestingStateAction = "communityNestingStateAction";
                         continue;
                     }
@@ -3543,7 +3543,7 @@ $root.SyncAction = (function() {
         SyncActionValue.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -5217,7 +5217,7 @@ $root.SyncAction = (function() {
             AgentAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -5517,7 +5517,7 @@ $root.SyncAction = (function() {
             AiThreadRenameAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -5799,7 +5799,7 @@ $root.SyncAction = (function() {
             AndroidUnsupportedActions.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -6071,7 +6071,7 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageRange);
+                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.size(), $undefined, _depth + 1, message.messageRange);
                             message._messageRange = "messageRange";
                             continue;
                         }
@@ -6105,7 +6105,7 @@ $root.SyncAction = (function() {
             ArchiveChatAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -6402,7 +6402,7 @@ $root.SyncAction = (function() {
             AutoOrganizeBusinessChatSetting.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -6672,7 +6672,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.recentAvatarStickers && message.recentAvatarStickers.length))
                                 message.recentAvatarStickers = [];
-                            message.recentAvatarStickers.push($root.SyncAction.SyncActionValue.StickerAction.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.recentAvatarStickers.push($root.SyncAction.SyncActionValue.StickerAction.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -6705,7 +6705,7 @@ $root.SyncAction = (function() {
             AvatarUpdatedAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -7044,7 +7044,7 @@ $root.SyncAction = (function() {
             BBProPendingCustomerBaseAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -7374,7 +7374,7 @@ $root.SyncAction = (function() {
             BizAISettingsNudgeAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -7753,7 +7753,7 @@ $root.SyncAction = (function() {
             BotWelcomeRequestAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -8059,7 +8059,7 @@ $root.SyncAction = (function() {
             BroadcastListParticipant.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -8350,7 +8350,7 @@ $root.SyncAction = (function() {
             BubbleLockMessageAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -8632,7 +8632,7 @@ $root.SyncAction = (function() {
             BusinessBroadcastAssociationAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -9154,7 +9154,7 @@ $root.SyncAction = (function() {
             BusinessBroadcastCampaignAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -9762,7 +9762,7 @@ $root.SyncAction = (function() {
             BusinessBroadcastInsightsAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -10132,7 +10132,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.participants && message.participants.length))
                                 message.participants = [];
-                            message.participants.push($root.SyncAction.SyncActionValue.BroadcastListParticipant.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.participants.push($root.SyncAction.SyncActionValue.BroadcastListParticipant.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 3: {
@@ -10194,7 +10194,7 @@ $root.SyncAction = (function() {
             BusinessBroadcastListAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -10550,7 +10550,7 @@ $root.SyncAction = (function() {
             BusinessFolderActivationAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -10798,7 +10798,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.callLogRecord = $root.SyncAction.CallLogRecord.decode(reader, reader.uint32(), $undefined, _depth + 1, message.callLogRecord);
+                            message.callLogRecord = $root.SyncAction.CallLogRecord.decode(reader, reader.size(), $undefined, _depth + 1, message.callLogRecord);
                             message._callLogRecord = "callLogRecord";
                             continue;
                         }
@@ -10832,7 +10832,7 @@ $root.SyncAction = (function() {
             CallLogAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -11120,7 +11120,7 @@ $root.SyncAction = (function() {
             ChatAssignmentAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -11402,7 +11402,7 @@ $root.SyncAction = (function() {
             ChatAssignmentOpenedStatusAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -11650,7 +11650,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageRange);
+                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.size(), $undefined, _depth + 1, message.messageRange);
                             message._messageRange = "messageRange";
                             continue;
                         }
@@ -11684,7 +11684,7 @@ $root.SyncAction = (function() {
             ClearChatAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -11972,7 +11972,7 @@ $root.SyncAction = (function() {
             CoexV2VersionAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -12266,7 +12266,7 @@ $root.SyncAction = (function() {
             CommunityNestingStateAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -12723,7 +12723,7 @@ $root.SyncAction = (function() {
             ContactAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -13059,7 +13059,7 @@ $root.SyncAction = (function() {
             ContactManagerMetadataAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -13341,7 +13341,7 @@ $root.SyncAction = (function() {
             CtwaMessageReceivedAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -13623,7 +13623,7 @@ $root.SyncAction = (function() {
             CtwaPerCustomerDataSharingAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -13941,7 +13941,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.metadata && message.metadata.length))
                                 message.metadata = [];
-                            message.metadata.push($root.SyncAction.SyncActionValue.CustomPaymentMethodMetadata.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.metadata.push($root.SyncAction.SyncActionValue.CustomPaymentMethodMetadata.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -13974,7 +13974,7 @@ $root.SyncAction = (function() {
             CustomPaymentMethod.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -14324,7 +14324,7 @@ $root.SyncAction = (function() {
             CustomPaymentMethodMetadata.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -14576,7 +14576,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.customPaymentMethods && message.customPaymentMethods.length))
                                 message.customPaymentMethods = [];
-                            message.customPaymentMethods.push($root.SyncAction.SyncActionValue.CustomPaymentMethod.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.customPaymentMethods.push($root.SyncAction.SyncActionValue.CustomPaymentMethod.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -14609,7 +14609,7 @@ $root.SyncAction = (function() {
             CustomPaymentMethodsAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -15147,7 +15147,7 @@ $root.SyncAction = (function() {
             CustomerDataAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -15533,7 +15533,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageRange);
+                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.size(), $undefined, _depth + 1, message.messageRange);
                             message._messageRange = "messageRange";
                             continue;
                         }
@@ -15567,7 +15567,7 @@ $root.SyncAction = (function() {
             DeleteChatAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -15879,7 +15879,7 @@ $root.SyncAction = (function() {
             DeleteIndividualCallLogAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -16194,7 +16194,7 @@ $root.SyncAction = (function() {
             DeleteMessageForMeAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -16497,7 +16497,7 @@ $root.SyncAction = (function() {
             DetectedOutcomesStatusAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -16779,7 +16779,7 @@ $root.SyncAction = (function() {
             ExternalWebBetaAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -17022,7 +17022,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.favorites && message.favorites.length))
                                 message.favorites = [];
-                            message.favorites.push($root.SyncAction.SyncActionValue.FavoritesAction.Favorite.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.favorites.push($root.SyncAction.SyncActionValue.FavoritesAction.Favorite.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -17055,7 +17055,7 @@ $root.SyncAction = (function() {
             FavoritesAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -17350,7 +17350,7 @@ $root.SyncAction = (function() {
                 Favorite.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -17635,7 +17635,7 @@ $root.SyncAction = (function() {
             GroupHistoryToggleAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -17972,7 +17972,7 @@ $root.SyncAction = (function() {
             InteractiveMessageAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -18282,7 +18282,7 @@ $root.SyncAction = (function() {
             KeyExpiration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -18588,7 +18588,7 @@ $root.SyncAction = (function() {
             LabelAssociationAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -19071,7 +19071,7 @@ $root.SyncAction = (function() {
             LabelEditAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -19575,7 +19575,7 @@ $root.SyncAction = (function() {
             LabelReorderingAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -19868,7 +19868,7 @@ $root.SyncAction = (function() {
             LabelSublistAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -20222,7 +20222,7 @@ $root.SyncAction = (function() {
             LidContactAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -20531,7 +20531,7 @@ $root.SyncAction = (function() {
             LocaleSetting.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -20813,7 +20813,7 @@ $root.SyncAction = (function() {
             LockChatAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -21119,7 +21119,7 @@ $root.SyncAction = (function() {
             MaibaAIFeaturesControlAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -21462,7 +21462,7 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.messageRange);
+                            message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.decode(reader, reader.size(), $undefined, _depth + 1, message.messageRange);
                             message._messageRange = "messageRange";
                             continue;
                         }
@@ -21496,7 +21496,7 @@ $root.SyncAction = (function() {
             MarkChatAsReadAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -21937,7 +21937,7 @@ $root.SyncAction = (function() {
             MarketingMessageAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -22316,7 +22316,7 @@ $root.SyncAction = (function() {
             MarketingMessageBroadcastAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -22670,7 +22670,7 @@ $root.SyncAction = (function() {
             MerchantPaymentPartnerAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -22992,7 +22992,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (message.musicUserIdMap === $util.emptyObject)
                                 message.musicUserIdMap = {};
-                            var end2 = reader.uint32() + reader.pos;
+                            var end2 = reader.size() + reader.pos;
                             if (end2 > reader.len)
                                 throw $RangeError("index out of range");
                             reader.len = end2;
@@ -23053,7 +23053,7 @@ $root.SyncAction = (function() {
             MusicUserIdAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -23436,7 +23436,7 @@ $root.SyncAction = (function() {
             MuteAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -23769,7 +23769,7 @@ $root.SyncAction = (function() {
             NctSaltSyncAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -24054,7 +24054,7 @@ $root.SyncAction = (function() {
             NewsletterSavedInterestsAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -24432,7 +24432,7 @@ $root.SyncAction = (function() {
             NoteEditAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -24787,7 +24787,7 @@ $root.SyncAction = (function() {
             NotificationActivitySettingAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -25106,7 +25106,7 @@ $root.SyncAction = (function() {
             NuxAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -25412,7 +25412,7 @@ $root.SyncAction = (function() {
             OutContactAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -25703,7 +25703,7 @@ $root.SyncAction = (function() {
             PaymentInfoAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26009,7 +26009,7 @@ $root.SyncAction = (function() {
             PaymentTosAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26319,7 +26319,7 @@ $root.SyncAction = (function() {
             PinAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26601,7 +26601,7 @@ $root.SyncAction = (function() {
             PnForLidChatAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -26877,7 +26877,7 @@ $root.SyncAction = (function() {
             PrimaryFeature.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -27170,7 +27170,7 @@ $root.SyncAction = (function() {
             PrimaryVersionAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -27452,7 +27452,7 @@ $root.SyncAction = (function() {
             PrivacySettingChannelsPersonalisedRecommendationAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -27734,7 +27734,7 @@ $root.SyncAction = (function() {
             PrivacySettingDisableLinkPreviewsAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -28016,7 +28016,7 @@ $root.SyncAction = (function() {
             PrivacySettingRelayAllCalls.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -28298,7 +28298,7 @@ $root.SyncAction = (function() {
             PrivateProcessingSettingAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -28611,7 +28611,7 @@ $root.SyncAction = (function() {
             PushNameSetting.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -29007,7 +29007,7 @@ $root.SyncAction = (function() {
             QuickReplyAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -29319,7 +29319,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.weights && message.weights.length))
                                 message.weights = [];
-                            message.weights.push($root.SyncAction.RecentEmojiWeight.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.weights.push($root.SyncAction.RecentEmojiWeight.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -29352,7 +29352,7 @@ $root.SyncAction = (function() {
             RecentEmojiWeightsAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -29650,7 +29650,7 @@ $root.SyncAction = (function() {
             RemoveRecentStickerAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -30736,7 +30736,7 @@ $root.SyncAction = (function() {
             SettingsSyncAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -31502,7 +31502,7 @@ $root.SyncAction = (function() {
             SharedDeviceAllowlistAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -31784,7 +31784,7 @@ $root.SyncAction = (function() {
             StarAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -32066,7 +32066,7 @@ $root.SyncAction = (function() {
             StatusPostOptInNotificationPreferencesAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -32417,7 +32417,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.customLists && message.customLists.length))
                                 message.customLists = [];
-                            message.customLists.push($root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.customLists.push($root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 6: {
@@ -32464,7 +32464,7 @@ $root.SyncAction = (function() {
             StatusPrivacyAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -32968,7 +32968,7 @@ $root.SyncAction = (function() {
                 CustomList.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -33609,7 +33609,7 @@ $root.SyncAction = (function() {
             StickerAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -34065,7 +34065,7 @@ $root.SyncAction = (function() {
             SubscriptionAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -34351,7 +34351,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.subscriptions && message.subscriptions.length))
                                 message.subscriptions = [];
-                            message.subscriptions.push($root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.subscriptions.push($root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     case 2: {
@@ -34359,7 +34359,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.paidFeature && message.paidFeature.length))
                                 message.paidFeature = [];
-                            message.paidFeature.push($root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.paidFeature.push($root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -34392,7 +34392,7 @@ $root.SyncAction = (function() {
             SubscriptionsSyncV2Action.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -34785,7 +34785,7 @@ $root.SyncAction = (function() {
                 PaidFeature.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -35274,7 +35274,7 @@ $root.SyncAction = (function() {
                 SubscriptionInfo.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -35641,7 +35641,7 @@ $root.SyncAction = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.key);
+                            message.key = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.key);
                             message._key = "key";
                             continue;
                         }
@@ -35682,7 +35682,7 @@ $root.SyncAction = (function() {
             SyncActionMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -36003,7 +36003,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.messages && message.messages.length))
                                 message.messages = [];
-                            message.messages.push($root.SyncAction.SyncActionValue.SyncActionMessage.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.messages.push($root.SyncAction.SyncActionValue.SyncActionMessage.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -36036,7 +36036,7 @@ $root.SyncAction = (function() {
             SyncActionMessageRange.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -36377,7 +36377,7 @@ $root.SyncAction = (function() {
             ThreadPinAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -36659,7 +36659,7 @@ $root.SyncAction = (function() {
             TimeFormatAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -36941,7 +36941,7 @@ $root.SyncAction = (function() {
             UGCBot.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -37226,7 +37226,7 @@ $root.SyncAction = (function() {
             UnarchiveChatsSetting.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -37508,7 +37508,7 @@ $root.SyncAction = (function() {
             UserStatusMuteAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -37790,7 +37790,7 @@ $root.SyncAction = (function() {
             UsernameChatStartModeAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -38058,7 +38058,7 @@ $root.SyncAction = (function() {
                                 break;
                             if (!(message.secrets && message.secrets.length))
                                 message.secrets = [];
-                            message.secrets.push($root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.secrets.push($root.SyncAction.SyncActionValue.WASARootSecretAction.RootSecretEntry.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -38091,7 +38091,7 @@ $root.SyncAction = (function() {
             WASARootSecretAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -38458,7 +38458,7 @@ $root.SyncAction = (function() {
                 RootSecretEntry.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -38810,7 +38810,7 @@ $root.SyncAction = (function() {
             WaffleAccountLinkStateAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -39123,7 +39123,7 @@ $root.SyncAction = (function() {
             WamoUserIdentifierAction.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -39701,7 +39701,7 @@ $root.SyncAction = (function() {
                             break;
                         if (!(message.participants && message.participants.length))
                             message.participants = [];
-                        message.participants.push($root.SyncAction.CallLogRecord.ParticipantInfo.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.participants.push($root.SyncAction.CallLogRecord.ParticipantInfo.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 15: {
@@ -39741,7 +39741,7 @@ $root.SyncAction = (function() {
         CallLogRecord.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -40316,7 +40316,7 @@ $root.SyncAction = (function() {
             GuestInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -40612,7 +40612,7 @@ $root.SyncAction = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.guestInfo = $root.SyncAction.CallLogRecord.GuestInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, message.guestInfo);
+                            message.guestInfo = $root.SyncAction.CallLogRecord.GuestInfo.decode(reader, reader.size(), $undefined, _depth + 1, message.guestInfo);
                             message._guestInfo = "guestInfo";
                             continue;
                         }
@@ -40646,7 +40646,7 @@ $root.SyncAction = (function() {
             ParticipantInfo.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -41044,7 +41044,7 @@ $root.SyncAction = (function() {
         RecentEmojiWeight.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -41565,7 +41565,7 @@ $root.ChatLockSettings = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.secretCode = $root.UserPassword.UserPassword.decode(reader, reader.uint32(), $undefined, _depth + 1, message.secretCode);
+                        message.secretCode = $root.UserPassword.UserPassword.decode(reader, reader.size(), $undefined, _depth + 1, message.secretCode);
                         message._secretCode = "secretCode";
                         continue;
                     }
@@ -41599,7 +41599,7 @@ $root.ChatLockSettings = (function() {
         ChatLockSettings.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -41943,7 +41943,7 @@ $root.UserPassword = (function() {
                             break;
                         if (!(message.transformerArg && message.transformerArg.length))
                             message.transformerArg = [];
-                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 4: {
@@ -41983,7 +41983,7 @@ $root.UserPassword = (function() {
         UserPassword.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -42359,7 +42359,7 @@ $root.UserPassword = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                             message._value = "value";
                             continue;
                         }
@@ -42393,7 +42393,7 @@ $root.UserPassword = (function() {
             TransformerArg.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -42717,7 +42717,7 @@ $root.UserPassword = (function() {
                 Value.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -43180,21 +43180,21 @@ $root.DeviceCapabilities = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.lidMigration);
+                        message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.decode(reader, reader.size(), $undefined, _depth + 1, message.lidMigration);
                         message._lidMigration = "lidMigration";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessBroadcast);
+                        message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.size(), $undefined, _depth + 1, message.businessBroadcast);
                         message._businessBroadcast = "businessBroadcast";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32(), $undefined, _depth + 1, message.userHasAvatar);
+                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.size(), $undefined, _depth + 1, message.userHasAvatar);
                         message._userHasAvatar = "userHasAvatar";
                         continue;
                     }
@@ -43208,42 +43208,42 @@ $root.DeviceCapabilities = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiThread);
+                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.size(), $undefined, _depth + 1, message.aiThread);
                         message._aiThread = "aiThread";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiFbidMigration);
+                        message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.decode(reader, reader.size(), $undefined, _depth + 1, message.aiFbidMigration);
                         message._aiFbidMigration = "aiFbidMigration";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiSettingsSync);
+                        message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiSettingsSync);
                         message._bizAiSettingsSync = "bizAiSettingsSync";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactRefresh);
+                        message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.decode(reader, reader.size(), $undefined, _depth + 1, message.contactRefresh);
                         message._contactRefresh = "contactRefresh";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reverseHistorySync);
+                        message.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.decode(reader, reader.size(), $undefined, _depth + 1, message.reverseHistorySync);
                         message._reverseHistorySync = "reverseHistorySync";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterChatsMigration);
+                        message.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterChatsMigration);
                         message._newsletterChatsMigration = "newsletterChatsMigration";
                         continue;
                     }
@@ -43277,7 +43277,7 @@ $root.DeviceCapabilities = (function() {
         DeviceCapabilities.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -43754,7 +43754,7 @@ $root.DeviceCapabilities = (function() {
             AiFbidMigration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -44057,7 +44057,7 @@ $root.DeviceCapabilities = (function() {
             AiThread.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -44370,7 +44370,7 @@ $root.DeviceCapabilities = (function() {
             BizAiSettingsSync.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -44772,7 +44772,7 @@ $root.DeviceCapabilities = (function() {
             BusinessBroadcast.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -45115,7 +45115,7 @@ $root.DeviceCapabilities = (function() {
             ContactRefresh.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -45397,7 +45397,7 @@ $root.DeviceCapabilities = (function() {
             LIDMigration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -45755,7 +45755,7 @@ $root.DeviceCapabilities = (function() {
             NewsletterChatsMigration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -46066,7 +46066,7 @@ $root.DeviceCapabilities = (function() {
             ReverseHistorySync.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -46385,7 +46385,7 @@ $root.DeviceCapabilities = (function() {
             UserHasAvatar.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -46643,7 +46643,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
                             message.senderKeyStates = [];
-                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -46676,7 +46676,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -46994,14 +46994,14 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChainKey);
+                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChainKey);
                         message._senderChainKey = "senderChainKey";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderSigningKey);
+                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.size(), $undefined, _depth + 1, message.senderSigningKey);
                         message._senderSigningKey = "senderSigningKey";
                         continue;
                     }
@@ -47010,7 +47010,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.senderMessageKeys && message.senderMessageKeys.length))
                             message.senderMessageKeys = [];
-                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -47043,7 +47043,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyStateStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -47402,7 +47402,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderChainKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -47720,7 +47720,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderMessageKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -48038,7 +48038,7 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderSigningKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -48362,7 +48362,7 @@ $root.SignalLocalStorageProtocol = (function() {
         IdentityKeyPairStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -48755,7 +48755,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SignedPreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -49142,7 +49142,7 @@ $root.SignalLocalStorageProtocol = (function() {
         PreKeyRecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -49427,7 +49427,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1, message.currentSession);
+                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1, message.currentSession);
                         message._currentSession = "currentSession";
                         continue;
                     }
@@ -49436,7 +49436,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.previousSessions && message.previousSessions.length))
                             message.previousSessions = [];
-                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -49469,7 +49469,7 @@ $root.SignalLocalStorageProtocol = (function() {
         RecordStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -49984,7 +49984,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1, message.senderChain);
+                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1, message.senderChain);
                         message._senderChain = "senderChain";
                         continue;
                     }
@@ -49993,20 +49993,20 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         if (!(message.receiverChains && message.receiverChains.length))
                             message.receiverChains = [];
-                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingKeyExchange);
+                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingKeyExchange);
                         message._pendingKeyExchange = "pendingKeyExchange";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.pendingPreKey);
+                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.size(), $undefined, _depth + 1, message.pendingPreKey);
                         message._pendingPreKey = "pendingPreKey";
                         continue;
                     }
@@ -50068,7 +50068,7 @@ $root.SignalLocalStorageProtocol = (function() {
         SessionStructure.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -50529,7 +50529,7 @@ $root.SignalLocalStorageProtocol = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.uint32(), $undefined, _depth + 1, message.chainKey);
+                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.size(), $undefined, _depth + 1, message.chainKey);
                             message._chainKey = "chainKey";
                             continue;
                         }
@@ -50538,7 +50538,7 @@ $root.SignalLocalStorageProtocol = (function() {
                                 break;
                             if (!(message.messageKeys && message.messageKeys.length))
                                 message.messageKeys = [];
-                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -50571,7 +50571,7 @@ $root.SignalLocalStorageProtocol = (function() {
             Chain.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -50930,7 +50930,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 ChainKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -51296,7 +51296,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 MessageKey.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -51761,7 +51761,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingKeyExchange.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -52211,7 +52211,7 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingPreKey.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

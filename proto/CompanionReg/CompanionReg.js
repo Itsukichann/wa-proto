@@ -321,7 +321,7 @@ $root.CompanionReg = (function() {
         ClientPairingProps.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -675,7 +675,7 @@ $root.CompanionReg = (function() {
         EncryptedPairingRequest.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1020,7 +1020,7 @@ $root.CompanionReg = (function() {
         PairingRequest.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1353,7 +1353,7 @@ $root.CompanionReg = (function() {
         PrimaryEphemeralIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1640,7 +1640,7 @@ $root.CompanionReg = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.uint32(), $undefined, _depth + 1, message.commitment);
+                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.size(), $undefined, _depth + 1, message.commitment);
                         message._commitment = "commitment";
                         continue;
                     }
@@ -1674,7 +1674,7 @@ $root.CompanionReg = (function() {
         ProloguePayload.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1974,7 +1974,7 @@ $root.CompanionReg = (function() {
         CompanionCommitment.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2307,7 +2307,7 @@ $root.CompanionReg = (function() {
         CompanionEphemeralIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2774,7 +2774,7 @@ $root.CompanionReg = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.version);
                         message._version = "version";
                         continue;
                     }
@@ -2795,7 +2795,7 @@ $root.CompanionReg = (function() {
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32(), $undefined, _depth + 1, message.historySyncConfig);
+                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.size(), $undefined, _depth + 1, message.historySyncConfig);
                         message._historySyncConfig = "historySyncConfig";
                         continue;
                     }
@@ -2829,7 +2829,7 @@ $root.CompanionReg = (function() {
         DeviceProps.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3375,7 +3375,7 @@ $root.CompanionReg = (function() {
             AppVersion.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -4314,7 +4314,7 @@ $root.CompanionReg = (function() {
             HistorySyncConfig.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

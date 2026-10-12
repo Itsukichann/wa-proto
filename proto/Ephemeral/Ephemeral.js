@@ -225,7 +225,7 @@ $root.Ephemeral = (function() {
         EphemeralSetting.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

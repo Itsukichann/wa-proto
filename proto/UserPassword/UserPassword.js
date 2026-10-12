@@ -236,7 +236,7 @@ $root.UserPassword = (function() {
                             break;
                         if (!(message.transformerArg && message.transformerArg.length))
                             message.transformerArg = [];
-                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 4: {
@@ -276,7 +276,7 @@ $root.UserPassword = (function() {
         UserPassword.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -652,7 +652,7 @@ $root.UserPassword = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                             message._value = "value";
                             continue;
                         }
@@ -686,7 +686,7 @@ $root.UserPassword = (function() {
             TransformerArg.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1010,7 +1010,7 @@ $root.UserPassword = (function() {
                 Value.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**

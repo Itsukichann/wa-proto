@@ -162,7 +162,7 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.collectionMutations && message.collectionMutations.length))
                             message.collectionMutations = [];
-                        message.collectionMutations.push($root.ServerSync.CoexStateSync.CollectionMutations.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.collectionMutations.push($root.ServerSync.CoexStateSync.CollectionMutations.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -195,7 +195,7 @@ $root.ServerSync = (function() {
         CoexStateSync.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -478,7 +478,7 @@ $root.ServerSync = (function() {
                                 break;
                             if (!(message.mutations && message.mutations.length))
                                 message.mutations = [];
-                            message.mutations.push($root.ServerSync.CoexStateSync.Mutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                            message.mutations.push($root.ServerSync.CoexStateSync.Mutation.decode(reader, reader.size(), $undefined, _depth + 1));
                             continue;
                         }
                     }
@@ -511,7 +511,7 @@ $root.ServerSync = (function() {
             CollectionMutations.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -836,14 +836,14 @@ $root.ServerSync = (function() {
                     case 1: {
                             if (wireType !== 2)
                                 break;
-                            message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), $undefined, _depth + 1, message.index);
+                            message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.size(), $undefined, _depth + 1, message.index);
                             message._index = "index";
                             continue;
                         }
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                            message.value = $root.ServerSync.SyncdValue.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                             message._value = "value";
                             continue;
                         }
@@ -891,7 +891,7 @@ $root.ServerSync = (function() {
             Mutation.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1336,7 +1336,7 @@ $root.ServerSync = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.version);
                         message._version = "version";
                         continue;
                     }
@@ -1345,13 +1345,13 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.mutations && message.mutations.length))
                             message.mutations = [];
-                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalMutations);
+                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.size(), $undefined, _depth + 1, message.externalMutations);
                         message._externalMutations = "externalMutations";
                         continue;
                     }
@@ -1372,14 +1372,14 @@ $root.ServerSync = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                         message._keyId = "keyId";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.uint32(), $undefined, _depth + 1, message.exitCode);
+                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.size(), $undefined, _depth + 1, message.exitCode);
                         message._exitCode = "exitCode";
                         continue;
                     }
@@ -1427,7 +1427,7 @@ $root.ServerSync = (function() {
         SyncdPatch.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -1821,7 +1821,7 @@ $root.ServerSync = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), $undefined, _depth + 1, message.record);
+                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.size(), $undefined, _depth + 1, message.record);
                         message._record = "record";
                         continue;
                     }
@@ -1855,7 +1855,7 @@ $root.ServerSync = (function() {
         SyncdMutation.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2138,7 +2138,7 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.mutations && message.mutations.length))
                             message.mutations = [];
-                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 }
@@ -2171,7 +2171,7 @@ $root.ServerSync = (function() {
         SyncdMutations.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2482,7 +2482,7 @@ $root.ServerSync = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), $undefined, _depth + 1, message.version);
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.size(), $undefined, _depth + 1, message.version);
                         message._version = "version";
                         continue;
                     }
@@ -2491,7 +2491,7 @@ $root.ServerSync = (function() {
                             break;
                         if (!(message.records && message.records.length))
                             message.records = [];
-                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), $undefined, _depth + 1));
+                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
                 case 3: {
@@ -2504,7 +2504,7 @@ $root.ServerSync = (function() {
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                         message._keyId = "keyId";
                         continue;
                     }
@@ -2538,7 +2538,7 @@ $root.ServerSync = (function() {
         SyncdSnapshot.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -2999,7 +2999,7 @@ $root.ServerSync = (function() {
         ExternalBlobReference.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3347,21 +3347,21 @@ $root.ServerSync = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), $undefined, _depth + 1, message.index);
+                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.size(), $undefined, _depth + 1, message.index);
                         message._index = "index";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), $undefined, _depth + 1, message.value);
+                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.size(), $undefined, _depth + 1, message.value);
                         message._value = "value";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), $undefined, _depth + 1, message.keyId);
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.size(), $undefined, _depth + 1, message.keyId);
                         message._keyId = "keyId";
                         continue;
                     }
@@ -3395,7 +3395,7 @@ $root.ServerSync = (function() {
         SyncdRecord.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3713,7 +3713,7 @@ $root.ServerSync = (function() {
         KeyId.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -3998,7 +3998,7 @@ $root.ServerSync = (function() {
         SyncdValue.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4283,7 +4283,7 @@ $root.ServerSync = (function() {
         SyncdIndex.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4592,7 +4592,7 @@ $root.ServerSync = (function() {
         ExitCode.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -4895,7 +4895,7 @@ $root.ServerSync = (function() {
         SyncdVersion.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**

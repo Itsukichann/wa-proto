@@ -344,21 +344,21 @@ $root.DeviceCapabilities = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.lidMigration);
+                        message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.decode(reader, reader.size(), $undefined, _depth + 1, message.lidMigration);
                         message._lidMigration = "lidMigration";
                         continue;
                     }
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.uint32(), $undefined, _depth + 1, message.businessBroadcast);
+                        message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.size(), $undefined, _depth + 1, message.businessBroadcast);
                         message._businessBroadcast = "businessBroadcast";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32(), $undefined, _depth + 1, message.userHasAvatar);
+                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.size(), $undefined, _depth + 1, message.userHasAvatar);
                         message._userHasAvatar = "userHasAvatar";
                         continue;
                     }
@@ -372,42 +372,42 @@ $root.DeviceCapabilities = (function() {
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiThread);
+                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.size(), $undefined, _depth + 1, message.aiThread);
                         message._aiThread = "aiThread";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiFbidMigration);
+                        message.aiFbidMigration = $root.DeviceCapabilities.DeviceCapabilities.AiFbidMigration.decode(reader, reader.size(), $undefined, _depth + 1, message.aiFbidMigration);
                         message._aiFbidMigration = "aiFbidMigration";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.bizAiSettingsSync);
+                        message.bizAiSettingsSync = $root.DeviceCapabilities.DeviceCapabilities.BizAiSettingsSync.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiSettingsSync);
                         message._bizAiSettingsSync = "bizAiSettingsSync";
                         continue;
                     }
                 case 9: {
                         if (wireType !== 2)
                             break;
-                        message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.decode(reader, reader.uint32(), $undefined, _depth + 1, message.contactRefresh);
+                        message.contactRefresh = $root.DeviceCapabilities.DeviceCapabilities.ContactRefresh.decode(reader, reader.size(), $undefined, _depth + 1, message.contactRefresh);
                         message._contactRefresh = "contactRefresh";
                         continue;
                     }
                 case 10: {
                         if (wireType !== 2)
                             break;
-                        message.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.decode(reader, reader.uint32(), $undefined, _depth + 1, message.reverseHistorySync);
+                        message.reverseHistorySync = $root.DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.decode(reader, reader.size(), $undefined, _depth + 1, message.reverseHistorySync);
                         message._reverseHistorySync = "reverseHistorySync";
                         continue;
                     }
                 case 11: {
                         if (wireType !== 2)
                             break;
-                        message.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.decode(reader, reader.uint32(), $undefined, _depth + 1, message.newsletterChatsMigration);
+                        message.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.decode(reader, reader.size(), $undefined, _depth + 1, message.newsletterChatsMigration);
                         message._newsletterChatsMigration = "newsletterChatsMigration";
                         continue;
                     }
@@ -441,7 +441,7 @@ $root.DeviceCapabilities = (function() {
         DeviceCapabilities.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -918,7 +918,7 @@ $root.DeviceCapabilities = (function() {
             AiFbidMigration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1221,7 +1221,7 @@ $root.DeviceCapabilities = (function() {
             AiThread.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1534,7 +1534,7 @@ $root.DeviceCapabilities = (function() {
             BizAiSettingsSync.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1936,7 +1936,7 @@ $root.DeviceCapabilities = (function() {
             BusinessBroadcast.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2279,7 +2279,7 @@ $root.DeviceCapabilities = (function() {
             ContactRefresh.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2561,7 +2561,7 @@ $root.DeviceCapabilities = (function() {
             LIDMigration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -2919,7 +2919,7 @@ $root.DeviceCapabilities = (function() {
             NewsletterChatsMigration.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -3230,7 +3230,7 @@ $root.DeviceCapabilities = (function() {
             ReverseHistorySync.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -3549,7 +3549,7 @@ $root.DeviceCapabilities = (function() {
             UserHasAvatar.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**

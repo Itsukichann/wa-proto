@@ -167,7 +167,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.decode(reader, reader.uint32(), $undefined, _depth + 1, message.draftMessage);
+                        message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.draftMessage);
                         message._draftMessage = "draftMessage";
                         continue;
                     }
@@ -201,7 +201,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
         ChatRowOpaqueData.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
+            return this.decode(reader, reader.size());
         };
 
         /**
@@ -534,14 +534,14 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     case 3: {
                             if (wireType !== 2)
                                 break;
-                            message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctwaContextLinkData);
+                            message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.decode(reader, reader.size(), $undefined, _depth + 1, message.ctwaContextLinkData);
                             message._ctwaContextLinkData = "ctwaContextLinkData";
                             continue;
                         }
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.decode(reader, reader.uint32(), $undefined, _depth + 1, message.ctwaContext);
+                            message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.decode(reader, reader.size(), $undefined, _depth + 1, message.ctwaContext);
                             message._ctwaContext = "ctwaContext";
                             continue;
                         }
@@ -582,7 +582,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
             DraftMessage.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
+                return this.decode(reader, reader.size());
             };
 
             /**
@@ -1185,7 +1185,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 CtwaContextData.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
@@ -1672,7 +1672,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 CtwaContextLinkData.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
+                    return this.decode(reader, reader.size());
                 };
 
                 /**
