@@ -2488,6 +2488,10 @@ $root.CompanionReg = (function() {
             case 29:
                 message.deviceType = 29;
                 break;
+            case "AUTOMOTIVE":
+            case 30:
+                message.deviceType = 30;
+                break;
             default:
                 if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
                     message.deviceType = object.deviceType;
@@ -3027,6 +3031,10 @@ $root.CompanionReg = (function() {
             case "WAIL_ALEXA":
             case 29:
                 message.platformType = 29;
+                break;
+            case "AUTOMOTIVE":
+            case 30:
+                message.platformType = 30;
                 break;
             default:
                 if (typeof object.platformType === "number" && (object.platformType | 0) === object.platformType)
@@ -4694,6 +4702,7 @@ $root.CompanionReg = (function() {
          * @property {number} BUSINESS_BACK_OFFICE=27 BUSINESS_BACK_OFFICE value
          * @property {number} WAIL_WAI=28 WAIL_WAI value
          * @property {number} WAIL_ALEXA=29 WAIL_ALEXA value
+         * @property {number} AUTOMOTIVE=30 AUTOMOTIVE value
          */
         DeviceProps.PlatformType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -4727,6 +4736,7 @@ $root.CompanionReg = (function() {
             values[valuesById[27] = "BUSINESS_BACK_OFFICE"] = 27;
             values[valuesById[28] = "WAIL_WAI"] = 28;
             values[valuesById[29] = "WAIL_ALEXA"] = 29;
+            values[valuesById[30] = "AUTOMOTIVE"] = 30;
             return values;
         })();
 
