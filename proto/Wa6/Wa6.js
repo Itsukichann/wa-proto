@@ -4007,6 +4007,10 @@ $root.Wa6 = (function() {
                 case 40:
                     message.platform = 40;
                     break;
+                case "AUTOMOTIVE":
+                case 41:
+                    message.platform = 41;
+                    break;
                 default:
                     if (typeof object.platform === "number" && (object.platform | 0) === object.platform)
                         message.platform = object.platform;
@@ -4686,6 +4690,7 @@ $root.Wa6 = (function() {
              * @property {number} WAIL=38 WAIL value
              * @property {number} WORK_ANDROID=39 WORK_ANDROID value
              * @property {number} WORK_IOS=40 WORK_IOS value
+             * @property {number} AUTOMOTIVE=41 AUTOMOTIVE value
              */
             UserAgent.Platform = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -4730,6 +4735,7 @@ $root.Wa6 = (function() {
                 values[valuesById[38] = "WAIL"] = 38;
                 values[valuesById[39] = "WORK_ANDROID"] = 39;
                 values[valuesById[40] = "WORK_IOS"] = 40;
+                values[valuesById[41] = "AUTOMOTIVE"] = 41;
                 return values;
             })();
 
