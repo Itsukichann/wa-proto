@@ -43244,6 +43244,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.ReverseHistorySync.$Properties|null} [reverseHistorySync] DeviceCapabilities reverseHistorySync
          * @property {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties|null} [newsletterChatsMigration] DeviceCapabilities newsletterChatsMigration
          * @property {DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.$Properties|null} [hostWriteMutationSupport] DeviceCapabilities hostWriteMutationSupport
+         * @property {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties|null} [bizAiWebOnboarding] DeviceCapabilities bizAiWebOnboarding
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -43371,6 +43372,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.hostWriteMutationSupport = null;
 
+        /**
+         * DeviceCapabilities bizAiWebOnboarding.
+         * @member {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties|null|undefined} bizAiWebOnboarding
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.bizAiWebOnboarding = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -43446,6 +43455,12 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_bizAiWebOnboarding", {
+            get: $util.oneOfGetter($oneOfFields = ["bizAiWebOnboarding"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -43502,6 +43517,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.encode(message.newsletterChatsMigration, writer.uint32(/* id 11, wireType 2 =*/90).fork(), _depth + 1).ldelim();
             if (message.hostWriteMutationSupport != null && $Object.hasOwnProperty.call(message, "hostWriteMutationSupport"))
                 $root.DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.encode(message.hostWriteMutationSupport, writer.uint32(/* id 12, wireType 2 =*/98).fork(), _depth + 1).ldelim();
+            if (message.bizAiWebOnboarding != null && $Object.hasOwnProperty.call(message, "bizAiWebOnboarding"))
+                $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.encode(message.bizAiWebOnboarding, writer.uint32(/* id 13, wireType 2 =*/106).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -43643,6 +43660,13 @@ $root.DeviceCapabilities = (function() {
                         message._hostWriteMutationSupport = "hostWriteMutationSupport";
                         continue;
                     }
+                case 13: {
+                        if (wireType !== 2)
+                            break;
+                        message.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiWebOnboarding);
+                        message._bizAiWebOnboarding = "bizAiWebOnboarding";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -43782,6 +43806,14 @@ $root.DeviceCapabilities = (function() {
                         return "hostWriteMutationSupport." + error;
                 }
             }
+            if (message.bizAiWebOnboarding != null && $Object.hasOwnProperty.call(message, "bizAiWebOnboarding")) {
+                properties._bizAiWebOnboarding = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.verify(message.bizAiWebOnboarding, _depth + 1);
+                    if (error)
+                        return "bizAiWebOnboarding." + error;
+                }
+            }
             return null;
         };
 
@@ -43887,6 +43919,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.hostWriteMutationSupport: object expected");
                 message.hostWriteMutationSupport = $root.DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.fromObject(object.hostWriteMutationSupport, _depth + 1);
             }
+            if (object.bizAiWebOnboarding != null) {
+                if (!$util.isObject(object.bizAiWebOnboarding))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.bizAiWebOnboarding: object expected");
+                message.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.fromObject(object.bizAiWebOnboarding, _depth + 1);
+            }
             return message;
         };
 
@@ -43931,6 +43968,8 @@ $root.DeviceCapabilities = (function() {
                 object.newsletterChatsMigration = $root.DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.toObject(message.newsletterChatsMigration, options, _depth + 1);
             if (message.hostWriteMutationSupport != null && $Object.hasOwnProperty.call(message, "hostWriteMutationSupport"))
                 object.hostWriteMutationSupport = $root.DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.toObject(message.hostWriteMutationSupport, options, _depth + 1);
+            if (message.bizAiWebOnboarding != null && $Object.hasOwnProperty.call(message, "bizAiWebOnboarding"))
+                object.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.toObject(message.bizAiWebOnboarding, options, _depth + 1);
             return object;
         };
 
@@ -44879,6 +44918,288 @@ $root.DeviceCapabilities = (function() {
             };
 
             return BizAiSettingsSync;
+        })();
+
+        DeviceCapabilities.BizAiWebOnboarding = (function() {
+
+            /**
+             * Properties of a BizAiWebOnboarding.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties
+             * @property {number|null} [version] BizAiWebOnboarding version
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a BizAiWebOnboarding.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IBizAiWebOnboarding
+             * @augments DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties instead.
+             */
+
+            /**
+             * Shape of a BizAiWebOnboarding.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties} DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Shape
+             */
+
+            /**
+             * Constructs a new BizAiWebOnboarding.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a BizAiWebOnboarding.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var BizAiWebOnboarding = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * BizAiWebOnboarding version.
+             * @member {number|null|undefined} version
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @instance
+             */
+            BizAiWebOnboarding.prototype.version = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BizAiWebOnboarding.prototype, "_version", {
+                get: $util.oneOfGetter($oneOfFields = ["version"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BizAiWebOnboarding instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding} BizAiWebOnboarding instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Shape): DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding & DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties): DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding;
+             * }}
+             */
+            BizAiWebOnboarding.create = function(properties) {
+                return new BizAiWebOnboarding(properties);
+            };
+
+            /**
+             * Encodes the specified BizAiWebOnboarding message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties} message BizAiWebOnboarding message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BizAiWebOnboarding.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.version);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BizAiWebOnboarding message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties} message BizAiWebOnboarding message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BizAiWebOnboarding.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a BizAiWebOnboarding message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding & DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Shape} BizAiWebOnboarding
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BizAiWebOnboarding.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.version = reader.uint32();
+                            message._version = "version";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a BizAiWebOnboarding message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding & DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Shape} BizAiWebOnboarding
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BizAiWebOnboarding.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a BizAiWebOnboarding message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BizAiWebOnboarding.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
+                    properties._version = 1;
+                    if (!$util.isInteger(message.version))
+                        return "version: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BizAiWebOnboarding message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding} BizAiWebOnboarding
+             */
+            BizAiWebOnboarding.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding();
+                if (object.version != null)
+                    message.version = object.version >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BizAiWebOnboarding message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding} message BizAiWebOnboarding
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BizAiWebOnboarding.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                    object.version = message.version;
+                return object;
+            };
+
+            /**
+             * Converts this BizAiWebOnboarding to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BizAiWebOnboarding.prototype.toJSON = function() {
+                return BizAiWebOnboarding.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for BizAiWebOnboarding
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            BizAiWebOnboarding.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding";
+            };
+
+            return BizAiWebOnboarding;
         })();
 
         DeviceCapabilities.BusinessBroadcast = (function() {

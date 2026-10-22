@@ -653,6 +653,7 @@ $root.VnameCert = (function() {
          * @property {number|Long|null} [issueTime] BizAccountLinkInfo issueTime
          * @property {VnameCert.BizAccountLinkInfo.HostStorageType|null} [hostStorage] BizAccountLinkInfo hostStorage
          * @property {VnameCert.BizAccountLinkInfo.AccountType|null} [accountType] BizAccountLinkInfo accountType
+         * @property {string|null} [whatsappAcctEmail] BizAccountLinkInfo whatsappAcctEmail
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -724,6 +725,14 @@ $root.VnameCert = (function() {
          */
         BizAccountLinkInfo.prototype.accountType = null;
 
+        /**
+         * BizAccountLinkInfo whatsappAcctEmail.
+         * @member {string|null|undefined} whatsappAcctEmail
+         * @memberof VnameCert.BizAccountLinkInfo
+         * @instance
+         */
+        BizAccountLinkInfo.prototype.whatsappAcctEmail = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -754,6 +763,12 @@ $root.VnameCert = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BizAccountLinkInfo.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappAcctEmail", {
+            get: $util.oneOfGetter($oneOfFields = ["whatsappAcctEmail"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -799,6 +814,8 @@ $root.VnameCert = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.hostStorage);
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.accountType);
+            if (message.whatsappAcctEmail != null && $Object.hasOwnProperty.call(message, "whatsappAcctEmail"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.whatsappAcctEmail);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -891,6 +908,13 @@ $root.VnameCert = (function() {
                         message._accountType = "accountType";
                         continue;
                     }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.whatsappAcctEmail = reader.stringVerify();
+                        message._whatsappAcctEmail = "whatsappAcctEmail";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -965,6 +989,11 @@ $root.VnameCert = (function() {
                 if (typeof message.accountType !== "number" || (message.accountType | 0) !== message.accountType)
                     return "accountType: enum value expected";
             }
+            if (message.whatsappAcctEmail != null && $Object.hasOwnProperty.call(message, "whatsappAcctEmail")) {
+                properties._whatsappAcctEmail = 1;
+                if (!$util.isString(message.whatsappAcctEmail))
+                    return "whatsappAcctEmail: string expected";
+            }
             return null;
         };
 
@@ -1028,6 +1057,8 @@ $root.VnameCert = (function() {
                 if (typeof object.accountType === "number" && (object.accountType | 0) === object.accountType)
                     message.accountType = object.accountType;
             }
+            if (object.whatsappAcctEmail != null)
+                message.whatsappAcctEmail = $String(object.whatsappAcctEmail);
             return message;
         };
 
@@ -1068,6 +1099,8 @@ $root.VnameCert = (function() {
                 object.hostStorage = options.enums === $String ? $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] === $undefined ? message.hostStorage : $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] : message.hostStorage;
             if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 object.accountType = options.enums === $String ? $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] === $undefined ? message.accountType : $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] : message.accountType;
+            if (message.whatsappAcctEmail != null && $Object.hasOwnProperty.call(message, "whatsappAcctEmail"))
+                object.whatsappAcctEmail = message.whatsappAcctEmail;
             return object;
         };
 

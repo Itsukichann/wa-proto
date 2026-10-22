@@ -16987,6 +16987,7 @@ $root.AICommon = (function() {
          * Properties of a BotMessageOrigin.
          * @typedef {Object} AICommon.BotMessageOrigin.$Properties
          * @property {AICommon.BotMessageOrigin.BotMessageOriginType|null} [type] BotMessageOrigin type
+         * @property {string|null} [proactiveMessageCampaignId] BotMessageOrigin proactiveMessageCampaignId
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -17026,12 +17027,26 @@ $root.AICommon = (function() {
          */
         BotMessageOrigin.prototype.type = null;
 
+        /**
+         * BotMessageOrigin proactiveMessageCampaignId.
+         * @member {string|null|undefined} proactiveMessageCampaignId
+         * @memberof AICommon.BotMessageOrigin
+         * @instance
+         */
+        BotMessageOrigin.prototype.proactiveMessageCampaignId = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BotMessageOrigin.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotMessageOrigin.prototype, "_proactiveMessageCampaignId", {
+            get: $util.oneOfGetter($oneOfFields = ["proactiveMessageCampaignId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -17069,6 +17084,8 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.proactiveMessageCampaignId != null && $Object.hasOwnProperty.call(message, "proactiveMessageCampaignId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.proactiveMessageCampaignId);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -17133,6 +17150,13 @@ $root.AICommon = (function() {
                         message._type = "type";
                         continue;
                     }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.proactiveMessageCampaignId = reader.stringVerify();
+                        message._proactiveMessageCampaignId = "proactiveMessageCampaignId";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -17187,6 +17211,11 @@ $root.AICommon = (function() {
                 if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
             }
+            if (message.proactiveMessageCampaignId != null && $Object.hasOwnProperty.call(message, "proactiveMessageCampaignId")) {
+                properties._proactiveMessageCampaignId = 1;
+                if (!$util.isString(message.proactiveMessageCampaignId))
+                    return "proactiveMessageCampaignId: string expected";
+            }
             return null;
         };
 
@@ -17221,6 +17250,8 @@ $root.AICommon = (function() {
                 if (typeof object.type === "number" && (object.type | 0) === object.type)
                     message.type = object.type;
             }
+            if (object.proactiveMessageCampaignId != null)
+                message.proactiveMessageCampaignId = $String(object.proactiveMessageCampaignId);
             return message;
         };
 
@@ -17243,6 +17274,8 @@ $root.AICommon = (function() {
             var object = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
                 object.type = options.enums === $String ? $root.AICommon.BotMessageOrigin.BotMessageOriginType[message.type] === $undefined ? message.type : $root.AICommon.BotMessageOrigin.BotMessageOriginType[message.type] : message.type;
+            if (message.proactiveMessageCampaignId != null && $Object.hasOwnProperty.call(message, "proactiveMessageCampaignId"))
+                object.proactiveMessageCampaignId = message.proactiveMessageCampaignId;
             return object;
         };
 

@@ -43680,7 +43680,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.StatusAudienceMetadata.AudienceType|null} [audienceType] StatusAudienceMetadata audienceType
              * @property {string|null} [listName] StatusAudienceMetadata listName
              * @property {string|null} [listEmoji] StatusAudienceMetadata listEmoji
-             * @property {string|null} [networkId] StatusAudienceMetadata networkId
+             * @property {string|null} [orgId] StatusAudienceMetadata orgId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -43737,12 +43737,12 @@ $root.E2E = (function() {
             StatusAudienceMetadata.prototype.listEmoji = null;
 
             /**
-             * StatusAudienceMetadata networkId.
-             * @member {string|null|undefined} networkId
+             * StatusAudienceMetadata orgId.
+             * @member {string|null|undefined} orgId
              * @memberof E2E.ContextInfo.StatusAudienceMetadata
              * @instance
              */
-            StatusAudienceMetadata.prototype.networkId = null;
+            StatusAudienceMetadata.prototype.orgId = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -43766,8 +43766,8 @@ $root.E2E = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(StatusAudienceMetadata.prototype, "_networkId", {
-                get: $util.oneOfGetter($oneOfFields = ["networkId"]),
+            $Object.defineProperty(StatusAudienceMetadata.prototype, "_orgId", {
+                get: $util.oneOfGetter($oneOfFields = ["orgId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -43809,8 +43809,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.listName);
                 if (message.listEmoji != null && $Object.hasOwnProperty.call(message, "listEmoji"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.listEmoji);
-                if (message.networkId != null && $Object.hasOwnProperty.call(message, "networkId"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.networkId);
+                if (message.orgId != null && $Object.hasOwnProperty.call(message, "orgId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.orgId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -43892,8 +43892,8 @@ $root.E2E = (function() {
                     case 4: {
                             if (wireType !== 2)
                                 break;
-                            message.networkId = reader.stringVerify();
-                            message._networkId = "networkId";
+                            message.orgId = reader.stringVerify();
+                            message._orgId = "orgId";
                             continue;
                         }
                     }
@@ -43960,10 +43960,10 @@ $root.E2E = (function() {
                     if (!$util.isString(message.listEmoji))
                         return "listEmoji: string expected";
                 }
-                if (message.networkId != null && $Object.hasOwnProperty.call(message, "networkId")) {
-                    properties._networkId = 1;
-                    if (!$util.isString(message.networkId))
-                        return "networkId: string expected";
+                if (message.orgId != null && $Object.hasOwnProperty.call(message, "orgId")) {
+                    properties._orgId = 1;
+                    if (!$util.isString(message.orgId))
+                        return "orgId: string expected";
                 }
                 return null;
             };
@@ -43999,7 +43999,7 @@ $root.E2E = (function() {
                 case 2:
                     message.audienceType = 2;
                     break;
-                case "NETWORK":
+                case "ORG":
                 case 3:
                     message.audienceType = 3;
                     break;
@@ -44011,8 +44011,8 @@ $root.E2E = (function() {
                     message.listName = $String(object.listName);
                 if (object.listEmoji != null)
                     message.listEmoji = $String(object.listEmoji);
-                if (object.networkId != null)
-                    message.networkId = $String(object.networkId);
+                if (object.orgId != null)
+                    message.orgId = $String(object.orgId);
                 return message;
             };
 
@@ -44039,8 +44039,8 @@ $root.E2E = (function() {
                     object.listName = message.listName;
                 if (message.listEmoji != null && $Object.hasOwnProperty.call(message, "listEmoji"))
                     object.listEmoji = message.listEmoji;
-                if (message.networkId != null && $Object.hasOwnProperty.call(message, "networkId"))
-                    object.networkId = message.networkId;
+                if (message.orgId != null && $Object.hasOwnProperty.call(message, "orgId"))
+                    object.orgId = message.orgId;
                 return object;
             };
 
@@ -44076,14 +44076,14 @@ $root.E2E = (function() {
              * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} CLOSE_FRIENDS=1 CLOSE_FRIENDS value
              * @property {number} CUSTOM_LIST=2 CUSTOM_LIST value
-             * @property {number} NETWORK=3 NETWORK value
+             * @property {number} ORG=3 ORG value
              */
             StatusAudienceMetadata.AudienceType = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "CLOSE_FRIENDS"] = 1;
                 values[valuesById[2] = "CUSTOM_LIST"] = 2;
-                values[valuesById[3] = "NETWORK"] = 3;
+                values[valuesById[3] = "ORG"] = 3;
                 return values;
             })();
 
@@ -160195,6 +160195,7 @@ $root.AICommon = (function() {
          * Properties of a BotMessageOrigin.
          * @typedef {Object} AICommon.BotMessageOrigin.$Properties
          * @property {AICommon.BotMessageOrigin.BotMessageOriginType|null} [type] BotMessageOrigin type
+         * @property {string|null} [proactiveMessageCampaignId] BotMessageOrigin proactiveMessageCampaignId
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -160234,12 +160235,26 @@ $root.AICommon = (function() {
          */
         BotMessageOrigin.prototype.type = null;
 
+        /**
+         * BotMessageOrigin proactiveMessageCampaignId.
+         * @member {string|null|undefined} proactiveMessageCampaignId
+         * @memberof AICommon.BotMessageOrigin
+         * @instance
+         */
+        BotMessageOrigin.prototype.proactiveMessageCampaignId = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BotMessageOrigin.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotMessageOrigin.prototype, "_proactiveMessageCampaignId", {
+            get: $util.oneOfGetter($oneOfFields = ["proactiveMessageCampaignId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -160277,6 +160292,8 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.proactiveMessageCampaignId != null && $Object.hasOwnProperty.call(message, "proactiveMessageCampaignId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.proactiveMessageCampaignId);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -160341,6 +160358,13 @@ $root.AICommon = (function() {
                         message._type = "type";
                         continue;
                     }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.proactiveMessageCampaignId = reader.stringVerify();
+                        message._proactiveMessageCampaignId = "proactiveMessageCampaignId";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -160395,6 +160419,11 @@ $root.AICommon = (function() {
                 if (typeof message.type !== "number" || (message.type | 0) !== message.type)
                     return "type: enum value expected";
             }
+            if (message.proactiveMessageCampaignId != null && $Object.hasOwnProperty.call(message, "proactiveMessageCampaignId")) {
+                properties._proactiveMessageCampaignId = 1;
+                if (!$util.isString(message.proactiveMessageCampaignId))
+                    return "proactiveMessageCampaignId: string expected";
+            }
             return null;
         };
 
@@ -160429,6 +160458,8 @@ $root.AICommon = (function() {
                 if (typeof object.type === "number" && (object.type | 0) === object.type)
                     message.type = object.type;
             }
+            if (object.proactiveMessageCampaignId != null)
+                message.proactiveMessageCampaignId = $String(object.proactiveMessageCampaignId);
             return message;
         };
 
@@ -160451,6 +160482,8 @@ $root.AICommon = (function() {
             var object = {};
             if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
                 object.type = options.enums === $String ? $root.AICommon.BotMessageOrigin.BotMessageOriginType[message.type] === $undefined ? message.type : $root.AICommon.BotMessageOrigin.BotMessageOriginType[message.type] : message.type;
+            if (message.proactiveMessageCampaignId != null && $Object.hasOwnProperty.call(message, "proactiveMessageCampaignId"))
+                object.proactiveMessageCampaignId = message.proactiveMessageCampaignId;
             return object;
         };
 
