@@ -15188,6 +15188,7 @@ $root.E2E = (function() {
          * @property {Array.<number>|null} [experienceIds] ContextInfo experienceIds
          * @property {string|null} [partnerDeepLinkToken] ContextInfo partnerDeepLinkToken
          * @property {number|null} [sourceExperienceId] ContextInfo sourceExperienceId
+         * @property {Array.<number>|null} [sourceExperienceIds] ContextInfo sourceExperienceIds
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -15269,6 +15270,7 @@ $root.E2E = (function() {
          *   experienceIds?: Array.<number>|null;
          *   partnerDeepLinkToken?: string|null;
          *   sourceExperienceId?: number|null;
+         *   sourceExperienceIds?: Array.<number>|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.ContextInfo.$Shape
          */
@@ -15286,6 +15288,7 @@ $root.E2E = (function() {
             this.groupMentions = [];
             this.statusAttributions = [];
             this.experienceIds = [];
+            this.sourceExperienceIds = [];
             if (properties)
                 for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -15827,6 +15830,14 @@ $root.E2E = (function() {
          * @instance
          */
         ContextInfo.prototype.sourceExperienceId = null;
+
+        /**
+         * ContextInfo sourceExperienceIds.
+         * @member {Array.<number>} sourceExperienceIds
+         * @memberof E2E.ContextInfo
+         * @instance
+         */
+        ContextInfo.prototype.sourceExperienceIds = $util.emptyArray;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -16378,6 +16389,8 @@ $root.E2E = (function() {
                 writer.uint32(/* id 83, wireType 2 =*/666).string(message.partnerDeepLinkToken);
             if (message.sourceExperienceId != null && $Object.hasOwnProperty.call(message, "sourceExperienceId"))
                 writer.uint32(/* id 84, wireType 0 =*/672).uint32(message.sourceExperienceId);
+            if (message.sourceExperienceIds != null && message.sourceExperienceIds.length)
+                writer.uint32(/* id 85, wireType 2 =*/682).uint32s(message.sourceExperienceIds);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -16914,6 +16927,20 @@ $root.E2E = (function() {
                         message._sourceExperienceId = "sourceExperienceId";
                         continue;
                     }
+                case 85: {
+                        if (wireType === 2) {
+                            if (!(message.sourceExperienceIds && message.sourceExperienceIds.length))
+                                message.sourceExperienceIds = [];
+                            reader.uint32s(message.sourceExperienceIds);
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.sourceExperienceIds && message.sourceExperienceIds.length))
+                            message.sourceExperienceIds = [];
+                        message.sourceExperienceIds.push(reader.uint32());
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -17376,6 +17403,13 @@ $root.E2E = (function() {
                 if (!$util.isInteger(message.sourceExperienceId))
                     return "sourceExperienceId: integer expected";
             }
+            if (message.sourceExperienceIds != null && $Object.hasOwnProperty.call(message, "sourceExperienceIds")) {
+                if (!$Array.isArray(message.sourceExperienceIds))
+                    return "sourceExperienceIds: array expected";
+                for (var i = 0; i < message.sourceExperienceIds.length; ++i)
+                    if (!$util.isInteger(message.sourceExperienceIds[i]))
+                        return "sourceExperienceIds: integer[] expected";
+            }
             return null;
         };
 
@@ -17797,6 +17831,13 @@ $root.E2E = (function() {
                 message.partnerDeepLinkToken = $String(object.partnerDeepLinkToken);
             if (object.sourceExperienceId != null)
                 message.sourceExperienceId = object.sourceExperienceId >>> 0;
+            if (object.sourceExperienceIds) {
+                if (!$Array.isArray(object.sourceExperienceIds))
+                    throw $TypeError(".E2E.ContextInfo.sourceExperienceIds: array expected");
+                message.sourceExperienceIds = $Array(object.sourceExperienceIds.length);
+                for (var i = 0; i < object.sourceExperienceIds.length; ++i)
+                    message.sourceExperienceIds[i] = object.sourceExperienceIds[i] >>> 0;
+            }
             return message;
         };
 
@@ -17822,6 +17863,7 @@ $root.E2E = (function() {
                 object.groupMentions = [];
                 object.statusAttributions = [];
                 object.experienceIds = [];
+                object.sourceExperienceIds = [];
             }
             if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 object.stanzaId = message.stanzaId;
@@ -17974,6 +18016,11 @@ $root.E2E = (function() {
                 object.partnerDeepLinkToken = message.partnerDeepLinkToken;
             if (message.sourceExperienceId != null && $Object.hasOwnProperty.call(message, "sourceExperienceId"))
                 object.sourceExperienceId = message.sourceExperienceId;
+            if (message.sourceExperienceIds && message.sourceExperienceIds.length) {
+                object.sourceExperienceIds = $Array(message.sourceExperienceIds.length);
+                for (var j = 0; j < message.sourceExperienceIds.length; ++j)
+                    object.sourceExperienceIds[j] = message.sourceExperienceIds[j];
+            }
             return object;
         };
 
@@ -72294,6 +72341,7 @@ $root.E2E = (function() {
                      * @property {number|Long|null} [startTimeInMs] Line startTimeInMs
                      * @property {number|Long|null} [endTimeInMs] Line endTimeInMs
                      * @property {string|null} [text] Line text
+                     * @property {Array.<E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties>|null} [wordOffsets] Line wordOffsets
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
@@ -72319,6 +72367,7 @@ $root.E2E = (function() {
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var Line = function (properties) {
+                        this.wordOffsets = [];
                         if (properties)
                             for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                                 if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -72348,6 +72397,14 @@ $root.E2E = (function() {
                      * @instance
                      */
                     Line.prototype.text = null;
+
+                    /**
+                     * Line wordOffsets.
+                     * @member {Array.<E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties>} wordOffsets
+                     * @memberof E2E.Message.MusicMessage.Lyrics.Line
+                     * @instance
+                     */
+                    Line.prototype.wordOffsets = $util.emptyArray;
 
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
@@ -72408,6 +72465,9 @@ $root.E2E = (function() {
                             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.endTimeInMs);
                         if (message.text != null && $Object.hasOwnProperty.call(message, "text"))
                             writer.uint32(/* id 3, wireType 2 =*/26).string(message.text);
+                        if (message.wordOffsets != null && message.wordOffsets.length)
+                            for (var i = 0; i < message.wordOffsets.length; ++i)
+                                $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset.encode(message.wordOffsets[i], writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
                         if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                             for (var i = 0; i < message.$unknowns.length; ++i)
                                 writer.raw(message.$unknowns[i]);
@@ -72486,6 +72546,14 @@ $root.E2E = (function() {
                                     message._text = "text";
                                     continue;
                                 }
+                            case 4: {
+                                    if (wireType !== 2)
+                                        break;
+                                    if (!(message.wordOffsets && message.wordOffsets.length))
+                                        message.wordOffsets = [];
+                                    message.wordOffsets.push($root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset.decode(reader, reader.size(), $undefined, _depth + 1));
+                                    continue;
+                                }
                             }
                             reader.skipType(wireType, _depth, tag);
                             if (!reader.discardUnknown) {
@@ -72550,6 +72618,15 @@ $root.E2E = (function() {
                             if (!$util.isString(message.text))
                                 return "text: string expected";
                         }
+                        if (message.wordOffsets != null && $Object.hasOwnProperty.call(message, "wordOffsets")) {
+                            if (!$Array.isArray(message.wordOffsets))
+                                return "wordOffsets: array expected";
+                            for (var i = 0; i < message.wordOffsets.length; ++i) {
+                                var error = $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset.verify(message.wordOffsets[i], _depth + 1);
+                                if (error)
+                                    return "wordOffsets." + error;
+                            }
+                        }
                         return null;
                     };
 
@@ -72591,6 +72668,16 @@ $root.E2E = (function() {
                                 message.endTimeInMs = new $util.LongBits(object.endTimeInMs.low >>> 0, object.endTimeInMs.high >>> 0).toNumber();
                         if (object.text != null)
                             message.text = $String(object.text);
+                        if (object.wordOffsets) {
+                            if (!$Array.isArray(object.wordOffsets))
+                                throw $TypeError(".E2E.Message.MusicMessage.Lyrics.Line.wordOffsets: array expected");
+                            message.wordOffsets = $Array(object.wordOffsets.length);
+                            for (var i = 0; i < object.wordOffsets.length; ++i) {
+                                if (!$util.isObject(object.wordOffsets[i]))
+                                    throw $TypeError(".E2E.Message.MusicMessage.Lyrics.Line.wordOffsets: object expected");
+                                message.wordOffsets[i] = $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset.fromObject(object.wordOffsets[i], _depth + 1);
+                            }
+                        }
                         return message;
                     };
 
@@ -72611,6 +72698,8 @@ $root.E2E = (function() {
                         if (_depth > $util.recursionLimit)
                             throw $Error("max depth exceeded");
                         var object = {};
+                        if (options.arrays || options.defaults)
+                            object.wordOffsets = [];
                         if (message.startTimeInMs != null && $Object.hasOwnProperty.call(message, "startTimeInMs"))
                             if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
                                 object.startTimeInMs = typeof message.startTimeInMs === "number" ? $BigInt(message.startTimeInMs) : $util.Long.fromBits(message.startTimeInMs.low >>> 0, message.startTimeInMs.high >>> 0, false).toBigInt();
@@ -72627,6 +72716,11 @@ $root.E2E = (function() {
                                 object.endTimeInMs = options.longs === $String ? $util.Long.prototype.toString.call(message.endTimeInMs) : options.longs === $Number ? new $util.LongBits(message.endTimeInMs.low >>> 0, message.endTimeInMs.high >>> 0).toNumber() : message.endTimeInMs;
                         if (message.text != null && $Object.hasOwnProperty.call(message, "text"))
                             object.text = message.text;
+                        if (message.wordOffsets && message.wordOffsets.length) {
+                            object.wordOffsets = $Array(message.wordOffsets.length);
+                            for (var j = 0; j < message.wordOffsets.length; ++j)
+                                object.wordOffsets[j] = $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset.toObject(message.wordOffsets[j], options, _depth + 1);
+                        }
                         return object;
                     };
 
@@ -72654,6 +72748,411 @@ $root.E2E = (function() {
                             prefix = "type.googleapis.com";
                         return prefix + "/E2E.Message.MusicMessage.Lyrics.Line";
                     };
+
+                    Line.WordOffset = (function() {
+
+                        /**
+                         * Properties of a WordOffset.
+                         * @typedef {Object} E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties
+                         * @property {number|null} [startIndex] WordOffset startIndex
+                         * @property {number|null} [endIndex] WordOffset endIndex
+                         * @property {number|Long|null} [startOffsetMs] WordOffset startOffsetMs
+                         * @property {number|Long|null} [endOffsetMs] WordOffset endOffsetMs
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                         */
+
+                        /**
+                         * Properties of a WordOffset.
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line
+                         * @interface IWordOffset
+                         * @augments E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties
+                         * @deprecated Use E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties instead.
+                         */
+
+                        /**
+                         * Shape of a WordOffset.
+                         * @typedef {E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties} E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Shape
+                         */
+
+                        /**
+                         * Constructs a new WordOffset.
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line
+                         * @classdesc Represents a WordOffset.
+                         * @constructor
+                         * @param {E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties=} [properties] Properties to set
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                         */
+                        var WordOffset = function (properties) {
+                            if (properties)
+                                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                        this[keys[i]] = properties[keys[i]];
+                        };
+
+                        /**
+                         * WordOffset startIndex.
+                         * @member {number|null|undefined} startIndex
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @instance
+                         */
+                        WordOffset.prototype.startIndex = null;
+
+                        /**
+                         * WordOffset endIndex.
+                         * @member {number|null|undefined} endIndex
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @instance
+                         */
+                        WordOffset.prototype.endIndex = null;
+
+                        /**
+                         * WordOffset startOffsetMs.
+                         * @member {number|Long|null|undefined} startOffsetMs
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @instance
+                         */
+                        WordOffset.prototype.startOffsetMs = null;
+
+                        /**
+                         * WordOffset endOffsetMs.
+                         * @member {number|Long|null|undefined} endOffsetMs
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @instance
+                         */
+                        WordOffset.prototype.endOffsetMs = null;
+
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+
+                        // Virtual OneOf for proto3 optional field
+                        $Object.defineProperty(WordOffset.prototype, "_startIndex", {
+                            get: $util.oneOfGetter($oneOfFields = ["startIndex"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+
+                        // Virtual OneOf for proto3 optional field
+                        $Object.defineProperty(WordOffset.prototype, "_endIndex", {
+                            get: $util.oneOfGetter($oneOfFields = ["endIndex"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+
+                        // Virtual OneOf for proto3 optional field
+                        $Object.defineProperty(WordOffset.prototype, "_startOffsetMs", {
+                            get: $util.oneOfGetter($oneOfFields = ["startOffsetMs"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+
+                        // Virtual OneOf for proto3 optional field
+                        $Object.defineProperty(WordOffset.prototype, "_endOffsetMs", {
+                            get: $util.oneOfGetter($oneOfFields = ["endOffsetMs"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+
+                        /**
+                         * Creates a new WordOffset instance using the specified properties.
+                         * @function create
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties=} [properties] Properties to set
+                         * @returns {E2E.Message.MusicMessage.Lyrics.Line.WordOffset} WordOffset instance
+                         * @type {{
+                         *   (properties: E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Shape): E2E.Message.MusicMessage.Lyrics.Line.WordOffset & E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Shape;
+                         *   (properties?: E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties): E2E.Message.MusicMessage.Lyrics.Line.WordOffset;
+                         * }}
+                         */
+                        WordOffset.create = function(properties) {
+                            return new WordOffset(properties);
+                        };
+
+                        /**
+                         * Encodes the specified WordOffset message. Does not implicitly {@link E2E.Message.MusicMessage.Lyrics.Line.WordOffset.verify|verify} messages.
+                         * @function encode
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties} message WordOffset message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        WordOffset.encode = function (message, writer, _depth) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (_depth === $undefined)
+                                _depth = 0;
+                            if (_depth > $util.recursionLimit)
+                                throw $Error("max depth exceeded");
+                            if (message.startIndex != null && $Object.hasOwnProperty.call(message, "startIndex"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.startIndex);
+                            if (message.endIndex != null && $Object.hasOwnProperty.call(message, "endIndex"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.endIndex);
+                            if (message.startOffsetMs != null && $Object.hasOwnProperty.call(message, "startOffsetMs"))
+                                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.startOffsetMs);
+                            if (message.endOffsetMs != null && $Object.hasOwnProperty.call(message, "endOffsetMs"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int64(message.endOffsetMs);
+                            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                                for (var i = 0; i < message.$unknowns.length; ++i)
+                                    writer.raw(message.$unknowns[i]);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified WordOffset message, length delimited. Does not implicitly {@link E2E.Message.MusicMessage.Lyrics.Line.WordOffset.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Properties} message WordOffset message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        WordOffset.encodeDelimited = function(message, writer) {
+                            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+                        };
+
+                        /**
+                         * Decodes a WordOffset message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {E2E.Message.MusicMessage.Lyrics.Line.WordOffset & E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Shape} WordOffset
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        WordOffset.decode = function (reader, length, _end, _depth, _target) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            if (_depth === $undefined)
+                                _depth = 0;
+                            if (_depth > $Reader.recursionLimit)
+                                throw $Error("max depth exceeded");
+                            var end, message;
+                            if (length === $undefined)
+                                end = reader.len;
+                            else {
+                                end = reader.pos + length;
+                                if (end > reader.len)
+                                    throw $RangeError("index out of range");
+                                length = reader.len;
+                                reader.len = end;
+                            }
+                            message = _target || new $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset();
+                            while (reader.pos < end) {
+                                var start = reader.pos;
+                                var tag = reader.tag();
+                                if (tag === _end) {
+                                    _end = $undefined;
+                                    break;
+                                }
+                                var wireType = tag & 7;
+                                switch (tag >>>= 3) {
+                                case 1: {
+                                        if (wireType !== 0)
+                                            break;
+                                        message.startIndex = reader.int32();
+                                        message._startIndex = "startIndex";
+                                        continue;
+                                    }
+                                case 2: {
+                                        if (wireType !== 0)
+                                            break;
+                                        message.endIndex = reader.int32();
+                                        message._endIndex = "endIndex";
+                                        continue;
+                                    }
+                                case 3: {
+                                        if (wireType !== 0)
+                                            break;
+                                        message.startOffsetMs = reader.int64();
+                                        message._startOffsetMs = "startOffsetMs";
+                                        continue;
+                                    }
+                                case 4: {
+                                        if (wireType !== 0)
+                                            break;
+                                        message.endOffsetMs = reader.int64();
+                                        message._endOffsetMs = "endOffsetMs";
+                                        continue;
+                                    }
+                                }
+                                reader.skipType(wireType, _depth, tag);
+                                if (!reader.discardUnknown) {
+                                    $util.makeProp(message, "$unknowns", false);
+                                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                                }
+                            }
+                            if (length !== $undefined) {
+                                if (reader.pos !== end)
+                                    throw $RangeError("index out of range");
+                                reader.len = length;
+                            }
+                            if (_end !== $undefined)
+                                throw $Error("missing end group");
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a WordOffset message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {E2E.Message.MusicMessage.Lyrics.Line.WordOffset & E2E.Message.MusicMessage.Lyrics.Line.WordOffset.$Shape} WordOffset
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        WordOffset.decodeDelimited = function(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.size());
+                        };
+
+                        /**
+                         * Verifies a WordOffset message.
+                         * @function verify
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        WordOffset.verify = function (message, _depth) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (_depth === $undefined)
+                                _depth = 0;
+                            if (_depth > $util.recursionLimit)
+                                return "max depth exceeded";
+                            var properties = {};
+                            if (message.startIndex != null && $Object.hasOwnProperty.call(message, "startIndex")) {
+                                properties._startIndex = 1;
+                                if (!$util.isInteger(message.startIndex))
+                                    return "startIndex: integer expected";
+                            }
+                            if (message.endIndex != null && $Object.hasOwnProperty.call(message, "endIndex")) {
+                                properties._endIndex = 1;
+                                if (!$util.isInteger(message.endIndex))
+                                    return "endIndex: integer expected";
+                            }
+                            if (message.startOffsetMs != null && $Object.hasOwnProperty.call(message, "startOffsetMs")) {
+                                properties._startOffsetMs = 1;
+                                if (!$util.isInteger(message.startOffsetMs) && !(message.startOffsetMs && $util.isInteger(message.startOffsetMs.low) && $util.isInteger(message.startOffsetMs.high)))
+                                    return "startOffsetMs: integer|Long expected";
+                            }
+                            if (message.endOffsetMs != null && $Object.hasOwnProperty.call(message, "endOffsetMs")) {
+                                properties._endOffsetMs = 1;
+                                if (!$util.isInteger(message.endOffsetMs) && !(message.endOffsetMs && $util.isInteger(message.endOffsetMs.low) && $util.isInteger(message.endOffsetMs.high)))
+                                    return "endOffsetMs: integer|Long expected";
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a WordOffset message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {E2E.Message.MusicMessage.Lyrics.Line.WordOffset} WordOffset
+                         */
+                        WordOffset.fromObject = function (object, _depth) {
+                            if (object instanceof $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset)
+                                return object;
+                            if (!$util.isObject(object))
+                                throw $TypeError(".E2E.Message.MusicMessage.Lyrics.Line.WordOffset: object expected");
+                            if (_depth === $undefined)
+                                _depth = 0;
+                            if (_depth > $util.recursionLimit)
+                                throw $Error("max depth exceeded");
+                            var message = new $root.E2E.Message.MusicMessage.Lyrics.Line.WordOffset();
+                            if (object.startIndex != null)
+                                message.startIndex = object.startIndex | 0;
+                            if (object.endIndex != null)
+                                message.endIndex = object.endIndex | 0;
+                            if (object.startOffsetMs != null)
+                                if ($util.Long)
+                                    message.startOffsetMs = $util.Long.fromValue(object.startOffsetMs, false);
+                                else if (typeof object.startOffsetMs === "string")
+                                    message.startOffsetMs = $parseInt(object.startOffsetMs, 10);
+                                else if (typeof object.startOffsetMs === "number")
+                                    message.startOffsetMs = object.startOffsetMs;
+                                else if (typeof object.startOffsetMs === "object")
+                                    message.startOffsetMs = new $util.LongBits(object.startOffsetMs.low >>> 0, object.startOffsetMs.high >>> 0).toNumber();
+                            if (object.endOffsetMs != null)
+                                if ($util.Long)
+                                    message.endOffsetMs = $util.Long.fromValue(object.endOffsetMs, false);
+                                else if (typeof object.endOffsetMs === "string")
+                                    message.endOffsetMs = $parseInt(object.endOffsetMs, 10);
+                                else if (typeof object.endOffsetMs === "number")
+                                    message.endOffsetMs = object.endOffsetMs;
+                                else if (typeof object.endOffsetMs === "object")
+                                    message.endOffsetMs = new $util.LongBits(object.endOffsetMs.low >>> 0, object.endOffsetMs.high >>> 0).toNumber();
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a WordOffset message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {E2E.Message.MusicMessage.Lyrics.Line.WordOffset} message WordOffset
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        WordOffset.toObject = function (message, options, _depth) {
+                            if (!options)
+                                options = {};
+                            if (_depth === $undefined)
+                                _depth = 0;
+                            if (_depth > $util.recursionLimit)
+                                throw $Error("max depth exceeded");
+                            var object = {};
+                            if (message.startIndex != null && $Object.hasOwnProperty.call(message, "startIndex"))
+                                object.startIndex = message.startIndex;
+                            if (message.endIndex != null && $Object.hasOwnProperty.call(message, "endIndex"))
+                                object.endIndex = message.endIndex;
+                            if (message.startOffsetMs != null && $Object.hasOwnProperty.call(message, "startOffsetMs"))
+                                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                                    object.startOffsetMs = typeof message.startOffsetMs === "number" ? $BigInt(message.startOffsetMs) : $util.Long.fromBits(message.startOffsetMs.low >>> 0, message.startOffsetMs.high >>> 0, false).toBigInt();
+                                else if (typeof message.startOffsetMs === "number")
+                                    object.startOffsetMs = options.longs === $String ? $String(message.startOffsetMs) : message.startOffsetMs;
+                                else
+                                    object.startOffsetMs = options.longs === $String ? $util.Long.prototype.toString.call(message.startOffsetMs) : options.longs === $Number ? new $util.LongBits(message.startOffsetMs.low >>> 0, message.startOffsetMs.high >>> 0).toNumber() : message.startOffsetMs;
+                            if (message.endOffsetMs != null && $Object.hasOwnProperty.call(message, "endOffsetMs"))
+                                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                                    object.endOffsetMs = typeof message.endOffsetMs === "number" ? $BigInt(message.endOffsetMs) : $util.Long.fromBits(message.endOffsetMs.low >>> 0, message.endOffsetMs.high >>> 0, false).toBigInt();
+                                else if (typeof message.endOffsetMs === "number")
+                                    object.endOffsetMs = options.longs === $String ? $String(message.endOffsetMs) : message.endOffsetMs;
+                                else
+                                    object.endOffsetMs = options.longs === $String ? $util.Long.prototype.toString.call(message.endOffsetMs) : options.longs === $Number ? new $util.LongBits(message.endOffsetMs.low >>> 0, message.endOffsetMs.high >>> 0).toNumber() : message.endOffsetMs;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this WordOffset to JSON.
+                         * @function toJSON
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        WordOffset.prototype.toJSON = function() {
+                            return WordOffset.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        /**
+                         * Gets the type url for WordOffset
+                         * @function getTypeUrl
+                         * @memberof E2E.Message.MusicMessage.Lyrics.Line.WordOffset
+                         * @static
+                         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                         * @returns {string} The type url
+                         */
+                        WordOffset.getTypeUrl = function(prefix) {
+                            if (prefix === $undefined)
+                                prefix = "type.googleapis.com";
+                            return prefix + "/E2E.Message.MusicMessage.Lyrics.Line.WordOffset";
+                        };
+
+                        return WordOffset;
+                    })();
 
                     return Line;
                 })();
@@ -80073,6 +80572,7 @@ $root.E2E = (function() {
                  * @property {number|Long|null} [oldestMsgTimestampMs] HistorySyncOnDemandRequest oldestMsgTimestampMs
                  * @property {string|null} [accountLid] HistorySyncOnDemandRequest accountLid
                  * @property {boolean|null} [supportInlineResponse] HistorySyncOnDemandRequest supportInlineResponse
+                 * @property {E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.Mode|null} [mode] HistorySyncOnDemandRequest mode
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
@@ -80160,6 +80660,14 @@ $root.E2E = (function() {
                  */
                 HistorySyncOnDemandRequest.prototype.supportInlineResponse = null;
 
+                /**
+                 * HistorySyncOnDemandRequest mode.
+                 * @member {E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.Mode|null|undefined} mode
+                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
+                 * @instance
+                 */
+                HistorySyncOnDemandRequest.prototype.mode = null;
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -80202,6 +80710,12 @@ $root.E2E = (function() {
                 // Virtual OneOf for proto3 optional field
                 $Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_supportInlineResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["supportInlineResponse"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_mode", {
+                    get: $util.oneOfGetter($oneOfFields = ["mode"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -80251,6 +80765,8 @@ $root.E2E = (function() {
                         writer.uint32(/* id 6, wireType 2 =*/50).string(message.accountLid);
                     if (message.supportInlineResponse != null && $Object.hasOwnProperty.call(message, "supportInlineResponse"))
                         writer.uint32(/* id 7, wireType 0 =*/56).bool(message.supportInlineResponse);
+                    if (message.mode != null && $Object.hasOwnProperty.call(message, "mode"))
+                        writer.uint32(/* id 8, wireType 0 =*/64).int32(message.mode);
                     if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                         for (var i = 0; i < message.$unknowns.length; ++i)
                             writer.raw(message.$unknowns[i]);
@@ -80288,7 +80804,7 @@ $root.E2E = (function() {
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
                         throw $Error("max depth exceeded");
-                    var end, message;
+                    var end, message, value;
                     if (length === $undefined)
                         end = reader.len;
                     else {
@@ -80355,6 +80871,13 @@ $root.E2E = (function() {
                                     break;
                                 message.supportInlineResponse = reader.bool();
                                 message._supportInlineResponse = "supportInlineResponse";
+                                continue;
+                            }
+                        case 8: {
+                                if (wireType !== 0)
+                                    break;
+                                message.mode = reader.int32();
+                                message._mode = "mode";
                                 continue;
                             }
                         }
@@ -80441,6 +80964,11 @@ $root.E2E = (function() {
                         if (typeof message.supportInlineResponse !== "boolean")
                             return "supportInlineResponse: boolean expected";
                     }
+                    if (message.mode != null && $Object.hasOwnProperty.call(message, "mode")) {
+                        properties._mode = 1;
+                        if (typeof message.mode !== "number" || (message.mode | 0) !== message.mode)
+                            return "mode: enum value expected";
+                    }
                     return null;
                 };
 
@@ -80483,6 +81011,19 @@ $root.E2E = (function() {
                         message.accountLid = $String(object.accountLid);
                     if (object.supportInlineResponse != null)
                         message.supportInlineResponse = $Boolean(object.supportInlineResponse);
+                    switch (object.mode) {
+                    case "MODE_UNSPECIFIED":
+                    case 0:
+                        message.mode = 0;
+                        break;
+                    case "INITIAL_REVERSE_HISTORY":
+                    case 1:
+                        message.mode = 1;
+                        break;
+                    default:
+                        if (typeof object.mode === "number" && (object.mode | 0) === object.mode)
+                            message.mode = object.mode;
+                    }
                     return message;
                 };
 
@@ -80522,6 +81063,8 @@ $root.E2E = (function() {
                         object.accountLid = message.accountLid;
                     if (message.supportInlineResponse != null && $Object.hasOwnProperty.call(message, "supportInlineResponse"))
                         object.supportInlineResponse = message.supportInlineResponse;
+                    if (message.mode != null && $Object.hasOwnProperty.call(message, "mode"))
+                        object.mode = options.enums === $String ? $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.Mode[message.mode] === $undefined ? message.mode : $root.E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.Mode[message.mode] : message.mode;
                     return object;
                 };
 
@@ -80549,6 +81092,20 @@ $root.E2E = (function() {
                         prefix = "type.googleapis.com";
                     return prefix + "/E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest";
                 };
+
+                /**
+                 * Mode enum.
+                 * @name E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.Mode
+                 * @enum {number}
+                 * @property {number} MODE_UNSPECIFIED=0 MODE_UNSPECIFIED value
+                 * @property {number} INITIAL_REVERSE_HISTORY=1 INITIAL_REVERSE_HISTORY value
+                 */
+                HistorySyncOnDemandRequest.Mode = (function() {
+                    var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                    values[valuesById[0] = "MODE_UNSPECIFIED"] = 0;
+                    values[valuesById[1] = "INITIAL_REVERSE_HISTORY"] = 1;
+                    return values;
+                })();
 
                 return HistorySyncOnDemandRequest;
             })();
@@ -135868,6 +136425,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotPttPromptMetadata.$Properties|null} [pttPromptMetadata] BotMetadata pttPromptMetadata
          * @property {AICommon.BotHistoryShareMetadata.$Properties|null} [botHistoryShareMetadata] BotMetadata botHistoryShareMetadata
          * @property {boolean|null} [responseStoppedByUser] BotMetadata responseStoppedByUser
+         * @property {AICommon.BotInterjectionMetadata.$Properties|null} [interjectionMetadata] BotMetadata interjectionMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
@@ -136245,6 +136803,14 @@ $root.AICommon = (function() {
         BotMetadata.prototype.responseStoppedByUser = null;
 
         /**
+         * BotMetadata interjectionMetadata.
+         * @member {AICommon.BotInterjectionMetadata.$Properties|null|undefined} interjectionMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.interjectionMetadata = null;
+
+        /**
          * BotMetadata internalMetadata.
          * @member {Uint8Array|null|undefined} internalMetadata
          * @memberof AICommon.BotMetadata
@@ -136514,6 +137080,12 @@ $root.AICommon = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotMetadata.prototype, "_interjectionMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["interjectionMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         $Object.defineProperty(BotMetadata.prototype, "_internalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -136637,6 +137209,8 @@ $root.AICommon = (function() {
                 $root.AICommon.BotHistoryShareMetadata.encode(message.botHistoryShareMetadata, writer.uint32(/* id 43, wireType 2 =*/346).fork(), _depth + 1).ldelim();
             if (message.responseStoppedByUser != null && $Object.hasOwnProperty.call(message, "responseStoppedByUser"))
                 writer.uint32(/* id 44, wireType 0 =*/352).bool(message.responseStoppedByUser);
+            if (message.interjectionMetadata != null && $Object.hasOwnProperty.call(message, "interjectionMetadata"))
+                $root.AICommon.BotInterjectionMetadata.encode(message.interjectionMetadata, writer.uint32(/* id 45, wireType 2 =*/362).fork(), _depth + 1).ldelim();
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -136995,6 +137569,13 @@ $root.AICommon = (function() {
                             break;
                         message.responseStoppedByUser = reader.bool();
                         message._responseStoppedByUser = "responseStoppedByUser";
+                        continue;
+                    }
+                case 45: {
+                        if (wireType !== 2)
+                            break;
+                        message.interjectionMetadata = $root.AICommon.BotInterjectionMetadata.decode(reader, reader.size(), $undefined, _depth + 1, message.interjectionMetadata);
+                        message._interjectionMetadata = "interjectionMetadata";
                         continue;
                     }
                 case 999: {
@@ -137373,6 +137954,14 @@ $root.AICommon = (function() {
                 if (typeof message.responseStoppedByUser !== "boolean")
                     return "responseStoppedByUser: boolean expected";
             }
+            if (message.interjectionMetadata != null && $Object.hasOwnProperty.call(message, "interjectionMetadata")) {
+                properties._interjectionMetadata = 1;
+                {
+                    var error = $root.AICommon.BotInterjectionMetadata.verify(message.interjectionMetadata, _depth + 1);
+                    if (error)
+                        return "interjectionMetadata." + error;
+                }
+            }
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata")) {
                 properties._internalMetadata = 1;
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
@@ -137593,6 +138182,11 @@ $root.AICommon = (function() {
             }
             if (object.responseStoppedByUser != null)
                 message.responseStoppedByUser = $Boolean(object.responseStoppedByUser);
+            if (object.interjectionMetadata != null) {
+                if (!$util.isObject(object.interjectionMetadata))
+                    throw $TypeError(".AICommon.BotMetadata.interjectionMetadata: object expected");
+                message.interjectionMetadata = $root.AICommon.BotInterjectionMetadata.fromObject(object.interjectionMetadata, _depth + 1);
+            }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
                     $util.base64.decode(object.internalMetadata, message.internalMetadata = $util.newBuffer($util.base64.length(object.internalMetadata)), 0);
@@ -137704,6 +138298,8 @@ $root.AICommon = (function() {
                 object.botHistoryShareMetadata = $root.AICommon.BotHistoryShareMetadata.toObject(message.botHistoryShareMetadata, options, _depth + 1);
             if (message.responseStoppedByUser != null && $Object.hasOwnProperty.call(message, "responseStoppedByUser"))
                 object.responseStoppedByUser = message.responseStoppedByUser;
+            if (message.interjectionMetadata != null && $Object.hasOwnProperty.call(message, "interjectionMetadata"))
+                object.interjectionMetadata = $root.AICommon.BotInterjectionMetadata.toObject(message.interjectionMetadata, options, _depth + 1);
             if (message.internalMetadata != null && $Object.hasOwnProperty.call(message, "internalMetadata"))
                 object.internalMetadata = options.bytes === $String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
             return object;
@@ -137735,6 +138331,330 @@ $root.AICommon = (function() {
         };
 
         return BotMetadata;
+    })();
+
+    AICommon.BotInterjectionMetadata = (function() {
+
+        /**
+         * Properties of a BotInterjectionMetadata.
+         * @typedef {Object} AICommon.BotInterjectionMetadata.$Properties
+         * @property {string|null} [targetPromptMessageId] BotInterjectionMetadata targetPromptMessageId
+         * @property {Array.<string>|null} [foldedPromptMessageIds] BotInterjectionMetadata foldedPromptMessageIds
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a BotInterjectionMetadata.
+         * @memberof AICommon
+         * @interface IBotInterjectionMetadata
+         * @augments AICommon.BotInterjectionMetadata.$Properties
+         * @deprecated Use AICommon.BotInterjectionMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotInterjectionMetadata.
+         * @typedef {AICommon.BotInterjectionMetadata.$Properties} AICommon.BotInterjectionMetadata.$Shape
+         */
+
+        /**
+         * Constructs a new BotInterjectionMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotInterjectionMetadata.
+         * @constructor
+         * @param {AICommon.BotInterjectionMetadata.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var BotInterjectionMetadata = function (properties) {
+            this.foldedPromptMessageIds = [];
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * BotInterjectionMetadata targetPromptMessageId.
+         * @member {string|null|undefined} targetPromptMessageId
+         * @memberof AICommon.BotInterjectionMetadata
+         * @instance
+         */
+        BotInterjectionMetadata.prototype.targetPromptMessageId = null;
+
+        /**
+         * BotInterjectionMetadata foldedPromptMessageIds.
+         * @member {Array.<string>} foldedPromptMessageIds
+         * @memberof AICommon.BotInterjectionMetadata
+         * @instance
+         */
+        BotInterjectionMetadata.prototype.foldedPromptMessageIds = $util.emptyArray;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(BotInterjectionMetadata.prototype, "_targetPromptMessageId", {
+            get: $util.oneOfGetter($oneOfFields = ["targetPromptMessageId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new BotInterjectionMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {AICommon.BotInterjectionMetadata.$Properties=} [properties] Properties to set
+         * @returns {AICommon.BotInterjectionMetadata} BotInterjectionMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotInterjectionMetadata.$Shape): AICommon.BotInterjectionMetadata & AICommon.BotInterjectionMetadata.$Shape;
+         *   (properties?: AICommon.BotInterjectionMetadata.$Properties): AICommon.BotInterjectionMetadata;
+         * }}
+         */
+        BotInterjectionMetadata.create = function(properties) {
+            return new BotInterjectionMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotInterjectionMetadata message. Does not implicitly {@link AICommon.BotInterjectionMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {AICommon.BotInterjectionMetadata.$Properties} message BotInterjectionMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotInterjectionMetadata.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.targetPromptMessageId != null && $Object.hasOwnProperty.call(message, "targetPromptMessageId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.targetPromptMessageId);
+            if (message.foldedPromptMessageIds != null && message.foldedPromptMessageIds.length)
+                for (var i = 0; i < message.foldedPromptMessageIds.length; ++i)
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.foldedPromptMessageIds[i]);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotInterjectionMetadata message, length delimited. Does not implicitly {@link AICommon.BotInterjectionMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {AICommon.BotInterjectionMetadata.$Properties} message BotInterjectionMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotInterjectionMetadata.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a BotInterjectionMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotInterjectionMetadata & AICommon.BotInterjectionMetadata.$Shape} BotInterjectionMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotInterjectionMetadata.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end, message;
+            if (length === $undefined)
+                end = reader.len;
+            else {
+                end = reader.pos + length;
+                if (end > reader.len)
+                    throw $RangeError("index out of range");
+                length = reader.len;
+                reader.len = end;
+            }
+            message = _target || new $root.AICommon.BotInterjectionMetadata();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.targetPromptMessageId = reader.stringVerify();
+                        message._targetPromptMessageId = "targetPromptMessageId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.foldedPromptMessageIds && message.foldedPromptMessageIds.length))
+                            message.foldedPromptMessageIds = [];
+                        message.foldedPromptMessageIds.push(reader.stringVerify());
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (length !== $undefined) {
+                if (reader.pos !== end)
+                    throw $RangeError("index out of range");
+                reader.len = length;
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a BotInterjectionMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotInterjectionMetadata & AICommon.BotInterjectionMetadata.$Shape} BotInterjectionMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotInterjectionMetadata.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.size());
+        };
+
+        /**
+         * Verifies a BotInterjectionMetadata message.
+         * @function verify
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotInterjectionMetadata.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.targetPromptMessageId != null && $Object.hasOwnProperty.call(message, "targetPromptMessageId")) {
+                properties._targetPromptMessageId = 1;
+                if (!$util.isString(message.targetPromptMessageId))
+                    return "targetPromptMessageId: string expected";
+            }
+            if (message.foldedPromptMessageIds != null && $Object.hasOwnProperty.call(message, "foldedPromptMessageIds")) {
+                if (!$Array.isArray(message.foldedPromptMessageIds))
+                    return "foldedPromptMessageIds: array expected";
+                for (var i = 0; i < message.foldedPromptMessageIds.length; ++i)
+                    if (!$util.isString(message.foldedPromptMessageIds[i]))
+                        return "foldedPromptMessageIds: string[] expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a BotInterjectionMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotInterjectionMetadata} BotInterjectionMetadata
+         */
+        BotInterjectionMetadata.fromObject = function (object, _depth) {
+            if (object instanceof $root.AICommon.BotInterjectionMetadata)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".AICommon.BotInterjectionMetadata: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.AICommon.BotInterjectionMetadata();
+            if (object.targetPromptMessageId != null)
+                message.targetPromptMessageId = $String(object.targetPromptMessageId);
+            if (object.foldedPromptMessageIds) {
+                if (!$Array.isArray(object.foldedPromptMessageIds))
+                    throw $TypeError(".AICommon.BotInterjectionMetadata.foldedPromptMessageIds: array expected");
+                message.foldedPromptMessageIds = $Array(object.foldedPromptMessageIds.length);
+                for (var i = 0; i < object.foldedPromptMessageIds.length; ++i)
+                    message.foldedPromptMessageIds[i] = $String(object.foldedPromptMessageIds[i]);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotInterjectionMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {AICommon.BotInterjectionMetadata} message BotInterjectionMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotInterjectionMetadata.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.foldedPromptMessageIds = [];
+            if (message.targetPromptMessageId != null && $Object.hasOwnProperty.call(message, "targetPromptMessageId"))
+                object.targetPromptMessageId = message.targetPromptMessageId;
+            if (message.foldedPromptMessageIds && message.foldedPromptMessageIds.length) {
+                object.foldedPromptMessageIds = $Array(message.foldedPromptMessageIds.length);
+                for (var j = 0; j < message.foldedPromptMessageIds.length; ++j)
+                    object.foldedPromptMessageIds[j] = message.foldedPromptMessageIds[j];
+            }
+            return object;
+        };
+
+        /**
+         * Converts this BotInterjectionMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotInterjectionMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotInterjectionMetadata.prototype.toJSON = function() {
+            return BotInterjectionMetadata.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for BotInterjectionMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotInterjectionMetadata
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        BotInterjectionMetadata.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotInterjectionMetadata";
+        };
+
+        return BotInterjectionMetadata;
     })();
 
     AICommon.BotPttPromptMetadata = (function() {
@@ -147697,6 +148617,10 @@ $root.AICommon = (function() {
                     case 82:
                         message.capabilities[message.capabilities.length] = 82;
                         break;
+                    case "HATCH_CVM_ENABLED":
+                    case 83:
+                        message.capabilities[message.capabilities.length] = 83;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -147844,6 +148768,7 @@ $root.AICommon = (function() {
          * @property {number} AI_STUDY_CENTER_ENABLED=80 AI_STUDY_CENTER_ENABLED value
          * @property {number} AI_MUSE_JARVIS_SCHEMA_ENABLED=81 AI_MUSE_JARVIS_SCHEMA_ENABLED value
          * @property {number} AI_STUDY_QUIZ_ENABLED=82 AI_STUDY_QUIZ_ENABLED value
+         * @property {number} HATCH_CVM_ENABLED=83 HATCH_CVM_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -147930,6 +148855,7 @@ $root.AICommon = (function() {
             values[valuesById[80] = "AI_STUDY_CENTER_ENABLED"] = 80;
             values[valuesById[81] = "AI_MUSE_JARVIS_SCHEMA_ENABLED"] = 81;
             values[valuesById[82] = "AI_STUDY_QUIZ_ENABLED"] = 82;
+            values[valuesById[83] = "HATCH_CVM_ENABLED"] = 83;
             return values;
         })();
 

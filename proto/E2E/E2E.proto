@@ -409,6 +409,7 @@ message ContextInfo {
     repeated uint32 experienceIds = 82 [packed=true];
     optional string partnerDeepLinkToken = 83;
     optional uint32 sourceExperienceId = 84;
+    repeated uint32 sourceExperienceIds = 85 [packed=true];
     message AdReplyInfo {
         optional string advertiserName = 1;
         optional MediaType mediaType = 2;
@@ -1593,6 +1594,13 @@ message Message {
                 optional int64 startTimeInMs = 1;
                 optional int64 endTimeInMs = 2;
                 optional string text = 3;
+                repeated WordOffset wordOffsets = 4;
+                message WordOffset {
+                    optional int32 startIndex = 1;
+                    optional int32 endIndex = 2;
+                    optional int64 startOffsetMs = 3;
+                    optional int64 endOffsetMs = 4;
+                }
             }
         }
         enum MusicMessageStyle {
@@ -1762,6 +1770,11 @@ message Message {
             optional int64 oldestMsgTimestampMs = 5;
             optional string accountLid = 6;
             optional bool supportInlineResponse = 7;
+            optional Mode mode = 8;
+            enum Mode {
+                MODE_UNSPECIFIED = 0;
+                INITIAL_REVERSE_HISTORY = 1;
+            }
         }
         message PlaceholderMessageResendRequest {
             optional SignalLocalStorageProtocol.MessageKey messageKey = 1;
