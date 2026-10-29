@@ -145,6 +145,8 @@ message ClientPayload {
             DESKTOP = 2;
             WEARABLE = 3;
             VR = 4;
+            SMART_DISPLAY = 5;
+            SMART_SPEAKER = 6;
         }
         enum DistributionChannel {
             APPSTORE = 0;
