@@ -31,6 +31,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [subscriptionSyncPayload] ClientPairingProps subscriptionSyncPayload
          * @property {boolean|null} [isBotJidDbMigrated] ClientPairingProps isBotJidDbMigrated
          * @property {Uint8Array|null} [companionAddPeerPayload] ClientPairingProps companionAddPeerPayload
+         * @property {boolean|null} [isCompanionRegistrationFgsEnabled] ClientPairingProps isCompanionRegistrationFgsEnabled
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -118,6 +119,14 @@ $root.CompanionReg = (function() {
          */
         ClientPairingProps.prototype.companionAddPeerPayload = null;
 
+        /**
+         * ClientPairingProps isCompanionRegistrationFgsEnabled.
+         * @member {boolean|null|undefined} isCompanionRegistrationFgsEnabled
+         * @memberof CompanionReg.ClientPairingProps
+         * @instance
+         */
+        ClientPairingProps.prototype.isCompanionRegistrationFgsEnabled = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -160,6 +169,12 @@ $root.CompanionReg = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(ClientPairingProps.prototype, "_companionAddPeerPayload", {
             get: $util.oneOfGetter($oneOfFields = ["companionAddPeerPayload"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ClientPairingProps.prototype, "_isCompanionRegistrationFgsEnabled", {
+            get: $util.oneOfGetter($oneOfFields = ["isCompanionRegistrationFgsEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -209,6 +224,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isBotJidDbMigrated);
             if (message.companionAddPeerPayload != null && $Object.hasOwnProperty.call(message, "companionAddPeerPayload"))
                 writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.companionAddPeerPayload);
+            if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled"))
+                writer.uint32(/* id 8, wireType 0 =*/64).bool(message.isCompanionRegistrationFgsEnabled);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -315,6 +332,13 @@ $root.CompanionReg = (function() {
                         message._companionAddPeerPayload = "companionAddPeerPayload";
                         continue;
                     }
+                case 8: {
+                        if (wireType !== 0)
+                            break;
+                        message.isCompanionRegistrationFgsEnabled = reader.bool();
+                        message._isCompanionRegistrationFgsEnabled = "isCompanionRegistrationFgsEnabled";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -399,6 +423,11 @@ $root.CompanionReg = (function() {
                 if (!(message.companionAddPeerPayload && typeof message.companionAddPeerPayload.length === "number" || $util.isString(message.companionAddPeerPayload)))
                     return "companionAddPeerPayload: buffer expected";
             }
+            if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled")) {
+                properties._isCompanionRegistrationFgsEnabled = 1;
+                if (typeof message.isCompanionRegistrationFgsEnabled !== "boolean")
+                    return "isCompanionRegistrationFgsEnabled: boolean expected";
+            }
             return null;
         };
 
@@ -440,6 +469,8 @@ $root.CompanionReg = (function() {
                     $util.base64.decode(object.companionAddPeerPayload, message.companionAddPeerPayload = $util.newBuffer($util.base64.length(object.companionAddPeerPayload)), 0);
                 else if (object.companionAddPeerPayload.length >= 0)
                     message.companionAddPeerPayload = object.companionAddPeerPayload;
+            if (object.isCompanionRegistrationFgsEnabled != null)
+                message.isCompanionRegistrationFgsEnabled = $Boolean(object.isCompanionRegistrationFgsEnabled);
             return message;
         };
 
@@ -474,6 +505,8 @@ $root.CompanionReg = (function() {
                 object.isBotJidDbMigrated = message.isBotJidDbMigrated;
             if (message.companionAddPeerPayload != null && $Object.hasOwnProperty.call(message, "companionAddPeerPayload"))
                 object.companionAddPeerPayload = options.bytes === $String ? $util.base64.encode(message.companionAddPeerPayload, 0, message.companionAddPeerPayload.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.companionAddPeerPayload) : message.companionAddPeerPayload;
+            if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled"))
+                object.isCompanionRegistrationFgsEnabled = message.isCompanionRegistrationFgsEnabled;
             return object;
         };
 

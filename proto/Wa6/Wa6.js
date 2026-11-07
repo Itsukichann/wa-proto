@@ -61,6 +61,7 @@ $root.Wa6 = (function() {
          * @property {Array.<string>|null} [pairedPeripherals] ClientPayload pairedPeripherals
          * @property {Uint8Array|null} [testIsolationId] ClientPayload testIsolationId
          * @property {number|Long|null} [messageSts] ClientPayload messageSts
+         * @property {Wa6.ClientPayload.IntegrationAttestation.$Properties|null} [integrationAttestation] ClientPayload integrationAttestation
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -390,6 +391,14 @@ $root.Wa6 = (function() {
          */
         ClientPayload.prototype.messageSts = null;
 
+        /**
+         * ClientPayload integrationAttestation.
+         * @member {Wa6.ClientPayload.IntegrationAttestation.$Properties|null|undefined} integrationAttestation
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        ClientPayload.prototype.integrationAttestation = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -603,6 +612,12 @@ $root.Wa6 = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ClientPayload.prototype, "_integrationAttestation", {
+            get: $util.oneOfGetter($oneOfFields = ["integrationAttestation"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new ClientPayload instance using the specified properties.
          * @function create
@@ -710,6 +725,8 @@ $root.Wa6 = (function() {
                 writer.uint32(/* id 48, wireType 2 =*/386).bytes(message.testIsolationId);
             if (message.messageSts != null && $Object.hasOwnProperty.call(message, "messageSts"))
                 writer.uint32(/* id 49, wireType 0 =*/392).int64(message.messageSts);
+            if (message.integrationAttestation != null && $Object.hasOwnProperty.call(message, "integrationAttestation"))
+                $root.Wa6.ClientPayload.IntegrationAttestation.encode(message.integrationAttestation, writer.uint32(/* id 50, wireType 2 =*/402).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -1034,6 +1051,13 @@ $root.Wa6 = (function() {
                         message._messageSts = "messageSts";
                         continue;
                     }
+                case 50: {
+                        if (wireType !== 2)
+                            break;
+                        message.integrationAttestation = $root.Wa6.ClientPayload.IntegrationAttestation.decode(reader, reader.size(), $undefined, _depth + 1, message.integrationAttestation);
+                        message._integrationAttestation = "integrationAttestation";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -1286,6 +1310,14 @@ $root.Wa6 = (function() {
                 properties._messageSts = 1;
                 if (!$util.isInteger(message.messageSts) && !(message.messageSts && $util.isInteger(message.messageSts.low) && $util.isInteger(message.messageSts.high)))
                     return "messageSts: integer|Long expected";
+            }
+            if (message.integrationAttestation != null && $Object.hasOwnProperty.call(message, "integrationAttestation")) {
+                properties._integrationAttestation = 1;
+                {
+                    var error = $root.Wa6.ClientPayload.IntegrationAttestation.verify(message.integrationAttestation, _depth + 1);
+                    if (error)
+                        return "integrationAttestation." + error;
+                }
             }
             return null;
         };
@@ -1597,6 +1629,11 @@ $root.Wa6 = (function() {
                     message.messageSts = object.messageSts;
                 else if (typeof object.messageSts === "object")
                     message.messageSts = new $util.LongBits(object.messageSts.low >>> 0, object.messageSts.high >>> 0).toNumber();
+            if (object.integrationAttestation != null) {
+                if (!$util.isObject(object.integrationAttestation))
+                    throw $TypeError(".Wa6.ClientPayload.integrationAttestation: object expected");
+                message.integrationAttestation = $root.Wa6.ClientPayload.IntegrationAttestation.fromObject(object.integrationAttestation, _depth + 1);
+            }
             return message;
         };
 
@@ -1716,6 +1753,8 @@ $root.Wa6 = (function() {
                     object.messageSts = options.longs === $String ? $String(message.messageSts) : message.messageSts;
                 else
                     object.messageSts = options.longs === $String ? $util.Long.prototype.toString.call(message.messageSts) : options.longs === $Number ? new $util.LongBits(message.messageSts.low >>> 0, message.messageSts.high >>> 0).toNumber() : message.messageSts;
+            if (message.integrationAttestation != null && $Object.hasOwnProperty.call(message, "integrationAttestation"))
+                object.integrationAttestation = $root.Wa6.ClientPayload.IntegrationAttestation.toObject(message.integrationAttestation, options, _depth + 1);
             return object;
         };
 
@@ -2749,6 +2788,321 @@ $root.Wa6 = (function() {
             values[valuesById[1] = "SERVICE_EXTENSION"] = 1;
             values[valuesById[2] = "INTENTS_EXTENSION"] = 2;
             return values;
+        })();
+
+        ClientPayload.IntegrationAttestation = (function() {
+
+            /**
+             * Properties of an IntegrationAttestation.
+             * @typedef {Object} Wa6.ClientPayload.IntegrationAttestation.$Properties
+             * @property {string|null} [staticUnbound] IntegrationAttestation staticUnbound
+             * @property {string|null} [onlineSigned] IntegrationAttestation onlineSigned
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of an IntegrationAttestation.
+             * @memberof Wa6.ClientPayload
+             * @interface IIntegrationAttestation
+             * @augments Wa6.ClientPayload.IntegrationAttestation.$Properties
+             * @deprecated Use Wa6.ClientPayload.IntegrationAttestation.$Properties instead.
+             */
+
+            /**
+             * Shape of an IntegrationAttestation.
+             * @typedef {Wa6.ClientPayload.IntegrationAttestation.$Properties} Wa6.ClientPayload.IntegrationAttestation.$Shape
+             */
+
+            /**
+             * Constructs a new IntegrationAttestation.
+             * @memberof Wa6.ClientPayload
+             * @classdesc Represents an IntegrationAttestation.
+             * @constructor
+             * @param {Wa6.ClientPayload.IntegrationAttestation.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var IntegrationAttestation = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * IntegrationAttestation staticUnbound.
+             * @member {string|null|undefined} staticUnbound
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @instance
+             */
+            IntegrationAttestation.prototype.staticUnbound = null;
+
+            /**
+             * IntegrationAttestation onlineSigned.
+             * @member {string|null|undefined} onlineSigned
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @instance
+             */
+            IntegrationAttestation.prototype.onlineSigned = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(IntegrationAttestation.prototype, "_staticUnbound", {
+                get: $util.oneOfGetter($oneOfFields = ["staticUnbound"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(IntegrationAttestation.prototype, "_onlineSigned", {
+                get: $util.oneOfGetter($oneOfFields = ["onlineSigned"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new IntegrationAttestation instance using the specified properties.
+             * @function create
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {Wa6.ClientPayload.IntegrationAttestation.$Properties=} [properties] Properties to set
+             * @returns {Wa6.ClientPayload.IntegrationAttestation} IntegrationAttestation instance
+             * @type {{
+             *   (properties: Wa6.ClientPayload.IntegrationAttestation.$Shape): Wa6.ClientPayload.IntegrationAttestation & Wa6.ClientPayload.IntegrationAttestation.$Shape;
+             *   (properties?: Wa6.ClientPayload.IntegrationAttestation.$Properties): Wa6.ClientPayload.IntegrationAttestation;
+             * }}
+             */
+            IntegrationAttestation.create = function(properties) {
+                return new IntegrationAttestation(properties);
+            };
+
+            /**
+             * Encodes the specified IntegrationAttestation message. Does not implicitly {@link Wa6.ClientPayload.IntegrationAttestation.verify|verify} messages.
+             * @function encode
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {Wa6.ClientPayload.IntegrationAttestation.$Properties} message IntegrationAttestation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            IntegrationAttestation.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.staticUnbound != null && $Object.hasOwnProperty.call(message, "staticUnbound"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.staticUnbound);
+                if (message.onlineSigned != null && $Object.hasOwnProperty.call(message, "onlineSigned"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.onlineSigned);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified IntegrationAttestation message, length delimited. Does not implicitly {@link Wa6.ClientPayload.IntegrationAttestation.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {Wa6.ClientPayload.IntegrationAttestation.$Properties} message IntegrationAttestation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            IntegrationAttestation.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes an IntegrationAttestation message from the specified reader or buffer.
+             * @function decode
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {Wa6.ClientPayload.IntegrationAttestation & Wa6.ClientPayload.IntegrationAttestation.$Shape} IntegrationAttestation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            IntegrationAttestation.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.Wa6.ClientPayload.IntegrationAttestation();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.staticUnbound = reader.stringVerify();
+                            message._staticUnbound = "staticUnbound";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.onlineSigned = reader.stringVerify();
+                            message._onlineSigned = "onlineSigned";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes an IntegrationAttestation message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {Wa6.ClientPayload.IntegrationAttestation & Wa6.ClientPayload.IntegrationAttestation.$Shape} IntegrationAttestation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            IntegrationAttestation.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies an IntegrationAttestation message.
+             * @function verify
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            IntegrationAttestation.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.staticUnbound != null && $Object.hasOwnProperty.call(message, "staticUnbound")) {
+                    properties._staticUnbound = 1;
+                    if (!$util.isString(message.staticUnbound))
+                        return "staticUnbound: string expected";
+                }
+                if (message.onlineSigned != null && $Object.hasOwnProperty.call(message, "onlineSigned")) {
+                    properties._onlineSigned = 1;
+                    if (!$util.isString(message.onlineSigned))
+                        return "onlineSigned: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an IntegrationAttestation message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {Wa6.ClientPayload.IntegrationAttestation} IntegrationAttestation
+             */
+            IntegrationAttestation.fromObject = function (object, _depth) {
+                if (object instanceof $root.Wa6.ClientPayload.IntegrationAttestation)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".Wa6.ClientPayload.IntegrationAttestation: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.Wa6.ClientPayload.IntegrationAttestation();
+                if (object.staticUnbound != null)
+                    message.staticUnbound = $String(object.staticUnbound);
+                if (object.onlineSigned != null)
+                    message.onlineSigned = $String(object.onlineSigned);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an IntegrationAttestation message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {Wa6.ClientPayload.IntegrationAttestation} message IntegrationAttestation
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            IntegrationAttestation.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.staticUnbound != null && $Object.hasOwnProperty.call(message, "staticUnbound"))
+                    object.staticUnbound = message.staticUnbound;
+                if (message.onlineSigned != null && $Object.hasOwnProperty.call(message, "onlineSigned"))
+                    object.onlineSigned = message.onlineSigned;
+                return object;
+            };
+
+            /**
+             * Converts this IntegrationAttestation to JSON.
+             * @function toJSON
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            IntegrationAttestation.prototype.toJSON = function() {
+                return IntegrationAttestation.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for IntegrationAttestation
+             * @function getTypeUrl
+             * @memberof Wa6.ClientPayload.IntegrationAttestation
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            IntegrationAttestation.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.ClientPayload.IntegrationAttestation";
+            };
+
+            return IntegrationAttestation;
         })();
 
         ClientPayload.InteropData = (function() {
@@ -4092,6 +4446,10 @@ $root.Wa6 = (function() {
                 case 6:
                     message.deviceType = 6;
                     break;
+                case "AGENT":
+                case 7:
+                    message.deviceType = 7;
+                    break;
                 default:
                     if (typeof object.deviceType === "number" && (object.deviceType | 0) === object.deviceType)
                         message.deviceType = object.deviceType;
@@ -4626,6 +4984,7 @@ $root.Wa6 = (function() {
              * @property {number} VR=4 VR value
              * @property {number} SMART_DISPLAY=5 SMART_DISPLAY value
              * @property {number} SMART_SPEAKER=6 SMART_SPEAKER value
+             * @property {number} AGENT=7 AGENT value
              */
             UserAgent.DeviceType = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -4636,6 +4995,7 @@ $root.Wa6 = (function() {
                 values[valuesById[4] = "VR"] = 4;
                 values[valuesById[5] = "SMART_DISPLAY"] = 5;
                 values[valuesById[6] = "SMART_SPEAKER"] = 6;
+                values[valuesById[7] = "AGENT"] = 7;
                 return values;
             })();
 

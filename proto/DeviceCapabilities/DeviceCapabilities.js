@@ -37,6 +37,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.NewsletterChatsMigration.$Properties|null} [newsletterChatsMigration] DeviceCapabilities newsletterChatsMigration
          * @property {DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.$Properties|null} [hostWriteMutationSupport] DeviceCapabilities hostWriteMutationSupport
          * @property {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties|null} [bizAiWebOnboarding] DeviceCapabilities bizAiWebOnboarding
+         * @property {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties|null} [phoneNumberSharing] DeviceCapabilities phoneNumberSharing
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -172,6 +173,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.bizAiWebOnboarding = null;
 
+        /**
+         * DeviceCapabilities phoneNumberSharing.
+         * @member {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties|null|undefined} phoneNumberSharing
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.phoneNumberSharing = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -253,6 +262,12 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_phoneNumberSharing", {
+            get: $util.oneOfGetter($oneOfFields = ["phoneNumberSharing"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -311,6 +326,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.encode(message.hostWriteMutationSupport, writer.uint32(/* id 12, wireType 2 =*/98).fork(), _depth + 1).ldelim();
             if (message.bizAiWebOnboarding != null && $Object.hasOwnProperty.call(message, "bizAiWebOnboarding"))
                 $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.encode(message.bizAiWebOnboarding, writer.uint32(/* id 13, wireType 2 =*/106).fork(), _depth + 1).ldelim();
+            if (message.phoneNumberSharing != null && $Object.hasOwnProperty.call(message, "phoneNumberSharing"))
+                $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.encode(message.phoneNumberSharing, writer.uint32(/* id 14, wireType 2 =*/114).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -457,6 +474,13 @@ $root.DeviceCapabilities = (function() {
                             break;
                         message.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.decode(reader, reader.size(), $undefined, _depth + 1, message.bizAiWebOnboarding);
                         message._bizAiWebOnboarding = "bizAiWebOnboarding";
+                        continue;
+                    }
+                case 14: {
+                        if (wireType !== 2)
+                            break;
+                        message.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.decode(reader, reader.size(), $undefined, _depth + 1, message.phoneNumberSharing);
+                        message._phoneNumberSharing = "phoneNumberSharing";
                         continue;
                     }
                 }
@@ -606,6 +630,14 @@ $root.DeviceCapabilities = (function() {
                         return "bizAiWebOnboarding." + error;
                 }
             }
+            if (message.phoneNumberSharing != null && $Object.hasOwnProperty.call(message, "phoneNumberSharing")) {
+                properties._phoneNumberSharing = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.verify(message.phoneNumberSharing, _depth + 1);
+                    if (error)
+                        return "phoneNumberSharing." + error;
+                }
+            }
             return null;
         };
 
@@ -716,6 +748,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.bizAiWebOnboarding: object expected");
                 message.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.fromObject(object.bizAiWebOnboarding, _depth + 1);
             }
+            if (object.phoneNumberSharing != null) {
+                if (!$util.isObject(object.phoneNumberSharing))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.phoneNumberSharing: object expected");
+                message.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.fromObject(object.phoneNumberSharing, _depth + 1);
+            }
             return message;
         };
 
@@ -762,6 +799,8 @@ $root.DeviceCapabilities = (function() {
                 object.hostWriteMutationSupport = $root.DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.toObject(message.hostWriteMutationSupport, options, _depth + 1);
             if (message.bizAiWebOnboarding != null && $Object.hasOwnProperty.call(message, "bizAiWebOnboarding"))
                 object.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.toObject(message.bizAiWebOnboarding, options, _depth + 1);
+            if (message.phoneNumberSharing != null && $Object.hasOwnProperty.call(message, "phoneNumberSharing"))
+                object.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.toObject(message.phoneNumberSharing, options, _depth + 1);
             return object;
         };
 
@@ -3694,6 +3733,288 @@ $root.DeviceCapabilities = (function() {
             };
 
             return NewsletterChatsMigration;
+        })();
+
+        DeviceCapabilities.PhoneNumberSharing = (function() {
+
+            /**
+             * Properties of a PhoneNumberSharing.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties
+             * @property {boolean|null} [phoneSharingSupported] PhoneNumberSharing phoneSharingSupported
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a PhoneNumberSharing.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IPhoneNumberSharing
+             * @augments DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties instead.
+             */
+
+            /**
+             * Shape of a PhoneNumberSharing.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties} DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Shape
+             */
+
+            /**
+             * Constructs a new PhoneNumberSharing.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a PhoneNumberSharing.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var PhoneNumberSharing = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * PhoneNumberSharing phoneSharingSupported.
+             * @member {boolean|null|undefined} phoneSharingSupported
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @instance
+             */
+            PhoneNumberSharing.prototype.phoneSharingSupported = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PhoneNumberSharing.prototype, "_phoneSharingSupported", {
+                get: $util.oneOfGetter($oneOfFields = ["phoneSharingSupported"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new PhoneNumberSharing instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing} PhoneNumberSharing instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Shape): DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing & DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties): DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing;
+             * }}
+             */
+            PhoneNumberSharing.create = function(properties) {
+                return new PhoneNumberSharing(properties);
+            };
+
+            /**
+             * Encodes the specified PhoneNumberSharing message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties} message PhoneNumberSharing message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PhoneNumberSharing.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.phoneSharingSupported != null && $Object.hasOwnProperty.call(message, "phoneSharingSupported"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.phoneSharingSupported);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified PhoneNumberSharing message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties} message PhoneNumberSharing message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PhoneNumberSharing.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a PhoneNumberSharing message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing & DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Shape} PhoneNumberSharing
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PhoneNumberSharing.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.phoneSharingSupported = reader.bool();
+                            message._phoneSharingSupported = "phoneSharingSupported";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a PhoneNumberSharing message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing & DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Shape} PhoneNumberSharing
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PhoneNumberSharing.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a PhoneNumberSharing message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            PhoneNumberSharing.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.phoneSharingSupported != null && $Object.hasOwnProperty.call(message, "phoneSharingSupported")) {
+                    properties._phoneSharingSupported = 1;
+                    if (typeof message.phoneSharingSupported !== "boolean")
+                        return "phoneSharingSupported: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a PhoneNumberSharing message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing} PhoneNumberSharing
+             */
+            PhoneNumberSharing.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing();
+                if (object.phoneSharingSupported != null)
+                    message.phoneSharingSupported = $Boolean(object.phoneSharingSupported);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a PhoneNumberSharing message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing} message PhoneNumberSharing
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            PhoneNumberSharing.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.phoneSharingSupported != null && $Object.hasOwnProperty.call(message, "phoneSharingSupported"))
+                    object.phoneSharingSupported = message.phoneSharingSupported;
+                return object;
+            };
+
+            /**
+             * Converts this PhoneNumberSharing to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            PhoneNumberSharing.prototype.toJSON = function() {
+                return PhoneNumberSharing.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for PhoneNumberSharing
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            PhoneNumberSharing.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing";
+            };
+
+            return PhoneNumberSharing;
         })();
 
         DeviceCapabilities.ReverseHistorySync = (function() {

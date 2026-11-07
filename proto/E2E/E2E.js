@@ -5,7 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
-var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $String = $util.global.String, $parseInt = $util.global.parseInt, $Array = $util.global.Array, $BigInt = $util.global.BigInt, $Number = $util.global.Number, $Boolean = $util.global.Boolean, $isFinite = $util.global.isFinite;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $String = $util.global.String, $Array = $util.global.Array, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number, $Boolean = $util.global.Boolean, $isFinite = $util.global.isFinite;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -18,6 +18,639 @@ $root.E2E = (function() {
      * @namespace
      */
     var E2E = {};
+
+    E2E.GroupRootKeyRequest = (function() {
+
+        /**
+         * Properties of a GroupRootKeyRequest.
+         * @typedef {Object} E2E.GroupRootKeyRequest.$Properties
+         * @property {string|null} [keyId] GroupRootKeyRequest keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a GroupRootKeyRequest.
+         * @memberof E2E
+         * @interface IGroupRootKeyRequest
+         * @augments E2E.GroupRootKeyRequest.$Properties
+         * @deprecated Use E2E.GroupRootKeyRequest.$Properties instead.
+         */
+
+        /**
+         * Shape of a GroupRootKeyRequest.
+         * @typedef {E2E.GroupRootKeyRequest.$Properties} E2E.GroupRootKeyRequest.$Shape
+         */
+
+        /**
+         * Constructs a new GroupRootKeyRequest.
+         * @memberof E2E
+         * @classdesc Represents a GroupRootKeyRequest.
+         * @constructor
+         * @param {E2E.GroupRootKeyRequest.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var GroupRootKeyRequest = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * GroupRootKeyRequest keyId.
+         * @member {string|null|undefined} keyId
+         * @memberof E2E.GroupRootKeyRequest
+         * @instance
+         */
+        GroupRootKeyRequest.prototype.keyId = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(GroupRootKeyRequest.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new GroupRootKeyRequest instance using the specified properties.
+         * @function create
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {E2E.GroupRootKeyRequest.$Properties=} [properties] Properties to set
+         * @returns {E2E.GroupRootKeyRequest} GroupRootKeyRequest instance
+         * @type {{
+         *   (properties: E2E.GroupRootKeyRequest.$Shape): E2E.GroupRootKeyRequest & E2E.GroupRootKeyRequest.$Shape;
+         *   (properties?: E2E.GroupRootKeyRequest.$Properties): E2E.GroupRootKeyRequest;
+         * }}
+         */
+        GroupRootKeyRequest.create = function(properties) {
+            return new GroupRootKeyRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GroupRootKeyRequest message. Does not implicitly {@link E2E.GroupRootKeyRequest.verify|verify} messages.
+         * @function encode
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {E2E.GroupRootKeyRequest.$Properties} message GroupRootKeyRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GroupRootKeyRequest.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.keyId);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GroupRootKeyRequest message, length delimited. Does not implicitly {@link E2E.GroupRootKeyRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {E2E.GroupRootKeyRequest.$Properties} message GroupRootKeyRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GroupRootKeyRequest.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a GroupRootKeyRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {E2E.GroupRootKeyRequest & E2E.GroupRootKeyRequest.$Shape} GroupRootKeyRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GroupRootKeyRequest.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end, message;
+            if (length === $undefined)
+                end = reader.len;
+            else {
+                end = reader.pos + length;
+                if (end > reader.len)
+                    throw $RangeError("index out of range");
+                length = reader.len;
+                reader.len = end;
+            }
+            message = _target || new $root.E2E.GroupRootKeyRequest();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = reader.stringVerify();
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (length !== $undefined) {
+                if (reader.pos !== end)
+                    throw $RangeError("index out of range");
+                reader.len = length;
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a GroupRootKeyRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {E2E.GroupRootKeyRequest & E2E.GroupRootKeyRequest.$Shape} GroupRootKeyRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GroupRootKeyRequest.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.size());
+        };
+
+        /**
+         * Verifies a GroupRootKeyRequest message.
+         * @function verify
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GroupRootKeyRequest.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId")) {
+                properties._keyId = 1;
+                if (!$util.isString(message.keyId))
+                    return "keyId: string expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GroupRootKeyRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {E2E.GroupRootKeyRequest} GroupRootKeyRequest
+         */
+        GroupRootKeyRequest.fromObject = function (object, _depth) {
+            if (object instanceof $root.E2E.GroupRootKeyRequest)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".E2E.GroupRootKeyRequest: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.E2E.GroupRootKeyRequest();
+            if (object.keyId != null)
+                message.keyId = $String(object.keyId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GroupRootKeyRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {E2E.GroupRootKeyRequest} message GroupRootKeyRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GroupRootKeyRequest.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                object.keyId = message.keyId;
+            return object;
+        };
+
+        /**
+         * Converts this GroupRootKeyRequest to JSON.
+         * @function toJSON
+         * @memberof E2E.GroupRootKeyRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GroupRootKeyRequest.prototype.toJSON = function() {
+            return GroupRootKeyRequest.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for GroupRootKeyRequest
+         * @function getTypeUrl
+         * @memberof E2E.GroupRootKeyRequest
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        GroupRootKeyRequest.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/E2E.GroupRootKeyRequest";
+        };
+
+        return GroupRootKeyRequest;
+    })();
+
+    E2E.MembershipFormKeyFingerprintVerification = (function() {
+
+        /**
+         * Properties of a MembershipFormKeyFingerprintVerification.
+         * @typedef {Object} E2E.MembershipFormKeyFingerprintVerification.$Properties
+         * @property {string|null} [requestId] MembershipFormKeyFingerprintVerification requestId
+         * @property {string|null} [keyId] MembershipFormKeyFingerprintVerification keyId
+         * @property {Uint8Array|null} [keyFingerprint] MembershipFormKeyFingerprintVerification keyFingerprint
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a MembershipFormKeyFingerprintVerification.
+         * @memberof E2E
+         * @interface IMembershipFormKeyFingerprintVerification
+         * @augments E2E.MembershipFormKeyFingerprintVerification.$Properties
+         * @deprecated Use E2E.MembershipFormKeyFingerprintVerification.$Properties instead.
+         */
+
+        /**
+         * Shape of a MembershipFormKeyFingerprintVerification.
+         * @typedef {E2E.MembershipFormKeyFingerprintVerification.$Properties} E2E.MembershipFormKeyFingerprintVerification.$Shape
+         */
+
+        /**
+         * Constructs a new MembershipFormKeyFingerprintVerification.
+         * @memberof E2E
+         * @classdesc Represents a MembershipFormKeyFingerprintVerification.
+         * @constructor
+         * @param {E2E.MembershipFormKeyFingerprintVerification.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var MembershipFormKeyFingerprintVerification = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * MembershipFormKeyFingerprintVerification requestId.
+         * @member {string|null|undefined} requestId
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @instance
+         */
+        MembershipFormKeyFingerprintVerification.prototype.requestId = null;
+
+        /**
+         * MembershipFormKeyFingerprintVerification keyId.
+         * @member {string|null|undefined} keyId
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @instance
+         */
+        MembershipFormKeyFingerprintVerification.prototype.keyId = null;
+
+        /**
+         * MembershipFormKeyFingerprintVerification keyFingerprint.
+         * @member {Uint8Array|null|undefined} keyFingerprint
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @instance
+         */
+        MembershipFormKeyFingerprintVerification.prototype.keyFingerprint = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MembershipFormKeyFingerprintVerification.prototype, "_requestId", {
+            get: $util.oneOfGetter($oneOfFields = ["requestId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MembershipFormKeyFingerprintVerification.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MembershipFormKeyFingerprintVerification.prototype, "_keyFingerprint", {
+            get: $util.oneOfGetter($oneOfFields = ["keyFingerprint"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new MembershipFormKeyFingerprintVerification instance using the specified properties.
+         * @function create
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {E2E.MembershipFormKeyFingerprintVerification.$Properties=} [properties] Properties to set
+         * @returns {E2E.MembershipFormKeyFingerprintVerification} MembershipFormKeyFingerprintVerification instance
+         * @type {{
+         *   (properties: E2E.MembershipFormKeyFingerprintVerification.$Shape): E2E.MembershipFormKeyFingerprintVerification & E2E.MembershipFormKeyFingerprintVerification.$Shape;
+         *   (properties?: E2E.MembershipFormKeyFingerprintVerification.$Properties): E2E.MembershipFormKeyFingerprintVerification;
+         * }}
+         */
+        MembershipFormKeyFingerprintVerification.create = function(properties) {
+            return new MembershipFormKeyFingerprintVerification(properties);
+        };
+
+        /**
+         * Encodes the specified MembershipFormKeyFingerprintVerification message. Does not implicitly {@link E2E.MembershipFormKeyFingerprintVerification.verify|verify} messages.
+         * @function encode
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {E2E.MembershipFormKeyFingerprintVerification.$Properties} message MembershipFormKeyFingerprintVerification message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MembershipFormKeyFingerprintVerification.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.requestId);
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.keyId);
+            if (message.keyFingerprint != null && $Object.hasOwnProperty.call(message, "keyFingerprint"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.keyFingerprint);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified MembershipFormKeyFingerprintVerification message, length delimited. Does not implicitly {@link E2E.MembershipFormKeyFingerprintVerification.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {E2E.MembershipFormKeyFingerprintVerification.$Properties} message MembershipFormKeyFingerprintVerification message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MembershipFormKeyFingerprintVerification.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a MembershipFormKeyFingerprintVerification message from the specified reader or buffer.
+         * @function decode
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {E2E.MembershipFormKeyFingerprintVerification & E2E.MembershipFormKeyFingerprintVerification.$Shape} MembershipFormKeyFingerprintVerification
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MembershipFormKeyFingerprintVerification.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end, message;
+            if (length === $undefined)
+                end = reader.len;
+            else {
+                end = reader.pos + length;
+                if (end > reader.len)
+                    throw $RangeError("index out of range");
+                length = reader.len;
+                reader.len = end;
+            }
+            message = _target || new $root.E2E.MembershipFormKeyFingerprintVerification();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.requestId = reader.stringVerify();
+                        message._requestId = "requestId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = reader.stringVerify();
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyFingerprint = reader.bytes();
+                        message._keyFingerprint = "keyFingerprint";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (length !== $undefined) {
+                if (reader.pos !== end)
+                    throw $RangeError("index out of range");
+                reader.len = length;
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a MembershipFormKeyFingerprintVerification message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {E2E.MembershipFormKeyFingerprintVerification & E2E.MembershipFormKeyFingerprintVerification.$Shape} MembershipFormKeyFingerprintVerification
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MembershipFormKeyFingerprintVerification.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.size());
+        };
+
+        /**
+         * Verifies a MembershipFormKeyFingerprintVerification message.
+         * @function verify
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        MembershipFormKeyFingerprintVerification.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId")) {
+                properties._requestId = 1;
+                if (!$util.isString(message.requestId))
+                    return "requestId: string expected";
+            }
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId")) {
+                properties._keyId = 1;
+                if (!$util.isString(message.keyId))
+                    return "keyId: string expected";
+            }
+            if (message.keyFingerprint != null && $Object.hasOwnProperty.call(message, "keyFingerprint")) {
+                properties._keyFingerprint = 1;
+                if (!(message.keyFingerprint && typeof message.keyFingerprint.length === "number" || $util.isString(message.keyFingerprint)))
+                    return "keyFingerprint: buffer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a MembershipFormKeyFingerprintVerification message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {E2E.MembershipFormKeyFingerprintVerification} MembershipFormKeyFingerprintVerification
+         */
+        MembershipFormKeyFingerprintVerification.fromObject = function (object, _depth) {
+            if (object instanceof $root.E2E.MembershipFormKeyFingerprintVerification)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".E2E.MembershipFormKeyFingerprintVerification: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.E2E.MembershipFormKeyFingerprintVerification();
+            if (object.requestId != null)
+                message.requestId = $String(object.requestId);
+            if (object.keyId != null)
+                message.keyId = $String(object.keyId);
+            if (object.keyFingerprint != null)
+                if (typeof object.keyFingerprint === "string")
+                    $util.base64.decode(object.keyFingerprint, message.keyFingerprint = $util.newBuffer($util.base64.length(object.keyFingerprint)), 0);
+                else if (object.keyFingerprint.length >= 0)
+                    message.keyFingerprint = object.keyFingerprint;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a MembershipFormKeyFingerprintVerification message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {E2E.MembershipFormKeyFingerprintVerification} message MembershipFormKeyFingerprintVerification
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        MembershipFormKeyFingerprintVerification.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId"))
+                object.requestId = message.requestId;
+            if (message.keyId != null && $Object.hasOwnProperty.call(message, "keyId"))
+                object.keyId = message.keyId;
+            if (message.keyFingerprint != null && $Object.hasOwnProperty.call(message, "keyFingerprint"))
+                object.keyFingerprint = options.bytes === $String ? $util.base64.encode(message.keyFingerprint, 0, message.keyFingerprint.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.keyFingerprint) : message.keyFingerprint;
+            return object;
+        };
+
+        /**
+         * Converts this MembershipFormKeyFingerprintVerification to JSON.
+         * @function toJSON
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        MembershipFormKeyFingerprintVerification.prototype.toJSON = function() {
+            return MembershipFormKeyFingerprintVerification.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for MembershipFormKeyFingerprintVerification
+         * @function getTypeUrl
+         * @memberof E2E.MembershipFormKeyFingerprintVerification
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        MembershipFormKeyFingerprintVerification.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/E2E.MembershipFormKeyFingerprintVerification";
+        };
+
+        return MembershipFormKeyFingerprintVerification;
+    })();
 
     E2E.GroupRootKeyShareEntry = (function() {
 
@@ -1567,6 +2200,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.MemberLabel.$Properties
          * @property {string|null} [label] MemberLabel label
          * @property {number|Long|null} [labelTimestamp] MemberLabel labelTimestamp
+         * @property {boolean|null} [showAdminBadge] MemberLabel showAdminBadge
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1614,6 +2248,14 @@ $root.E2E = (function() {
          */
         MemberLabel.prototype.labelTimestamp = null;
 
+        /**
+         * MemberLabel showAdminBadge.
+         * @member {boolean|null|undefined} showAdminBadge
+         * @memberof E2E.MemberLabel
+         * @instance
+         */
+        MemberLabel.prototype.showAdminBadge = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1626,6 +2268,12 @@ $root.E2E = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(MemberLabel.prototype, "_labelTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["labelTimestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(MemberLabel.prototype, "_showAdminBadge", {
+            get: $util.oneOfGetter($oneOfFields = ["showAdminBadge"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -1665,6 +2313,8 @@ $root.E2E = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.label);
             if (message.labelTimestamp != null && $Object.hasOwnProperty.call(message, "labelTimestamp"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int64(message.labelTimestamp);
+            if (message.showAdminBadge != null && $Object.hasOwnProperty.call(message, "showAdminBadge"))
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.showAdminBadge);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -1736,6 +2386,13 @@ $root.E2E = (function() {
                         message._labelTimestamp = "labelTimestamp";
                         continue;
                     }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.showAdminBadge = reader.bool();
+                        message._showAdminBadge = "showAdminBadge";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -1795,6 +2452,11 @@ $root.E2E = (function() {
                 if (!$util.isInteger(message.labelTimestamp) && !(message.labelTimestamp && $util.isInteger(message.labelTimestamp.low) && $util.isInteger(message.labelTimestamp.high)))
                     return "labelTimestamp: integer|Long expected";
             }
+            if (message.showAdminBadge != null && $Object.hasOwnProperty.call(message, "showAdminBadge")) {
+                properties._showAdminBadge = 1;
+                if (typeof message.showAdminBadge !== "boolean")
+                    return "showAdminBadge: boolean expected";
+            }
             return null;
         };
 
@@ -1827,6 +2489,8 @@ $root.E2E = (function() {
                     message.labelTimestamp = object.labelTimestamp;
                 else if (typeof object.labelTimestamp === "object")
                     message.labelTimestamp = new $util.LongBits(object.labelTimestamp.low >>> 0, object.labelTimestamp.high >>> 0).toNumber();
+            if (object.showAdminBadge != null)
+                message.showAdminBadge = $Boolean(object.showAdminBadge);
             return message;
         };
 
@@ -1856,6 +2520,8 @@ $root.E2E = (function() {
                     object.labelTimestamp = options.longs === $String ? $String(message.labelTimestamp) : message.labelTimestamp;
                 else
                     object.labelTimestamp = options.longs === $String ? $util.Long.prototype.toString.call(message.labelTimestamp) : options.longs === $Number ? new $util.LongBits(message.labelTimestamp.low >>> 0, message.labelTimestamp.high >>> 0).toNumber() : message.labelTimestamp;
+            if (message.showAdminBadge != null && $Object.hasOwnProperty.call(message, "showAdminBadge"))
+                object.showAdminBadge = message.showAdminBadge;
             return object;
         };
 
@@ -14992,6 +15658,14 @@ $root.E2E = (function() {
             case 22:
                 message.associationType = 22;
                 break;
+            case "ORIGINAL_VIDEO_DUAL_UPLOAD":
+            case 23:
+                message.associationType = 23;
+                break;
+            case "ORIGINAL_IMAGE_DUAL_UPLOAD":
+            case 24:
+                message.associationType = 24;
+                break;
             default:
                 if (typeof object.associationType === "number" && (object.associationType | 0) === object.associationType)
                     message.associationType = object.associationType;
@@ -15084,6 +15758,8 @@ $root.E2E = (function() {
          * @property {number} POLL_ADD_OPTION=20 POLL_ADD_OPTION value
          * @property {number} AV1_VIDEO_DUAL_UPLOAD=21 AV1_VIDEO_DUAL_UPLOAD value
          * @property {number} STREAMED_HD_VIDEO_DUAL_UPLOAD=22 STREAMED_HD_VIDEO_DUAL_UPLOAD value
+         * @property {number} ORIGINAL_VIDEO_DUAL_UPLOAD=23 ORIGINAL_VIDEO_DUAL_UPLOAD value
+         * @property {number} ORIGINAL_IMAGE_DUAL_UPLOAD=24 ORIGINAL_IMAGE_DUAL_UPLOAD value
          */
         MessageAssociation.AssociationType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -15110,6 +15786,8 @@ $root.E2E = (function() {
             values[valuesById[20] = "POLL_ADD_OPTION"] = 20;
             values[valuesById[21] = "AV1_VIDEO_DUAL_UPLOAD"] = 21;
             values[valuesById[22] = "STREAMED_HD_VIDEO_DUAL_UPLOAD"] = 22;
+            values[valuesById[23] = "ORIGINAL_VIDEO_DUAL_UPLOAD"] = 23;
+            values[valuesById[24] = "ORIGINAL_IMAGE_DUAL_UPLOAD"] = 24;
             return values;
         })();
 
@@ -17658,6 +18336,14 @@ $root.E2E = (function() {
             case "STREAMED_VIDEO_CHILD":
             case 12:
                 message.pairedMediaType = 12;
+                break;
+            case "ORIGINAL_VIDEO_CHILD":
+            case 13:
+                message.pairedMediaType = 13;
+                break;
+            case "ORIGINAL_IMAGE_CHILD":
+            case 14:
+                message.pairedMediaType = 14;
                 break;
             default:
                 if (typeof object.pairedMediaType === "number" && (object.pairedMediaType | 0) === object.pairedMediaType)
@@ -24142,6 +24828,8 @@ $root.E2E = (function() {
          * @property {number} AV1_VIDEO_CHILD=10 AV1_VIDEO_CHILD value
          * @property {number} STREAMED_VIDEO_PARENT=11 STREAMED_VIDEO_PARENT value
          * @property {number} STREAMED_VIDEO_CHILD=12 STREAMED_VIDEO_CHILD value
+         * @property {number} ORIGINAL_VIDEO_CHILD=13 ORIGINAL_VIDEO_CHILD value
+         * @property {number} ORIGINAL_IMAGE_CHILD=14 ORIGINAL_IMAGE_CHILD value
          */
         ContextInfo.PairedMediaType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -24158,6 +24846,8 @@ $root.E2E = (function() {
             values[valuesById[10] = "AV1_VIDEO_CHILD"] = 10;
             values[valuesById[11] = "STREAMED_VIDEO_PARENT"] = 11;
             values[valuesById[12] = "STREAMED_VIDEO_CHILD"] = 12;
+            values[valuesById[13] = "ORIGINAL_VIDEO_CHILD"] = 13;
+            values[valuesById[14] = "ORIGINAL_IMAGE_CHILD"] = 14;
             return values;
         })();
 
@@ -26055,6 +26745,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.RequestLocationMessage.$Properties|null} [requestLocationMessage] Message requestLocationMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [botGroupParticipantMessage] Message botGroupParticipantMessage
          * @property {E2E.Message.RequestLocationUpdateMessage.$Properties|null} [requestLocationUpdateMessage] Message requestLocationUpdateMessage
+         * @property {E2E.Message.VpcRequestMessage.$Properties|null} [vpcRequestMessage] Message vpcRequestMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -26186,6 +26877,7 @@ $root.E2E = (function() {
          *   requestLocationMessage?: E2E.Message.RequestLocationMessage.$Shape|null;
          *   botGroupParticipantMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   requestLocationUpdateMessage?: E2E.Message.RequestLocationUpdateMessage.$Shape|null;
+         *   vpcRequestMessage?: E2E.Message.VpcRequestMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -27141,6 +27833,14 @@ $root.E2E = (function() {
          */
         Message.prototype.requestLocationUpdateMessage = null;
 
+        /**
+         * Message vpcRequestMessage.
+         * @member {E2E.Message.VpcRequestMessage.$Properties|null|undefined} vpcRequestMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.vpcRequestMessage = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -27846,6 +28546,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(Message.prototype, "_vpcRequestMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["vpcRequestMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new Message instance using the specified properties.
          * @function create
@@ -28112,6 +28818,8 @@ $root.E2E = (function() {
                 $root.E2E.Message.FutureProofMessage.encode(message.botGroupParticipantMessage, writer.uint32(/* id 137, wireType 2 =*/1098).fork(), _depth + 1).ldelim();
             if (message.requestLocationUpdateMessage != null && $Object.hasOwnProperty.call(message, "requestLocationUpdateMessage"))
                 $root.E2E.Message.RequestLocationUpdateMessage.encode(message.requestLocationUpdateMessage, writer.uint32(/* id 138, wireType 2 =*/1106).fork(), _depth + 1).ldelim();
+            if (message.vpcRequestMessage != null && $Object.hasOwnProperty.call(message, "vpcRequestMessage"))
+                $root.E2E.Message.VpcRequestMessage.encode(message.vpcRequestMessage, writer.uint32(/* id 139, wireType 2 =*/1114).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -28986,6 +29694,13 @@ $root.E2E = (function() {
                             break;
                         message.requestLocationUpdateMessage = $root.E2E.Message.RequestLocationUpdateMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.requestLocationUpdateMessage);
                         message._requestLocationUpdateMessage = "requestLocationUpdateMessage";
+                        continue;
+                    }
+                case 139: {
+                        if (wireType !== 2)
+                            break;
+                        message.vpcRequestMessage = $root.E2E.Message.VpcRequestMessage.decode(reader, reader.size(), $undefined, _depth + 1, message.vpcRequestMessage);
+                        message._vpcRequestMessage = "vpcRequestMessage";
                         continue;
                     }
                 }
@@ -29970,6 +30685,14 @@ $root.E2E = (function() {
                         return "requestLocationUpdateMessage." + error;
                 }
             }
+            if (message.vpcRequestMessage != null && $Object.hasOwnProperty.call(message, "vpcRequestMessage")) {
+                properties._vpcRequestMessage = 1;
+                {
+                    var error = $root.E2E.Message.VpcRequestMessage.verify(message.vpcRequestMessage, _depth + 1);
+                    if (error)
+                        return "vpcRequestMessage." + error;
+                }
+            }
             return null;
         };
 
@@ -30573,6 +31296,11 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.Message.requestLocationUpdateMessage: object expected");
                 message.requestLocationUpdateMessage = $root.E2E.Message.RequestLocationUpdateMessage.fromObject(object.requestLocationUpdateMessage, _depth + 1);
             }
+            if (object.vpcRequestMessage != null) {
+                if (!$util.isObject(object.vpcRequestMessage))
+                    throw $TypeError(".E2E.Message.vpcRequestMessage: object expected");
+                message.vpcRequestMessage = $root.E2E.Message.VpcRequestMessage.fromObject(object.vpcRequestMessage, _depth + 1);
+            }
             return message;
         };
 
@@ -30827,6 +31555,8 @@ $root.E2E = (function() {
                 object.botGroupParticipantMessage = $root.E2E.Message.FutureProofMessage.toObject(message.botGroupParticipantMessage, options, _depth + 1);
             if (message.requestLocationUpdateMessage != null && $Object.hasOwnProperty.call(message, "requestLocationUpdateMessage"))
                 object.requestLocationUpdateMessage = $root.E2E.Message.RequestLocationUpdateMessage.toObject(message.requestLocationUpdateMessage, options, _depth + 1);
+            if (message.vpcRequestMessage != null && $Object.hasOwnProperty.call(message, "vpcRequestMessage"))
+                object.vpcRequestMessage = $root.E2E.Message.VpcRequestMessage.toObject(message.vpcRequestMessage, options, _depth + 1);
             return object;
         };
 
@@ -95257,6 +95987,9 @@ $root.E2E = (function() {
              * @property {E2E.Message.SharedDeviceContactHashKeyShare.$Properties|null} [sharedDeviceContactHashKeyShare] ProtocolMessage sharedDeviceContactHashKeyShare
              * @property {E2E.Message.SharedDeviceContactHashKeyRequest.$Properties|null} [sharedDeviceContactHashKeyRequest] ProtocolMessage sharedDeviceContactHashKeyRequest
              * @property {Array.<string>|null} [additionalPromptIds] ProtocolMessage additionalPromptIds
+             * @property {E2E.GroupRootKeyRequest.$Properties|null} [groupRootKeyRequest] ProtocolMessage groupRootKeyRequest
+             * @property {E2E.MembershipFormKeyFingerprintVerification.$Properties|null} [membershipFormKeyFingerprintVerification] ProtocolMessage membershipFormKeyFingerprintVerification
+             * @property {E2E.GroupRootKeyShare.$Properties|null} [groupRootKeyShare] ProtocolMessage groupRootKeyShare
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -95305,6 +96038,9 @@ $root.E2E = (function() {
              *   sharedDeviceContactHashKeyShare?: E2E.Message.SharedDeviceContactHashKeyShare.$Shape|null;
              *   sharedDeviceContactHashKeyRequest?: E2E.Message.SharedDeviceContactHashKeyRequest.$Shape|null;
              *   additionalPromptIds?: Array.<string>|null;
+             *   groupRootKeyRequest?: E2E.GroupRootKeyRequest.$Shape|null;
+             *   membershipFormKeyFingerprintVerification?: E2E.MembershipFormKeyFingerprintVerification.$Shape|null;
+             *   groupRootKeyShare?: E2E.GroupRootKeyShare.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.ProtocolMessage.$Shape
              */
@@ -95597,6 +96333,30 @@ $root.E2E = (function() {
              */
             ProtocolMessage.prototype.additionalPromptIds = $util.emptyArray;
 
+            /**
+             * ProtocolMessage groupRootKeyRequest.
+             * @member {E2E.GroupRootKeyRequest.$Properties|null|undefined} groupRootKeyRequest
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.groupRootKeyRequest = null;
+
+            /**
+             * ProtocolMessage membershipFormKeyFingerprintVerification.
+             * @member {E2E.MembershipFormKeyFingerprintVerification.$Properties|null|undefined} membershipFormKeyFingerprintVerification
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.membershipFormKeyFingerprintVerification = null;
+
+            /**
+             * ProtocolMessage groupRootKeyShare.
+             * @member {E2E.GroupRootKeyShare.$Properties|null|undefined} groupRootKeyShare
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.groupRootKeyShare = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -95798,6 +96558,24 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_groupRootKeyRequest", {
+                get: $util.oneOfGetter($oneOfFields = ["groupRootKeyRequest"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_membershipFormKeyFingerprintVerification", {
+                get: $util.oneOfGetter($oneOfFields = ["membershipFormKeyFingerprintVerification"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_groupRootKeyShare", {
+                get: $util.oneOfGetter($oneOfFields = ["groupRootKeyShare"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
              * @function create
@@ -95899,6 +96677,12 @@ $root.E2E = (function() {
                 if (message.additionalPromptIds != null && message.additionalPromptIds.length)
                     for (var i = 0; i < message.additionalPromptIds.length; ++i)
                         writer.uint32(/* id 38, wireType 2 =*/306).string(message.additionalPromptIds[i]);
+                if (message.groupRootKeyRequest != null && $Object.hasOwnProperty.call(message, "groupRootKeyRequest"))
+                    $root.E2E.GroupRootKeyRequest.encode(message.groupRootKeyRequest, writer.uint32(/* id 39, wireType 2 =*/314).fork(), _depth + 1).ldelim();
+                if (message.membershipFormKeyFingerprintVerification != null && $Object.hasOwnProperty.call(message, "membershipFormKeyFingerprintVerification"))
+                    $root.E2E.MembershipFormKeyFingerprintVerification.encode(message.membershipFormKeyFingerprintVerification, writer.uint32(/* id 40, wireType 2 =*/322).fork(), _depth + 1).ldelim();
+                if (message.groupRootKeyShare != null && $Object.hasOwnProperty.call(message, "groupRootKeyShare"))
+                    $root.E2E.GroupRootKeyShare.encode(message.groupRootKeyShare, writer.uint32(/* id 41, wireType 2 =*/330).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -96193,6 +96977,27 @@ $root.E2E = (function() {
                             if (!(message.additionalPromptIds && message.additionalPromptIds.length))
                                 message.additionalPromptIds = [];
                             message.additionalPromptIds.push(reader.stringVerify());
+                            continue;
+                        }
+                    case 39: {
+                            if (wireType !== 2)
+                                break;
+                            message.groupRootKeyRequest = $root.E2E.GroupRootKeyRequest.decode(reader, reader.size(), $undefined, _depth + 1, message.groupRootKeyRequest);
+                            message._groupRootKeyRequest = "groupRootKeyRequest";
+                            continue;
+                        }
+                    case 40: {
+                            if (wireType !== 2)
+                                break;
+                            message.membershipFormKeyFingerprintVerification = $root.E2E.MembershipFormKeyFingerprintVerification.decode(reader, reader.size(), $undefined, _depth + 1, message.membershipFormKeyFingerprintVerification);
+                            message._membershipFormKeyFingerprintVerification = "membershipFormKeyFingerprintVerification";
+                            continue;
+                        }
+                    case 41: {
+                            if (wireType !== 2)
+                                break;
+                            message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.decode(reader, reader.size(), $undefined, _depth + 1, message.groupRootKeyShare);
+                            message._groupRootKeyShare = "groupRootKeyShare";
                             continue;
                         }
                     }
@@ -96494,6 +97299,30 @@ $root.E2E = (function() {
                         if (!$util.isString(message.additionalPromptIds[i]))
                             return "additionalPromptIds: string[] expected";
                 }
+                if (message.groupRootKeyRequest != null && $Object.hasOwnProperty.call(message, "groupRootKeyRequest")) {
+                    properties._groupRootKeyRequest = 1;
+                    {
+                        var error = $root.E2E.GroupRootKeyRequest.verify(message.groupRootKeyRequest, _depth + 1);
+                        if (error)
+                            return "groupRootKeyRequest." + error;
+                    }
+                }
+                if (message.membershipFormKeyFingerprintVerification != null && $Object.hasOwnProperty.call(message, "membershipFormKeyFingerprintVerification")) {
+                    properties._membershipFormKeyFingerprintVerification = 1;
+                    {
+                        var error = $root.E2E.MembershipFormKeyFingerprintVerification.verify(message.membershipFormKeyFingerprintVerification, _depth + 1);
+                        if (error)
+                            return "membershipFormKeyFingerprintVerification." + error;
+                    }
+                }
+                if (message.groupRootKeyShare != null && $Object.hasOwnProperty.call(message, "groupRootKeyShare")) {
+                    properties._groupRootKeyShare = 1;
+                    {
+                        var error = $root.E2E.GroupRootKeyShare.verify(message.groupRootKeyShare, _depth + 1);
+                        if (error)
+                            return "groupRootKeyShare." + error;
+                    }
+                }
                 return null;
             };
 
@@ -96661,6 +97490,18 @@ $root.E2E = (function() {
                 case 41:
                     message.type = 41;
                     break;
+                case "GROUP_ROOT_KEY_REQUEST":
+                case 42:
+                    message.type = 42;
+                    break;
+                case "MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION":
+                case 43:
+                    message.type = 43;
+                    break;
+                case "GROUP_ROOT_KEY_SHARE":
+                case 44:
+                    message.type = 44;
+                    break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
                         message.type = object.type;
@@ -96826,6 +97667,21 @@ $root.E2E = (function() {
                     for (var i = 0; i < object.additionalPromptIds.length; ++i)
                         message.additionalPromptIds[i] = $String(object.additionalPromptIds[i]);
                 }
+                if (object.groupRootKeyRequest != null) {
+                    if (!$util.isObject(object.groupRootKeyRequest))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.groupRootKeyRequest: object expected");
+                    message.groupRootKeyRequest = $root.E2E.GroupRootKeyRequest.fromObject(object.groupRootKeyRequest, _depth + 1);
+                }
+                if (object.membershipFormKeyFingerprintVerification != null) {
+                    if (!$util.isObject(object.membershipFormKeyFingerprintVerification))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.membershipFormKeyFingerprintVerification: object expected");
+                    message.membershipFormKeyFingerprintVerification = $root.E2E.MembershipFormKeyFingerprintVerification.fromObject(object.membershipFormKeyFingerprintVerification, _depth + 1);
+                }
+                if (object.groupRootKeyShare != null) {
+                    if (!$util.isObject(object.groupRootKeyShare))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.groupRootKeyShare: object expected");
+                    message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.fromObject(object.groupRootKeyShare, _depth + 1);
+                }
                 return message;
             };
 
@@ -96929,6 +97785,12 @@ $root.E2E = (function() {
                     for (var j = 0; j < message.additionalPromptIds.length; ++j)
                         object.additionalPromptIds[j] = message.additionalPromptIds[j];
                 }
+                if (message.groupRootKeyRequest != null && $Object.hasOwnProperty.call(message, "groupRootKeyRequest"))
+                    object.groupRootKeyRequest = $root.E2E.GroupRootKeyRequest.toObject(message.groupRootKeyRequest, options, _depth + 1);
+                if (message.membershipFormKeyFingerprintVerification != null && $Object.hasOwnProperty.call(message, "membershipFormKeyFingerprintVerification"))
+                    object.membershipFormKeyFingerprintVerification = $root.E2E.MembershipFormKeyFingerprintVerification.toObject(message.membershipFormKeyFingerprintVerification, options, _depth + 1);
+                if (message.groupRootKeyShare != null && $Object.hasOwnProperty.call(message, "groupRootKeyShare"))
+                    object.groupRootKeyShare = $root.E2E.GroupRootKeyShare.toObject(message.groupRootKeyShare, options, _depth + 1);
                 return object;
             };
 
@@ -96996,6 +97858,9 @@ $root.E2E = (function() {
              * @property {number} ACP2_SETTING=39 ACP2_SETTING value
              * @property {number} SHARED_DEVICE_CONTACT_HASH_KEY_SHARE=40 SHARED_DEVICE_CONTACT_HASH_KEY_SHARE value
              * @property {number} SHARED_DEVICE_CONTACT_HASH_KEY_REQUEST=41 SHARED_DEVICE_CONTACT_HASH_KEY_REQUEST value
+             * @property {number} GROUP_ROOT_KEY_REQUEST=42 GROUP_ROOT_KEY_REQUEST value
+             * @property {number} MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION=43 MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION value
+             * @property {number} GROUP_ROOT_KEY_SHARE=44 GROUP_ROOT_KEY_SHARE value
              */
             ProtocolMessage.Type = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -97034,6 +97899,9 @@ $root.E2E = (function() {
                 values[valuesById[39] = "ACP2_SETTING"] = 39;
                 values[valuesById[40] = "SHARED_DEVICE_CONTACT_HASH_KEY_SHARE"] = 40;
                 values[valuesById[41] = "SHARED_DEVICE_CONTACT_HASH_KEY_REQUEST"] = 41;
+                values[valuesById[42] = "GROUP_ROOT_KEY_REQUEST"] = 42;
+                values[valuesById[43] = "MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION"] = 43;
+                values[valuesById[44] = "GROUP_ROOT_KEY_SHARE"] = 44;
                 return values;
             })();
 
@@ -113280,6 +114148,481 @@ $root.E2E = (function() {
             })();
 
             return VideoMessage;
+        })();
+
+        Message.VpcRequestMessage = (function() {
+
+            /**
+             * Properties of a VpcRequestMessage.
+             * @typedef {Object} E2E.Message.VpcRequestMessage.$Properties
+             * @property {number|null} [payloadSchemaVersion] VpcRequestMessage payloadSchemaVersion
+             * @property {string|null} [requestId] VpcRequestMessage requestId
+             * @property {string|null} [launchRef] VpcRequestMessage launchRef
+             * @property {number|Long|null} [invitationExpiresAtMs] VpcRequestMessage invitationExpiresAtMs
+             * @property {E2E.Message.VpcRequestMessage.ScopeHint|null} [scopeHint] VpcRequestMessage scopeHint
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a VpcRequestMessage.
+             * @memberof E2E.Message
+             * @interface IVpcRequestMessage
+             * @augments E2E.Message.VpcRequestMessage.$Properties
+             * @deprecated Use E2E.Message.VpcRequestMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a VpcRequestMessage.
+             * @typedef {E2E.Message.VpcRequestMessage.$Properties} E2E.Message.VpcRequestMessage.$Shape
+             */
+
+            /**
+             * Constructs a new VpcRequestMessage.
+             * @memberof E2E.Message
+             * @classdesc Represents a VpcRequestMessage.
+             * @constructor
+             * @param {E2E.Message.VpcRequestMessage.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var VpcRequestMessage = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * VpcRequestMessage payloadSchemaVersion.
+             * @member {number|null|undefined} payloadSchemaVersion
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             */
+            VpcRequestMessage.prototype.payloadSchemaVersion = null;
+
+            /**
+             * VpcRequestMessage requestId.
+             * @member {string|null|undefined} requestId
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             */
+            VpcRequestMessage.prototype.requestId = null;
+
+            /**
+             * VpcRequestMessage launchRef.
+             * @member {string|null|undefined} launchRef
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             */
+            VpcRequestMessage.prototype.launchRef = null;
+
+            /**
+             * VpcRequestMessage invitationExpiresAtMs.
+             * @member {number|Long|null|undefined} invitationExpiresAtMs
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             */
+            VpcRequestMessage.prototype.invitationExpiresAtMs = null;
+
+            /**
+             * VpcRequestMessage scopeHint.
+             * @member {E2E.Message.VpcRequestMessage.ScopeHint|null|undefined} scopeHint
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             */
+            VpcRequestMessage.prototype.scopeHint = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(VpcRequestMessage.prototype, "_payloadSchemaVersion", {
+                get: $util.oneOfGetter($oneOfFields = ["payloadSchemaVersion"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(VpcRequestMessage.prototype, "_requestId", {
+                get: $util.oneOfGetter($oneOfFields = ["requestId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(VpcRequestMessage.prototype, "_launchRef", {
+                get: $util.oneOfGetter($oneOfFields = ["launchRef"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(VpcRequestMessage.prototype, "_invitationExpiresAtMs", {
+                get: $util.oneOfGetter($oneOfFields = ["invitationExpiresAtMs"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(VpcRequestMessage.prototype, "_scopeHint", {
+                get: $util.oneOfGetter($oneOfFields = ["scopeHint"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new VpcRequestMessage instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {E2E.Message.VpcRequestMessage.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.VpcRequestMessage} VpcRequestMessage instance
+             * @type {{
+             *   (properties: E2E.Message.VpcRequestMessage.$Shape): E2E.Message.VpcRequestMessage & E2E.Message.VpcRequestMessage.$Shape;
+             *   (properties?: E2E.Message.VpcRequestMessage.$Properties): E2E.Message.VpcRequestMessage;
+             * }}
+             */
+            VpcRequestMessage.create = function(properties) {
+                return new VpcRequestMessage(properties);
+            };
+
+            /**
+             * Encodes the specified VpcRequestMessage message. Does not implicitly {@link E2E.Message.VpcRequestMessage.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {E2E.Message.VpcRequestMessage.$Properties} message VpcRequestMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            VpcRequestMessage.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.payloadSchemaVersion != null && $Object.hasOwnProperty.call(message, "payloadSchemaVersion"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.payloadSchemaVersion);
+                if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.requestId);
+                if (message.launchRef != null && $Object.hasOwnProperty.call(message, "launchRef"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.launchRef);
+                if (message.invitationExpiresAtMs != null && $Object.hasOwnProperty.call(message, "invitationExpiresAtMs"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.invitationExpiresAtMs);
+                if (message.scopeHint != null && $Object.hasOwnProperty.call(message, "scopeHint"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.scopeHint);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified VpcRequestMessage message, length delimited. Does not implicitly {@link E2E.Message.VpcRequestMessage.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {E2E.Message.VpcRequestMessage.$Properties} message VpcRequestMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            VpcRequestMessage.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a VpcRequestMessage message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.VpcRequestMessage & E2E.Message.VpcRequestMessage.$Shape} VpcRequestMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            VpcRequestMessage.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.E2E.Message.VpcRequestMessage();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.payloadSchemaVersion = reader.uint32();
+                            message._payloadSchemaVersion = "payloadSchemaVersion";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.requestId = reader.stringVerify();
+                            message._requestId = "requestId";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.launchRef = reader.stringVerify();
+                            message._launchRef = "launchRef";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.invitationExpiresAtMs = reader.int64();
+                            message._invitationExpiresAtMs = "invitationExpiresAtMs";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.scopeHint = reader.int32();
+                            message._scopeHint = "scopeHint";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a VpcRequestMessage message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.VpcRequestMessage & E2E.Message.VpcRequestMessage.$Shape} VpcRequestMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            VpcRequestMessage.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a VpcRequestMessage message.
+             * @function verify
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            VpcRequestMessage.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.payloadSchemaVersion != null && $Object.hasOwnProperty.call(message, "payloadSchemaVersion")) {
+                    properties._payloadSchemaVersion = 1;
+                    if (!$util.isInteger(message.payloadSchemaVersion))
+                        return "payloadSchemaVersion: integer expected";
+                }
+                if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId")) {
+                    properties._requestId = 1;
+                    if (!$util.isString(message.requestId))
+                        return "requestId: string expected";
+                }
+                if (message.launchRef != null && $Object.hasOwnProperty.call(message, "launchRef")) {
+                    properties._launchRef = 1;
+                    if (!$util.isString(message.launchRef))
+                        return "launchRef: string expected";
+                }
+                if (message.invitationExpiresAtMs != null && $Object.hasOwnProperty.call(message, "invitationExpiresAtMs")) {
+                    properties._invitationExpiresAtMs = 1;
+                    if (!$util.isInteger(message.invitationExpiresAtMs) && !(message.invitationExpiresAtMs && $util.isInteger(message.invitationExpiresAtMs.low) && $util.isInteger(message.invitationExpiresAtMs.high)))
+                        return "invitationExpiresAtMs: integer|Long expected";
+                }
+                if (message.scopeHint != null && $Object.hasOwnProperty.call(message, "scopeHint")) {
+                    properties._scopeHint = 1;
+                    if (typeof message.scopeHint !== "number" || (message.scopeHint | 0) !== message.scopeHint)
+                        return "scopeHint: enum value expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a VpcRequestMessage message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.VpcRequestMessage} VpcRequestMessage
+             */
+            VpcRequestMessage.fromObject = function (object, _depth) {
+                if (object instanceof $root.E2E.Message.VpcRequestMessage)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".E2E.Message.VpcRequestMessage: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.E2E.Message.VpcRequestMessage();
+                if (object.payloadSchemaVersion != null)
+                    message.payloadSchemaVersion = object.payloadSchemaVersion >>> 0;
+                if (object.requestId != null)
+                    message.requestId = $String(object.requestId);
+                if (object.launchRef != null)
+                    message.launchRef = $String(object.launchRef);
+                if (object.invitationExpiresAtMs != null)
+                    if ($util.Long)
+                        message.invitationExpiresAtMs = $util.Long.fromValue(object.invitationExpiresAtMs, false);
+                    else if (typeof object.invitationExpiresAtMs === "string")
+                        message.invitationExpiresAtMs = $parseInt(object.invitationExpiresAtMs, 10);
+                    else if (typeof object.invitationExpiresAtMs === "number")
+                        message.invitationExpiresAtMs = object.invitationExpiresAtMs;
+                    else if (typeof object.invitationExpiresAtMs === "object")
+                        message.invitationExpiresAtMs = new $util.LongBits(object.invitationExpiresAtMs.low >>> 0, object.invitationExpiresAtMs.high >>> 0).toNumber();
+                switch (object.scopeHint) {
+                case "UNKNOWN":
+                case 0:
+                    message.scopeHint = 0;
+                    break;
+                case "WA_ONLY":
+                case 1:
+                    message.scopeHint = 1;
+                    break;
+                case "WAFFLE":
+                case 2:
+                    message.scopeHint = 2;
+                    break;
+                case "WA_META_AI":
+                case 3:
+                    message.scopeHint = 3;
+                    break;
+                case "META_AI_ONLY":
+                case 4:
+                    message.scopeHint = 4;
+                    break;
+                case "FOA_ONLY":
+                case 5:
+                    message.scopeHint = 5;
+                    break;
+                default:
+                    if (typeof object.scopeHint === "number" && (object.scopeHint | 0) === object.scopeHint)
+                        message.scopeHint = object.scopeHint;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a VpcRequestMessage message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {E2E.Message.VpcRequestMessage} message VpcRequestMessage
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            VpcRequestMessage.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.payloadSchemaVersion != null && $Object.hasOwnProperty.call(message, "payloadSchemaVersion"))
+                    object.payloadSchemaVersion = message.payloadSchemaVersion;
+                if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId"))
+                    object.requestId = message.requestId;
+                if (message.launchRef != null && $Object.hasOwnProperty.call(message, "launchRef"))
+                    object.launchRef = message.launchRef;
+                if (message.invitationExpiresAtMs != null && $Object.hasOwnProperty.call(message, "invitationExpiresAtMs"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.invitationExpiresAtMs = typeof message.invitationExpiresAtMs === "number" ? $BigInt(message.invitationExpiresAtMs) : $util.Long.fromBits(message.invitationExpiresAtMs.low >>> 0, message.invitationExpiresAtMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.invitationExpiresAtMs === "number")
+                        object.invitationExpiresAtMs = options.longs === $String ? $String(message.invitationExpiresAtMs) : message.invitationExpiresAtMs;
+                    else
+                        object.invitationExpiresAtMs = options.longs === $String ? $util.Long.prototype.toString.call(message.invitationExpiresAtMs) : options.longs === $Number ? new $util.LongBits(message.invitationExpiresAtMs.low >>> 0, message.invitationExpiresAtMs.high >>> 0).toNumber() : message.invitationExpiresAtMs;
+                if (message.scopeHint != null && $Object.hasOwnProperty.call(message, "scopeHint"))
+                    object.scopeHint = options.enums === $String ? $root.E2E.Message.VpcRequestMessage.ScopeHint[message.scopeHint] === $undefined ? message.scopeHint : $root.E2E.Message.VpcRequestMessage.ScopeHint[message.scopeHint] : message.scopeHint;
+                return object;
+            };
+
+            /**
+             * Converts this VpcRequestMessage to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            VpcRequestMessage.prototype.toJSON = function() {
+                return VpcRequestMessage.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for VpcRequestMessage
+             * @function getTypeUrl
+             * @memberof E2E.Message.VpcRequestMessage
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            VpcRequestMessage.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.VpcRequestMessage";
+            };
+
+            /**
+             * ScopeHint enum.
+             * @name E2E.Message.VpcRequestMessage.ScopeHint
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} WA_ONLY=1 WA_ONLY value
+             * @property {number} WAFFLE=2 WAFFLE value
+             * @property {number} WA_META_AI=3 WA_META_AI value
+             * @property {number} META_AI_ONLY=4 META_AI_ONLY value
+             * @property {number} FOA_ONLY=5 FOA_ONLY value
+             */
+            VpcRequestMessage.ScopeHint = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "WA_ONLY"] = 1;
+                values[valuesById[2] = "WAFFLE"] = 2;
+                values[valuesById[3] = "WA_META_AI"] = 3;
+                values[valuesById[4] = "META_AI_ONLY"] = 4;
+                values[valuesById[5] = "FOA_ONLY"] = 5;
+                return values;
+            })();
+
+            return VpcRequestMessage;
         })();
 
         return Message;
@@ -148625,6 +149968,18 @@ $root.AICommon = (function() {
                     case 84:
                         message.capabilities[message.capabilities.length] = 84;
                         break;
+                    case "AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED":
+                    case 85:
+                        message.capabilities[message.capabilities.length] = 85;
+                        break;
+                    case "AI_INTERJECTIONS_ENABLED":
+                    case 86:
+                        message.capabilities[message.capabilities.length] = 86;
+                        break;
+                    case "AI_RICH_RESPONSE_READ_ALOUD_ENABLED":
+                    case 87:
+                        message.capabilities[message.capabilities.length] = 87;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -148774,6 +150129,9 @@ $root.AICommon = (function() {
          * @property {number} AI_STUDY_QUIZ_ENABLED=82 AI_STUDY_QUIZ_ENABLED value
          * @property {number} HATCH_CVM_ENABLED=83 HATCH_CVM_ENABLED value
          * @property {number} RICH_RESPONSE_SOCIAL_ENTITY_PREFETCH_SCHEDULER_ENABLED=84 RICH_RESPONSE_SOCIAL_ENTITY_PREFETCH_SCHEDULER_ENABLED value
+         * @property {number} AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED=85 AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED value
+         * @property {number} AI_INTERJECTIONS_ENABLED=86 AI_INTERJECTIONS_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ENABLED=87 AI_RICH_RESPONSE_READ_ALOUD_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -148862,6 +150220,9 @@ $root.AICommon = (function() {
             values[valuesById[82] = "AI_STUDY_QUIZ_ENABLED"] = 82;
             values[valuesById[83] = "HATCH_CVM_ENABLED"] = 83;
             values[valuesById[84] = "RICH_RESPONSE_SOCIAL_ENTITY_PREFETCH_SCHEDULER_ENABLED"] = 84;
+            values[valuesById[85] = "AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED"] = 85;
+            values[valuesById[86] = "AI_INTERJECTIONS_ENABLED"] = 86;
+            values[valuesById[87] = "AI_RICH_RESPONSE_READ_ALOUD_ENABLED"] = 87;
             return values;
         })();
 
@@ -162650,7 +164011,8 @@ $root.StatusAttributions = (function() {
          * @property {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null} [groupStatus] StatusAttribution groupStatus
          * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
          * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
-         * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
+         * @property {StatusAttributions.StatusAttribution.StatusTemplate.$Properties|null} [statusTemplate] StatusAttribution statusTemplate
+         * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"|"statusTemplate"} [attributionData] StatusAttribution attributionData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -162673,9 +164035,10 @@ $root.StatusAttributions = (function() {
          *   groupStatus?: StatusAttributions.StatusAttribution.GroupStatus.$Shape|null;
          *   rlAttribution?: StatusAttributions.StatusAttribution.RLAttribution.$Shape|null;
          *   aiCreatedAttribution?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape|null;
+         *   statusTemplate?: StatusAttributions.StatusAttribution.StatusTemplate.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * } & (
-         *   ({ attributionData?: undefined; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "statusReshare"; statusReshare: StatusAttributions.StatusAttribution.StatusReshare.$Shape; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "externalShare"; statusReshare?: null; externalShare: StatusAttributions.StatusAttribution.ExternalShare.$Shape; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "music"; statusReshare?: null; externalShare?: null; music: StatusAttributions.StatusAttribution.Music.$Shape; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "groupStatus"; statusReshare?: null; externalShare?: null; music?: null; groupStatus: StatusAttributions.StatusAttribution.GroupStatus.$Shape; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "rlAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution: StatusAttributions.StatusAttribution.RLAttribution.$Shape; aiCreatedAttribution?: null }|{ attributionData?: "aiCreatedAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape })
+         *   ({ attributionData?: undefined; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null; statusTemplate?: null }|{ attributionData?: "statusReshare"; statusReshare: StatusAttributions.StatusAttribution.StatusReshare.$Shape; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null; statusTemplate?: null }|{ attributionData?: "externalShare"; statusReshare?: null; externalShare: StatusAttributions.StatusAttribution.ExternalShare.$Shape; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null; statusTemplate?: null }|{ attributionData?: "music"; statusReshare?: null; externalShare?: null; music: StatusAttributions.StatusAttribution.Music.$Shape; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null; statusTemplate?: null }|{ attributionData?: "groupStatus"; statusReshare?: null; externalShare?: null; music?: null; groupStatus: StatusAttributions.StatusAttribution.GroupStatus.$Shape; rlAttribution?: null; aiCreatedAttribution?: null; statusTemplate?: null }|{ attributionData?: "rlAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution: StatusAttributions.StatusAttribution.RLAttribution.$Shape; aiCreatedAttribution?: null; statusTemplate?: null }|{ attributionData?: "aiCreatedAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape; statusTemplate?: null }|{ attributionData?: "statusTemplate"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null; statusTemplate: StatusAttributions.StatusAttribution.StatusTemplate.$Shape })
          * )} StatusAttributions.StatusAttribution.$Shape
          */
 
@@ -162758,6 +164121,14 @@ $root.StatusAttributions = (function() {
          */
         StatusAttribution.prototype.aiCreatedAttribution = null;
 
+        /**
+         * StatusAttribution statusTemplate.
+         * @member {StatusAttributions.StatusAttribution.StatusTemplate.$Properties|null|undefined} statusTemplate
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        StatusAttribution.prototype.statusTemplate = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -162775,12 +164146,12 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution attributionData.
-         * @member {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"|undefined} attributionData
+         * @member {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"|"statusTemplate"|undefined} attributionData
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
         $Object.defineProperty(StatusAttribution.prototype, "attributionData", {
-            get: $util.oneOfGetter($oneOfFields = ["statusReshare", "externalShare", "music", "groupStatus", "rlAttribution", "aiCreatedAttribution"]),
+            get: $util.oneOfGetter($oneOfFields = ["statusReshare", "externalShare", "music", "groupStatus", "rlAttribution", "aiCreatedAttribution", "statusTemplate"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -162832,6 +164203,8 @@ $root.StatusAttributions = (function() {
                 $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
             if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
                 $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
+            if (message.statusTemplate != null && $Object.hasOwnProperty.call(message, "statusTemplate"))
+                $root.StatusAttributions.StatusAttribution.StatusTemplate.encode(message.statusTemplate, writer.uint32(/* id 9, wireType 2 =*/74).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -162943,6 +164316,13 @@ $root.StatusAttributions = (function() {
                             break;
                         message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.size(), $undefined, _depth + 1, message.aiCreatedAttribution);
                         message.attributionData = "aiCreatedAttribution";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.statusTemplate = $root.StatusAttributions.StatusAttribution.StatusTemplate.decode(reader, reader.size(), $undefined, _depth + 1, message.statusTemplate);
+                        message.attributionData = "statusTemplate";
                         continue;
                     }
                 }
@@ -163062,6 +164442,16 @@ $root.StatusAttributions = (function() {
                         return "aiCreatedAttribution." + error;
                 }
             }
+            if (message.statusTemplate != null && $Object.hasOwnProperty.call(message, "statusTemplate")) {
+                if (properties.attributionData === 1)
+                    return "attributionData: multiple values";
+                properties.attributionData = 1;
+                {
+                    var error = $root.StatusAttributions.StatusAttribution.StatusTemplate.verify(message.statusTemplate, _depth + 1);
+                    if (error)
+                        return "statusTemplate." + error;
+                }
+            }
             return null;
         };
 
@@ -163136,6 +164526,10 @@ $root.StatusAttributions = (function() {
             case 12:
                 message.type = 12;
                 break;
+            case "STATUS_TEMPLATES":
+            case 13:
+                message.type = 13;
+                break;
             default:
                 if (typeof object.type === "number" && (object.type | 0) === object.type)
                     message.type = object.type;
@@ -163171,6 +164565,11 @@ $root.StatusAttributions = (function() {
                 if (!$util.isObject(object.aiCreatedAttribution))
                     throw $TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
                 message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, _depth + 1);
+            }
+            if (object.statusTemplate != null) {
+                if (!$util.isObject(object.statusTemplate))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.statusTemplate: object expected");
+                message.statusTemplate = $root.StatusAttributions.StatusAttribution.StatusTemplate.fromObject(object.statusTemplate, _depth + 1);
             }
             return message;
         };
@@ -163225,6 +164624,11 @@ $root.StatusAttributions = (function() {
                 object.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.toObject(message.aiCreatedAttribution, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "aiCreatedAttribution";
+            }
+            if (message.statusTemplate != null && $Object.hasOwnProperty.call(message, "statusTemplate")) {
+                object.statusTemplate = $root.StatusAttributions.StatusAttribution.StatusTemplate.toObject(message.statusTemplate, options, _depth + 1);
+                if (options.oneofs)
+                    object.attributionData = "statusTemplate";
             }
             return object;
         };
@@ -165832,6 +167236,354 @@ $root.StatusAttributions = (function() {
             return StatusReshare;
         })();
 
+        StatusAttribution.StatusTemplate = (function() {
+
+            /**
+             * Properties of a StatusTemplate.
+             * @typedef {Object} StatusAttributions.StatusAttribution.StatusTemplate.$Properties
+             * @property {string|null} [templateId] StatusTemplate templateId
+             * @property {string|null} [templateName] StatusTemplate templateName
+             * @property {string|null} [thumbnailUrl] StatusTemplate thumbnailUrl
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a StatusTemplate.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IStatusTemplate
+             * @augments StatusAttributions.StatusAttribution.StatusTemplate.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.StatusTemplate.$Properties instead.
+             */
+
+            /**
+             * Shape of a StatusTemplate.
+             * @typedef {StatusAttributions.StatusAttribution.StatusTemplate.$Properties} StatusAttributions.StatusAttribution.StatusTemplate.$Shape
+             */
+
+            /**
+             * Constructs a new StatusTemplate.
+             * @memberof StatusAttributions.StatusAttribution
+             * @classdesc Represents a StatusTemplate.
+             * @constructor
+             * @param {StatusAttributions.StatusAttribution.StatusTemplate.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var StatusTemplate = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * StatusTemplate templateId.
+             * @member {string|null|undefined} templateId
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @instance
+             */
+            StatusTemplate.prototype.templateId = null;
+
+            /**
+             * StatusTemplate templateName.
+             * @member {string|null|undefined} templateName
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @instance
+             */
+            StatusTemplate.prototype.templateName = null;
+
+            /**
+             * StatusTemplate thumbnailUrl.
+             * @member {string|null|undefined} thumbnailUrl
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @instance
+             */
+            StatusTemplate.prototype.thumbnailUrl = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(StatusTemplate.prototype, "_templateId", {
+                get: $util.oneOfGetter($oneOfFields = ["templateId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(StatusTemplate.prototype, "_templateName", {
+                get: $util.oneOfGetter($oneOfFields = ["templateName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(StatusTemplate.prototype, "_thumbnailUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["thumbnailUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new StatusTemplate instance using the specified properties.
+             * @function create
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusTemplate.$Properties=} [properties] Properties to set
+             * @returns {StatusAttributions.StatusAttribution.StatusTemplate} StatusTemplate instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.StatusTemplate.$Shape): StatusAttributions.StatusAttribution.StatusTemplate & StatusAttributions.StatusAttribution.StatusTemplate.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.StatusTemplate.$Properties): StatusAttributions.StatusAttribution.StatusTemplate;
+             * }}
+             */
+            StatusTemplate.create = function(properties) {
+                return new StatusTemplate(properties);
+            };
+
+            /**
+             * Encodes the specified StatusTemplate message. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusTemplate.verify|verify} messages.
+             * @function encode
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusTemplate.$Properties} message StatusTemplate message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StatusTemplate.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.templateId != null && $Object.hasOwnProperty.call(message, "templateId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.templateId);
+                if (message.templateName != null && $Object.hasOwnProperty.call(message, "templateName"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.templateName);
+                if (message.thumbnailUrl != null && $Object.hasOwnProperty.call(message, "thumbnailUrl"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.thumbnailUrl);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StatusTemplate message, length delimited. Does not implicitly {@link StatusAttributions.StatusAttribution.StatusTemplate.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusTemplate.$Properties} message StatusTemplate message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StatusTemplate.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a StatusTemplate message from the specified reader or buffer.
+             * @function decode
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {StatusAttributions.StatusAttribution.StatusTemplate & StatusAttributions.StatusAttribution.StatusTemplate.$Shape} StatusTemplate
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StatusTemplate.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.StatusAttributions.StatusAttribution.StatusTemplate();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.templateId = reader.stringVerify();
+                            message._templateId = "templateId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.templateName = reader.stringVerify();
+                            message._templateName = "templateName";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.thumbnailUrl = reader.stringVerify();
+                            message._thumbnailUrl = "thumbnailUrl";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a StatusTemplate message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {StatusAttributions.StatusAttribution.StatusTemplate & StatusAttributions.StatusAttribution.StatusTemplate.$Shape} StatusTemplate
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StatusTemplate.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a StatusTemplate message.
+             * @function verify
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StatusTemplate.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.templateId != null && $Object.hasOwnProperty.call(message, "templateId")) {
+                    properties._templateId = 1;
+                    if (!$util.isString(message.templateId))
+                        return "templateId: string expected";
+                }
+                if (message.templateName != null && $Object.hasOwnProperty.call(message, "templateName")) {
+                    properties._templateName = 1;
+                    if (!$util.isString(message.templateName))
+                        return "templateName: string expected";
+                }
+                if (message.thumbnailUrl != null && $Object.hasOwnProperty.call(message, "thumbnailUrl")) {
+                    properties._thumbnailUrl = 1;
+                    if (!$util.isString(message.thumbnailUrl))
+                        return "thumbnailUrl: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StatusTemplate message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {StatusAttributions.StatusAttribution.StatusTemplate} StatusTemplate
+             */
+            StatusTemplate.fromObject = function (object, _depth) {
+                if (object instanceof $root.StatusAttributions.StatusAttribution.StatusTemplate)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".StatusAttributions.StatusAttribution.StatusTemplate: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.StatusAttributions.StatusAttribution.StatusTemplate();
+                if (object.templateId != null)
+                    message.templateId = $String(object.templateId);
+                if (object.templateName != null)
+                    message.templateName = $String(object.templateName);
+                if (object.thumbnailUrl != null)
+                    message.thumbnailUrl = $String(object.thumbnailUrl);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StatusTemplate message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {StatusAttributions.StatusAttribution.StatusTemplate} message StatusTemplate
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StatusTemplate.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.templateId != null && $Object.hasOwnProperty.call(message, "templateId"))
+                    object.templateId = message.templateId;
+                if (message.templateName != null && $Object.hasOwnProperty.call(message, "templateName"))
+                    object.templateName = message.templateName;
+                if (message.thumbnailUrl != null && $Object.hasOwnProperty.call(message, "thumbnailUrl"))
+                    object.thumbnailUrl = message.thumbnailUrl;
+                return object;
+            };
+
+            /**
+             * Converts this StatusTemplate to JSON.
+             * @function toJSON
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StatusTemplate.prototype.toJSON = function() {
+                return StatusTemplate.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for StatusTemplate
+             * @function getTypeUrl
+             * @memberof StatusAttributions.StatusAttribution.StatusTemplate
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            StatusTemplate.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.StatusTemplate";
+            };
+
+            return StatusTemplate;
+        })();
+
         /**
          * Type enum.
          * @name StatusAttributions.StatusAttribution.Type
@@ -165849,6 +167601,7 @@ $root.StatusAttributions = (function() {
          * @property {number} STATUS_CLOSE_SHARING=10 STATUS_CLOSE_SHARING value
          * @property {number} PAID_PARTNERSHIP=11 PAID_PARTNERSHIP value
          * @property {number} USERNAME_STATUS=12 USERNAME_STATUS value
+         * @property {number} STATUS_TEMPLATES=13 STATUS_TEMPLATES value
          */
         StatusAttribution.Type = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -165865,6 +167618,7 @@ $root.StatusAttributions = (function() {
             values[valuesById[10] = "STATUS_CLOSE_SHARING"] = 10;
             values[valuesById[11] = "PAID_PARTNERSHIP"] = 11;
             values[valuesById[12] = "USERNAME_STATUS"] = 12;
+            values[valuesById[13] = "STATUS_TEMPLATES"] = 13;
             return values;
         })();
 
@@ -165895,6 +167649,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [subscriptionSyncPayload] ClientPairingProps subscriptionSyncPayload
          * @property {boolean|null} [isBotJidDbMigrated] ClientPairingProps isBotJidDbMigrated
          * @property {Uint8Array|null} [companionAddPeerPayload] ClientPairingProps companionAddPeerPayload
+         * @property {boolean|null} [isCompanionRegistrationFgsEnabled] ClientPairingProps isCompanionRegistrationFgsEnabled
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -165982,6 +167737,14 @@ $root.CompanionReg = (function() {
          */
         ClientPairingProps.prototype.companionAddPeerPayload = null;
 
+        /**
+         * ClientPairingProps isCompanionRegistrationFgsEnabled.
+         * @member {boolean|null|undefined} isCompanionRegistrationFgsEnabled
+         * @memberof CompanionReg.ClientPairingProps
+         * @instance
+         */
+        ClientPairingProps.prototype.isCompanionRegistrationFgsEnabled = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -166024,6 +167787,12 @@ $root.CompanionReg = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(ClientPairingProps.prototype, "_companionAddPeerPayload", {
             get: $util.oneOfGetter($oneOfFields = ["companionAddPeerPayload"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ClientPairingProps.prototype, "_isCompanionRegistrationFgsEnabled", {
+            get: $util.oneOfGetter($oneOfFields = ["isCompanionRegistrationFgsEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -166073,6 +167842,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isBotJidDbMigrated);
             if (message.companionAddPeerPayload != null && $Object.hasOwnProperty.call(message, "companionAddPeerPayload"))
                 writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.companionAddPeerPayload);
+            if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled"))
+                writer.uint32(/* id 8, wireType 0 =*/64).bool(message.isCompanionRegistrationFgsEnabled);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -166179,6 +167950,13 @@ $root.CompanionReg = (function() {
                         message._companionAddPeerPayload = "companionAddPeerPayload";
                         continue;
                     }
+                case 8: {
+                        if (wireType !== 0)
+                            break;
+                        message.isCompanionRegistrationFgsEnabled = reader.bool();
+                        message._isCompanionRegistrationFgsEnabled = "isCompanionRegistrationFgsEnabled";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -166263,6 +168041,11 @@ $root.CompanionReg = (function() {
                 if (!(message.companionAddPeerPayload && typeof message.companionAddPeerPayload.length === "number" || $util.isString(message.companionAddPeerPayload)))
                     return "companionAddPeerPayload: buffer expected";
             }
+            if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled")) {
+                properties._isCompanionRegistrationFgsEnabled = 1;
+                if (typeof message.isCompanionRegistrationFgsEnabled !== "boolean")
+                    return "isCompanionRegistrationFgsEnabled: boolean expected";
+            }
             return null;
         };
 
@@ -166304,6 +168087,8 @@ $root.CompanionReg = (function() {
                     $util.base64.decode(object.companionAddPeerPayload, message.companionAddPeerPayload = $util.newBuffer($util.base64.length(object.companionAddPeerPayload)), 0);
                 else if (object.companionAddPeerPayload.length >= 0)
                     message.companionAddPeerPayload = object.companionAddPeerPayload;
+            if (object.isCompanionRegistrationFgsEnabled != null)
+                message.isCompanionRegistrationFgsEnabled = $Boolean(object.isCompanionRegistrationFgsEnabled);
             return message;
         };
 
@@ -166338,6 +168123,8 @@ $root.CompanionReg = (function() {
                 object.isBotJidDbMigrated = message.isBotJidDbMigrated;
             if (message.companionAddPeerPayload != null && $Object.hasOwnProperty.call(message, "companionAddPeerPayload"))
                 object.companionAddPeerPayload = options.bytes === $String ? $util.base64.encode(message.companionAddPeerPayload, 0, message.companionAddPeerPayload.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.companionAddPeerPayload) : message.companionAddPeerPayload;
+            if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled"))
+                object.isCompanionRegistrationFgsEnabled = message.isCompanionRegistrationFgsEnabled;
             return object;
         };
 

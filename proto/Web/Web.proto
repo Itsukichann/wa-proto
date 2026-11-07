@@ -389,6 +389,7 @@ message WebMessageInfo {
     optional string decisionId = 82;
     repeated string decisionSources = 83;
     optional EventInviteAdditionalMetadata eventInviteAdditionalMetadata = 84;
+    optional uint64 groupHistoryLastCountedMessageTimestamp = 85;
     enum BizPrivacyStatus {
         E2EE = 0;
         FB = 2;
