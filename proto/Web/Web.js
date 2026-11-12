@@ -17745,6 +17745,10 @@ $root.Web = (function() {
             case 291:
                 message.messageStubType = 291;
                 break;
+            case "GROUP_CUSTOM_REACTIONS":
+            case 293:
+                message.messageStubType = 293;
+                break;
             default:
                 if (typeof object.messageStubType === "number" && (object.messageStubType | 0) === object.messageStubType)
                     message.messageStubType = object.messageStubType;
@@ -18654,6 +18658,7 @@ $root.Web = (function() {
          * @property {number} SPLIT_PAYMENT_MARKED_AS_PAID=289 SPLIT_PAYMENT_MARKED_AS_PAID value
          * @property {number} POLL_OPTIONS_REMOVED=290 POLL_OPTIONS_REMOVED value
          * @property {number} POLL_ADDED_OPTION_REMOVED=291 POLL_ADDED_OPTION_REMOVED value
+         * @property {number} GROUP_CUSTOM_REACTIONS=293 GROUP_CUSTOM_REACTIONS value
          */
         WebMessageInfo.StubType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -18924,6 +18929,7 @@ $root.Web = (function() {
             values[valuesById[289] = "SPLIT_PAYMENT_MARKED_AS_PAID"] = 289;
             values[valuesById[290] = "POLL_OPTIONS_REMOVED"] = 290;
             values[valuesById[291] = "POLL_ADDED_OPTION_REMOVED"] = 291;
+            values[valuesById[293] = "GROUP_CUSTOM_REACTIONS"] = 293;
             return values;
         })();
 
