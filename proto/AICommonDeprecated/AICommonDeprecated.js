@@ -11700,6 +11700,10 @@ $root.AICommon = (function() {
             case 59:
                 message.botEntryPointOrigin = 59;
                 break;
+            case "BIRTHDAY_BANNER":
+            case 60:
+                message.botEntryPointOrigin = 60;
+                break;
             default:
                 if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
                     message.botEntryPointOrigin = object.botEntryPointOrigin;
@@ -29445,6 +29449,14 @@ $root.AICommon = (function() {
                     case 87:
                         message.capabilities[message.capabilities.length] = 87;
                         break;
+                    case "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED":
+                    case 88:
+                        message.capabilities[message.capabilities.length] = 88;
+                        break;
+                    case "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH":
+                    case 89:
+                        message.capabilities[message.capabilities.length] = 89;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -29597,6 +29609,8 @@ $root.AICommon = (function() {
          * @property {number} AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED=85 AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED value
          * @property {number} AI_INTERJECTIONS_ENABLED=86 AI_INTERJECTIONS_ENABLED value
          * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ENABLED=87 AI_RICH_RESPONSE_READ_ALOUD_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_ITEM_LISTS_ENABLED=88 AI_RICH_RESPONSE_ITEM_LISTS_ENABLED value
+         * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -29688,6 +29702,8 @@ $root.AICommon = (function() {
             values[valuesById[85] = "AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED"] = 85;
             values[valuesById[86] = "AI_INTERJECTIONS_ENABLED"] = 86;
             values[valuesById[87] = "AI_RICH_RESPONSE_READ_ALOUD_ENABLED"] = 87;
+            values[valuesById[88] = "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED"] = 88;
+            values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             return values;
         })();
 
@@ -34356,6 +34372,10 @@ $root.AICommon = (function() {
             case "SHARE":
             case 59:
                 message.destinationEntryPoint = 59;
+                break;
+            case "BIRTHDAY_BANNER":
+            case 60:
+                message.destinationEntryPoint = 60;
                 break;
             default:
                 if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
@@ -39776,6 +39796,7 @@ $root.AICommon = (function() {
      * @property {number} CONTACTS_TAB=57 CONTACTS_TAB value
      * @property {number} NEW_3P_AGENT_CREATION=58 NEW_3P_AGENT_CREATION value
      * @property {number} SHARE=59 SHARE value
+     * @property {number} BIRTHDAY_BANNER=60 BIRTHDAY_BANNER value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -39830,6 +39851,7 @@ $root.AICommon = (function() {
         values[valuesById[57] = "CONTACTS_TAB"] = 57;
         values[valuesById[58] = "NEW_3P_AGENT_CREATION"] = 58;
         values[valuesById[59] = "SHARE"] = 59;
+        values[valuesById[60] = "BIRTHDAY_BANNER"] = 60;
         return values;
     })();
 

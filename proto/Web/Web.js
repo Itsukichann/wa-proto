@@ -5893,6 +5893,8 @@ $root.Web = (function() {
          * @property {boolean|null} [pollInvalidated] PollAdditionalMetadata pollInvalidated
          * @property {Array.<Web.PollAdditionalMetadata.PollNameHashHistoryEntry.$Properties>|null} [pollNameHashHistory] PollAdditionalMetadata pollNameHashHistory
          * @property {Array.<E2E.Message.PollCreationMessage.Option.$Properties>|null} [originalOptions] PollAdditionalMetadata originalOptions
+         * @property {Array.<Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties>|null} [pollOptionReplayEntries] PollAdditionalMetadata pollOptionReplayEntries
+         * @property {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties|null} [pollOptionReplayBase] PollAdditionalMetadata pollOptionReplayBase
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -5920,6 +5922,7 @@ $root.Web = (function() {
         var PollAdditionalMetadata = function (properties) {
             this.pollNameHashHistory = [];
             this.originalOptions = [];
+            this.pollOptionReplayEntries = [];
             if (properties)
                 for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -5950,12 +5953,34 @@ $root.Web = (function() {
          */
         PollAdditionalMetadata.prototype.originalOptions = $util.emptyArray;
 
+        /**
+         * PollAdditionalMetadata pollOptionReplayEntries.
+         * @member {Array.<Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties>} pollOptionReplayEntries
+         * @memberof Web.PollAdditionalMetadata
+         * @instance
+         */
+        PollAdditionalMetadata.prototype.pollOptionReplayEntries = $util.emptyArray;
+
+        /**
+         * PollAdditionalMetadata pollOptionReplayBase.
+         * @member {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties|null|undefined} pollOptionReplayBase
+         * @memberof Web.PollAdditionalMetadata
+         * @instance
+         */
+        PollAdditionalMetadata.prototype.pollOptionReplayBase = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(PollAdditionalMetadata.prototype, "_pollInvalidated", {
             get: $util.oneOfGetter($oneOfFields = ["pollInvalidated"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(PollAdditionalMetadata.prototype, "_pollOptionReplayBase", {
+            get: $util.oneOfGetter($oneOfFields = ["pollOptionReplayBase"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -5999,6 +6024,11 @@ $root.Web = (function() {
             if (message.originalOptions != null && message.originalOptions.length)
                 for (var i = 0; i < message.originalOptions.length; ++i)
                     $root.E2E.Message.PollCreationMessage.Option.encode(message.originalOptions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+            if (message.pollOptionReplayEntries != null && message.pollOptionReplayEntries.length)
+                for (var i = 0; i < message.pollOptionReplayEntries.length; ++i)
+                    $root.Web.PollAdditionalMetadata.PollOptionReplayEntry.encode(message.pollOptionReplayEntries[i], writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
+            if (message.pollOptionReplayBase != null && $Object.hasOwnProperty.call(message, "pollOptionReplayBase"))
+                $root.Web.PollAdditionalMetadata.PollOptionReplayBase.encode(message.pollOptionReplayBase, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -6079,6 +6109,21 @@ $root.Web = (function() {
                         message.originalOptions.push($root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.size(), $undefined, _depth + 1));
                         continue;
                     }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.pollOptionReplayEntries && message.pollOptionReplayEntries.length))
+                            message.pollOptionReplayEntries = [];
+                        message.pollOptionReplayEntries.push($root.Web.PollAdditionalMetadata.PollOptionReplayEntry.decode(reader, reader.size(), $undefined, _depth + 1));
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.pollOptionReplayBase = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.decode(reader, reader.size(), $undefined, _depth + 1, message.pollOptionReplayBase);
+                        message._pollOptionReplayBase = "pollOptionReplayBase";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -6151,6 +6196,23 @@ $root.Web = (function() {
                         return "originalOptions." + error;
                 }
             }
+            if (message.pollOptionReplayEntries != null && $Object.hasOwnProperty.call(message, "pollOptionReplayEntries")) {
+                if (!$Array.isArray(message.pollOptionReplayEntries))
+                    return "pollOptionReplayEntries: array expected";
+                for (var i = 0; i < message.pollOptionReplayEntries.length; ++i) {
+                    var error = $root.Web.PollAdditionalMetadata.PollOptionReplayEntry.verify(message.pollOptionReplayEntries[i], _depth + 1);
+                    if (error)
+                        return "pollOptionReplayEntries." + error;
+                }
+            }
+            if (message.pollOptionReplayBase != null && $Object.hasOwnProperty.call(message, "pollOptionReplayBase")) {
+                properties._pollOptionReplayBase = 1;
+                {
+                    var error = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.verify(message.pollOptionReplayBase, _depth + 1);
+                    if (error)
+                        return "pollOptionReplayBase." + error;
+                }
+            }
             return null;
         };
 
@@ -6194,6 +6256,21 @@ $root.Web = (function() {
                     message.originalOptions[i] = $root.E2E.Message.PollCreationMessage.Option.fromObject(object.originalOptions[i], _depth + 1);
                 }
             }
+            if (object.pollOptionReplayEntries) {
+                if (!$Array.isArray(object.pollOptionReplayEntries))
+                    throw $TypeError(".Web.PollAdditionalMetadata.pollOptionReplayEntries: array expected");
+                message.pollOptionReplayEntries = $Array(object.pollOptionReplayEntries.length);
+                for (var i = 0; i < object.pollOptionReplayEntries.length; ++i) {
+                    if (!$util.isObject(object.pollOptionReplayEntries[i]))
+                        throw $TypeError(".Web.PollAdditionalMetadata.pollOptionReplayEntries: object expected");
+                    message.pollOptionReplayEntries[i] = $root.Web.PollAdditionalMetadata.PollOptionReplayEntry.fromObject(object.pollOptionReplayEntries[i], _depth + 1);
+                }
+            }
+            if (object.pollOptionReplayBase != null) {
+                if (!$util.isObject(object.pollOptionReplayBase))
+                    throw $TypeError(".Web.PollAdditionalMetadata.pollOptionReplayBase: object expected");
+                message.pollOptionReplayBase = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.fromObject(object.pollOptionReplayBase, _depth + 1);
+            }
             return message;
         };
 
@@ -6217,6 +6294,7 @@ $root.Web = (function() {
             if (options.arrays || options.defaults) {
                 object.pollNameHashHistory = [];
                 object.originalOptions = [];
+                object.pollOptionReplayEntries = [];
             }
             if (message.pollInvalidated != null && $Object.hasOwnProperty.call(message, "pollInvalidated"))
                 object.pollInvalidated = message.pollInvalidated;
@@ -6230,6 +6308,13 @@ $root.Web = (function() {
                 for (var j = 0; j < message.originalOptions.length; ++j)
                     object.originalOptions[j] = $root.E2E.Message.PollCreationMessage.Option.toObject(message.originalOptions[j], options, _depth + 1);
             }
+            if (message.pollOptionReplayEntries && message.pollOptionReplayEntries.length) {
+                object.pollOptionReplayEntries = $Array(message.pollOptionReplayEntries.length);
+                for (var j = 0; j < message.pollOptionReplayEntries.length; ++j)
+                    object.pollOptionReplayEntries[j] = $root.Web.PollAdditionalMetadata.PollOptionReplayEntry.toObject(message.pollOptionReplayEntries[j], options, _depth + 1);
+            }
+            if (message.pollOptionReplayBase != null && $Object.hasOwnProperty.call(message, "pollOptionReplayBase"))
+                object.pollOptionReplayBase = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.toObject(message.pollOptionReplayBase, options, _depth + 1);
             return object;
         };
 
@@ -6574,6 +6659,1293 @@ $root.Web = (function() {
             };
 
             return PollNameHashHistoryEntry;
+        })();
+
+        PollAdditionalMetadata.PollOptionReplayBase = (function() {
+
+            /**
+             * Properties of a PollOptionReplayBase.
+             * @typedef {Object} Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties
+             * @property {number|Long|null} [boundaryTimestampMs] PollOptionReplayBase boundaryTimestampMs
+             * @property {number|Long|null} [editTimestampMs] PollOptionReplayBase editTimestampMs
+             * @property {Array.<Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties>|null} [options] PollOptionReplayBase options
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a PollOptionReplayBase.
+             * @memberof Web.PollAdditionalMetadata
+             * @interface IPollOptionReplayBase
+             * @augments Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties
+             * @deprecated Use Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties instead.
+             */
+
+            /**
+             * Shape of a PollOptionReplayBase.
+             * @typedef {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties} Web.PollAdditionalMetadata.PollOptionReplayBase.$Shape
+             */
+
+            /**
+             * Constructs a new PollOptionReplayBase.
+             * @memberof Web.PollAdditionalMetadata
+             * @classdesc Represents a PollOptionReplayBase.
+             * @constructor
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var PollOptionReplayBase = function (properties) {
+                this.options = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * PollOptionReplayBase boundaryTimestampMs.
+             * @member {number|Long|null|undefined} boundaryTimestampMs
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @instance
+             */
+            PollOptionReplayBase.prototype.boundaryTimestampMs = null;
+
+            /**
+             * PollOptionReplayBase editTimestampMs.
+             * @member {number|Long|null|undefined} editTimestampMs
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @instance
+             */
+            PollOptionReplayBase.prototype.editTimestampMs = null;
+
+            /**
+             * PollOptionReplayBase options.
+             * @member {Array.<Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties>} options
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @instance
+             */
+            PollOptionReplayBase.prototype.options = $util.emptyArray;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayBase.prototype, "_boundaryTimestampMs", {
+                get: $util.oneOfGetter($oneOfFields = ["boundaryTimestampMs"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayBase.prototype, "_editTimestampMs", {
+                get: $util.oneOfGetter($oneOfFields = ["editTimestampMs"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new PollOptionReplayBase instance using the specified properties.
+             * @function create
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties=} [properties] Properties to set
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase} PollOptionReplayBase instance
+             * @type {{
+             *   (properties: Web.PollAdditionalMetadata.PollOptionReplayBase.$Shape): Web.PollAdditionalMetadata.PollOptionReplayBase & Web.PollAdditionalMetadata.PollOptionReplayBase.$Shape;
+             *   (properties?: Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties): Web.PollAdditionalMetadata.PollOptionReplayBase;
+             * }}
+             */
+            PollOptionReplayBase.create = function(properties) {
+                return new PollOptionReplayBase(properties);
+            };
+
+            /**
+             * Encodes the specified PollOptionReplayBase message. Does not implicitly {@link Web.PollAdditionalMetadata.PollOptionReplayBase.verify|verify} messages.
+             * @function encode
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties} message PollOptionReplayBase message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PollOptionReplayBase.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.boundaryTimestampMs != null && $Object.hasOwnProperty.call(message, "boundaryTimestampMs"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int64(message.boundaryTimestampMs);
+                if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.editTimestampMs);
+                if (message.options != null && message.options.length)
+                    for (var i = 0; i < message.options.length; ++i)
+                        $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option.encode(message.options[i], writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified PollOptionReplayBase message, length delimited. Does not implicitly {@link Web.PollAdditionalMetadata.PollOptionReplayBase.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.$Properties} message PollOptionReplayBase message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PollOptionReplayBase.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a PollOptionReplayBase message from the specified reader or buffer.
+             * @function decode
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase & Web.PollAdditionalMetadata.PollOptionReplayBase.$Shape} PollOptionReplayBase
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PollOptionReplayBase.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.Web.PollAdditionalMetadata.PollOptionReplayBase();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.boundaryTimestampMs = reader.int64();
+                            message._boundaryTimestampMs = "boundaryTimestampMs";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.editTimestampMs = reader.int64();
+                            message._editTimestampMs = "editTimestampMs";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.options && message.options.length))
+                                message.options = [];
+                            message.options.push($root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option.decode(reader, reader.size(), $undefined, _depth + 1));
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a PollOptionReplayBase message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase & Web.PollAdditionalMetadata.PollOptionReplayBase.$Shape} PollOptionReplayBase
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PollOptionReplayBase.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a PollOptionReplayBase message.
+             * @function verify
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            PollOptionReplayBase.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.boundaryTimestampMs != null && $Object.hasOwnProperty.call(message, "boundaryTimestampMs")) {
+                    properties._boundaryTimestampMs = 1;
+                    if (!$util.isInteger(message.boundaryTimestampMs) && !(message.boundaryTimestampMs && $util.isInteger(message.boundaryTimestampMs.low) && $util.isInteger(message.boundaryTimestampMs.high)))
+                        return "boundaryTimestampMs: integer|Long expected";
+                }
+                if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs")) {
+                    properties._editTimestampMs = 1;
+                    if (!$util.isInteger(message.editTimestampMs) && !(message.editTimestampMs && $util.isInteger(message.editTimestampMs.low) && $util.isInteger(message.editTimestampMs.high)))
+                        return "editTimestampMs: integer|Long expected";
+                }
+                if (message.options != null && $Object.hasOwnProperty.call(message, "options")) {
+                    if (!$Array.isArray(message.options))
+                        return "options: array expected";
+                    for (var i = 0; i < message.options.length; ++i) {
+                        var error = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option.verify(message.options[i], _depth + 1);
+                        if (error)
+                            return "options." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a PollOptionReplayBase message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase} PollOptionReplayBase
+             */
+            PollOptionReplayBase.fromObject = function (object, _depth) {
+                if (object instanceof $root.Web.PollAdditionalMetadata.PollOptionReplayBase)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayBase: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.Web.PollAdditionalMetadata.PollOptionReplayBase();
+                if (object.boundaryTimestampMs != null)
+                    if ($util.Long)
+                        message.boundaryTimestampMs = $util.Long.fromValue(object.boundaryTimestampMs, false);
+                    else if (typeof object.boundaryTimestampMs === "string")
+                        message.boundaryTimestampMs = $parseInt(object.boundaryTimestampMs, 10);
+                    else if (typeof object.boundaryTimestampMs === "number")
+                        message.boundaryTimestampMs = object.boundaryTimestampMs;
+                    else if (typeof object.boundaryTimestampMs === "object")
+                        message.boundaryTimestampMs = new $util.LongBits(object.boundaryTimestampMs.low >>> 0, object.boundaryTimestampMs.high >>> 0).toNumber();
+                if (object.editTimestampMs != null)
+                    if ($util.Long)
+                        message.editTimestampMs = $util.Long.fromValue(object.editTimestampMs, false);
+                    else if (typeof object.editTimestampMs === "string")
+                        message.editTimestampMs = $parseInt(object.editTimestampMs, 10);
+                    else if (typeof object.editTimestampMs === "number")
+                        message.editTimestampMs = object.editTimestampMs;
+                    else if (typeof object.editTimestampMs === "object")
+                        message.editTimestampMs = new $util.LongBits(object.editTimestampMs.low >>> 0, object.editTimestampMs.high >>> 0).toNumber();
+                if (object.options) {
+                    if (!$Array.isArray(object.options))
+                        throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayBase.options: array expected");
+                    message.options = $Array(object.options.length);
+                    for (var i = 0; i < object.options.length; ++i) {
+                        if (!$util.isObject(object.options[i]))
+                            throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayBase.options: object expected");
+                        message.options[i] = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option.fromObject(object.options[i], _depth + 1);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a PollOptionReplayBase message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayBase} message PollOptionReplayBase
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            PollOptionReplayBase.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.options = [];
+                if (message.boundaryTimestampMs != null && $Object.hasOwnProperty.call(message, "boundaryTimestampMs"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.boundaryTimestampMs = typeof message.boundaryTimestampMs === "number" ? $BigInt(message.boundaryTimestampMs) : $util.Long.fromBits(message.boundaryTimestampMs.low >>> 0, message.boundaryTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.boundaryTimestampMs === "number")
+                        object.boundaryTimestampMs = options.longs === $String ? $String(message.boundaryTimestampMs) : message.boundaryTimestampMs;
+                    else
+                        object.boundaryTimestampMs = options.longs === $String ? $util.Long.prototype.toString.call(message.boundaryTimestampMs) : options.longs === $Number ? new $util.LongBits(message.boundaryTimestampMs.low >>> 0, message.boundaryTimestampMs.high >>> 0).toNumber() : message.boundaryTimestampMs;
+                if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.editTimestampMs = typeof message.editTimestampMs === "number" ? $BigInt(message.editTimestampMs) : $util.Long.fromBits(message.editTimestampMs.low >>> 0, message.editTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.editTimestampMs === "number")
+                        object.editTimestampMs = options.longs === $String ? $String(message.editTimestampMs) : message.editTimestampMs;
+                    else
+                        object.editTimestampMs = options.longs === $String ? $util.Long.prototype.toString.call(message.editTimestampMs) : options.longs === $Number ? new $util.LongBits(message.editTimestampMs.low >>> 0, message.editTimestampMs.high >>> 0).toNumber() : message.editTimestampMs;
+                if (message.options && message.options.length) {
+                    object.options = $Array(message.options.length);
+                    for (var j = 0; j < message.options.length; ++j)
+                        object.options[j] = $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option.toObject(message.options[j], options, _depth + 1);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this PollOptionReplayBase to JSON.
+             * @function toJSON
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            PollOptionReplayBase.prototype.toJSON = function() {
+                return PollOptionReplayBase.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for PollOptionReplayBase
+             * @function getTypeUrl
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            PollOptionReplayBase.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Web.PollAdditionalMetadata.PollOptionReplayBase";
+            };
+
+            PollOptionReplayBase.Option = (function() {
+
+                /**
+                 * Properties of an Option.
+                 * @typedef {Object} Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties
+                 * @property {Uint8Array|null} [optionHash] Option optionHash
+                 * @property {number|Long|null} [enteredTimestampMs] Option enteredTimestampMs
+                 * @property {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties|null} [addMessageKey] Option addMessageKey
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+
+                /**
+                 * Properties of an Option.
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+                 * @interface IOption
+                 * @augments Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties
+                 * @deprecated Use Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties instead.
+                 */
+
+                /**
+                 * Shape of an Option.
+                 * @typedef {Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties} Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Shape
+                 */
+
+                /**
+                 * Constructs a new Option.
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase
+                 * @classdesc Represents an Option.
+                 * @constructor
+                 * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+                 */
+                var Option = function (properties) {
+                    if (properties)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                this[keys[i]] = properties[keys[i]];
+                };
+
+                /**
+                 * Option optionHash.
+                 * @member {Uint8Array|null|undefined} optionHash
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @instance
+                 */
+                Option.prototype.optionHash = null;
+
+                /**
+                 * Option enteredTimestampMs.
+                 * @member {number|Long|null|undefined} enteredTimestampMs
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @instance
+                 */
+                Option.prototype.enteredTimestampMs = null;
+
+                /**
+                 * Option addMessageKey.
+                 * @member {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties|null|undefined} addMessageKey
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @instance
+                 */
+                Option.prototype.addMessageKey = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Option.prototype, "_optionHash", {
+                    get: $util.oneOfGetter($oneOfFields = ["optionHash"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Option.prototype, "_enteredTimestampMs", {
+                    get: $util.oneOfGetter($oneOfFields = ["enteredTimestampMs"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Option.prototype, "_addMessageKey", {
+                    get: $util.oneOfGetter($oneOfFields = ["addMessageKey"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Creates a new Option instance using the specified properties.
+                 * @function create
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties=} [properties] Properties to set
+                 * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase.Option} Option instance
+                 * @type {{
+                 *   (properties: Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Shape): Web.PollAdditionalMetadata.PollOptionReplayBase.Option & Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Shape;
+                 *   (properties?: Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties): Web.PollAdditionalMetadata.PollOptionReplayBase.Option;
+                 * }}
+                 */
+                Option.create = function(properties) {
+                    return new Option(properties);
+                };
+
+                /**
+                 * Encodes the specified Option message. Does not implicitly {@link Web.PollAdditionalMetadata.PollOptionReplayBase.Option.verify|verify} messages.
+                 * @function encode
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties} message Option message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Option.encode = function (message, writer, _depth) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    if (message.optionHash != null && $Object.hasOwnProperty.call(message, "optionHash"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.optionHash);
+                    if (message.enteredTimestampMs != null && $Object.hasOwnProperty.call(message, "enteredTimestampMs"))
+                        writer.uint32(/* id 2, wireType 0 =*/16).int64(message.enteredTimestampMs);
+                    if (message.addMessageKey != null && $Object.hasOwnProperty.call(message, "addMessageKey"))
+                        $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.encode(message.addMessageKey, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Option message, length delimited. Does not implicitly {@link Web.PollAdditionalMetadata.PollOptionReplayBase.Option.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Properties} message Option message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Option.encodeDelimited = function(message, writer) {
+                    return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+                };
+
+                /**
+                 * Decodes an Option message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase.Option & Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Shape} Option
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Option.decode = function (reader, length, _end, _depth, _target) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var end, message;
+                    if (length === $undefined)
+                        end = reader.len;
+                    else {
+                        end = reader.pos + length;
+                        if (end > reader.len)
+                            throw $RangeError("index out of range");
+                        length = reader.len;
+                        reader.len = end;
+                    }
+                    message = _target || new $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option();
+                    while (reader.pos < end) {
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = $undefined;
+                            break;
+                        }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.optionHash = reader.bytes();
+                                message._optionHash = "optionHash";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.enteredTimestampMs = reader.int64();
+                                message._enteredTimestampMs = "enteredTimestampMs";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.addMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.addMessageKey);
+                                message._addMessageKey = "addMessageKey";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
+                    }
+                    if (length !== $undefined) {
+                        if (reader.pos !== end)
+                            throw $RangeError("index out of range");
+                        reader.len = length;
+                    }
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
+                    return message;
+                };
+
+                /**
+                 * Decodes an Option message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase.Option & Web.PollAdditionalMetadata.PollOptionReplayBase.Option.$Shape} Option
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Option.decodeDelimited = function(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.size());
+                };
+
+                /**
+                 * Verifies an Option message.
+                 * @function verify
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Option.verify = function (message, _depth) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
+                    var properties = {};
+                    if (message.optionHash != null && $Object.hasOwnProperty.call(message, "optionHash")) {
+                        properties._optionHash = 1;
+                        if (!(message.optionHash && typeof message.optionHash.length === "number" || $util.isString(message.optionHash)))
+                            return "optionHash: buffer expected";
+                    }
+                    if (message.enteredTimestampMs != null && $Object.hasOwnProperty.call(message, "enteredTimestampMs")) {
+                        properties._enteredTimestampMs = 1;
+                        if (!$util.isInteger(message.enteredTimestampMs) && !(message.enteredTimestampMs && $util.isInteger(message.enteredTimestampMs.low) && $util.isInteger(message.enteredTimestampMs.high)))
+                            return "enteredTimestampMs: integer|Long expected";
+                    }
+                    if (message.addMessageKey != null && $Object.hasOwnProperty.call(message, "addMessageKey")) {
+                        properties._addMessageKey = 1;
+                        {
+                            var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.verify(message.addMessageKey, _depth + 1);
+                            if (error)
+                                return "addMessageKey." + error;
+                        }
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates an Option message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {Web.PollAdditionalMetadata.PollOptionReplayBase.Option} Option
+                 */
+                Option.fromObject = function (object, _depth) {
+                    if (object instanceof $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option)
+                        return object;
+                    if (!$util.isObject(object))
+                        throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayBase.Option: object expected");
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var message = new $root.Web.PollAdditionalMetadata.PollOptionReplayBase.Option();
+                    if (object.optionHash != null)
+                        if (typeof object.optionHash === "string")
+                            $util.base64.decode(object.optionHash, message.optionHash = $util.newBuffer($util.base64.length(object.optionHash)), 0);
+                        else if (object.optionHash.length >= 0)
+                            message.optionHash = object.optionHash;
+                    if (object.enteredTimestampMs != null)
+                        if ($util.Long)
+                            message.enteredTimestampMs = $util.Long.fromValue(object.enteredTimestampMs, false);
+                        else if (typeof object.enteredTimestampMs === "string")
+                            message.enteredTimestampMs = $parseInt(object.enteredTimestampMs, 10);
+                        else if (typeof object.enteredTimestampMs === "number")
+                            message.enteredTimestampMs = object.enteredTimestampMs;
+                        else if (typeof object.enteredTimestampMs === "object")
+                            message.enteredTimestampMs = new $util.LongBits(object.enteredTimestampMs.low >>> 0, object.enteredTimestampMs.high >>> 0).toNumber();
+                    if (object.addMessageKey != null) {
+                        if (!$util.isObject(object.addMessageKey))
+                            throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayBase.Option.addMessageKey: object expected");
+                        message.addMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.fromObject(object.addMessageKey, _depth + 1);
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from an Option message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {Web.PollAdditionalMetadata.PollOptionReplayBase.Option} message Option
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Option.toObject = function (message, options, _depth) {
+                    if (!options)
+                        options = {};
+                    if (_depth === $undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw $Error("max depth exceeded");
+                    var object = {};
+                    if (message.optionHash != null && $Object.hasOwnProperty.call(message, "optionHash"))
+                        object.optionHash = options.bytes === $String ? $util.base64.encode(message.optionHash, 0, message.optionHash.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.optionHash) : message.optionHash;
+                    if (message.enteredTimestampMs != null && $Object.hasOwnProperty.call(message, "enteredTimestampMs"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.enteredTimestampMs = typeof message.enteredTimestampMs === "number" ? $BigInt(message.enteredTimestampMs) : $util.Long.fromBits(message.enteredTimestampMs.low >>> 0, message.enteredTimestampMs.high >>> 0, false).toBigInt();
+                        else if (typeof message.enteredTimestampMs === "number")
+                            object.enteredTimestampMs = options.longs === $String ? $String(message.enteredTimestampMs) : message.enteredTimestampMs;
+                        else
+                            object.enteredTimestampMs = options.longs === $String ? $util.Long.prototype.toString.call(message.enteredTimestampMs) : options.longs === $Number ? new $util.LongBits(message.enteredTimestampMs.low >>> 0, message.enteredTimestampMs.high >>> 0).toNumber() : message.enteredTimestampMs;
+                    if (message.addMessageKey != null && $Object.hasOwnProperty.call(message, "addMessageKey"))
+                        object.addMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.toObject(message.addMessageKey, options, _depth + 1);
+                    return object;
+                };
+
+                /**
+                 * Converts this Option to JSON.
+                 * @function toJSON
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Option.prototype.toJSON = function() {
+                    return Option.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the type url for Option
+                 * @function getTypeUrl
+                 * @memberof Web.PollAdditionalMetadata.PollOptionReplayBase.Option
+                 * @static
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
+                 */
+                Option.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/Web.PollAdditionalMetadata.PollOptionReplayBase.Option";
+                };
+
+                return Option;
+            })();
+
+            return PollOptionReplayBase;
+        })();
+
+        PollAdditionalMetadata.PollOptionReplayEntry = (function() {
+
+            /**
+             * Properties of a PollOptionReplayEntry.
+             * @typedef {Object} Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties
+             * @property {Web.PollAdditionalMetadata.PollOptionReplayEntry.Type|null} [type] PollOptionReplayEntry type
+             * @property {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties|null} [messageKey] PollOptionReplayEntry messageKey
+             * @property {number|Long|null} [serverTimestampMs] PollOptionReplayEntry serverTimestampMs
+             * @property {number|Long|null} [editTimestampMs] PollOptionReplayEntry editTimestampMs
+             * @property {Array.<Uint8Array>|null} [optionHashes] PollOptionReplayEntry optionHashes
+             * @property {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties|null} [revokedMessageKey] PollOptionReplayEntry revokedMessageKey
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a PollOptionReplayEntry.
+             * @memberof Web.PollAdditionalMetadata
+             * @interface IPollOptionReplayEntry
+             * @augments Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties
+             * @deprecated Use Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties instead.
+             */
+
+            /**
+             * Shape of a PollOptionReplayEntry.
+             * @typedef {Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties} Web.PollAdditionalMetadata.PollOptionReplayEntry.$Shape
+             */
+
+            /**
+             * Constructs a new PollOptionReplayEntry.
+             * @memberof Web.PollAdditionalMetadata
+             * @classdesc Represents a PollOptionReplayEntry.
+             * @constructor
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var PollOptionReplayEntry = function (properties) {
+                this.optionHashes = [];
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * PollOptionReplayEntry type.
+             * @member {Web.PollAdditionalMetadata.PollOptionReplayEntry.Type|null|undefined} type
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             */
+            PollOptionReplayEntry.prototype.type = null;
+
+            /**
+             * PollOptionReplayEntry messageKey.
+             * @member {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties|null|undefined} messageKey
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             */
+            PollOptionReplayEntry.prototype.messageKey = null;
+
+            /**
+             * PollOptionReplayEntry serverTimestampMs.
+             * @member {number|Long|null|undefined} serverTimestampMs
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             */
+            PollOptionReplayEntry.prototype.serverTimestampMs = null;
+
+            /**
+             * PollOptionReplayEntry editTimestampMs.
+             * @member {number|Long|null|undefined} editTimestampMs
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             */
+            PollOptionReplayEntry.prototype.editTimestampMs = null;
+
+            /**
+             * PollOptionReplayEntry optionHashes.
+             * @member {Array.<Uint8Array>} optionHashes
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             */
+            PollOptionReplayEntry.prototype.optionHashes = $util.emptyArray;
+
+            /**
+             * PollOptionReplayEntry revokedMessageKey.
+             * @member {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties|null|undefined} revokedMessageKey
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             */
+            PollOptionReplayEntry.prototype.revokedMessageKey = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayEntry.prototype, "_type", {
+                get: $util.oneOfGetter($oneOfFields = ["type"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayEntry.prototype, "_messageKey", {
+                get: $util.oneOfGetter($oneOfFields = ["messageKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayEntry.prototype, "_serverTimestampMs", {
+                get: $util.oneOfGetter($oneOfFields = ["serverTimestampMs"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayEntry.prototype, "_editTimestampMs", {
+                get: $util.oneOfGetter($oneOfFields = ["editTimestampMs"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(PollOptionReplayEntry.prototype, "_revokedMessageKey", {
+                get: $util.oneOfGetter($oneOfFields = ["revokedMessageKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new PollOptionReplayEntry instance using the specified properties.
+             * @function create
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties=} [properties] Properties to set
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayEntry} PollOptionReplayEntry instance
+             * @type {{
+             *   (properties: Web.PollAdditionalMetadata.PollOptionReplayEntry.$Shape): Web.PollAdditionalMetadata.PollOptionReplayEntry & Web.PollAdditionalMetadata.PollOptionReplayEntry.$Shape;
+             *   (properties?: Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties): Web.PollAdditionalMetadata.PollOptionReplayEntry;
+             * }}
+             */
+            PollOptionReplayEntry.create = function(properties) {
+                return new PollOptionReplayEntry(properties);
+            };
+
+            /**
+             * Encodes the specified PollOptionReplayEntry message. Does not implicitly {@link Web.PollAdditionalMetadata.PollOptionReplayEntry.verify|verify} messages.
+             * @function encode
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties} message PollOptionReplayEntry message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PollOptionReplayEntry.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                if (message.messageKey != null && $Object.hasOwnProperty.call(message, "messageKey"))
+                    $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.encode(message.messageKey, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.serverTimestampMs != null && $Object.hasOwnProperty.call(message, "serverTimestampMs"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.serverTimestampMs);
+                if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.editTimestampMs);
+                if (message.optionHashes != null && message.optionHashes.length)
+                    for (var i = 0; i < message.optionHashes.length; ++i)
+                        writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.optionHashes[i]);
+                if (message.revokedMessageKey != null && $Object.hasOwnProperty.call(message, "revokedMessageKey"))
+                    $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.encode(message.revokedMessageKey, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified PollOptionReplayEntry message, length delimited. Does not implicitly {@link Web.PollAdditionalMetadata.PollOptionReplayEntry.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayEntry.$Properties} message PollOptionReplayEntry message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PollOptionReplayEntry.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a PollOptionReplayEntry message from the specified reader or buffer.
+             * @function decode
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayEntry & Web.PollAdditionalMetadata.PollOptionReplayEntry.$Shape} PollOptionReplayEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PollOptionReplayEntry.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.Web.PollAdditionalMetadata.PollOptionReplayEntry();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.type = reader.int32();
+                            message._type = "type";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.messageKey);
+                            message._messageKey = "messageKey";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.serverTimestampMs = reader.int64();
+                            message._serverTimestampMs = "serverTimestampMs";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.editTimestampMs = reader.int64();
+                            message._editTimestampMs = "editTimestampMs";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.optionHashes && message.optionHashes.length))
+                                message.optionHashes = [];
+                            message.optionHashes.push(reader.bytes());
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.revokedMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.size(), $undefined, _depth + 1, message.revokedMessageKey);
+                            message._revokedMessageKey = "revokedMessageKey";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a PollOptionReplayEntry message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayEntry & Web.PollAdditionalMetadata.PollOptionReplayEntry.$Shape} PollOptionReplayEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PollOptionReplayEntry.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a PollOptionReplayEntry message.
+             * @function verify
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            PollOptionReplayEntry.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
+                    properties._type = 1;
+                    if (typeof message.type !== "number" || (message.type | 0) !== message.type)
+                        return "type: enum value expected";
+                }
+                if (message.messageKey != null && $Object.hasOwnProperty.call(message, "messageKey")) {
+                    properties._messageKey = 1;
+                    {
+                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.verify(message.messageKey, _depth + 1);
+                        if (error)
+                            return "messageKey." + error;
+                    }
+                }
+                if (message.serverTimestampMs != null && $Object.hasOwnProperty.call(message, "serverTimestampMs")) {
+                    properties._serverTimestampMs = 1;
+                    if (!$util.isInteger(message.serverTimestampMs) && !(message.serverTimestampMs && $util.isInteger(message.serverTimestampMs.low) && $util.isInteger(message.serverTimestampMs.high)))
+                        return "serverTimestampMs: integer|Long expected";
+                }
+                if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs")) {
+                    properties._editTimestampMs = 1;
+                    if (!$util.isInteger(message.editTimestampMs) && !(message.editTimestampMs && $util.isInteger(message.editTimestampMs.low) && $util.isInteger(message.editTimestampMs.high)))
+                        return "editTimestampMs: integer|Long expected";
+                }
+                if (message.optionHashes != null && $Object.hasOwnProperty.call(message, "optionHashes")) {
+                    if (!$Array.isArray(message.optionHashes))
+                        return "optionHashes: array expected";
+                    for (var i = 0; i < message.optionHashes.length; ++i)
+                        if (!(message.optionHashes[i] && typeof message.optionHashes[i].length === "number" || $util.isString(message.optionHashes[i])))
+                            return "optionHashes: buffer[] expected";
+                }
+                if (message.revokedMessageKey != null && $Object.hasOwnProperty.call(message, "revokedMessageKey")) {
+                    properties._revokedMessageKey = 1;
+                    {
+                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.verify(message.revokedMessageKey, _depth + 1);
+                        if (error)
+                            return "revokedMessageKey." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a PollOptionReplayEntry message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {Web.PollAdditionalMetadata.PollOptionReplayEntry} PollOptionReplayEntry
+             */
+            PollOptionReplayEntry.fromObject = function (object, _depth) {
+                if (object instanceof $root.Web.PollAdditionalMetadata.PollOptionReplayEntry)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayEntry: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.Web.PollAdditionalMetadata.PollOptionReplayEntry();
+                switch (object.type) {
+                case "UNKNOWN":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "EDIT":
+                case 1:
+                    message.type = 1;
+                    break;
+                case "ADD":
+                case 2:
+                    message.type = 2;
+                    break;
+                case "REVOKE":
+                case 3:
+                    message.type = 3;
+                    break;
+                default:
+                    if (typeof object.type === "number" && (object.type | 0) === object.type)
+                        message.type = object.type;
+                }
+                if (object.messageKey != null) {
+                    if (!$util.isObject(object.messageKey))
+                        throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayEntry.messageKey: object expected");
+                    message.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.fromObject(object.messageKey, _depth + 1);
+                }
+                if (object.serverTimestampMs != null)
+                    if ($util.Long)
+                        message.serverTimestampMs = $util.Long.fromValue(object.serverTimestampMs, false);
+                    else if (typeof object.serverTimestampMs === "string")
+                        message.serverTimestampMs = $parseInt(object.serverTimestampMs, 10);
+                    else if (typeof object.serverTimestampMs === "number")
+                        message.serverTimestampMs = object.serverTimestampMs;
+                    else if (typeof object.serverTimestampMs === "object")
+                        message.serverTimestampMs = new $util.LongBits(object.serverTimestampMs.low >>> 0, object.serverTimestampMs.high >>> 0).toNumber();
+                if (object.editTimestampMs != null)
+                    if ($util.Long)
+                        message.editTimestampMs = $util.Long.fromValue(object.editTimestampMs, false);
+                    else if (typeof object.editTimestampMs === "string")
+                        message.editTimestampMs = $parseInt(object.editTimestampMs, 10);
+                    else if (typeof object.editTimestampMs === "number")
+                        message.editTimestampMs = object.editTimestampMs;
+                    else if (typeof object.editTimestampMs === "object")
+                        message.editTimestampMs = new $util.LongBits(object.editTimestampMs.low >>> 0, object.editTimestampMs.high >>> 0).toNumber();
+                if (object.optionHashes) {
+                    if (!$Array.isArray(object.optionHashes))
+                        throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayEntry.optionHashes: array expected");
+                    message.optionHashes = $Array(object.optionHashes.length);
+                    for (var i = 0; i < object.optionHashes.length; ++i)
+                        if (typeof object.optionHashes[i] === "string")
+                            $util.base64.decode(object.optionHashes[i], message.optionHashes[i] = $util.newBuffer($util.base64.length(object.optionHashes[i])), 0);
+                        else if (object.optionHashes[i].length >= 0)
+                            message.optionHashes[i] = object.optionHashes[i];
+                }
+                if (object.revokedMessageKey != null) {
+                    if (!$util.isObject(object.revokedMessageKey))
+                        throw $TypeError(".Web.PollAdditionalMetadata.PollOptionReplayEntry.revokedMessageKey: object expected");
+                    message.revokedMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.fromObject(object.revokedMessageKey, _depth + 1);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a PollOptionReplayEntry message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {Web.PollAdditionalMetadata.PollOptionReplayEntry} message PollOptionReplayEntry
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            PollOptionReplayEntry.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.optionHashes = [];
+                if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
+                    object.type = options.enums === $String ? $root.Web.PollAdditionalMetadata.PollOptionReplayEntry.Type[message.type] === $undefined ? message.type : $root.Web.PollAdditionalMetadata.PollOptionReplayEntry.Type[message.type] : message.type;
+                if (message.messageKey != null && $Object.hasOwnProperty.call(message, "messageKey"))
+                    object.messageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.toObject(message.messageKey, options, _depth + 1);
+                if (message.serverTimestampMs != null && $Object.hasOwnProperty.call(message, "serverTimestampMs"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.serverTimestampMs = typeof message.serverTimestampMs === "number" ? $BigInt(message.serverTimestampMs) : $util.Long.fromBits(message.serverTimestampMs.low >>> 0, message.serverTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.serverTimestampMs === "number")
+                        object.serverTimestampMs = options.longs === $String ? $String(message.serverTimestampMs) : message.serverTimestampMs;
+                    else
+                        object.serverTimestampMs = options.longs === $String ? $util.Long.prototype.toString.call(message.serverTimestampMs) : options.longs === $Number ? new $util.LongBits(message.serverTimestampMs.low >>> 0, message.serverTimestampMs.high >>> 0).toNumber() : message.serverTimestampMs;
+                if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.editTimestampMs = typeof message.editTimestampMs === "number" ? $BigInt(message.editTimestampMs) : $util.Long.fromBits(message.editTimestampMs.low >>> 0, message.editTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.editTimestampMs === "number")
+                        object.editTimestampMs = options.longs === $String ? $String(message.editTimestampMs) : message.editTimestampMs;
+                    else
+                        object.editTimestampMs = options.longs === $String ? $util.Long.prototype.toString.call(message.editTimestampMs) : options.longs === $Number ? new $util.LongBits(message.editTimestampMs.low >>> 0, message.editTimestampMs.high >>> 0).toNumber() : message.editTimestampMs;
+                if (message.optionHashes && message.optionHashes.length) {
+                    object.optionHashes = $Array(message.optionHashes.length);
+                    for (var j = 0; j < message.optionHashes.length; ++j)
+                        object.optionHashes[j] = options.bytes === $String ? $util.base64.encode(message.optionHashes[j], 0, message.optionHashes[j].length) : options.bytes === $Array ? $Array.prototype.slice.call(message.optionHashes[j]) : message.optionHashes[j];
+                }
+                if (message.revokedMessageKey != null && $Object.hasOwnProperty.call(message, "revokedMessageKey"))
+                    object.revokedMessageKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.toObject(message.revokedMessageKey, options, _depth + 1);
+                return object;
+            };
+
+            /**
+             * Converts this PollOptionReplayEntry to JSON.
+             * @function toJSON
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            PollOptionReplayEntry.prototype.toJSON = function() {
+                return PollOptionReplayEntry.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for PollOptionReplayEntry
+             * @function getTypeUrl
+             * @memberof Web.PollAdditionalMetadata.PollOptionReplayEntry
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            PollOptionReplayEntry.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Web.PollAdditionalMetadata.PollOptionReplayEntry";
+            };
+
+            /**
+             * Type enum.
+             * @name Web.PollAdditionalMetadata.PollOptionReplayEntry.Type
+             * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
+             * @property {number} EDIT=1 EDIT value
+             * @property {number} ADD=2 ADD value
+             * @property {number} REVOKE=3 REVOKE value
+             */
+            PollOptionReplayEntry.Type = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
+                values[valuesById[1] = "EDIT"] = 1;
+                values[valuesById[2] = "ADD"] = 2;
+                values[valuesById[3] = "REVOKE"] = 3;
+                return values;
+            })();
+
+            return PollOptionReplayEntry;
         })();
 
         return PollAdditionalMetadata;
@@ -83886,6 +85258,7 @@ $root.E2E = (function() {
              * @property {string|null} [videoContentUrl] LinkPreviewMetadata videoContentUrl
              * @property {E2E.EmbeddedMusic.$Properties|null} [musicMetadata] LinkPreviewMetadata musicMetadata
              * @property {string|null} [videoContentCaption] LinkPreviewMetadata videoContentCaption
+             * @property {string|null} [videoId] LinkPreviewMetadata videoId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -83989,6 +85362,14 @@ $root.E2E = (function() {
              */
             LinkPreviewMetadata.prototype.videoContentCaption = null;
 
+            /**
+             * LinkPreviewMetadata videoId.
+             * @member {string|null|undefined} videoId
+             * @memberof E2E.Message.LinkPreviewMetadata
+             * @instance
+             */
+            LinkPreviewMetadata.prototype.videoId = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -84046,6 +85427,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(LinkPreviewMetadata.prototype, "_videoId", {
+                get: $util.oneOfGetter($oneOfFields = ["videoId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new LinkPreviewMetadata instance using the specified properties.
              * @function create
@@ -84096,6 +85483,8 @@ $root.E2E = (function() {
                     $root.E2E.EmbeddedMusic.encode(message.musicMetadata, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
                 if (message.videoContentCaption != null && $Object.hasOwnProperty.call(message, "videoContentCaption"))
                     writer.uint32(/* id 9, wireType 2 =*/74).string(message.videoContentCaption);
+                if (message.videoId != null && $Object.hasOwnProperty.call(message, "videoId"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.videoId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -84216,6 +85605,13 @@ $root.E2E = (function() {
                             message._videoContentCaption = "videoContentCaption";
                             continue;
                         }
+                    case 10: {
+                            if (wireType !== 2)
+                                break;
+                            message.videoId = reader.stringVerify();
+                            message._videoId = "videoId";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -84319,6 +85715,11 @@ $root.E2E = (function() {
                     if (!$util.isString(message.videoContentCaption))
                         return "videoContentCaption: string expected";
                 }
+                if (message.videoId != null && $Object.hasOwnProperty.call(message, "videoId")) {
+                    properties._videoId = 1;
+                    if (!$util.isString(message.videoId))
+                        return "videoId: string expected";
+                }
                 return null;
             };
 
@@ -84394,6 +85795,8 @@ $root.E2E = (function() {
                 }
                 if (object.videoContentCaption != null)
                     message.videoContentCaption = $String(object.videoContentCaption);
+                if (object.videoId != null)
+                    message.videoId = $String(object.videoId);
                 return message;
             };
 
@@ -84432,6 +85835,8 @@ $root.E2E = (function() {
                     object.musicMetadata = $root.E2E.EmbeddedMusic.toObject(message.musicMetadata, options, _depth + 1);
                 if (message.videoContentCaption != null && $Object.hasOwnProperty.call(message, "videoContentCaption"))
                     object.videoContentCaption = message.videoContentCaption;
+                if (message.videoId != null && $Object.hasOwnProperty.call(message, "videoId"))
+                    object.videoId = message.videoId;
                 return object;
             };
 
@@ -151834,6 +153239,10 @@ $root.AICommon = (function() {
             case 59:
                 message.botEntryPointOrigin = 59;
                 break;
+            case "BIRTHDAY_BANNER":
+            case 60:
+                message.botEntryPointOrigin = 60;
+                break;
             default:
                 if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
                     message.botEntryPointOrigin = object.botEntryPointOrigin;
@@ -169579,6 +170988,14 @@ $root.AICommon = (function() {
                     case 87:
                         message.capabilities[message.capabilities.length] = 87;
                         break;
+                    case "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED":
+                    case 88:
+                        message.capabilities[message.capabilities.length] = 88;
+                        break;
+                    case "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH":
+                    case 89:
+                        message.capabilities[message.capabilities.length] = 89;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -169731,6 +171148,8 @@ $root.AICommon = (function() {
          * @property {number} AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED=85 AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED value
          * @property {number} AI_INTERJECTIONS_ENABLED=86 AI_INTERJECTIONS_ENABLED value
          * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ENABLED=87 AI_RICH_RESPONSE_READ_ALOUD_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_ITEM_LISTS_ENABLED=88 AI_RICH_RESPONSE_ITEM_LISTS_ENABLED value
+         * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -169822,6 +171241,8 @@ $root.AICommon = (function() {
             values[valuesById[85] = "AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED"] = 85;
             values[valuesById[86] = "AI_INTERJECTIONS_ENABLED"] = 86;
             values[valuesById[87] = "AI_RICH_RESPONSE_READ_ALOUD_ENABLED"] = 87;
+            values[valuesById[88] = "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED"] = 88;
+            values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             return values;
         })();
 
@@ -174490,6 +175911,10 @@ $root.AICommon = (function() {
             case "SHARE":
             case 59:
                 message.destinationEntryPoint = 59;
+                break;
+            case "BIRTHDAY_BANNER":
+            case 60:
+                message.destinationEntryPoint = 60;
                 break;
             default:
                 if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
@@ -179910,6 +181335,7 @@ $root.AICommon = (function() {
      * @property {number} CONTACTS_TAB=57 CONTACTS_TAB value
      * @property {number} NEW_3P_AGENT_CREATION=58 NEW_3P_AGENT_CREATION value
      * @property {number} SHARE=59 SHARE value
+     * @property {number} BIRTHDAY_BANNER=60 BIRTHDAY_BANNER value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -179964,6 +181390,7 @@ $root.AICommon = (function() {
         values[valuesById[57] = "CONTACTS_TAB"] = 57;
         values[valuesById[58] = "NEW_3P_AGENT_CREATION"] = 58;
         values[valuesById[59] = "SHARE"] = 59;
+        values[valuesById[60] = "BIRTHDAY_BANNER"] = 60;
         return values;
     })();
 
@@ -189851,6 +191278,7 @@ $root.CompanionReg = (function() {
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
          * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] DeviceProps historySyncConfig
+         * @property {string|null} [deviceName] DeviceProps deviceName
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -189922,6 +191350,14 @@ $root.CompanionReg = (function() {
          */
         DeviceProps.prototype.historySyncConfig = null;
 
+        /**
+         * DeviceProps deviceName.
+         * @member {string|null|undefined} deviceName
+         * @memberof CompanionReg.DeviceProps
+         * @instance
+         */
+        DeviceProps.prototype.deviceName = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -189952,6 +191388,12 @@ $root.CompanionReg = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(DeviceProps.prototype, "_historySyncConfig", {
             get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceProps.prototype, "_deviceName", {
+            get: $util.oneOfGetter($oneOfFields = ["deviceName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -189997,6 +191439,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.requireFullSync);
             if (message.historySyncConfig != null && $Object.hasOwnProperty.call(message, "historySyncConfig"))
                 $root.CompanionReg.DeviceProps.HistorySyncConfig.encode(message.historySyncConfig, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.deviceName);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -190089,6 +191533,13 @@ $root.CompanionReg = (function() {
                         message._historySyncConfig = "historySyncConfig";
                         continue;
                     }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.deviceName = reader.stringVerify();
+                        message._deviceName = "deviceName";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -190168,6 +191619,11 @@ $root.CompanionReg = (function() {
                     if (error)
                         return "historySyncConfig." + error;
                 }
+            }
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName")) {
+                properties._deviceName = 1;
+                if (!$util.isString(message.deviceName))
+                    return "deviceName: string expected";
             }
             return null;
         };
@@ -190333,6 +191789,8 @@ $root.CompanionReg = (function() {
                     throw $TypeError(".CompanionReg.DeviceProps.historySyncConfig: object expected");
                 message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig, _depth + 1);
             }
+            if (object.deviceName != null)
+                message.deviceName = $String(object.deviceName);
             return message;
         };
 
@@ -190363,6 +191821,8 @@ $root.CompanionReg = (function() {
                 object.requireFullSync = message.requireFullSync;
             if (message.historySyncConfig != null && $Object.hasOwnProperty.call(message, "historySyncConfig"))
                 object.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.toObject(message.historySyncConfig, options, _depth + 1);
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName"))
+                object.deviceName = message.deviceName;
             return object;
         };
 

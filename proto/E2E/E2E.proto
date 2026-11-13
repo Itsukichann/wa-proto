@@ -1474,6 +1474,7 @@ message Message {
         optional string videoContentUrl = 7;
         optional EmbeddedMusic musicMetadata = 8;
         optional string videoContentCaption = 9;
+        optional string videoId = 10;
         enum SocialMediaPostType {
             NONE = 0;
             REEL = 1;

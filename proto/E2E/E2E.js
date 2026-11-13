@@ -64957,6 +64957,7 @@ $root.E2E = (function() {
              * @property {string|null} [videoContentUrl] LinkPreviewMetadata videoContentUrl
              * @property {E2E.EmbeddedMusic.$Properties|null} [musicMetadata] LinkPreviewMetadata musicMetadata
              * @property {string|null} [videoContentCaption] LinkPreviewMetadata videoContentCaption
+             * @property {string|null} [videoId] LinkPreviewMetadata videoId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -65060,6 +65061,14 @@ $root.E2E = (function() {
              */
             LinkPreviewMetadata.prototype.videoContentCaption = null;
 
+            /**
+             * LinkPreviewMetadata videoId.
+             * @member {string|null|undefined} videoId
+             * @memberof E2E.Message.LinkPreviewMetadata
+             * @instance
+             */
+            LinkPreviewMetadata.prototype.videoId = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -65117,6 +65126,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(LinkPreviewMetadata.prototype, "_videoId", {
+                get: $util.oneOfGetter($oneOfFields = ["videoId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new LinkPreviewMetadata instance using the specified properties.
              * @function create
@@ -65167,6 +65182,8 @@ $root.E2E = (function() {
                     $root.E2E.EmbeddedMusic.encode(message.musicMetadata, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
                 if (message.videoContentCaption != null && $Object.hasOwnProperty.call(message, "videoContentCaption"))
                     writer.uint32(/* id 9, wireType 2 =*/74).string(message.videoContentCaption);
+                if (message.videoId != null && $Object.hasOwnProperty.call(message, "videoId"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.videoId);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -65287,6 +65304,13 @@ $root.E2E = (function() {
                             message._videoContentCaption = "videoContentCaption";
                             continue;
                         }
+                    case 10: {
+                            if (wireType !== 2)
+                                break;
+                            message.videoId = reader.stringVerify();
+                            message._videoId = "videoId";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -65390,6 +65414,11 @@ $root.E2E = (function() {
                     if (!$util.isString(message.videoContentCaption))
                         return "videoContentCaption: string expected";
                 }
+                if (message.videoId != null && $Object.hasOwnProperty.call(message, "videoId")) {
+                    properties._videoId = 1;
+                    if (!$util.isString(message.videoId))
+                        return "videoId: string expected";
+                }
                 return null;
             };
 
@@ -65465,6 +65494,8 @@ $root.E2E = (function() {
                 }
                 if (object.videoContentCaption != null)
                     message.videoContentCaption = $String(object.videoContentCaption);
+                if (object.videoId != null)
+                    message.videoId = $String(object.videoId);
                 return message;
             };
 
@@ -65503,6 +65534,8 @@ $root.E2E = (function() {
                     object.musicMetadata = $root.E2E.EmbeddedMusic.toObject(message.musicMetadata, options, _depth + 1);
                 if (message.videoContentCaption != null && $Object.hasOwnProperty.call(message, "videoContentCaption"))
                     object.videoContentCaption = message.videoContentCaption;
+                if (message.videoId != null && $Object.hasOwnProperty.call(message, "videoId"))
+                    object.videoId = message.videoId;
                 return object;
             };
 
@@ -132905,6 +132938,10 @@ $root.AICommon = (function() {
             case 59:
                 message.botEntryPointOrigin = 59;
                 break;
+            case "BIRTHDAY_BANNER":
+            case 60:
+                message.botEntryPointOrigin = 60;
+                break;
             default:
                 if (typeof object.botEntryPointOrigin === "number" && (object.botEntryPointOrigin | 0) === object.botEntryPointOrigin)
                     message.botEntryPointOrigin = object.botEntryPointOrigin;
@@ -150650,6 +150687,14 @@ $root.AICommon = (function() {
                     case 87:
                         message.capabilities[message.capabilities.length] = 87;
                         break;
+                    case "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED":
+                    case 88:
+                        message.capabilities[message.capabilities.length] = 88;
+                        break;
+                    case "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH":
+                    case 89:
+                        message.capabilities[message.capabilities.length] = 89;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -150802,6 +150847,8 @@ $root.AICommon = (function() {
          * @property {number} AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED=85 AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED value
          * @property {number} AI_INTERJECTIONS_ENABLED=86 AI_INTERJECTIONS_ENABLED value
          * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ENABLED=87 AI_RICH_RESPONSE_READ_ALOUD_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_ITEM_LISTS_ENABLED=88 AI_RICH_RESPONSE_ITEM_LISTS_ENABLED value
+         * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -150893,6 +150940,8 @@ $root.AICommon = (function() {
             values[valuesById[85] = "AI_MUSE_JARVIS_EXTENDED_CARDS_ENABLED"] = 85;
             values[valuesById[86] = "AI_INTERJECTIONS_ENABLED"] = 86;
             values[valuesById[87] = "AI_RICH_RESPONSE_READ_ALOUD_ENABLED"] = 87;
+            values[valuesById[88] = "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED"] = 88;
+            values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             return values;
         })();
 
@@ -155561,6 +155610,10 @@ $root.AICommon = (function() {
             case "SHARE":
             case 59:
                 message.destinationEntryPoint = 59;
+                break;
+            case "BIRTHDAY_BANNER":
+            case 60:
+                message.destinationEntryPoint = 60;
                 break;
             default:
                 if (typeof object.destinationEntryPoint === "number" && (object.destinationEntryPoint | 0) === object.destinationEntryPoint)
@@ -160981,6 +161034,7 @@ $root.AICommon = (function() {
      * @property {number} CONTACTS_TAB=57 CONTACTS_TAB value
      * @property {number} NEW_3P_AGENT_CREATION=58 NEW_3P_AGENT_CREATION value
      * @property {number} SHARE=59 SHARE value
+     * @property {number} BIRTHDAY_BANNER=60 BIRTHDAY_BANNER value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -161035,6 +161089,7 @@ $root.AICommon = (function() {
         values[valuesById[57] = "CONTACTS_TAB"] = 57;
         values[valuesById[58] = "NEW_3P_AGENT_CREATION"] = 58;
         values[valuesById[59] = "SHARE"] = 59;
+        values[valuesById[60] = "BIRTHDAY_BANNER"] = 60;
         return values;
     })();
 
@@ -170922,6 +170977,7 @@ $root.CompanionReg = (function() {
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
          * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] DeviceProps historySyncConfig
+         * @property {string|null} [deviceName] DeviceProps deviceName
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -170993,6 +171049,14 @@ $root.CompanionReg = (function() {
          */
         DeviceProps.prototype.historySyncConfig = null;
 
+        /**
+         * DeviceProps deviceName.
+         * @member {string|null|undefined} deviceName
+         * @memberof CompanionReg.DeviceProps
+         * @instance
+         */
+        DeviceProps.prototype.deviceName = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -171023,6 +171087,12 @@ $root.CompanionReg = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(DeviceProps.prototype, "_historySyncConfig", {
             get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceProps.prototype, "_deviceName", {
+            get: $util.oneOfGetter($oneOfFields = ["deviceName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -171068,6 +171138,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.requireFullSync);
             if (message.historySyncConfig != null && $Object.hasOwnProperty.call(message, "historySyncConfig"))
                 $root.CompanionReg.DeviceProps.HistorySyncConfig.encode(message.historySyncConfig, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.deviceName);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -171160,6 +171232,13 @@ $root.CompanionReg = (function() {
                         message._historySyncConfig = "historySyncConfig";
                         continue;
                     }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.deviceName = reader.stringVerify();
+                        message._deviceName = "deviceName";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -171239,6 +171318,11 @@ $root.CompanionReg = (function() {
                     if (error)
                         return "historySyncConfig." + error;
                 }
+            }
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName")) {
+                properties._deviceName = 1;
+                if (!$util.isString(message.deviceName))
+                    return "deviceName: string expected";
             }
             return null;
         };
@@ -171404,6 +171488,8 @@ $root.CompanionReg = (function() {
                     throw $TypeError(".CompanionReg.DeviceProps.historySyncConfig: object expected");
                 message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig, _depth + 1);
             }
+            if (object.deviceName != null)
+                message.deviceName = $String(object.deviceName);
             return message;
         };
 
@@ -171434,6 +171520,8 @@ $root.CompanionReg = (function() {
                 object.requireFullSync = message.requireFullSync;
             if (message.historySyncConfig != null && $Object.hasOwnProperty.call(message, "historySyncConfig"))
                 object.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.toObject(message.historySyncConfig, options, _depth + 1);
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName"))
+                object.deviceName = message.deviceName;
             return object;
         };
 

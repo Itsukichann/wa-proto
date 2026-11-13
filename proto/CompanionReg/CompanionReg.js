@@ -2634,6 +2634,7 @@ $root.CompanionReg = (function() {
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
          * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] DeviceProps historySyncConfig
+         * @property {string|null} [deviceName] DeviceProps deviceName
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -2705,6 +2706,14 @@ $root.CompanionReg = (function() {
          */
         DeviceProps.prototype.historySyncConfig = null;
 
+        /**
+         * DeviceProps deviceName.
+         * @member {string|null|undefined} deviceName
+         * @memberof CompanionReg.DeviceProps
+         * @instance
+         */
+        DeviceProps.prototype.deviceName = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2735,6 +2744,12 @@ $root.CompanionReg = (function() {
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(DeviceProps.prototype, "_historySyncConfig", {
             get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceProps.prototype, "_deviceName", {
+            get: $util.oneOfGetter($oneOfFields = ["deviceName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -2780,6 +2795,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.requireFullSync);
             if (message.historySyncConfig != null && $Object.hasOwnProperty.call(message, "historySyncConfig"))
                 $root.CompanionReg.DeviceProps.HistorySyncConfig.encode(message.historySyncConfig, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.deviceName);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -2872,6 +2889,13 @@ $root.CompanionReg = (function() {
                         message._historySyncConfig = "historySyncConfig";
                         continue;
                     }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.deviceName = reader.stringVerify();
+                        message._deviceName = "deviceName";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -2951,6 +2975,11 @@ $root.CompanionReg = (function() {
                     if (error)
                         return "historySyncConfig." + error;
                 }
+            }
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName")) {
+                properties._deviceName = 1;
+                if (!$util.isString(message.deviceName))
+                    return "deviceName: string expected";
             }
             return null;
         };
@@ -3116,6 +3145,8 @@ $root.CompanionReg = (function() {
                     throw $TypeError(".CompanionReg.DeviceProps.historySyncConfig: object expected");
                 message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig, _depth + 1);
             }
+            if (object.deviceName != null)
+                message.deviceName = $String(object.deviceName);
             return message;
         };
 
@@ -3146,6 +3177,8 @@ $root.CompanionReg = (function() {
                 object.requireFullSync = message.requireFullSync;
             if (message.historySyncConfig != null && $Object.hasOwnProperty.call(message, "historySyncConfig"))
                 object.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.toObject(message.historySyncConfig, options, _depth + 1);
+            if (message.deviceName != null && $Object.hasOwnProperty.call(message, "deviceName"))
+                object.deviceName = message.deviceName;
             return object;
         };
 

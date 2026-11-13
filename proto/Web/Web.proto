@@ -122,9 +122,35 @@ message PollAdditionalMetadata {
     optional bool pollInvalidated = 1;
     repeated PollNameHashHistoryEntry pollNameHashHistory = 2;
     repeated E2E.Message.PollCreationMessage.Option originalOptions = 3;
+    repeated PollOptionReplayEntry pollOptionReplayEntries = 4;
+    optional PollOptionReplayBase pollOptionReplayBase = 5;
     message PollNameHashHistoryEntry {
         optional string editStanzaId = 1;
         optional bytes pollNameHash = 2;
+    }
+    message PollOptionReplayBase {
+        optional int64 boundaryTimestampMs = 1;
+        optional int64 editTimestampMs = 2;
+        repeated Option options = 3;
+        message Option {
+            optional bytes optionHash = 1;
+            optional int64 enteredTimestampMs = 2;
+            optional SignalLocalStorageProtocol.MessageKey addMessageKey = 3;
+        }
+    }
+    message PollOptionReplayEntry {
+        optional Type type = 1;
+        optional SignalLocalStorageProtocol.MessageKey messageKey = 2;
+        optional int64 serverTimestampMs = 3;
+        optional int64 editTimestampMs = 4;
+        repeated bytes optionHashes = 5;
+        optional SignalLocalStorageProtocol.MessageKey revokedMessageKey = 6;
+        enum Type {
+            UNKNOWN = 0;
+            EDIT = 1;
+            ADD = 2;
+            REVOKE = 3;
+        }
     }
 }
 
