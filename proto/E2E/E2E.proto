@@ -1057,6 +1057,7 @@ message Message {
         optional uint32 thumbnailWidth = 19;
         optional string caption = 20;
         optional string accessibilityLabel = 21;
+        optional string qrUrl = 23;
     }
     message EncCommentMessage {
         optional SignalLocalStorageProtocol.MessageKey targetMessageKey = 1;

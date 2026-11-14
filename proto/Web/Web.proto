@@ -108,6 +108,24 @@ message KeepInChat {
 
 message EventInviteAdditionalMetadata {
     optional bool isUpdated = 1;
+    optional AccessStatus selfAccessStatus = 2;
+    optional RsvpStatus selfRsvpStatus = 3;
+    optional uint32 selfAdditionalGuestCount = 4;
+    optional int64 selfInviteeLastUpdatedTsUsec = 5;
+    enum AccessStatus {
+        ACCESS_STATUS_UNKNOWN = 0;
+        HAS_ACCESS = 1;
+        LEFT_EVENT = 2;
+        REMOVED_FROM_INVITE_LIST = 3;
+        UNAVAILABLE = 4;
+    }
+    enum RsvpStatus {
+        RSVP_STATUS_UNKNOWN = 0;
+        GOING = 1;
+        NOT_GOING = 2;
+        MAYBE = 3;
+        NO_RESPONSE = 4;
+    }
 }
 
 message EventAdditionalMetadata {

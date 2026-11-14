@@ -45946,6 +45946,7 @@ $root.E2E = (function() {
              * @property {number|null} [thumbnailWidth] DocumentMessage thumbnailWidth
              * @property {string|null} [caption] DocumentMessage caption
              * @property {string|null} [accessibilityLabel] DocumentMessage accessibilityLabel
+             * @property {string|null} [qrUrl] DocumentMessage qrUrl
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -45981,6 +45982,7 @@ $root.E2E = (function() {
              *   thumbnailWidth?: number|null;
              *   caption?: string|null;
              *   accessibilityLabel?: string|null;
+             *   qrUrl?: string|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.DocumentMessage.$Shape
              */
@@ -46168,6 +46170,14 @@ $root.E2E = (function() {
              */
             DocumentMessage.prototype.accessibilityLabel = null;
 
+            /**
+             * DocumentMessage qrUrl.
+             * @member {string|null|undefined} qrUrl
+             * @memberof E2E.Message.DocumentMessage
+             * @instance
+             */
+            DocumentMessage.prototype.qrUrl = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -46297,6 +46307,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(DocumentMessage.prototype, "_qrUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["qrUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new DocumentMessage instance using the specified properties.
              * @function create
@@ -46371,6 +46387,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 20, wireType 2 =*/162).string(message.caption);
                 if (message.accessibilityLabel != null && $Object.hasOwnProperty.call(message, "accessibilityLabel"))
                     writer.uint32(/* id 21, wireType 2 =*/170).string(message.accessibilityLabel);
+                if (message.qrUrl != null && $Object.hasOwnProperty.call(message, "qrUrl"))
+                    writer.uint32(/* id 23, wireType 2 =*/186).string(message.qrUrl);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -46575,6 +46593,13 @@ $root.E2E = (function() {
                             message._accessibilityLabel = "accessibilityLabel";
                             continue;
                         }
+                    case 23: {
+                            if (wireType !== 2)
+                                break;
+                            message.qrUrl = reader.stringVerify();
+                            message._qrUrl = "qrUrl";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -46732,6 +46757,11 @@ $root.E2E = (function() {
                     if (!$util.isString(message.accessibilityLabel))
                         return "accessibilityLabel: string expected";
                 }
+                if (message.qrUrl != null && $Object.hasOwnProperty.call(message, "qrUrl")) {
+                    properties._qrUrl = 1;
+                    if (!$util.isString(message.qrUrl))
+                        return "qrUrl: string expected";
+                }
                 return null;
             };
 
@@ -46830,6 +46860,8 @@ $root.E2E = (function() {
                     message.caption = $String(object.caption);
                 if (object.accessibilityLabel != null)
                     message.accessibilityLabel = $String(object.accessibilityLabel);
+                if (object.qrUrl != null)
+                    message.qrUrl = $String(object.qrUrl);
                 return message;
             };
 
@@ -46902,6 +46934,8 @@ $root.E2E = (function() {
                     object.caption = message.caption;
                 if (message.accessibilityLabel != null && $Object.hasOwnProperty.call(message, "accessibilityLabel"))
                     object.accessibilityLabel = message.accessibilityLabel;
+                if (message.qrUrl != null && $Object.hasOwnProperty.call(message, "qrUrl"))
+                    object.qrUrl = message.qrUrl;
                 return object;
             };
 
