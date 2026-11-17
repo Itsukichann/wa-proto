@@ -29457,6 +29457,10 @@ $root.AICommon = (function() {
                     case 89:
                         message.capabilities[message.capabilities.length] = 89;
                         break;
+                    case "AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED":
+                    case 90:
+                        message.capabilities[message.capabilities.length] = 90;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -29611,6 +29615,7 @@ $root.AICommon = (function() {
          * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ENABLED=87 AI_RICH_RESPONSE_READ_ALOUD_ENABLED value
          * @property {number} AI_RICH_RESPONSE_ITEM_LISTS_ENABLED=88 AI_RICH_RESPONSE_ITEM_LISTS_ENABLED value
          * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
+         * @property {number} AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED=90 AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -29704,6 +29709,7 @@ $root.AICommon = (function() {
             values[valuesById[87] = "AI_RICH_RESPONSE_READ_ALOUD_ENABLED"] = 87;
             values[valuesById[88] = "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED"] = 88;
             values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
+            values[valuesById[90] = "AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED"] = 90;
             return values;
         })();
 

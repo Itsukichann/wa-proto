@@ -206,6 +206,20 @@ message TemplateButton {
     }
 }
 
+message StatusPixKey {
+    optional string key = 1;
+    optional KeyType keyType = 2;
+    optional string displayName = 3;
+    enum KeyType {
+        UNKNOWN = 0;
+        CPF = 1;
+        CNPJ = 2;
+        PHONE = 3;
+        EMAIL = 4;
+        EVP = 5;
+    }
+}
+
 message Location {
     optional double degreesLatitude = 1;
     optional double degreesLongitude = 2;
@@ -229,6 +243,7 @@ message InteractiveAnnotation {
         ContextInfo.ForwardedNewsletterMessageInfo newsletter = 3;
         bool embeddedAction = 6;
         TapLinkAction tapAction = 7;
+        StatusPixKey pixKey = 9;
     }
     enum StatusLinkType {
         RASTERIZED_LINK_PREVIEW = 1;

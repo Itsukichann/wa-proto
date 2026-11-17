@@ -32,6 +32,7 @@ $root.CompanionReg = (function() {
          * @property {boolean|null} [isBotJidDbMigrated] ClientPairingProps isBotJidDbMigrated
          * @property {Uint8Array|null} [companionAddPeerPayload] ClientPairingProps companionAddPeerPayload
          * @property {boolean|null} [isCompanionRegistrationFgsEnabled] ClientPairingProps isCompanionRegistrationFgsEnabled
+         * @property {boolean|null} [isCompanionPairingProgressUiEnabled] ClientPairingProps isCompanionPairingProgressUiEnabled
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -127,6 +128,14 @@ $root.CompanionReg = (function() {
          */
         ClientPairingProps.prototype.isCompanionRegistrationFgsEnabled = null;
 
+        /**
+         * ClientPairingProps isCompanionPairingProgressUiEnabled.
+         * @member {boolean|null|undefined} isCompanionPairingProgressUiEnabled
+         * @memberof CompanionReg.ClientPairingProps
+         * @instance
+         */
+        ClientPairingProps.prototype.isCompanionPairingProgressUiEnabled = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -178,6 +187,12 @@ $root.CompanionReg = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ClientPairingProps.prototype, "_isCompanionPairingProgressUiEnabled", {
+            get: $util.oneOfGetter($oneOfFields = ["isCompanionPairingProgressUiEnabled"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
          * @function create
@@ -226,6 +241,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.companionAddPeerPayload);
             if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled"))
                 writer.uint32(/* id 8, wireType 0 =*/64).bool(message.isCompanionRegistrationFgsEnabled);
+            if (message.isCompanionPairingProgressUiEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionPairingProgressUiEnabled"))
+                writer.uint32(/* id 10, wireType 0 =*/80).bool(message.isCompanionPairingProgressUiEnabled);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -339,6 +356,13 @@ $root.CompanionReg = (function() {
                         message._isCompanionRegistrationFgsEnabled = "isCompanionRegistrationFgsEnabled";
                         continue;
                     }
+                case 10: {
+                        if (wireType !== 0)
+                            break;
+                        message.isCompanionPairingProgressUiEnabled = reader.bool();
+                        message._isCompanionPairingProgressUiEnabled = "isCompanionPairingProgressUiEnabled";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -428,6 +452,11 @@ $root.CompanionReg = (function() {
                 if (typeof message.isCompanionRegistrationFgsEnabled !== "boolean")
                     return "isCompanionRegistrationFgsEnabled: boolean expected";
             }
+            if (message.isCompanionPairingProgressUiEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionPairingProgressUiEnabled")) {
+                properties._isCompanionPairingProgressUiEnabled = 1;
+                if (typeof message.isCompanionPairingProgressUiEnabled !== "boolean")
+                    return "isCompanionPairingProgressUiEnabled: boolean expected";
+            }
             return null;
         };
 
@@ -471,6 +500,8 @@ $root.CompanionReg = (function() {
                     message.companionAddPeerPayload = object.companionAddPeerPayload;
             if (object.isCompanionRegistrationFgsEnabled != null)
                 message.isCompanionRegistrationFgsEnabled = $Boolean(object.isCompanionRegistrationFgsEnabled);
+            if (object.isCompanionPairingProgressUiEnabled != null)
+                message.isCompanionPairingProgressUiEnabled = $Boolean(object.isCompanionPairingProgressUiEnabled);
             return message;
         };
 
@@ -507,6 +538,8 @@ $root.CompanionReg = (function() {
                 object.companionAddPeerPayload = options.bytes === $String ? $util.base64.encode(message.companionAddPeerPayload, 0, message.companionAddPeerPayload.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.companionAddPeerPayload) : message.companionAddPeerPayload;
             if (message.isCompanionRegistrationFgsEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionRegistrationFgsEnabled"))
                 object.isCompanionRegistrationFgsEnabled = message.isCompanionRegistrationFgsEnabled;
+            if (message.isCompanionPairingProgressUiEnabled != null && $Object.hasOwnProperty.call(message, "isCompanionPairingProgressUiEnabled"))
+                object.isCompanionPairingProgressUiEnabled = message.isCompanionPairingProgressUiEnabled;
             return object;
         };
 

@@ -10,6 +10,7 @@ message ClientPairingProps {
     optional bool isBotJidDbMigrated = 6;
     optional bytes companionAddPeerPayload = 7;
     optional bool isCompanionRegistrationFgsEnabled = 8;
+    optional bool isCompanionPairingProgressUiEnabled = 10;
 }
 
 message EncryptedPairingRequest {
