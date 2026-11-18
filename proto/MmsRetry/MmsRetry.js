@@ -5,7 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
-var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $String = $util.global.String, $Array = $util.global.Array;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $String = $util.global.String, $Boolean = $util.global.Boolean, $Array = $util.global.Array;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -25,6 +25,7 @@ $root.MmsRetry = (function() {
          * Properties of a ServerErrorReceipt.
          * @typedef {Object} MmsRetry.ServerErrorReceipt.$Properties
          * @property {string|null} [stanzaId] ServerErrorReceipt stanzaId
+         * @property {boolean|null} [keepMediaKey] ServerErrorReceipt keepMediaKey
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -64,12 +65,26 @@ $root.MmsRetry = (function() {
          */
         ServerErrorReceipt.prototype.stanzaId = null;
 
+        /**
+         * ServerErrorReceipt keepMediaKey.
+         * @member {boolean|null|undefined} keepMediaKey
+         * @memberof MmsRetry.ServerErrorReceipt
+         * @instance
+         */
+        ServerErrorReceipt.prototype.keepMediaKey = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(ServerErrorReceipt.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(ServerErrorReceipt.prototype, "_keepMediaKey", {
+            get: $util.oneOfGetter($oneOfFields = ["keepMediaKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -107,6 +122,8 @@ $root.MmsRetry = (function() {
                 throw $Error("max depth exceeded");
             if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
+            if (message.keepMediaKey != null && $Object.hasOwnProperty.call(message, "keepMediaKey"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.keepMediaKey);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -171,6 +188,13 @@ $root.MmsRetry = (function() {
                         message._stanzaId = "stanzaId";
                         continue;
                     }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.keepMediaKey = reader.bool();
+                        message._keepMediaKey = "keepMediaKey";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -225,6 +249,11 @@ $root.MmsRetry = (function() {
                 if (!$util.isString(message.stanzaId))
                     return "stanzaId: string expected";
             }
+            if (message.keepMediaKey != null && $Object.hasOwnProperty.call(message, "keepMediaKey")) {
+                properties._keepMediaKey = 1;
+                if (typeof message.keepMediaKey !== "boolean")
+                    return "keepMediaKey: boolean expected";
+            }
             return null;
         };
 
@@ -248,6 +277,8 @@ $root.MmsRetry = (function() {
             var message = new $root.MmsRetry.ServerErrorReceipt();
             if (object.stanzaId != null)
                 message.stanzaId = $String(object.stanzaId);
+            if (object.keepMediaKey != null)
+                message.keepMediaKey = $Boolean(object.keepMediaKey);
             return message;
         };
 
@@ -270,6 +301,8 @@ $root.MmsRetry = (function() {
             var object = {};
             if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 object.stanzaId = message.stanzaId;
+            if (message.keepMediaKey != null && $Object.hasOwnProperty.call(message, "keepMediaKey"))
+                object.keepMediaKey = message.keepMediaKey;
             return object;
         };
 

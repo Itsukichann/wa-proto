@@ -16,6 +16,7 @@ message DeviceCapabilities {
     optional HostWriteMutationSupport hostWriteMutationSupport = 12;
     optional BizAiWebOnboarding bizAiWebOnboarding = 13;
     optional PhoneNumberSharing phoneNumberSharing = 14;
+    optional RecentConversationsOnDemand recentConversationsOnDemand = 15;
     message AiFbidMigration {
         optional uint64 chatDbMigrationTimestamp = 1;
         optional uint32 supportVersion = 2;
@@ -68,6 +69,9 @@ message DeviceCapabilities {
     }
     message PhoneNumberSharing {
         optional bool phoneSharingSupported = 1;
+    }
+    message RecentConversationsOnDemand {
+        optional bool supported = 1;
     }
     message ReverseHistorySync {
         repeated Product enabledProducts = 1;

@@ -43690,6 +43690,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.HostWriteMutationSupport.$Properties|null} [hostWriteMutationSupport] DeviceCapabilities hostWriteMutationSupport
          * @property {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties|null} [bizAiWebOnboarding] DeviceCapabilities bizAiWebOnboarding
          * @property {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties|null} [phoneNumberSharing] DeviceCapabilities phoneNumberSharing
+         * @property {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties|null} [recentConversationsOnDemand] DeviceCapabilities recentConversationsOnDemand
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -43833,6 +43834,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.phoneNumberSharing = null;
 
+        /**
+         * DeviceCapabilities recentConversationsOnDemand.
+         * @member {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties|null|undefined} recentConversationsOnDemand
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.recentConversationsOnDemand = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -43920,6 +43929,12 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_recentConversationsOnDemand", {
+            get: $util.oneOfGetter($oneOfFields = ["recentConversationsOnDemand"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -43980,6 +43995,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.encode(message.bizAiWebOnboarding, writer.uint32(/* id 13, wireType 2 =*/106).fork(), _depth + 1).ldelim();
             if (message.phoneNumberSharing != null && $Object.hasOwnProperty.call(message, "phoneNumberSharing"))
                 $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.encode(message.phoneNumberSharing, writer.uint32(/* id 14, wireType 2 =*/114).fork(), _depth + 1).ldelim();
+            if (message.recentConversationsOnDemand != null && $Object.hasOwnProperty.call(message, "recentConversationsOnDemand"))
+                $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.encode(message.recentConversationsOnDemand, writer.uint32(/* id 15, wireType 2 =*/122).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -44133,6 +44150,13 @@ $root.DeviceCapabilities = (function() {
                             break;
                         message.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.decode(reader, reader.size(), $undefined, _depth + 1, message.phoneNumberSharing);
                         message._phoneNumberSharing = "phoneNumberSharing";
+                        continue;
+                    }
+                case 15: {
+                        if (wireType !== 2)
+                            break;
+                        message.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.decode(reader, reader.size(), $undefined, _depth + 1, message.recentConversationsOnDemand);
+                        message._recentConversationsOnDemand = "recentConversationsOnDemand";
                         continue;
                     }
                 }
@@ -44290,6 +44314,14 @@ $root.DeviceCapabilities = (function() {
                         return "phoneNumberSharing." + error;
                 }
             }
+            if (message.recentConversationsOnDemand != null && $Object.hasOwnProperty.call(message, "recentConversationsOnDemand")) {
+                properties._recentConversationsOnDemand = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.verify(message.recentConversationsOnDemand, _depth + 1);
+                    if (error)
+                        return "recentConversationsOnDemand." + error;
+                }
+            }
             return null;
         };
 
@@ -44405,6 +44437,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.phoneNumberSharing: object expected");
                 message.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.fromObject(object.phoneNumberSharing, _depth + 1);
             }
+            if (object.recentConversationsOnDemand != null) {
+                if (!$util.isObject(object.recentConversationsOnDemand))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.recentConversationsOnDemand: object expected");
+                message.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.fromObject(object.recentConversationsOnDemand, _depth + 1);
+            }
             return message;
         };
 
@@ -44453,6 +44490,8 @@ $root.DeviceCapabilities = (function() {
                 object.bizAiWebOnboarding = $root.DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.toObject(message.bizAiWebOnboarding, options, _depth + 1);
             if (message.phoneNumberSharing != null && $Object.hasOwnProperty.call(message, "phoneNumberSharing"))
                 object.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.toObject(message.phoneNumberSharing, options, _depth + 1);
+            if (message.recentConversationsOnDemand != null && $Object.hasOwnProperty.call(message, "recentConversationsOnDemand"))
+                object.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.toObject(message.recentConversationsOnDemand, options, _depth + 1);
             return object;
         };
 
@@ -47667,6 +47706,288 @@ $root.DeviceCapabilities = (function() {
             };
 
             return PhoneNumberSharing;
+        })();
+
+        DeviceCapabilities.RecentConversationsOnDemand = (function() {
+
+            /**
+             * Properties of a RecentConversationsOnDemand.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties
+             * @property {boolean|null} [supported] RecentConversationsOnDemand supported
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a RecentConversationsOnDemand.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IRecentConversationsOnDemand
+             * @augments DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties instead.
+             */
+
+            /**
+             * Shape of a RecentConversationsOnDemand.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties} DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Shape
+             */
+
+            /**
+             * Constructs a new RecentConversationsOnDemand.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a RecentConversationsOnDemand.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var RecentConversationsOnDemand = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * RecentConversationsOnDemand supported.
+             * @member {boolean|null|undefined} supported
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @instance
+             */
+            RecentConversationsOnDemand.prototype.supported = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(RecentConversationsOnDemand.prototype, "_supported", {
+                get: $util.oneOfGetter($oneOfFields = ["supported"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new RecentConversationsOnDemand instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand} RecentConversationsOnDemand instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Shape): DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand & DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties): DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand;
+             * }}
+             */
+            RecentConversationsOnDemand.create = function(properties) {
+                return new RecentConversationsOnDemand(properties);
+            };
+
+            /**
+             * Encodes the specified RecentConversationsOnDemand message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties} message RecentConversationsOnDemand message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RecentConversationsOnDemand.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.supported != null && $Object.hasOwnProperty.call(message, "supported"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.supported);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RecentConversationsOnDemand message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties} message RecentConversationsOnDemand message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RecentConversationsOnDemand.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a RecentConversationsOnDemand message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand & DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Shape} RecentConversationsOnDemand
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RecentConversationsOnDemand.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.supported = reader.bool();
+                            message._supported = "supported";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a RecentConversationsOnDemand message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand & DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Shape} RecentConversationsOnDemand
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RecentConversationsOnDemand.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a RecentConversationsOnDemand message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RecentConversationsOnDemand.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.supported != null && $Object.hasOwnProperty.call(message, "supported")) {
+                    properties._supported = 1;
+                    if (typeof message.supported !== "boolean")
+                        return "supported: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RecentConversationsOnDemand message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand} RecentConversationsOnDemand
+             */
+            RecentConversationsOnDemand.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand();
+                if (object.supported != null)
+                    message.supported = $Boolean(object.supported);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RecentConversationsOnDemand message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand} message RecentConversationsOnDemand
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RecentConversationsOnDemand.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.supported != null && $Object.hasOwnProperty.call(message, "supported"))
+                    object.supported = message.supported;
+                return object;
+            };
+
+            /**
+             * Converts this RecentConversationsOnDemand to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RecentConversationsOnDemand.prototype.toJSON = function() {
+                return RecentConversationsOnDemand.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for RecentConversationsOnDemand
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            RecentConversationsOnDemand.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand";
+            };
+
+            return RecentConversationsOnDemand;
         })();
 
         DeviceCapabilities.ReverseHistorySync = (function() {

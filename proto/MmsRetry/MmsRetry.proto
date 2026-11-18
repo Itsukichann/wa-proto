@@ -3,6 +3,7 @@ package MmsRetry;
 
 message ServerErrorReceipt {
     optional string stanzaId = 1;
+    optional bool keepMediaKey = 2;
 }
 
 message MediaRetryNotification {
