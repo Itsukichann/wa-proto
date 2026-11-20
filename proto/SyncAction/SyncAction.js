@@ -12489,6 +12489,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [pnJid] ContactAction pnJid
              * @property {string|null} [username] ContactAction username
              * @property {string|null} [birthday] ContactAction birthday
+             * @property {number|null} [nonE2EeType] ContactAction nonE2EeType
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -12576,6 +12577,14 @@ $root.SyncAction = (function() {
              */
             ContactAction.prototype.birthday = null;
 
+            /**
+             * ContactAction nonE2EeType.
+             * @member {number|null|undefined} nonE2EeType
+             * @memberof SyncAction.SyncActionValue.ContactAction
+             * @instance
+             */
+            ContactAction.prototype.nonE2EeType = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -12618,6 +12627,12 @@ $root.SyncAction = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(ContactAction.prototype, "_birthday", {
                 get: $util.oneOfGetter($oneOfFields = ["birthday"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ContactAction.prototype, "_nonE2EeType", {
+                get: $util.oneOfGetter($oneOfFields = ["nonE2EeType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -12667,6 +12682,8 @@ $root.SyncAction = (function() {
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.username);
                 if (message.birthday != null && $Object.hasOwnProperty.call(message, "birthday"))
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.birthday);
+                if (message.nonE2EeType != null && $Object.hasOwnProperty.call(message, "nonE2EeType"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.nonE2EeType);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -12773,6 +12790,13 @@ $root.SyncAction = (function() {
                             message._birthday = "birthday";
                             continue;
                         }
+                    case 8: {
+                            if (wireType !== 0)
+                                break;
+                            message.nonE2EeType = reader.int32();
+                            message._nonE2EeType = "nonE2EeType";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -12857,6 +12881,11 @@ $root.SyncAction = (function() {
                     if (!$util.isString(message.birthday))
                         return "birthday: string expected";
                 }
+                if (message.nonE2EeType != null && $Object.hasOwnProperty.call(message, "nonE2EeType")) {
+                    properties._nonE2EeType = 1;
+                    if (!$util.isInteger(message.nonE2EeType))
+                        return "nonE2EeType: integer expected";
+                }
                 return null;
             };
 
@@ -12892,6 +12921,8 @@ $root.SyncAction = (function() {
                     message.username = $String(object.username);
                 if (object.birthday != null)
                     message.birthday = $String(object.birthday);
+                if (object.nonE2EeType != null)
+                    message.nonE2EeType = object.nonE2EeType | 0;
                 return message;
             };
 
@@ -12926,6 +12957,8 @@ $root.SyncAction = (function() {
                     object.username = message.username;
                 if (message.birthday != null && $Object.hasOwnProperty.call(message, "birthday"))
                     object.birthday = message.birthday;
+                if (message.nonE2EeType != null && $Object.hasOwnProperty.call(message, "nonE2EeType"))
+                    object.nonE2EeType = message.nonE2EeType;
                 return object;
             };
 
@@ -20387,6 +20420,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [firstName] LidContactAction firstName
              * @property {string|null} [username] LidContactAction username
              * @property {string|null} [birthday] LidContactAction birthday
+             * @property {number|null} [nonE2EeType] LidContactAction nonE2EeType
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -20450,6 +20484,14 @@ $root.SyncAction = (function() {
              */
             LidContactAction.prototype.birthday = null;
 
+            /**
+             * LidContactAction nonE2EeType.
+             * @member {number|null|undefined} nonE2EeType
+             * @memberof SyncAction.SyncActionValue.LidContactAction
+             * @instance
+             */
+            LidContactAction.prototype.nonE2EeType = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -20474,6 +20516,12 @@ $root.SyncAction = (function() {
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(LidContactAction.prototype, "_birthday", {
                 get: $util.oneOfGetter($oneOfFields = ["birthday"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(LidContactAction.prototype, "_nonE2EeType", {
+                get: $util.oneOfGetter($oneOfFields = ["nonE2EeType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -20517,6 +20565,8 @@ $root.SyncAction = (function() {
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.username);
                 if (message.birthday != null && $Object.hasOwnProperty.call(message, "birthday"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.birthday);
+                if (message.nonE2EeType != null && $Object.hasOwnProperty.call(message, "nonE2EeType"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.nonE2EeType);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -20602,6 +20652,13 @@ $root.SyncAction = (function() {
                             message._birthday = "birthday";
                             continue;
                         }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.nonE2EeType = reader.int32();
+                            message._nonE2EeType = "nonE2EeType";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -20671,6 +20728,11 @@ $root.SyncAction = (function() {
                     if (!$util.isString(message.birthday))
                         return "birthday: string expected";
                 }
+                if (message.nonE2EeType != null && $Object.hasOwnProperty.call(message, "nonE2EeType")) {
+                    properties._nonE2EeType = 1;
+                    if (!$util.isInteger(message.nonE2EeType))
+                        return "nonE2EeType: integer expected";
+                }
                 return null;
             };
 
@@ -20700,6 +20762,8 @@ $root.SyncAction = (function() {
                     message.username = $String(object.username);
                 if (object.birthday != null)
                     message.birthday = $String(object.birthday);
+                if (object.nonE2EeType != null)
+                    message.nonE2EeType = object.nonE2EeType | 0;
                 return message;
             };
 
@@ -20728,6 +20792,8 @@ $root.SyncAction = (function() {
                     object.username = message.username;
                 if (message.birthday != null && $Object.hasOwnProperty.call(message, "birthday"))
                     object.birthday = message.birthday;
+                if (message.nonE2EeType != null && $Object.hasOwnProperty.call(message, "nonE2EeType"))
+                    object.nonE2EeType = message.nonE2EeType;
                 return object;
             };
 

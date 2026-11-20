@@ -14305,7 +14305,6 @@ $root.E2E = (function() {
          * @property {Uint8Array|null} [associatedPrimaryIdentityKey] MessageContextInfo associatedPrimaryIdentityKey
          * @property {string|null} [teeContextAnchorMessageId] MessageContextInfo teeContextAnchorMessageId
          * @property {Protocol.ACP2Setting.$Properties|null} [acp2Setting] MessageContextInfo acp2Setting
-         * @property {boolean|null} [lightE2Ee] MessageContextInfo lightE2Ee
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -14506,14 +14505,6 @@ $root.E2E = (function() {
          */
         MessageContextInfo.prototype.acp2Setting = null;
 
-        /**
-         * MessageContextInfo lightE2Ee.
-         * @member {boolean|null|undefined} lightE2Ee
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
-        MessageContextInfo.prototype.lightE2Ee = null;
-
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -14637,12 +14628,6 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
-        $Object.defineProperty(MessageContextInfo.prototype, "_lightE2Ee", {
-            get: $util.oneOfGetter($oneOfFields = ["lightE2Ee"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
         /**
          * Creates a new MessageContextInfo instance using the specified properties.
          * @function create
@@ -14718,8 +14703,6 @@ $root.E2E = (function() {
                 writer.uint32(/* id 20, wireType 2 =*/162).string(message.teeContextAnchorMessageId);
             if (message.acp2Setting != null && $Object.hasOwnProperty.call(message, "acp2Setting"))
                 $root.Protocol.ACP2Setting.encode(message.acp2Setting, writer.uint32(/* id 21, wireType 2 =*/170).fork(), _depth + 1).ldelim();
-            if (message.lightE2Ee != null && $Object.hasOwnProperty.call(message, "lightE2Ee"))
-                writer.uint32(/* id 22, wireType 0 =*/176).bool(message.lightE2Ee);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -14925,13 +14908,6 @@ $root.E2E = (function() {
                         message._acp2Setting = "acp2Setting";
                         continue;
                     }
-                case 22: {
-                        if (wireType !== 0)
-                            break;
-                        message.lightE2Ee = reader.bool();
-                        message._lightE2Ee = "lightE2Ee";
-                        continue;
-                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -15111,11 +15087,6 @@ $root.E2E = (function() {
                         return "acp2Setting." + error;
                 }
             }
-            if (message.lightE2Ee != null && $Object.hasOwnProperty.call(message, "lightE2Ee")) {
-                properties._lightE2Ee = 1;
-                if (typeof message.lightE2Ee !== "boolean")
-                    return "lightE2Ee: boolean expected";
-            }
             return null;
         };
 
@@ -15245,8 +15216,6 @@ $root.E2E = (function() {
                     throw $TypeError(".E2E.MessageContextInfo.acp2Setting: object expected");
                 message.acp2Setting = $root.Protocol.ACP2Setting.fromObject(object.acp2Setting, _depth + 1);
             }
-            if (object.lightE2Ee != null)
-                message.lightE2Ee = $Boolean(object.lightE2Ee);
             return message;
         };
 
@@ -15314,8 +15283,6 @@ $root.E2E = (function() {
                 object.teeContextAnchorMessageId = message.teeContextAnchorMessageId;
             if (message.acp2Setting != null && $Object.hasOwnProperty.call(message, "acp2Setting"))
                 object.acp2Setting = $root.Protocol.ACP2Setting.toObject(message.acp2Setting, options, _depth + 1);
-            if (message.lightE2Ee != null && $Object.hasOwnProperty.call(message, "lightE2Ee"))
-                object.lightE2Ee = message.lightE2Ee;
             return object;
         };
 
@@ -58902,6 +58869,7 @@ $root.E2E = (function() {
              * Properties of an InitialSecurityNotificationSettingSync.
              * @typedef {Object} E2E.Message.InitialSecurityNotificationSettingSync.$Properties
              * @property {boolean|null} [securityNotificationEnabled] InitialSecurityNotificationSettingSync securityNotificationEnabled
+             * @property {number|null} [initialAppTheme] InitialSecurityNotificationSettingSync initialAppTheme
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -58941,12 +58909,26 @@ $root.E2E = (function() {
              */
             InitialSecurityNotificationSettingSync.prototype.securityNotificationEnabled = null;
 
+            /**
+             * InitialSecurityNotificationSettingSync initialAppTheme.
+             * @member {number|null|undefined} initialAppTheme
+             * @memberof E2E.Message.InitialSecurityNotificationSettingSync
+             * @instance
+             */
+            InitialSecurityNotificationSettingSync.prototype.initialAppTheme = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
             $Object.defineProperty(InitialSecurityNotificationSettingSync.prototype, "_securityNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["securityNotificationEnabled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(InitialSecurityNotificationSettingSync.prototype, "_initialAppTheme", {
+                get: $util.oneOfGetter($oneOfFields = ["initialAppTheme"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -58984,6 +58966,8 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 if (message.securityNotificationEnabled != null && $Object.hasOwnProperty.call(message, "securityNotificationEnabled"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.securityNotificationEnabled);
+                if (message.initialAppTheme != null && $Object.hasOwnProperty.call(message, "initialAppTheme"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.initialAppTheme);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -59048,6 +59032,13 @@ $root.E2E = (function() {
                             message._securityNotificationEnabled = "securityNotificationEnabled";
                             continue;
                         }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.initialAppTheme = reader.int32();
+                            message._initialAppTheme = "initialAppTheme";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -59102,6 +59093,11 @@ $root.E2E = (function() {
                     if (typeof message.securityNotificationEnabled !== "boolean")
                         return "securityNotificationEnabled: boolean expected";
                 }
+                if (message.initialAppTheme != null && $Object.hasOwnProperty.call(message, "initialAppTheme")) {
+                    properties._initialAppTheme = 1;
+                    if (!$util.isInteger(message.initialAppTheme))
+                        return "initialAppTheme: integer expected";
+                }
                 return null;
             };
 
@@ -59125,6 +59121,8 @@ $root.E2E = (function() {
                 var message = new $root.E2E.Message.InitialSecurityNotificationSettingSync();
                 if (object.securityNotificationEnabled != null)
                     message.securityNotificationEnabled = $Boolean(object.securityNotificationEnabled);
+                if (object.initialAppTheme != null)
+                    message.initialAppTheme = object.initialAppTheme | 0;
                 return message;
             };
 
@@ -59147,6 +59145,8 @@ $root.E2E = (function() {
                 var object = {};
                 if (message.securityNotificationEnabled != null && $Object.hasOwnProperty.call(message, "securityNotificationEnabled"))
                     object.securityNotificationEnabled = message.securityNotificationEnabled;
+                if (message.initialAppTheme != null && $Object.hasOwnProperty.call(message, "initialAppTheme"))
+                    object.initialAppTheme = message.initialAppTheme;
                 return object;
             };
 
@@ -93268,6 +93268,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.PollCreationMessage.Option.$Properties
                  * @property {string|null} [optionName] Option optionName
                  * @property {string|null} [optionHash] Option optionHash
+                 * @property {number|Long|null} [optionDatetime] Option optionDatetime
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
@@ -93315,6 +93316,14 @@ $root.E2E = (function() {
                  */
                 Option.prototype.optionHash = null;
 
+                /**
+                 * Option optionDatetime.
+                 * @member {number|Long|null|undefined} optionDatetime
+                 * @memberof E2E.Message.PollCreationMessage.Option
+                 * @instance
+                 */
+                Option.prototype.optionDatetime = null;
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -93327,6 +93336,12 @@ $root.E2E = (function() {
                 // Virtual OneOf for proto3 optional field
                 $Object.defineProperty(Option.prototype, "_optionHash", {
                     get: $util.oneOfGetter($oneOfFields = ["optionHash"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                $Object.defineProperty(Option.prototype, "_optionDatetime", {
+                    get: $util.oneOfGetter($oneOfFields = ["optionDatetime"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -93366,6 +93381,8 @@ $root.E2E = (function() {
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.optionName);
                     if (message.optionHash != null && $Object.hasOwnProperty.call(message, "optionHash"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.optionHash);
+                    if (message.optionDatetime != null && $Object.hasOwnProperty.call(message, "optionDatetime"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).int64(message.optionDatetime);
                     if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                         for (var i = 0; i < message.$unknowns.length; ++i)
                             writer.raw(message.$unknowns[i]);
@@ -93437,6 +93454,13 @@ $root.E2E = (function() {
                                 message._optionHash = "optionHash";
                                 continue;
                             }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.optionDatetime = reader.int64();
+                                message._optionDatetime = "optionDatetime";
+                                continue;
+                            }
                         }
                         reader.skipType(wireType, _depth, tag);
                         if (!reader.discardUnknown) {
@@ -93496,6 +93520,11 @@ $root.E2E = (function() {
                         if (!$util.isString(message.optionHash))
                             return "optionHash: string expected";
                     }
+                    if (message.optionDatetime != null && $Object.hasOwnProperty.call(message, "optionDatetime")) {
+                        properties._optionDatetime = 1;
+                        if (!$util.isInteger(message.optionDatetime) && !(message.optionDatetime && $util.isInteger(message.optionDatetime.low) && $util.isInteger(message.optionDatetime.high)))
+                            return "optionDatetime: integer|Long expected";
+                    }
                     return null;
                 };
 
@@ -93521,6 +93550,15 @@ $root.E2E = (function() {
                         message.optionName = $String(object.optionName);
                     if (object.optionHash != null)
                         message.optionHash = $String(object.optionHash);
+                    if (object.optionDatetime != null)
+                        if ($util.Long)
+                            message.optionDatetime = $util.Long.fromValue(object.optionDatetime, false);
+                        else if (typeof object.optionDatetime === "string")
+                            message.optionDatetime = $parseInt(object.optionDatetime, 10);
+                        else if (typeof object.optionDatetime === "number")
+                            message.optionDatetime = object.optionDatetime;
+                        else if (typeof object.optionDatetime === "object")
+                            message.optionDatetime = new $util.LongBits(object.optionDatetime.low >>> 0, object.optionDatetime.high >>> 0).toNumber();
                     return message;
                 };
 
@@ -93545,6 +93583,13 @@ $root.E2E = (function() {
                         object.optionName = message.optionName;
                     if (message.optionHash != null && $Object.hasOwnProperty.call(message, "optionHash"))
                         object.optionHash = message.optionHash;
+                    if (message.optionDatetime != null && $Object.hasOwnProperty.call(message, "optionDatetime"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.optionDatetime = typeof message.optionDatetime === "number" ? $BigInt(message.optionDatetime) : $util.Long.fromBits(message.optionDatetime.low >>> 0, message.optionDatetime.high >>> 0, false).toBigInt();
+                        else if (typeof message.optionDatetime === "number")
+                            object.optionDatetime = options.longs === $String ? $String(message.optionDatetime) : message.optionDatetime;
+                        else
+                            object.optionDatetime = options.longs === $String ? $util.Long.prototype.toString.call(message.optionDatetime) : options.longs === $Number ? new $util.LongBits(message.optionDatetime.low >>> 0, message.optionDatetime.high >>> 0).toNumber() : message.optionDatetime;
                     return object;
                 };
 
@@ -97241,6 +97286,7 @@ $root.E2E = (function() {
              * @property {E2E.GroupRootKeyRequest.$Properties|null} [groupRootKeyRequest] ProtocolMessage groupRootKeyRequest
              * @property {E2E.MembershipFormKeyFingerprintVerification.$Properties|null} [membershipFormKeyFingerprintVerification] ProtocolMessage membershipFormKeyFingerprintVerification
              * @property {E2E.GroupRootKeyShare.$Properties|null} [groupRootKeyShare] ProtocolMessage groupRootKeyShare
+             * @property {E2E.Message.ProtocolMessage.MessageEditDisplayType|null} [messageEditDisplayType] ProtocolMessage messageEditDisplayType
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -97292,6 +97338,7 @@ $root.E2E = (function() {
              *   groupRootKeyRequest?: E2E.GroupRootKeyRequest.$Shape|null;
              *   membershipFormKeyFingerprintVerification?: E2E.MembershipFormKeyFingerprintVerification.$Shape|null;
              *   groupRootKeyShare?: E2E.GroupRootKeyShare.$Shape|null;
+             *   messageEditDisplayType?: E2E.Message.ProtocolMessage.MessageEditDisplayType|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.ProtocolMessage.$Shape
              */
@@ -97608,6 +97655,14 @@ $root.E2E = (function() {
              */
             ProtocolMessage.prototype.groupRootKeyShare = null;
 
+            /**
+             * ProtocolMessage messageEditDisplayType.
+             * @member {E2E.Message.ProtocolMessage.MessageEditDisplayType|null|undefined} messageEditDisplayType
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.messageEditDisplayType = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -97827,6 +97882,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_messageEditDisplayType", {
+                get: $util.oneOfGetter($oneOfFields = ["messageEditDisplayType"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
              * @function create
@@ -97934,6 +97995,8 @@ $root.E2E = (function() {
                     $root.E2E.MembershipFormKeyFingerprintVerification.encode(message.membershipFormKeyFingerprintVerification, writer.uint32(/* id 40, wireType 2 =*/322).fork(), _depth + 1).ldelim();
                 if (message.groupRootKeyShare != null && $Object.hasOwnProperty.call(message, "groupRootKeyShare"))
                     $root.E2E.GroupRootKeyShare.encode(message.groupRootKeyShare, writer.uint32(/* id 41, wireType 2 =*/330).fork(), _depth + 1).ldelim();
+                if (message.messageEditDisplayType != null && $Object.hasOwnProperty.call(message, "messageEditDisplayType"))
+                    writer.uint32(/* id 42, wireType 0 =*/336).int32(message.messageEditDisplayType);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -98249,6 +98312,13 @@ $root.E2E = (function() {
                                 break;
                             message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.decode(reader, reader.size(), $undefined, _depth + 1, message.groupRootKeyShare);
                             message._groupRootKeyShare = "groupRootKeyShare";
+                            continue;
+                        }
+                    case 42: {
+                            if (wireType !== 0)
+                                break;
+                            message.messageEditDisplayType = reader.int32();
+                            message._messageEditDisplayType = "messageEditDisplayType";
                             continue;
                         }
                     }
@@ -98573,6 +98643,11 @@ $root.E2E = (function() {
                         if (error)
                             return "groupRootKeyShare." + error;
                     }
+                }
+                if (message.messageEditDisplayType != null && $Object.hasOwnProperty.call(message, "messageEditDisplayType")) {
+                    properties._messageEditDisplayType = 1;
+                    if (typeof message.messageEditDisplayType !== "number" || (message.messageEditDisplayType | 0) !== message.messageEditDisplayType)
+                        return "messageEditDisplayType: enum value expected";
                 }
                 return null;
             };
@@ -98933,6 +99008,19 @@ $root.E2E = (function() {
                         throw $TypeError(".E2E.Message.ProtocolMessage.groupRootKeyShare: object expected");
                     message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.fromObject(object.groupRootKeyShare, _depth + 1);
                 }
+                switch (object.messageEditDisplayType) {
+                case "DEFAULT":
+                case 0:
+                    message.messageEditDisplayType = 0;
+                    break;
+                case "LINK_PREVIEW_ONLY":
+                case 1:
+                    message.messageEditDisplayType = 1;
+                    break;
+                default:
+                    if (typeof object.messageEditDisplayType === "number" && (object.messageEditDisplayType | 0) === object.messageEditDisplayType)
+                        message.messageEditDisplayType = object.messageEditDisplayType;
+                }
                 return message;
             };
 
@@ -99042,6 +99130,8 @@ $root.E2E = (function() {
                     object.membershipFormKeyFingerprintVerification = $root.E2E.MembershipFormKeyFingerprintVerification.toObject(message.membershipFormKeyFingerprintVerification, options, _depth + 1);
                 if (message.groupRootKeyShare != null && $Object.hasOwnProperty.call(message, "groupRootKeyShare"))
                     object.groupRootKeyShare = $root.E2E.GroupRootKeyShare.toObject(message.groupRootKeyShare, options, _depth + 1);
+                if (message.messageEditDisplayType != null && $Object.hasOwnProperty.call(message, "messageEditDisplayType"))
+                    object.messageEditDisplayType = options.enums === $String ? $root.E2E.Message.ProtocolMessage.MessageEditDisplayType[message.messageEditDisplayType] === $undefined ? message.messageEditDisplayType : $root.E2E.Message.ProtocolMessage.MessageEditDisplayType[message.messageEditDisplayType] : message.messageEditDisplayType;
                 return object;
             };
 
@@ -99069,6 +99159,20 @@ $root.E2E = (function() {
                     prefix = "type.googleapis.com";
                 return prefix + "/E2E.Message.ProtocolMessage";
             };
+
+            /**
+             * MessageEditDisplayType enum.
+             * @name E2E.Message.ProtocolMessage.MessageEditDisplayType
+             * @enum {number}
+             * @property {number} DEFAULT=0 DEFAULT value
+             * @property {number} LINK_PREVIEW_ONLY=1 LINK_PREVIEW_ONLY value
+             */
+            ProtocolMessage.MessageEditDisplayType = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "DEFAULT"] = 0;
+                values[valuesById[1] = "LINK_PREVIEW_ONLY"] = 1;
+                return values;
+            })();
 
             /**
              * Type enum.
@@ -151169,6 +151273,10 @@ $root.AICommon = (function() {
                     case 90:
                         message.capabilities[message.capabilities.length] = 90;
                         break;
+                    case "AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED":
+                    case 91:
+                        message.capabilities[message.capabilities.length] = 91;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -151324,6 +151432,7 @@ $root.AICommon = (function() {
          * @property {number} AI_RICH_RESPONSE_ITEM_LISTS_ENABLED=88 AI_RICH_RESPONSE_ITEM_LISTS_ENABLED value
          * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          * @property {number} AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED=90 AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED=91 AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -151418,6 +151527,7 @@ $root.AICommon = (function() {
             values[valuesById[88] = "AI_RICH_RESPONSE_ITEM_LISTS_ENABLED"] = 88;
             values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             values[valuesById[90] = "AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED"] = 90;
+            values[valuesById[91] = "AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED"] = 91;
             return values;
         })();
 
