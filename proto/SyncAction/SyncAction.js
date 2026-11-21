@@ -1230,6 +1230,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.CommunityNestingStateAction.$Properties|null} [communityNestingStateAction] SyncActionValue communityNestingStateAction
          * @property {SyncAction.SyncActionValue.SharedDeviceSecretAction.$Properties|null} [sharedDeviceSecretAction] SyncActionValue sharedDeviceSecretAction
          * @property {SyncAction.SyncActionValue.HatchCVMSecretAction.$Properties|null} [hatchCvmSecretAction] SyncActionValue hatchCvmSecretAction
+         * @property {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties|null} [businessFolderChatPreferenceAction] SyncActionValue businessFolderChatPreferenceAction
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -1336,6 +1337,7 @@ $root.SyncAction = (function() {
          *   communityNestingStateAction?: SyncAction.SyncActionValue.CommunityNestingStateAction.$Shape|null;
          *   sharedDeviceSecretAction?: SyncAction.SyncActionValue.SharedDeviceSecretAction.$Shape|null;
          *   hatchCvmSecretAction?: SyncAction.SyncActionValue.HatchCVMSecretAction.$Shape|null;
+         *   businessFolderChatPreferenceAction?: SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} SyncAction.SyncActionValue.$Shape
          */
@@ -2091,6 +2093,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.hatchCvmSecretAction = null;
 
+        /**
+         * SyncActionValue businessFolderChatPreferenceAction.
+         * @member {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties|null|undefined} businessFolderChatPreferenceAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.businessFolderChatPreferenceAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2646,6 +2656,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(SyncActionValue.prototype, "_businessFolderChatPreferenceAction", {
+            get: $util.oneOfGetter($oneOfFields = ["businessFolderChatPreferenceAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2862,6 +2878,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.SharedDeviceSecretAction.encode(message.sharedDeviceSecretAction, writer.uint32(/* id 100, wireType 2 =*/802).fork(), _depth + 1).ldelim();
             if (message.hatchCvmSecretAction != null && $Object.hasOwnProperty.call(message, "hatchCvmSecretAction"))
                 $root.SyncAction.SyncActionValue.HatchCVMSecretAction.encode(message.hatchCvmSecretAction, writer.uint32(/* id 101, wireType 2 =*/810).fork(), _depth + 1).ldelim();
+            if (message.businessFolderChatPreferenceAction != null && $Object.hasOwnProperty.call(message, "businessFolderChatPreferenceAction"))
+                $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.encode(message.businessFolderChatPreferenceAction, writer.uint32(/* id 102, wireType 2 =*/818).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -3561,6 +3579,13 @@ $root.SyncAction = (function() {
                             break;
                         message.hatchCvmSecretAction = $root.SyncAction.SyncActionValue.HatchCVMSecretAction.decode(reader, reader.size(), $undefined, _depth + 1, message.hatchCvmSecretAction);
                         message._hatchCvmSecretAction = "hatchCvmSecretAction";
+                        continue;
+                    }
+                case 102: {
+                        if (wireType !== 2)
+                            break;
+                        message.businessFolderChatPreferenceAction = $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.decode(reader, reader.size(), $undefined, _depth + 1, message.businessFolderChatPreferenceAction);
+                        message._businessFolderChatPreferenceAction = "businessFolderChatPreferenceAction";
                         continue;
                     }
                 }
@@ -4345,6 +4370,14 @@ $root.SyncAction = (function() {
                         return "hatchCvmSecretAction." + error;
                 }
             }
+            if (message.businessFolderChatPreferenceAction != null && $Object.hasOwnProperty.call(message, "businessFolderChatPreferenceAction")) {
+                properties._businessFolderChatPreferenceAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.verify(message.businessFolderChatPreferenceAction, _depth + 1);
+                    if (error)
+                        return "businessFolderChatPreferenceAction." + error;
+                }
+            }
             return null;
         };
 
@@ -4830,6 +4863,11 @@ $root.SyncAction = (function() {
                     throw $TypeError(".SyncAction.SyncActionValue.hatchCvmSecretAction: object expected");
                 message.hatchCvmSecretAction = $root.SyncAction.SyncActionValue.HatchCVMSecretAction.fromObject(object.hatchCvmSecretAction, _depth + 1);
             }
+            if (object.businessFolderChatPreferenceAction != null) {
+                if (!$util.isObject(object.businessFolderChatPreferenceAction))
+                    throw $TypeError(".SyncAction.SyncActionValue.businessFolderChatPreferenceAction: object expected");
+                message.businessFolderChatPreferenceAction = $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.fromObject(object.businessFolderChatPreferenceAction, _depth + 1);
+            }
             return message;
         };
 
@@ -5039,6 +5077,8 @@ $root.SyncAction = (function() {
                 object.sharedDeviceSecretAction = $root.SyncAction.SyncActionValue.SharedDeviceSecretAction.toObject(message.sharedDeviceSecretAction, options, _depth + 1);
             if (message.hatchCvmSecretAction != null && $Object.hasOwnProperty.call(message, "hatchCvmSecretAction"))
                 object.hatchCvmSecretAction = $root.SyncAction.SyncActionValue.HatchCVMSecretAction.toObject(message.hatchCvmSecretAction, options, _depth + 1);
+            if (message.businessFolderChatPreferenceAction != null && $Object.hasOwnProperty.call(message, "businessFolderChatPreferenceAction"))
+                object.businessFolderChatPreferenceAction = $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.toObject(message.businessFolderChatPreferenceAction, options, _depth + 1);
             return object;
         };
 
@@ -10728,6 +10768,325 @@ $root.SyncAction = (function() {
             };
 
             return BusinessFolderActivationAction;
+        })();
+
+        SyncActionValue.BusinessFolderChatPreferenceAction = (function() {
+
+            /**
+             * Properties of a BusinessFolderChatPreferenceAction.
+             * @typedef {Object} SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties
+             * @property {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.BusinessFolderChatPreference|null} [preference] BusinessFolderChatPreferenceAction preference
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a BusinessFolderChatPreferenceAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessFolderChatPreferenceAction
+             * @augments SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessFolderChatPreferenceAction.
+             * @typedef {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties} SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Shape
+             */
+
+            /**
+             * Constructs a new BusinessFolderChatPreferenceAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a BusinessFolderChatPreferenceAction.
+             * @constructor
+             * @param {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var BusinessFolderChatPreferenceAction = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * BusinessFolderChatPreferenceAction preference.
+             * @member {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.BusinessFolderChatPreference|null|undefined} preference
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @instance
+             */
+            BusinessFolderChatPreferenceAction.prototype.preference = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(BusinessFolderChatPreferenceAction.prototype, "_preference", {
+                get: $util.oneOfGetter($oneOfFields = ["preference"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BusinessFolderChatPreferenceAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction} BusinessFolderChatPreferenceAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Shape): SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction & SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties): SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction;
+             * }}
+             */
+            BusinessFolderChatPreferenceAction.create = function(properties) {
+                return new BusinessFolderChatPreferenceAction(properties);
+            };
+
+            /**
+             * Encodes the specified BusinessFolderChatPreferenceAction message. Does not implicitly {@link SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties} message BusinessFolderChatPreferenceAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BusinessFolderChatPreferenceAction.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.preference != null && $Object.hasOwnProperty.call(message, "preference"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.preference);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BusinessFolderChatPreferenceAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Properties} message BusinessFolderChatPreferenceAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BusinessFolderChatPreferenceAction.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a BusinessFolderChatPreferenceAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction & SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Shape} BusinessFolderChatPreferenceAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BusinessFolderChatPreferenceAction.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.preference = reader.int32();
+                            message._preference = "preference";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a BusinessFolderChatPreferenceAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction & SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.$Shape} BusinessFolderChatPreferenceAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BusinessFolderChatPreferenceAction.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a BusinessFolderChatPreferenceAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BusinessFolderChatPreferenceAction.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.preference != null && $Object.hasOwnProperty.call(message, "preference")) {
+                    properties._preference = 1;
+                    if (typeof message.preference !== "number" || (message.preference | 0) !== message.preference)
+                        return "preference: enum value expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BusinessFolderChatPreferenceAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction} BusinessFolderChatPreferenceAction
+             */
+            BusinessFolderChatPreferenceAction.fromObject = function (object, _depth) {
+                if (object instanceof $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction();
+                switch (object.preference) {
+                case "BUSINESS_FOLDER_CHAT_PREFERENCE_UNKNOWN":
+                case 0:
+                    message.preference = 0;
+                    break;
+                case "BUSINESS_FOLDER_CHAT_PREFERENCE_AUTOMATIC":
+                case 1:
+                    message.preference = 1;
+                    break;
+                case "BUSINESS_FOLDER_CHAT_PREFERENCE_INBOX":
+                case 2:
+                    message.preference = 2;
+                    break;
+                case "BUSINESS_FOLDER_CHAT_PREFERENCE_BUSINESS":
+                case 3:
+                    message.preference = 3;
+                    break;
+                default:
+                    if (typeof object.preference === "number" && (object.preference | 0) === object.preference)
+                        message.preference = object.preference;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BusinessFolderChatPreferenceAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction} message BusinessFolderChatPreferenceAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BusinessFolderChatPreferenceAction.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.preference != null && $Object.hasOwnProperty.call(message, "preference"))
+                    object.preference = options.enums === $String ? $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.BusinessFolderChatPreference[message.preference] === $undefined ? message.preference : $root.SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.BusinessFolderChatPreference[message.preference] : message.preference;
+                return object;
+            };
+
+            /**
+             * Converts this BusinessFolderChatPreferenceAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BusinessFolderChatPreferenceAction.prototype.toJSON = function() {
+                return BusinessFolderChatPreferenceAction.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for BusinessFolderChatPreferenceAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            BusinessFolderChatPreferenceAction.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction";
+            };
+
+            /**
+             * BusinessFolderChatPreference enum.
+             * @name SyncAction.SyncActionValue.BusinessFolderChatPreferenceAction.BusinessFolderChatPreference
+             * @enum {number}
+             * @property {number} BUSINESS_FOLDER_CHAT_PREFERENCE_UNKNOWN=0 BUSINESS_FOLDER_CHAT_PREFERENCE_UNKNOWN value
+             * @property {number} BUSINESS_FOLDER_CHAT_PREFERENCE_AUTOMATIC=1 BUSINESS_FOLDER_CHAT_PREFERENCE_AUTOMATIC value
+             * @property {number} BUSINESS_FOLDER_CHAT_PREFERENCE_INBOX=2 BUSINESS_FOLDER_CHAT_PREFERENCE_INBOX value
+             * @property {number} BUSINESS_FOLDER_CHAT_PREFERENCE_BUSINESS=3 BUSINESS_FOLDER_CHAT_PREFERENCE_BUSINESS value
+             */
+            BusinessFolderChatPreferenceAction.BusinessFolderChatPreference = (function() {
+                var valuesById = $Object.create(null), values = $Object.create(valuesById);
+                values[valuesById[0] = "BUSINESS_FOLDER_CHAT_PREFERENCE_UNKNOWN"] = 0;
+                values[valuesById[1] = "BUSINESS_FOLDER_CHAT_PREFERENCE_AUTOMATIC"] = 1;
+                values[valuesById[2] = "BUSINESS_FOLDER_CHAT_PREFERENCE_INBOX"] = 2;
+                values[valuesById[3] = "BUSINESS_FOLDER_CHAT_PREFERENCE_BUSINESS"] = 3;
+                return values;
+            })();
+
+            return BusinessFolderChatPreferenceAction;
         })();
 
         SyncActionValue.CallLogAction = (function() {
@@ -42130,6 +42489,7 @@ $root.SyncAction = (function() {
      * @property {number} COMMUNITY_NESTING_STATE_ACTION=99 COMMUNITY_NESTING_STATE_ACTION value
      * @property {number} SHARED_DEVICE_SECRET_ACTION=100 SHARED_DEVICE_SECRET_ACTION value
      * @property {number} HATCH_CVM_SECRET_ACTION=101 HATCH_CVM_SECRET_ACTION value
+     * @property {number} BUSINESS_FOLDER_CHAT_PREFERENCE_ACTION=102 BUSINESS_FOLDER_CHAT_PREFERENCE_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -42231,6 +42591,7 @@ $root.SyncAction = (function() {
         values[valuesById[99] = "COMMUNITY_NESTING_STATE_ACTION"] = 99;
         values[valuesById[100] = "SHARED_DEVICE_SECRET_ACTION"] = 100;
         values[valuesById[101] = "HATCH_CVM_SECRET_ACTION"] = 101;
+        values[valuesById[102] = "BUSINESS_FOLDER_CHAT_PREFERENCE_ACTION"] = 102;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
@@ -43757,6 +44118,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.BizAiWebOnboarding.$Properties|null} [bizAiWebOnboarding] DeviceCapabilities bizAiWebOnboarding
          * @property {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties|null} [phoneNumberSharing] DeviceCapabilities phoneNumberSharing
          * @property {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties|null} [recentConversationsOnDemand] DeviceCapabilities recentConversationsOnDemand
+         * @property {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties|null} [aiMuseJarvisGzip] DeviceCapabilities aiMuseJarvisGzip
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -43908,6 +44270,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.recentConversationsOnDemand = null;
 
+        /**
+         * DeviceCapabilities aiMuseJarvisGzip.
+         * @member {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties|null|undefined} aiMuseJarvisGzip
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.aiMuseJarvisGzip = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -44001,6 +44371,12 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_aiMuseJarvisGzip", {
+            get: $util.oneOfGetter($oneOfFields = ["aiMuseJarvisGzip"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -44063,6 +44439,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.encode(message.phoneNumberSharing, writer.uint32(/* id 14, wireType 2 =*/114).fork(), _depth + 1).ldelim();
             if (message.recentConversationsOnDemand != null && $Object.hasOwnProperty.call(message, "recentConversationsOnDemand"))
                 $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.encode(message.recentConversationsOnDemand, writer.uint32(/* id 15, wireType 2 =*/122).fork(), _depth + 1).ldelim();
+            if (message.aiMuseJarvisGzip != null && $Object.hasOwnProperty.call(message, "aiMuseJarvisGzip"))
+                $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.encode(message.aiMuseJarvisGzip, writer.uint32(/* id 16, wireType 2 =*/130).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -44223,6 +44601,13 @@ $root.DeviceCapabilities = (function() {
                             break;
                         message.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.decode(reader, reader.size(), $undefined, _depth + 1, message.recentConversationsOnDemand);
                         message._recentConversationsOnDemand = "recentConversationsOnDemand";
+                        continue;
+                    }
+                case 16: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiMuseJarvisGzip = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.decode(reader, reader.size(), $undefined, _depth + 1, message.aiMuseJarvisGzip);
+                        message._aiMuseJarvisGzip = "aiMuseJarvisGzip";
                         continue;
                     }
                 }
@@ -44388,6 +44773,14 @@ $root.DeviceCapabilities = (function() {
                         return "recentConversationsOnDemand." + error;
                 }
             }
+            if (message.aiMuseJarvisGzip != null && $Object.hasOwnProperty.call(message, "aiMuseJarvisGzip")) {
+                properties._aiMuseJarvisGzip = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.verify(message.aiMuseJarvisGzip, _depth + 1);
+                    if (error)
+                        return "aiMuseJarvisGzip." + error;
+                }
+            }
             return null;
         };
 
@@ -44508,6 +44901,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.recentConversationsOnDemand: object expected");
                 message.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.fromObject(object.recentConversationsOnDemand, _depth + 1);
             }
+            if (object.aiMuseJarvisGzip != null) {
+                if (!$util.isObject(object.aiMuseJarvisGzip))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.aiMuseJarvisGzip: object expected");
+                message.aiMuseJarvisGzip = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.fromObject(object.aiMuseJarvisGzip, _depth + 1);
+            }
             return message;
         };
 
@@ -44558,6 +44956,8 @@ $root.DeviceCapabilities = (function() {
                 object.phoneNumberSharing = $root.DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.toObject(message.phoneNumberSharing, options, _depth + 1);
             if (message.recentConversationsOnDemand != null && $Object.hasOwnProperty.call(message, "recentConversationsOnDemand"))
                 object.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.toObject(message.recentConversationsOnDemand, options, _depth + 1);
+            if (message.aiMuseJarvisGzip != null && $Object.hasOwnProperty.call(message, "aiMuseJarvisGzip"))
+                object.aiMuseJarvisGzip = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.toObject(message.aiMuseJarvisGzip, options, _depth + 1);
             return object;
         };
 
@@ -44911,6 +45311,288 @@ $root.DeviceCapabilities = (function() {
             };
 
             return AiFbidMigration;
+        })();
+
+        DeviceCapabilities.AiMuseJarvisGzip = (function() {
+
+            /**
+             * Properties of an AiMuseJarvisGzip.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties
+             * @property {number|null} [supportVersion] AiMuseJarvisGzip supportVersion
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of an AiMuseJarvisGzip.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IAiMuseJarvisGzip
+             * @augments DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiMuseJarvisGzip.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties} DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Shape
+             */
+
+            /**
+             * Constructs a new AiMuseJarvisGzip.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents an AiMuseJarvisGzip.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var AiMuseJarvisGzip = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * AiMuseJarvisGzip supportVersion.
+             * @member {number|null|undefined} supportVersion
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @instance
+             */
+            AiMuseJarvisGzip.prototype.supportVersion = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(AiMuseJarvisGzip.prototype, "_supportVersion", {
+                get: $util.oneOfGetter($oneOfFields = ["supportVersion"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new AiMuseJarvisGzip instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip} AiMuseJarvisGzip instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Shape): DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip & DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties): DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip;
+             * }}
+             */
+            AiMuseJarvisGzip.create = function(properties) {
+                return new AiMuseJarvisGzip(properties);
+            };
+
+            /**
+             * Encodes the specified AiMuseJarvisGzip message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties} message AiMuseJarvisGzip message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiMuseJarvisGzip.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.supportVersion != null && $Object.hasOwnProperty.call(message, "supportVersion"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.supportVersion);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AiMuseJarvisGzip message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties} message AiMuseJarvisGzip message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiMuseJarvisGzip.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes an AiMuseJarvisGzip message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip & DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Shape} AiMuseJarvisGzip
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiMuseJarvisGzip.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportVersion = reader.uint32();
+                            message._supportVersion = "supportVersion";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes an AiMuseJarvisGzip message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip & DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Shape} AiMuseJarvisGzip
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiMuseJarvisGzip.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies an AiMuseJarvisGzip message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AiMuseJarvisGzip.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.supportVersion != null && $Object.hasOwnProperty.call(message, "supportVersion")) {
+                    properties._supportVersion = 1;
+                    if (!$util.isInteger(message.supportVersion))
+                        return "supportVersion: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AiMuseJarvisGzip message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip} AiMuseJarvisGzip
+             */
+            AiMuseJarvisGzip.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip();
+                if (object.supportVersion != null)
+                    message.supportVersion = object.supportVersion >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AiMuseJarvisGzip message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip} message AiMuseJarvisGzip
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AiMuseJarvisGzip.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.supportVersion != null && $Object.hasOwnProperty.call(message, "supportVersion"))
+                    object.supportVersion = message.supportVersion;
+                return object;
+            };
+
+            /**
+             * Converts this AiMuseJarvisGzip to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AiMuseJarvisGzip.prototype.toJSON = function() {
+                return AiMuseJarvisGzip.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for AiMuseJarvisGzip
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            AiMuseJarvisGzip.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip";
+            };
+
+            return AiMuseJarvisGzip;
         })();
 
         DeviceCapabilities.AiThread = (function() {

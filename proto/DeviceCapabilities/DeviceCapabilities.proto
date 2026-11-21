@@ -17,9 +17,13 @@ message DeviceCapabilities {
     optional BizAiWebOnboarding bizAiWebOnboarding = 13;
     optional PhoneNumberSharing phoneNumberSharing = 14;
     optional RecentConversationsOnDemand recentConversationsOnDemand = 15;
+    optional AiMuseJarvisGzip aiMuseJarvisGzip = 16;
     message AiFbidMigration {
         optional uint64 chatDbMigrationTimestamp = 1;
         optional uint32 supportVersion = 2;
+    }
+    message AiMuseJarvisGzip {
+        optional uint32 supportVersion = 1;
     }
     message AiThread {
         optional SupportLevel supportLevel = 1;

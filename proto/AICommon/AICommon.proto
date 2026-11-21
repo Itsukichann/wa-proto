@@ -95,6 +95,7 @@ message AIRegenerateMetadata {
 
 message AIRichResponseUnifiedResponse {
     optional bytes data = 1;
+    optional bytes gzipData = 2;
 }
 
 message BotMessageSharingInfo {
@@ -547,6 +548,7 @@ message BotCapabilityMetadata {
         RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH = 89;
         AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED = 90;
         AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED = 91;
+        AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED = 93;
     }
 }
 

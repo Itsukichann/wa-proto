@@ -4560,6 +4560,7 @@ $root.AICommon = (function() {
          * Properties of a AIRichResponseUnifiedResponse.
          * @typedef {Object} AICommon.AIRichResponseUnifiedResponse.$Properties
          * @property {Uint8Array|null} [data] AIRichResponseUnifiedResponse data
+         * @property {Uint8Array|null} [gzipData] AIRichResponseUnifiedResponse gzipData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -4599,12 +4600,26 @@ $root.AICommon = (function() {
          */
         AIRichResponseUnifiedResponse.prototype.data = null;
 
+        /**
+         * AIRichResponseUnifiedResponse gzipData.
+         * @member {Uint8Array|null|undefined} gzipData
+         * @memberof AICommon.AIRichResponseUnifiedResponse
+         * @instance
+         */
+        AIRichResponseUnifiedResponse.prototype.gzipData = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
         $Object.defineProperty(AIRichResponseUnifiedResponse.prototype, "_data", {
             get: $util.oneOfGetter($oneOfFields = ["data"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(AIRichResponseUnifiedResponse.prototype, "_gzipData", {
+            get: $util.oneOfGetter($oneOfFields = ["gzipData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -4642,6 +4657,8 @@ $root.AICommon = (function() {
                 throw $Error("max depth exceeded");
             if (message.data != null && $Object.hasOwnProperty.call(message, "data"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.data);
+            if (message.gzipData != null && $Object.hasOwnProperty.call(message, "gzipData"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.gzipData);
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -4706,6 +4723,13 @@ $root.AICommon = (function() {
                         message._data = "data";
                         continue;
                     }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.gzipData = reader.bytes();
+                        message._gzipData = "gzipData";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -4760,6 +4784,11 @@ $root.AICommon = (function() {
                 if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
                     return "data: buffer expected";
             }
+            if (message.gzipData != null && $Object.hasOwnProperty.call(message, "gzipData")) {
+                properties._gzipData = 1;
+                if (!(message.gzipData && typeof message.gzipData.length === "number" || $util.isString(message.gzipData)))
+                    return "gzipData: buffer expected";
+            }
             return null;
         };
 
@@ -4786,6 +4815,11 @@ $root.AICommon = (function() {
                     $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
                 else if (object.data.length >= 0)
                     message.data = object.data;
+            if (object.gzipData != null)
+                if (typeof object.gzipData === "string")
+                    $util.base64.decode(object.gzipData, message.gzipData = $util.newBuffer($util.base64.length(object.gzipData)), 0);
+                else if (object.gzipData.length >= 0)
+                    message.gzipData = object.gzipData;
             return message;
         };
 
@@ -4808,6 +4842,8 @@ $root.AICommon = (function() {
             var object = {};
             if (message.data != null && $Object.hasOwnProperty.call(message, "data"))
                 object.data = options.bytes === $String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.data) : message.data;
+            if (message.gzipData != null && $Object.hasOwnProperty.call(message, "gzipData"))
+                object.gzipData = options.bytes === $String ? $util.base64.encode(message.gzipData, 0, message.gzipData.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.gzipData) : message.gzipData;
             return object;
         };
 
@@ -23065,6 +23101,10 @@ $root.AICommon = (function() {
                     case 91:
                         message.capabilities[message.capabilities.length] = 91;
                         break;
+                    case "AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED":
+                    case 93:
+                        message.capabilities[message.capabilities.length] = 93;
+                        break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
                             message.capabilities[message.capabilities.length] = object.capabilities[i];
@@ -23221,6 +23261,7 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          * @property {number} AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED=90 AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED value
          * @property {number} AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED=91 AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED value
+         * @property {number} AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED=93 AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -23316,6 +23357,7 @@ $root.AICommon = (function() {
             values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             values[valuesById[90] = "AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED"] = 90;
             values[valuesById[91] = "AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED"] = 91;
+            values[valuesById[93] = "AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED"] = 93;
             return values;
         })();
 
