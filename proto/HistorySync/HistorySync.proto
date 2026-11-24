@@ -218,6 +218,7 @@ message Conversation {
     optional bool isWorkGroup = 67;
     optional int32 nonE2EeType = 68;
     optional Aea.NonE2EEAttestation.AccountType contactAccountEncryptionAttestationType = 69;
+    optional uint32 unreadReplyToMyMessageCount = 70;
     enum EndOfHistoryTransferType {
         COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0;
         COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY = 1;
