@@ -40,6 +40,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.PhoneNumberSharing.$Properties|null} [phoneNumberSharing] DeviceCapabilities phoneNumberSharing
          * @property {DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.$Properties|null} [recentConversationsOnDemand] DeviceCapabilities recentConversationsOnDemand
          * @property {DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.$Properties|null} [aiMuseJarvisGzip] DeviceCapabilities aiMuseJarvisGzip
+         * @property {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties|null} [draftSync] DeviceCapabilities draftSync
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
@@ -199,6 +200,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.aiMuseJarvisGzip = null;
 
+        /**
+         * DeviceCapabilities draftSync.
+         * @member {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties|null|undefined} draftSync
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.draftSync = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -298,6 +307,12 @@ $root.DeviceCapabilities = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DeviceCapabilities.prototype, "_draftSync", {
+            get: $util.oneOfGetter($oneOfFields = ["draftSync"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
@@ -362,6 +377,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.encode(message.recentConversationsOnDemand, writer.uint32(/* id 15, wireType 2 =*/122).fork(), _depth + 1).ldelim();
             if (message.aiMuseJarvisGzip != null && $Object.hasOwnProperty.call(message, "aiMuseJarvisGzip"))
                 $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.encode(message.aiMuseJarvisGzip, writer.uint32(/* id 16, wireType 2 =*/130).fork(), _depth + 1).ldelim();
+            if (message.draftSync != null && $Object.hasOwnProperty.call(message, "draftSync"))
+                $root.DeviceCapabilities.DeviceCapabilities.DraftSync.encode(message.draftSync, writer.uint32(/* id 17, wireType 2 =*/138).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -529,6 +546,13 @@ $root.DeviceCapabilities = (function() {
                             break;
                         message.aiMuseJarvisGzip = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.decode(reader, reader.size(), $undefined, _depth + 1, message.aiMuseJarvisGzip);
                         message._aiMuseJarvisGzip = "aiMuseJarvisGzip";
+                        continue;
+                    }
+                case 17: {
+                        if (wireType !== 2)
+                            break;
+                        message.draftSync = $root.DeviceCapabilities.DeviceCapabilities.DraftSync.decode(reader, reader.size(), $undefined, _depth + 1, message.draftSync);
+                        message._draftSync = "draftSync";
                         continue;
                     }
                 }
@@ -702,6 +726,14 @@ $root.DeviceCapabilities = (function() {
                         return "aiMuseJarvisGzip." + error;
                 }
             }
+            if (message.draftSync != null && $Object.hasOwnProperty.call(message, "draftSync")) {
+                properties._draftSync = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.DraftSync.verify(message.draftSync, _depth + 1);
+                    if (error)
+                        return "draftSync." + error;
+                }
+            }
             return null;
         };
 
@@ -827,6 +859,11 @@ $root.DeviceCapabilities = (function() {
                     throw $TypeError(".DeviceCapabilities.DeviceCapabilities.aiMuseJarvisGzip: object expected");
                 message.aiMuseJarvisGzip = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.fromObject(object.aiMuseJarvisGzip, _depth + 1);
             }
+            if (object.draftSync != null) {
+                if (!$util.isObject(object.draftSync))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.draftSync: object expected");
+                message.draftSync = $root.DeviceCapabilities.DeviceCapabilities.DraftSync.fromObject(object.draftSync, _depth + 1);
+            }
             return message;
         };
 
@@ -879,6 +916,8 @@ $root.DeviceCapabilities = (function() {
                 object.recentConversationsOnDemand = $root.DeviceCapabilities.DeviceCapabilities.RecentConversationsOnDemand.toObject(message.recentConversationsOnDemand, options, _depth + 1);
             if (message.aiMuseJarvisGzip != null && $Object.hasOwnProperty.call(message, "aiMuseJarvisGzip"))
                 object.aiMuseJarvisGzip = $root.DeviceCapabilities.DeviceCapabilities.AiMuseJarvisGzip.toObject(message.aiMuseJarvisGzip, options, _depth + 1);
+            if (message.draftSync != null && $Object.hasOwnProperty.call(message, "draftSync"))
+                object.draftSync = $root.DeviceCapabilities.DeviceCapabilities.DraftSync.toObject(message.draftSync, options, _depth + 1);
             return object;
         };
 
@@ -3136,6 +3175,288 @@ $root.DeviceCapabilities = (function() {
             };
 
             return ContactRefresh;
+        })();
+
+        DeviceCapabilities.DraftSync = (function() {
+
+            /**
+             * Properties of a DraftSync.
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties
+             * @property {number|null} [version] DraftSync version
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+
+            /**
+             * Properties of a DraftSync.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IDraftSync
+             * @augments DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties instead.
+             */
+
+            /**
+             * Shape of a DraftSync.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties} DeviceCapabilities.DeviceCapabilities.DraftSync.$Shape
+             */
+
+            /**
+             * Constructs a new DraftSync.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a DraftSync.
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+             */
+            var DraftSync = function (properties) {
+                if (properties)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            };
+
+            /**
+             * DraftSync version.
+             * @member {number|null|undefined} version
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @instance
+             */
+            DraftSync.prototype.version = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(DraftSync.prototype, "_version", {
+                get: $util.oneOfGetter($oneOfFields = ["version"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new DraftSync instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.DraftSync} DraftSync instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.DraftSync.$Shape): DeviceCapabilities.DeviceCapabilities.DraftSync & DeviceCapabilities.DeviceCapabilities.DraftSync.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties): DeviceCapabilities.DeviceCapabilities.DraftSync;
+             * }}
+             */
+            DraftSync.create = function(properties) {
+                return new DraftSync(properties);
+            };
+
+            /**
+             * Encodes the specified DraftSync message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.DraftSync.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties} message DraftSync message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DraftSync.encode = function (message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.version);
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified DraftSync message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.DraftSync.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.DraftSync.$Properties} message DraftSync message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DraftSync.encodeDelimited = function(message, writer) {
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+            };
+
+            /**
+             * Decodes a DraftSync message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.DraftSync & DeviceCapabilities.DeviceCapabilities.DraftSync.$Shape} DraftSync
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DraftSync.decode = function (reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.DeviceCapabilities.DeviceCapabilities.DraftSync();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = $undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.version = reader.uint32();
+                            message._version = "version";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
+                }
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a DraftSync message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.DraftSync & DeviceCapabilities.DeviceCapabilities.DraftSync.$Shape} DraftSync
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DraftSync.decodeDelimited = function(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.size());
+            };
+
+            /**
+             * Verifies a DraftSync message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            DraftSync.verify = function (message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
+                    properties._version = 1;
+                    if (!$util.isInteger(message.version))
+                        return "version: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a DraftSync message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.DraftSync} DraftSync
+             */
+            DraftSync.fromObject = function (object, _depth) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.DraftSync)
+                    return object;
+                if (!$util.isObject(object))
+                    throw $TypeError(".DeviceCapabilities.DeviceCapabilities.DraftSync: object expected");
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.DraftSync();
+                if (object.version != null)
+                    message.version = object.version >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a DraftSync message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.DraftSync} message DraftSync
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            DraftSync.toObject = function (message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === $undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw $Error("max depth exceeded");
+                var object = {};
+                if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
+                    object.version = message.version;
+                return object;
+            };
+
+            /**
+             * Converts this DraftSync to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            DraftSync.prototype.toJSON = function() {
+                return DraftSync.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for DraftSync
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.DraftSync
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            DraftSync.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.DraftSync";
+            };
+
+            return DraftSync;
         })();
 
         DeviceCapabilities.HostWriteMutationSupport = (function() {

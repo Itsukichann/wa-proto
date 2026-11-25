@@ -3686,6 +3686,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportNewsletter] HistorySyncConfig supportNewsletter
              * @property {boolean|null} [supportUniversalReachChat] HistorySyncConfig supportUniversalReachChat
              * @property {boolean|null} [supportOmittedConversationMetadata] HistorySyncConfig supportOmittedConversationMetadata
+             * @property {boolean|null} [supportDraftSync] HistorySyncConfig supportDraftSync
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -3934,6 +3935,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.supportOmittedConversationMetadata = null;
 
+            /**
+             * HistorySyncConfig supportDraftSync.
+             * @member {boolean|null|undefined} supportDraftSync
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportDraftSync = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -4093,6 +4102,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistorySyncConfig.prototype, "_supportDraftSync", {
+                get: $util.oneOfGetter($oneOfFields = ["supportDraftSync"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -4180,6 +4195,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 26, wireType 0 =*/208).bool(message.supportUniversalReachChat);
                 if (message.supportOmittedConversationMetadata != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationMetadata"))
                     writer.uint32(/* id 28, wireType 0 =*/224).bool(message.supportOmittedConversationMetadata);
+                if (message.supportDraftSync != null && $Object.hasOwnProperty.call(message, "supportDraftSync"))
+                    writer.uint32(/* id 29, wireType 0 =*/232).bool(message.supportDraftSync);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -4427,6 +4444,13 @@ $root.CompanionReg = (function() {
                             message._supportOmittedConversationMetadata = "supportOmittedConversationMetadata";
                             continue;
                         }
+                    case 29: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportDraftSync = reader.bool();
+                            message._supportDraftSync = "supportDraftSync";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -4613,6 +4637,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportOmittedConversationMetadata !== "boolean")
                         return "supportOmittedConversationMetadata: boolean expected";
                 }
+                if (message.supportDraftSync != null && $Object.hasOwnProperty.call(message, "supportDraftSync")) {
+                    properties._supportDraftSync = 1;
+                    if (typeof message.supportDraftSync !== "boolean")
+                        return "supportDraftSync: boolean expected";
+                }
                 return null;
             };
 
@@ -4693,6 +4722,8 @@ $root.CompanionReg = (function() {
                     message.supportUniversalReachChat = $Boolean(object.supportUniversalReachChat);
                 if (object.supportOmittedConversationMetadata != null)
                     message.supportOmittedConversationMetadata = $Boolean(object.supportOmittedConversationMetadata);
+                if (object.supportDraftSync != null)
+                    message.supportDraftSync = $Boolean(object.supportDraftSync);
                 return message;
             };
 
@@ -4772,6 +4803,8 @@ $root.CompanionReg = (function() {
                     object.supportUniversalReachChat = message.supportUniversalReachChat;
                 if (message.supportOmittedConversationMetadata != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationMetadata"))
                     object.supportOmittedConversationMetadata = message.supportOmittedConversationMetadata;
+                if (message.supportDraftSync != null && $Object.hasOwnProperty.call(message, "supportDraftSync"))
+                    object.supportDraftSync = message.supportDraftSync;
                 return object;
             };
 

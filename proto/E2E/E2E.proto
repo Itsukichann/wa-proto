@@ -96,6 +96,27 @@ message MessageSecretMessage {
     optional bytes encPayload = 3;
 }
 
+message DraftMessageSync {
+    optional string chatJid = 1;
+    optional string altChatJid = 2;
+    optional Action action = 3;
+    optional int64 editTimestampMs = 4;
+    optional Message draft = 5;
+    optional ClearReason clearReason = 6;
+    enum Action {
+        ACTION_UNKNOWN = 0;
+        SET = 1;
+        CLEAR = 2;
+    }
+    enum ClearReason {
+        CLEAR_REASON_UNKNOWN = 0;
+        USER_CLEARED = 1;
+        SENT = 2;
+        CHAT_LOCKED = 3;
+        REPLACED_BY_NON_TEXT = 4;
+    }
+}
+
 message GroupMention {
     optional string groupJid = 1;
     optional string groupSubject = 2;
@@ -2130,6 +2151,7 @@ message Message {
         optional MembershipFormKeyFingerprintVerification membershipFormKeyFingerprintVerification = 40;
         optional GroupRootKeyShare groupRootKeyShare = 41;
         optional MessageEditDisplayType messageEditDisplayType = 42;
+        optional DraftMessageSync draftMessageSync = 43;
         enum MessageEditDisplayType {
             DEFAULT = 0;
             LINK_PREVIEW_ONLY = 1;
@@ -2173,6 +2195,7 @@ message Message {
             GROUP_ROOT_KEY_REQUEST = 42;
             MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION = 43;
             GROUP_ROOT_KEY_SHARE = 44;
+            DRAFT_MESSAGE_SYNC = 45;
         }
     }
     message QuestionResponseMessage {

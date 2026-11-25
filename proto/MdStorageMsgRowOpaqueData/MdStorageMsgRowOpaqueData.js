@@ -11207,6 +11207,553 @@ $root.E2E = (function() {
         return MessageSecretMessage;
     })();
 
+    E2E.DraftMessageSync = (function() {
+
+        /**
+         * Properties of a DraftMessageSync.
+         * @typedef {Object} E2E.DraftMessageSync.$Properties
+         * @property {string|null} [chatJid] DraftMessageSync chatJid
+         * @property {string|null} [altChatJid] DraftMessageSync altChatJid
+         * @property {E2E.DraftMessageSync.Action|null} [action] DraftMessageSync action
+         * @property {number|Long|null} [editTimestampMs] DraftMessageSync editTimestampMs
+         * @property {E2E.Message.$Properties|null} [draft] DraftMessageSync draft
+         * @property {E2E.DraftMessageSync.ClearReason|null} [clearReason] DraftMessageSync clearReason
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+
+        /**
+         * Properties of a DraftMessageSync.
+         * @memberof E2E
+         * @interface IDraftMessageSync
+         * @augments E2E.DraftMessageSync.$Properties
+         * @deprecated Use E2E.DraftMessageSync.$Properties instead.
+         */
+
+        /**
+         * Shape of a DraftMessageSync.
+         * @typedef {{
+         *   chatJid?: string|null;
+         *   altChatJid?: string|null;
+         *   action?: E2E.DraftMessageSync.Action|null;
+         *   editTimestampMs?: number|Long|null;
+         *   draft?: E2E.Message.$Shape|null;
+         *   clearReason?: E2E.DraftMessageSync.ClearReason|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} E2E.DraftMessageSync.$Shape
+         */
+
+        /**
+         * Constructs a new DraftMessageSync.
+         * @memberof E2E
+         * @classdesc Represents a DraftMessageSync.
+         * @constructor
+         * @param {E2E.DraftMessageSync.$Properties=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
+         */
+        var DraftMessageSync = function (properties) {
+            if (properties)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        };
+
+        /**
+         * DraftMessageSync chatJid.
+         * @member {string|null|undefined} chatJid
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         */
+        DraftMessageSync.prototype.chatJid = null;
+
+        /**
+         * DraftMessageSync altChatJid.
+         * @member {string|null|undefined} altChatJid
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         */
+        DraftMessageSync.prototype.altChatJid = null;
+
+        /**
+         * DraftMessageSync action.
+         * @member {E2E.DraftMessageSync.Action|null|undefined} action
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         */
+        DraftMessageSync.prototype.action = null;
+
+        /**
+         * DraftMessageSync editTimestampMs.
+         * @member {number|Long|null|undefined} editTimestampMs
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         */
+        DraftMessageSync.prototype.editTimestampMs = null;
+
+        /**
+         * DraftMessageSync draft.
+         * @member {E2E.Message.$Properties|null|undefined} draft
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         */
+        DraftMessageSync.prototype.draft = null;
+
+        /**
+         * DraftMessageSync clearReason.
+         * @member {E2E.DraftMessageSync.ClearReason|null|undefined} clearReason
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         */
+        DraftMessageSync.prototype.clearReason = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DraftMessageSync.prototype, "_chatJid", {
+            get: $util.oneOfGetter($oneOfFields = ["chatJid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DraftMessageSync.prototype, "_altChatJid", {
+            get: $util.oneOfGetter($oneOfFields = ["altChatJid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DraftMessageSync.prototype, "_action", {
+            get: $util.oneOfGetter($oneOfFields = ["action"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DraftMessageSync.prototype, "_editTimestampMs", {
+            get: $util.oneOfGetter($oneOfFields = ["editTimestampMs"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DraftMessageSync.prototype, "_draft", {
+            get: $util.oneOfGetter($oneOfFields = ["draft"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        $Object.defineProperty(DraftMessageSync.prototype, "_clearReason", {
+            get: $util.oneOfGetter($oneOfFields = ["clearReason"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new DraftMessageSync instance using the specified properties.
+         * @function create
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {E2E.DraftMessageSync.$Properties=} [properties] Properties to set
+         * @returns {E2E.DraftMessageSync} DraftMessageSync instance
+         * @type {{
+         *   (properties: E2E.DraftMessageSync.$Shape): E2E.DraftMessageSync & E2E.DraftMessageSync.$Shape;
+         *   (properties?: E2E.DraftMessageSync.$Properties): E2E.DraftMessageSync;
+         * }}
+         */
+        DraftMessageSync.create = function(properties) {
+            return new DraftMessageSync(properties);
+        };
+
+        /**
+         * Encodes the specified DraftMessageSync message. Does not implicitly {@link E2E.DraftMessageSync.verify|verify} messages.
+         * @function encode
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {E2E.DraftMessageSync.$Properties} message DraftMessageSync message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DraftMessageSync.encode = function (message, writer, _depth) {
+            if (!writer)
+                writer = $Writer.create();
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            if (message.chatJid != null && $Object.hasOwnProperty.call(message, "chatJid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.chatJid);
+            if (message.altChatJid != null && $Object.hasOwnProperty.call(message, "altChatJid"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.altChatJid);
+            if (message.action != null && $Object.hasOwnProperty.call(message, "action"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.action);
+            if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int64(message.editTimestampMs);
+            if (message.draft != null && $Object.hasOwnProperty.call(message, "draft"))
+                $root.E2E.Message.encode(message.draft, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
+            if (message.clearReason != null && $Object.hasOwnProperty.call(message, "clearReason"))
+                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.clearReason);
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DraftMessageSync message, length delimited. Does not implicitly {@link E2E.DraftMessageSync.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {E2E.DraftMessageSync.$Properties} message DraftMessageSync message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DraftMessageSync.encodeDelimited = function(message, writer) {
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
+        };
+
+        /**
+         * Decodes a DraftMessageSync message from the specified reader or buffer.
+         * @function decode
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {E2E.DraftMessageSync & E2E.DraftMessageSync.$Shape} DraftMessageSync
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DraftMessageSync.decode = function (reader, length, _end, _depth, _target) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw $Error("max depth exceeded");
+            var end, message, value;
+            if (length === $undefined)
+                end = reader.len;
+            else {
+                end = reader.pos + length;
+                if (end > reader.len)
+                    throw $RangeError("index out of range");
+                length = reader.len;
+                reader.len = end;
+            }
+            message = _target || new $root.E2E.DraftMessageSync();
+            while (reader.pos < end) {
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = $undefined;
+                    break;
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.chatJid = reader.stringVerify();
+                        message._chatJid = "chatJid";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.altChatJid = reader.stringVerify();
+                        message._altChatJid = "altChatJid";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.action = reader.int32();
+                        message._action = "action";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.editTimestampMs = reader.int64();
+                        message._editTimestampMs = "editTimestampMs";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.draft = $root.E2E.Message.decode(reader, reader.size(), $undefined, _depth + 1, message.draft);
+                        message._draft = "draft";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 0)
+                            break;
+                        message.clearReason = reader.int32();
+                        message._clearReason = "clearReason";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+            }
+            if (length !== $undefined) {
+                if (reader.pos !== end)
+                    throw $RangeError("index out of range");
+                reader.len = length;
+            }
+            if (_end !== $undefined)
+                throw $Error("missing end group");
+            return message;
+        };
+
+        /**
+         * Decodes a DraftMessageSync message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {E2E.DraftMessageSync & E2E.DraftMessageSync.$Shape} DraftMessageSync
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DraftMessageSync.decodeDelimited = function(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.size());
+        };
+
+        /**
+         * Verifies a DraftMessageSync message.
+         * @function verify
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DraftMessageSync.verify = function (message, _depth) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
+            var properties = {};
+            if (message.chatJid != null && $Object.hasOwnProperty.call(message, "chatJid")) {
+                properties._chatJid = 1;
+                if (!$util.isString(message.chatJid))
+                    return "chatJid: string expected";
+            }
+            if (message.altChatJid != null && $Object.hasOwnProperty.call(message, "altChatJid")) {
+                properties._altChatJid = 1;
+                if (!$util.isString(message.altChatJid))
+                    return "altChatJid: string expected";
+            }
+            if (message.action != null && $Object.hasOwnProperty.call(message, "action")) {
+                properties._action = 1;
+                if (typeof message.action !== "number" || (message.action | 0) !== message.action)
+                    return "action: enum value expected";
+            }
+            if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs")) {
+                properties._editTimestampMs = 1;
+                if (!$util.isInteger(message.editTimestampMs) && !(message.editTimestampMs && $util.isInteger(message.editTimestampMs.low) && $util.isInteger(message.editTimestampMs.high)))
+                    return "editTimestampMs: integer|Long expected";
+            }
+            if (message.draft != null && $Object.hasOwnProperty.call(message, "draft")) {
+                properties._draft = 1;
+                {
+                    var error = $root.E2E.Message.verify(message.draft, _depth + 1);
+                    if (error)
+                        return "draft." + error;
+                }
+            }
+            if (message.clearReason != null && $Object.hasOwnProperty.call(message, "clearReason")) {
+                properties._clearReason = 1;
+                if (typeof message.clearReason !== "number" || (message.clearReason | 0) !== message.clearReason)
+                    return "clearReason: enum value expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a DraftMessageSync message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {E2E.DraftMessageSync} DraftMessageSync
+         */
+        DraftMessageSync.fromObject = function (object, _depth) {
+            if (object instanceof $root.E2E.DraftMessageSync)
+                return object;
+            if (!$util.isObject(object))
+                throw $TypeError(".E2E.DraftMessageSync: object expected");
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var message = new $root.E2E.DraftMessageSync();
+            if (object.chatJid != null)
+                message.chatJid = $String(object.chatJid);
+            if (object.altChatJid != null)
+                message.altChatJid = $String(object.altChatJid);
+            switch (object.action) {
+            case "ACTION_UNKNOWN":
+            case 0:
+                message.action = 0;
+                break;
+            case "SET":
+            case 1:
+                message.action = 1;
+                break;
+            case "CLEAR":
+            case 2:
+                message.action = 2;
+                break;
+            default:
+                if (typeof object.action === "number" && (object.action | 0) === object.action)
+                    message.action = object.action;
+            }
+            if (object.editTimestampMs != null)
+                if ($util.Long)
+                    message.editTimestampMs = $util.Long.fromValue(object.editTimestampMs, false);
+                else if (typeof object.editTimestampMs === "string")
+                    message.editTimestampMs = $parseInt(object.editTimestampMs, 10);
+                else if (typeof object.editTimestampMs === "number")
+                    message.editTimestampMs = object.editTimestampMs;
+                else if (typeof object.editTimestampMs === "object")
+                    message.editTimestampMs = new $util.LongBits(object.editTimestampMs.low >>> 0, object.editTimestampMs.high >>> 0).toNumber();
+            if (object.draft != null) {
+                if (!$util.isObject(object.draft))
+                    throw $TypeError(".E2E.DraftMessageSync.draft: object expected");
+                message.draft = $root.E2E.Message.fromObject(object.draft, _depth + 1);
+            }
+            switch (object.clearReason) {
+            case "CLEAR_REASON_UNKNOWN":
+            case 0:
+                message.clearReason = 0;
+                break;
+            case "USER_CLEARED":
+            case 1:
+                message.clearReason = 1;
+                break;
+            case "SENT":
+            case 2:
+                message.clearReason = 2;
+                break;
+            case "CHAT_LOCKED":
+            case 3:
+                message.clearReason = 3;
+                break;
+            case "REPLACED_BY_NON_TEXT":
+            case 4:
+                message.clearReason = 4;
+                break;
+            default:
+                if (typeof object.clearReason === "number" && (object.clearReason | 0) === object.clearReason)
+                    message.clearReason = object.clearReason;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DraftMessageSync message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {E2E.DraftMessageSync} message DraftMessageSync
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DraftMessageSync.toObject = function (message, options, _depth) {
+            if (!options)
+                options = {};
+            if (_depth === $undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw $Error("max depth exceeded");
+            var object = {};
+            if (message.chatJid != null && $Object.hasOwnProperty.call(message, "chatJid"))
+                object.chatJid = message.chatJid;
+            if (message.altChatJid != null && $Object.hasOwnProperty.call(message, "altChatJid"))
+                object.altChatJid = message.altChatJid;
+            if (message.action != null && $Object.hasOwnProperty.call(message, "action"))
+                object.action = options.enums === $String ? $root.E2E.DraftMessageSync.Action[message.action] === $undefined ? message.action : $root.E2E.DraftMessageSync.Action[message.action] : message.action;
+            if (message.editTimestampMs != null && $Object.hasOwnProperty.call(message, "editTimestampMs"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.editTimestampMs = typeof message.editTimestampMs === "number" ? $BigInt(message.editTimestampMs) : $util.Long.fromBits(message.editTimestampMs.low >>> 0, message.editTimestampMs.high >>> 0, false).toBigInt();
+                else if (typeof message.editTimestampMs === "number")
+                    object.editTimestampMs = options.longs === $String ? $String(message.editTimestampMs) : message.editTimestampMs;
+                else
+                    object.editTimestampMs = options.longs === $String ? $util.Long.prototype.toString.call(message.editTimestampMs) : options.longs === $Number ? new $util.LongBits(message.editTimestampMs.low >>> 0, message.editTimestampMs.high >>> 0).toNumber() : message.editTimestampMs;
+            if (message.draft != null && $Object.hasOwnProperty.call(message, "draft"))
+                object.draft = $root.E2E.Message.toObject(message.draft, options, _depth + 1);
+            if (message.clearReason != null && $Object.hasOwnProperty.call(message, "clearReason"))
+                object.clearReason = options.enums === $String ? $root.E2E.DraftMessageSync.ClearReason[message.clearReason] === $undefined ? message.clearReason : $root.E2E.DraftMessageSync.ClearReason[message.clearReason] : message.clearReason;
+            return object;
+        };
+
+        /**
+         * Converts this DraftMessageSync to JSON.
+         * @function toJSON
+         * @memberof E2E.DraftMessageSync
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DraftMessageSync.prototype.toJSON = function() {
+            return DraftMessageSync.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the type url for DraftMessageSync
+         * @function getTypeUrl
+         * @memberof E2E.DraftMessageSync
+         * @static
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
+         */
+        DraftMessageSync.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/E2E.DraftMessageSync";
+        };
+
+        /**
+         * Action enum.
+         * @name E2E.DraftMessageSync.Action
+         * @enum {number}
+         * @property {number} ACTION_UNKNOWN=0 ACTION_UNKNOWN value
+         * @property {number} SET=1 SET value
+         * @property {number} CLEAR=2 CLEAR value
+         */
+        DraftMessageSync.Action = (function() {
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
+            values[valuesById[0] = "ACTION_UNKNOWN"] = 0;
+            values[valuesById[1] = "SET"] = 1;
+            values[valuesById[2] = "CLEAR"] = 2;
+            return values;
+        })();
+
+        /**
+         * ClearReason enum.
+         * @name E2E.DraftMessageSync.ClearReason
+         * @enum {number}
+         * @property {number} CLEAR_REASON_UNKNOWN=0 CLEAR_REASON_UNKNOWN value
+         * @property {number} USER_CLEARED=1 USER_CLEARED value
+         * @property {number} SENT=2 SENT value
+         * @property {number} CHAT_LOCKED=3 CHAT_LOCKED value
+         * @property {number} REPLACED_BY_NON_TEXT=4 REPLACED_BY_NON_TEXT value
+         */
+        DraftMessageSync.ClearReason = (function() {
+            var valuesById = $Object.create(null), values = $Object.create(valuesById);
+            values[valuesById[0] = "CLEAR_REASON_UNKNOWN"] = 0;
+            values[valuesById[1] = "USER_CLEARED"] = 1;
+            values[valuesById[2] = "SENT"] = 2;
+            values[valuesById[3] = "CHAT_LOCKED"] = 3;
+            values[valuesById[4] = "REPLACED_BY_NON_TEXT"] = 4;
+            return values;
+        })();
+
+        return DraftMessageSync;
+    })();
+
     E2E.GroupMention = (function() {
 
         /**
@@ -103692,6 +104239,7 @@ $root.E2E = (function() {
              * @property {E2E.MembershipFormKeyFingerprintVerification.$Properties|null} [membershipFormKeyFingerprintVerification] ProtocolMessage membershipFormKeyFingerprintVerification
              * @property {E2E.GroupRootKeyShare.$Properties|null} [groupRootKeyShare] ProtocolMessage groupRootKeyShare
              * @property {E2E.Message.ProtocolMessage.MessageEditDisplayType|null} [messageEditDisplayType] ProtocolMessage messageEditDisplayType
+             * @property {E2E.DraftMessageSync.$Properties|null} [draftMessageSync] ProtocolMessage draftMessageSync
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -103744,6 +104292,7 @@ $root.E2E = (function() {
              *   membershipFormKeyFingerprintVerification?: E2E.MembershipFormKeyFingerprintVerification.$Shape|null;
              *   groupRootKeyShare?: E2E.GroupRootKeyShare.$Shape|null;
              *   messageEditDisplayType?: E2E.Message.ProtocolMessage.MessageEditDisplayType|null;
+             *   draftMessageSync?: E2E.DraftMessageSync.$Shape|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.ProtocolMessage.$Shape
              */
@@ -104068,6 +104617,14 @@ $root.E2E = (function() {
              */
             ProtocolMessage.prototype.messageEditDisplayType = null;
 
+            /**
+             * ProtocolMessage draftMessageSync.
+             * @member {E2E.DraftMessageSync.$Properties|null|undefined} draftMessageSync
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.draftMessageSync = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -104293,6 +104850,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(ProtocolMessage.prototype, "_draftMessageSync", {
+                get: $util.oneOfGetter($oneOfFields = ["draftMessageSync"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
              * @function create
@@ -104402,6 +104965,8 @@ $root.E2E = (function() {
                     $root.E2E.GroupRootKeyShare.encode(message.groupRootKeyShare, writer.uint32(/* id 41, wireType 2 =*/330).fork(), _depth + 1).ldelim();
                 if (message.messageEditDisplayType != null && $Object.hasOwnProperty.call(message, "messageEditDisplayType"))
                     writer.uint32(/* id 42, wireType 0 =*/336).int32(message.messageEditDisplayType);
+                if (message.draftMessageSync != null && $Object.hasOwnProperty.call(message, "draftMessageSync"))
+                    $root.E2E.DraftMessageSync.encode(message.draftMessageSync, writer.uint32(/* id 43, wireType 2 =*/346).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -104724,6 +105289,13 @@ $root.E2E = (function() {
                                 break;
                             message.messageEditDisplayType = reader.int32();
                             message._messageEditDisplayType = "messageEditDisplayType";
+                            continue;
+                        }
+                    case 43: {
+                            if (wireType !== 2)
+                                break;
+                            message.draftMessageSync = $root.E2E.DraftMessageSync.decode(reader, reader.size(), $undefined, _depth + 1, message.draftMessageSync);
+                            message._draftMessageSync = "draftMessageSync";
                             continue;
                         }
                     }
@@ -105054,6 +105626,14 @@ $root.E2E = (function() {
                     if (typeof message.messageEditDisplayType !== "number" || (message.messageEditDisplayType | 0) !== message.messageEditDisplayType)
                         return "messageEditDisplayType: enum value expected";
                 }
+                if (message.draftMessageSync != null && $Object.hasOwnProperty.call(message, "draftMessageSync")) {
+                    properties._draftMessageSync = 1;
+                    {
+                        var error = $root.E2E.DraftMessageSync.verify(message.draftMessageSync, _depth + 1);
+                        if (error)
+                            return "draftMessageSync." + error;
+                    }
+                }
                 return null;
             };
 
@@ -105232,6 +105812,10 @@ $root.E2E = (function() {
                 case "GROUP_ROOT_KEY_SHARE":
                 case 44:
                     message.type = 44;
+                    break;
+                case "DRAFT_MESSAGE_SYNC":
+                case 45:
+                    message.type = 45;
                     break;
                 default:
                     if (typeof object.type === "number" && (object.type | 0) === object.type)
@@ -105426,6 +106010,11 @@ $root.E2E = (function() {
                     if (typeof object.messageEditDisplayType === "number" && (object.messageEditDisplayType | 0) === object.messageEditDisplayType)
                         message.messageEditDisplayType = object.messageEditDisplayType;
                 }
+                if (object.draftMessageSync != null) {
+                    if (!$util.isObject(object.draftMessageSync))
+                        throw $TypeError(".E2E.Message.ProtocolMessage.draftMessageSync: object expected");
+                    message.draftMessageSync = $root.E2E.DraftMessageSync.fromObject(object.draftMessageSync, _depth + 1);
+                }
                 return message;
             };
 
@@ -105537,6 +106126,8 @@ $root.E2E = (function() {
                     object.groupRootKeyShare = $root.E2E.GroupRootKeyShare.toObject(message.groupRootKeyShare, options, _depth + 1);
                 if (message.messageEditDisplayType != null && $Object.hasOwnProperty.call(message, "messageEditDisplayType"))
                     object.messageEditDisplayType = options.enums === $String ? $root.E2E.Message.ProtocolMessage.MessageEditDisplayType[message.messageEditDisplayType] === $undefined ? message.messageEditDisplayType : $root.E2E.Message.ProtocolMessage.MessageEditDisplayType[message.messageEditDisplayType] : message.messageEditDisplayType;
+                if (message.draftMessageSync != null && $Object.hasOwnProperty.call(message, "draftMessageSync"))
+                    object.draftMessageSync = $root.E2E.DraftMessageSync.toObject(message.draftMessageSync, options, _depth + 1);
                 return object;
             };
 
@@ -105621,6 +106212,7 @@ $root.E2E = (function() {
              * @property {number} GROUP_ROOT_KEY_REQUEST=42 GROUP_ROOT_KEY_REQUEST value
              * @property {number} MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION=43 MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION value
              * @property {number} GROUP_ROOT_KEY_SHARE=44 GROUP_ROOT_KEY_SHARE value
+             * @property {number} DRAFT_MESSAGE_SYNC=45 DRAFT_MESSAGE_SYNC value
              */
             ProtocolMessage.Type = (function() {
                 var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -105662,6 +106254,7 @@ $root.E2E = (function() {
                 values[valuesById[42] = "GROUP_ROOT_KEY_REQUEST"] = 42;
                 values[valuesById[43] = "MEMBERSHIP_FORM_KEY_FINGERPRINT_VERIFICATION"] = 43;
                 values[valuesById[44] = "GROUP_ROOT_KEY_SHARE"] = 44;
+                values[valuesById[45] = "DRAFT_MESSAGE_SYNC"] = 45;
                 return values;
             })();
 
@@ -157718,9 +158311,25 @@ $root.AICommon = (function() {
                     case 91:
                         message.capabilities[message.capabilities.length] = 91;
                         break;
+                    case "HATCH_DEVICE_NODE_HOST":
+                    case 92:
+                        message.capabilities[message.capabilities.length] = 92;
+                        break;
                     case "AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED":
                     case 93:
                         message.capabilities[message.capabilities.length] = 93;
+                        break;
+                    case "AI_RICH_RESPONSE_A2UI_CARDS_ENABLED":
+                    case 94:
+                        message.capabilities[message.capabilities.length] = 94;
+                        break;
+                    case "AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED":
+                    case 95:
+                        message.capabilities[message.capabilities.length] = 95;
+                        break;
+                    case "AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED":
+                    case 96:
+                        message.capabilities[message.capabilities.length] = 96;
                         break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
@@ -157878,7 +158487,11 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          * @property {number} AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED=90 AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED value
          * @property {number} AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED=91 AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED value
+         * @property {number} HATCH_DEVICE_NODE_HOST=92 HATCH_DEVICE_NODE_HOST value
          * @property {number} AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED=93 AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_A2UI_CARDS_ENABLED=94 AI_RICH_RESPONSE_A2UI_CARDS_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED=95 AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED=96 AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -157974,7 +158587,11 @@ $root.AICommon = (function() {
             values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             values[valuesById[90] = "AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED"] = 90;
             values[valuesById[91] = "AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED"] = 91;
+            values[valuesById[92] = "HATCH_DEVICE_NODE_HOST"] = 92;
             values[valuesById[93] = "AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED"] = 93;
+            values[valuesById[94] = "AI_RICH_RESPONSE_A2UI_CARDS_ENABLED"] = 94;
+            values[valuesById[95] = "AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED"] = 95;
+            values[valuesById[96] = "AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED"] = 96;
             return values;
         })();
 
@@ -179062,6 +179679,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportNewsletter] HistorySyncConfig supportNewsletter
              * @property {boolean|null} [supportUniversalReachChat] HistorySyncConfig supportUniversalReachChat
              * @property {boolean|null} [supportOmittedConversationMetadata] HistorySyncConfig supportOmittedConversationMetadata
+             * @property {boolean|null} [supportDraftSync] HistorySyncConfig supportDraftSync
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -179310,6 +179928,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.supportOmittedConversationMetadata = null;
 
+            /**
+             * HistorySyncConfig supportDraftSync.
+             * @member {boolean|null|undefined} supportDraftSync
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportDraftSync = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -179469,6 +180095,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            $Object.defineProperty(HistorySyncConfig.prototype, "_supportDraftSync", {
+                get: $util.oneOfGetter($oneOfFields = ["supportDraftSync"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -179556,6 +180188,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 26, wireType 0 =*/208).bool(message.supportUniversalReachChat);
                 if (message.supportOmittedConversationMetadata != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationMetadata"))
                     writer.uint32(/* id 28, wireType 0 =*/224).bool(message.supportOmittedConversationMetadata);
+                if (message.supportDraftSync != null && $Object.hasOwnProperty.call(message, "supportDraftSync"))
+                    writer.uint32(/* id 29, wireType 0 =*/232).bool(message.supportDraftSync);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -179803,6 +180437,13 @@ $root.CompanionReg = (function() {
                             message._supportOmittedConversationMetadata = "supportOmittedConversationMetadata";
                             continue;
                         }
+                    case 29: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportDraftSync = reader.bool();
+                            message._supportDraftSync = "supportDraftSync";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
@@ -179989,6 +180630,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportOmittedConversationMetadata !== "boolean")
                         return "supportOmittedConversationMetadata: boolean expected";
                 }
+                if (message.supportDraftSync != null && $Object.hasOwnProperty.call(message, "supportDraftSync")) {
+                    properties._supportDraftSync = 1;
+                    if (typeof message.supportDraftSync !== "boolean")
+                        return "supportDraftSync: boolean expected";
+                }
                 return null;
             };
 
@@ -180069,6 +180715,8 @@ $root.CompanionReg = (function() {
                     message.supportUniversalReachChat = $Boolean(object.supportUniversalReachChat);
                 if (object.supportOmittedConversationMetadata != null)
                     message.supportOmittedConversationMetadata = $Boolean(object.supportOmittedConversationMetadata);
+                if (object.supportDraftSync != null)
+                    message.supportDraftSync = $Boolean(object.supportDraftSync);
                 return message;
             };
 
@@ -180148,6 +180796,8 @@ $root.CompanionReg = (function() {
                     object.supportUniversalReachChat = message.supportUniversalReachChat;
                 if (message.supportOmittedConversationMetadata != null && $Object.hasOwnProperty.call(message, "supportOmittedConversationMetadata"))
                     object.supportOmittedConversationMetadata = message.supportOmittedConversationMetadata;
+                if (message.supportDraftSync != null && $Object.hasOwnProperty.call(message, "supportDraftSync"))
+                    object.supportDraftSync = message.supportDraftSync;
                 return object;
             };
 

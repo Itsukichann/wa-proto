@@ -29501,9 +29501,25 @@ $root.AICommon = (function() {
                     case 91:
                         message.capabilities[message.capabilities.length] = 91;
                         break;
+                    case "HATCH_DEVICE_NODE_HOST":
+                    case 92:
+                        message.capabilities[message.capabilities.length] = 92;
+                        break;
                     case "AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED":
                     case 93:
                         message.capabilities[message.capabilities.length] = 93;
+                        break;
+                    case "AI_RICH_RESPONSE_A2UI_CARDS_ENABLED":
+                    case 94:
+                        message.capabilities[message.capabilities.length] = 94;
+                        break;
+                    case "AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED":
+                    case 95:
+                        message.capabilities[message.capabilities.length] = 95;
+                        break;
+                    case "AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED":
+                    case 96:
+                        message.capabilities[message.capabilities.length] = 96;
                         break;
                     default:
                         if (typeof object.capabilities[i] === "number" && (object.capabilities[i] | 0) === object.capabilities[i])
@@ -29661,7 +29677,11 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH=89 RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH value
          * @property {number} AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED=90 AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED value
          * @property {number} AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED=91 AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED value
+         * @property {number} HATCH_DEVICE_NODE_HOST=92 HATCH_DEVICE_NODE_HOST value
          * @property {number} AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED=93 AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_A2UI_CARDS_ENABLED=94 AI_RICH_RESPONSE_A2UI_CARDS_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED=95 AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED=96 AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = $Object.create(null), values = $Object.create(valuesById);
@@ -29757,7 +29777,11 @@ $root.AICommon = (function() {
             values[valuesById[89] = "RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH"] = 89;
             values[valuesById[90] = "AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED"] = 90;
             values[valuesById[91] = "AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED"] = 91;
+            values[valuesById[92] = "HATCH_DEVICE_NODE_HOST"] = 92;
             values[valuesById[93] = "AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED"] = 93;
+            values[valuesById[94] = "AI_RICH_RESPONSE_A2UI_CARDS_ENABLED"] = 94;
+            values[valuesById[95] = "AI_RICH_RESPONSE_READ_ALOUD_LENGTH_APPROXIMATION_ENABLED"] = 95;
+            values[valuesById[96] = "AI_RICH_RESPONSE_READ_ALOUD_ACTION_TRAY_ENABLED"] = 96;
             return values;
         })();
 
