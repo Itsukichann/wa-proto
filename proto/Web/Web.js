@@ -136641,8 +136641,8 @@ $root.E2E = (function() {
              * Properties of a VpcRequestMessage.
              * @typedef {Object} E2E.Message.VpcRequestMessage.$Properties
              * @property {number|null} [payloadSchemaVersion] VpcRequestMessage payloadSchemaVersion
-             * @property {string|null} [requestId] VpcRequestMessage requestId
              * @property {E2E.Message.VpcRequestMessage.ScopeHint|null} [scopeHint] VpcRequestMessage scopeHint
+             * @property {Uint8Array|null} [token] VpcRequestMessage token
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -136683,20 +136683,20 @@ $root.E2E = (function() {
             VpcRequestMessage.prototype.payloadSchemaVersion = null;
 
             /**
-             * VpcRequestMessage requestId.
-             * @member {string|null|undefined} requestId
-             * @memberof E2E.Message.VpcRequestMessage
-             * @instance
-             */
-            VpcRequestMessage.prototype.requestId = null;
-
-            /**
              * VpcRequestMessage scopeHint.
              * @member {E2E.Message.VpcRequestMessage.ScopeHint|null|undefined} scopeHint
              * @memberof E2E.Message.VpcRequestMessage
              * @instance
              */
             VpcRequestMessage.prototype.scopeHint = null;
+
+            /**
+             * VpcRequestMessage token.
+             * @member {Uint8Array|null|undefined} token
+             * @memberof E2E.Message.VpcRequestMessage
+             * @instance
+             */
+            VpcRequestMessage.prototype.token = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -136708,14 +136708,14 @@ $root.E2E = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(VpcRequestMessage.prototype, "_requestId", {
-                get: $util.oneOfGetter($oneOfFields = ["requestId"]),
+            $Object.defineProperty(VpcRequestMessage.prototype, "_scopeHint", {
+                get: $util.oneOfGetter($oneOfFields = ["scopeHint"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            $Object.defineProperty(VpcRequestMessage.prototype, "_scopeHint", {
-                get: $util.oneOfGetter($oneOfFields = ["scopeHint"]),
+            $Object.defineProperty(VpcRequestMessage.prototype, "_token", {
+                get: $util.oneOfGetter($oneOfFields = ["token"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -136753,10 +136753,10 @@ $root.E2E = (function() {
                     throw $Error("max depth exceeded");
                 if (message.payloadSchemaVersion != null && $Object.hasOwnProperty.call(message, "payloadSchemaVersion"))
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.payloadSchemaVersion);
-                if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.requestId);
                 if (message.scopeHint != null && $Object.hasOwnProperty.call(message, "scopeHint"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.scopeHint);
+                if (message.token != null && $Object.hasOwnProperty.call(message, "token"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.token);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -136821,18 +136821,18 @@ $root.E2E = (function() {
                             message._payloadSchemaVersion = "payloadSchemaVersion";
                             continue;
                         }
-                    case 2: {
-                            if (wireType !== 2)
-                                break;
-                            message.requestId = reader.stringVerify();
-                            message._requestId = "requestId";
-                            continue;
-                        }
                     case 3: {
                             if (wireType !== 0)
                                 break;
                             message.scopeHint = reader.int32();
                             message._scopeHint = "scopeHint";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.token = reader.bytes();
+                            message._token = "token";
                             continue;
                         }
                     }
@@ -136889,15 +136889,15 @@ $root.E2E = (function() {
                     if (!$util.isInteger(message.payloadSchemaVersion))
                         return "payloadSchemaVersion: integer expected";
                 }
-                if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId")) {
-                    properties._requestId = 1;
-                    if (!$util.isString(message.requestId))
-                        return "requestId: string expected";
-                }
                 if (message.scopeHint != null && $Object.hasOwnProperty.call(message, "scopeHint")) {
                     properties._scopeHint = 1;
                     if (typeof message.scopeHint !== "number" || (message.scopeHint | 0) !== message.scopeHint)
                         return "scopeHint: enum value expected";
+                }
+                if (message.token != null && $Object.hasOwnProperty.call(message, "token")) {
+                    properties._token = 1;
+                    if (!(message.token && typeof message.token.length === "number" || $util.isString(message.token)))
+                        return "token: buffer expected";
                 }
                 return null;
             };
@@ -136922,8 +136922,6 @@ $root.E2E = (function() {
                 var message = new $root.E2E.Message.VpcRequestMessage();
                 if (object.payloadSchemaVersion != null)
                     message.payloadSchemaVersion = object.payloadSchemaVersion >>> 0;
-                if (object.requestId != null)
-                    message.requestId = $String(object.requestId);
                 switch (object.scopeHint) {
                 case "UNKNOWN":
                 case 0:
@@ -136953,6 +136951,11 @@ $root.E2E = (function() {
                     if (typeof object.scopeHint === "number" && (object.scopeHint | 0) === object.scopeHint)
                         message.scopeHint = object.scopeHint;
                 }
+                if (object.token != null)
+                    if (typeof object.token === "string")
+                        $util.base64.decode(object.token, message.token = $util.newBuffer($util.base64.length(object.token)), 0);
+                    else if (object.token.length >= 0)
+                        message.token = object.token;
                 return message;
             };
 
@@ -136975,10 +136978,10 @@ $root.E2E = (function() {
                 var object = {};
                 if (message.payloadSchemaVersion != null && $Object.hasOwnProperty.call(message, "payloadSchemaVersion"))
                     object.payloadSchemaVersion = message.payloadSchemaVersion;
-                if (message.requestId != null && $Object.hasOwnProperty.call(message, "requestId"))
-                    object.requestId = message.requestId;
                 if (message.scopeHint != null && $Object.hasOwnProperty.call(message, "scopeHint"))
                     object.scopeHint = options.enums === $String ? $root.E2E.Message.VpcRequestMessage.ScopeHint[message.scopeHint] === $undefined ? message.scopeHint : $root.E2E.Message.VpcRequestMessage.ScopeHint[message.scopeHint] : message.scopeHint;
+                if (message.token != null && $Object.hasOwnProperty.call(message, "token"))
+                    object.token = options.bytes === $String ? $util.base64.encode(message.token, 0, message.token.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.token) : message.token;
                 return object;
             };
 

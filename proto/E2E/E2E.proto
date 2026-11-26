@@ -2540,8 +2540,8 @@ message Message {
     }
     message VpcRequestMessage {
         optional uint32 payloadSchemaVersion = 1;
-        optional string requestId = 2;
         optional ScopeHint scopeHint = 3;
+        optional bytes token = 4;
         enum ScopeHint {
             UNKNOWN = 0;
             WA_ONLY = 1;
